@@ -144,6 +144,30 @@ if (isset($focus_element))
 }
 // END SUBST - <body>
 
+$tpl_main = $tpl_main.'
+<div style="position: absolute; top: 18px; right: 25px;">
+<script type="text/javascript"><!--
+google_ad_client = "pub-9657495873329253";
+google_alternate_color = "FFFFFF"
+google_ad_width = 234;
+google_ad_height = 60;
+google_ad_format = "234x60_as";
+google_ad_type = "text";
+//2007-10-29: Technology
+google_ad_channel = "6222844825";
+google_ad_channel = "6222844825";
+google_color_border = "0066CC";
+google_color_bg = "FFFFFF";
+google_color_link = "0066CC";
+google_color_text = "000000";
+google_color_url = "1B703A";
+google_ui_features = "rc:0";
+//-->
+</script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+      </script>
+          </div>';
 
 // START SUBST - <pun_page>
 $tpl_main = str_replace('<pun_page>', htmlspecialchars(basename($_SERVER['PHP_SELF'], '.php')), $tpl_main);
