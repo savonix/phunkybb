@@ -22,6 +22,7 @@
 
 ************************************************************************/
 
+// TODO phunkybb - replace this with PEAR_SMTP
 
 // Make sure no one attempts to run this script "directly"
 if (!defined('PUN'))

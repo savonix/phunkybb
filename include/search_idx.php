@@ -22,6 +22,7 @@
 
 ************************************************************************/
 
+// IDEA - Replace this with a php5-xapian hook?
 
 // The contents of this file are very much inspired by the file functions_search.php
 // from the phpBB Group forum software phpBB2 (http://www.phpbb.com). 

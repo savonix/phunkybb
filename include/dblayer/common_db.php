@@ -22,6 +22,7 @@
 
 ************************************************************************/
 
+// TODO - Replace this with MDB2
 
 // Make sure no one attempts to run this script "directly"
 if (!defined('PUN'))
