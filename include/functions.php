@@ -685,12 +685,13 @@ function confirm_referrer($script)
 //
 function random_pass($len)
 {
-	$chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-
-	$password = '';
-	for ($i = 0; $i < $len; ++$i)
-		$password .= substr($chars, (mt_rand() % strlen($chars)), 1);
-
+    if($password = exec("xxd -l 6 -p /dev/urandom")) { 
+    } else { 
+        $chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+        $password = '';
+        for ($i = 0; $i < $len; ++$i)
+            $password .= substr($chars, (mt_rand() % strlen($chars)), 1);
+    }
 	return $password;
 }
 
