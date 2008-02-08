@@ -22,11 +22,6 @@
 
 ************************************************************************/
 
-// Make sure no one attempts to run this script "directly"
-if (!defined('PUN'))
-	exit;
-
-
 //
 // Display the admin navigation menu
 //
