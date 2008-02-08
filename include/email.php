@@ -24,10 +24,6 @@
 
 // TODO phunkybb - replace this with PEAR_SMTP
 
-// Make sure no one attempts to run this script "directly"
-if (!defined('PUN'))
-	exit;
-
 
 //
 // Validate an e-mail address
@@ -112,6 +108,59 @@ function server_parse($socket, $expected_response)
 	if (!(substr($server_response, 0, 3) == $expected_response))
 		error('Unable to send e-mail. Please contact the forum administrator with the following error message reported by the SMTP server: "'.$server_response.'"', __FILE__, __LINE__);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//
+// Here is where I'll add in a quick interface to PEAR/Net_SMTP
+//
+
+
+
+
+
+
+
+
+
+
+
+
+//
+// End PEAR/Net_SMTP
+//
+
+
+
+
+
+
+
+
+
+
 
 
 //

@@ -669,13 +669,14 @@ if (!function_exists('file_get_contents'))
 
 //
 // Make sure that HTTP_REFERER matches $pun_config['o_base_url']/$script
+// Phunkybb - This is getting removed because in my opinion its not a very 
+// useful security measure. Referers can be forged by bad netizens.
 //
 function confirm_referrer($script)
 {
-	global $pun_config, $lang_common;
+	// deprecated 
+    return true;
 
-	if (!preg_match('#^'.preg_quote(str_replace('www.', '', $pun_config['o_base_url']).'/'.$script, '#').'#i', str_replace('www.', '', (isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : ''))))
-		message($lang_common['Bad referrer']);
 }
 
 
