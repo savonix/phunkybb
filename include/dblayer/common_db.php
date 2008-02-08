@@ -24,10 +24,23 @@
 
 // TODO - Replace this with MDB2
 
-// Make sure no one attempts to run this script "directly"
-if (!defined('PUN'))
-	exit;
-
+if(include('MDB2.php')) 
+{
+    $dsn = array(
+    'phptype'  => $db_type,
+    'username' => $db_username,
+    'password' => $db_password,
+    'hostspec' => $db_host,
+    'database' => $db_name,
+    /*
+    'key'      => 'client-key.pem',
+    'cert'     => 'client-cert.pem',
+    'ca'       => 'cacert.pem',
+    'capath'   => '/path/to/ca/dir',
+    'cipher'   => 'AES', */
+);
+    $mdb2 =& MDB2::factory($dsn, $options);
+}
 
 //
 // Return current timestamp (with microseconds) as a float (used in dblayer)
