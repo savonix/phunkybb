@@ -96,6 +96,8 @@ else if ($footer_style == 'viewforum' || $footer_style == 'viewtopic')
 	echo "\n\t\t\t".'<div class="conl">'."\n";
 
 	// Display the "Jump to" drop list
+    // FIXME - this is broken
+    /*
 	if ($pun_config['o_quickjump'] == '1')
 	{
 		// Load cached quickjump
@@ -107,7 +109,8 @@ else if ($footer_style == 'viewforum' || $footer_style == 'viewtopic')
 			require CACHE_DIR.'/cache_quickjump_'.$pun_user['g_id'].'.php';
 		}
 	}
-
+    */
+    
 	if ($footer_style == 'viewforum' && $is_admmod)
 		echo "\t\t\t".'<p id="modcontrols"><a href="moderate.php?fid='.$forum_id.'&amp;p='.$p.'">'.$lang_common['Moderate forum'].'</a></p>'."\n";
 	else if ($footer_style == 'viewtopic' && $is_admmod)

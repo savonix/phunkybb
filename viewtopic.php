@@ -183,8 +183,12 @@ $bg_switch = true;	// Used for switching background color in posts
 $post_count = 0;	// Keep track of post numbers
 
 // Retrieve the posts (and their respective poster/online status)
-$result = $db->query('SELECT DISTINCT u.email, u.title, u.url, u.location, u.use_avatar, u.signature, u.email_setting, u.num_posts, u.registered, u.admin_note, p.id, p.poster AS username, p.poster_id, p.poster_ip, p.poster_email, p.message, p.hide_smilies, p.posted, p.edited, p.edited_by, g.g_id, g.g_user_title, o.user_id AS is_online FROM '.$db_prefix.'posts AS p INNER JOIN '.$db_prefix.'users AS u ON u.id=p.poster_id INNER JOIN '.$db_prefix.'groups AS g ON g.g_id=u.group_id LEFT JOIN '.$db_prefix.'online AS o ON (o.user_id=u.id AND o.user_id!=1 AND o.idle=0) WHERE p.topic_id='.$id.' ORDER BY p.id LIMIT '.$start_from.','.$pun_user['disp_posts'], true) or error('Unable to fetch post info', __FILE__, __LINE__, $db->error());
-while ($cur_post = $result->fetchRow(MDB2_FETCHMODE_ASSOC))
+$result = $db->query('SELECT DISTINCT u.email, u.title, u.url, u.location, u.use_avatar, u.signature, u.email_setting, u.num_posts, u.registered, u.admin_note, p.id, p.poster AS username, p.poster_id, p.poster_ip, p.poster_email, p.message, p.hide_smilies, p.posted, p.edited, p.edited_by, g.g_id, g.g_user_title, o.user_id AS is_online 
+    FROM '.$db_prefix.'posts AS p INNER JOIN '.$db_prefix.'users AS u ON u.id=p.poster_id INNER JOIN '.$db_prefix.'groups AS g ON g.g_id=u.group_id LEFT JOIN '.$db_prefix.'online AS o ON (o.user_id=u.id AND o.user_id!=1 AND o.idle=0) 
+    WHERE p.topic_id='.$id.' ORDER BY p.id LIMIT '.$start_from.','.$pun_user['disp_posts']);
+$my_posts = $result->fetchAll(MDB2_FETCHMODE_ASSOC);
+
+foreach($my_posts as $cur_post)
 {
 	$post_count++;
 	$user_avatar = '';
@@ -387,8 +391,8 @@ if ($quickpost)
 }
 
 // Increment "num_views" for topic
-$low_prio = ($db_type == 'mysql') ? 'LOW_PRIORITY ' : '';
-$db->query('UPDATE '.$low_prio.$db_prefix.'topics SET num_views=num_views+1 WHERE id='.$id) or error('Unable to update topic', __FILE__, __LINE__, $db->error());
+
+$db->query('UPDATE '.$db_prefix.'topics SET num_views=num_views+1 WHERE id='.$id);
 
 $forum_id = $cur_topic['forum_id'];
 $footer_style = 'viewtopic';

@@ -178,7 +178,7 @@ if (isset($_POST['form_sent']))
 			{
 				// Insert the new post
 				$db->query('INSERT INTO '.$db_prefix.'posts (poster, poster_id, poster_ip, message, hide_smilies, posted, topic_id) VALUES(\''.$db->escape($username).'\', '.$pun_user['id'].', \''.get_remote_address().'\', \''.$db->escape($message).'\', \''.$hide_smilies.'\', '.$now.', '.$tid.')') or error('Unable to create post', __FILE__, __LINE__, $db->error());
-				$new_pid = $db->insert_id();
+				//$new_pid = $db->insert_id();
 
 				// To subscribe or not to subscribe, that ...
 				if ($pun_config['o_subscriptions'] == '1' && $subscribe)
@@ -193,12 +193,12 @@ if (isset($_POST['form_sent']))
 				// It's a guest. Insert the new post
 				$email_sql = ($pun_config['p_force_guest_email'] == '1' || $email != '') ? '\''.$email.'\'' : 'NULL';
 				$db->query('INSERT INTO '.$db_prefix.'posts (poster, poster_ip, poster_email, message, hide_smilies, posted, topic_id) VALUES(\''.$db->escape($username).'\', \''.get_remote_address().'\', '.$email_sql.', \''.$db->escape($message).'\', \''.$hide_smilies.'\', '.$now.', '.$tid.')') or error('Unable to create post', __FILE__, __LINE__, $db->error());
-				$new_pid = $db->insert_id();
+				//$new_pid = $db->insert_id();
 			}
 
 			// Count number of replies in the topic
 			$result = $db->query('SELECT COUNT(id) FROM '.$db_prefix.'posts WHERE topic_id='.$tid) or error('Unable to fetch post count for topic', __FILE__, __LINE__, $db->error());
-			$num_replies = $result->fetchRow(MDB2_FETCHMODE_ASSOC) - 1;
+			$num_replies = $result->fetchOne() - 1;
 
 			// Update topic
 			$db->query('UPDATE '.$db_prefix.'topics SET num_replies='.$num_replies.', last_post='.$now.', last_post_id='.$new_pid.', last_poster=\''.$db->escape($username).'\' WHERE id='.$tid) or error('Unable to update topic', __FILE__, __LINE__, $db->error());
@@ -215,9 +215,11 @@ if (isset($_POST['form_sent']))
 				$previous_post_time = $result->fetchRow(MDB2_FETCHMODE_ASSOC);
 
 				// Get any subscribed users that should be notified (banned users are excluded)
-				$result = $db->query('SELECT u.id, u.email, u.notify_with_post, u.language FROM '.$db_prefix.'users AS u INNER JOIN '.$db_prefix.'subscriptions AS s ON u.id=s.user_id LEFT JOIN '.$db_prefix.'forum_perms AS fp ON (fp.forum_id='.$cur_posting['id'].' AND fp.group_id=u.group_id) LEFT JOIN '.$db_prefix.'online AS o ON u.id=o.user_id LEFT JOIN '.$db_prefix.'bans AS b ON u.username=b.username WHERE b.username IS NULL AND COALESCE(o.logged, u.last_visit)>'.$previous_post_time.' AND (fp.read_forum IS NULL OR fp.read_forum=1) AND s.topic_id='.$tid.' AND u.id!='.intval($pun_user['id'])) or error('Unable to fetch subscription info', __FILE__, __LINE__, $db->error());
-				if ($result->numRows($result))
-				{
+				//$result = $db->query('SELECT u.id, u.email, u.notify_with_post, u.language FROM '.$db_prefix.'users AS u INNER JOIN '.$db_prefix.'subscriptions AS s ON u.id=s.user_id LEFT JOIN '.$db_prefix.'forum_perms AS fp ON (fp.forum_id='.$cur_posting['id'].' AND fp.group_id=u.group_id) LEFT JOIN '.$db_prefix.'online AS o ON u.id=o.user_id LEFT JOIN '.$db_prefix.'bans AS b ON u.username=b.username WHERE b.username IS NULL AND COALESCE(o.logged, u.last_visit)>'.$previous_post_time.' AND (fp.read_forum IS NULL OR fp.read_forum=1) AND s.topic_id='.$tid.' AND u.id!='.intval($pun_user['id'])) or error('Unable to fetch subscription info', __FILE__, __LINE__, $db->error());
+				//if ($result->numRows())
+				// FIXME - this is broken
+                if (1 == 5)
+                {
 					require_once PUN_ROOT.'include/email.php';
 
 					$notification_emails = array();
@@ -285,9 +287,10 @@ if (isset($_POST['form_sent']))
 		else if ($fid)
 		{
 			// Create the topic
-			$db->query('INSERT INTO '.$db_prefix.'topics (poster, subject, posted, last_post, last_poster, forum_id) VALUES(\''.$db->escape($username).'\', \''.$db->escape($subject).'\', '.$now.', '.$now.', \''.$db->escape($username).'\', '.$fid.')') or error('Unable to create topic', __FILE__, __LINE__, $db->error());
-			$new_tid = $db->insert_id();
-
+			$db->query('INSERT INTO '.$db_prefix.'topics (poster, subject, posted, last_post, last_poster, forum_id) VALUES(\''.$username.'\', \''.$db->escape($subject).'\', '.$now.', '.$now.', \''.$db->escape($username).'\', '.$fid.')') or error('Unable to create topic', __FILE__, __LINE__, $db->error());
+            $request = $db->query('SELECT id FROM '.$db_prefix.'topics WHERE posted='.$now);
+            $new_tid = $request->fetchOne();
+            
 			if (!$pun_user['is_guest'])
 			{
 				// To subscribe or not to subscribe, that ...
@@ -303,7 +306,7 @@ if (isset($_POST['form_sent']))
 				$email_sql = ($pun_config['p_force_guest_email'] == '1' || $email != '') ? '\''.$email.'\'' : 'NULL';
 				$db->query('INSERT INTO '.$db_prefix.'posts (poster, poster_ip, poster_email, message, hide_smilies, posted, topic_id) VALUES(\''.$db->escape($username).'\', \''.get_remote_address().'\', '.$email_sql.', \''.$db->escape($message).'\', \''.$hide_smilies.'\', '.$now.', '.$new_tid.')') or error('Unable to create post', __FILE__, __LINE__, $db->error());
 			}
-			$new_pid = $db->insert_id();
+			//$new_pid = $db->insert_id();
 
 			// Update the topic with last_post_id
 			$db->query('UPDATE '.$db_prefix.'topics SET last_post_id='.$new_pid.' WHERE id='.$new_tid) or error('Unable to update topic', __FILE__, __LINE__, $db->error());
@@ -319,7 +322,7 @@ if (isset($_POST['form_sent']))
 			$low_prio = ($db_type == 'mysql') ? 'LOW_PRIORITY ' : '';
 			$db->query('UPDATE '.$low_prio.$db_prefix.'users SET num_posts=num_posts+1, last_post='.$now.' WHERE id='.$pun_user['id']) or error('Unable to update user', __FILE__, __LINE__, $db->error());
 		}
-
+        // FIXME - This is broken
 		redirect('viewtopic.php?pid='.$new_pid.'#p'.$new_pid, $lang_post['Post redirect']);
 	}
 }

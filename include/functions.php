@@ -359,22 +359,23 @@ function generate_profile_menu($page = '')
 //
 function update_forum($forum_id)
 {
-	global $db;
+	global $db, $db_prefix;
 
-	$result = $db->query('SELECT COUNT(id), SUM(num_replies) FROM '.$db_prefix.'topics WHERE moved_to IS NULL AND forum_id='.$forum_id) or error('Unable to fetch forum topic count', __FILE__, __LINE__, $db->error());
-	list($num_topics, $num_posts) = $result->fetchRow(MDB2_FETCHMODE_ASSOC);
+	$result = $db->query('SELECT COUNT(id), SUM(num_replies) FROM '.$db_prefix.'topics WHERE moved_to IS NULL AND forum_id='.$forum_id);
+	//list($num_topics, $num_posts) = $result->fetchRow(MDB2_FETCHMODE_ORDERED,0);
+    //print_r($result);
+    $post_info= $result->fetchRow();
+	$num_posts = $post_info[1] + $post_info[0];		// $num_posts is only the sum of all replies (we have to add the topic posts)
 
-	$num_posts = $num_posts + $num_topics;		// $num_posts is only the sum of all replies (we have to add the topic posts)
-
-	$result = $db->query('SELECT last_post, last_post_id, last_poster FROM '.$db_prefix.'topics WHERE forum_id='.$forum_id.' AND moved_to IS NULL ORDER BY last_post DESC LIMIT 1') or error('Unable to fetch last_post/last_post_id/last_poster', __FILE__, __LINE__, $db->error());
-	if ($db->numRows($result))		// There are topics in the forum
+	$result = $db->query('SELECT last_post, last_post_id, last_poster FROM '.$db_prefix.'topics WHERE forum_id='.$forum_id.' AND moved_to IS NULL ORDER BY last_post DESC LIMIT 1');
+    if ($result->numRows())		// There are topics in the forum
 	{
 		list($last_post, $last_post_id, $last_poster) = $result->fetchRow(MDB2_FETCHMODE_ASSOC);
 
-		$db->query('UPDATE '.$db_prefix.'forums SET num_topics='.$num_topics.', num_posts='.$num_posts.', last_post='.$last_post.', last_post_id='.$last_post_id.', last_poster=\''.$db->escape($last_poster).'\' WHERE id='.$forum_id) or error('Unable to update last_post/last_post_id/last_poster', __FILE__, __LINE__, $db->error());
+		$db->query('UPDATE '.$db_prefix.'forums SET num_topics='.$num_topics.', num_posts='.$num_posts.', last_post='.$last_post.', last_post_id='.$last_post_id.', last_poster=\''.$db->escape($last_poster).'\' WHERE id='.$forum_id);
 	}
 	else	// There are no topics
-		$db->query('UPDATE '.$db_prefix.'forums SET num_topics=0, num_posts=0, last_post=NULL, last_post_id=NULL, last_poster=NULL WHERE id='.$forum_id) or error('Unable to update last_post/last_post_id/last_poster', __FILE__, __LINE__, $db->error());
+		$db->query('UPDATE '.$db_prefix.'forums SET num_topics=0, num_posts=0, last_post=NULL, last_post_id=NULL, last_poster=NULL WHERE id='.$forum_id);
 }
 
 
@@ -383,7 +384,7 @@ function update_forum($forum_id)
 //
 function delete_topic($topic_id)
 {
-	global $db;
+	global $db, $db_prefix;
 
 	// Delete the topic and any redirect topics
 	$db->query('DELETE FROM '.$db_prefix.'topics WHERE id='.$topic_id.' OR moved_to='.$topic_id) or error('Unable to delete topic', __FILE__, __LINE__, $db->error());
@@ -413,11 +414,11 @@ function delete_topic($topic_id)
 //
 function delete_post($post_id, $topic_id)
 {
-	global $db;
+	global $db, $db_prefix;
 
 	$result = $db->query('SELECT id, poster, posted FROM '.$db_prefix.'posts WHERE topic_id='.$topic_id.' ORDER BY id DESC LIMIT 2') or error('Unable to fetch post info', __FILE__, __LINE__, $db->error());
-	list($last_id, ,) = $result->fetch_row();
-	list($second_last_id, $second_poster, $second_posted) = $result->fetch_row();
+	list($last_id, ,) = $result->fetchRow();
+	list($second_last_id, $second_poster, $second_posted) = $result->fetchRow();
 
 	// Delete the post
 	$db->query('DELETE FROM '.$db_prefix.'posts WHERE id='.$post_id) or error('Unable to delete post', __FILE__, __LINE__, $db->error());
@@ -426,7 +427,7 @@ function delete_post($post_id, $topic_id)
 
 	// Count number of replies in the topic
 	$result = $db->query('SELECT COUNT(id) FROM '.$db_prefix.'posts WHERE topic_id='.$topic_id) or error('Unable to fetch post count for topic', __FILE__, __LINE__, $db->error());
-	$num_replies = $db->fetchRow() - 1;
+	$num_replies = $result->fetchOne() - 1;
 
 	// If the message we deleted is the most recent in the topic (at the end of the topic)
 	if ($last_id == $post_id)
@@ -593,7 +594,7 @@ function paginate($num_pages, $cur_page, $link_to)
 //
 function message($message, $no_back_link = false)
 {
-	global $db, $lang_common, $pun_config, $pun_start, $tpl_main;
+	global $db, $lang_common, $pun_config, $pun_start, $tpl_main, $db_prefix;
 
 	if (!defined('PUN_HEADER'))
 	{

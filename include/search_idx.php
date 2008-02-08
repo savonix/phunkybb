@@ -87,7 +87,7 @@ function split_words($text)
 //
 function update_search_index($mode, $post_id, $message, $subject = null)
 {
-	global $db_type, $db;
+	global $db_type, $db, $db_prefix;
 
 	// Split old and new post/subject to obtain array of 'words'
 	$words_message = split_words($message);
@@ -107,7 +107,7 @@ function update_search_index($mode, $post_id, $message, $subject = null)
 			$cur_words[$match_in][$row[1]] = $row[0];
 		}
 
-		$db->free_result($result);
+		////$db->free_result($result);
 
 		$words['add']['post'] = array_diff($words_message, array_keys($cur_words['post']));
 		$words['add']['subject'] = array_diff($words_subject, array_keys($cur_words['subject']));
@@ -130,13 +130,13 @@ function update_search_index($mode, $post_id, $message, $subject = null)
 
 	if (!empty($unique_words))
 	{
-		$result = $db->query('SELECT id, word FROM '.$db_prefix.'search_words WHERE word IN('.implode(',', preg_replace('#^(.*)$#', '\'\1\'', $unique_words)).')', true) or error('Unable to fetch search index words', __FILE__, __LINE__, $db->error());
-
+		$result = $db->query('SELECT id, word FROM '.$db_prefix.'search_words WHERE word IN('.implode(',', preg_replace('#^(.*)$#', '\'\1\'', $unique_words)).')');
+        print_r($result);
 		$word_ids = array();
-		while ($row = $result->fetchRow(MDB2_FETCHMODE_ASSOC))
+		while ($row = $result->numRows())
 			$word_ids[$row[1]] = $row[0];
 
-		$db->free_result($result);
+		//////$db->free_result($result);
 
 		$new_words = array_diff($unique_words, array_keys($word_ids));
 		unset($unique_words);

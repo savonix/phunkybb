@@ -198,9 +198,10 @@ else
 
 	if ($pun_user['g_id'] < PUN_GUEST)
 	{
+        //$db_prefix = "dev1_";
 		$result_header = $db->query('SELECT COUNT(id) FROM '.$db_prefix.'reports WHERE zapped IS NULL') or error('Unable to fetch reports info', __FILE__, __LINE__, $db->error());
-
-		if ($result_header->fetchRow())
+        //print_r($result_header);
+		if ($result_header->fetchOne())
 			$tpl_temp .= "\n\t\t\t\t".'<li class="reportlink"><strong><a href="admin_reports.php">There are new reports</a></strong></li>';
 
 		if ($pun_config['o_maintenance'] == '1')
