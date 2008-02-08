@@ -139,8 +139,8 @@ if (!defined('PUN_CONFIG_LOADED'))
 }
 
 // Make sure we (guests) have permission to read the forums
-$result = $db->query('SELECT g_read_board FROM '.$db->prefix.'groups WHERE g_id=3') or error('Unable to fetch group info', __FILE__, __LINE__, $db->error());
-if ($db->result($result) == '0')
+$result = $db->query('SELECT g_read_board FROM '.$db_prefix.'groups WHERE g_id=3') or error('Unable to fetch group info', __FILE__, __LINE__, $db->error());
+if ($result->fetchRow(MDB2_FETCHMODE_ASSOC) == '0')
 	exit('No permission');
 
 
@@ -217,9 +217,9 @@ if ($_GET['action'] == 'active' || $_GET['action'] == 'new')
 		echo "\t".'<language>en-us</language>'."\r\n";
 
 		// Fetch 15 topics
-		$result = $db->query('SELECT t.id, t.poster, t.subject, t.posted, t.last_post, f.id AS fid, f.forum_name FROM '.$db->prefix.'topics AS t INNER JOIN '.$db->prefix.'forums AS f ON f.id=t.forum_id LEFT JOIN '.$db->prefix.'forum_perms AS fp ON (fp.forum_id=f.id AND fp.group_id=3) WHERE (fp.read_forum IS NULL OR fp.read_forum=1) AND t.moved_to IS NULL'.$forum_sql.' ORDER BY '.$order_by.' DESC LIMIT 15') or error('Unable to fetch topic list', __FILE__, __LINE__, $db->error());
+		$result = $db->query('SELECT t.id, t.poster, t.subject, t.posted, t.last_post, f.id AS fid, f.forum_name FROM '.$db_prefix.'topics AS t INNER JOIN '.$db_prefix.'forums AS f ON f.id=t.forum_id LEFT JOIN '.$db_prefix.'forum_perms AS fp ON (fp.forum_id=f.id AND fp.group_id=3) WHERE (fp.read_forum IS NULL OR fp.read_forum=1) AND t.moved_to IS NULL'.$forum_sql.' ORDER BY '.$order_by.' DESC LIMIT 15') or error('Unable to fetch topic list', __FILE__, __LINE__, $db->error());
 
-		while ($cur_topic = $db->fetch_assoc($result))
+		while ($cur_topic = $result->fetchRow(MDB2_FETCHMODE_ASSOC))
 		{
 			if ($pun_config['o_censoring'] == '1')
 				$cur_topic['subject'] = censor_words($cur_topic['subject']);
@@ -244,9 +244,9 @@ if ($_GET['action'] == 'active' || $_GET['action'] == 'new')
 			$show = 15;
 
 		// Fetch $show topics
-		$result = $db->query('SELECT t.id, t.subject FROM '.$db->prefix.'topics AS t INNER JOIN '.$db->prefix.'forums AS f ON f.id=t.forum_id LEFT JOIN '.$db->prefix.'forum_perms AS fp ON (fp.forum_id=f.id AND fp.group_id=3) WHERE (fp.read_forum IS NULL OR fp.read_forum=1) AND t.moved_to IS NULL'.$forum_sql.' ORDER BY '.$order_by.' DESC LIMIT '.$show) or error('Unable to fetch topic list', __FILE__, __LINE__, $db->error());
+		$result = $db->query('SELECT t.id, t.subject FROM '.$db_prefix.'topics AS t INNER JOIN '.$db_prefix.'forums AS f ON f.id=t.forum_id LEFT JOIN '.$db_prefix.'forum_perms AS fp ON (fp.forum_id=f.id AND fp.group_id=3) WHERE (fp.read_forum IS NULL OR fp.read_forum=1) AND t.moved_to IS NULL'.$forum_sql.' ORDER BY '.$order_by.' DESC LIMIT '.$show) or error('Unable to fetch topic list', __FILE__, __LINE__, $db->error());
 
-		while ($cur_topic = $db->fetch_assoc($result))
+		while ($cur_topic = $result->fetchRow(MDB2_FETCHMODE_ASSOC))
 		{
 			if ($pun_config['o_censoring'] == '1')
 				$cur_topic['subject'] = censor_words($cur_topic['subject']);
@@ -275,9 +275,9 @@ else if ($_GET['action'] == 'online' || $_GET['action'] == 'online_full')
 	// Fetch users online info and generate strings for output
 	$num_guests = $num_users = 0;
 	$users = array();
-	$result = $db->query('SELECT user_id, ident FROM '.$db->prefix.'online WHERE idle=0 ORDER BY ident', true) or error('Unable to fetch online list', __FILE__, __LINE__, $db->error());
+	$result = $db->query('SELECT user_id, ident FROM '.$db_prefix.'online WHERE idle=0 ORDER BY ident', true) or error('Unable to fetch online list', __FILE__, __LINE__, $db->error());
 
-	while ($pun_user_online = $db->fetch_assoc($result))
+	while ($pun_user_online = $result->fetchRow(MDB2_FETCHMODE_ASSOC))
 	{
 		if ($pun_user_online['user_id'] > 1)
 		{
@@ -308,14 +308,14 @@ else if ($_GET['action'] == 'stats')
 	require PUN_ROOT.'lang/'.$pun_config['o_default_lang'].'/index.php';
 
 	// Collect some statistics from the database
-	$result = $db->query('SELECT COUNT(id)-1 FROM '.$db->prefix.'users') or error('Unable to fetch total user count', __FILE__, __LINE__, $db->error());
-	$stats['total_users'] = $db->result($result);
+	$result = $db->query('SELECT COUNT(id)-1 FROM '.$db_prefix.'users') or error('Unable to fetch total user count', __FILE__, __LINE__, $db->error());
+	$stats['total_users'] = $result->fetchRow(MDB2_FETCHMODE_ASSOC);
 
-	$result = $db->query('SELECT id, username FROM '.$db->prefix.'users ORDER BY registered DESC LIMIT 1') or error('Unable to fetch newest registered user', __FILE__, __LINE__, $db->error());
-	$stats['last_user'] = $db->fetch_assoc($result);
+	$result = $db->query('SELECT id, username FROM '.$db_prefix.'users ORDER BY registered DESC LIMIT 1') or error('Unable to fetch newest registered user', __FILE__, __LINE__, $db->error());
+	$stats['last_user'] = $result->fetchRow(MDB2_FETCHMODE_ASSOC);
 
-	$result = $db->query('SELECT SUM(num_topics), SUM(num_posts) FROM '.$db->prefix.'forums') or error('Unable to fetch topic/post count', __FILE__, __LINE__, $db->error());
-	list($stats['total_topics'], $stats['total_posts']) = $db->fetch_row($result);
+	$result = $db->query('SELECT SUM(num_topics), SUM(num_posts) FROM '.$db_prefix.'forums') or error('Unable to fetch topic/post count', __FILE__, __LINE__, $db->error());
+	list($stats['total_topics'], $stats['total_posts']) = $result->fetchRow(MDB2_FETCHMODE_ASSOC);
 
 	echo $lang_index['No of users'].': '.$stats['total_users'].'<br />';
 	echo $lang_index['Newest user'].': <a href="'.$pun_config['o_base_url'].'/profile.php?id='.$stats['last_user']['id'].'">'.pun_htmlspecialchars($stats['last_user']['username']).'</a><br />';

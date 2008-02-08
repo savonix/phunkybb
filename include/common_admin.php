@@ -104,7 +104,7 @@ function generate_admin_menu($page = '')
 //
 function prune($forum_id, $prune_sticky, $prune_date)
 {
-	global $db;
+	global $db, $db_prefix;
 
 	$extra_sql = ($prune_date != -1) ? ' AND last_post<'.$prune_date : '';
 
@@ -112,29 +112,29 @@ function prune($forum_id, $prune_sticky, $prune_date)
 		$extra_sql .= ' AND sticky=\'0\'';
 
 	// Fetch topics to prune
-	$result = $db->query('SELECT id FROM '.$db->prefix.'topics WHERE forum_id='.$forum_id.$extra_sql, true) or error('Unable to fetch topics', __FILE__, __LINE__, $db->error());
-
+	$result = $db->query('SELECT id FROM '.$db_prefix.'topics WHERE forum_id='.$forum_id.$extra_sql);
+    
 	$topic_ids = '';
-	while ($row = $db->fetch_row($result))
+	while ($row = $result->fetchRow(MDB2_FETCHMODE_ASSOC))
 		$topic_ids .= (($topic_ids != '') ? ',' : '').$row[0];
 
 	if ($topic_ids != '')
 	{
 		// Fetch posts to prune
-		$result = $db->query('SELECT id FROM '.$db->prefix.'posts WHERE topic_id IN('.$topic_ids.')', true) or error('Unable to fetch posts', __FILE__, __LINE__, $db->error());
+		$result = $db->query('SELECT id FROM '.$db_prefix.'posts WHERE topic_id IN('.$topic_ids.')', true) or error('Unable to fetch posts', __FILE__, __LINE__, $db->error());
 
 		$post_ids = '';
-		while ($row = $db->fetch_row($result))
+		while ($row = $result->fetchRow(MDB2_FETCHMODE_ASSOC))
 			$post_ids .= (($post_ids != '') ? ',' : '').$row[0];
 
 		if ($post_ids != '')
 		{
 			// Delete topics
-			$db->query('DELETE FROM '.$db->prefix.'topics WHERE id IN('.$topic_ids.')') or error('Unable to prune topics', __FILE__, __LINE__, $db->error());
+			$db->query('DELETE FROM '.$db_prefix.'topics WHERE id IN('.$topic_ids.')') or error('Unable to prune topics', __FILE__, __LINE__, $db->error());
 			// Delete subscriptions
-			$db->query('DELETE FROM '.$db->prefix.'subscriptions WHERE topic_id IN('.$topic_ids.')') or error('Unable to prune subscriptions', __FILE__, __LINE__, $db->error());
+			$db->query('DELETE FROM '.$db_prefix.'subscriptions WHERE topic_id IN('.$topic_ids.')') or error('Unable to prune subscriptions', __FILE__, __LINE__, $db->error());
 			// Delete posts
-			$db->query('DELETE FROM '.$db->prefix.'posts WHERE id IN('.$post_ids.')') or error('Unable to prune posts', __FILE__, __LINE__, $db->error());
+			$db->query('DELETE FROM '.$db_prefix.'posts WHERE id IN('.$post_ids.')') or error('Unable to prune posts', __FILE__, __LINE__, $db->error());
 
 			// We removed a bunch of posts, so now we have to update the search index
 			require_once PUN_ROOT.'include/search_idx.php';

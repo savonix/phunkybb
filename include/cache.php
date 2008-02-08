@@ -33,8 +33,8 @@ function generate_config_cache()
 	global $db;
 
 	// Get the forum config from the DB
-	$result = $db->query('SELECT * FROM '.$db->prefix.'config', true) or error('Unable to fetch forum config', __FILE__, __LINE__, $db->error());
-	while ($cur_config_item = $db->fetch_row($result))
+	$result = $db->query('SELECT * FROM '.$db_prefix.'config', true) or error('Unable to fetch forum config', __FILE__, __LINE__, $db->error());
+	while ($cur_config_item = $result->fetchRow(MDB2_FETCHMODE_ASSOC))
 		$output[$cur_config_item[0]] = $cur_config_item[1];
 	
     if(!is_dir(CACHE_DIR)) { 
@@ -62,10 +62,10 @@ function generate_bans_cache()
 	global $db;
 
 	// Get the ban list from the DB
-	$result = $db->query('SELECT * FROM '.$db->prefix.'bans', true) or error('Unable to fetch ban list', __FILE__, __LINE__, $db->error());
+	$result = $db->query('SELECT * FROM '.$db_prefix.'bans', true) or error('Unable to fetch ban list', __FILE__, __LINE__, $db->error());
 
 	$output = array();
-	while ($cur_ban = $db->fetch_assoc($result))
+	while ($cur_ban = $result->fetchRow(MDB2_FETCHMODE_ASSOC))
 		$output[] = $cur_ban;
 
 	// Output ban list as PHP code
@@ -87,10 +87,10 @@ function generate_ranks_cache()
 	global $db;
 
 	// Get the rank list from the DB
-	$result = $db->query('SELECT * FROM '.$db->prefix.'ranks ORDER BY min_posts', true) or error('Unable to fetch rank list', __FILE__, __LINE__, $db->error());
+	$result = $db->query('SELECT * FROM '.$db_prefix.'ranks ORDER BY min_posts', true) or error('Unable to fetch rank list', __FILE__, __LINE__, $db->error());
 
 	$output = array();
-	while ($cur_rank = $db->fetch_assoc($result))
+	while ($cur_rank = $result->fetchRow(MDB2_FETCHMODE_ASSOC))
 		$output[] = $cur_rank;
 
 	// Output ranks list as PHP code
@@ -109,7 +109,7 @@ function generate_ranks_cache()
 //
 function generate_quickjump_cache($group_id = false)
 {
-	global $db, $lang_common, $pun_user;
+	global $db, $lang_common, $pun_user, $db_prefix;
 
 	// If a group_id was supplied, we generate the quickjump cache for that group only
 	if ($group_id !== false)
@@ -117,13 +117,14 @@ function generate_quickjump_cache($group_id = false)
 	else
 	{
 		// A group_id was now supplied, so we generate the quickjump cache for all groups
-		$result = $db->query('SELECT g_id FROM '.$db->prefix.'groups') or error('Unable to fetch user group list', __FILE__, __LINE__, $db->error());
-		$num_groups = $db->num_rows($result);
-
-		for ($i = 0; $i < $num_groups; ++$i)
-			$groups[] = $db->result($result, $i);
+		$result = $db->query('SELECT g_id FROM '.$db_prefix.'groups') or error('Unable to fetch user group list', __FILE__, __LINE__, $db->error());
+        $num_groups = $result->numRows();
+        for($i=0; $i<$num_groups; $i++) { 
+            $group = $result->fetchRow();
+            $groups[] = $group[0];
+        }
 	}
-
+    //print_r($groups);
 	// Loop through the groups in $groups and output the cache for each of them
 	while (list(, $group_id) = @each($groups))
 	{
@@ -135,11 +136,9 @@ function generate_quickjump_cache($group_id = false)
 		$output = '<?php'."\n\n".'if (!defined(\'PUN\')) exit;'."\n".'define(\'PUN_QJ_LOADED\', 1);'."\n\n".'?>';
 		$output .= "\t\t\t\t".'<form id="qjump" method="get" action="viewforum.php">'."\n\t\t\t\t\t".'<div><label><?php echo $lang_common[\'Jump to\'] ?>'."\n\n\t\t\t\t\t".'<br /><select name="id" onchange="window.location=(\'viewforum.php?id=\'+this.options[this.selectedIndex].value)">'."\n";
 
-
-		$result = $db->query('SELECT c.id AS cid, c.cat_name, f.id AS fid, f.forum_name, f.redirect_url FROM '.$db->prefix.'categories AS c INNER JOIN '.$db->prefix.'forums AS f ON c.id=f.cat_id LEFT JOIN '.$db->prefix.'forum_perms AS fp ON (fp.forum_id=f.id AND fp.group_id='.$group_id.') WHERE fp.read_forum IS NULL OR fp.read_forum=1 ORDER BY c.disp_position, c.id, f.disp_position', true) or error('Unable to fetch category/forum list', __FILE__, __LINE__, $db->error());
-
+		$result = $db->query('SELECT c.id AS cid, c.cat_name, f.id AS fid, f.forum_name, f.redirect_url FROM '.$db_prefix.'categories AS c INNER JOIN '.$db_prefix.'forums AS f ON c.id=f.cat_id LEFT JOIN '.$db_prefix.'forum_perms AS fp ON (fp.forum_id=f.id AND fp.group_id='.$group_id.') WHERE fp.read_forum IS NULL OR fp.read_forum=1 ORDER BY c.disp_position, c.id, f.disp_position');
 		$cur_category = 0;
-		while ($cur_forum = $db->fetch_assoc($result))
+		while ($cur_forum = $result->fetchAll(MDB2_FETCHMODE_ASSOC))
 		{
 			if ($cur_forum['cid'] != $cur_category)	// A new category since last iteration?
 			{

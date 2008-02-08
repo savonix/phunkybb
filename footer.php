@@ -161,7 +161,7 @@ urchinTracker();
 }
 
 // End the transaction
-$db->end_transaction();
+////$db->end_transaction();
 
 // Display executed queries (if enabled)
 if (defined('PUN_SHOW_QUERIES'))
@@ -174,7 +174,7 @@ ob_end_clean();
 
 
 // Close the db connection (and free up any result data)
-$db->close();
+////$db->close();
 
 // Spit out the page
 exit($tpl_main);

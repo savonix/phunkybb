@@ -50,11 +50,11 @@ if (isset($_POST['add_rank']))
 		message('Minimum posts must be a positive integer value.');
 
 	// Make sure there isn't already a rank with the same min_posts value
-	$result = $db->query('SELECT 1 FROM '.$db->prefix.'ranks WHERE min_posts='.$min_posts) or error('Unable to fetch rank info', __FILE__, __LINE__, $db->error());
-	if ($db->num_rows($result))
+	$result = $db->query('SELECT 1 FROM '.$db_prefix.'ranks WHERE min_posts='.$min_posts) or error('Unable to fetch rank info', __FILE__, __LINE__, $db->error());
+	if ($result->numRows($result))
 		message('There is already a rank with a minimun posts value of '.$min_posts.'.');
 
-	$db->query('INSERT INTO '.$db->prefix.'ranks (rank, min_posts) VALUES(\''.$db->escape($rank).'\', '.$min_posts.')') or error('Unable to add rank', __FILE__, __LINE__, $db->error());
+	$db->query('INSERT INTO '.$db_prefix.'ranks (rank, min_posts) VALUES(\''.$db->escape($rank).'\', '.$min_posts.')') or error('Unable to add rank', __FILE__, __LINE__, $db->error());
 
 	// Regenerate the ranks cache
 	require_once PUN_ROOT.'include/cache.php';
@@ -81,11 +81,11 @@ else if (isset($_POST['update']))
 		message('Minimum posts must be a positive integer value.');
 
 	// Make sure there isn't already a rank with the same min_posts value
-	$result = $db->query('SELECT 1 FROM '.$db->prefix.'ranks WHERE id!='.$id.' AND min_posts='.$min_posts) or error('Unable to fetch rank info', __FILE__, __LINE__, $db->error());
-	if ($db->num_rows($result))
+	$result = $db->query('SELECT 1 FROM '.$db_prefix.'ranks WHERE id!='.$id.' AND min_posts='.$min_posts) or error('Unable to fetch rank info', __FILE__, __LINE__, $db->error());
+	if ($result->numRows($result))
 		message('There is already a rank with a minimun posts value of '.$min_posts.'.');
 
-	$db->query('UPDATE '.$db->prefix.'ranks SET rank=\''.$db->escape($rank).'\', min_posts='.$min_posts.' WHERE id='.$id) or error('Unable to update rank', __FILE__, __LINE__, $db->error());
+	$db->query('UPDATE '.$db_prefix.'ranks SET rank=\''.$db->escape($rank).'\', min_posts='.$min_posts.' WHERE id='.$id) or error('Unable to update rank', __FILE__, __LINE__, $db->error());
 
 	// Regenerate the ranks cache
 	require_once PUN_ROOT.'include/cache.php';
@@ -102,7 +102,7 @@ else if (isset($_POST['remove']))
 
 	$id = intval(key($_POST['remove']));
 
-	$db->query('DELETE FROM '.$db->prefix.'ranks WHERE id='.$id) or error('Unable to delete rank', __FILE__, __LINE__, $db->error());
+	$db->query('DELETE FROM '.$db_prefix.'ranks WHERE id='.$id) or error('Unable to delete rank', __FILE__, __LINE__, $db->error());
 
 	// Regenerate the ranks cache
 	require_once PUN_ROOT.'include/cache.php';
@@ -153,8 +153,8 @@ generate_admin_menu('ranks');
 						<div class="infldset">
 <?php
 
-$result = $db->query('SELECT id, rank, min_posts FROM '.$db->prefix.'ranks ORDER BY min_posts') or error('Unable to fetch rank list', __FILE__, __LINE__, $db->error());
-if ($db->num_rows($result))
+$result = $db->query('SELECT id, rank, min_posts FROM '.$db_prefix.'ranks ORDER BY min_posts') or error('Unable to fetch rank list', __FILE__, __LINE__, $db->error());
+if ($result->numRows($result))
 {
 
 ?>
@@ -169,7 +169,7 @@ if ($db->num_rows($result))
 							<tbody>
 <?php
 
-	while ($cur_rank = $db->fetch_assoc($result))
+	while ($cur_rank = $result->fetchRow(MDB2_FETCHMODE_ASSOC))
 		echo "\t\t\t\t\t\t\t\t".'<tr><td><input type="text" name="rank['.$cur_rank['id'].']" value="'.pun_htmlspecialchars($cur_rank['rank']).'" size="24" maxlength="50" /></td><td><input type="text" name="min_posts['.$cur_rank['id'].']" value="'.$cur_rank['min_posts'].'" size="7" maxlength="7" /></td><td><input type="submit" name="update['.$cur_rank['id'].']" value="Update" />&nbsp;<input type="submit" name="remove['.$cur_rank['id'].']" value="Remove" /></td></tr>'."\n";
 
 ?>

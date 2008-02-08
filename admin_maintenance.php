@@ -53,19 +53,19 @@ if (isset($_GET['i_per_page']) && isset($_GET['i_start_at']))
 		confirm_referrer('admin_maintenance.php');
 
 		$truncate_sql = ($db_type != 'sqlite' && $db_type != 'pgsql') ? 'TRUNCATE TABLE ' : 'DELETE FROM ';
-		$db->query($truncate_sql.$db->prefix.'search_matches') or error('Unable to empty search index match table', __FILE__, __LINE__, $db->error());
-		$db->query($truncate_sql.$db->prefix.'search_words') or error('Unable to empty search index words table', __FILE__, __LINE__, $db->error());
+		$db->query($truncate_sql.$db_prefix.'search_matches') or error('Unable to empty search index match table', __FILE__, __LINE__, $db->error());
+		$db->query($truncate_sql.$db_prefix.'search_words') or error('Unable to empty search index words table', __FILE__, __LINE__, $db->error());
 
 		// Reset the sequence for the search words (not needed for SQLite)
 		switch ($db_type)
 		{
 			case 'mysql':
 			case 'mysqli':
-				$result = $db->query('ALTER TABLE '.$db->prefix.'search_words auto_increment=1') or error('Unable to update table auto_increment', __FILE__, __LINE__, $db->error());
+				$result = $db->query('ALTER TABLE '.$db_prefix.'search_words auto_increment=1') or error('Unable to update table auto_increment', __FILE__, __LINE__, $db->error());
 				break;
 
 			case 'pgsql';
-				$result = $db->query('SELECT setval(\''.$db->prefix.'search_words_id_seq\', 1, false)') or error('Unable to update sequence', __FILE__, __LINE__, $db->error());
+				$result = $db->query('SELECT setval(\''.$db_prefix.'search_words_id_seq\', 1, false)') or error('Unable to update sequence', __FILE__, __LINE__, $db->error());
 		}
 	}
 
@@ -95,15 +95,15 @@ Rebuilding index &hellip; This might be a good time to put on some coffee :-)<br
 	require PUN_ROOT.'include/search_idx.php';
 
 	// Fetch posts to process
-	$result = $db->query('SELECT DISTINCT t.id, p.id, p.message FROM '.$db->prefix.'topics AS t INNER JOIN '.$db->prefix.'posts AS p ON t.id=p.topic_id WHERE t.id>='.$start_at.' AND t.id<'.$end_at.' ORDER BY t.id') or error('Unable to fetch topic/post info', __FILE__, __LINE__, $db->error());
+	$result = $db->query('SELECT DISTINCT t.id, p.id, p.message FROM '.$db_prefix.'topics AS t INNER JOIN '.$db_prefix.'posts AS p ON t.id=p.topic_id WHERE t.id>='.$start_at.' AND t.id<'.$end_at.' ORDER BY t.id') or error('Unable to fetch topic/post info', __FILE__, __LINE__, $db->error());
 
 	$cur_topic = 0;
-	while ($cur_post = $db->fetch_row($result))
+	while ($cur_post = $result->fetchRow(MDB2_FETCHMODE_ASSOC))
 	{
 		if ($cur_post[0] <> $cur_topic)
 		{
 			// Fetch subject and ID of first post in topic
-			$result2 = $db->query('SELECT p.id, t.subject, MIN(p.posted) AS first FROM '.$db->prefix.'posts AS p INNER JOIN '.$db->prefix.'topics AS t ON t.id=p.topic_id WHERE t.id='.$cur_post[0].' GROUP BY p.id, t.subject ORDER BY first LIMIT 1') or error('Unable to fetch topic info', __FILE__, __LINE__, $db->error());
+			$result2 = $db->query('SELECT p.id, t.subject, MIN(p.posted) AS first FROM '.$db_prefix.'posts AS p INNER JOIN '.$db_prefix.'topics AS t ON t.id=p.topic_id WHERE t.id='.$cur_post[0].' GROUP BY p.id, t.subject ORDER BY first LIMIT 1') or error('Unable to fetch topic info', __FILE__, __LINE__, $db->error());
 			list($first_post, $subject) = $db->fetch_row($result2);
 
 			$cur_topic = $cur_post[0];
@@ -118,21 +118,21 @@ Rebuilding index &hellip; This might be a good time to put on some coffee :-)<br
 	}
 
 	// Check if there is more work to do
-	$result = $db->query('SELECT id FROM '.$db->prefix.'topics WHERE id>'.$end_at) or error('Unable to fetch topic info', __FILE__, __LINE__, $db->error());
+	$result = $db->query('SELECT id FROM '.$db_prefix.'topics WHERE id>'.$end_at) or error('Unable to fetch topic info', __FILE__, __LINE__, $db->error());
 
-	$query_str = ($db->num_rows($result)) ? '?i_per_page='.$per_page.'&i_start_at='.$end_at : '';
+	$query_str = ($result->numRows($result)) ? '?i_per_page='.$per_page.'&i_start_at='.$end_at : '';
 
-	$db->end_transaction();
-	$db->close();
+	//$db->end_transaction();
+	//$db->close();
 
 	exit('<script type="text/javascript">window.location="admin_maintenance.php'.$query_str.'"</script><br />JavaScript redirect unsuccessful. Click <a href="admin_maintenance.php'.$query_str.'">here</a> to continue.');
 }
 
 
 // Get the first post ID from the db
-$result = $db->query('SELECT id FROM '.$db->prefix.'topics ORDER BY id LIMIT 1') or error('Unable to fetch topic info', __FILE__, __LINE__, $db->error());
-if ($db->num_rows($result))
-	$first_id = $db->result($result);
+$result = $db->query('SELECT id FROM '.$db_prefix.'topics ORDER BY id LIMIT 1') or error('Unable to fetch topic info', __FILE__, __LINE__, $db->error());
+if ($result->numRows($result))
+	$first_id = $result->fetchRow(MDB2_FETCHMODE_ASSOC);
 
 $page_title = pun_htmlspecialchars($pun_config['o_board_title']).' / Admin / Maintenance';
 require PUN_ROOT.'header.php';

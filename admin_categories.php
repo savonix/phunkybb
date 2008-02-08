@@ -44,7 +44,7 @@ if (isset($_POST['add_cat']))
 	if ($new_cat_name == '')
 		message('You must enter a name for the category.');
 
-	$db->query('INSERT INTO '.$db->prefix.'categories (cat_name) VALUES(\''.$db->escape($new_cat_name).'\')') or error('Unable to create category', __FILE__, __LINE__, $db->error());
+	$db->query('INSERT INTO '.$db_prefix.'categories (cat_name) VALUES(\''.$db->escape($new_cat_name).'\')') or error('Unable to create category', __FILE__, __LINE__, $db->error());
 
 	redirect('admin_categories.php', 'Category added. Redirecting &hellip;');
 }
@@ -63,34 +63,34 @@ else if (isset($_POST['del_cat']) || isset($_POST['del_cat_comply']))
 	{
 		@set_time_limit(0);
 
-		$result = $db->query('SELECT id FROM '.$db->prefix.'forums WHERE cat_id='.$cat_to_delete) or error('Unable to fetch forum list', __FILE__, __LINE__, $db->error());
-		$num_forums = $db->num_rows($result);
+		$result = $db->query('SELECT id FROM '.$db_prefix.'forums WHERE cat_id='.$cat_to_delete) or error('Unable to fetch forum list', __FILE__, __LINE__, $db->error());
+		$num_forums = $result->numRows($result);
 
 		for ($i = 0; $i < $num_forums; ++$i)
 		{
-			$cur_forum = $db->result($result, $i);
+			$cur_forum = $result->fetchRow(MDB2_FETCHMODE_ASSOC);
 
 			// Prune all posts and topics
 			prune($cur_forum, 1, -1);
 
 			// Delete the forum
-			$db->query('DELETE FROM '.$db->prefix.'forums WHERE id='.$cur_forum) or error('Unable to delete forum', __FILE__, __LINE__, $db->error());
+			$db->query('DELETE FROM '.$db_prefix.'forums WHERE id='.$cur_forum) or error('Unable to delete forum', __FILE__, __LINE__, $db->error());
 		}
 
 		// Locate any "orphaned redirect topics" and delete them
-		$result = $db->query('SELECT t1.id FROM '.$db->prefix.'topics AS t1 LEFT JOIN '.$db->prefix.'topics AS t2 ON t1.moved_to=t2.id WHERE t2.id IS NULL AND t1.moved_to IS NOT NULL') or error('Unable to fetch redirect topics', __FILE__, __LINE__, $db->error());
-		$num_orphans = $db->num_rows($result);
+		$result = $db->query('SELECT t1.id FROM '.$db_prefix.'topics AS t1 LEFT JOIN '.$db_prefix.'topics AS t2 ON t1.moved_to=t2.id WHERE t2.id IS NULL AND t1.moved_to IS NOT NULL') or error('Unable to fetch redirect topics', __FILE__, __LINE__, $db->error());
+		$num_orphans = $result->numRows($result);
 
 		if ($num_orphans)
 		{
 			for ($i = 0; $i < $num_orphans; ++$i)
-				$orphans[] = $db->result($result, $i);
+				$orphans[] = $result->fetchRow(MDB2_FETCHMODE_ASSOC);
 
-			$db->query('DELETE FROM '.$db->prefix.'topics WHERE id IN('.implode(',', $orphans).')') or error('Unable to delete redirect topics', __FILE__, __LINE__, $db->error());
+			$db->query('DELETE FROM '.$db_prefix.'topics WHERE id IN('.implode(',', $orphans).')') or error('Unable to delete redirect topics', __FILE__, __LINE__, $db->error());
 		}
 
 		// Delete the category
-		$db->query('DELETE FROM '.$db->prefix.'categories WHERE id='.$cat_to_delete) or error('Unable to delete category', __FILE__, __LINE__, $db->error());
+		$db->query('DELETE FROM '.$db_prefix.'categories WHERE id='.$cat_to_delete) or error('Unable to delete category', __FILE__, __LINE__, $db->error());
 
 		// Regenerate the quickjump cache
 		require_once PUN_ROOT.'include/cache.php';
@@ -100,8 +100,8 @@ else if (isset($_POST['del_cat']) || isset($_POST['del_cat_comply']))
 	}
 	else	// If the user hasn't comfirmed the delete
 	{
-		$result = $db->query('SELECT cat_name FROM '.$db->prefix.'categories WHERE id='.$cat_to_delete) or error('Unable to fetch category info', __FILE__, __LINE__, $db->error());
-		$cat_name = $db->result($result);
+		$result = $db->query('SELECT cat_name FROM '.$db_prefix.'categories WHERE id='.$cat_to_delete) or error('Unable to fetch category info', __FILE__, __LINE__, $db->error());
+		$cat_name = $result->fetchRow(MDB2_FETCHMODE_ASSOC);
 
 		$page_title = pun_htmlspecialchars($pun_config['o_board_title']).' / Admin / Categories';
 		require PUN_ROOT.'header.php';
@@ -143,8 +143,8 @@ else if (isset($_POST['update']))	// Change position and name of the categories
 	$cat_order = $_POST['cat_order'];
 	$cat_name = $_POST['cat_name'];
 
-	$result = $db->query('SELECT id, disp_position FROM '.$db->prefix.'categories ORDER BY disp_position') or error('Unable to fetch category list', __FILE__, __LINE__, $db->error());
-	$num_cats = $db->num_rows($result);
+	$result = $db->query('SELECT id, disp_position FROM '.$db_prefix.'categories ORDER BY disp_position') or error('Unable to fetch category list', __FILE__, __LINE__, $db->error());
+	$num_cats = $result->numRows($result);
 
 	for ($i = 0; $i < $num_cats; ++$i)
 	{
@@ -154,9 +154,9 @@ else if (isset($_POST['update']))	// Change position and name of the categories
 		if (!@preg_match('#^\d+$#', $cat_order[$i]))
 			message('Position must be an integer value.');
 
-		list($cat_id, $position) = $db->fetch_row($result);
+		list($cat_id, $position) = $result->fetchRow(MDB2_FETCHMODE_ASSOC);
 
-		$db->query('UPDATE '.$db->prefix.'categories SET cat_name=\''.$db->escape($cat_name[$i]).'\', disp_position='.$cat_order[$i].' WHERE id='.$cat_id) or error('Unable to update category', __FILE__, __LINE__, $db->error());
+		$db->query('UPDATE '.$db_prefix.'categories SET cat_name=\''.$db->escape($cat_name[$i]).'\', disp_position='.$cat_order[$i].' WHERE id='.$cat_id) or error('Unable to update category', __FILE__, __LINE__, $db->error());
 	}
 
 	// Regenerate the quickjump cache
@@ -168,11 +168,11 @@ else if (isset($_POST['update']))	// Change position and name of the categories
 
 
 // Generate an array with all categories
-$result = $db->query('SELECT id, cat_name, disp_position FROM '.$db->prefix.'categories ORDER BY disp_position') or error('Unable to fetch category list', __FILE__, __LINE__, $db->error());
-$num_cats = $db->num_rows($result);
+$result = $db->query('SELECT id, cat_name, disp_position FROM '.$db_prefix.'categories ORDER BY disp_position') or error('Unable to fetch category list', __FILE__, __LINE__, $db->error());
+$num_cats = $result->numRows($result);
 
 for ($i = 0; $i < $num_cats; ++$i)
-	$cat_list[] = $db->fetch_row($result);
+	$cat_list[] = $result->fetchRow(MDB2_FETCHMODE_ASSOC);
 
 
 $page_title = pun_htmlspecialchars($pun_config['o_board_title']).' / Admin / Categories';

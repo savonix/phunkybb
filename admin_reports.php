@@ -42,11 +42,11 @@ if (isset($_POST['zap_id']))
 
 	$zap_id = intval(key($_POST['zap_id']));
 
-	$result = $db->query('SELECT zapped FROM '.$db->prefix.'reports WHERE id='.$zap_id) or error('Unable to fetch report info', __FILE__, __LINE__, $db->error());
-	$zapped = $db->result($result);
+	$result = $db->query('SELECT zapped FROM '.$db_prefix.'reports WHERE id='.$zap_id) or error('Unable to fetch report info', __FILE__, __LINE__, $db->error());
+	$zapped = $result->fetchRow(MDB2_FETCHMODE_ASSOC);
 
 	if ($zapped == '')
-		$db->query('UPDATE '.$db->prefix.'reports SET zapped='.time().', zapped_by='.$pun_user['id'].' WHERE id='.$zap_id) or error('Unable to zap report', __FILE__, __LINE__, $db->error());
+		$db->query('UPDATE '.$db_prefix.'reports SET zapped='.time().', zapped_by='.$pun_user['id'].' WHERE id='.$zap_id) or error('Unable to zap report', __FILE__, __LINE__, $db->error());
 
 	redirect('admin_reports.php', 'Report zapped. Redirecting &hellip;');
 }
@@ -64,11 +64,11 @@ generate_admin_menu('reports');
 			<form method="post" action="admin_reports.php?action=zap">
 <?php
 
-$result = $db->query('SELECT r.id, r.post_id, r.topic_id, r.forum_id, r.reported_by, r.created, r.message, t.subject, f.forum_name, u.username AS reporter FROM '.$db->prefix.'reports AS r LEFT JOIN '.$db->prefix.'topics AS t ON r.topic_id=t.id LEFT JOIN '.$db->prefix.'forums AS f ON r.forum_id=f.id LEFT JOIN '.$db->prefix.'users AS u ON r.reported_by=u.id WHERE r.zapped IS NULL ORDER BY created DESC') or error('Unable to fetch report list', __FILE__, __LINE__, $db->error());
+$result = $db->query('SELECT r.id, r.post_id, r.topic_id, r.forum_id, r.reported_by, r.created, r.message, t.subject, f.forum_name, u.username AS reporter FROM '.$db_prefix.'reports AS r LEFT JOIN '.$db_prefix.'topics AS t ON r.topic_id=t.id LEFT JOIN '.$db_prefix.'forums AS f ON r.forum_id=f.id LEFT JOIN '.$db_prefix.'users AS u ON r.reported_by=u.id WHERE r.zapped IS NULL ORDER BY created DESC') or error('Unable to fetch report list', __FILE__, __LINE__, $db->error());
 
-if ($db->num_rows($result))
+if ($result->numRows($result))
 {
-	while ($cur_report = $db->fetch_assoc($result))
+	while ($cur_report = $result->fetchRow(MDB2_FETCHMODE_ASSOC))
 	{
 		$reporter = ($cur_report['reporter'] != '') ? '<a href="profile.php?id='.$cur_report['reported_by'].'">'.pun_htmlspecialchars($cur_report['reporter']).'</a>' : 'Deleted user';
 		$forum = ($cur_report['forum_name'] != '') ? '<a href="viewforum.php?id='.$cur_report['forum_id'].'">'.pun_htmlspecialchars($cur_report['forum_name']).'</a>' : 'Deleted';
@@ -112,11 +112,11 @@ else
 			<div class="fakeform">
 <?php
 
-$result = $db->query('SELECT r.id, r.post_id, r.topic_id, r.forum_id, r.reported_by, r.message, r.zapped, r.zapped_by AS zapped_by_id, t.subject, f.forum_name, u.username AS reporter, u2.username AS zapped_by FROM '.$db->prefix.'reports AS r LEFT JOIN '.$db->prefix.'topics AS t ON r.topic_id=t.id LEFT JOIN '.$db->prefix.'forums AS f ON r.forum_id=f.id LEFT JOIN '.$db->prefix.'users AS u ON r.reported_by=u.id LEFT JOIN '.$db->prefix.'users AS u2 ON r.zapped_by=u2.id WHERE r.zapped IS NOT NULL ORDER BY zapped DESC LIMIT 10') or error('Unable to fetch report list', __FILE__, __LINE__, $db->error());
+$result = $db->query('SELECT r.id, r.post_id, r.topic_id, r.forum_id, r.reported_by, r.message, r.zapped, r.zapped_by AS zapped_by_id, t.subject, f.forum_name, u.username AS reporter, u2.username AS zapped_by FROM '.$db_prefix.'reports AS r LEFT JOIN '.$db_prefix.'topics AS t ON r.topic_id=t.id LEFT JOIN '.$db_prefix.'forums AS f ON r.forum_id=f.id LEFT JOIN '.$db_prefix.'users AS u ON r.reported_by=u.id LEFT JOIN '.$db_prefix.'users AS u2 ON r.zapped_by=u2.id WHERE r.zapped IS NOT NULL ORDER BY zapped DESC LIMIT 10') or error('Unable to fetch report list', __FILE__, __LINE__, $db->error());
 
-if ($db->num_rows($result))
+if ($result->numRows($result))
 {
-	while ($cur_report = $db->fetch_assoc($result))
+	while ($cur_report = $result->fetchRow(MDB2_FETCHMODE_ASSOC))
 	{
 		$reporter = ($cur_report['reporter'] != '') ? '<a href="profile.php?id='.$cur_report['reported_by'].'">'.pun_htmlspecialchars($cur_report['reporter']).'</a>' : 'Deleted user';
 		$forum = ($cur_report['forum_name'] != '') ? '<a href="viewforum.php?id='.$cur_report['forum_id'].'">'.pun_htmlspecialchars($cur_report['forum_name']).'</a>' : 'Deleted';

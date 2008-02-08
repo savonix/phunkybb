@@ -64,7 +64,7 @@ else if ($action == 'markread')
 	if ($pun_user['is_guest'])
 		message($lang_common['No permission']);
 
-	$db->query('UPDATE '.$db->prefix.'users SET last_visit='.$pun_user['logged'].' WHERE id='.$pun_user['id']) or error('Unable to update user last visit data', __FILE__, __LINE__, $db->error());
+	$db->query('UPDATE '.$db_prefix.'users SET last_visit='.$pun_user['logged'].' WHERE id='.$pun_user['id']) or error('Unable to update user last visit data', __FILE__, __LINE__, $db->error());
 
 	redirect('index.php', $lang_misc['Mark read redirect']);
 }
@@ -79,11 +79,11 @@ else if (isset($_GET['email']))
 	if ($recipient_id < 2)
 		message($lang_common['Bad request']);
 
-	$result = $db->query('SELECT username, email, email_setting FROM '.$db->prefix.'users WHERE id='.$recipient_id) or error('Unable to fetch user info', __FILE__, __LINE__, $db->error());
-	if (!$db->num_rows($result))
+	$result = $db->query('SELECT username, email, email_setting FROM '.$db_prefix.'users WHERE id='.$recipient_id) or error('Unable to fetch user info', __FILE__, __LINE__, $db->error());
+	if (!$result->numRows($result))
 		message($lang_common['Bad request']);
 
-	list($recipient, $recipient_email, $email_setting) = $db->fetch_row($result);
+	list($recipient, $recipient_email, $email_setting) = $result->fetchRow(MDB2_FETCHMODE_ASSOC);
 
 	if ($email_setting == 2 && $pun_user['g_id'] > PUN_MOD)
 		message($lang_misc['Form e-mail disabled']);
@@ -178,22 +178,22 @@ else if (isset($_GET['report']))
 			message($lang_misc['No reason']);
 
 		// Get the topic ID
-		$result = $db->query('SELECT topic_id FROM '.$db->prefix.'posts WHERE id='.$post_id) or error('Unable to fetch post info', __FILE__, __LINE__, $db->error());
-		if (!$db->num_rows($result))
+		$result = $db->query('SELECT topic_id FROM '.$db_prefix.'posts WHERE id='.$post_id) or error('Unable to fetch post info', __FILE__, __LINE__, $db->error());
+		if (!$result->numRows($result))
 			message($lang_common['Bad request']);
 
-		$topic_id = $db->result($result);
+		$topic_id = $result->FetchRow();
 
 		// Get the subject and forum ID
-		$result = $db->query('SELECT subject, forum_id FROM '.$db->prefix.'topics WHERE id='.$topic_id) or error('Unable to fetch topic info', __FILE__, __LINE__, $db->error());
-		if (!$db->num_rows($result))
+		$result = $db->query('SELECT subject, forum_id FROM '.$db_prefix.'topics WHERE id='.$topic_id) or error('Unable to fetch topic info', __FILE__, __LINE__, $db->error());
+		if (!$result->numRows($result))
 			message($lang_common['Bad request']);
 
-		list($subject, $forum_id) = $db->fetch_row($result);
+		list($subject, $forum_id) = $result->fetchRow(MDB2_FETCHMODE_ASSOC);
 
 		// Should we use the internal report handling?
 		if ($pun_config['o_report_method'] == 0 || $pun_config['o_report_method'] == 2)
-			$db->query('INSERT INTO '.$db->prefix.'reports (post_id, topic_id, forum_id, reported_by, created, message) VALUES('.$post_id.', '.$topic_id.', '.$forum_id.', '.$pun_user['id'].', '.time().', \''.$db->escape($reason).'\')' ) or error('Unable to create report', __FILE__, __LINE__, $db->error());
+			$db->query('INSERT INTO '.$db_prefix.'reports (post_id, topic_id, forum_id, reported_by, created, message) VALUES('.$post_id.', '.$topic_id.', '.$forum_id.', '.$pun_user['id'].', '.time().', \''.$db->escape($reason).'\')' ) or error('Unable to create report', __FILE__, __LINE__, $db->error());
 
 		// Should we e-mail the report?
 		if ($pun_config['o_report_method'] == 1 || $pun_config['o_report_method'] == 2)
@@ -252,11 +252,11 @@ else if (isset($_GET['subscribe']))
 	if ($topic_id < 1)
 		message($lang_common['Bad request']);
 
-	$result = $db->query('SELECT 1 FROM '.$db->prefix.'subscriptions WHERE user_id='.$pun_user['id'].' AND topic_id='.$topic_id) or error('Unable to fetch subscription info', __FILE__, __LINE__, $db->error());
-	if ($db->num_rows($result))
+	$result = $db->query('SELECT 1 FROM '.$db_prefix.'subscriptions WHERE user_id='.$pun_user['id'].' AND topic_id='.$topic_id) or error('Unable to fetch subscription info', __FILE__, __LINE__, $db->error());
+	if ($result->numRows($result))
 		message($lang_misc['Already subscribed']);
 
-	$db->query('INSERT INTO '.$db->prefix.'subscriptions (user_id, topic_id) VALUES('.$pun_user['id'].' ,'.$topic_id.')') or error('Unable to add subscription', __FILE__, __LINE__, $db->error());
+	$db->query('INSERT INTO '.$db_prefix.'subscriptions (user_id, topic_id) VALUES('.$pun_user['id'].' ,'.$topic_id.')') or error('Unable to add subscription', __FILE__, __LINE__, $db->error());
 
 	redirect('viewtopic.php?id='.$topic_id, $lang_misc['Subscribe redirect']);
 }
@@ -271,11 +271,11 @@ else if (isset($_GET['unsubscribe']))
 	if ($topic_id < 1)
 		message($lang_common['Bad request']);
 
-	$result = $db->query('SELECT 1 FROM '.$db->prefix.'subscriptions WHERE user_id='.$pun_user['id'].' AND topic_id='.$topic_id) or error('Unable to fetch subscription info', __FILE__, __LINE__, $db->error());
-	if (!$db->num_rows($result))
+	$result = $db->query('SELECT 1 FROM '.$db_prefix.'subscriptions WHERE user_id='.$pun_user['id'].' AND topic_id='.$topic_id) or error('Unable to fetch subscription info', __FILE__, __LINE__, $db->error());
+	if (!$result->numRows($result))
 		message($lang_misc['Not subscribed']);
 
-	$db->query('DELETE FROM '.$db->prefix.'subscriptions WHERE user_id='.$pun_user['id'].' AND topic_id='.$topic_id) or error('Unable to remove subscription', __FILE__, __LINE__, $db->error());
+	$db->query('DELETE FROM '.$db_prefix.'subscriptions WHERE user_id='.$pun_user['id'].' AND topic_id='.$topic_id) or error('Unable to remove subscription', __FILE__, __LINE__, $db->error());
 
 	redirect('viewtopic.php?id='.$topic_id, $lang_misc['Unsubscribe redirect']);
 }

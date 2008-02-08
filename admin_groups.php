@@ -42,8 +42,8 @@ if (isset($_POST['add_group']) || isset($_GET['edit_group']))
 	{
 		$base_group = intval($_POST['base_group']);
 
-		$result = $db->query('SELECT * FROM '.$db->prefix.'groups WHERE g_id='.$base_group) or error('Unable to fetch user group info', __FILE__, __LINE__, $db->error());
-		$group = $db->fetch_assoc($result);
+		$result = $db->query('SELECT * FROM '.$db_prefix.'groups WHERE g_id='.$base_group) or error('Unable to fetch user group info', __FILE__, __LINE__, $db->error());
+		$group = $result->fetchRow(MDB2_FETCHMODE_ASSOC);
 
 		$mode = 'add';
 	}
@@ -53,11 +53,11 @@ if (isset($_POST['add_group']) || isset($_GET['edit_group']))
 		if ($group_id < 1)
 			message($lang_common['Bad request']);
 
-		$result = $db->query('SELECT * FROM '.$db->prefix.'groups WHERE g_id='.$group_id) or error('Unable to fetch user group info', __FILE__, __LINE__, $db->error());
-		if (!$db->num_rows($result))
+		$result = $db->query('SELECT * FROM '.$db_prefix.'groups WHERE g_id='.$group_id) or error('Unable to fetch user group info', __FILE__, __LINE__, $db->error());
+		if (!$result->numRows($result))
 			message($lang_common['Bad request']);
 
-		$group = $db->fetch_assoc($result);
+		$group = $result->fetchRow(MDB2_FETCHMODE_ASSOC);
 
 		$mode = 'edit';
 	}
@@ -229,25 +229,25 @@ else if (isset($_POST['add_edit_group']))
 
 	if ($_POST['mode'] == 'add')
 	{
-		$result = $db->query('SELECT 1 FROM '.$db->prefix.'groups WHERE g_title=\''.$db->escape($title).'\'') or error('Unable to check group title collision', __FILE__, __LINE__, $db->error());
-		if ($db->num_rows($result))
+		$result = $db->query('SELECT 1 FROM '.$db_prefix.'groups WHERE g_title=\''.$db->escape($title).'\'') or error('Unable to check group title collision', __FILE__, __LINE__, $db->error());
+		if ($result->numRows($result))
 			message('There is already a group with the title \''.pun_htmlspecialchars($title).'\'.');
 
-		$db->query('INSERT INTO '.$db->prefix.'groups (g_title, g_user_title, g_read_board, g_post_replies, g_post_topics, g_edit_posts, g_delete_posts, g_delete_topics, g_set_title, g_search, g_search_users, g_edit_subjects_interval, g_post_flood, g_search_flood) VALUES(\''.$db->escape($title).'\', '.$user_title.', '.$read_board.', '.$post_replies.', '.$post_topics.', '.$edit_posts.', '.$delete_posts.', '.$delete_topics.', '.$set_title.', '.$search.', '.$search_users.', '.$edit_subjects_interval.', '.$post_flood.', '.$search_flood.')') or error('Unable to add group', __FILE__, __LINE__, $db->error());
+		$db->query('INSERT INTO '.$db_prefix.'groups (g_title, g_user_title, g_read_board, g_post_replies, g_post_topics, g_edit_posts, g_delete_posts, g_delete_topics, g_set_title, g_search, g_search_users, g_edit_subjects_interval, g_post_flood, g_search_flood) VALUES(\''.$db->escape($title).'\', '.$user_title.', '.$read_board.', '.$post_replies.', '.$post_topics.', '.$edit_posts.', '.$delete_posts.', '.$delete_topics.', '.$set_title.', '.$search.', '.$search_users.', '.$edit_subjects_interval.', '.$post_flood.', '.$search_flood.')') or error('Unable to add group', __FILE__, __LINE__, $db->error());
 		$new_group_id = $db->insert_id();
 
 		// Now lets copy the forum specific permissions from the group which this group is based on
-		$result = $db->query('SELECT forum_id, read_forum, post_replies, post_topics FROM '.$db->prefix.'forum_perms WHERE group_id='.intval($_POST['base_group'])) or error('Unable to fetch group forum permission list', __FILE__, __LINE__, $db->error());
-		while ($cur_forum_perm = $db->fetch_assoc($result))
-			$db->query('INSERT INTO '.$db->prefix.'forum_perms (group_id, forum_id, read_forum, post_replies, post_topics) VALUES('.$new_group_id.', '.$cur_forum_perm['forum_id'].', '.$cur_forum_perm['read_forum'].', '.$cur_forum_perm['post_replies'].', '.$cur_forum_perm['post_topics'].')') or error('Unable to insert group forum permissions', __FILE__, __LINE__, $db->error());
+		$result = $db->query('SELECT forum_id, read_forum, post_replies, post_topics FROM '.$db_prefix.'forum_perms WHERE group_id='.intval($_POST['base_group'])) or error('Unable to fetch group forum permission list', __FILE__, __LINE__, $db->error());
+		while ($cur_forum_perm = $result->fetchRow(MDB2_FETCHMODE_ASSOC))
+			$db->query('INSERT INTO '.$db_prefix.'forum_perms (group_id, forum_id, read_forum, post_replies, post_topics) VALUES('.$new_group_id.', '.$cur_forum_perm['forum_id'].', '.$cur_forum_perm['read_forum'].', '.$cur_forum_perm['post_replies'].', '.$cur_forum_perm['post_topics'].')') or error('Unable to insert group forum permissions', __FILE__, __LINE__, $db->error());
 	}
 	else
 	{
-		$result = $db->query('SELECT 1 FROM '.$db->prefix.'groups WHERE g_title=\''.$db->escape($title).'\' AND g_id!='.intval($_POST['group_id'])) or error('Unable to check group title collision', __FILE__, __LINE__, $db->error());
-		if ($db->num_rows($result))
+		$result = $db->query('SELECT 1 FROM '.$db_prefix.'groups WHERE g_title=\''.$db->escape($title).'\' AND g_id!='.intval($_POST['group_id'])) or error('Unable to check group title collision', __FILE__, __LINE__, $db->error());
+		if ($result->numRows($result))
 			message('There is already a group with the title \''.pun_htmlspecialchars($title).'\'.');
 
-		$db->query('UPDATE '.$db->prefix.'groups SET g_title=\''.$db->escape($title).'\', g_user_title='.$user_title.', g_read_board='.$read_board.', g_post_replies='.$post_replies.', g_post_topics='.$post_topics.', g_edit_posts='.$edit_posts.', g_delete_posts='.$delete_posts.', g_delete_topics='.$delete_topics.', g_set_title='.$set_title.', g_search='.$search.', g_search_users='.$search_users.', g_edit_subjects_interval='.$edit_subjects_interval.', g_post_flood='.$post_flood.', g_search_flood='.$search_flood.' WHERE g_id='.intval($_POST['group_id'])) or error('Unable to update group', __FILE__, __LINE__, $db->error());
+		$db->query('UPDATE '.$db_prefix.'groups SET g_title=\''.$db->escape($title).'\', g_user_title='.$user_title.', g_read_board='.$read_board.', g_post_replies='.$post_replies.', g_post_topics='.$post_topics.', g_edit_posts='.$edit_posts.', g_delete_posts='.$delete_posts.', g_delete_topics='.$delete_topics.', g_set_title='.$set_title.', g_search='.$search.', g_search_users='.$search_users.', g_edit_subjects_interval='.$edit_subjects_interval.', g_post_flood='.$post_flood.', g_search_flood='.$search_flood.' WHERE g_id='.intval($_POST['group_id'])) or error('Unable to update group', __FILE__, __LINE__, $db->error());
 	}
 
 	// Regenerate the quickjump cache
@@ -267,7 +267,7 @@ else if (isset($_POST['set_default_group']))
 	if ($group_id < 4)
 		message($lang_common['Bad request']);
 
-	$db->query('UPDATE '.$db->prefix.'config SET conf_value='.$group_id.' WHERE conf_name=\'o_default_user_group\'') or error('Unable to update board config', __FILE__, __LINE__, $db->error());
+	$db->query('UPDATE '.$db_prefix.'config SET conf_value='.$group_id.' WHERE conf_name=\'o_default_user_group\'') or error('Unable to update board config', __FILE__, __LINE__, $db->error());
 
 	// Regenerate the config cache
 	require_once PUN_ROOT.'include/cache.php';
@@ -292,20 +292,20 @@ else if (isset($_GET['del_group']))
 
 
 	// Check if this group has any members
-	$result = $db->query('SELECT g.g_title, COUNT(u.id) FROM '.$db->prefix.'groups AS g INNER JOIN '.$db->prefix.'users AS u ON g.g_id=u.group_id WHERE g.g_id='.$group_id.' GROUP BY g.g_id, g_title') or error('Unable to fetch group info', __FILE__, __LINE__, $db->error());
+	$result = $db->query('SELECT g.g_title, COUNT(u.id) FROM '.$db_prefix.'groups AS g INNER JOIN '.$db_prefix.'users AS u ON g.g_id=u.group_id WHERE g.g_id='.$group_id.' GROUP BY g.g_id, g_title') or error('Unable to fetch group info', __FILE__, __LINE__, $db->error());
 
 	// If the group doesn't have any members or if we've already selected a group to move the members to
-	if (!$db->num_rows($result) || isset($_POST['del_group']))
+	if (!$result->numRows($result) || isset($_POST['del_group']))
 	{
 		if (isset($_POST['del_group']))
 		{
 			$move_to_group = intval($_POST['move_to_group']);
-			$db->query('UPDATE '.$db->prefix.'users SET group_id='.$move_to_group.' WHERE group_id='.$group_id) or error('Unable to move users into group', __FILE__, __LINE__, $db->error());
+			$db->query('UPDATE '.$db_prefix.'users SET group_id='.$move_to_group.' WHERE group_id='.$group_id) or error('Unable to move users into group', __FILE__, __LINE__, $db->error());
 		}
 
 		// Delete the group and any forum specific permissions
-		$db->query('DELETE FROM '.$db->prefix.'groups WHERE g_id='.$group_id) or error('Unable to delete group', __FILE__, __LINE__, $db->error());
-		$db->query('DELETE FROM '.$db->prefix.'forum_perms WHERE group_id='.$group_id) or error('Unable to delete group forum permissions', __FILE__, __LINE__, $db->error());
+		$db->query('DELETE FROM '.$db_prefix.'groups WHERE g_id='.$group_id) or error('Unable to delete group', __FILE__, __LINE__, $db->error());
+		$db->query('DELETE FROM '.$db_prefix.'forum_perms WHERE group_id='.$group_id) or error('Unable to delete group forum permissions', __FILE__, __LINE__, $db->error());
 
 		// Regenerate the quickjump cache
 		require_once PUN_ROOT.'include/cache.php';
@@ -315,7 +315,7 @@ else if (isset($_GET['del_group']))
 	}
 
 
-	list($group_title, $group_members) = $db->fetch_row($result);
+	list($group_title, $group_members) = $result->fetchRow(MDB2_FETCHMODE_ASSOC);
 
 	$page_title = pun_htmlspecialchars($pun_config['o_board_title']).' / Admin / User groups';
 	require PUN_ROOT.'header.php';
@@ -336,9 +336,9 @@ else if (isset($_GET['del_group']))
 							<select name="move_to_group">
 <?php
 
-	$result = $db->query('SELECT g_id, g_title FROM '.$db->prefix.'groups WHERE g_id!='.PUN_GUEST.' AND g_id!='.$group_id.' ORDER BY g_title') or error('Unable to fetch user group list', __FILE__, __LINE__, $db->error());
+	$result = $db->query('SELECT g_id, g_title FROM '.$db_prefix.'groups WHERE g_id!='.PUN_GUEST.' AND g_id!='.$group_id.' ORDER BY g_title') or error('Unable to fetch user group list', __FILE__, __LINE__, $db->error());
 
-	while ($cur_group = $db->fetch_assoc($result))
+	while ($cur_group = $result->fetchRow(MDB2_FETCHMODE_ASSOC))
 	{
 		if ($cur_group['g_id'] == PUN_MEMBER)	// Pre-select the pre-defined Members group
 			echo "\t\t\t\t\t\t\t\t\t\t".'<option value="'.$cur_group['g_id'].'" selected="selected">'.pun_htmlspecialchars($cur_group['g_title']).'</option>'."\n";
@@ -385,9 +385,9 @@ generate_admin_menu('groups');
 										<select id="base_group" name="base_group" tabindex="1">
 <?php
 
-$result = $db->query('SELECT g_id, g_title FROM '.$db->prefix.'groups WHERE g_id>'.PUN_GUEST.' ORDER BY g_title') or error('Unable to fetch user group list', __FILE__, __LINE__, $db->error());
+$result = $db->query('SELECT g_id, g_title FROM '.$db_prefix.'groups WHERE g_id>'.PUN_GUEST.' ORDER BY g_title') or error('Unable to fetch user group list', __FILE__, __LINE__, $db->error());
 
-while ($cur_group = $db->fetch_assoc($result))
+while ($cur_group = $result->fetchRow(MDB2_FETCHMODE_ASSOC))
 {
 	if ($cur_group['g_id'] == $pun_config['o_default_user_group'])
 		echo "\t\t\t\t\t\t\t\t\t\t\t".'<option value="'.$cur_group['g_id'].'" selected="selected">'.pun_htmlspecialchars($cur_group['g_title']).'</option>'."\n";
@@ -415,9 +415,9 @@ while ($cur_group = $db->fetch_assoc($result))
 										<select id="default_group" name="default_group" tabindex="3">
 <?php
 
-$result = $db->query('SELECT g_id, g_title FROM '.$db->prefix.'groups WHERE g_id>'.PUN_GUEST.' ORDER BY g_title') or error('Unable to fetch user group list', __FILE__, __LINE__, $db->error());
+$result = $db->query('SELECT g_id, g_title FROM '.$db_prefix.'groups WHERE g_id>'.PUN_GUEST.' ORDER BY g_title') or error('Unable to fetch user group list', __FILE__, __LINE__, $db->error());
 
-while ($cur_group = $db->fetch_assoc($result))
+while ($cur_group = $result->fetchRow(MDB2_FETCHMODE_ASSOC))
 {
 	if ($cur_group['g_id'] == $pun_config['o_default_user_group'])
 		echo "\t\t\t\t\t\t\t\t\t\t\t".'<option value="'.$cur_group['g_id'].'" selected="selected">'.pun_htmlspecialchars($cur_group['g_title']).'</option>'."\n";
@@ -448,9 +448,9 @@ while ($cur_group = $db->fetch_assoc($result))
 							<table cellspacing="0">
 <?php
 
-$result = $db->query('SELECT g_id, g_title FROM '.$db->prefix.'groups ORDER BY g_id') or error('Unable to fetch user group list', __FILE__, __LINE__, $db->error());
+$result = $db->query('SELECT g_id, g_title FROM '.$db_prefix.'groups ORDER BY g_id') or error('Unable to fetch user group list', __FILE__, __LINE__, $db->error());
 
-while ($cur_group = $db->fetch_assoc($result))
+while ($cur_group = $result->fetchRow(MDB2_FETCHMODE_ASSOC))
 	echo "\t\t\t\t\t\t\t\t".'<tr><th scope="row"><a href="admin_groups.php?edit_group='.$cur_group['g_id'].'">Edit</a>'.(($cur_group['g_id'] > PUN_MEMBER) ? ' - <a href="admin_groups.php?del_group='.$cur_group['g_id'].'">Remove</a>' : '').'</th><td>'.pun_htmlspecialchars($cur_group['g_title']).'</td></tr>'."\n";
 
 ?>

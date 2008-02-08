@@ -68,7 +68,7 @@ define('PUN_MEMBER', 4);
 require PUN_ROOT.'include/dblayer/common_db.php';
 
 // Start a transaction
-$db->start_transaction();
+//$db->start_transaction();
 
 // Load cached config
 @include CACHE_DIR.'/cache_config.php';

@@ -39,8 +39,9 @@ if(include('MDB2.php'))
     'capath'   => '/path/to/ca/dir',
     'cipher'   => 'AES', */
 );
-    $mdb2 =& MDB2::factory($dsn, $options);
+    $db =& MDB2::connect($dsn, $options);
 }
+
 
 //
 // Return current timestamp (with microseconds) as a float (used in dblayer)
@@ -56,6 +57,7 @@ if (defined('PUN_SHOW_QUERIES'))
 
 
 // Load the appropriate DB layer class
+/*
 switch ($db_type)
 {
 	case 'mysql':
@@ -78,7 +80,7 @@ switch ($db_type)
 		error('\''.$db_type.'\' is not a valid database type. Please check settings in config.php.', __FILE__, __LINE__);
 		break;
 }
-
+*/
 
 // Create the database adapter object (and open/connect to/select db)
-$db = new DBLayer($db_host, $db_username, $db_password, $db_name, $db_prefix, $p_connect);
+//$db = new DBLayer($db_host, $db_username, $db_password, $db_name, $db_prefix, $p_connect);

@@ -40,20 +40,22 @@ if (isset($_POST['form_sent']) && $action == 'in')
 	$form_username = trim($_POST['req_username']);
 	$form_password = trim($_POST['req_password']);
 
-	$username_sql = ($db_type == 'mysql' || $db_type == 'mysqli') ? 'username=\''.$db->escape($form_username).'\'' : 'LOWER(username)=LOWER(\''.$db->escape($form_username).'\')';
+	$username_sql = 'username=\''.$db->escape($form_username).'\'';
 
-	$result = $db->query('SELECT id, group_id, password, save_pass FROM '.$db->prefix.'users WHERE '.$username_sql) or error('Unable to fetch user info', __FILE__, __LINE__, $db->error());
-	list($user_id, $group_id, $db_password_hash, $save_pass) = $db->fetch_row($result);
+	$result = $db->query('SELECT id, group_id, password, save_pass FROM '.$db_prefix.'users WHERE '.$username_sql);
+    //print_r($result->fetchRow(MDB2_FETCHMODE_ASSOC));
+	list($user_id, $group_id, $db_password_hash, $save_pass) = $result->fetchRow();
 
 	$authorized = false;
-
 	if (!empty($db_password_hash))
 	{
 		$sha1_in_db = (strlen($db_password_hash) == 40) ? true : false;
 		$sha1_available = (function_exists('sha1') || function_exists('mhash')) ? true : false;
 
 		$form_password_hash = pun_hash($form_password);	// This could result in either an SHA-1 or an MD5 hash (depends on $sha1_available)
-
+        echo $form_password_hash."<br/>";
+        echo $db_password_hash;
+        
 		if ($sha1_in_db && $sha1_available && $db_password_hash == $form_password_hash)
 			$authorized = true;
 		else if (!$sha1_in_db && $db_password_hash == md5($form_password))
@@ -61,7 +63,7 @@ if (isset($_POST['form_sent']) && $action == 'in')
 			$authorized = true;
 
 			if ($sha1_available)	// There's an MD5 hash in the database, but SHA1 hashing is available, so we update the DB
-				$db->query('UPDATE '.$db->prefix.'users SET password=\''.$form_password_hash.'\' WHERE id='.$user_id) or error('Unable to update user password', __FILE__, __LINE__, $db->error());
+				$db->query('UPDATE '.$db_prefix.'users SET password=\''.$form_password_hash.'\' WHERE id='.$user_id) or error('Unable to update user password', __FILE__, __LINE__, $db->error());
 		}
 	}
 
@@ -70,10 +72,10 @@ if (isset($_POST['form_sent']) && $action == 'in')
 
 	// Update the status if this is the first time the user logged in
 	if ($group_id == PUN_UNVERIFIED)
-		$db->query('UPDATE '.$db->prefix.'users SET group_id='.$pun_config['o_default_user_group'].' WHERE id='.$user_id) or error('Unable to update user status', __FILE__, __LINE__, $db->error());
+		$db->query('UPDATE '.$db_prefix.'users SET group_id='.$pun_config['o_default_user_group'].' WHERE id='.$user_id) or error('Unable to update user status', __FILE__, __LINE__, $db->error());
 
 	// Remove this users guest entry from the online list
-	$db->query('DELETE FROM '.$db->prefix.'online WHERE ident=\''.$db->escape(get_remote_address()).'\'') or error('Unable to delete from online list', __FILE__, __LINE__, $db->error());
+	$db->query('DELETE FROM '.$db_prefix.'online WHERE ident=\''.$db->escape(get_remote_address()).'\'') or error('Unable to delete from online list', __FILE__, __LINE__, $db->error());
 
 	$expire = ($save_pass == '1') ? time() + 31536000 : 0;
 	pun_setcookie($user_id, $form_password_hash, $expire);
@@ -91,11 +93,11 @@ else if ($action == 'out')
 	}
 
 	// Remove user from "users online" list.
-	$db->query('DELETE FROM '.$db->prefix.'online WHERE user_id='.$pun_user['id']) or error('Unable to delete from online list', __FILE__, __LINE__, $db->error());
+	$db->query('DELETE FROM '.$db_prefix.'online WHERE user_id='.$pun_user['id']) or error('Unable to delete from online list', __FILE__, __LINE__, $db->error());
 
 	// Update last_visit (make sure there's something to update it with)
 	if (isset($pun_user['logged']))
-		$db->query('UPDATE '.$db->prefix.'users SET last_visit='.$pun_user['logged'].' WHERE id='.$pun_user['id']) or error('Unable to update user visit data', __FILE__, __LINE__, $db->error());
+		$db->query('UPDATE '.$db_prefix.'users SET last_visit='.$pun_user['logged'].' WHERE id='.$pun_user['id']) or error('Unable to update user visit data', __FILE__, __LINE__, $db->error());
 
 	pun_setcookie(1, random_pass(8), time() + 31536000);
 
@@ -117,9 +119,9 @@ else if ($action == 'forget' || $action == 'forget_2')
 		if (!is_valid_email($email))
 			message($lang_common['Invalid e-mail']);
 
-		$result = $db->query('SELECT id, username FROM '.$db->prefix.'users WHERE email=\''.$db->escape($email).'\'') or error('Unable to fetch user info', __FILE__, __LINE__, $db->error());
+		$result = $db->query('SELECT id, username FROM '.$db_prefix.'users WHERE email=\''.$db->escape($email).'\'') or error('Unable to fetch user info', __FILE__, __LINE__, $db->error());
 
-		if ($db->num_rows($result))
+		if ($result->numRows($result))
 		{
 			// Load the "activate password" template
 			$mail_tpl = trim(file_get_contents(PUN_ROOT.'lang/'.$pun_user['language'].'/mail_templates/activate_password.tpl'));
@@ -134,13 +136,13 @@ else if ($action == 'forget' || $action == 'forget_2')
 			$mail_message = str_replace('<board_mailer>', $pun_config['o_board_title'].' '.$lang_common['Mailer'], $mail_message);
 
 			// Loop through users we found
-			while ($cur_hit = $db->fetch_assoc($result))
+			while ($cur_hit = $result->fetchRow(MDB2_FETCHMODE_ASSOC))
 			{
 				// Generate a new password and a new password activation code
 				$new_password = random_pass(8);
 				$new_password_key = random_pass(8);
 
-				$db->query('UPDATE '.$db->prefix.'users SET activate_string=\''.pun_hash($new_password).'\', activate_key=\''.$new_password_key.'\' WHERE id='.$cur_hit['id']) or error('Unable to update activation data', __FILE__, __LINE__, $db->error());
+				$db->query('UPDATE '.$db_prefix.'users SET activate_string=\''.pun_hash($new_password).'\', activate_key=\''.$new_password_key.'\' WHERE id='.$cur_hit['id']) or error('Unable to update activation data', __FILE__, __LINE__, $db->error());
 
 				// Do the user specific replacements to the template
 				$cur_mail_message = str_replace('<username>', $cur_hit['username'], $mail_message);

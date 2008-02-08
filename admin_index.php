@@ -93,8 +93,8 @@ else
 
 
 // Get number of current visitors
-$result = $db->query('SELECT COUNT(user_id) FROM '.$db->prefix.'online WHERE idle=0') or error('Unable to fetch online count', __FILE__, __LINE__, $db->error());
-$num_online = $db->result($result);
+$result = $db->query('SELECT COUNT(user_id) FROM '.$db_prefix.'online WHERE idle=0') or error('Unable to fetch online count', __FILE__, __LINE__, $db->error());
+$num_online = $result->fetchRow(MDB2_FETCHMODE_ASSOC);
 
 
 // Get the database system version
@@ -106,7 +106,7 @@ switch ($db_type)
 
 	default:
 		$result = $db->query('SELECT VERSION()') or error('Unable to fetch version info', __FILE__, __LINE__, $db->error());
-		$db_version = $db->result($result);
+		$db_version = $result->fetchRow(MDB2_FETCHMODE_ASSOC);
 		break;
 }
 
@@ -120,7 +120,7 @@ if ($db_type == 'mysql' || $db_type == 'mysqli')
 	$result = $db->query('SHOW TABLE STATUS FROM `'.$db_name.'`') or error('Unable to fetch table status', __FILE__, __LINE__, $db->error());
 
 	$total_records = $total_size = 0;
-	while ($status = $db->fetch_assoc($result))
+	while ($status = $result->fetchRow(MDB2_FETCHMODE_ASSOC))
 	{
 		$total_records += $status['Rows'];
 		$total_size += $status['Data_length'] + $status['Index_length'];

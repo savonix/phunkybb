@@ -46,7 +46,7 @@ if (isset($_POST['add_word']))
 	if ($search_for == '' || $replace_with == '')
 		message('You must enter both a word to censor and text to replace it with.');
 
-	$db->query('INSERT INTO '.$db->prefix.'censoring (search_for, replace_with) VALUES (\''.$db->escape($search_for).'\', \''.$db->escape($replace_with).'\')') or error('Unable to add censor word', __FILE__, __LINE__, $db->error());
+	$db->query('INSERT INTO '.$db_prefix.'censoring (search_for, replace_with) VALUES (\''.$db->escape($search_for).'\', \''.$db->escape($replace_with).'\')') or error('Unable to add censor word', __FILE__, __LINE__, $db->error());
 
 	redirect('admin_censoring.php', 'Censor word added. Redirecting &hellip;');
 }
@@ -65,7 +65,7 @@ else if (isset($_POST['update']))
 	if ($search_for == '' || $replace_with == '')
 		message('You must enter both text to search for and text to replace with.');
 
-	$db->query('UPDATE '.$db->prefix.'censoring SET search_for=\''.$db->escape($search_for).'\', replace_with=\''.$db->escape($replace_with).'\' WHERE id='.$id) or error('Unable to update censor word', __FILE__, __LINE__, $db->error());
+	$db->query('UPDATE '.$db_prefix.'censoring SET search_for=\''.$db->escape($search_for).'\', replace_with=\''.$db->escape($replace_with).'\' WHERE id='.$id) or error('Unable to update censor word', __FILE__, __LINE__, $db->error());
 
 	redirect('admin_censoring.php', 'Censor word updated. Redirecting &hellip;');
 }
@@ -78,7 +78,7 @@ else if (isset($_POST['remove']))
 
 	$id = intval(key($_POST['remove']));
 
-	$db->query('DELETE FROM '.$db->prefix.'censoring WHERE id='.$id) or error('Unable to delete censor word', __FILE__, __LINE__, $db->error());
+	$db->query('DELETE FROM '.$db_prefix.'censoring WHERE id='.$id) or error('Unable to delete censor word', __FILE__, __LINE__, $db->error());
 
 	redirect('admin_censoring.php', 'Censor word removed. Redirecting &hellip;');
 }
@@ -125,8 +125,8 @@ generate_admin_menu('censoring');
 						<div class="infldset">
 <?php
 
-$result = $db->query('SELECT id, search_for, replace_with FROM '.$db->prefix.'censoring ORDER BY id') or error('Unable to fetch censor word list', __FILE__, __LINE__, $db->error());
-if ($db->num_rows($result))
+$result = $db->query('SELECT id, search_for, replace_with FROM '.$db_prefix.'censoring ORDER BY id') or error('Unable to fetch censor word list', __FILE__, __LINE__, $db->error());
+if ($result->numRows($result))
 {
 
 ?>
@@ -141,7 +141,7 @@ if ($db->num_rows($result))
 							<tbody>
 <?php
 
-	while ($cur_word = $db->fetch_assoc($result))
+	while ($cur_word = $result->fetchRow(MDB2_FETCHMODE_ASSOC))
 		echo "\t\t\t\t\t\t\t\t".'<tr><td><input type="text" name="search_for['.$cur_word['id'].']" value="'.pun_htmlspecialchars($cur_word['search_for']).'" size="24" maxlength="60" /></td><td><input type="text" name="replace_with['.$cur_word['id'].']" value="'.pun_htmlspecialchars($cur_word['replace_with']).'" size="24" maxlength="60" /></td><td><input type="submit" name="update['.$cur_word['id'].']" value="Update" />&nbsp;<input type="submit" name="remove['.$cur_word['id'].']" value="Remove" /></td></tr>'."\n";
 
 ?>

@@ -44,19 +44,19 @@ require PUN_ROOT.'lang/'.$pun_user['language'].'/topic.php';
 // If a post ID is specified we determine topic ID and page number so we can redirect to the correct message
 if ($pid)
 {
-	$result = $db->query('SELECT topic_id FROM '.$db->prefix.'posts WHERE id='.$pid) or error('Unable to fetch post info', __FILE__, __LINE__, $db->error());
-	if (!$db->num_rows($result))
+	$result = $db->query('SELECT topic_id FROM '.$db_prefix.'posts WHERE id='.$pid) or error('Unable to fetch post info', __FILE__, __LINE__, $db->error());
+	if (!$result->numRows($result))
 		message($lang_common['Bad request']);
 
-	$id = $db->result($result);
+	$id = $result->fetchRow(MDB2_FETCHMODE_ASSOC);
 
 	// Determine on what page the post is located (depending on $pun_user['disp_posts'])
-	$result = $db->query('SELECT id FROM '.$db->prefix.'posts WHERE topic_id='.$id.' ORDER BY posted') or error('Unable to fetch post info', __FILE__, __LINE__, $db->error());
-	$num_posts = $db->num_rows($result);
+	$result = $db->query('SELECT id FROM '.$db_prefix.'posts WHERE topic_id='.$id.' ORDER BY posted') or error('Unable to fetch post info', __FILE__, __LINE__, $db->error());
+	$num_posts = $result->numRows($result);
 
 	for ($i = 0; $i < $num_posts; ++$i)
 	{
-		$cur_id = $db->result($result, $i);
+		$cur_id = $result->fetchRow(MDB2_FETCHMODE_ASSOC);
 		if ($cur_id == $pid)
 			break;
 	}
@@ -68,8 +68,8 @@ if ($pid)
 // If action=new, we redirect to the first new post (if any)
 else if ($action == 'new' && !$pun_user['is_guest'])
 {
-	$result = $db->query('SELECT MIN(id) FROM '.$db->prefix.'posts WHERE topic_id='.$id.' AND posted>'.$pun_user['last_visit']) or error('Unable to fetch post info', __FILE__, __LINE__, $db->error());
-	$first_new_post_id = $db->result($result);
+	$result = $db->query('SELECT MIN(id) FROM '.$db_prefix.'posts WHERE topic_id='.$id.' AND posted>'.$pun_user['last_visit']) or error('Unable to fetch post info', __FILE__, __LINE__, $db->error());
+	$first_new_post_id = $result->fetchRow(MDB2_FETCHMODE_ASSOC);
 
 	if ($first_new_post_id)
 		header('Location: viewtopic.php?pid='.$first_new_post_id.'#p'.$first_new_post_id);
@@ -82,8 +82,8 @@ else if ($action == 'new' && !$pun_user['is_guest'])
 // If action=last, we redirect to the last post
 else if ($action == 'last')
 {
-	$result = $db->query('SELECT MAX(id) FROM '.$db->prefix.'posts WHERE topic_id='.$id) or error('Unable to fetch post info', __FILE__, __LINE__, $db->error());
-	$last_post_id = $db->result($result);
+	$result = $db->query('SELECT MAX(id) FROM '.$db_prefix.'posts WHERE topic_id='.$id) or error('Unable to fetch post info', __FILE__, __LINE__, $db->error());
+	$last_post_id = $result->fetchRow(MDB2_FETCHMODE_ASSOC);
 
 	if ($last_post_id)
 	{
@@ -95,14 +95,14 @@ else if ($action == 'last')
 
 // Fetch some info about the topic
 if (!$pun_user['is_guest'])
-	$result = $db->query('SELECT t.subject, t.closed, t.num_replies, t.sticky, f.id AS forum_id, f.forum_name, f.moderators, fp.post_replies, s.user_id AS is_subscribed FROM '.$db->prefix.'topics AS t INNER JOIN '.$db->prefix.'forums AS f ON f.id=t.forum_id LEFT JOIN '.$db->prefix.'subscriptions AS s ON (t.id=s.topic_id AND s.user_id='.$pun_user['id'].') LEFT JOIN '.$db->prefix.'forum_perms AS fp ON (fp.forum_id=f.id AND fp.group_id='.$pun_user['g_id'].') WHERE (fp.read_forum IS NULL OR fp.read_forum=1) AND t.id='.$id.' AND t.moved_to IS NULL') or error('Unable to fetch topic info', __FILE__, __LINE__, $db->error());
+	$result = $db->query('SELECT t.subject, t.closed, t.num_replies, t.sticky, f.id AS forum_id, f.forum_name, f.moderators, fp.post_replies, s.user_id AS is_subscribed FROM '.$db_prefix.'topics AS t INNER JOIN '.$db_prefix.'forums AS f ON f.id=t.forum_id LEFT JOIN '.$db_prefix.'subscriptions AS s ON (t.id=s.topic_id AND s.user_id='.$pun_user['id'].') LEFT JOIN '.$db_prefix.'forum_perms AS fp ON (fp.forum_id=f.id AND fp.group_id='.$pun_user['g_id'].') WHERE (fp.read_forum IS NULL OR fp.read_forum=1) AND t.id='.$id.' AND t.moved_to IS NULL') or error('Unable to fetch topic info', __FILE__, __LINE__, $db->error());
 else
-	$result = $db->query('SELECT t.subject, t.closed, t.num_replies, t.sticky, f.id AS forum_id, f.forum_name, f.moderators, fp.post_replies, 0 FROM '.$db->prefix.'topics AS t INNER JOIN '.$db->prefix.'forums AS f ON f.id=t.forum_id LEFT JOIN '.$db->prefix.'forum_perms AS fp ON (fp.forum_id=f.id AND fp.group_id='.$pun_user['g_id'].') WHERE (fp.read_forum IS NULL OR fp.read_forum=1) AND t.id='.$id.' AND t.moved_to IS NULL') or error('Unable to fetch topic info', __FILE__, __LINE__, $db->error());
+	$result = $db->query('SELECT t.subject, t.closed, t.num_replies, t.sticky, f.id AS forum_id, f.forum_name, f.moderators, fp.post_replies, 0 FROM '.$db_prefix.'topics AS t INNER JOIN '.$db_prefix.'forums AS f ON f.id=t.forum_id LEFT JOIN '.$db_prefix.'forum_perms AS fp ON (fp.forum_id=f.id AND fp.group_id='.$pun_user['g_id'].') WHERE (fp.read_forum IS NULL OR fp.read_forum=1) AND t.id='.$id.' AND t.moved_to IS NULL') or error('Unable to fetch topic info', __FILE__, __LINE__, $db->error());
 
-if (!$db->num_rows($result))
+if (!$result->numRows($result))
 	message($lang_common['Bad request']);
 
-$cur_topic = $db->fetch_assoc($result);
+$cur_topic = $result->fetchRow(MDB2_FETCHMODE_ASSOC);
 
 // Sort out who the moderators are and if we are currently a moderator (or an admin)
 $mods_array = ($cur_topic['moderators'] != '') ? unserialize($cur_topic['moderators']) : array();
@@ -183,8 +183,8 @@ $bg_switch = true;	// Used for switching background color in posts
 $post_count = 0;	// Keep track of post numbers
 
 // Retrieve the posts (and their respective poster/online status)
-$result = $db->query('SELECT DISTINCT u.email, u.title, u.url, u.location, u.use_avatar, u.signature, u.email_setting, u.num_posts, u.registered, u.admin_note, p.id, p.poster AS username, p.poster_id, p.poster_ip, p.poster_email, p.message, p.hide_smilies, p.posted, p.edited, p.edited_by, g.g_id, g.g_user_title, o.user_id AS is_online FROM '.$db->prefix.'posts AS p INNER JOIN '.$db->prefix.'users AS u ON u.id=p.poster_id INNER JOIN '.$db->prefix.'groups AS g ON g.g_id=u.group_id LEFT JOIN '.$db->prefix.'online AS o ON (o.user_id=u.id AND o.user_id!=1 AND o.idle=0) WHERE p.topic_id='.$id.' ORDER BY p.id LIMIT '.$start_from.','.$pun_user['disp_posts'], true) or error('Unable to fetch post info', __FILE__, __LINE__, $db->error());
-while ($cur_post = $db->fetch_assoc($result))
+$result = $db->query('SELECT DISTINCT u.email, u.title, u.url, u.location, u.use_avatar, u.signature, u.email_setting, u.num_posts, u.registered, u.admin_note, p.id, p.poster AS username, p.poster_id, p.poster_ip, p.poster_email, p.message, p.hide_smilies, p.posted, p.edited, p.edited_by, g.g_id, g.g_user_title, o.user_id AS is_online FROM '.$db_prefix.'posts AS p INNER JOIN '.$db_prefix.'users AS u ON u.id=p.poster_id INNER JOIN '.$db_prefix.'groups AS g ON g.g_id=u.group_id LEFT JOIN '.$db_prefix.'online AS o ON (o.user_id=u.id AND o.user_id!=1 AND o.idle=0) WHERE p.topic_id='.$id.' ORDER BY p.id LIMIT '.$start_from.','.$pun_user['disp_posts'], true) or error('Unable to fetch post info', __FILE__, __LINE__, $db->error());
+while ($cur_post = $result->fetchRow(MDB2_FETCHMODE_ASSOC))
 {
 	$post_count++;
 	$user_avatar = '';
@@ -388,7 +388,7 @@ if ($quickpost)
 
 // Increment "num_views" for topic
 $low_prio = ($db_type == 'mysql') ? 'LOW_PRIORITY ' : '';
-$db->query('UPDATE '.$low_prio.$db->prefix.'topics SET num_views=num_views+1 WHERE id='.$id) or error('Unable to update topic', __FILE__, __LINE__, $db->error());
+$db->query('UPDATE '.$low_prio.$db_prefix.'topics SET num_views=num_views+1 WHERE id='.$id) or error('Unable to update topic', __FILE__, __LINE__, $db->error());
 
 $forum_id = $cur_topic['forum_id'];
 $footer_style = 'viewtopic';
