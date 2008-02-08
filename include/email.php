@@ -137,7 +137,13 @@ function server_parse($socket, $expected_response)
 // Here is where I'll add in a quick interface to PEAR/Net_SMTP
 //
 
-
+if(include('Net/SMTP.php'))
+{
+  
+    
+    
+    
+}
 
 
 
