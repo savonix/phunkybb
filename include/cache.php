@@ -30,13 +30,17 @@
 //
 function generate_config_cache()
 {
-	global $db;
+	global $db, $db_prefix;
 
 	// Get the forum config from the DB
-	$result = $db->query('SELECT * FROM '.$db_prefix.'config', true) or error('Unable to fetch forum config', __FILE__, __LINE__, $db->error());
-	while ($cur_config_item = $result->fetchRow(MDB2_FETCHMODE_ASSOC))
+	$result = $db->query('SELECT * FROM '.$db_prefix.'config');
+	foreach ($result->fetchAll() as $cur_config_item)
+    {
 		$output[$cur_config_item[0]] = $cur_config_item[1];
-	
+    }
+    //echo "<pre>";
+	//print_r($output);
+    //exit;
     if(!is_dir(CACHE_DIR)) { 
         if(!mkdir(CACHE_DIR)) { 
         error('Unable to write configuration cache file to cache directory. Please make sure PHP has write access it.', __FILE__, __LINE__);
@@ -59,7 +63,7 @@ function generate_config_cache()
 //
 function generate_bans_cache()
 {
-	global $db;
+	global $db, $db_prefix;
 
 	// Get the ban list from the DB
 	$result = $db->query('SELECT * FROM '.$db_prefix.'bans', true) or error('Unable to fetch ban list', __FILE__, __LINE__, $db->error());
@@ -84,7 +88,7 @@ function generate_bans_cache()
 //
 function generate_ranks_cache()
 {
-	global $db;
+	global $db, $db_prefix;
 
 	// Get the rank list from the DB
 	$result = $db->query('SELECT * FROM '.$db_prefix.'ranks ORDER BY min_posts', true) or error('Unable to fetch rank list', __FILE__, __LINE__, $db->error());
