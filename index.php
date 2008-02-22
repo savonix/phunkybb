@@ -152,13 +152,13 @@ else
 
 // Collect some statistics from the database
 $result = $db->query('SELECT COUNT(id)-1 FROM '.$db_prefix.'users') or error('Unable to fetch total user count', __FILE__, __LINE__, $db->error());
-$stats['total_users'] = $result->fetchRow(MDB2_FETCHMODE_ASSOC);
+$stats['total_users'] = $result->fetchOne();
 
 $result = $db->query('SELECT id, username FROM '.$db_prefix.'users ORDER BY registered DESC LIMIT 1') or error('Unable to fetch newest registered user', __FILE__, __LINE__, $db->error());
 $stats['last_user'] = $result->fetchRow(MDB2_FETCHMODE_ASSOC);
 
 $result = $db->query('SELECT SUM(num_topics), SUM(num_posts) FROM '.$db_prefix.'forums') or error('Unable to fetch topic/post count', __FILE__, __LINE__, $db->error());
-list($stats['total_topics'], $stats['total_posts']) = $result->fetchRow(MDB2_FETCHMODE_ASSOC);
+list($stats['total_topics'], $stats['total_posts']) = $result->fetchRow();
 
 ?>
 <div id="brdstats" class="block">
