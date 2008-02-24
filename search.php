@@ -229,7 +229,6 @@ if (isset($_GET['action']) || isset($_GET['search_id']))
 							}
 
 							++$word_count;
-							$db->free_result($result);
 
 							break;
 						}
@@ -272,7 +271,6 @@ if (isset($_GET['action']) || isset($_GET['search_id']))
 					while ($row = $result->fetchRow(MDB2_FETCHMODE_ASSOC))
 						$author_results[] = $row[0];
 
-					$db->free_result($result);
 				}
 			}
 
@@ -301,7 +299,6 @@ if (isset($_GET['action']) || isset($_GET['search_id']))
 				while ($row = $result->fetchRow(MDB2_FETCHMODE_ASSOC))
 					$search_ids[] = $row[0];
 
-				$db->free_result($result);
 
 				$num_hits = count($search_ids);
 			}
@@ -313,7 +310,6 @@ if (isset($_GET['action']) || isset($_GET['search_id']))
 				while ($row = $result->fetchRow(MDB2_FETCHMODE_ASSOC))
 					$search_ids[] = $row[0];
 
-				$db->free_result($result);
 
 				$num_hits = count($search_ids);
 			}
@@ -379,7 +375,6 @@ if (isset($_GET['action']) || isset($_GET['search_id']))
 			while ($row = $result->fetchRow(MDB2_FETCHMODE_ASSOC))
 				$search_ids[] = $row[0];
 
-			//$db->free_result($result);
 
 			$show_as = 'topics';
 		}
@@ -481,7 +476,6 @@ if (isset($_GET['action']) || isset($_GET['search_id']))
 		while ($row = $result->fetchRow(MDB2_FETCHMODE_ASSOC))
 			$search_set[] = $row;
 
-		$db->free_result($result);
 
 		$page_title = pun_htmlspecialchars($pun_config['o_board_title']).' / '.$lang_search['Search results'];
 		require PUN_ROOT.'header.php';
