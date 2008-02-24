@@ -48,11 +48,11 @@ if ($pid)
 	if (!$result->numRows($result))
 		message($lang_common['Bad request']);
 
-	$id = $result->fetchRow(MDB2_FETCHMODE_ASSOC);
+	$id = $result->fetchOne();
 
 	// Determine on what page the post is located (depending on $pun_user['disp_posts'])
-	$result = $db->query('SELECT id FROM '.$db_prefix.'posts WHERE topic_id='.$id.' ORDER BY posted') or error('Unable to fetch post info', __FILE__, __LINE__, $db->error());
-	$num_posts = $result->numRows($result);
+	$result = $db->query('SELECT id FROM '.$db_prefix.'posts WHERE topic_id='.$id.' ORDER BY posted');
+	$num_posts = $result->numRows();
 
 	for ($i = 0; $i < $num_posts; ++$i)
 	{

@@ -178,7 +178,7 @@ if (isset($_POST['form_sent']))
 			{
 				// Insert the new post
 				$db->query('INSERT INTO '.$db_prefix.'posts (poster, poster_id, poster_ip, message, hide_smilies, posted, topic_id) VALUES(\''.$db->escape($username).'\', '.$pun_user['id'].', \''.get_remote_address().'\', \''.$db->escape($message).'\', \''.$hide_smilies.'\', '.$now.', '.$tid.')') or error('Unable to create post', __FILE__, __LINE__, $db->error());
-				//$new_pid = $db->insert_id();
+				$new_pid = $db->lastInsertID($db_prefix.'posts', 'id');
 
 				// To subscribe or not to subscribe, that ...
 				if ($pun_config['o_subscriptions'] == '1' && $subscribe)
@@ -193,7 +193,7 @@ if (isset($_POST['form_sent']))
 				// It's a guest. Insert the new post
 				$email_sql = ($pun_config['p_force_guest_email'] == '1' || $email != '') ? '\''.$email.'\'' : 'NULL';
 				$db->query('INSERT INTO '.$db_prefix.'posts (poster, poster_ip, poster_email, message, hide_smilies, posted, topic_id) VALUES(\''.$db->escape($username).'\', \''.get_remote_address().'\', '.$email_sql.', \''.$db->escape($message).'\', \''.$hide_smilies.'\', '.$now.', '.$tid.')') or error('Unable to create post', __FILE__, __LINE__, $db->error());
-				//$new_pid = $db->insert_id();
+				$new_pid = $db->lastInsertID($db_prefix.'posts', 'id');
 			}
 
 			// Count number of replies in the topic
@@ -322,7 +322,6 @@ if (isset($_POST['form_sent']))
 			$low_prio = ($db_type == 'mysql') ? 'LOW_PRIORITY ' : '';
 			$db->query('UPDATE '.$low_prio.$db_prefix.'users SET num_posts=num_posts+1, last_post='.$now.' WHERE id='.$pun_user['id']) or error('Unable to update user', __FILE__, __LINE__, $db->error());
 		}
-        // FIXME - This is broken
 		redirect('viewtopic.php?pid='.$new_pid.'#p'.$new_pid, $lang_post['Post redirect']);
 	}
 }
