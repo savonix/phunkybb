@@ -28,13 +28,12 @@ $punbb_version = '1.2.15';
 
 
 define('PUN_ROOT', './');
-//if (file_exists(PUN_ROOT.'config.php'))
 if (file_exists('/var/www/etc/punbb/config-'.strtolower($_SERVER['HTTP_HOST']).'.php'))
     exit('The file \'config.php\' already exists which would mean that PunBB is already installed. You should go <a href="index.php">here</a> instead.');
 
 
-// Make sure we are running at least PHP 4.1.0
-if (intval(str_replace('.', '', phpversion())) < 410)
+// Make sure we are running at least PHP 5.2.0
+if (intval(str_replace('.', '', phpversion())) < 520)
 	exit('You are running PHP version '.PHP_VERSION.'. PunBB requires at least PHP 4.1.0 to run properly. You must upgrade your PHP installation before you can continue.');
 
 // Disable error reporting for uninitialized variables
@@ -72,7 +71,7 @@ if (!isset($_POST['form_sent']))
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-<title>PunBB Installation</title>
+<title>PhunkyBB Installation</title>
 <link rel="stylesheet" type="text/css" href="style/Oxygen.css" />
 <script type="text/javascript">
 <!--
@@ -329,29 +328,6 @@ else
 		error('The administrator e-mail address you entered is invalid. Please go back and correct.');
 
 
-	// Load the appropriate DB layer class
-	switch ($db_type)
-	{
-		case 'mysql':
-			require PUN_ROOT.'include/dblayer/mysql.php';
-			break;
-
-		case 'mysqli':
-			require PUN_ROOT.'include/dblayer/mysqli.php';
-			break;
-
-		case 'pgsql':
-			require PUN_ROOT.'include/dblayer/pgsql.php';
-			break;
-
-		case 'sqlite':
-			require PUN_ROOT.'include/dblayer/sqlite.php';
-			break;
-
-		default:
-			error('\''.$db_type.'\' is not a valid database type.');
-	}
-
 	// Create the database object (and connect/select db)
 	$db = new DBLayer($db_host, $db_username, $db_password, $db_name, $db_prefix, false);
 
@@ -361,12 +337,7 @@ else
 	{
 		case 'mysql':
 		case 'mysqli':
-			break;
-
 		case 'pgsql':
-			// Make sure we are running at least PHP 4.3.0 (needed only for PostgreSQL)
-			if (version_compare(PHP_VERSION, '4.3.0', '<'))
-				error('You are running PHP version '.PHP_VERSION.'. PunBB requires at least PHP 4.3.0 to run properly when using PostgreSQL. You must upgrade your PHP installation or use a different database before you can continue.');
 			break;
 
 		case 'sqlite':
