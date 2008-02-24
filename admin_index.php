@@ -63,17 +63,6 @@ if ($action == 'check_upgrade')
 }
 
 
-// Show phpinfo() output
-else if ($action == 'phpinfo' && $pun_user['g_id'] == PUN_ADMIN)
-{
-	// Is phpinfo() a disabled function?
-	if (strpos(strtolower((string)@ini_get('disable_functions')), 'phpinfo') !== false)
-		message('The PHP function phpinfo() has been disabled on this server.');
-
-	phpinfo();
-	exit;
-}
-
 
 // Get the server load averages (if possible)
 if (@file_exists('/proc/loadavg') && is_readable('/proc/loadavg'))
@@ -94,7 +83,7 @@ else
 
 // Get number of current visitors
 $result = $db->query('SELECT COUNT(user_id) FROM '.$db_prefix.'online WHERE idle=0') or error('Unable to fetch online count', __FILE__, __LINE__, $db->error());
-$num_online = $result->fetchRow(MDB2_FETCHMODE_ASSOC);
+$num_online = $result->fetchOne();
 
 
 // Get the database system version
@@ -135,11 +124,9 @@ if ($db_type == 'mysql' || $db_type == 'mysqli')
 }
 
 
-// See if MMCache or PHPA is loaded
-if (function_exists('mmcache'))
-	$php_accelerator = '<a href="http://turck-mmcache.sourceforge.net/">Turck MMCache</a>';
-else if (isset($_PHPA))
-	$php_accelerator = '<a href="http://www.php-accelerator.co.uk/">ionCube PHP Accelerator</a>';
+// See if XCAche is loaded
+if (function_exists('xcache_get'))
+	$php_accelerator = '<a href="http://xcache.lighttpd.net/">XCache</a>';
 else
 	$php_accelerator = 'N/A';
 
@@ -173,10 +160,11 @@ generate_admin_menu('index');
 		<div id="adstats" class="box">
 			<div class="inbox">
 				<dl>
-					<dt>PunBB version</dt>
+					<dt>PhunkyBB version</dt>
 					<dd>
-						PunBB <?php echo $pun_config['o_cur_version'] ?> - <a href="admin_index.php?action=check_upgrade">Check for upgrade</a><br />
+						PhunkyBB <?php echo $pun_config['o_cur_version'] ?><br />
 						&copy; Copyright 2002, 2003, 2004, 2005 Rickard Andersson
+                        Changes post 2008 copyright Savonix Corporation, authored by Albert Lash. 
 					</dd>
 					<dt>Server load</dt>
 					<dd>
@@ -185,7 +173,7 @@ generate_admin_menu('index');
 <?php if ($pun_user['g_id'] == PUN_ADMIN): ?>					<dt>Environment</dt>
 					<dd>
 						Operating system: <?php echo PHP_OS ?><br />
-						PHP: <?php echo phpversion() ?> - <a href="admin_index.php?action=phpinfo">Show info</a><br />
+						PHP: <?php echo phpversion() ?><br />
 						Accelerator: <?php echo $php_accelerator."\n" ?>
 					</dd>
 					<dt>Database</dt>

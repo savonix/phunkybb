@@ -143,7 +143,7 @@ else if (isset($_POST['update']))	// Change position and name of the categories
 	$cat_order = $_POST['cat_order'];
 	$cat_name = $_POST['cat_name'];
 
-	$result = $db->query('SELECT id, disp_position FROM '.$db_prefix.'categories ORDER BY disp_position') or error('Unable to fetch category list', __FILE__, __LINE__, $db->error());
+	$result = $db->query('SELECT id FROM '.$db_prefix.'categories ORDER BY disp_position');
 	$num_cats = $result->numRows($result);
 
 	for ($i = 0; $i < $num_cats; ++$i)
@@ -154,9 +154,9 @@ else if (isset($_POST['update']))	// Change position and name of the categories
 		if (!@preg_match('#^\d+$#', $cat_order[$i]))
 			message('Position must be an integer value.');
 
-		list($cat_id, $position) = $result->fetchRow(MDB2_FETCHMODE_ASSOC);
+		$cat_id = $result->fetchOne();
 
-		$db->query('UPDATE '.$db_prefix.'categories SET cat_name=\''.$db->escape($cat_name[$i]).'\', disp_position='.$cat_order[$i].' WHERE id='.$cat_id) or error('Unable to update category', __FILE__, __LINE__, $db->error());
+		$db->query('UPDATE '.$db_prefix.'categories SET cat_name=\''.$db->escape($cat_name[$i]).'\', disp_position='.$cat_order[$i].' WHERE id='.$cat_id);
 	}
 
 	// Regenerate the quickjump cache
@@ -171,9 +171,7 @@ else if (isset($_POST['update']))	// Change position and name of the categories
 $result = $db->query('SELECT id, cat_name, disp_position FROM '.$db_prefix.'categories ORDER BY disp_position') or error('Unable to fetch category list', __FILE__, __LINE__, $db->error());
 $num_cats = $result->numRows($result);
 
-for ($i = 0; $i < $num_cats; ++$i)
-	$cat_list[] = $result->fetchRow(MDB2_FETCHMODE_ASSOC);
-
+$cat_list= $result->fetchAll(MDB2_FETCHMODE_ASSOC);
 
 $page_title = pun_htmlspecialchars($pun_config['o_board_title']).' / Admin / Categories';
 require PUN_ROOT.'header.php';
@@ -203,9 +201,9 @@ generate_admin_menu('categories');
 									<select name="cat_to_delete" tabindex="3">
 <?php
 
-	while (list(, list($cat_id, $cat_name, ,)) = @each($cat_list))
-		echo "\t\t\t\t\t\t\t\t\t\t".'<option value="'.$cat_id.'">'.pun_htmlspecialchars($cat_name).'</option>'."\n";
-
+foreach ($cat_list as $cat) { 
+		echo "\t\t\t\t\t\t\t\t\t\t".'<option value="'.$cat['id'].'">'.pun_htmlspecialchars($cat['cat_name']).'</option>'."\n";
+}
 ?>
 									</select>
 									<span>Select the name of the category you want to delete. You will be asked to confirm your choice of category for deletion before it is deleted.</span>
@@ -231,14 +229,15 @@ generate_admin_menu('categories');
 <?php
 
 	@reset($cat_list);
-	for ($i = 0; $i < $num_cats; ++$i)
-	{
-		list(, list($cat_id, $cat_name, $position)) = @each($cat_list);
-
+    $i=0;
+	foreach ($cat_list as $cat)
+	{    
+        
 ?>
-							<tr><td><input type="text" name="cat_name[<?php echo $i ?>]" value="<?php echo pun_htmlspecialchars($cat_name) ?>" size="35" maxlength="80" /></td><td><input type="text" name="cat_order[<?php echo $i ?>]" value="<?php echo $position ?>" size="3" maxlength="3" /></td><td>&nbsp;</td></tr>
+							<tr><td><input type="text" name="cat_name[<?php echo $i ?>]" value="<?php echo pun_htmlspecialchars($cat['cat_name']) ?>" size="35" maxlength="80" /></td><td><input type="text" name="cat_order[<?php echo $i ?>]" value="<?php echo $cat['disp_position'] ?>" size="3" maxlength="3" /></td><td>&nbsp;</td></tr>
 <?php
-
+        $i++;
+		
 	}
 
 ?>
