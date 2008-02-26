@@ -23,7 +23,7 @@
 ************************************************************************/
 
 
-define('PUN_ROOT', './');
+define('PUN_ROOT', '../');
 require PUN_ROOT.'include/common.php';
 
 if ($pun_user['g_read_board'] == '0')
