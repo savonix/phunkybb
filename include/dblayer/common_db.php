@@ -22,7 +22,6 @@
 
 ************************************************************************/
 
-// TODO - Replace this with MDB2
 
 if(include('MDB2.php')) 
 {
@@ -32,12 +31,6 @@ if(include('MDB2.php'))
     'password' => $db_password,
     'hostspec' => $db_host,
     'database' => $db_name,
-    /*
-    'key'      => 'client-key.pem',
-    'cert'     => 'client-cert.pem',
-    'ca'       => 'cacert.pem',
-    'capath'   => '/path/to/ca/dir',
-    'cipher'   => 'AES', */
 );
     $db =& MDB2::connect($dsn, $options);
 }
@@ -56,31 +49,3 @@ if (defined('PUN_SHOW_QUERIES'))
 }
 
 
-// Load the appropriate DB layer class
-/*
-switch ($db_type)
-{
-	case 'mysql':
-		require PUN_ROOT.'include/dblayer/mysql.php';
-		break;
-
-	case 'mysqli':
-		require PUN_ROOT.'include/dblayer/mysqli.php';
-		break;
-
-	case 'pgsql':
-		require PUN_ROOT.'include/dblayer/pgsql.php';
-		break;
-
-	case 'sqlite':
-		require PUN_ROOT.'include/dblayer/sqlite.php';
-		break;
-
-	default:
-		error('\''.$db_type.'\' is not a valid database type. Please check settings in config.php.', __FILE__, __LINE__);
-		break;
-}
-*/
-
-// Create the database adapter object (and open/connect to/select db)
-//$db = new DBLayer($db_host, $db_username, $db_password, $db_name, $db_prefix, $p_connect);
