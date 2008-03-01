@@ -1,0 +1,44 @@
+<!-- 
+Program: PhunkyBB             				
+Component: forums_get_all.xml								
+Copyright: Savonix Corporation
+Author: Albert L. Lash, IV                      
+License: Gnu Affero Public License version 3
+http://www.gnu.org/licenses 
+
+This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation; either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with this program; if not, see http://www.gnu.org/licenses
+or write to the Free Software Foundation,Inc., 51 Franklin Street,
+Fifth Floor, Boston, MA 02110-1301  USA
+-->
+<!DOCTYPE query SYSTEM "__default_table_names__.txt">
+<query name="forums_get_all">
+    <connection>phunkybb</connection>
+    <params>
+        <param name="//current_user_id" type="text" default="0"/>
+	</params>
+    <sql>
+        SELECT c.id AS cid, 
+        c.cat_name, f.id AS fid, f.forum_name, f.forum_desc, f.redirect_url, f.moderators, 
+        f.num_topics, f.num_posts, datetime(f.last_post,'unixepoch','localtime') as last_post, f.last_post_id, f.last_poster 
+        
+        FROM &prefix;categories AS c 
+        
+        INNER JOIN &prefix;forums AS f ON c.id=f.cat_id 
+        
+        LEFT JOIN &prefix;forum_perms AS fp ON (fp.forum_id=f.id AND fp.group_id=?) 
+        WHERE fp.read_forum IS NULL OR fp.read_forum=1 
+        
+        ORDER BY c.disp_position, c.id, f.disp_position
+    </sql>
+</query>
