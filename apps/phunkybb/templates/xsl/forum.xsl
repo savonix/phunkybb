@@ -28,8 +28,9 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <div class="linkst">
 	<div class="inbox">
 		<p class="pagelink conl">Pages: <strong>1</strong></p>
+        <xsl:if test="//runtime/username">
 		<p class="postlink conr"><a href="{//link_prefix}post&amp;fid={//_get/fid}">Post new topic</a></p>
-
+        </xsl:if>
 		<ul><li><a href="{//link_prefix}index">Index</a>&#160;</li><li> - &#160;<xsl:value-of select="//forum_get_by_id/forum_name"/></li></ul>
 		<div class="clearer"></div>
 	</div>
@@ -76,8 +77,9 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <div class="linkst">
 	<div class="inbox">
 		<p class="pagelink conl">Pages: <strong>1</strong></p>
+        <xsl:if test="//runtime/username">
 		<p class="postlink conr"><a href="{//link_prefix}post&amp;fid={//_get/fid}">Post new topic</a></p>
-
+        </xsl:if>
 		<ul><li><a href="{//link_prefix}index">Index</a>&#160;</li><li> - &#160;<xsl:value-of select="//forum_get_by_id/forum_name"/></li></ul>
 		<div class="clearer"></div>
 	</div>

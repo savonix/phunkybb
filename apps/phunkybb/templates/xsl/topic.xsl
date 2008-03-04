@@ -68,6 +68,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 </div>
 </xsl:for-each>
 
+<xsl:if test="//runtime/username">
 <div class="blockform">
 	<h2><span>Quick post</span></h2>
 	<div class="box">
@@ -93,5 +94,6 @@ Fifth Floor, Boston, MA 02110-1301  USA
 		</form>
 	</div>
 </div>
+</xsl:if>
 </xsl:template>
 </xsl:stylesheet>
