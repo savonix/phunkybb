@@ -27,7 +27,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <div class="blockform">
 <h2><span>Register</span></h2>
 <div class="box">
-    <form id="register" method="post" >
+    <form id="register" method="post" action="{//request_uri}&amp;view_flow=true">
         <div class="inform">
             <div class="forminfo">
                 <h3>Important information</h3>

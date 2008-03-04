@@ -20,6 +20,7 @@ $right_now = date('Y-m-d H:i:s');
 
 
 $runtime = array('host_name'=>$_SERVER['SERVER_NAME'],
+                'request_uri'=>$_SERVER['REQUEST_URI'],
                 'path_prefix'=>$path_prefix,
                 'link_prefix'=>$link_prefix,
                 'right_now'=>$right_now,

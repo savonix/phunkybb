@@ -12,9 +12,11 @@
     <map:gate name="register">
         <map:if name="//_post">
             <map:true>
+                <map:xml src="data/xml/emails.xml"/>
                 <map:plugin type="hash" params="sha1,//_post/password"/>
+<map:plugin type="detokenize" params="{//label[key='welcome_email']/value},//emails/email/token"/>
                 <map:action type="email" 
-                params="{//_post/email},support@savonix.com,Registration Info,Here is the goods.,smtp-iron.savonix.com"/>
+                params="{//_post/email},support@savonix.com,Reg Info,{//new_text},smtp-iron.savonix.com"/>
                 <map:query src="data/sql/user_register.xml"/>
                 <map:action type="redirect" params="{//link_prefix}registered"/>
             </map:true>

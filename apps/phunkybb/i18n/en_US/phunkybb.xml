@@ -85,6 +85,23 @@
             <key>reports</key>
             <value>Reports</value>
         </label>
+        <label>
+            <key>registration_info</key>
+            <value>Registration Information</value>
+        </label>
+        <label>
+            <key>welcome_email</key>
+            <value>Subject: Welcome to !
+
+Thank you for registering in the forums at @@forums_link@@. Your account details are:
+
+Username: @@username@@
+
+Login at @@login_link@@ to activate the account.
+
+--
+(Do not reply to this message)</value>
+        </label>
     </labels>
 <!-- 
 
