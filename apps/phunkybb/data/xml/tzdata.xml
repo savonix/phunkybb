@@ -1,0 +1,68 @@
+<!--
+Program: PhunkyBB
+Component: menu.xml
+Copyright: Savonix Corporation
+Author: Albert L. Lash, IV
+License: Gnu Affero Public License version 3
+http://www.gnu.org/licenses
+
+This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation; either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with this program; if not, see http://www.gnu.org/licenses
+or write to the Free Software Foundation,Inc., 51 Franklin Street,
+Fifth Floor, Boston, MA 02110-1301  USA
+-->
+<options>
+    <option value="-12">-12</option>
+    <option value="-11">-11</option>
+    <option value="-10">-10</option>
+    <option value="-9.5">-9.5</option>
+    
+    <option value="-9">-09</option>
+    <option value="-8.5">-8.5</option>
+    <option value="-8">-08 PST</option>
+    <option value="-7">-07 MST</option>
+    <option value="-6">-06 CST</option>
+    <option value="-5">-05 EST</option>
+    
+    <option value="-4">-04 AST</option>
+    <option value="-3.5">-3.5</option>
+    <option value="-3">-03 ADT</option>
+    <option value="-2">-02</option>
+    <option value="-1">-01</option>
+    <option value="0" selected="selected">00 GMT</option>
+    
+    <option value="1">+01 CET</option>
+    <option value="2">+02</option>
+    <option value="3">+03</option>
+    <option value="3.5">+03.5</option>
+    <option value="4">+04</option>
+    <option value="4.5">+04.5</option>
+    
+    <option value="5">+05</option>
+    <option value="5.5">+05.5</option>
+    <option value="6">+06</option>
+    <option value="6.5">+06.5</option>
+    <option value="7">+07</option>
+    <option value="8">+08</option>
+    
+    <option value="9">+09</option>
+    <option value="9.5">+09.5</option>
+    <option value="10">+10</option>
+    <option value="10.5">+10.5</option>
+    <option value="11">+11</option>
+    <option value="11.5">+11.5</option>
+    
+    <option value="12">+12</option>
+    <option value="13">+13</option>
+    <option value="14">+14</option>
+</options>

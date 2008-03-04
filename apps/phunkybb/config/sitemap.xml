@@ -4,7 +4,6 @@
         <map:xml src="data/xml/menu.xml"/>
         <map:query src="data/sql/config_get.xml"/>
         <map:xml src="i18n/en_US/phunkybb.xml"/>
-        <map:action type="header" params="Cache-Control,no-store"/>
     </map:prepend>
     
     
@@ -13,12 +12,19 @@
     <map:gate name="register">
         <map:if name="//_post">
             <map:true>
+                <map:plugin type="hash" params="sha1,//_post/password"/>
+                <map:action type="email" 
+                params="{//_post/email},support@savonix.com,Registration Info,Here is the goods.,smtp-iron.savonix.com"/>
                 <map:query src="data/sql/user_register.xml"/>
+                <map:action type="redirect" params="{//link_prefix}registered"/>
             </map:true>
             <map:false>
                 <map:xsl src="templates/xsl/register.xsl"/>
             </map:false>
         </map:if>
+    </map:gate>
+    <map:gate name="registered">
+        <map:xsl src="templates/xsl/registered.xsl"/>
     </map:gate>
     <map:gate name="login">
         <map:plugin type="hash" params="sha1,//_post/password"/>
@@ -140,7 +146,7 @@
         <map:query src="data/sql/forum_delete.xml"/>
     </map:gate>
     <map:gate name="users" role="phunky_admin">
-        <map:xsl src="templates/xsl/admin_users\.xsl"/>
+        <map:xsl src="templates/xsl/admin_users.xsl"/>
     </map:gate>
     <!--
     <map:gate name="groups" role="phunky_admin">
