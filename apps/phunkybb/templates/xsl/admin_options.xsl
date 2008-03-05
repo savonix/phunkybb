@@ -68,6 +68,9 @@ Fifth Floor, Boston, MA 02110-1301  USA
                                 <th scope="row">Server timezone</th>
                                 <td>
                                     <select name="form[server_timezone]">
+                                    <xsl:for-each select="//tzdata/option">
+                                        <option value="{@value}"><xsl:value-of select="."/></option>
+                                    </xsl:for-each>
                                     </select>
                                     <span>The timezone of the server where PunBB is installed.</span>
 

@@ -136,6 +136,7 @@
         <map:xsl src="templates/xsl/admin.xsl"/>
     </map:gate>
     <map:gate name="options" role="phunky_admin">
+        <map:xml src="data/xml/tzdata.xml"/>
         <map:xsl src="templates/xsl/admin_options.xsl"/>
     </map:gate>
     <map:gate name="categories" role="phunky_admin">
