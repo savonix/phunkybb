@@ -21,24 +21,44 @@ along with this program; if not, see http://www.gnu.org/licenses
 or write to the Free Software Foundation,Inc., 51 Franklin Street,
 Fifth Floor, Boston, MA 02110-1301  USA
 -->
-<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" >
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 <xsl:include href="main.xsl"/>
 <xsl:template name="content">
+<script language="javascript" src="{//path_prefix}s/js/jsval.js"></script>
+<script language="javascript">
+<![CDATA[
+    function initValidation()
+    {
+        var objForm = document.forms["register"];
+        objForm.username.required = 1;
+        objForm.username.minlength = 2;
+        objForm.username.maxlength = 25;
+        objForm.email.required = 1;
+        objForm.email.regexp = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+    }
+]]>
+</script>
 <div class="blockform">
 <h2><span>Register</span></h2>
 <div class="box">
-    <form id="register" method="post" action="{//request_uri}&amp;view_flow=true">
+    <form name="register" method="post" 
+        action="{//request_uri}&amp;view_flow=true"
+         onSubmit="return validateStandard(this);">
         <div class="inform">
             <div class="forminfo">
                 <h3>Important information</h3>
-                <p>Registration will grant you access to a number of features and capabilities otherwise unavailable. These functions include the ability to edit and delete posts, design your own signature that accompanies your posts and much more. If you have any questions regarding this forum you should ask an administrator.</p>
-                <p>Below is a form you must fill out in order to register. Once you are registered you should visit your profile and review the different settings you can change. The fields below only make up a small part of all the settings you can alter in your profile.</p>
+                <p>Registration will grant you access to a number of features and capabilities otherwise unavailable. 
+                These functions include the ability to edit and delete posts, design your own signature that accompanies 
+                your posts and much more. If you have any questions regarding this forum you should ask an administrator.</p>
+                <p>Below is a form you must fill out in order to register. Once you are registered you should visit your 
+                profile and review the different settings you can change. The fields below only make up a small part of 
+                all the settings you can alter in your profile.</p>
             </div>
             <fieldset>
                 <legend>Please enter a username between 2 and 25 characters long</legend>
                 <div class="infldset">
-                    <input type="hidden" name="form_sent" value="1" />
-                    <label><strong>Username</strong><br /><input type="text" name="username" size="25" maxlength="25" /><br /></label>
+                    <label><strong>Username</strong><br />
+                    <input type="text" name="username" size="25" maxlength="25" /><br /></label>
                 </div>
             </fieldset>
 
@@ -99,5 +119,8 @@ Fifth Floor, Boston, MA 02110-1301  USA
     </form>
 </div>
 </div>
+<script language="javascript">
+    initValidation();
+</script>
 </xsl:template>
 </xsl:stylesheet>
