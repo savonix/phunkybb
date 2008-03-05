@@ -27,7 +27,7 @@
                     <map:plugin type="detokenize" 
                         params="{//label[key='welcome_email']/value},//emails/email/token"/>
                     <map:action type="email" 
-                        params="{//_post/email},support@savonix.com,Reg Info,{//new_text},smtp-iron.savonix.com"/>
+                        params="{//_post/email},{//board_config/o_webmaster_email},Reg Info,{//new_text},{//board_config/o_smtp_host}"/>
                     <map:query src="data/sql/user_register.xml"/>
                     <map:action type="redirect" params="{//link_prefix}registered"/>
                 </map:valid>
