@@ -155,7 +155,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 
                                 <th scope="row">Admin e-mail</th>
                                 <td>
-                                    <input type="text" name="form[admin_email]" size="50" maxlength="50" value="" />
+                                    <input type="text" name="form[admin_email]" size="50" maxlength="50" value="{//board_config/o_admin_email}" />
                                     <span>The e-mail address of the forum administrator.</span>
                                 </td>
                             </tr>
@@ -163,7 +163,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
                                 <th scope="row">Webmaster e-mail</th>
 
                                 <td>
-                                    <input type="text" name="form[webmaster_email]" size="50" maxlength="50" value="" />
+                                    <input type="text" name="form[webmaster_email]" size="50" maxlength="50" value="{//board_config/o_webmaster_email}" />
                                     <span>This is the address that all e-mails sent by the forum will be addressed from.</span>
                                 </td>
                             </tr>
@@ -171,7 +171,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
                                 <th scope="row">Subscriptions</th>
                                 <td>
 
-                                    <input type="radio" name="form[subscriptions]" value="" /><strong>No</strong>
+                                    <input type="radio" name="form[subscriptions]" value="{//board_config/o_subscriptions}" /><strong>No</strong>
                                     <span>Enable users to subscribe to topics (recieve e-mail when someone replies).</span>
                                 </td>
                             </tr>
@@ -179,14 +179,14 @@ Fifth Floor, Boston, MA 02110-1301  USA
                                 <th scope="row">SMTP server address</th>
                                 <td>
 
-                                    <input type="text" name="form[smtp_host]" size="30" maxlength="100" value="" />
+                                    <input type="text" name="form[smtp_host]" size="30" maxlength="100" value="{//board_config/o_smtp_host}" />
                                     <span>The address of an external SMTP server to send e-mails with. You can specify a custom port number if the SMTP server doesn't run on the default port 25 (example: mail.myhost.com:3580). Leave blank to use the local mail program.</span>
                                 </td>
                             </tr>
                             <tr>
                                 <th scope="row">SMTP username</th>
                                 <td>
-                                    <input type="text" name="form[smtp_user]" size="25" maxlength="50" value="" />
+                                    <input type="text" name="form[smtp_user]" size="25" maxlength="50" value="{//board_config/o_smtp_user}" />
 
                                     <span>Username for SMTP server. Only enter a username if it is required by the SMTP server (most servers <strong>do not</strong> require authentication).</span>
                                 </td>
@@ -195,7 +195,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
                                 <th scope="row">SMTP password</th>
                                 <td>
 
-                                    <input type="text" name="form[smtp_pass]" size="25" maxlength="50" value="" />
+                                    <input type="text" name="form[smtp_pass]" size="25" maxlength="50" value="{//board_config/o_smtp_host}" />
                                     <span>Password for SMTP server. Only enter a password if it is required by the SMTP server (most servers <strong>do not</strong> require authentication).</span>
                                 </td>
                             </tr>
