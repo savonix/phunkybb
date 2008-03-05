@@ -21,7 +21,7 @@ along with this program; if not, see http://www.gnu.org/licenses
 or write to the Free Software Foundation,Inc., 51 Franklin Street,
 Fifth Floor, Boston, MA 02110-1301  USA
 -->
-<options>
+<tzdata>
     <option value="-12">-12</option>
     <option value="-11">-11</option>
     <option value="-10">-10</option>
@@ -39,7 +39,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
     <option value="-3">-03 ADT</option>
     <option value="-2">-02</option>
     <option value="-1">-01</option>
-    <option value="0" selected="selected">00 GMT</option>
+    <option value="0">00 GMT</option>
     
     <option value="1">+01 CET</option>
     <option value="2">+02</option>
@@ -65,4 +65,4 @@ Fifth Floor, Boston, MA 02110-1301  USA
     <option value="12">+12</option>
     <option value="13">+13</option>
     <option value="14">+14</option>
-</options>
+</tzdata>

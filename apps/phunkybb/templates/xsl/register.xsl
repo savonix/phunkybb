@@ -41,9 +41,8 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <div class="blockform">
 <h2><span>Register</span></h2>
 <div class="box">
-    <form name="register" method="post" 
-        action="{//request_uri}&amp;view_flow=true"
-         onSubmit="return validateStandard(this);">
+    <form name="register" method="post"  onSubmit="return validateStandard(this);"
+        action="{//request_uri}&amp;view_flow=true">
         <div class="inform">
             <div class="forminfo">
                 <h3>Important information</h3>
@@ -58,10 +57,9 @@ Fifth Floor, Boston, MA 02110-1301  USA
                 <legend>Please enter a username between 2 and 25 characters long</legend>
                 <div class="infldset">
                     <label><strong>Username</strong><br />
-                    <input type="text" name="username" size="25" maxlength="25" /><br /></label>
+                    <input type="text" name="username" maxlength="25" value="{//_post/username}"/><br /></label>
                 </div>
             </fieldset>
-
         </div>
         <div class="inform">
             <fieldset>
@@ -79,22 +77,23 @@ Fifth Floor, Boston, MA 02110-1301  USA
                 <div class="infldset">
 
                 <label><strong>E-mail</strong><br />
-                    <input type="text" name="email" size="50" maxlength="50" /><br /></label>
+                    <input type="text" name="email" maxlength="50"  value="{//_post/email}"/><br /></label>
                 </div>
             </fieldset>
         </div>
         <div class="inform">
             <fieldset>
                 <legend>Set your localisation options</legend>
-
                 <div class="infldset">
-                    <label>Timezone: For the forum to display times correctly you must select your local timezone.						<br /><select id="time_zone" name="timezone">
-
+                    <label>Timezone: For the forum to display times correctly you must select your local timezone.<br />
+                    <select id="time_zone" name="timezone">
+                    <xsl:for-each select="//tzdata/option">
+                        <option value="{@value}"><xsl:value-of select="."/></option>
+                    </xsl:for-each>
                     </select>
                     <br /></label>
                 </div>
             </fieldset>
-
         </div>
         <div class="inform">
             <fieldset>
@@ -103,7 +102,6 @@ Fifth Floor, Boston, MA 02110-1301  USA
                     <p>Select whether you want your e-mail address to be viewable to other users or not and if you want other users to be able to send you e-mail via the forum (form e-mail) or not.</p>
                     <div class="rbox">
                         <label><input type="radio" name="email_setting" value="0" />Display your e-mail address.<br /></label>
-
                         <label><input type="radio" name="email_setting" value="1" checked="checked" />Hide your e-mail address but allow form e-mail.<br /></label>
                         <label><input type="radio" name="email_setting" value="2" />Hide your e-mail address and disallow form e-mail.<br /></label>
                     </div>
@@ -111,7 +109,6 @@ Fifth Floor, Boston, MA 02110-1301  USA
                     <div class="rbox">
                         <label><input type="checkbox" name="save_pass" value="1" checked="checked" />Save username and password between visits.<br /></label>
                     </div>
-
                 </div>
             </fieldset>
         </div>
