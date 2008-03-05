@@ -1,11 +1,13 @@
 <?php
 
 include('xdump/xdump.php');
-
-include('/dev/shm/phunkybb/cache/dev-2/cache_config.php');
+$config_cache = NX_PATH_COMPILE."config_cache.php";
+if(is_file($config_cache)){
+    include($config_cache);
+}
 //echo xDump::dump($_SESSION);
 
-Nexista_Flow::add("pun_config",$pun_config,false);
+//Nexista_Flow::add("board_config",$config,false);
 
 # This wacky path builder is required due to mod_rewrite situations
 $path = $_SERVER['REQUEST_URI'];

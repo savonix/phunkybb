@@ -22,8 +22,8 @@ doctype-system="http://www.w3.org/TR/html4/loose.dtd"/>
 <div id="brdheader" class="block">
 	<div class="box">
 		<div id="brdtitle" class="inbox">
-        <h1><span><xsl:value-of select="//pun_config/o_board_title"/></span></h1>
-		<p><span><xsl:value-of select="//pun_config/o_board_desc"/></span></p>
+        <h1><span><xsl:value-of select="//o_board_title"/></span></h1>
+		<p><span><xsl:value-of select="//o_board_desc"/></span></p>
 		</div>
 		<div id="brdmenu" class="inbox">
             <xsl:for-each select="//navlinks">
