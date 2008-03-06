@@ -24,6 +24,29 @@ if($_GET['nid']=="logout") {
     // Finally, destroy the session.
     session_destroy();
 }
+
+
+
+
+if(openssl_private_decrypt(
+        $encrypted_password,
+        &$cleartext_password,
+        $private_key))
+{
+    // success
+} 
+else
+{
+    //failure
+}
+
+
+
+
+
+
+
+
 $username = Nexista_Path::get('//user_login/username', 'flow');
 $user_id = Nexista_Path::get('//user_login/id', 'flow');
 $group_id = Nexista_Path::get('//user_login/group_id', 'flow');
