@@ -66,7 +66,7 @@ if(isset($_SESSION['NX_AUTH']['requestedUrl']) && (!$_SESSION['NX_AUTH']['reques
     $redirect = Nexista_Config::get("//build/default");
 }
 
-
-header("Location: $redirect");
+echo "hi";
+//header("Location: $redirect");
 
 ?>

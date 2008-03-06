@@ -57,12 +57,13 @@ function do_encrypt() {
     var res = rsa.encrypt(myform.password.value);
     var after = new Date();
 
-    $.post("<xsl:value-of select="//link_prefix"/>login",
+    $.post("<xsl:value-of select="//link_prefix"/>blah",
     {
         'username': myform.username.value, 
         'password': res
     }, 
     function (data){
+        alert( ($("menu",data).attr("id")));
     });
 }
 </script>
