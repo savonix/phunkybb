@@ -24,6 +24,12 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 <xsl:include href="main.xsl"/>
 <xsl:template name="content">
+<script type="text/javascript" src="{__ROOT__/runtime/path_prefix}/s/js/jquery-1.2.1.min.js"></script>
+<script type="text/javascript" src="{__ROOT__/runtime/path_prefix}/s/js/jsbn.js"></script>
+<script type="text/javascript" src="{__ROOT__/runtime/path_prefix}/s/js/rsa.js"></script>
+<script type="text/javascript" src="{__ROOT__/runtime/path_prefix}/s/js/prng4.js"></script>
+<script type="text/javascript" src="{__ROOT__/runtime/path_prefix}/s/js/rng.js"></script>
+<script type="text/javascript" src="{__ROOT__/runtime/path_prefix}/s/js/base64.js"></script>
 <script language="javascript" src="{//path_prefix}s/js/jsval.js"></script>
 <script language="javascript">
 <![CDATA[
@@ -38,10 +44,37 @@ Fifth Floor, Boston, MA 02110-1301  USA
     }
 ]]>
 </script>
+<script type="text/javascript">
+$(document).ready(function() 
+{
+    var myform = document.forms["mlogin"];
+    myform.id_rsa_pub.value="<xsl:value-of select="//defaults/modulus"/>";
+    myform.e.value="10001";
+});
+
+function do_encrypt() {
+    if(validateStandard(this))
+        {
+        var myform = document.forms["register"];
+        var rsa = new RSAKey();
+        rsa.setPublic(linebrk(myform.id_rsa_pub.value,64), myform.e.value);
+        var res = linebrk(hex2b64(rsa.encrypt(myform.password.value)),64);
+    
+        $.post("<xsl:value-of select="//link_prefix"/>register",
+        {
+            'username': myform.username.value, 
+            'password': res
+        }, 
+        function (data){
+            document.getElementById("replace").value = $("result",data).text();
+        });
+    }
+}
+</script>
 <div class="blockform">
 <h2><span>Register</span></h2>
 <div class="box">
-    <form name="register" method="post"  onSubmit="return validateStandard(this);"
+    <form name="register" method="post" onSubmit="do_encrypt()"
         action="{//request_uri}&amp;view_flow=true">
         <div class="inform">
             <div class="forminfo">
@@ -118,6 +151,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 </div>
 <script language="javascript">
     initValidation();
+    rng_seed_time();
 </script>
 </xsl:template>
 </xsl:stylesheet>
