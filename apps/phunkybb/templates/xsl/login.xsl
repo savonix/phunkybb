@@ -41,7 +41,7 @@ $(document).ready(function()
 function do_encrypt() {
     var myform = document.forms["mlogin"];
     var rsa = new RSAKey();
-    rsa.setPublic(linebrk("D7DB5721CCC3145540D99519330DBFF86A6E44BF9F0B58B7002CC19F6CB04EB52322C9503EB9F4AC084525D8DD7B4C19BEBBEA0C9F2FFB35DED07C90036CD72D",64), "10001");
+    rsa.setPublic(linebrk(myform.id_rsa_pub.value,64), myform.e.value);
     var res = linebrk(hex2b64(rsa.encrypt("test")),64);
 
     $.post("<xsl:value-of select="//link_prefix"/>blah",
@@ -60,8 +60,8 @@ function do_encrypt() {
 
 <div class="box">
 <form id="mlogin" name="mlogin" method="post" action="{//link_prefix}login&amp;view_flow=true" onSubmit="do_encrypt(); return false;">
-<input type="hidden" name="id_rsa_pub" value="D7DB5721CCC3145540D99519330DBFF86A6E44BF9F0B58B7002CC19F6CB04EB52322C9503EB9F4AC084525D8DD7B4C19BEBBEA0C9F2FFB35DED07C90036CD72D"/>
-<input type="hidden" name="e" value="10001"/>
+<input type="hidden" name="id_rsa_pub" value=""/>
+<input type="hidden" name="e" value=""/>
     <div class="inform">
         <fieldset>
             <legend>Enter your username and password below</legend>

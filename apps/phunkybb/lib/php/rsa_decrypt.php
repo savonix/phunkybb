@@ -1,5 +1,9 @@
 <?php
 
+// openssl genrsa -out key.pem
+// openssl rsa -in key.pem -noout -modulus
+// str_replace('Modulus=','',$modulus);
+
 $mpk = PROJECT_ROOT.'/key.pem';
 $pk = file_get_contents($mpk);
 $private_key = openssl_pkey_get_private($pk);
