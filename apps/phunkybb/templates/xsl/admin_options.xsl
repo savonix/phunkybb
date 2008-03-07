@@ -198,7 +198,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
                                 <th scope="row">SMTP password</th>
                                 <td>
 
-                                    <input type="text" name="form[o_smtp_pass]" size="25" maxlength="50" value="{//board_config/o_smtp_host}" />
+                                    <input type="text" name="form[o_smtp_pass]" size="25" maxlength="50" value="{//board_config/o_smtp_pass}" />
                                     <span>Password for SMTP server. Only enter a password if it is required by the SMTP server (most servers <strong>do not</strong> require authentication).</span>
                                 </td>
                             </tr>

@@ -80,6 +80,7 @@
     </map:gate>
     <map:gate name="logout">
         <map:script src="lib/php/logout.php"/>
+        <map:action type="redirect" params="{//link_prefix}"/>
     </map:gate>
     
     
