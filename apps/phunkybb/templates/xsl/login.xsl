@@ -29,33 +29,20 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <script type="text/javascript" src="{__ROOT__/runtime/path_prefix}/s/js/rsa.js"></script>
 <script type="text/javascript" src="{__ROOT__/runtime/path_prefix}/s/js/prng4.js"></script>
 <script type="text/javascript" src="{__ROOT__/runtime/path_prefix}/s/js/rng.js"></script>
+<script type="text/javascript" src="{__ROOT__/runtime/path_prefix}/s/js/base64.js"></script>
 <script type="text/javascript">
 $(document).ready(function() 
 {
     var myform = document.forms["mlogin"];
-    myform.id_rsa_pub.value="a5261939975948bb7a58dffe5ff54e65f0498f9175f5a09288810b8975871e99\naf3b5dd94057b0fc07535f5f97444504fa35169d461d0d30cf0192e307727c06\n5168c788771c561a9400fb49175e9e6aa4e23fe11af69e9412dd23b0cb6684c4\nc2429bce139e848ab26d0829073351f4acd36074eafd036a5eb83359d2a698d3";
+    myform.id_rsa_pub.value="D7DB5721CCC3145540D99519330DBFF86A6E44BF9F0B58B7002CC19F6CB04EB52322C9503EB9F4AC084525D8DD7B4C19BEBBEA0C9F2FFB35DED07C90036CD72D";
     myform.e.value="10001";
 });
-/*
-function do_encrypt() {
-  var before = new Date();
-  var rsa = new RSAKey();
-  rsa.setPublic(document.rsatest.n.value, document.rsatest.e.value);
-  var res = rsa.encrypt(document.rsatest.plaintext.value);
-  var after = new Date();
-  if(res) {
-    document.rsatest.ciphertext.value = linebrk(res, 64);
-    document.rsatest.cipherb64.value = linebrk(hex2b64(res), 64);
-    document.rsatest.status.value = "Time: " + (after - before) + "ms";
-  }
-}
-*/
+
 function do_encrypt() {
     var myform = document.forms["mlogin"];
     var rsa = new RSAKey();
-    rsa.setPublic(myform.id_rsa_pub.value, myform.e.value);
-    var res = rsa.encrypt(myform.password.value);
-    var after = new Date();
+    rsa.setPublic(linebrk("D7DB5721CCC3145540D99519330DBFF86A6E44BF9F0B58B7002CC19F6CB04EB52322C9503EB9F4AC084525D8DD7B4C19BEBBEA0C9F2FFB35DED07C90036CD72D",64), "10001");
+    var res = linebrk(hex2b64(rsa.encrypt("test")),64);
 
     $.post("<xsl:value-of select="//link_prefix"/>blah",
     {
@@ -63,18 +50,18 @@ function do_encrypt() {
         'password': res
     }, 
     function (data){
-        alert( ($("menu",data).attr("id")));
+        document.getElementById("replace").value = $("menu",data).text();
     });
 }
 </script>
-
+<textarea id="replace" rows="10" cols="80"></textarea>
 <div class="blockform">
 	<h2><span>Login</span></h2>
 
 <div class="box">
 <form id="mlogin" name="mlogin" method="post" action="{//link_prefix}login&amp;view_flow=true" onSubmit="do_encrypt(); return false;">
-<input type="hidden" name="id_rsa_pub" value=""/>
-<input type="hidden" name="e" value=""/>
+<input type="hidden" name="id_rsa_pub" value="D7DB5721CCC3145540D99519330DBFF86A6E44BF9F0B58B7002CC19F6CB04EB52322C9503EB9F4AC084525D8DD7B4C19BEBBEA0C9F2FFB35DED07C90036CD72D"/>
+<input type="hidden" name="e" value="10001"/>
     <div class="inform">
         <fieldset>
             <legend>Enter your username and password below</legend>
