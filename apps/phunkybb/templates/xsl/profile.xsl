@@ -39,7 +39,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 							<input type="hidden" name="form_sent" value="1" />
 							<input type="hidden" name="old_username" value="demo" />
                             <label><strong>Username</strong><br />
-                            <input type="text" name="req_username" value="{username}" size="25" maxlength="25" /><br />
+                            <input type="text" name="req_username" value="{//user_get_profile/username}" size="25" maxlength="25" /><br />
                             </label>
                         <p><a href="#">Change password</a></p>
 					</div>
@@ -50,7 +50,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 						<legend>Enter a valid e-mail address</legend>
 						<div class="infldset">
 
-							<label><strong>E-mail</strong><br /><input type="text" name="req_email" value="{email}" size="40" maxlength="50" /><br /></label><p><a href="misc.php?email=2">Send e-mail</a></p>
+							<label><strong>E-mail</strong><br /><input type="text" name="req_email" value="{//user_get_profile/email}" size="40" maxlength="50" /><br /></label><p><a href="misc.php?email=2">Send e-mail</a></p>
 						</div>
 					</fieldset>
 				</div>
@@ -76,7 +76,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 
 								<label>Posts<br /><input type="text" name="num_posts" value="22" size="8" maxlength="8" /><br /></label>
 							<label>Admin note<br />
-							<input id="admin_note" type="text" name="admin_note" value="{admin_note}" size="30" maxlength="30" /><br /></label>
+							<input id="admin_note" type="text" name="admin_note" value="{//user_get_profile/admin_note}" size="30" maxlength="30" /><br /></label>
 						</div>
 					</fieldset>
 				</div>
