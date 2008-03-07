@@ -26,9 +26,18 @@ Fifth Floor, Boston, MA 02110-1301  USA
     <connection>phunkybb</connection>
     <params>
         <param name="//runtime/username" type="text" default="0"/>
+        <param name="//_get/user_id" type="text" default="-1"/>
+        <param name="//_get/user_id" type="text" default="0"/>
+        <param name="//runtime/group_id" type="text" default="0"/>
 	</params>
     <sql>
         SELECT * FROM &prefix;users 
-        WHERE username=?
+        WHERE 
+        (username=?
+        AND ? &lt; 0)
+        OR 
+        (id=?
+        AND 
+        ?=1)
     </sql>
 </query>
