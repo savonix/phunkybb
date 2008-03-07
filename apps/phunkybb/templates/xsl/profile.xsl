@@ -59,9 +59,13 @@ Fifth Floor, Boston, MA 02110-1301  USA
 						<legend>Set your localisation options</legend>
 
 						<div class="infldset">
-							<label>Timezone: For the forum to display times correctly you must select your local timezone.							<br /><select name="form[timezone]">
-								<option value="-12">-12</option>
-							</select>
+							<label>Timezone: For the forum to display times correctly you must select your local timezone.
+                            <br />
+                    <select name="form[timezone]">
+                    <xsl:for-each select="//tzdata/option">
+                        <option value="{@value}"><xsl:value-of select="."/></option>
+                    </xsl:for-each>
+                    </select>
 							<br /></label>
 						</div>
 					</fieldset>
@@ -71,10 +75,10 @@ Fifth Floor, Boston, MA 02110-1301  USA
 					<fieldset>
 						<legend>User activity</legend>
 						<div class="infldset">
-							<p>Registered: <xsl:value-of select="registered"/> (<a href="moderate.php?get_host="></a>)</p>
-							<p>Last post: 2008-02-24 08:08:56</p>
+							<p>Registered: <xsl:value-of select="//user_get_profile/registered"/> (<a href="#"><xsl:value-of select="//user_get_profile/registration_ip"/></a>)</p>
+							<p>Last post: <xsl:value-of select="//user_get_profile/last_post"/></p>
 
-								<label>Posts<br /><input type="text" name="num_posts" value="22" size="8" maxlength="8" /><br /></label>
+								<label>Posts<br /><input type="text" name="num_posts" value="{//user_get_profile/num_posts}" size="8" maxlength="8" /><br /></label>
 							<label>Admin note<br />
 							<input id="admin_note" type="text" name="admin_note" value="{//user_get_profile/admin_note}" size="30" maxlength="30" /><br /></label>
 						</div>
