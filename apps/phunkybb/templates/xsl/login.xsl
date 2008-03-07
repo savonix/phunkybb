@@ -34,7 +34,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 $(document).ready(function() 
 {
     var myform = document.forms["mlogin"];
-    myform.id_rsa_pub.value="D7DB5721CCC3145540D99519330DBFF86A6E44BF9F0B58B7002CC19F6CB04EB52322C9503EB9F4AC084525D8DD7B4C19BEBBEA0C9F2FFB35DED07C90036CD72D";
+    myform.id_rsa_pub.value="<xsl:value-of select="//defaults/modulus"/>";
     myform.e.value="10001";
 });
 
@@ -42,15 +42,15 @@ function do_encrypt() {
     var myform = document.forms["mlogin"];
     var rsa = new RSAKey();
     rsa.setPublic(linebrk(myform.id_rsa_pub.value,64), myform.e.value);
-    var res = linebrk(hex2b64(rsa.encrypt("test")),64);
+    var res = linebrk(hex2b64(rsa.encrypt(myform.password.value)),64);
 
-    $.post("<xsl:value-of select="//link_prefix"/>blah",
+    $.post("<xsl:value-of select="//link_prefix"/>ajax-check",
     {
         'username': myform.username.value, 
         'password': res
     }, 
     function (data){
-        document.getElementById("replace").value = $("menu",data).text();
+        document.getElementById("replace").value = $("result",data).text();
     });
 }
 </script>

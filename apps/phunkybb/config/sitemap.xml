@@ -64,12 +64,22 @@
             </map:false>
         </map:if>
     </map:gate>
-    <map:gate name="blah" cache="0">
+    <map:gate name="ajax-check" cache="0">
         <map:action type="header" params="Content-Type,text/xml"/>
-        <map:script src="lib/php/json_response.php"/>
+        <map:script src="lib/php/rsa_decrypt.php"/>
+        <map:plugin type="hash" params="sha1,//cleartext"/>
+        <map:query src="data/sql/user_login.xml"/>
+        <map:if name="//user_login">
+            <map:true>
+                <map:script src="lib/php/sessions.php"/>
+            </map:true>
+            <map:false>
+                <map:script src="lib/php/fail.php"/>
+            </map:false>
+        </map:if>
     </map:gate>
     <map:gate name="logout">
-        <map:script src="lib/php/sessions.php"/>
+        <map:script src="lib/php/logout.php"/>
     </map:gate>
     
     

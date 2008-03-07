@@ -9,6 +9,9 @@ if(is_file($config_cache)){
 
 //Nexista_Flow::add("board_config",$config,false);
 
+$defaults = Nexista_Config::getSection("./defaults");
+Nexista_Flow::add("defaults",$defaults);
+
 # This wacky path builder is required due to mod_rewrite situations
 $path = $_SERVER['REQUEST_URI'];
 Nexista_Flow::add("request_uri",$path);

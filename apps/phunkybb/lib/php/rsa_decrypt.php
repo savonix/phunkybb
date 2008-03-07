@@ -17,24 +17,15 @@ $encrypted_password = Nexista_Path::get('{//_post/password}');
 
 $binary_pw = base64_decode($encrypted_password);
 
-openssl_private_decrypt($binary_pw,&$clear,$private_key);
-/*
-if(openssl_private_decrypt(
-        $encrypted_password,
-        &$cleartext_password,
-        $private_key))
+if(openssl_private_decrypt($binary_pw,&$clear,$private_key))
 {
     // success
-} 
+    Nexista_Flow::add("cleartext",$clear);
+}
 else
 {
-    //failure
+    // failure
+    echo '<result>Failure</result>';
+    exit;
 }
-*/
-//$cleartext_password = PROJECT_ROOT.'key.pem';
-?>
-<menu id="hi"><?php echo  $clear; ?>
-</menu>
-<?php
-exit;
 ?>

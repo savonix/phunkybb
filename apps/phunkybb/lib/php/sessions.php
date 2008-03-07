@@ -2,43 +2,7 @@
 
 
 
-if($_GET['nid']=="logout") { 
-    $auth = &new Nexista_Auth();
-    $auth->removeUser();
-    $auth->removeUser();
-    
-    unset($_SESSION['NX_AUTH']);
-    Nexista_Flow::delete("logged_in");
-    Nexista_Flow::add("logged_in", "false");
-    session_start();
-    
-    // Unset all of the session variables.
-    $_SESSION = array();
-    
-    // If it's desired to kill the session, also delete the session cookie.
-    // Note: This will destroy the session, and not just the session data!
-    if (isset($_COOKIE[session_name()])) {
-       setcookie(session_name(), '', time()-42000, '/');
-    }
-    
-    // Finally, destroy the session.
-    session_destroy();
-}
 
-
-
-
-if(openssl_private_decrypt(
-        $encrypted_password,
-        &$cleartext_password,
-        $private_key))
-{
-    // success
-} 
-else
-{
-    //failure
-}
 
 
 
@@ -89,7 +53,13 @@ if(isset($_SESSION['NX_AUTH']['requestedUrl']) && (!$_SESSION['NX_AUTH']['reques
     $redirect = Nexista_Config::get("//build/default");
 }
 
-echo "hi";
-//header("Location: $redirect");
-
+if($_GET['nid']=="ajax-check")
+{
+    echo '<result>Success</result>';
+    exit;
+}
+else 
+{
+    header("Location: $redirect");
+}
 ?>
