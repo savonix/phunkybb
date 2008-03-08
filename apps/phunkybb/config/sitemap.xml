@@ -206,6 +206,7 @@
         <map:query src="data/sql/forum_delete.xml"/>
     </map:gate>
     <map:gate name="users" role="phunky_admin">
+        <map:query src="data/sql/users_get_all.xml"/>
         <map:xsl src="templates/xsl/admin_users.xsl"/>
     </map:gate>
     <!--

@@ -24,14 +24,37 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" >
 <xsl:include href="main.xsl"/>
 <xsl:include href="admin_menu.xsl"/>
+<xsl:include href="pager.xsl"/>
 <xsl:template name="content">
+<xsl:call-template name="jquery-setup">
+    <xsl:with-param name="my-table">users_table</xsl:with-param>
+</xsl:call-template>
 
 <div id="adminconsole" class="block2col">
     <xsl:call-template name="admin-menu"/>
 	<div class="blockform">
-		<h2><span>Users</span></h2>
-		<div class="box">
+        <div style="min-height: 400px;">
+        <table class="tablesorter" id="users_table">
+            <thead>
+                <tr>
+                    <th>Users</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <xsl:for-each select="//users_get_all">
+                <tr>
+                    <td><xsl:value-of select="username"/></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                </xsl:for-each>
+            </tbody>
+        </table>
         </div>
+        <xsl:call-template name="pager"/>
+        <br/>
     </div>
 </div>
 </xsl:template>
