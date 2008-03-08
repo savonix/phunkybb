@@ -120,8 +120,9 @@
     <map:gate name="post">
         <map:if name="//_post">
             <map:true>
+                <map:plugin type="safehtml" params="//_post/message,clean_message"/>  
                 <map:query src="data/sql/post_create.xml"/>
-                <map:action type="redirect" params="{//link_prefix}topic&amp;id={//_post/topic_id}"/>
+                <map:action type="redirect" params="{//link_prefix}topic&amp;fid={//_post/forum_id}&amp;id={//_post/topic_id}"/>
             </map:true>
             <map:false>
                 <map:xsl src="templates/xsl/post.xsl"/>
@@ -141,8 +142,8 @@
             <!--
             <map:plugin type="striptags" params="{//_post/signature}"/>
             -->
-            <map:plugin type="bbcode" params="//_post/signature,unbb_text"/> 
-            <map:plugin type="safehtml" params="//unbb_text,html_text"/>  
+            <map:plugin type="bbcode" params="//_post/signature,unbb_text"/>
+            <map:plugin type="safehtml" params="//unbb_text,html_text"/>
             <map:query src="data/sql/user_update_profile.xml"/>
             <map:action type="redirect" params="{//link_prefix}personality"/>
         </map:true>

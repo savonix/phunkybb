@@ -32,21 +32,13 @@ Fifth Floor, Boston, MA 02110-1301  USA
 			<div class="inform">
 				<fieldset>
 					<legend>Write your message and submit</legend>
-
 					<div class="infldset txtarea">
 						<label><strong>Subject</strong><br />
                         <input class="longinput" type="text" name="subject" value="" size="80" maxlength="70" tabindex="1" /><br /></label>
 						<label><strong>Message</strong><br />
 						<textarea name="message" rows="20" cols="95" tabindex="2"></textarea><br /></label>
-						<ul class="bblinks">
-
-							<li><a href="help.php#bbcode" onclick="window.open(this.href); return false;">BBCode</a>: on</li>
-							<li><a href="help.php#img" onclick="window.open(this.href); return false;">[img] tag</a>: on</li>
-							<li><a href="help.php#smilies" onclick="window.open(this.href); return false;">Smilies</a>: on</li>
-						</ul>
 					</div>
 				</fieldset>
-
 			</div>
 			<div class="inform">
 				<fieldset>
@@ -55,7 +47,6 @@ Fifth Floor, Boston, MA 02110-1301  USA
 						<div class="rbox">
 							<label><input type="checkbox" name="hide_smilies" value="1" tabindex="3" />Never show smilies as icons for this post<br /></label>
 				<label><input type="checkbox" name="subscribe" value="1" tabindex="4" />Subscribe to this topic<br /></label>
-
 						</div>
 					</div>
 				</fieldset>
@@ -64,8 +55,5 @@ Fifth Floor, Boston, MA 02110-1301  USA
 		</form>
 	</div>
 </div>
-
-
-
 </xsl:template>
 </xsl:stylesheet>

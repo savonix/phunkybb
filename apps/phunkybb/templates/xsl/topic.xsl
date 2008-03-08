@@ -28,10 +28,10 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <div class="linkst">
 	<div class="inbox">
 		<p class="pagelink conl">Pages: <strong>1</strong></p>
-
 		<p class="postlink conr">&#160;</p>
-		<ul><li><a href="{//link_prefix}index">Index</a></li><li>&#160; - &#160; <a href="{//link_prefix}forum&amp;fid={//_get/fid}"><xsl:value-of select="//forum_get_by_id/forum_name"/></a>
-        <a href="{//link_prefix}forum&amp;id={//_get/id}"></a></li><li>&#160;&gt;&#160;testing 123</li></ul>
+		<ul><li><a href="{//link_prefix}index">Index</a></li><li>&#160; > &#160; 
+        <a href="{//link_prefix}forum&amp;fid={//_get/fid}"><xsl:value-of select="//forum_get_by_id/forum_name"/></a>
+        <a href="{//link_prefix}forum&amp;id={//_get/id}"></a></li><li>&#160;&gt;&#160;<xsl:value-of select="//topic_get_by_id/subject"/></li></ul>
 		<div class="clearer"></div>
 	</div>
 </div>
@@ -39,28 +39,30 @@ Fifth Floor, Boston, MA 02110-1301  USA
 
 <xsl:for-each select="//posts_get_by_topic_id">
 <div id="p6" class="blockpost roweven">
-	<h2><span><span class="conr">#<xsl:value-of select="id"/></span><a href="{//link_prefix}index"><xsl:value-of select="posted"/></a></span></h2>
+	<h2><span><span class="conr">#<xsl:value-of select="id"/></span>
+    <a href="#post{id}" name="post{id}"><xsl:value-of select="posted"/></a></span></h2>
 	<div class="box">
 		<div class="inbox">
 			<div class="postleft">
+            
 				<dl>
-					<dt><strong><a href="{//link_prefix}profile&amp;id={poster_id}">demo</a></strong></dt>
-					<dd class="usertitle"><strong>Administrator</strong></dd>
+					<dt><strong><a href="{//link_prefix}profile&amp;id={poster_id}">
+                    <xsl:value-of select="username"/></a></strong></dt>
+					<!--
+                    <dd class="usertitle"><strong>Administrator</strong></dd>
 
 					<dd class="postavatar"></dd>
-					<dd>Registered: 2008-02-07</dd>
-					<dd>Posts: 22</dd>
+					<dd>Registered: </dd>
+					<dd>Posts: 22</dd>-->
 				</dl>
 			</div>
 			<div class="postright">
-				<h3> Re: testing 123</h3>
 
 				<div class="postmsg">
 					<p><xsl:value-of select="message"/></p>
 				</div>
 			</div>
 			<div class="clearer"></div>
-			<div class="postfootleft"><p><strong>Online</strong></p></div>
 			<div class="postfootright"><div></div></div>
 		</div>
 
@@ -79,13 +81,8 @@ Fifth Floor, Boston, MA 02110-1301  USA
 					<legend>Write your message and submit</legend>
 					<div class="infldset txtarea">
 						<input type="hidden" name="topic_id" value="{//_get/id}" />
+						<input type="hidden" name="forum_id" value="{//_get/fid}" />
 						<label><textarea name="message" rows="7" cols="75" tabindex="1"></textarea></label>
-						<ul class="bblinks">
-							<li><a href="help.php#bbcode" onclick="window.open(this.href); return false;">BBCode</a>: on</li>
-
-							<li><a href="help.php#img" onclick="window.open(this.href); return false;">[img] tag</a>: on</li>
-							<li><a href="help.php#smilies" onclick="window.open(this.href); return false;">Smilies</a>: on</li>
-						</ul>
 					</div>
 				</fieldset>
 			</div>
