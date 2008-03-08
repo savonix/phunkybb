@@ -5,6 +5,15 @@ doctype-system="http://www.w3.org/TR/html4/loose.dtd"/>
 <html>
 <head>
 <link rel="stylesheet" type="text/css" href="s/style/Oxygen.css" />
+<title>
+    <xsl:value-of select="/__ROOT__/board_config/o_board_title"/>
+    <xsl:if test="//forum_get_by_id/forum_name">
+        : <xsl:value-of select="//forum_get_by_id/forum_name"/>
+    </xsl:if>
+        : <xsl:if test="//topic_get_by_id/subject">
+    <xsl:value-of select="//topic_get_by_id/subject"/>
+</xsl:if>
+</title>
 <xsl:for-each select="//in_head">
     <xsl:sort select="priority"/>
     <xsl:value-of select="string" disable-output-escaping="yes"/>

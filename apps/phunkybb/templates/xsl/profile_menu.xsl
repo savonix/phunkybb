@@ -32,15 +32,15 @@ Fifth Floor, Boston, MA 02110-1301  USA
                     <xsl:if test="//_get/user_id and //runtime/group_id=1">
 					<li><a href="{//link_prefix}profile&amp;user_id={//_get/user_id}">Essentials</a></li>
 					<li><a href="{//link_prefix}personality&amp;user_id={//_get/user_id}">Personality</a></li>
-					<li><a href="{//link_prefix}display&amp;user_id={//_get/user_id}">Display</a></li>
-					<li><a href="{//link_prefix}privacy&amp;user_id={//_get/user_id}">Privacy</a></li>
+					<!--<li><a href="{//link_prefix}display&amp;user_id={//_get/user_id}">Display</a></li>
+					<li><a href="{//link_prefix}privacy&amp;user_id={//_get/user_id}">Privacy</a></li>-->
 					<li><a href="{//link_prefix}user-admin&amp;user_id={//_get/user_id}">Administration</a></li>
                     </xsl:if>
                     <xsl:if test="not(//_get/user_id)">
 					<li><a href="{//link_prefix}profile">Essentials</a></li>
 					<li><a href="{//link_prefix}personality">Personality</a></li>
-					<li><a href="{//link_prefix}display">Display</a></li>
-					<li><a href="{//link_prefix}privacy">Privacy</a></li>
+					<!--<li><a href="{//link_prefix}display">Display</a></li>
+					<li><a href="{//link_prefix}privacy">Privacy</a></li>-->
                     <xsl:if test="//runtime/group_id=1">
 					<li><a href="{//link_prefix}user-admin">Administration</a></li>
                     </xsl:if>
