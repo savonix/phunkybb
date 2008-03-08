@@ -23,8 +23,19 @@ Fifth Floor, Boston, MA 02110-1301  USA
 -->
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" >
 <xsl:include href="main.xsl"/>
-
 <xsl:template name="content">
+<script src="/phunkybbweb/s/js/jquery-1.2.1.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+function delete_post(post_id) {
+    if(confirm('Are you sure?')){
+    $.post("<xsl:value-of select="//link_prefix"/>x-post-delete&amp;post_id="+post_id, {'post_id': post_id}, 
+    function (data){
+    });
+    myDiv = document.getElementById("p"+post_id);
+    myDiv.innerHTML = "";
+    }
+}
+</script>
 <div class="linkst">
 	<div class="inbox">
 		<p class="pagelink conl">Pages: <strong>1</strong></p>
@@ -38,13 +49,12 @@ Fifth Floor, Boston, MA 02110-1301  USA
 
 
 <xsl:for-each select="//posts_get_by_topic_id">
-<div id="p6" class="blockpost roweven">
+<div id="p{id}" class="blockpost roweven">
 	<h2><span><span class="conr">#<xsl:value-of select="id"/></span>
     <a href="#post{id}" name="post{id}"><xsl:value-of select="posted"/></a></span></h2>
 	<div class="box">
 		<div class="inbox">
 			<div class="postleft">
-            
 				<dl>
 					<dt><strong><a href="{//link_prefix}profile&amp;id={poster_id}">
                     <xsl:value-of select="username"/></a></strong></dt>
@@ -63,7 +73,12 @@ Fifth Floor, Boston, MA 02110-1301  USA
 				</div>
 			</div>
 			<div class="clearer"></div>
-			<div class="postfootright"><div></div></div>
+			<div class="postfootright"><div>
+                <xsl:if test="//runtime/group_id=1 or poster=//runtime/username">
+                    <a href="#">Edit</a>&#160;
+                    <a href="{//link_prefix}x-post-delete&amp;post_id={id}" onclick="delete_post({id}); return false;">Delete</a>
+                </xsl:if>
+            </div></div>
 		</div>
 
 	</div>

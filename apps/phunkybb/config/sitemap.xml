@@ -129,6 +129,9 @@
             </map:false>
         </map:if>
     </map:gate>
+    <map:gate name="x-post-delete" role="phunky_admin">
+        <map:query src="data/sql/post_delete.xml"/>
+    </map:gate>
 
     <!-- Profile -->
     <map:gate name="profile" role="phunky_user">
