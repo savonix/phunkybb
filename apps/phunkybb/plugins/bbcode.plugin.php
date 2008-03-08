@@ -29,7 +29,8 @@ class Nexista_BbcodeAction extends Nexista_Action
      */
 
     protected  $params = array(
-        'text' => '' //text to parse
+        'text' => '', //text to parse
+        'name' => '' //text to parse
         );
 
 
@@ -42,9 +43,12 @@ class Nexista_BbcodeAction extends Nexista_Action
     protected  function main()
     {
         include('HTML/BBCodeParser.php');
-		$mytext = Nexista_Path::get($this->params['text']);
-        $new_text = HTML_BBCodeParser::staticQparse($mytext);
-        Nexista_Flow::add("html_text", $new_text);
+		$mytext = Nexista_Flow::getByPath($this->params['text']);
+		$name = $this->params['name'];
+        $parser = new HTML_BBCodeParser();
+        $parser->addFilters('Basic,Extended,Links,Images,Lists');
+        $new_text = $parser->qParse($mytext);
+        Nexista_Flow::add($name, $new_text);
         return true;
 
     }

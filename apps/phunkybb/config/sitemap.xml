@@ -133,8 +133,11 @@
     <map:gate name="personality" role="phunky_user">
     <map:if name="//_post">
         <map:true>
+            <!--
             <map:plugin type="striptags" params="{//_post/signature}"/>
-            <map:plugin type="bbcode" params="{//no_html_text}"/>
+            -->
+            <map:plugin type="bbcode" params="//_post/signature,unbb_text"/> 
+            <map:plugin type="safehtml" params="//unbb_text,html_text"/>  
             <map:query src="data/sql/user_update_profile.xml"/>
             <map:action type="redirect" params="{//link_prefix}personality"/>
         </map:true>
