@@ -1,10 +1,10 @@
-<!--
-Program: PhunkyBB
-Component: user_register.xml
+<!-- 
+Program: PhunkyBB             				
+Component: user_activate.xml								
 Copyright: Savonix Corporation
-Author: Albert L. Lash, IV
+Author: Albert L. Lash, IV                      
 License: Gnu Affero Public License version 3
-http://www.gnu.org/licenses
+http://www.gnu.org/licenses 
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU Affero General Public License as published by
@@ -22,20 +22,19 @@ or write to the Free Software Foundation,Inc., 51 Franklin Street,
 Fifth Floor, Boston, MA 02110-1301  USA
 -->
 <!DOCTYPE query SYSTEM "__default_table_names__.txt">
-<query name="user_register">
+<!-- 
+This is a little more complex so that admin and regular users
+both use the same profile query. 
+-->
+<query name="user_activate">
     <connection>phunkybb</connection>
     <params>
-        <param name="//_post/username" type="text" default="0"/>
-        <param name="//hash" type="text" default="0"/>
-        <param name="//_post/email" type="text" default="0"/>
-        <param name="//runtime/remote_ip" type="text" default="0"/>
-        <param name="//random" type="text" default="0"/>
+        <param name="//_get/activate_key" type="text" default="0"/>
 	</params>
     <sql>
-        INSERT INTO &prefix;users 
-        (username, password, email,registration_ip,activate_key) 
-        VALUES
-        (?,?,?,?,?)
-	
+        UPDATE &prefix;users 
+        SET activate_key="active"
+        WHERE 
+        activate_key=?
     </sql>
 </query>

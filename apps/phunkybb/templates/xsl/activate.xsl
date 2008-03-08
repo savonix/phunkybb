@@ -1,6 +1,6 @@
 <!--
 Program: PhunkyBB
-Component: user_register.xml
+Component: activate.xsl
 Copyright: Savonix Corporation
 Author: Albert L. Lash, IV
 License: Gnu Affero Public License version 3
@@ -21,21 +21,20 @@ along with this program; if not, see http://www.gnu.org/licenses
 or write to the Free Software Foundation,Inc., 51 Franklin Street,
 Fifth Floor, Boston, MA 02110-1301  USA
 -->
-<!DOCTYPE query SYSTEM "__default_table_names__.txt">
-<query name="user_register">
-    <connection>phunkybb</connection>
-    <params>
-        <param name="//_post/username" type="text" default="0"/>
-        <param name="//hash" type="text" default="0"/>
-        <param name="//_post/email" type="text" default="0"/>
-        <param name="//runtime/remote_ip" type="text" default="0"/>
-        <param name="//random" type="text" default="0"/>
-	</params>
-    <sql>
-        INSERT INTO &prefix;users 
-        (username, password, email,registration_ip,activate_key) 
-        VALUES
-        (?,?,?,?,?)
-	
-    </sql>
-</query>
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" >
+<xsl:include href="main.xsl"/>
+<xsl:template name="content">
+<div class="blockform">
+	<h2><span>Activate</span></h2>
+
+<div class="box">
+    <div class="inform">
+        <fieldset>
+                Activated!
+        </fieldset>
+    </div>
+
+</div>
+</div>
+</xsl:template>
+</xsl:stylesheet>

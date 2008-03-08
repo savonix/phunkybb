@@ -24,12 +24,20 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <emails>
     <email name="welcome_email">
         <token>
+            <key>@@board_title@@</key>
+            <value>//board_config/board_title</value>
+        </token>
+        <token>
             <key>@@username@@</key>
             <value>//_post/username</value>
         </token>
         <token>
-            <key>@@login_link@@</key>
-            <value>//runtime/request_uri</value>
+            <key>@@activate_key@@</key>
+            <value>//random</value>
+        </token>
+        <token>
+            <key>@@base_url@@</key>
+            <value>//board_config/o_base_url</value>
         </token>
         <token>
             <key>@@forums_link@@</key>

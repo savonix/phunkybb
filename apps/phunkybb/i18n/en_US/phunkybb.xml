@@ -91,13 +91,13 @@
         </label>
         <label>
             <key>welcome_email</key>
-            <value>Subject: Welcome to !
+            <value>Subject: Welcome to @@board_title@@!
 
-Thank you for registering in the forums at @@forums_link@@. Your account details are:
+Thank you for registering in the forums at @@base_url@@. Your account details are:
 
 Username: @@username@@
 
-Login at @@login_link@@ to activate the account.
+Login at @@base_url@@/index.php?nid=activate&amp;activate_key=@@activate_key@@ to activate the account.
 
 --
 (Do not reply to this message)</value>
