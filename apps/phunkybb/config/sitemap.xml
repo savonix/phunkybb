@@ -111,6 +111,10 @@
         <map:query src="data/sql/posts_get_by_topic_id.xml"/>
         <map:xsl src="templates/xsl/topic.xsl"/>
     </map:gate>
+    <map:gate name="topic-delete" role="phunky_admin">
+        <map:query src="data/sql/topic_delete.xml"/>
+        <map:action type="redirect" params="{//link_prefix}forum&amp;fid={//_get/fid}"/>
+    </map:gate>
     <map:gate name="topic-submit">
         <map:query src="data/sql/topic_create.xml"/>
         <map:query src="data/sql/topic_get_id_by_detail.xml"/>

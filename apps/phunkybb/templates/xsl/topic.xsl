@@ -43,6 +43,10 @@ function delete_post(post_id) {
 		<ul><li><a href="{//link_prefix}index">Index</a></li><li>&#160; > &#160; 
         <a href="{//link_prefix}forum&amp;fid={//_get/fid}"><xsl:value-of select="//forum_get_by_id/forum_name"/></a>
         <a href="{//link_prefix}forum&amp;id={//_get/id}"></a></li><li>&#160;&gt;&#160;<xsl:value-of select="//topic_get_by_id/subject"/></li></ul>
+        <p class="postlink conr">
+        <xsl:if test="//runtime/group_id=1 or poster=//runtime/username">
+            <a href="{//link_prefix}topic-delete&amp;topic_id={//_get/id}&amp;fid={//_get/fid}" onclick="return(confirm('You sure?'));">Delete</a>
+        </xsl:if></p>
 		<div class="clearer"></div>
 	</div>
 </div>
