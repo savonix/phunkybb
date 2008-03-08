@@ -59,7 +59,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 			<div class="postright">
 
 				<div class="postmsg">
-					<p><xsl:value-of select="message"/></p>
+					<p><xsl:value-of select="message" disable-output-escaping="yes"/></p>
 				</div>
 			</div>
 			<div class="clearer"></div>
@@ -74,7 +74,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <div class="blockform">
 	<h2><span>Quick post</span></h2>
 	<div class="box">
-		<form method="post" action="{//link_prefix}post&amp;tid={//_get/id}" >
+		<form method="post" action="{//link_prefix}post&amp;tid={//_get/id}&amp;view_flow=true" >
 			<div class="inform">
 
 				<fieldset>
