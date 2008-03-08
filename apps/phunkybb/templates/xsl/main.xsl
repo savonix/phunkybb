@@ -1,5 +1,6 @@
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-<xsl:output method="html" indent="yes" encoding="UTF-8" omit-xml-declaration="no" doctype-public="-//W3C//DTD HTML 4.01 Transitional//EN"
+<xsl:output method="html" indent="yes" encoding="UTF-8" 
+omit-xml-declaration="yes" doctype-public="-//W3C//DTD HTML 4.01 Transitional//EN"
 doctype-system="http://www.w3.org/TR/html4/loose.dtd"/>
 <xsl:template match="/">
 <html>
@@ -10,9 +11,9 @@ doctype-system="http://www.w3.org/TR/html4/loose.dtd"/>
     <xsl:if test="//forum_get_by_id/forum_name">
         : <xsl:value-of select="//forum_get_by_id/forum_name"/>
     </xsl:if>
-        : <xsl:if test="//topic_get_by_id/subject">
-    <xsl:value-of select="//topic_get_by_id/subject"/>
-</xsl:if>
+    <xsl:if test="//topic_get_by_id/subject">
+        : <xsl:value-of select="//topic_get_by_id/subject"/>
+    </xsl:if>
 </title>
 <xsl:for-each select="//in_head">
     <xsl:sort select="priority"/>

@@ -69,7 +69,12 @@ Fifth Floor, Boston, MA 02110-1301  USA
                                 <td>
                                     <select name="form[o_server_timezone]">
                                     <xsl:for-each select="//tzdata/option">
-                                        <option value="{@value}"><xsl:value-of select="."/></option>
+                                        <option value="{@value}">
+                                            <xsl:if test="@value=//board_config/o_server_timezone">
+                                                <xsl:attribute name="selected">selected</xsl:attribute>
+                                            </xsl:if>
+                                            <xsl:value-of select="."/>
+                                        </option>
                                     </xsl:for-each>
                                     </select>
                                     <span>The timezone of the server where PunBB is installed.</span>
