@@ -29,7 +29,18 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <xsl:call-template name="jquery-setup">
     <xsl:with-param name="my-table">users_table</xsl:with-param>
 </xsl:call-template>
-
+<script src="/phunkybbweb/s/js/jquery-1.2.1.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+function delete_user(user_id,row) {
+    if(confirm('Are you sure?')){
+    $.post("<xsl:value-of select="//link_prefix"/>x-user-delete&amp;user_id="+user_id, {'user_id': user_id}, 
+    function (data){
+    });
+    myTable = document.getElementById("users_table");
+    myTable.deleteRow(row);
+    }
+}
+</script>
 <div id="adminconsole" class="block2col">
     <xsl:call-template name="admin-menu"/>
 	<div class="blockform">
@@ -45,9 +56,11 @@ Fifth Floor, Boston, MA 02110-1301  USA
             <tbody>
                 <xsl:for-each select="//users_get_all">
                 <tr>
-                    <td><xsl:value-of select="username"/></td>
-                    <td></td>
-                    <td></td>
+                    <td><a href="{//link_prefix}profile&amp;user_id={id}"><xsl:value-of select="username"/></a></td>
+                    <td><a href="{//link_prefix}profile&amp;user_id={id}" >Edit</a></td>
+                    <td>
+                        <a href="{//link_prefix}x-user-delete&amp;user_id={id}" onclick="delete_user({id},this.parentNode.parentNode.rowIndex); return false;">Delete</a>
+                    </td>
                 </tr>
                 </xsl:for-each>
             </tbody>
