@@ -266,7 +266,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
                                 <th scope="row">Announcement message</th>
 
                                 <td>
-                                    <textarea name="form[o_announcement_message]" rows="5" cols="55">Enter your announcement here.</textarea>
+                                    <textarea name="form[announcement_message]" rows="5" cols="55"><xsl:value-of select="//board_config/announcement_message"/></textarea>
                                     <span>This text will not be parsed like regular posts and thus may contain HTML.</span>
                                 </td>
                             </tr>
@@ -292,7 +292,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
                                 <th scope="row">Maintenance message</th>
 
                                 <td>
-                                    <textarea name="form[o_maintenance_message]" rows="5" cols="55">The forums are temporarily down for maintenance. Please try again in a few minutes.&lt;br /&gt;\n&lt;br /&gt;\n/Administrator</textarea>
+                                    <textarea name="form[maintenance_message]" rows="5" cols="55"><xsl:value-of select="//board_config/maintenance_message"/></textarea>
                                     <span>The message that will be displayed to users when the board is in maintenance mode. If left blank a default message will be used. This text will not be parsed like regular posts and thus may contain HTML.</span>
                                 </td>
                             </tr>

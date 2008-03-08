@@ -31,7 +31,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 		<h2><span><xsl:value-of select="//runtime/username"/> - Essentials</span></h2>
 
 		<div class="box">
-			<form id="profile1" method="post" action="profile.php?section=essentials&amp;id=2" onsubmit="return process_form(this)">
+			<form id="profile1" method="post" onsubmit="return process_form(this)">
 				<div class="inform">
 					<fieldset>
 						<legend>Enter your username and password</legend>

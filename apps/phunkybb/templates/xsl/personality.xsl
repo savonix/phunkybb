@@ -30,7 +30,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 	<div class="blockform">
 		<h2><span><xsl:value-of select="//runtime/username"/> - </span></h2>
 		<div class="box">
-			<form id="profile4" method="post" action="profile.php?section=personality&amp;id=2">
+			<form id="profile4" method="post" action="{//request_uri}&amp;view_flow=true">
 				<div><input type="hidden" name="form_sent" value="1" /></div>
 				<div class="inform">
 					<fieldset id="profileavatar">
@@ -42,7 +42,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 							<div class="rbox">
 								<label><input type="checkbox" name="form[use_avatar]" value="1" />Use avatar.<br /></label>
 							</div>
-							<p class="clearb"><a href="profile.php?action=upload_avatar&amp;id=2">Change avatar</a><a href="profile.php?action=delete_avatar&amp;id=2">Delete avatar</a></p>
+							<p class="clearb"><a href="">Change avatar</a><a href="">Delete avatar</a></p>
 						</div>
 					</fieldset>
 
@@ -55,7 +55,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 							<div class="txtarea">
 								<label>Max length: 400 / Max lines: 4<br />
 
-								<textarea name="signature" rows="4" cols="65"></textarea><br /></label>
+								<textarea name="signature" rows="4" cols="65"><xsl:value-of select="//user_get_profile/signature"/></textarea><br /></label>
 							</div>
 							<ul class="bblinks">
 								<li><a href="help.php#bbcode" onclick="window.open(this.href); return false;">BBCode</a>: on</li>
@@ -63,7 +63,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 								<li><a href="help.php#smilies" onclick="window.open(this.href); return false;">Smilies</a>: on</li>
 
 							</ul>
-							<p>No signature currently stored in profile.</p>
+							<p><xsl:value-of select="//user_get_profile/signature" disable-output-escaping="yes"/>.</p>
 						</div>
 					</fieldset>
 				</div>

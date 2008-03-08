@@ -29,23 +29,12 @@ both use the same profile query.
 <query name="user_get_profile">
     <connection>phunkybb</connection>
     <params>
+        <param name="//html_text" type="text" default="0"/>
         <param name="//runtime/username" type="text" default="0"/>
-        <param name="//_get/user_id" type="text" default="-1"/>
-        <param name="//_get/user_id" type="text" default="0"/>
-        <param name="//runtime/group_id" type="text" default="0"/>
 	</params>
     <sql>
-        SELECT *,  
-        datetime(last_visit, 'unixepoch', 'localtime') as last_visit,
-        datetime(registered, 'unixepoch', 'localtime') as registered,
-        datetime(last_post, 'unixepoch', 'localtime') as last_post
-        FROM &prefix;users 
+        UPDATE &prefix;users SET signature=?
         WHERE 
-        (username=?
-        AND ? &lt; 0)
-        OR 
-        (id=?
-        AND 
-        ?=1)
+        username=?
     </sql>
 </query>

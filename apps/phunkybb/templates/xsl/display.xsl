@@ -30,22 +30,15 @@ Fifth Floor, Boston, MA 02110-1301  USA
 	<div class="blockform">
 		<h2><span><xsl:value-of select="//runtime/username"/> - <xsl:value-of select="//label[key=//_get/nid]/value"/></span></h2>
 		<div class="box">
-			<form id="profile5" method="post" action="profile.php?section=display&amp;id=2">
+			<form id="profile5" method="post">
 				<div><input type="hidden" name="form_sent" value="1" /></div>
 				<div class="inform">
 					<fieldset>
 						<legend>Select your preferred style</legend>
 						<div class="infldset">
 							<label>If you like you can use a different visual style for this forum.<br />
-
 							<select name="form[style]">
-								<option value="Cobalt">Cobalt</option>
-								<option value="Lithium">Lithium</option>
-								<option value="Mercury">Mercury</option>
 								<option value="Oxygen" selected="selected">Oxygen</option>
-								<option value="Radium">Radium</option>
-
-								<option value="Sulfur">Sulfur</option>
 							</select>
 							<br /></label>
 						</div>
