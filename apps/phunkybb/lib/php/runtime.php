@@ -20,7 +20,10 @@ $path_prefix = dirname($path)."/";
 //$app_prefix = "acc/".APP_NAME."/";
 //$link_prefix = $path."?nid=".$app_prefix;
 $link_prefix = $path."?nid=";
-$right_now = date('Y-m-d H:i:s');
+
+// Also need server location
+$tz_offset = $_SESSION['timezone'];
+$right_now = date('Y-m-d H:i:s',time()+(3600*$tz_offset));
 
 
 
@@ -29,6 +32,7 @@ $runtime = array('host_name'=>$_SERVER['SERVER_NAME'],
                 'path_prefix'=>$path_prefix,
                 'link_prefix'=>$link_prefix,
                 'right_now'=>$right_now,
+                'user_timezone'=> $tz_offset,
                 'username'=>$_SESSION['NX_AUTH']['username'],
                 'user_id'=>$_SESSION['NX_AUTH']['user_id'],
                 'group_id'=>$_SESSION['NX_AUTH']['group_id'],

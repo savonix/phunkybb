@@ -61,9 +61,14 @@ Fifth Floor, Boston, MA 02110-1301  USA
 						<div class="infldset">
 							<label>Timezone: For the forum to display times correctly you must select your local timezone.
                             <br />
-                    <select name="form[timezone]">
+                    <select name="timezone">
                     <xsl:for-each select="//tzdata/option">
-                        <option value="{@value}"><xsl:value-of select="."/></option>
+                        <option value="{@value}">
+                            <xsl:if test="@value=//user_get_profile/timezone">
+                                <xsl:attribute name="selected">selected</xsl:attribute>
+                            </xsl:if>
+                            <xsl:value-of select="."/>
+                        </option>
                     </xsl:for-each>
                     </select>
 							<br /></label>
