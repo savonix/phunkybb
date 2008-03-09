@@ -109,98 +109,75 @@
         
         <!-- Converted -->
         <label>
-            <key>Bad_request</key>
+            <key>bad_request</key>
             <value>Bad request. The link you followed is incorrect or outdated.</value>
         </label>
         <label>
-            <key>No_view</key>
+            <key>no_view</key>
             <value>You do not have permission to view these forums.</value>
         </label>
         <label>
-            <key>No_permission</key>
+            <key>no_permission</key>
             <value>You do not have permission to access this page.</value>
         </label>
         <label>
-            <key>Bad_referrer</key>
-            <value>Bad HTTP_REFERER. You were referred to this page from an unauthorized source. If the problem persists please make sure that 'Base URL' is correctly set in Admin/Options and that you are visiting the forum by navigating to that URL. More information regarding the referrer check can be found in the PunBB documentation.</value>
-        </label>
-        <label>
-            <key>New_icon</key>
+            <key>new_icon</key>
             <value>There are new posts</value>
         </label>
         <label>
-            <key>Closed_icon</key>
+            <key>closed_icon</key>
             <value>This topic is closed</value>
         </label>
         <label>
-            <key>Redirect_icon</key>
+            <key>redirect_icon</key>
             <value>Redirected forum</value>
         </label>
         <label>
-            <key>Announcement</key>
+            <key>announcement</key>
             <value>Announcement</value>
         </label>
         <label>
-            <key>Options</key>
+            <key>options</key>
             <value>Options</value>
         </label>
         <label>
-            <key>Actions</key>
+            <key>actions</key>
             <value>Actions</value>
         </label>
         <label>
-            <key>Submit</key>
+            <key>submit</key>
             <value>Submit</value>
         </label>
         <label>
-            <key>Ban_message</key>
+            <key>ban_message</key>
             <value>You are banned from this forum.</value>
         </label>
         <label>
-            <key>Ban_message_2</key>
-            <value>The ban expires at the end of</value>
-        </label>
-        <label>
-            <key>Ban_message_3</key>
-            <value>The administrator or moderator that banned you left the following message:</value>
-        </label>
-        <label>
-            <key>Ban_message_4</key>
-            <value>Please direct any inquiries to the forum administrator at</value>
-        </label>
-        <label>
-            <key>Never</key>
+            <key>never</key>
             <value>Never</value>
         </label>
         <label>
-            <key>Today</key>
+            <key>today</key>
             <value>Today</value>
         </label>
         <label>
-            <key>Yesterday</key>
+            <key>yesterday</key>
             <value>Yesterday</value>
         </label>
         <label>
-            <key>Info</key>
+            <key>info</key>
             <value>Info</value>
         </label>
         
         <label>
-            <key>Go_back</key>
+            <key>go_back</key>
             <value>Go back</value>
         </label>
         <label>
-            <key>Maintenance</key>
+            <key>maintenance</key>
             <value>Maintenance</value>
         </label>
-        <label>
-            <key>Redirecting</key>
-            <value>Redirecting</value>
-        </label>
-        <label>
-            <key>Click_redirect</key>
-            <value>Click here if you do not want to wait any longer (or if your browser does not automatically forward you)</value>
-        </label>
+        
         <label>
             <key>on</key>
             <value>on</value>
@@ -211,7 +188,7 @@
             <value>off</value>
         </label>
         <label>
-            <key>Invalid_e-mail</key>
+            <key>invalid_email</key>
             <value>The e-mail address you entered is invalid.</value>
         </label>
         <label>
@@ -219,7 +196,7 @@
             <value>is a required field in this form.</value>
         </label>
         <label>
-            <key>Last_post</key>
+            <key>last_post</key>
             <value>Last post</value>
         </label>
         <label>
@@ -227,31 +204,31 @@
             <value>by</value>
         </label>
         <label>
-            <key>New_posts</key>
+            <key>new_posts</key>
             <value>New posts</value>
         </label>
         <label>
-            <key>New_posts_info</key>
+            <key>new_posts_info</key>
             <value>Go to the first new post in this topic.</value>
         </label>
         <label>
-            <key>Username</key>
+            <key>username</key>
             <value>Username</value>
         </label>
         <label>
-            <key>Password</key>
+            <key>password</key>
             <value>Password</value>
         </label>
         <label>
-            <key>E-mail</key>
+            <key>email</key>
             <value>E-mail</value>
         </label>
         <label>
-            <key>Send_e-mail</key>
+            <key>send_e-mail</key>
             <value>Send e-mail</value>
         </label>
         <label>
-            <key>Moderated_by</key>
+            <key>moderated_by</key>
             <value>Moderated by</value>
         </label>
         <label>
@@ -259,7 +236,7 @@
             <value>Registered</value>
         </label>
         <label>
-            <key>Subject</key>
+            <key>subject</key>
             <value>Subject</value>
         </label>
         <label>
@@ -267,31 +244,31 @@
             <value>Message</value>
         </label>
         <label>
-            <key>Topic</key>
+            <key>topic</key>
             <value>Topic</value>
         </label>
         <label>
-            <key>Forum</key>
+            <key>forum</key>
             <value>Forum</value>
         </label>
         <label>
-            <key>Posts</key>
+            <key>posts</key>
             <value>Posts</value>
         </label>
         <label>
-            <key>Replies</key>
+            <key>replies</key>
             <value>Replies</value>
         </label>
         <label>
-            <key>Author</key>
+            <key>author</key>
             <value>Author</value>
         </label>
         <label>
-            <key>Pages</key>
+            <key>pages</key>
             <value>Pages</value>
         </label>
         <label>
-            <key>BBCode</key>
+            <key>bbcode</key>
             <value>BBCode</value>
         </label>
         <label>
@@ -299,7 +276,7 @@
             <value>[img] tag</value>
         </label>
         <label>
-            <key>Smilies</key>
+            <key>smilies</key>
             <value>Smilies</value>
         </label>
         <label>
@@ -307,7 +284,7 @@
             <value>and</value>
         </label>
         <label>
-            <key>Image_link</key>
+            <key>image_link</key>
             <value>image</value>
         </label>
         <label>
@@ -315,12 +292,16 @@
             <value>wrote</value>
         </label>
         <label>
-            <key>Code</key>
+            <key>code</key>
             <value>Code</value>
+        </label>
+        <label>
+            <key>statistics</key>
+            <value>Statistics</value>
         </label>
         
         <label>
-            <key>Mailer</key>
+            <key>mailer</key>
             <value>Mailer</value>
         </label>
         <label>
@@ -333,15 +314,15 @@
         </label>
         
         <label>
-            <key>Title</key>
+            <key>title</key>
             <value>Title</value>
         </label>
         <label>
-            <key>Member</key>
+            <key>member</key>
             <value>Member</value>
         </label>
         <label>
-            <key>Moderator</key>
+            <key>moderator</key>
             <value>Moderator</value>
         </label>
         <label>
