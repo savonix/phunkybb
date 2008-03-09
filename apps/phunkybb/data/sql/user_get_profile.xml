@@ -36,9 +36,9 @@ both use the same profile query.
 	</params>
     <sql>
         SELECT *,  
-        datetime(last_visit, 'unixepoch', 'localtime') as last_visit,
-        datetime(registered, 'unixepoch', 'localtime') as registered,
-        datetime(last_post, 'unixepoch', 'localtime') as last_post
+        last_visit,
+        registered,
+        last_post
         FROM &prefix;users 
         WHERE 
         (username=?

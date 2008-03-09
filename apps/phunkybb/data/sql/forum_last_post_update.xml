@@ -1,8 +1,8 @@
 <!-- 
-Program: PhunkyBB             				
-Component: topics_get_by_forum_id.xml								
+Program: PhunkyBB
+Component: forum_last_post_update.xml
 Copyright: Savonix Corporation
-Author: Albert L. Lash, IV                      
+Author: Albert L. Lash, IV
 License: Gnu Affero Public License version 3
 http://www.gnu.org/licenses 
 
@@ -22,17 +22,17 @@ or write to the Free Software Foundation,Inc., 51 Franklin Street,
 Fifth Floor, Boston, MA 02110-1301  USA
 -->
 <!DOCTYPE query SYSTEM "__default_table_names__.txt">
-<query name="topics_get_by_forum_id">
+<query name="forum_last_post_update">
     <connection>phunkybb</connection>
     <params>
-        <param name="//_get/fid" type="text" default="0"/>
+        <param name="//runtime/timestamp" type="integer" default="0"/>
+        <param name="//runtime/username" type="text" default="0"/>
+        <param name="//get_last_post_id/id" type="text" default="0"/>
+        <param name="//_post/forum_id" type="integer"/>
 	</params>
     <sql>
-        SELECT id, poster, subject, posted, last_post, last_post_id, 
-        last_poster, num_views, num_replies, closed, sticky, moved_to 
-        FROM &prefix;topics 
-        WHERE forum_id=?
-        ORDER BY sticky DESC, last_post DESC 
-        LIMIT 0,10
+    UPDATE &prefix;forums 
+    SET last_post = ?, last_poster = ?, last_post_id = ?
+    WHERE id=?
     </sql>
 </query>

@@ -51,10 +51,11 @@ Fifth Floor, Boston, MA 02110-1301  USA
 						<div class="infldset">
 							<label><strong><xsl:value-of select="//label[key='email']/value"/></strong><br />
                             <input type="text" name="req_email" value="{//user_get_profile/email}"/><br />
-                            </label><p><a href="#"><xsl:value-of select="//label[key='send_email']/value"/></a></p>
+                            </label>
 						</div>
 					</fieldset>
 				</div>
+                <!--
 				<div class="inform">
 					<fieldset>
 						<legend>Set your localisation options</legend>
@@ -74,15 +75,25 @@ Fifth Floor, Boston, MA 02110-1301  USA
 							<br /></label>
 						</div>
 					</fieldset>
-
 				</div>
+                -->
 				<div class="inform">
 					<fieldset>
 						<legend><xsl:value-of select="//label[key='user_activity']/value"/></legend>
 						<div class="infldset">
-							<p><xsl:value-of select="//label[key='registered']/value"/>: 
-                                <xsl:value-of select="//user_get_profile/registered"/> 
-                                (<a href="#"><xsl:value-of select="//user_get_profile/registration_ip"/></a>)</p>
+                            <xsl:if test="//runtime/group_id=1">
+                            <p>
+                                <xsl:value-of select="//label[key='registration_ip']/value"/>:
+                                <a href="http://www.arin.net/?queryinput={//user_get_profile/registration_ip}"
+                                    target="_blank">
+                                    <xsl:value-of select="//user_get_profile/registration_ip"/>
+                                </a>
+                            </p>
+                            </xsl:if>
+							<p>
+                                <xsl:value-of select="//label[key='registered']/value"/>:
+                                <xsl:value-of select="//user_get_profile/registered"/>
+                            </p>
 							<p><xsl:value-of select="//label[key='last_post']/value"/>: 
                                 <xsl:value-of select="//user_get_profile/last_post"/></p>
 

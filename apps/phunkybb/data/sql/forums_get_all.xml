@@ -30,7 +30,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
     <sql>
         SELECT c.id AS cid, 
         c.cat_name, f.id AS fid, f.forum_name, f.forum_desc, f.redirect_url, f.moderators, 
-        f.num_topics, f.num_posts, datetime(f.last_post,'unixepoch','localtime') as last_post, f.last_post_id, f.last_poster 
+        f.num_topics, f.num_posts, f.last_post, f.last_post_id, f.last_poster 
         
         FROM &prefix;categories AS c 
         

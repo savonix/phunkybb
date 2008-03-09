@@ -228,6 +228,10 @@
             <value>Moderated by</value>
         </label>
         <label>
+            <key>registration_ip</key>
+            <value>Registration IP</value>
+        </label>
+        <label>
             <key>registered</key>
             <value>Registered</value>
         </label>

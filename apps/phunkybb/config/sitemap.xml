@@ -95,6 +95,7 @@
         <map:block name="index">
             <map:query src="data/sql/categories_get_all.xml"/>
             <map:query src="data/sql/forums_get_all.xml"/>
+            <map:action type="datetime" params="//forums_get_all/last_post,unix_epoch,{//runtime/user_time_format},{//runtime/user_timezone_offset}"/>
             <map:xsl src="templates/xsl/welcome.xsl"/>
         </map:block>
     </map:gate>
@@ -104,6 +105,7 @@
     <map:gate name="forum">
         <map:query src="data/sql/forum_get_by_id.xml"/>
         <map:query src="data/sql/topics_get_by_forum_id.xml"/>
+        <map:action type="datetime" params="//topics_get_by_forum_id/last_post,unix_epoch,{//runtime/user_time_format},{//runtime/user_timezone_offset}"/>
         <map:xsl src="templates/xsl/forum.xsl"/>
     </map:gate>
     <map:gate name="topic">
@@ -129,6 +131,9 @@
                 <map:plugin type="safehtml" params="//_post/message,clean_message"/>
                 <map:action type="newline" params="//clean_message"/>
                 <map:query src="data/sql/post_create.xml"/>
+                <map:query src="data/sql/topic_last_post_update.xml"/>
+                <map:query src="data/sql/forum_last_post_update.xml"/>
+                <map:query src="data/sql/user_last_post_update.xml"/>
                 <map:action type="redirect" params="{//link_prefix}topic&amp;fid={//_post/forum_id}&amp;id={//_post/topic_id}"/>
             </map:true>
             <map:false>
@@ -150,6 +155,8 @@
             <map:false>
             <map:xml src="data/xml/tzdata.xml"/>
             <map:query src="data/sql/user_get_profile.xml"/>
+            <map:action type="datetime" params="//user_get_profile/last_post,unix_epoch,{//runtime/user_time_format},{//runtime/user_timezone_offset}"/>
+            <map:action type="datetime" params="//user_get_profile/registered,unix_epoch,{//runtime/user_time_format},{//runtime/user_timezone_offset}"/>
             <map:xsl src="templates/xsl/profile.xsl"/>
             </map:false>
         </map:if>
