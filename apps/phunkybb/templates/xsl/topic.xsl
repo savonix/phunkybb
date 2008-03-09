@@ -38,11 +38,21 @@ function delete_post(post_id) {
 </script>
 <div class="linkst">
 	<div class="inbox">
-		<p class="pagelink conl">Pages: <strong>1</strong></p>
+		<p class="pagelink conl"><xsl:value-of select="//label[key='pages']/value"/>: <strong>1</strong></p>
 		<p class="postlink conr">&#160;</p>
-		<ul><li><a href="{//link_prefix}index">Index</a></li><li>&#160; > &#160; 
-        <a href="{//link_prefix}forum&amp;fid={//_get/fid}"><xsl:value-of select="//forum_get_by_id/forum_name"/></a>
-        <a href="{//link_prefix}forum&amp;id={//_get/id}"></a></li><li>&#160;&gt;&#160;<xsl:value-of select="//topic_get_by_id/subject"/></li></ul>
+		<ul>
+            <li><a href="{//link_prefix}index">
+                <xsl:value-of select="//label[key='index']/value"/>
+                </a></li>
+            <li>&#160; > &#160; 
+                <a href="{//link_prefix}forum&amp;fid={//_get/fid}">
+                <xsl:value-of select="//forum_get_by_id/forum_name"/>
+                </a>
+                <a href="{//link_prefix}forum&amp;id={//_get/id}"></a>
+            </li>
+            <li>&#160;&gt;&#160;<xsl:value-of select="//topic_get_by_id/subject"/>
+            </li>
+        </ul>
         <p class="postlink conr">
         <xsl:if test="//runtime/group_id=1 or poster=//runtime/username">
             <a href="{//link_prefix}topic-delete&amp;topic_id={//_get/id}&amp;fid={//_get/fid}" onclick="return(confirm('You sure?'));">Delete</a>
@@ -79,8 +89,9 @@ function delete_post(post_id) {
 			<div class="clearer"></div>
 			<div class="postfootright"><div>
                 <xsl:if test="//runtime/group_id=1 or poster=//runtime/username">
-                    <a href="#">Edit</a>&#160;
-                    <a href="{//link_prefix}x-post-delete&amp;post_id={id}" onclick="delete_post({id}); return false;">Delete</a>
+                    <a href="#"><xsl:value-of select="//label[key='edit']/value"/></a>&#160;
+                    <a href="{//link_prefix}x-post-delete&amp;post_id={id}" 
+                        onclick="delete_post({id}); return false;"><xsl:value-of select="//label[key='delete']/value"/></a>
                 </xsl:if>
             </div></div>
 		</div>
@@ -91,13 +102,13 @@ function delete_post(post_id) {
 
 <xsl:if test="//runtime/username">
 <div class="blockform">
-	<h2><span>Quick post</span></h2>
+	<h2><span><xsl:value-of select="//label[key='quick_post']/value"/></span></h2>
 	<div class="box">
 		<form method="post" action="{//link_prefix}post&amp;tid={//_get/id}&amp;view_flow=true" >
 			<div class="inform">
 
 				<fieldset>
-					<legend>Write your message and submit</legend>
+					<legend><xsl:value-of select="//label[key='write_your_message']/value"/></legend>
 					<div class="infldset txtarea">
 						<input type="hidden" name="topic_id" value="{//_get/id}" />
 						<input type="hidden" name="forum_id" value="{//_get/fid}" />

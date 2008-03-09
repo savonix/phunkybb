@@ -72,13 +72,13 @@ function do_encrypt() {
 }
 </script>
 <div class="blockform">
-<h2><span>Register</span></h2>
+<h2><span><xsl:value-of select="//label[key='register']/value"/></span></h2>
 <div class="box">
     <form name="register" method="post" onSubmit="do_encrypt()"
         action="{//request_uri}&amp;view_flow=true">
         <div class="inform">
             <div class="forminfo">
-                <h3>Important information</h3>
+                <h3><xsl:value-of select="//label[key='important_information']/value"/></h3>
                 <p>Registration will grant you access to a number of features and capabilities otherwise unavailable. 
                 These functions include the ability to edit and delete posts, design your own signature that accompanies 
                 your posts and much more. If you have any questions regarding this forum you should ask an administrator.</p>

@@ -25,7 +25,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <xsl:include href="main.xsl"/>
 <xsl:template name="content">
 <div class="blockform">
-	<h2><span>Post a reply</span></h2>
+	<h2><span><xsl:value-of select="//label[key='post_a_reply']/value"/></span></h2>
 	<div class="box">
 		<form id="post" method="post" action="{//link_prefix}post">
 			<div class="inform">
@@ -35,7 +35,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 					<div class="infldset txtarea">
 						<input type="hidden" name="form_sent" value="1" />
 						<input type="hidden" name="form_user" value="demo" />
-						<label><strong>Message</strong><br />
+						<label><strong><xsl:value-of select="//label[key='message']/value"/></strong><br />
 						<textarea name="req_message" rows="20" cols="95" tabindex="1"></textarea><br /></label>
 						<ul class="bblinks">
 							<li><a href="help.php#bbcode" onclick="window.open(this.href); return false;">BBCode</a>: on</li>
