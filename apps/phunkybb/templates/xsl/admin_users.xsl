@@ -59,7 +59,8 @@ function delete_user(user_id,row) {
                     <td><a href="{//link_prefix}profile&amp;user_id={id}"><xsl:value-of select="username"/></a></td>
                     <td><a href="{//link_prefix}profile&amp;user_id={id}" >Edit</a></td>
                     <td>
-                        <a href="{//link_prefix}x-user-delete&amp;user_id={id}" onclick="delete_user({id},this.parentNode.parentNode.rowIndex); return false;">Delete</a>
+                        <a href="{//link_prefix}x-user-delete&amp;user_id={id}" 
+                        onclick="delete_user({id},this.parentNode.parentNode.rowIndex); return false;">Delete</a>
                     </td>
                 </tr>
                 </xsl:for-each>
