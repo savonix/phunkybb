@@ -18,5 +18,41 @@ Login at @@base_url@@/index.php?nid=activate&amp;activate_key=@@activate_key@@ t
 --
 (Do not reply to this message)</value>
         </label>
+        
+        <label>
+            <key>change_email</key>
+            <value>
+Subject: Change e-mail address requested
+
+Hello ,
+
+You have requested to have a new e-mail address assigned to your account in the discussion forum at . 
+If you didn't request this or if you don't want to change your e-mail address you should just ignore this message. 
+Only if you visit the activation page below will your e-mail address be changed. 
+In order for the activation page to work, you must be logged in to the forum.
+
+To change your e-mail address, please visit the following page:
+
+-- 
+(Do not reply to this message)
+</value></label>
+
+<label><key>new_reply</key>
+<value>
+Subject: Reply to topic: 
+
+ has replied to the topic  to which you are subscribed. 
+ There may be more new replies, but this is the only notification you will receive until you visit the board again.
+
+The post is located at 
+
+You can unsubscribe by going to 
+
+-- 
+(Do not reply to this message)
+</value>
+</label>
+
+
     </labels>
 </i18n>
