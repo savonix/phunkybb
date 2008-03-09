@@ -27,11 +27,11 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <xsl:template name="content">
 <div class="linkst">
 	<div class="inbox">
-		<p class="pagelink conl">Pages: <strong>1</strong></p>
+		<p class="pagelink conl"><xsl:value-of select="//label[key='pages']/value"/>: <strong>1</strong></p>
         <xsl:if test="//runtime/username">
-		<p class="postlink conr"><a href="{//link_prefix}post&amp;fid={//_get/fid}">Post new topic</a></p>
+		<p class="postlink conr"><a href="{//link_prefix}post&amp;fid={//_get/fid}"><xsl:value-of select="//label[key='post_new_topic']/value"/></a></p>
         </xsl:if>
-		<ul><li><a href="{//link_prefix}index">Index</a>&#160;</li><li> - &#160;<xsl:value-of select="//forum_get_by_id/forum_name"/></li></ul>
+		<ul><li><a href="{//link_prefix}index"><xsl:value-of select="//label[key='index']/value"/></a>&#160;</li><li> - &#160;<xsl:value-of select="//forum_get_by_id/forum_name"/></li></ul>
 		<div class="clearer"></div>
 	</div>
 </div>
@@ -66,7 +66,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
                 </xsl:for-each>
                 <xsl:if test="not(//topics_get_by_forum_id)">
 				<tr>
-					<td class="tcl" colspan="4">Forum is empty.</td>
+					<td class="tcl" colspan="4"><xsl:value-of select="//label[key='forum_is_empty']/value"/>.</td>
 				</tr>
                 </xsl:if>
             </tbody>
@@ -76,11 +76,11 @@ Fifth Floor, Boston, MA 02110-1301  USA
 </div>
 <div class="linkst">
 	<div class="inbox">
-		<p class="pagelink conl">Pages: <strong>1</strong></p>
+		<p class="pagelink conl"><xsl:value-of select="//label[key='pages']/value"/>: <strong>1</strong></p>
         <xsl:if test="//runtime/username">
-		<p class="postlink conr"><a href="{//link_prefix}post&amp;fid={//_get/fid}">Post new topic</a></p>
+		<p class="postlink conr"><a href="{//link_prefix}post&amp;fid={//_get/fid}"><xsl:value-of select="//label[key='post_new_topic']/value"/></a></p>
         </xsl:if>
-		<ul><li><a href="{//link_prefix}index">Index</a>&#160;</li><li> - &#160;<xsl:value-of select="//forum_get_by_id/forum_name"/></li></ul>
+		<ul><li><a href="{//link_prefix}index"><xsl:value-of select="//label[key='index']/value"/></a>&#160;</li><li> - &#160;<xsl:value-of select="//forum_get_by_id/forum_name"/></li></ul>
 		<div class="clearer"></div>
 	</div>
 </div>

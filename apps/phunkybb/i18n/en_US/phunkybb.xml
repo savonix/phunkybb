@@ -224,7 +224,7 @@
             <value>E-mail</value>
         </label>
         <label>
-            <key>send_e-mail</key>
+            <key>send_email</key>
             <value>Send e-mail</value>
         </label>
         <label>
@@ -242,6 +242,14 @@
         <label>
             <key>message</key>
             <value>Message</value>
+        </label>
+        <label>
+            <key>activate</key>
+            <value>Activate</value>
+        </label>
+        <label>
+            <key>activated</key>
+            <value>Activated</value>
         </label>
         <label>
             <key>topic</key>
@@ -326,226 +334,193 @@
             <value>Moderator</value>
         </label>
         <label>
-            <key>Administrator</key>
+            <key>administrator</key>
             <value>Administrator</value>
         </label>
         <label>
-            <key>Banned</key>
+            <key>banned</key>
             <value>Banned</value>
         </label>
         <label>
-            <key>Guest</key>
+            <key>guest</key>
             <value>Guest</value>
         </label>
         
         <label>
-            <key>BBCode_error</key>
+            <key>bbcode_error</key>
             <value>The BBCode syntax in the message is incorrect.</value>
-        </label>
-        <label>
-            <key>BBCode_error_1</key>
-            <value>Missing start tag for [/quote].</value>
-        </label>
-        <label>
-            <key>BBCode_error_2</key>
-            <value>Missing end tag for [code].</value>
-        </label>
-        <label>
-            <key>BBCode_error_3</key>
-            <value>Missing start tag for [/code].</value>
-        </label>
-        <label>
-            <key>BBCode_error_4</key>
-            <value>Missing one or more end tags for [quote].</value>
-        </label>
-        <label>
-            <key>BBCode_error_5</key>
-            <value>Missing one or more start tags for [/quote].</value>
         </label>
         
         <label>
-            <key>Index</key>
+            <key>index</key>
             <value>Index</value>
         </label>
         <label>
-            <key>User_list</key>
+            <key>user_list</key>
             <value>User list</value>
         </label>
         <label>
-            <key>Rules</key>
+            <key>rules</key>
             <value>Rules</value>
-        </label>
-        <label>
-            <key>Search</key>
-            <value>Search</value>
         </label>
         <label>
             <key>register</key>
             <value>Register</value>
         </label>
         <label>
-            <key>Login</key>
+            <key>login</key>
             <value>Login</value>
         </label>
         <label>
-            <key>Not_logged_in</key>
+            <key>not_logged_in</key>
             <value>You are not logged in.</value>
         </label>
         <label>
-            <key>Profile</key>
+            <key>profile</key>
             <value>Profile</value>
         </label>
         <label>
-            <key>Logout</key>
+            <key>logout</key>
             <value>Logout</value>
         </label>
         <label>
-            <key>Logged_in_as</key>
+            <key>logged_in_as</key>
             <value>Logged in as</value>
         </label>
         <label>
-            <key>Admin</key>
+            <key>admin</key>
             <value>Administration</value>
         </label>
         <label>
-            <key>Last_visit</key>
+            <key>last_visit</key>
             <value>Last visit</value>
         </label>
         <label>
-            <key>Show_new_posts</key>
+            <key>show_new_posts</key>
             <value>Show new posts since last visit</value>
         </label>
         <label>
-            <key>Mark all_as_read</key>
+            <key>mark all_as_read</key>
             <value>Mark all topics as read</value>
         </label>
         <label>
-            <key>Link_separator</key>
+            <key>link_separator</key>
             <value></value>
         </label>
         
         <label>
-            <key>Board_footer</key>
+            <key>board_footer</key>
             <value>Board footer</value>
         </label>
         <label>
-            <key>Search_links</key>
+            <key>search_links</key>
             <value>Search links</value>
         </label>
         <label>
-            <key>Show_recent_posts</key>
+            <key>show_recent_posts</key>
             <value>Show recent posts</value>
         </label>
         <label>
-            <key>Show_unanswered_posts</key>	
+            <key>show_unanswered_posts</key>	
             <value>Show unanswered posts</value>
         </label>
         <label>
-            <key>Show_your_posts</key>
+            <key>show_your_posts</key>
             <value>Show your posts</value>
         </label>
         <label>
-            <key>Show_subscriptions</key>	
+            <key>show_subscriptions</key>	
             <value>Show your subscribed topics</value>
         </label>
         <label>
-            <key>Jump_to</key>
+            <key>jump_to</key>
             <value>Jump to</value>
         </label>
         <label>
-            <key>Go</key>
+            <key>go</key>
             <value> Go </value>
         </label>
         
         <label>
-            <key>Move_topic</key>
+            <key>move_topic</key>
             <value>Move topic</value>
         </label>
         <label>
-            <key>Open_topic</key>
+            <key>open_topic</key>
             <value>Open topic</value>
         </label>
         <label>
-            <key>Close_topic</key>
+            <key>close_topic</key>
             <value>Close topic</value>
         </label>
         <label>
-            <key>Unstick_topic</key>
+            <key>unstick_topic</key>
             <value>Unstick topic</value>
         </label>
         <label>
-            <key>Stick_topic</key>
+            <key>stick_topic</key>
             <value>Stick topic</value>
         </label>
         <label>
-            <key>Moderate_forum</key>
+            <key>moderate_forum</key>
             <value>Moderate forum</value>
         </label>
         <label>
-            <key>Delete_posts</key>
+            <key>delete_posts</key>
             <value>Delete multiple posts</value>
         </label>
         <label>
-            <key>Debug_table</key>
+            <key>debug_table</key>
             <value>Debug information</value>
         </label>
         
-        <label>
-            <key>RSS_Desc_Active</key>
-            <value>The most recently active topics at</value>
-        </label>
-        <label>
-            <key>RSS_Desc_New</key>
-            <value>The newest topics at</value>
-        </label>
-        
         
         <label>
-            <key>Posted</key>
+            <key>posted</key>
             <value>Posted</value>
         </label>
         <label>
-            <key>Delete_post</key>
+            <key>delete_post</key>
             <value>Delete post</value>
         </label>
         <label>
-            <key>Warning</key>
+            <key>warning</key>
             <value>Warning! If this is the first post in the topic, the whole topic will be deleted.</value>
         </label>
         <label>
-            <key>Delete</key>
+            <key>delete</key>
             <value>Delete</value>
         </label>
         <label>
-            <key>Post_del_redirect</key>
+            <key>post_del_redirect</key>
             <value>Post deleted. Redirecting </value>
         </label>
         <label>
-            <key>Topic_del_redirect</key>	
+            <key>topic_del_redirect</key>	
             <value>Topic deleted. Redirecting</value>
         </label>
         <label>
-            <key>Post_topic</key>	
+            <key>post_topic</key>	
             <value>Post new topic</value>
         </label>
         <label>
-            <key>Views</key>
+            <key>views</key>
             <value>Views</value>
         </label>
         <label>
-            <key>Moved</key>
+            <key>moved</key>
             <value>Moved</value>
         </label>
         <label>
-            <key>Sticky</key>
+            <key>sticky</key>
             <value>Sticky</value>
         </label>
         <label>
-            <key>Empty_forum</key>
+            <key>forum_is_empty</key>
             <value>Forum is empty.</value>
         </label>
         <label>
-            <key>Help</key>
+            <key>help</key>
             <value>Help</value>
         </label>
         <label>
@@ -553,86 +528,87 @@
             <value>produces</value>
         </label>
         <label>
-            <key>BBCode_info_1</key>
+            <key>bbcode_info_1</key>
             <value>BBCode is a collection of formatting tags that are used to change the look of text in this forum. BBCode is based on the same principal as, and is very similar to, HTML. Below is a list of all the available BBCodes and instructions on how to use them.</value>
         </label>
         <label>
-            <key>BBCode_info_2</key>
+            <key>bbcode_info_2</key>
             <value>Administrators have the ability to enable or disable BBCode. You can tell if BBCode is enabled or disabled out in the left margin whenever you post a message or edit your signature.</value>
         </label>
         <label>
-            <key>Text_style</key>
+            <key>text_style</key>
             <value>Text style</value>
         </label>
         <label>
-            <key>Text_style_info</key>
+            <key>text_style_info</key>
             <value>The following tags change the appearance of text:</value>
         </label>
         <label>
-            <key>Bold_text</key>
+            <key>bold_text</key>
             <value>Bold text</value>
         </label>
         <label>
-            <key>Underlined_text</key>
+            <key>underlined_text</key>
             <value>Underlined text</value>
         </label>
         <label>
-            <key>Italic_text</key>
+            <key>italic_text</key>
             <value>Italic text</value>
         </label>
         <label>
-            <key>Red_text</key>
+            <key>red_text</key>
             <value>Red text</value>
         </label>
         <label>
-            <key>Blue_text</key>
+            <key>blue_text</key>
             <value>Blue text</value>
         </label>
         <label>
-            <key>Links_and_images</key>
+            <key>links_and_images</key>
             <value>Links and images</value>
         </label>
         <label>
-            <key>Links_info</key>
+            <key>links_info</key>
             <value>You can create links to other documents or to e-mail addresses using the following tags:</value>
         </label>
         <label>
-            <key>My_e-mail_address</key>
+            <key>my_email_address</key>
             <value>My e-mail address</value>
         </label>
         <label>
-            <key>Images_info</key>
+            <key>images_info</key>
             <value>If you want to display an image you can use the img tag.</value>
         </label>
         <label>
-            <key>Quotes</key>
+            <key>quotes</key>
             <value>Quotes</value>
         </label>
         <label>
-            <key>Quotes_info</key>
+            <key>quotes_info</key>
             <value>If you want to quote someone, you should use the quote tag.</value>
         </label>
         <label>
-            <key>Quotes_info_2</key>
+            <key>quotes_info_2</key>
             <value>If you don't want to quote anyone in particular, you can use the quote tag without specifying a name.</value>
         </label>
         <label>
-            <key>Quote_text</key>
+            <key>quote_text</key>
             <value>This is the text i want to quote.</value>
         </label>
         <label>
-            <key>produces_quote_box</key>	<value>produces a quote box like this:</value>
+            <key>produces_quote_box</key>
+            <value>produces a quote box like this:</value>
         </label>
         <label>
-            <key>Code</key>
+            <key>code</key>
             <value>Code</value>
         </label>
         <label>
-            <key>Code_info</key>
+            <key>code_info</key>
             <value>When displaying source code you should make sure that you use the code tag. Text displayed with the code tag will use a monospaced font and will not be affected by other tags.</value>
         </label>
         <label>
-            <key>Code_text</key>
+            <key>code_text</key>
             <value>This is some code.</value>
         </label>
         <label>
@@ -640,261 +616,262 @@
             <value>produces a code box like this:</value>
         </label>
         <label>
-            <key>Nested_tags</key>
+            <key>nested_tags</key>
             <value>Nested tags</value>
         </label>
         <label>
-            <key>Nested_tags_info</key>
+            <key>nested_tags_info</key>
             <value>BBCode can be nested to create more advanced formatting. For example:</value>
         </label>
         <label>
-            <key>Bold,_underlined_text</key>	<value>Bold, underlined text</value>
+            <key>bold_underlined_text</key>
+            <value>Bold, underlined text</value>
         </label>
         <label>
-            <key>Smilies_info</key>
+            <key>smilies_info</key>
             <value>If you like (and if it is enabled), the forum can convert a series of smilies to 
             images representations of that smiley. This forum recognizes the following smilies and 
             replaces them with images:</value>
         </label>
         <label>
-            <key>Wrong_user/pass</key>
+            <key>wrong_user/pass</key>
             <value>Wrong username and/or password.</value>
         </label>
         <label>
-            <key>Forgotten_pass</key>
+            <key>forgotten_pass</key>
             <value>Forgotten your password?</value>
         </label>
         <label>
-            <key>Login_redirect</key>
+            <key>login_redirect</key>
             <value>Logged in successfully. Redirecting </value>
         </label>
         <label>
-            <key>Logout_redirect</key>
+            <key>logout_redirect</key>
             <value>Logged out. Redirecting </value>
         </label>
         <label>
-            <key>No_e-mail_match</key>
+            <key>no_email_match</key>
             <value>There is no user registered with the e-mail address</value>
         </label>
         <label>
-            <key>Request_pass</key>
+            <key>request_pass</key>
             <value>Request password</value>
         </label>
         <label>
-            <key>Request_pass_legend</key>	<value>Enter the e-mail address with which you registered</value>
+            <key>request_pass_legend</key>
+            <value>Enter the e-mail address with which you registered</value>
         </label>
         <label>
-            <key>Request_pass_info</key>
+            <key>request_pass_info</key>
             <value>A new password together with a link to activate the new password will be sent to that address.</value>
         </label>
         <label>
-            <key>Not_registered</key>
+            <key>not_registered</key>
             <value>Not registered yet?</value>
         </label>
         <label>
-            <key>Login_legend</key>
+            <key>login_legend</key>
             <value>Enter your username and password below</value>
         </label>
         <label>
-            <key>Login_info</key>
+            <key>login_info</key>
             <value>If you have not registered or have forgotten your password click on the appropriate link below.</value>
         </label>
         
         <label>
-            <key>Forget_mail</key>
+            <key>forget_mail</key>
             <value>An e-mail has been sent to the specified address with instructions on how to change your password. 
             If it does not arrive you can contact the forum administrator.</value>
         </label>
         <label>
-            <key>Mark_read_redirect</key>
+            <key>mark_read_redirect</key>
             <value>All topics and forums have been marked as read. Redirecting </value>
         </label>
         
         <label>
-            <key>Form_e-mail_disabled</key>
+            <key>form_email_disabled</key>
             <value>The user you are trying to send an e-mail to has disabled form e-mail.</value>
         </label>
         <label>
-            <key>No_e-mail_subject</key>
+            <key>no_email_subject</key>
             <value>You must enter a subject.</value>
         </label>
         <label>
-            <key>No_e-mail_message</key>
+            <key>no_email_message</key>
             <value>You must enter a message.</value>
         </label>
         <label>
-            <key>Too long_e-mail_message</key>	<value>Messages cannot be longer than 65535 characters (64 KB).</value>
+            <key>too_long_e-mail_message</key>
+            <value>Messages cannot be longer than 65535 characters (64 KB).</value>
         </label>
         <label>
-            <key>E-mail_sent_redirect</key>
+            <key>email_sent_redirect</key>
             <value>E-mail sent. Redirecting </value>
         </label>
         <label>
-            <key>Send_e-mail_to</key>
+            <key>send_e-mail_to</key>
             <value>Send e-mail to</value>
         </label>
         <label>
-            <key>E-mail_subject</key>
+            <key>email_subject</key>
             <value>Subject</value>
         </label>
         <label>
-            <key>E-mail_message</key>
+            <key>email_message</key>
             <value>Message</value>
         </label>
         <label>
-            <key>E-mail_disclosure_note</key>	<value>Please note that by using this form, your e-mail address will be disclosed to the recipient.</value>
+            <key>E-mail_disclosure_note</key>
+            <value>Please note that by using this form, your e-mail address will be disclosed to the recipient.</value>
         </label>
         <label>
-            <key>Write_e-mail</key>
+            <key>write_email</key>
             <value>Write and submit your e-mail message</value>
         </label>
         
         <label>
-            <key>No_reason</key>
+            <key>no_reason</key>
             <value>You must enter a reason.</value>
         </label>
         <label>
-            <key>Report_redirect</key>
+            <key>report_redirect</key>
             <value>Post reported. Redirecting </value>
         </label>
         <label>
-            <key>Report_post</key>
+            <key>report_post</key>
             <value>Report post</value>
         </label>
         <label>
-            <key>Reason</key>
+            <key>reason</key>
             <value>Reason</value>
         </label>
         <label>
-            <key>Reason_desc</key>
+            <key>reason_desc</key>
             <value>Please enter a short reason why you are reporting this post</value>
         </label>
         
         <label>
-            <key>Already_subscribed</key>
+            <key>already_subscribed</key>
             <value>You are already subscribed to this topic.</value>
         </label>
         <label>
-            <key>Not_subscribed</key>
+            <key>not_subscribed</key>
             <value>You are not subscribed to this topic.</value>
         </label>
         
         <label>
-            <key>Moderate</key>
+            <key>moderate</key>
             <value>Moderate</value>
         </label>
         <label>
-            <key>Select</key>
+            <key>select</key>
             <value>Select</value>
         </label>
         <label>
-            <key>Move</key>
-        
+            <key>move</key>
             <value>Move</value>
         </label>
         <label>
-            <key>Delete</key>
+            <key>delete</key>
             <value>Delete</value>
         </label>
         
         <label>
-            <key>Open</key>
-        
+            <key>open</key>
             <value>Open</value>
         </label>
         <label>
-            <key>Close</key>
-        
+            <key>close</key>
             <value>Close</value>
         </label>
         <label>
-            <key>Move_topic</key>
+            <key>move_topic</key>
             <value>Move topic</value>
         </label>
         <label>
-            <key>Move_topics</key>
+            <key>move_topics</key>
             <value>Move topics</value>
         </label>
         <label>
-            <key>Move_legend</key>
+            <key>move_legend</key>
             <value>Select destination of move</value>
         </label>
         <label>
-            <key>Move_to</key>
+            <key>move_to</key>
             <value>Move to</value>
         </label>
         <label>
-            <key>Leave_redirect</key>
+            <key>leave_redirect</key>
             <value>Leave redirect topic(s)</value>
         </label>
         <label>
-            <key>Confirm_delete_legend</key>
+            <key>confirm_delete_legend</key>
             <value>Please confirm deletion</value>
         </label>
         <label>
-            <key>Delete_topics</key>
+            <key>delete_topics</key>
             <value>Delete topics</value>
         </label>
         <label>
-            <key>Delete_topics_comply</key>
+            <key>delete_topics_comply</key>
             <value>Are you sure you want to delete the selected topics?</value>
         </label>
         <label>
-            <key>No_topics_selected</key>
+            <key>no_topics_selected</key>
             <value>You must select at least one topic for move/delete/open/close.</value>
         </label>
         
         <label>
-            <key>Delete_posts</key>
+            <key>delete_posts</key>
             <value>Delete posts</value>
         </label>
         <label>
-            <key>Delete_posts_comply</key>
+            <key>delete_posts_comply</key>
             <value>Are you sure you want to delete the selected posts?</value>
         </label>
         <label>
-            <key>Delete_posts_redirect</key>
+            <key>delete_posts_redirect</key>
             <value>Posts deleted. Redirecting </value>
         </label>
         <label>
-            <key>No_posts_selected</key>
+            <key>no_posts_selected</key>
             <value>You must select at least one post to be deleted.</value>
         </label>
         <label>
-            <key>No_subject</key>
+            <key>no_subject</key>
             <value>Topics must contain a subject.</value>
         </label>
         <label>
-            <key>Too_long_subject</key>
+            <key>too_long_subject</key>
             <value>Subjects cannot be longer than 70 characters.</value>
         </label>
         <label>
-            <key>No_message</key>
+            <key>no_message</key>
             <value>You must enter a message.</value>
         </label>
         <label>
-            <key>Too_long_message</key>
+            <key>too_long_message</key>
             <value>Posts cannot be longer that 65535 characters (64 KB).</value>
         </label>
         
         <label>
-            <key>Post_errors</key>
+            <key>post_errors</key>
             <value>Post errors</value>
         </label>
         <label>
-            <key>Post_errors_info</key>
+            <key>post_errors_info</key>
             <value>The following errors need to be corrected before the message can be posted:</value>
         </label>
         <label>
-            <key>Post_preview</key>
+            <key>post_preview</key>
             <value>Post preview</value>
         </label>
         <label>
-            <key>Guest_name</key>
+            <key>guest_name</key>
             <value>Name</value>
         </label>
         <label>
-            <key>Post_redirect</key>
+            <key>post_redirect</key>
             <value>Post entered. Redirecting </value>
         </label>
         <label>
@@ -902,23 +879,23 @@
             <value>Post a reply</value>
         </label>
         <label>
-            <key>Post_new_topic</key>
+            <key>post_new_topic</key>
             <value>Post new topic</value>
         </label>
         <label>
-            <key>Hide_smilies</key>
+            <key>hide_smilies</key>
             <value>Never show smilies as icons for this post</value>
         </label>
         <label>
-            <key>Subscribe</key>
+            <key>subscribe</key>
             <value>Subscribe to this topic</value>
         </label>
         <label>
-            <key>Topic_review</key>
+            <key>topic_review</key>
             <value>Topic review (newest first)</value>
         </label>
         <label>
-            <key>Flood_start</key>
+            <key>flood_start</key>
             <value>At least</value>
         </label>
         <label>
@@ -926,166 +903,169 @@
             <value>seconds have to pass between posts. Please wait a little while and try posting again.</value>
         </label>
         <label>
-            <key>Preview</key>
+            <key>preview</key>
             <value>Preview</value>
         </label>
         
         <label>
-            <key>Edit_post_legend</key>
+            <key>edit_post_legend</key>
             <value>Edit the post and submit changes</value>
         </label>
         <label>
-            <key>Silent_edit</key>
+            <key>silent_edit</key>
             <value>Silent edit (don't display "Edited by ..." in topic view)</value>
         </label>
         <label>
-            <key>Edit_post</key>
+            <key>edit_post</key>
             <value>Edit post</value>
         </label>
         
         <label>
-            <key>Profile_menu</key>
+            <key>profile_menu</key>
             <value>Profile menu</value>
         </label>
         <label>
-            <key>Section_essentials</key>
+            <key>section_essentials</key>
             <value>Essentials</value>
         </label>
         <label>
-            <key>Section_personal</key>
+            <key>section_personal</key>
             <value>Personal</value>
         </label>
         <label>
-            <key>Section_messaging</key>
+            <key>section_messaging</key>
             <value>Messaging</value>
         </label>
         <label>
-            <key>Section_personality</key>
+            <key>section_personality</key>
             <value>Personality</value>
         </label>
         <label>
-            <key>Section_display</key>
+            <key>section_display</key>
             <value>Display</value>
         </label>
         <label>
-            <key>Section_privacy</key>
+            <key>section_privacy</key>
             <value>Privacy</value>
         </label>
         <label>
-            <key>Section_admin</key>
+            <key>section_admin</key>
             <value>Administration</value>
         </label>
         
         <label>
-            <key>Username and_pass_legend</key>	<value>Enter your username and password</value>
+            <key>username_and_pass_legend</key>
+            <value>Enter your username and password</value>
         </label>
         <label>
-            <key>Personal_details_legend</key>	<value>Enter your personal details</value>
+            <key>personal_details_legend</key>
+            <value>Enter your personal details</value>
         </label>
         <label>
-            <key>Contact_details_legend</key>	<value>Enter your messaging details</value>
+            <key>contact_details_legend</key>
+            <value>Enter your messaging details</value>
         </label>
         <label>
-            <key>Options_display</key>
+            <key>options_display</key>
             <value>Set your display options</value>
         </label>
         <label>
-            <key>Options_post</key>
+            <key>options_post</key>
             <value>Set your post viewing options</value>
         </label>
         <label>
-            <key>User_activity</key>
+            <key>user_activity</key>
             <value>User activity</value>
         </label>
         <label>
-            <key>Paginate_info</key>
+            <key>paginate_info</key>
             <value>Enter the number of topics and posts you wish to view on each page.</value>
         </label>
         
         <label>
-            <key>Pass_key_bad</key>
+            <key>pass_key_bad</key>
             <value>The specified password activation key was incorrect or has expired. Please re-request a new password. If that fails, contact the forum administrator at</value>
         </label>
         <label>
-            <key>Pass_updated</key>
+            <key>pass_updated</key>
             <value>Your password has been updated. You can now login with your new password.</value>
         </label>
         <label>
-            <key>Pass_updated_redirect</key>
+            <key>pass_updated_redirect</key>
             <value>Password updated. Redirecting </value>
         </label>
         <label>
-            <key>Wrong_pass</key>
+            <key>wrong_pass</key>
             <value>Wrong old password.</value>
         </label>
         <label>
-            <key>Change_pass</key>
+            <key>change_pass</key>
             <value>Change password</value>
         </label>
         <label>
-            <key>Change_pass_legend</key>
+            <key>change_pass_legend</key>
             <value>Enter and confirm your new password</value>
         </label>
         <label>
-            <key>Old_pass</key>
+            <key>old_pass</key>
             <value>Old password</value>
         </label>
         <label>
-            <key>New_pass</key>
+            <key>new_pass</key>
             <value>New password</value>
         </label>
         <label>
-            <key>Confirm_new_pass</key>
+            <key>confirm_new_pass</key>
             <value>Confirm new password</value>
         </label>
         
         <label>
-            <key>E-mail_key_bad</key>
+            <key>email_key_bad</key>
             <value>The specified e-mail activation key was incorrect or has expired. Please re-request change of e-mail address. If that fails, contact the forum administrator at</value>
         </label>
         <label>
-            <key>E-mail_updated</key>
+            <key>email_updated</key>
             <value>Your e-mail address has been updated.</value>
         </label>
         <label>
-            <key>Activate_e-mail_sent</key>
+            <key>activate_email_sent</key>
             <value>An email has been sent to the specified address with instructions on how to activate the new e-mail address. If it doesn't arrive you can contact the forum administrator at</value>
         </label>
         <label>
-            <key>E-mail_legend</key>
+            <key>email_legend</key>
             <value>Enter your new e-mail address</value>
         </label>
         <label>
-            <key>E-mail_instructions</key>
+            <key>email_instructions</key>
             <value>An e-mail will be sent to your new address with an activation link. You must click the link in the e-mail you receive to activate the new address.</value>
         </label>
         <label>
-            <key>Change_e-mail</key>
+            <key>change_email</key>
             <value>Change e-mail address</value>
         </label>
         <label>
-            <key>New_e-mail</key>
+            <key>new_email</key>
             <value>New e-mail</value>
         </label>
         
         <label>
-            <key>Avatars_disabled</key>
+            <key>avatars_disabled</key>
             <value>The administrator has disabled avatar support.</value>
         </label>
         <label>
-            <key>Too_large_ini</key>
+            <key>too_large_ini</key>
             <value>The selected file was too large to upload. The server didn't allow the upload.</value>
         </label>
         <label>
-            <key>Partial_upload</key>
+            <key>partial_upload</key>
             <value>The selected file was only partially uploaded. Please try again.</value>
         </label>
         <label>
-            <key>No_tmp_directory</key>
+            <key>no_tmp_directory</key>
             <value>PHP was unable to save the uploaded file to a temporary location.</value>
         </label>
         <label>
-            <key>No_file</key>
+            <key>no_file</key>
             <value>You did not select a file for upload.</value>
         </label>
         <label>
@@ -1093,11 +1073,11 @@
             <value>The file you tried to upload is not of an allowed type. Allowed types are gif, jpeg and png.</value>
         </label>
         <label>
-            <key>Too wide_or_high</key>
+            <key>too_wide_or_high</key>
             <value>The file you tried to upload is wider and/or higher than the maximum allowed</value>
         </label>
         <label>
-            <key>Too_large</key>
+            <key>too_large</key>
             <value>The file you tried to upload is larger than the maximum allowed</value>
         </label>
         <label>
@@ -1109,459 +1089,443 @@
             <value>bytes</value>
         </label>
         <label>
-            <key>Move_failed</key>
+            <key>move_failed</key>
             <value>The server was unable to save the uploaded file. Please contact the forum administrator at</value>
         </label>
         <label>
-            <key>Unknown_failure</key>
+            <key>unknown_failure</key>
             <value>An unknown error occurred. Please try again.</value>
         </label>
         <label>
-            <key>Avatar_upload_redirect</key>	<value>Avatar uploaded. Redirecting </value>
+            <key>avatar_upload_redirect</key>
+            <value>Avatar uploaded. Redirecting </value>
         </label>
         <label>
-            <key>Avatar_deleted_redirect</key>	<value>Avatar deleted. Redirecting </value>
+            <key>avatar_deleted_redirect</key>
+            <value>Avatar deleted. Redirecting </value>
         </label>
         <label>
-            <key>Avatar_desc</key>
+            <key>avatar_desc</key>
             <value>An avatar is a small image that will be displayed under your username in your posts. It must not be any bigger than</value>
         </label>
         <label>
-            <key>Upload_avatar</key>
+            <key>upload_avatar</key>
             <value>Upload avatar</value>
         </label>
         <label>
-            <key>Upload_avatar_legend</key>
+            <key>upload_avatar_legend</key>
             <value>Enter an avatar file to upload</value>
         </label>
         <label>
-            <key>Delete_avatar</key>
+            <key>delete_avatar</key>
             <value>Delete avatar</value>
         </label>
         <label>
-            <key>File</key>
-        
+            <key>file</key>
             <value>File</value>
         </label>
         <label>
-            <key>Upload</key>
+            <key>upload</key>
             <value>Upload</value>
         </label>
-        
         <label>
-            <key>Dupe_username</key>
+            <key>dupe_username</key>
             <value>Someone else has already registered with that username. Please go back and try a different username.</value>
         </label>
         <label>
-            <key>Forbidden_title</key>
+            <key>forbidden_title</key>
             <value>The title you entered contains a forbidden word. You must choose a different title.</value>
         </label>
         <label>
-            <key>Profile_redirect</key>
+            <key>profile_redirect</key>
             <value>Profile updated. Redirecting </value>
         </label>
         
         <label>
-            <key>Not_activated</key>
+            <key>not_activated</key>
             <value>This user hasn't activated his/her account yet. The account is activated when he/she logs in the first time.</value>
         </label>
         <label>
-            <key>Unknown</key>
+            <key>unknown</key>
             <value>(Unknown)</value>
         </label>
         <label>
-            <key>Private</key>
+            <key>private</key>
             <value>(Private)</value>
         </label>
         <label>
-            <key>No_avatar</key>
+            <key>no_avatar</key>
             <value>(No avatar)</value>
         </label>
         <label>
-            <key>Show_posts</key>
+            <key>show_posts</key>
             <value>Show all posts</value>
         </label>
         <label>
-            <key>Realname</key>
+            <key>realname</key>
             <value>Real name</value>
         </label>
         <label>
-            <key>Location</key>
+            <key>location</key>
             <value>Location</value>
         </label>
         <label>
-            <key>Website</key>
+            <key>website</key>
             <value>Website</value>
         </label>
         <label>
-            <key>Jabber</key>
+            <key>jabber</key>
             <value>Jabber</value>
         </label>
         <label>
-            <key>ICQ</key>
-        
-            <value>ICQ</value>
-        </label>
-        <label>
-            <key>MSN</key>
-        
-            <value>MSN Messenger</value>
-        </label>
-        <label>
-            <key>AOL_IM</key>
-            <value>AOL IM</value>
-        </label>
-        <label>
-            <key>Yahoo</key>
-        
-            <value>Yahoo! Messenger</value>
-        </label>
-        <label>
-            <key>Avatar</key>
+            <key>avatar</key>
             <value>Avatar</value>
         </label>
         <label>
-            <key>Signature</key>
+            <key>signature</key>
             <value>Signature</value>
         </label>
         <label>
-            <key>Sig_max_length</key>
+            <key>sig_max_length</key>
             <value>Max length</value>
         </label>
         <label>
-            <key>Sig_max_lines</key>
+            <key>sig_max_lines</key>
             <value>Max lines</value>
         </label>
         <label>
-            <key>Avatar_legend</key>
+            <key>avatar_legend</key>
             <value>Set your avatar display options</value>
         </label>
         <label>
-            <key>Avatar_info</key>
+            <key>avatar_info</key>
             <value>An avatar is a small image that will be displayed with all your posts. You can upload an avatar by clicking the link below. The checkbox 'Use avatar' below must be checked in order for the avatar to be visible in your posts.</value>
         </label>
         <label>
-            <key>Change_avatar</key>
+            <key>change_avatar</key>
             <value>Change avatar</value>
         </label>
         <label>
-            <key>Use_avatar</key>
+            <key>use_avatar</key>
             <value>Use avatar.</value>
         </label>
         <label>
-            <key>Signature_legend</key>
+            <key>signature_legend</key>
             <value>Compose your signature</value>
         </label>
         <label>
-            <key>Signature_info</key>
+            <key>signature_info</key>
             <value>A signature is a small piece of text that is attached to your posts. In it, you can enter just about anything you like. Perhaps you would like to enter your favourite quote or your star sign. It's up to you! In your signature you can use BBCode if it is allowed in this particular forum. You can see the features that are allowed/enabled listed below whenever you edit your signature.</value>
         </label>
         <label>
-            <key>Sig_preview</key>
+            <key>sig_preview</key>
             <value>Current signature preview:</value>
         </label>
         <label>
-            <key>No_sig</key>
+            <key>no_sig</key>
             <value>No signature currently stored in profile.</value>
         </label>
         <label>
-            <key>Topics_per_page</key>
+            <key>topics_per_page</key>
             <value>Topics</value>
         </label>
         <label>
-            <key>Topics per_page_info</key>
+            <key>topics per_page_info</key>
             <value>This setting controls how many topics are displayed per page when you view a forum. If you are uncertain about what to use, you can just leave it blank and the forum default will be used.</value>
         </label>
         <label>
-            <key>Posts_per_page</key>
+            <key>posts_per_page</key>
             <value>Posts</value>
         </label>
         <label>
-            <key>Posts per_page_info</key>
+            <key>posts per_page_info</key>
             <value>This setting controls how many posts are displayed per page when you view a topic. If you are uncertain about what to use, you can just leave it blank and the forum default will be used.</value>
         </label>
         <label>
-            <key>Leave_blank</key>
+            <key>leave_blank</key>
             <value>Leave blank to use forum default.</value>
         </label>
         <label>
-            <key>Notify_full</key>
+            <key>notify_full</key>
             <value>Include post in subscription e-mails.</value>
         </label>
         <label>
-            <key>Notify_full_info</key>
+            <key>notify_full_info</key>
             <value>With this enabled, a plain text version of the new post will be included in subscription notification e-mails.</value>
         </label>
         <label>
-            <key>Show_smilies</key>
+            <key>show_smilies</key>
             <value>Show smilies as graphic icons</value>
         </label>
         <label>
-            <key>Show_smilies_info</key>
+            <key>show_smilies_info</key>
             <value>If you enable this option, small images will be displayed instead of text smilies.</value>
         </label>
         <label>
-            <key>Show_images</key>
+            <key>show_images</key>
             <value>Show images in posts.</value>
         </label>
         <label>
-            <key>Show_images_info</key>
+            <key>show_images_info</key>
             <value>Disable this if you don't want to see images in posts (i.e. images displayed with the [img]-tag).</value>
         </label>
         <label>
-            <key>Show_images_sigs</key>
+            <key>show_images_sigs</key>
             <value>Show images in user signatures.</value>
         </label>
         <label>
-            <key>Show images_sigs_info</key>
+            <key>show images_sigs_info</key>
             <value>Disable this if you don't want to see images in signatures (i.e. images displayed with the [img]-tag).</value>
         </label>
         <label>
-            <key>Show_avatars</key>
+            <key>show_avatars</key>
             <value>Show user avatars in posts.</value>
         </label>
         <label>
-            <key>Show_avatars_info</key>
+            <key>show_avatars_info</key>
             <value>This option toggles whether user avatar images will be displayed in posts or not.</value>
         </label>
         <label>
-            <key>Show_sigs</key>
+            <key>show_sigs</key>
             <value>Show user signatures.</value>
         </label>
         <label>
-            <key>Show_sigs_info</key>
+            <key>show_sigs_info</key>
             <value>Enable if you would like to see user signatures.</value>
         </label>
         <label>
-            <key>Style_legend</key>
+            <key>style_legend</key>
             <value>Select your preferred style</value>
         </label>
         <label>
-            <key>Style_info</key>
+            <key>style_info</key>
             <value>If you like you can use a different visual style for this forum.</value>
         </label>
         <label>
-            <key>Admin_note</key>
+            <key>admin_note</key>
             <value>Admin note</value>
         </label>
         <label>
-            <key>Pagination_legend</key>
+            <key>pagination_legend</key>
             <value>Enter your pagination options</value>
         </label>
         <label>
-            <key>Post_display_legend</key>
+            <key>post_display_legend</key>
             <value>Set your options for viewing posts</value>
         </label>
         <label>
-            <key>Post_display_info</key>
+            <key>post_display_info</key>
             <value>If you are on a slow connection, disabling these options, particularly showing images in posts and signatures, will make pages load faster.</value>
         </label>
         <label>
-            <key>Instructions</key>
+            <key>instructions</key>
             <value>When you update your profile, you will be redirected back to this page.</value>
         </label>
         
         <label>
-            <key>Group_membership_legend</key>	<value>Choose user group</value>
+            <key>group_membership_legend</key>
+            <value>Choose user group</value>
         </label>
         <label>
-            <key>Save</key>
+            <key>save</key>
             <value>Save</value>
         </label>
         <label>
-            <key>Set_mods_legend</key>
+            <key>set_mods_legend</key>
             <value>Set moderator access</value>
         </label>
         <label>
-            <key>Moderator_in</key>
+            <key>moderator_in</key>
             <value>Moderator in</value>
         </label>
         <label>
-            <key>Moderator_in_info</key>
+            <key>moderator_in_info</key>
             <value>Choose what forums this user should be allowed to moderate. Note: This only applies to moderators. Administrators always have full permissions in all forums.</value>
         </label>
         <label>
-            <key>Update_forums</key>
+            <key>update_forums</key>
             <value>Update forums</value>
         </label>
         <label>
-            <key>Delete_ban_legend</key>
+            <key>delete_ban_legend</key>
             <value>Delete (administrators only) or ban user</value>
         </label>
         <label>
-            <key>Delete_user</key>
+            <key>delete_user</key>
             <value>Delete user</value>
         </label>
         <label>
-            <key>Ban_user</key>
+            <key>ban_user</key>
             <value>Ban user</value>
         </label>
         <label>
-            <key>Confirm_delete_legend</key>
+            <key>confirm_delete_legend</key>
             <value>Important: read before deleting user</value>
         </label>
         <label>
-            <key>Confirm_delete_user</key>
+            <key>confirm_delete_user</key>
             <value>Confirm delete user</value>
         </label>
         <label>
-            <key>Confirmation_info</key>
+            <key>confirmation_info</key>
             <value>Please confirm that you want to delete the user</value>
         </label>
         <label>
-            <key>Delete_warning</key>
+            <key>delete_warning</key>
             <value>Warning! Deleted users and/or posts cannot be restored. If you choose not to delete the posts made by this user, the posts can only be deleted manually at a later time.</value>
         </label>
         <label>
-            <key>Delete_posts</key>
+            <key>delete_posts</key>
             <value>Delete any posts and topics this user has made.</value>
         </label>
         <label>
-            <key>Delete</key>
+            <key>delete</key>
             <value>Delete</value>
         </label>
         
         <label>
-            <key>User_delete_redirect</key>
+            <key>user_delete_redirect</key>
             <value>User deleted. Redirecting </value>
         </label>
         <label>
-            <key>Group_membership_redirect</key>	<value>Group membership saved. Redirecting </value>
+            <key>group_membership_redirect</key>
+            <value>Group membership saved. Redirecting </value>
         </label>
         <label>
-            <key>Update_forums_redirect</key>	<value>Forum moderator rights updated. Redirecting </value>
+            <key>update_forums_redirect</key>
+            <value>Forum moderator rights updated. Redirecting </value>
         </label>
         <label>
-            <key>Ban_redirect</key>
+            <key>ban_redirect</key>
             <value>Redirecting</value>
         </label>
         <label>
-            <key>No_new_regs</key>
+            <key>no_new_regs</key>
             <value>This forum is not accepting new registrations.</value>
         </label>
         <label>
-            <key>Reg_cancel_redirect</key>
+            <key>reg_cancel_redirect</key>
             <value>Registration cancelled. Redirecting </value>
         </label>
         <label>
-            <key>Forum_rules</key>
+            <key>forum_rules</key>
             <value>Forum rules</value>
         </label>
         <label>
-            <key>Rules_legend</key>
+            <key>rules_legend</key>
             <value>You must agree to the following in order to register</value>
         </label>
         <label>
-            <key>Agree</key>
+            <key>agree</key>
             <value>Agree</value>
         </label>
         <label>
-            <key>Cancel</key>
+            <key>cancel</key>
             <value>Cancel</value>
         </label>
         <label>
-            <key>Register</key>
+            <key>register</key>
             <value>Register</value>
         </label>
         
         <label>
-            <key>Username_censor</key>
+            <key>username_censor</key>
             <value>The username you entered contains one or more censored words. Please choose a different username.</value>
         </label>
         <label>
-            <key>Username_dupe_1</key>
+            <key>username_dupe_1</key>
             <value>Someone is already registered with the username</value>
         </label>
         <label>
-            <key>Username_dupe_2</key>
+            <key>username_dupe_2</key>
             <value>The username you entered is too similar. The username must differ from that by at least one alphanumerical character (a-z or 0-9). Please choose a different username.</value>
         </label>
         <label>
-            <key>E-mail_not_match</key>
+            <key>email_not_match</key>
             <value>E-mail addresses do not match. Please go back and correct.</value>
         </label>
         
         <label>
-            <key>Reg_e-mail</key>
+            <key>reg_email</key>
             <value>Thank you for registering. Your password has been sent to the specified address. If it doesn't arrive you can contact the forum administrator at</value>
         </label>
         <label>
-            <key>Reg_complete</key>
+            <key>reg_complete</key>
             <value>Registration complete. Logging in and redirecting </value>
         </label>
         
         <label>
-            <key>Desc_1</key>
+            <key>desc_1</key>
             <value>Registration will grant you access to a number of features and capabilities otherwise unavailable. These functions include the ability to edit and delete posts, design your own signature that accompanies your posts and much more. If you have any questions regarding this forum you should ask an administrator.</value>
         </label>
         <label>
-            <key>Desc_2</key>
+            <key>desc_2</key>
             <value>Below is a form you must fill out in order to register. Once you are registered you should visit your profile and review the different settings you can change. The fields below only make up a small part of all the settings you can alter in your profile.</value>
         </label>
         <label>
-            <key>Username_legend</key>
+            <key>username_legend</key>
             <value>Please enter a username between 2 and 25 characters long</value>
         </label>
         <label>
-            <key>Pass_legend_1</key>
+            <key>pass_legend_1</key>
             <value>Please enter and confirm your chosen password</value>
         </label>
         <label>
-            <key>Pass_legend_2</key>
+            <key>pass_legend_2</key>
             <value>Please read the instructions below</value>
         </label>
         <label>
-            <key>Pass_info</key>
+            <key>pass_info</key>
             <value>Passwords can be between 4 and 16 characters long. Passwords are case sensitive.</value>
         </label>
         <label>
-            <key>E-mail_info</key>
+            <key>email_info</key>
             <value>You must enter a valid e-mail address as your randomly generated password will be sent to that address.</value>
         </label>
         <label>
-            <key>Confirm_e-mail</key>
+            <key>confirm_email</key>
             <value>Confirm e-mail address</value>
         </label>
         <label>
-            <key>Post_reply</key>
+            <key>post_reply</key>
             <value>Post reply</value>
         </label>
         <label>
-            <key>Topic_closed</key>
+            <key>topic_closed</key>
             <value>Topic closed</value>
         </label>
         <label>
-            <key>From</key>
+            <key>from</key>
             <value>From</value>
         </label>
         
         
         <label>
-            <key>Note</key>
+            <key>note</key>
             <value>Note</value>
         </label>
         <label>
-            <key>Website</key>
+            <key>website</key>
             <value>Website</value>
         </label>
         <label>
-            <key>Guest</key>
+            <key>guest</key>
             <value>Guest</value>
         </label>
         <label>
-            <key>Online</key>
+            <key>online</key>
             <value>Online</value>
         </label>
         <label>
-            <key>Offline</key>
+            <key>offline</key>
             <value>Offline</value>
         </label>
         <label>
-            <key>Last_edit</key>
+            <key>last_edit</key>
             <value>Last edited by</value>
         </label>
         <label>
-            <key>Report</key>
+            <key>report</key>
             <value>Report</value>
         </label>
         <label>
@@ -1573,19 +1537,19 @@
             <value>Edit</value>
         </label>
         <label>
-            <key>Quote</key>
+            <key>quote</key>
             <value>Quote</value>
         </label>
         <label>
-            <key>Is_subscribed</key>
+            <key>is_subscribed</key>
             <value>You are currently subscribed to this topic</value>
         </label>
         <label>
-            <key>Unsubscribe</key>
+            <key>unsubscribe</key>
             <value>Unsubscribe</value>
         </label>
         <label>
-            <key>Subscribe</key>
+            <key>subscribe</key>
             <value>Subscribe to this topic</value>
         </label>
         <label>
@@ -1593,34 +1557,32 @@
             <value>Quick post</value>
         </label>
         <label>
-            <key>Link_separator</key>
+            <key>link_separator</key>
             <value> | </value>
         </label>
         <label>
-            <key>Mod_controls</key>
+            <key>mod_controls</key>
             <value>Moderator controls</value>
         </label>
         <label>
-            <key>User_find_legend</key>
+            <key>user_find_legend</key>
             <value>Find and sort users</value>
         </label>
         <label>
-            <key>User_search_info</key>
+            <key>user_search_info</key>
             <value>Enter a username to search for and/or a user group to filter by. The username field can be left blank. Use the wildcard character * for partial matches. Sort users by name, date registered or number of posts and in ascending/descending order.</value>
         </label>
         <label>
-            <key>User_group</key>
+            <key>user_group</key>
             <value>User group</value>
         </label>
         <label>
-            <key>No_of_posts</key>
+            <key>no_of_posts</key>
             <value>No. of posts</value>
         </label>
         <label>
-            <key>All_users</key>
+            <key>all_users</key>
             <value>All</value>
         </label>
-        
     </labels>
-
 </i18n>

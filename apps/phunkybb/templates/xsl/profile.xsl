@@ -28,7 +28,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <div id="profile" class="block2col">
     <xsl:call-template name="profile-menu"/>
 	<div class="blockform">
-		<h2><span><xsl:value-of select="//runtime/username"/> - Essentials</span></h2>
+		<h2><span><xsl:value-of select="//runtime/username"/> - <xsl:value-of select="//label[key='essentials']/value"/></span></h2>
 
 		<div class="box">
 			<form id="profile1" method="post" onsubmit="return process_form(this)">
@@ -38,8 +38,8 @@ Fifth Floor, Boston, MA 02110-1301  USA
 						<div class="infldset">
 							<input type="hidden" name="form_sent" value="1" />
 							<input type="hidden" name="old_username" value="demo" />
-                            <label><strong>Username</strong><br />
-                            <input type="text" name="req_username" value="{//user_get_profile/username}" size="25" maxlength="25" /><br />
+                            <label><strong><xsl:value-of select="//label[key='username']/value"/></strong><br />
+                            <input type="text" name="req_username" value="{//user_get_profile/username}"/><br />
                             </label>
                         <p><a href="#">Change password</a></p>
 					</div>
@@ -49,15 +49,15 @@ Fifth Floor, Boston, MA 02110-1301  USA
 					<fieldset>
 						<legend>Enter a valid e-mail address</legend>
 						<div class="infldset">
-
-							<label><strong>E-mail</strong><br /><input type="text" name="req_email" value="{//user_get_profile/email}" size="40" maxlength="50" /><br /></label><p><a href="misc.php?email=2">Send e-mail</a></p>
+							<label><strong><xsl:value-of select="//label[key='email']/value"/></strong><br />
+                            <input type="text" name="req_email" value="{//user_get_profile/email}"/><br />
+                            </label><p><a href="#"><xsl:value-of select="//label[key='send_email']/value"/></a></p>
 						</div>
 					</fieldset>
 				</div>
 				<div class="inform">
 					<fieldset>
 						<legend>Set your localisation options</legend>
-
 						<div class="infldset">
 							<label>Timezone: For the forum to display times correctly you must select your local timezone.
                             <br />
@@ -73,19 +73,24 @@ Fifth Floor, Boston, MA 02110-1301  USA
 				</div>
 				<div class="inform">
 					<fieldset>
-						<legend>User activity</legend>
+						<legend><xsl:value-of select="//label[key='user_activity']/value"/></legend>
 						<div class="infldset">
-							<p>Registered: <xsl:value-of select="//user_get_profile/registered"/> (<a href="#"><xsl:value-of select="//user_get_profile/registration_ip"/></a>)</p>
-							<p>Last post: <xsl:value-of select="//user_get_profile/last_post"/></p>
+							<p><xsl:value-of select="//label[key='registered']/value"/>: 
+                                <xsl:value-of select="//user_get_profile/registered"/> 
+                                (<a href="#"><xsl:value-of select="//user_get_profile/registration_ip"/></a>)</p>
+							<p><xsl:value-of select="//label[key='last_post']/value"/>: 
+                                <xsl:value-of select="//user_get_profile/last_post"/></p>
 
-								<label>Posts<br /><input type="text" name="num_posts" value="{//user_get_profile/num_posts}" size="8" maxlength="8" /><br /></label>
-							<label>Admin note<br />
+								<label><xsl:value-of select="//label[key='posts']/value"/><br />
+                                <input type="text" name="num_posts" value="{//user_get_profile/num_posts}"/>
+                                <br />
+                                </label>
+							<label><xsl:value-of select="//label[key='admin_note']/value"/><br />
 							<input id="admin_note" type="text" name="admin_note" value="{//user_get_profile/admin_note}" size="30" maxlength="30" /><br /></label>
 						</div>
 					</fieldset>
 				</div>
-				<p><input type="submit" name="update" value="Submit" />
-                When you update your profile, you will be redirected back to this page.</p>
+				<p><input type="submit" name="update" value="Submit" /></p>
 
 			</form>
 		</div>

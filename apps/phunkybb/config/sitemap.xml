@@ -22,6 +22,7 @@
         <map:true>
             <map:validate src="validators/registration_validation.xml">
                 <map:valid>
+                    <map:xml src="i18n/{//selected_lang}/emails.xml"/>
                     <map:xml src="data/xml/emails.xml"/>
                     <map:plugin type="random" params="random,8"/>
                     <map:plugin type="hash" params="sha1,//_post/password"/>

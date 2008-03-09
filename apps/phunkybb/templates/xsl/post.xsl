@@ -25,35 +25,43 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <xsl:include href="main.xsl"/>
 <xsl:template name="content">
 <div class="blockform">
-	<h2><span>Post new topic</span></h2>
-	<div class="box">
-		<form id="post" method="post" action="{//link_prefix}topic-submit">
-            <input type="hidden" name="fid" value="{//_get/fid}"/>
-			<div class="inform">
-				<fieldset>
-					<legend>Write your message and submit</legend>
-					<div class="infldset txtarea">
-						<label><strong>Subject</strong><br />
-                        <input class="longinput" type="text" name="subject" value="" size="80" maxlength="70" tabindex="1" /><br /></label>
-						<label><strong>Message</strong><br />
-						<textarea name="message" rows="20" cols="95" tabindex="2"></textarea><br /></label>
-					</div>
-				</fieldset>
-			</div>
-			<div class="inform">
-				<fieldset>
-					<legend>Options</legend>
-					<div class="infldset">
-						<div class="rbox">
-							<label><input type="checkbox" name="hide_smilies" value="1" tabindex="3" />Never show smilies as icons for this post<br /></label>
-				<label><input type="checkbox" name="subscribe" value="1" tabindex="4" />Subscribe to this topic<br /></label>
-						</div>
-					</div>
-				</fieldset>
-			</div>
-			<p><input type="submit" name="submit" value="Submit" tabindex="5" accesskey="s" /><input type="submit" name="preview" value="Preview" tabindex="6" accesskey="p" /><a href="javascript:history.go(-1)">Go back</a></p>
-		</form>
-	</div>
+<h2><span><xsl:value-of select="//label[key='post_new_topic']/value"/></span></h2>
+<div class="box">
+    <form id="post" method="post" action="{//link_prefix}topic-submit">
+        <input type="hidden" name="fid" value="{//_get/fid}"/>
+        <div class="inform">
+            <fieldset>
+                <legend><xsl:value-of select="//label[key='write_your_message']/value"/></legend>
+                <div class="infldset txtarea">
+                    <label><strong><xsl:value-of select="//label[key='subject']/value"/></strong><br />
+                    <input class="longinput" type="text" name="subject" tabindex="1" /><br /></label>
+                    <label><strong><xsl:value-of select="//label[key='message']/value"/></strong><br />
+                    <textarea name="message" rows="20" cols="95" tabindex="2"></textarea><br /></label>
+                </div>
+            </fieldset>
+        </div>
+        <div class="inform">
+            <fieldset>
+                <legend><xsl:value-of select="//label[key='options']/value"/></legend>
+                <div class="infldset">
+                    <div class="rbox">
+                    <label>
+                    <input type="checkbox" name="subscribe" value="1" tabindex="4" />
+                    <xsl:value-of select="//label[key='subscribe']/value"/><br />
+                    </label>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+        <p>
+            <input type="submit" name="submit" value="Submit" tabindex="5" accesskey="s" />
+            <input type="submit" name="preview" value="Preview" tabindex="6" accesskey="p" />
+            <a href="{//link_prefix}" onclick="history.go(-1);">
+                <xsl:value-of select="//label[key='go_back']/value"/>
+            </a>
+        </p>
+    </form>
+</div>
 </div>
 </xsl:template>
 </xsl:stylesheet>
