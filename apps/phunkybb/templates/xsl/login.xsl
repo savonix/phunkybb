@@ -56,29 +56,29 @@ function do_encrypt() {
 </script>
 <textarea id="replace" rows="10" cols="80"></textarea>
 <div class="blockform">
-	<h2><span>Login</span></h2>
+	<h2><span><xsl:value-of select="//label[key='login']/value"/></span></h2>
 
 <div class="box">
-<form id="mlogin" name="mlogin" method="post" action="{//link_prefix}login&amp;view_flow=true" onSubmit="do_encrypt(); return false;">
+<form id="mlogin" name="mlogin" method="post" action="{//link_prefix}login&amp;view_flow=true" 
+    onSubmit="do_encrypt(); return false;">
 <input type="hidden" name="id_rsa_pub" value=""/>
 <input type="hidden" name="e" value=""/>
     <div class="inform">
         <fieldset>
-            <legend>Enter your username and password below</legend>
-                <div class="infldset">
-                    <label class="conl"><strong>Username</strong><br />
-                    <input type="text" name="username" tabindex="1" /><br />
-                    </label>
-                    
-                    <label class="conl"><strong>Password</strong><br />
-                    <input type="password" name="password" tabindex="2" /><br />
-                    </label>
-                    
-                    <p class="clearb">If you have not registered or have forgotten your password click on the appropriate link below.</p>
-                    <p><a href="{//link_prefix}register" tabindex="4">Not registered yet?</a>
-                    <!--  <a href="" tabindex="5">Forgotten your password?</a> -->
-                    </p>
-                </div>
+            <legend><xsl:value-of select="//label[key='enter_username']/value"/></legend>
+            <div class="infldset">
+            <label class="conl"><strong><xsl:value-of select="//label[key='username']/value"/></strong><br />
+            <input type="text" name="username" tabindex="1" /><br />
+            </label>
+            
+            <label class="conl"><strong><xsl:value-of select="//label[key='password']/value"/></strong><br />
+            <input type="password" name="password" tabindex="2" /><br />
+            </label>
+            
+            <p><a href="{//link_prefix}register" tabindex="4"><xsl:value-of select="//label[key='not_registered_yet']/value"/>?</a>
+            <!--  <a href="" tabindex="5">Forgotten your password?</a> -->
+            </p>
+            </div>
         </fieldset>
     </div>
     <p><input type="submit" name="login" value="Login" tabindex="3" /></p>

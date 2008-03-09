@@ -79,69 +79,48 @@ function do_encrypt() {
         <div class="inform">
             <div class="forminfo">
                 <h3><xsl:value-of select="//label[key='important_information']/value"/></h3>
-                <p>Registration will grant you access to a number of features and capabilities otherwise unavailable. 
-                These functions include the ability to edit and delete posts, design your own signature that accompanies 
-                your posts and much more. If you have any questions regarding this forum you should ask an administrator.</p>
-                <p>Below is a form you must fill out in order to register. Once you are registered you should visit your 
-                profile and review the different settings you can change. The fields below only make up a small part of 
-                all the settings you can alter in your profile.</p>
+                <p><xsl:value-of select="//label[key='reg_desc_1']/value"/></p>
+                <p><xsl:value-of select="//label[key='reg_desc_2']/value"/></p>
             </div>
             <fieldset>
-                <legend>Please enter a username between 2 and 25 characters long</legend>
+                <legend><xsl:value-of select="//label[key='username_legend']/value"/></legend>
                 <div class="infldset">
-                    <label><strong>Username</strong><br />
+                    <label><strong><xsl:value-of select="//label[key='username']/value"/></strong><br />
                     <input type="text" name="username" maxlength="25" value="{//_post/username}"/><br /></label>
                 </div>
             </fieldset>
         </div>
         <div class="inform">
             <fieldset>
-                <legend>Please enter and confirm your chosen password</legend>
+                <legend><xsl:value-of select="//label[key='pass_legend_1']/value"/></legend>
                 <div class="infldset">
-                    <label class="conl"><strong>Password</strong><br /><input type="password" name="password1" size="16" maxlength="16" /><br /></label>
-                    <label class="conl"><strong>Confirm password</strong><br /><input type="password" name="password2" size="16" maxlength="16" /><br /></label>
-                    <p class="clearb">Passwords can be between 4 and 16 characters long. Passwords are case sensitive.</p>
+                    <label class="conl"><strong><xsl:value-of select="//label[key='password']/value"/></strong><br /><input type="password" name="password1" size="16" maxlength="16" /><br /></label>
+                    <label class="conl"><strong><xsl:value-of select="//label[key='confirm_password']/value"/></strong><br /><input type="password" name="password2" size="16" maxlength="16" /><br /></label>
+                    <p class="clearb"><xsl:value-of select="//label[key='pass_info']/value"/></p>
                 </div>
             </fieldset>
         </div>
         <div class="inform">
             <fieldset>
-                <legend>Enter a valid e-mail address</legend>
+                <legend><xsl:value-of select="//label[key='valid_email']/value"/></legend>
                 <div class="infldset">
 
-                <label><strong>E-mail</strong><br />
+                <label><strong><xsl:value-of select="//label[key='email']/value"/></strong><br />
                     <input type="text" name="email" maxlength="50"  value="{//_post/email}"/><br /></label>
                 </div>
             </fieldset>
         </div>
         <div class="inform">
             <fieldset>
-                <legend>Set your localisation options</legend>
+                <legend><xsl:value-of select="//label[key='set_localisation_options']/value"/></legend>
                 <div class="infldset">
-                    <label>Timezone: For the forum to display times correctly you must select your local timezone.<br />
+                    <label><xsl:value-of select="//label[key='select_timezone']/value"/><br />
                     <select id="time_zone" name="timezone">
                     <xsl:for-each select="//tzdata/option">
                         <option value="{@value}"><xsl:value-of select="."/></option>
                     </xsl:for-each>
                     </select>
                     <br /></label>
-                </div>
-            </fieldset>
-        </div>
-        <div class="inform">
-            <fieldset>
-                <legend>Set your privacy options</legend>
-                <div class="infldset">
-                    <p>Select whether you want your e-mail address to be viewable to other users or not and if you want other users to be able to send you e-mail via the forum (form e-mail) or not.</p>
-                    <div class="rbox">
-                        <label><input type="radio" name="email_setting" value="0" />Display your e-mail address.<br /></label>
-                        <label><input type="radio" name="email_setting" value="1" checked="checked" />Hide your e-mail address but allow form e-mail.<br /></label>
-                        <label><input type="radio" name="email_setting" value="2" />Hide your e-mail address and disallow form e-mail.<br /></label>
-                    </div>
-                    <p>This option sets whether the forum should "remember" you between visits. If enabled, you will not have to login every time you visit the forum. You will be logged in automatically. Recommended.</p>
-                    <div class="rbox">
-                        <label><input type="checkbox" name="save_pass" value="1" checked="checked" />Save username and password between visits.<br /></label>
-                    </div>
                 </div>
             </fieldset>
         </div>

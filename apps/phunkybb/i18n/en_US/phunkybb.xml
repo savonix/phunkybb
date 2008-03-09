@@ -93,7 +93,6 @@
             <key>reports</key>
             <value>Reports</value>
         </label>
-        
         <!-- Misc -->
         <label>
             <key>essentials</key>
@@ -168,7 +167,6 @@
             <key>info</key>
             <value>Info</value>
         </label>
-        
         <label>
             <key>go_back</key>
             <value>Go back</value>
@@ -177,12 +175,10 @@
             <key>maintenance</key>
             <value>Maintenance</value>
         </label>
-        
         <label>
             <key>on</key>
             <value>on</value>
         </label>
-        
         <label>
             <key>off</key>
             <value>off</value>
@@ -307,7 +303,6 @@
             <key>statistics</key>
             <value>Statistics</value>
         </label>
-        
         <label>
             <key>mailer</key>
             <value>Mailer</value>
@@ -320,7 +315,6 @@
             <key>write_your_message</key>
             <value>Write your message and submit</value>
         </label>
-        
         <label>
             <key>title</key>
             <value>Title</value>
@@ -338,6 +332,10 @@
             <value>Administrator</value>
         </label>
         <label>
+            <key>administration</key>
+            <value>Administration</value>
+        </label>
+        <label>
             <key>banned</key>
             <value>Banned</value>
         </label>
@@ -345,12 +343,10 @@
             <key>guest</key>
             <value>Guest</value>
         </label>
-        
         <label>
             <key>bbcode_error</key>
             <value>The BBCode syntax in the message is incorrect.</value>
         </label>
-        
         <label>
             <key>index</key>
             <value>Index</value>
@@ -407,7 +403,6 @@
             <key>link_separator</key>
             <value></value>
         </label>
-        
         <label>
             <key>board_footer</key>
             <value>Board footer</value>
@@ -440,7 +435,6 @@
             <key>go</key>
             <value> Go </value>
         </label>
-        
         <label>
             <key>move_topic</key>
             <value>Move topic</value>
@@ -634,7 +628,7 @@
             replaces them with images:</value>
         </label>
         <label>
-            <key>wrong_user/pass</key>
+            <key>wrong_user_pass</key>
             <value>Wrong username and/or password.</value>
         </label>
         <label>
@@ -666,18 +660,17 @@
             <value>A new password together with a link to activate the new password will be sent to that address.</value>
         </label>
         <label>
-            <key>not_registered</key>
+            <key>not_registered_yet</key>
             <value>Not registered yet?</value>
         </label>
         <label>
-            <key>login_legend</key>
+            <key>enter_username</key>
             <value>Enter your username and password below</value>
         </label>
         <label>
             <key>login_info</key>
             <value>If you have not registered or have forgotten your password click on the appropriate link below.</value>
         </label>
-        
         <label>
             <key>forget_mail</key>
             <value>An e-mail has been sent to the specified address with instructions on how to change your password. 
@@ -687,7 +680,6 @@
             <key>mark_read_redirect</key>
             <value>All topics and forums have been marked as read. Redirecting </value>
         </label>
-        
         <label>
             <key>form_email_disabled</key>
             <value>The user you are trying to send an e-mail to has disabled form e-mail.</value>
@@ -728,7 +720,6 @@
             <key>write_email</key>
             <value>Write and submit your e-mail message</value>
         </label>
-        
         <label>
             <key>no_reason</key>
             <value>You must enter a reason.</value>
@@ -749,7 +740,6 @@
             <key>reason_desc</key>
             <value>Please enter a short reason why you are reporting this post</value>
         </label>
-        
         <label>
             <key>already_subscribed</key>
             <value>You are already subscribed to this topic.</value>
@@ -758,7 +748,6 @@
             <key>not_subscribed</key>
             <value>You are not subscribed to this topic.</value>
         </label>
-        
         <label>
             <key>moderate</key>
             <value>Moderate</value>
@@ -775,7 +764,6 @@
             <key>delete</key>
             <value>Delete</value>
         </label>
-        
         <label>
             <key>open</key>
             <value>Open</value>
@@ -820,7 +808,6 @@
             <key>no_topics_selected</key>
             <value>You must select at least one topic for move/delete/open/close.</value>
         </label>
-        
         <label>
             <key>delete_posts</key>
             <value>Delete posts</value>
@@ -906,7 +893,6 @@
             <key>preview</key>
             <value>Preview</value>
         </label>
-        
         <label>
             <key>edit_post_legend</key>
             <value>Edit the post and submit changes</value>
@@ -952,7 +938,6 @@
             <key>section_admin</key>
             <value>Administration</value>
         </label>
-        
         <label>
             <key>username_and_pass_legend</key>
             <value>Enter your username and password</value>
@@ -1018,7 +1003,6 @@
             <key>confirm_new_pass</key>
             <value>Confirm new password</value>
         </label>
-        
         <label>
             <key>email_key_bad</key>
             <value>The specified e-mail activation key was incorrect or has expired. Please re-request change of e-mail address. If that fails, contact the forum administrator at</value>
@@ -1140,7 +1124,6 @@
             <key>profile_redirect</key>
             <value>Profile updated. Redirecting </value>
         </label>
-        
         <label>
             <key>not_activated</key>
             <value>This user hasn't activated his/her account yet. The account is activated when he/she logs in the first time.</value>
@@ -1321,7 +1304,6 @@
             <key>instructions</key>
             <value>When you update your profile, you will be redirected back to this page.</value>
         </label>
-        
         <label>
             <key>group_membership_legend</key>
             <value>Choose user group</value>
@@ -1455,11 +1437,11 @@
         </label>
         
         <label>
-            <key>desc_1</key>
+            <key>reg_desc_1</key>
             <value>Registration will grant you access to a number of features and capabilities otherwise unavailable. These functions include the ability to edit and delete posts, design your own signature that accompanies your posts and much more. If you have any questions regarding this forum you should ask an administrator.</value>
         </label>
         <label>
-            <key>desc_2</key>
+            <key>reg_desc_2</key>
             <value>Below is a form you must fill out in order to register. Once you are registered you should visit your profile and review the different settings you can change. The fields below only make up a small part of all the settings you can alter in your profile.</value>
         </label>
         <label>
@@ -1475,8 +1457,16 @@
             <value>Please read the instructions below</value>
         </label>
         <label>
+            <key>select_timezone</key>
+            <value>Timezone: For the forum to display times correctly you must select your local timezone.</value>
+        </label>
+        <label>
             <key>pass_info</key>
             <value>Passwords can be between 4 and 16 characters long. Passwords are case sensitive.</value>
+        </label>
+        <label>
+            <key>valid_email</key>
+            <value>Enter a valid e-mail address</value>
         </label>
         <label>
             <key>email_info</key>
@@ -1485,6 +1475,10 @@
         <label>
             <key>confirm_email</key>
             <value>Confirm e-mail address</value>
+        </label>
+        <label>
+            <key>set_localisation_options</key>
+            <value>Set your localisation options</value>
         </label>
         <label>
             <key>post_reply</key>
@@ -1498,8 +1492,6 @@
             <key>from</key>
             <value>From</value>
         </label>
-        
-        
         <label>
             <key>note</key>
             <value>Note</value>

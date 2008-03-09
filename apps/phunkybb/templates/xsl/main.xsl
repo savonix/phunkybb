@@ -38,16 +38,18 @@ doctype-system="http://www.w3.org/TR/html4/loose.dtd"/>
 		<div id="brdmenu" class="inbox">
             <xsl:for-each select="//navlinks">
             </xsl:for-each>
-            <a href="{//link_prefix}welcome" style="padding: 4px;">Index</a>
+            <a href="{//link_prefix}welcome" style="padding: 4px;">
+                <xsl:value-of select="//label[key='index']/value"/>
+            </a>
             
             
             <xsl:if test="not(//runtime/username)">
-            <a href="{//link_prefix}register" style="padding: 4px;">Register</a>
-            <a href="{//link_prefix}login" style="padding: 4px;">Login</a>
+            <a href="{//link_prefix}register" style="padding: 4px;"><xsl:value-of select="//label[key='register']/value"/></a>
+            <a href="{//link_prefix}login" style="padding: 4px;"><xsl:value-of select="//label[key='login']/value"/></a>
             </xsl:if>
             
             <xsl:if test="//runtime/group_id='1'">
-            <a href="{//link_prefix}admin" style="padding: 4px;">Administration</a>
+            <a href="{//link_prefix}admin" style="padding: 4px;"><xsl:value-of select="//label[key='administration']/value"/></a>
             </xsl:if>
             <xsl:if test="//runtime/username">
             <a href="{//link_prefix}profile" style="padding: 4px;">Profile</a>
