@@ -28,7 +28,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
         <param name="//_get/fid" type="text" default="0"/>
 	</params>
     <sql>
-        SELECT id, poster, subject, posted, datetime(last_post, 'unixepoch', 'localtime') as last_post, last_post_id, 
+        SELECT id, poster, subject, posted, datetime(last_post, 'unixepoch') as last_post, last_post_id, 
         last_poster, num_views, num_replies, closed, sticky, moved_to 
         FROM &prefix;topics 
         WHERE forum_id=?

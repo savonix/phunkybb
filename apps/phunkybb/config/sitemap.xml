@@ -128,6 +128,7 @@
                 <map:plugin type="safehtml" params="//_post/message,clean_message"/>
                 <map:action type="newline" params="//clean_message"/>
                 <map:query src="data/sql/post_create.xml"/>
+                <map:action type="redirect" params="{//link_prefix}topic&amp;fid={//_post/forum_id}&amp;id={//_post/topic_id}"/>
             </map:true>
             <map:false>
                 <map:xsl src="templates/xsl/post.xsl"/>

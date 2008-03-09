@@ -104,7 +104,7 @@ function delete_post(post_id) {
 <div class="blockform">
 	<h2><span><xsl:value-of select="//label[key='quick_post']/value"/></span></h2>
 	<div class="box">
-		<form method="post" action="{//link_prefix}post&amp;tid={//_get/id}&amp;view_flow=true" >
+		<form method="post" action="{//link_prefix}post&amp;tid={//_get/id}" >
 			<div class="inform">
 
 				<fieldset>

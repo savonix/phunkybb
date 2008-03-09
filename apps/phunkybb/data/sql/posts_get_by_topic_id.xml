@@ -35,7 +35,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
         u.email_setting, u.num_posts, u.registered, u.admin_note, p.id, p.poster AS username, 
         p.poster_id, p.poster_ip, p.poster_email, p.message, p.hide_smilies, 
         
-        datetime(p.posted+( ? * 3600 ), 'unixepoch', 'localtime') as posted, 
+        datetime( p.posted + ( ? * 3600 ), 'unixepoch') as posted, 
         p.edited, 
         p.edited_by, g.g_id, g.g_user_title, o.user_id AS is_online 
     FROM &prefix;posts AS p INNER JOIN &prefix;users AS u ON u.id=p.poster_id 
