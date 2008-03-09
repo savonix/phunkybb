@@ -36,6 +36,8 @@ $(document).ready(function()
     var myform = document.forms["mlogin"];
     myform.id_rsa_pub.value="<xsl:value-of select="//defaults/modulus"/>";
     myform.e.value="10001";
+    var d = new Date()
+    myform.my_tz_offset.value = 0 - d.getTimezoneOffset()/60;
 });
 
 function do_encrypt() {
@@ -47,7 +49,8 @@ function do_encrypt() {
     $.post("<xsl:value-of select="//link_prefix"/>ajax-check",
     {
         'username': myform.username.value, 
-        'password': res
+        'password': res,
+        'my_tz_offset': myform.my_tz_offset.value
     }, 
     function (data){
         document.getElementById("replace").value = $("result",data).text();
@@ -63,6 +66,7 @@ function do_encrypt() {
     onSubmit="do_encrypt(); return false;">
 <input type="hidden" name="id_rsa_pub" value=""/>
 <input type="hidden" name="e" value=""/>
+<input type="hidden" name="my_tz_offset" value=""/>
     <div class="inform">
         <fieldset>
             <legend><xsl:value-of select="//label[key='enter_username']/value"/></legend>

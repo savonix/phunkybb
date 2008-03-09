@@ -15,7 +15,7 @@ $username = Nexista_Path::get('//user_login/username', 'flow');
 $user_id = Nexista_Path::get('//user_login/id', 'flow');
 $group_id = Nexista_Path::get('//user_login/group_id', 'flow');
 
-$user_timezone = Nexista_Path::get('//user_login/timezone', 'flow');
+$user_timezone = Nexista_Path::get('//_post/my_tz_offset', 'flow');
 $_SESSION['timezone'] = $user_timezone;
 
 // Remove duplicate roles

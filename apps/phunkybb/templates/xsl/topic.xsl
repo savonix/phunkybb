@@ -65,7 +65,10 @@ function delete_post(post_id) {
 <xsl:for-each select="//posts_get_by_topic_id">
 <div id="p{id}" class="blockpost roweven">
 	<h2><span><span class="conr">#<xsl:value-of select="id"/></span>
-    <a href="#post{id}" name="post{id}"><xsl:value-of select="posted"/></a></span></h2>
+    <a href="#post{id}" name="post{id}">
+        <xsl:value-of select="posted"/>
+    </a>
+    </span></h2>
 	<div class="box">
 		<div class="inbox">
 			<div class="postleft">
