@@ -1,6 +1,6 @@
 <!-- 
 Program: PhunkyBB             				
-Component: posts_get_by_topic_id.xml								
+Component: posts_get_number_of_pages.xml								
 Copyright: Savonix Corporation
 Author: Albert L. Lash, IV                      
 License: Gnu Affero Public License version 3
@@ -22,30 +22,16 @@ or write to the Free Software Foundation,Inc., 51 Franklin Street,
 Fifth Floor, Boston, MA 02110-1301  USA
 -->
 <!DOCTYPE query SYSTEM "__default_table_names__.txt">
-<query name="posts_get_by_topic_id">
+<query name="posts_get_number_of_pages">
     <connection>phunkybb</connection>
     <params>
         <param name="//_get/id" type="text" default="0"/>
-        <param name="//_get/start" type="integer" default="0"/>
-        <param name="//_get/iterative" type="integer" default="10"/>
 	</params>
     <sql>
-    SELECT DISTINCT u.email, u.title, u.url, u.location, u.use_avatar, u.signature,
-        u.email_setting, u.num_posts, u.registered, u.admin_note, p.id, p.poster AS username,
-        p.poster_id, p.poster_ip, p.poster_email, p.message, p.hide_smilies,
-        p.posted, p.edited,
-        p.edited_by, g.g_id, g.g_user_title, o.user_id AS is_online
-
-    FROM &prefix;posts AS p INNER JOIN &prefix;users AS u ON u.id=p.poster_id
-
-    INNER JOIN &prefix;groups AS g ON g.g_id=u.group_id
-
-    LEFT JOIN &prefix;online AS o ON (o.user_id=u.id AND o.user_id!=1 AND o.idle=0)
-
-    WHERE p.topic_id=?
-
-    ORDER BY p.id
-
-    LIMIT ?,?
+    SELECT
+    count(id) as count,
+    count(id) / 10 as pages
+    FROM &prefix;posts
+    WHERE topic_id=?
     </sql>
 </query>

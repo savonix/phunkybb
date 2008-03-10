@@ -38,7 +38,10 @@ function delete_post(post_id) {
 </script>
 <div class="linkst">
 	<div class="inbox">
-		<p class="pagelink conl"><xsl:value-of select="//label[key='pages']/value"/>: <strong>1</strong></p>
+		<p class="pagelink conl"><xsl:value-of select="//label[key='pages']/value"/>: 
+        <strong><xsl:value-of select="//posts_get_number_of_pages/pages"/></strong>&#160;
+        <xsl:value-of select="//label[key='posts']/value"/>: 
+        <strong><xsl:value-of select="//posts_get_number_of_pages/count"/></strong></p>
 		<p class="postlink conr">&#160;</p>
 		<ul>
             <li><a href="{//link_prefix}index">
