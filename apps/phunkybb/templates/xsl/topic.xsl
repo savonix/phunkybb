@@ -37,15 +37,21 @@ function delete_post(post_id) {
     }
 }
 </script>
+
 <div class="linkst">
 	<div class="inbox">
 		<p class="pagelink conl"><xsl:value-of select="//label[key='pages']/value"/>: 
         <strong><xsl:value-of select="//posts_get_number_of_pages/pages"/></strong>&#160;
         <xsl:value-of select="//label[key='posts']/value"/>: 
         <strong><xsl:value-of select="//posts_get_number_of_pages/count"/></strong>
-        <xsl:call-template name="previous_next"/>
+        
         </p>
-		<p class="postlink conr">&#160;</p>
+		<p class="postlink conr">&#160;
+        <xsl:if test="//runtime/group_id=1 or poster=//runtime/username">
+            <a href="{//link_prefix}topic-delete&amp;topic_id={//_get/id}&amp;fid={//_get/fid}" 
+                onclick="return(confirm('You sure?'));">Delete</a>
+        </xsl:if>
+        </p>
 		<ul>
             <li><a href="{//link_prefix}index">
                 <xsl:value-of select="//label[key='index']/value"/>
@@ -59,14 +65,17 @@ function delete_post(post_id) {
             <li>&#160;&gt;&#160;<xsl:value-of select="//topic_get_by_id/subject"/>
             </li>
         </ul>
+        <p class="postlink conl">
+            <xsl:if test="//posts_get_number_of_pages/count &gt; 1">
+            <xsl:call-template name="previous_next"/>
+            </xsl:if>
+        </p>
         <p class="postlink conr">
-        <xsl:if test="//runtime/group_id=1 or poster=//runtime/username">
-            <a href="{//link_prefix}topic-delete&amp;topic_id={//_get/id}&amp;fid={//_get/fid}" onclick="return(confirm('You sure?'));">Delete</a>
-        </xsl:if></p>
+            <xsl:value-of select="//topic_get_by_id/subject"/>
+        </p>
 		<div class="clearer"></div>
 	</div>
 </div>
-
 
 <xsl:for-each select="//posts_get_by_topic_id">
 <div id="p{id}" class="blockpost roweven">
@@ -109,6 +118,7 @@ function delete_post(post_id) {
 </div>
 </xsl:for-each>
 
+
 <xsl:if test="//runtime/username">
 <div class="blockform">
 	<h2><span><xsl:value-of select="//label[key='quick_post']/value"/></span></h2>
@@ -131,5 +141,6 @@ function delete_post(post_id) {
 	</div>
 </div>
 </xsl:if>
+
 </xsl:template>
 </xsl:stylesheet>

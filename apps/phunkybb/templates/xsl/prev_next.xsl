@@ -36,36 +36,29 @@ Fifth Floor, Boston, MA 02110-1301  USA
 </xsl:variable>
 
 <xsl:variable name="incr">10</xsl:variable>
-<table cellpadding="0" align="right">
-    <tr>
+<xsl:variable name="total"><xsl:value-of select="//posts_get_number_of_pages/count"/></xsl:variable>
+
+
         <xsl:if test="(/__ROOT__/_get/start!=0) and not(/__ROOT__/_get/start='NaN')">
-        <td>
-        <input type="button" value="Previous">
-<xsl:attribute name="onclick">document.location.href='<xsl:value-of select="$my_uri"/>&amp;start=<xsl:value-of select="/__ROOT__/_get/start - $incr + 1"/>'</xsl:attribute>
-        </input>
-        </td>
-        
-        <td>
-        <input type="button" value="Next">
-<xsl:attribute name="onclick">document.location.href='<xsl:value-of select="$my_uri"/>&amp;start=<xsl:value-of select="/__ROOT__/_get/start + $incr - 1"/>'</xsl:attribute>
-        </input>
-        </td>
+        <a>
+<xsl:attribute name="href"><xsl:value-of select="$my_uri"/>&amp;start=<xsl:value-of select="/__ROOT__/_get/start - $incr + 1"/></xsl:attribute>Previous
+        </a>
+        <xsl:if test="(/__ROOT__/_get/start + $incr - 1) &gt; $total">
+        Next
+        </xsl:if>
+        <xsl:if test="(/__ROOT__/_get/start + $incr - 1) &lt; $total">
+        <a>
+<xsl:attribute name="href"><xsl:value-of select="$my_uri"/>&amp;start=<xsl:value-of select="/__ROOT__/_get/start + $incr - 1"/></xsl:attribute>Next
+        </a>
+        </xsl:if>
         </xsl:if>
         
         
         <xsl:if test="(/__ROOT__/_get/start=0) or not(/__ROOT__/_get/start)">
-        <td>
-        <input type="button" value="Previous" disabled="disabled">
-        </input>
-        </td>
-        
-        <td>
-        <input type="button" value="Next">
-<xsl:attribute name="onclick">document.location.href='<xsl:value-of select="$my_uri"/>&amp;start=<xsl:value-of select="$incr - 1"/>'</xsl:attribute>
-        </input>
-        </td>
+        Previous
+        <a>
+<xsl:attribute name="href"><xsl:value-of select="$my_uri"/>&amp;start=<xsl:value-of select="$incr - 1"/></xsl:attribute>Next
+        </a>
         </xsl:if>
-    </tr>	
-</table>
 </xsl:template>
 </xsl:stylesheet>
