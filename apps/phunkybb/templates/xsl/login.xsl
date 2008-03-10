@@ -54,9 +54,10 @@ function do_encrypt() {
     }, 
     function (data){
         if($("result",data).text()=='Success') { 
-        window.location ='<xsl:value-of select="//link_prefix"/>index';
+            window.location ='<xsl:value-of select="//link_prefix"/>index';
+        } else { 
+            document.getElementById("failure").style.visibility = "visible" ;
         }
-        document.getElementById("failure").style.visibility = "visible" ;
     });
 }
 </script>

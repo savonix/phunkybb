@@ -41,6 +41,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 			</thead>
 			<tbody>
             <xsl:for-each select="//forums_get_all[cid=$my_cid]">
+            <xsl:variable name="my_fid"><xsl:value-of select="fid"/></xsl:variable>
             <tr>
                 <td class="tcl">
                     <div class="intd">
@@ -51,8 +52,8 @@ Fifth Floor, Boston, MA 02110-1301  USA
                         </div>
                     </div>
                 </td>
-                <td class="tc2"><xsl:value-of select="num_topics"/></td>
-                <td class="tc3"><xsl:value-of select="num_posts"/></td>
+                <td class="tc2"><xsl:value-of select="//forums_get_totals[forum_id=$my_fid]/total_topics"/></td>
+                <td class="tc3"><xsl:value-of select="//forums_get_totals[forum_id=$my_fid]/total_posts"/></td>
                 <td class="tcr"><xsl:value-of select="last_post"/></td>
             </tr>
             </xsl:for-each>
