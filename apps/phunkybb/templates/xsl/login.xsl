@@ -53,11 +53,13 @@ function do_encrypt() {
         'my_tz_offset': myform.my_tz_offset.value
     }, 
     function (data){
-        document.getElementById("replace").value = $("result",data).text();
+        if($("result",data).text()=='Success') { 
+        window.location ='<xsl:value-of select="//link_prefix"/>index';
+        }
+        document.getElementById("failure").style.visibility = "visible" ;
     });
 }
 </script>
-<textarea id="replace" rows="10" cols="80"></textarea>
 <div class="blockform">
 	<h2><span><xsl:value-of select="//label[key='login']/value"/></span></h2>
 
@@ -80,7 +82,7 @@ function do_encrypt() {
             </label>
             
             <p><a href="{//link_prefix}register" tabindex="4"><xsl:value-of select="//label[key='not_registered_yet']/value"/>?</a>
-            <!--  <a href="" tabindex="5">Forgotten your password?</a> -->
+            <div style="visibility: hidden;" id="failure"><a href="" tabindex="5">Forgotten your password?</a></div>
             </p>
             </div>
         </fieldset>
