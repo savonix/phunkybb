@@ -23,6 +23,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 -->
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" >
 <xsl:include href="main.xsl"/>
+<xsl:include href="prev_next.xsl"/>
 <xsl:template name="content">
 <script src="/phunkybbweb/s/js/jquery-1.2.1.min.js" type="text/javascript"></script>
 <script type="text/javascript">
@@ -41,7 +42,9 @@ function delete_post(post_id) {
 		<p class="pagelink conl"><xsl:value-of select="//label[key='pages']/value"/>: 
         <strong><xsl:value-of select="//posts_get_number_of_pages/pages"/></strong>&#160;
         <xsl:value-of select="//label[key='posts']/value"/>: 
-        <strong><xsl:value-of select="//posts_get_number_of_pages/count"/></strong></p>
+        <strong><xsl:value-of select="//posts_get_number_of_pages/count"/></strong>
+        <xsl:call-template name="previous_next"/>
+        </p>
 		<p class="postlink conr">&#160;</p>
 		<ul>
             <li><a href="{//link_prefix}index">
