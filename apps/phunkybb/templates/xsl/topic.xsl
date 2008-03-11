@@ -66,7 +66,7 @@ function delete_post(post_id) {
             </li>
         </ul>
         <p class="postlink conl">
-            <xsl:if test="//posts_get_number_of_pages/count &gt; 1">
+            <xsl:if test="//posts_get_number_of_pages/count &gt; 2">
             <xsl:call-template name="previous_next"/>
             </xsl:if>
         </p>
