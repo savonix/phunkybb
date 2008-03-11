@@ -25,7 +25,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <xsl:include href="main.xsl"/>
 <xsl:include href="prev_next.xsl"/>
 <xsl:template name="content">
-<script src="/phunkybbweb/s/js/jquery-1.2.1.min.js" type="text/javascript"></script>
+<script src="{//path_prefix}s/js/jquery-1.2.1.min.js" type="text/javascript"></script>
 <script type="text/javascript">
 function delete_post(post_id) {
     if(confirm('Are you sure?')){
