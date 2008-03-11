@@ -1,6 +1,5 @@
 <?php
 
-include('xdump/xdump.php');
 $config_cache = NX_PATH_COMPILE."config_cache.php";
 if(is_file($config_cache)){
     include($config_cache);

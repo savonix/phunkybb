@@ -3,7 +3,7 @@
         <map:script src="lib/php/config_check.php"/>
         <map:if name="//config_cache">
             <map:true>
-                <map:xml src="../../cache/dev-2/phunkybb/config_cache.xml"/>
+                <map:xml src="../../cache/dev-50.savonix.com/phunkybb/config_cache.xml"/>
             </map:true>
             <map:false>
                 <map:query src="data/sql/config_get.xml"/>
