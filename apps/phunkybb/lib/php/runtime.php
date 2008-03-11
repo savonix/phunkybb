@@ -25,6 +25,11 @@ $link_prefix = $path."?nid=";
 $tz_offset = $_SESSION['timezone'];
 $right_now = date('Y-m-d H:i:s',time()+(3600*$tz_offset));
 
+//Expired session
+if($_SESSION['NX_AUTH']['username']==1016)
+{
+    $_SESSION['NX_AUTH']['username']=0;
+}
 
 $runtime = array('host_name'=>$_SERVER['SERVER_NAME'],
                 'request_uri'=>$_SERVER['REQUEST_URI'],
