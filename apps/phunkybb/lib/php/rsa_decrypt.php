@@ -8,10 +8,6 @@ $mpk = PROJECT_ROOT.'/key.pem';
 $pk = file_get_contents($mpk);
 $private_key = openssl_pkey_get_private($pk);
 
-/*
-y3ifmFcgaFbGAp7GC4UGvenFuYi7p0NMVHc2XCPy33w6YiHj52TtaM5o0iiKw
-xP6MhBXPa0Fc+UGk2Q0qr/m1Q==
-*/
 
 $encrypted_password = Nexista_Path::get('{//_post/password}');
 
