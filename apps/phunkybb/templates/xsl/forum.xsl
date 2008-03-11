@@ -61,7 +61,12 @@ Fifth Floor, Boston, MA 02110-1301  USA
 					</td>
 					<td class="tc2"><xsl:value-of select="num_replies"/></td>
 					<td class="tc3"><xsl:value-of select="num_views"/></td>
-					<td class="tcr"><xsl:value-of select="last_post"/></td>
+					<td class="tcr">
+                        <xsl:value-of select="last_post"/>
+                        <xsl:if test="not(//runtime/user_id &gt; 0)">
+                            UTC
+                        </xsl:if>
+                    </td>
 				</tr>
                 </xsl:for-each>
                 <xsl:if test="not(//topics_get_by_forum_id)">

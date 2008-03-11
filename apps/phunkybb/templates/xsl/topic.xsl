@@ -77,6 +77,7 @@ function delete_post(post_id) {
 	</div>
 </div>
 
+<!-- Post loop -->
 <xsl:for-each select="//posts_get_by_topic_id">
 <div id="p{id}" class="blockpost roweven">
 	<h2><span><span class="conr">#<xsl:value-of select="id"/></span>
@@ -102,6 +103,8 @@ function delete_post(post_id) {
 
 				<div class="postmsg">
 					<p><xsl:value-of select="message" disable-output-escaping="yes"/></p>
+                    <hr/>
+					<p><xsl:value-of select="signature" disable-output-escaping="yes"/></p>
 				</div>
 			</div>
 			<div class="clearer"></div>
@@ -118,7 +121,7 @@ function delete_post(post_id) {
 </div>
 </xsl:for-each>
 
-
+<!-- Reply -->
 <xsl:if test="//runtime/username">
 <div class="blockform">
 	<h2><span><xsl:value-of select="//label[key='quick_post']/value"/></span></h2>

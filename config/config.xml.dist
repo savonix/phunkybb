@@ -23,8 +23,8 @@
     <session>
 		<active>1</active>
         <cookieLifetime>0</cookieLifetime>
-        <cacheLimiter>private</cacheLimiter>
-        <cacheExpires>120000</cacheExpires>
+        <cacheLimiter></cacheLimiter>
+        <cacheExpires></cacheExpires>
     </session>
 	
     <!-- FLOW -->
@@ -84,4 +84,24 @@
         <cache>0</cache>
         <debug>0</debug>
     </runtime>
+    <plugins>
+        <!--
+        <dev_buffer>
+            <placement>prepend</placement>
+            <source>&includepath;plugins/dev_buffer/dev_buffer.php</source>
+        </dev_buffer>  --> 
+        
+        <nx_cache>
+            <placement>prepend</placement>
+            <source>&includepath;plugins/nx_cache.php</source>
+            <directory>&project_root;/cache/&server_name;/cache/</directory>
+            <active>1</active>
+            <compress>0</compress>
+        </nx_cache>
+        <nx_auth>
+            <placement>prepend</placement>
+            <source>&includepath;plugins/nx_auth.php</source>
+            <login>auth.php?nid=login</login>
+        </nx_auth>
+    </plugins>
 </config>
