@@ -2,8 +2,11 @@
 
 // Configuration 
 // Where is nexista? This path should be to a folder which contains a folder called "nexista"
-$nexista_path = "/var/www/virtual/dev-50.savonix.com/dev/nexista/";
+$nexista_path = "/var/www/share/phunkybb/nexista/";
 
+if($_SERVER['REQUEST_URI']=="/forums/") { 
+    header("Location: /forums/index.php");
+    }
 
 $server_name = $_SERVER['SERVER_NAME'];
 define('SERVER_NAME',$server_name);
@@ -12,7 +15,7 @@ define('PROJECT_ROOT',$project_root);
 define('PROJECT_NAME','phunkybb');
 define('APP_NAME','phunkybb');
 
-$server_init = PROJECT_ROOT."/cache/".SERVER_NAME."/".APP_NAME."/".APP_NAME.".php";
+$server_init = "/dev/shm/".SERVER_NAME."/".APP_NAME."/".APP_NAME.".php";
 
 
     
