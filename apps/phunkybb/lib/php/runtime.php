@@ -1,11 +1,5 @@
 <?php
 
-$config_cache = NX_PATH_COMPILE."config_cache.php";
-if(is_file($config_cache)){
-    include($config_cache);
-}
-//echo xDump::dump($_SESSION);
-
 //Nexista_Flow::add("board_config",$config,false);
 
 $defaults = Nexista_Config::getSection("./defaults");
