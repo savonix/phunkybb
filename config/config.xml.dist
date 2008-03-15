@@ -5,6 +5,7 @@
         <database>db</database>
         <username>username</username>
         <password>password</password>
+        <table_prefix>static</table_prefix>
     </datasource>
     <datasource id="auth">
         <type>mysql</type>
@@ -12,7 +13,12 @@
         <database>db</database>
         <username>username</username>
         <password>password</password>
+        <table_prefix>static</table_prefix>
     </datasource>	
+    <datasource id="www.example.com">
+        <dtd>__default_table_names__.txt</dtd>
+        <prefix>wwwneocarzcomforums_</prefix>    
+    </datasource>
 
     <!-- AUTHENTICATION-->
     <auth>       
@@ -81,8 +87,6 @@
 
 	<!-- 0 = false, anything else = true -->
     <runtime>
-        <development_console>0</development_console>
-        <cache>0</cache>
         <debug>0</debug>
     </runtime>   
     <defaults>
