@@ -24,12 +24,12 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" >
 <xsl:include href="main.xsl"/>
 <xsl:template name="content">
-<script type="text/javascript" src="{__ROOT__/runtime/path_prefix}/s/js/jquery-1.2.1.min.js"></script>
-<script type="text/javascript" src="{__ROOT__/runtime/path_prefix}/s/js/jsbn.js"></script>
-<script type="text/javascript" src="{__ROOT__/runtime/path_prefix}/s/js/rsa.js"></script>
-<script type="text/javascript" src="{__ROOT__/runtime/path_prefix}/s/js/prng4.js"></script>
-<script type="text/javascript" src="{__ROOT__/runtime/path_prefix}/s/js/rng.js"></script>
-<script type="text/javascript" src="{__ROOT__/runtime/path_prefix}/s/js/base64.js"></script>
+<script type="text/javascript" src="{__ROOT__/runtime/path_prefix}/s/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="{__ROOT__/runtime/path_prefix}/s/js/rsa/jsbn.js"></script>
+<script type="text/javascript" src="{__ROOT__/runtime/path_prefix}/s/js/rsa/rsa.js"></script>
+<script type="text/javascript" src="{__ROOT__/runtime/path_prefix}/s/js/rsa/prng4.js"></script>
+<script type="text/javascript" src="{__ROOT__/runtime/path_prefix}/s/js/rsa/rng.js"></script>
+<script type="text/javascript" src="{__ROOT__/runtime/path_prefix}/s/js/rsa/base64.js"></script>
 <script type="text/javascript">
 $(document).ready(function() 
 {

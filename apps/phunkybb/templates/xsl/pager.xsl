@@ -29,7 +29,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <xsl:param name="my-table"/>
 <xsl:param name="my-table-div"/>
 <xsl:call-template name="jquery-links"/>
-<script type="text/javascript" src="{__ROOT__/runtime/path_prefix}/s/js/jquery.tablesorter.pager.js">&#160;</script>
+<script type="text/javascript" src="{__ROOT__/runtime/path_prefix}/s/js/jquery/plugins/jquery.tablesorter.pager.js">&#160;</script>
 <script type="text/javascript">
 $(document).ready(function() 
     {
@@ -59,8 +59,8 @@ $(document).ready(function()
 <!-- load the javascript -->
 <xsl:template name="jquery-links">
 <link rel="stylesheet" href="{__ROOT__/runtime/path_prefix}/s/js/blue/style.css" type="text/css" media="print, projection, screen" />
-<script type="text/javascript" src="{__ROOT__/runtime/path_prefix}/s/js/jquery-latest.js">&#160;</script>
-<script type="text/javascript" src="{__ROOT__/runtime/path_prefix}/s/js/jquery.tablesorter.min.js">&#160;</script>
+<script type="text/javascript" src="{__ROOT__/runtime/path_prefix}/s/js/jquery/jquery.js">&#160;</script>
+<script type="text/javascript" src="{__ROOT__/runtime/path_prefix}/s/js/jquery/plugins/jquery.tablesorter.min.js">&#160;</script>
 </xsl:template>
 
 <xsl:template name="pager">
