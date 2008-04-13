@@ -18,7 +18,6 @@ define('APP_NAME','phunkybb');
 $server_init = "/dev/shm/".SERVER_NAME."/".APP_NAME."/".APP_NAME.".php";
 
 
-    
 
 if(!include($nexista_path.'/plugins/builder.php')) {
     echo "Error: Unable to load server loader or builder.";

@@ -28,6 +28,12 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <xsl:template name="content">
 <xsl:call-template name="jquery-setup">
     <xsl:with-param name="my-table">users_table</xsl:with-param>
+    <xsl:with-param name="no-sort-column">,
+        headers: {
+            1: {sorter: false},
+            2: {sorter: false}
+        }
+    </xsl:with-param>
 </xsl:call-template>
 <script src="/phunkybbweb/s/js/jquery-1.2.1.min.js" type="text/javascript"></script>
 <script type="text/javascript">
@@ -67,7 +73,9 @@ function delete_user(user_id,row) {
             </tbody>
         </table>
         </div>
-        <xsl:call-template name="pager"/>
+            <xsl:call-template name="pager">
+                <xsl:with-param name="my-table">users_table</xsl:with-param>
+            </xsl:call-template>
         <br/>
     </div>
 </div>
