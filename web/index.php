@@ -2,7 +2,7 @@
 
 // Configuration 
 // Where is nexista? This path should be to a folder which contains a folder called "nexista"
-$nexista_path = "/var/www/share/phunkybb/nexista/";
+$nexista_path = "/var/www/dev/nexista/";
 
 if($_SERVER['REQUEST_URI']=="/forums/") { 
     header("Location: /forums/index.php");
