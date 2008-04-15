@@ -44,7 +44,6 @@ Fifth Floor, Boston, MA 02110-1301  USA
 				<tr>
 					<th class="tcl" scope="col"><xsl:value-of select="//label[key='topic']/value"/></th>
 					<th class="tc2" scope="col"><xsl:value-of select="//label[key='replies']/value"/></th>
-					<th class="tc3" scope="col"><xsl:value-of select="//label[key='views']/value"/></th>
 					<th class="tcr" scope="col"><xsl:value-of select="//label[key='last_post']/value"/></th>
 				</tr>
 			</thead>
@@ -60,7 +59,6 @@ Fifth Floor, Boston, MA 02110-1301  USA
 						</div>
 					</td>
 					<td class="tc2"><xsl:value-of select="num_replies"/></td>
-					<td class="tc3"><xsl:value-of select="num_views"/></td>
 					<td class="tcr">
                         <xsl:value-of select="last_post"/>
                         <xsl:if test="not(//runtime/user_id &gt; 0)">
@@ -85,7 +83,16 @@ Fifth Floor, Boston, MA 02110-1301  USA
         <xsl:if test="//runtime/username">
 		<p class="postlink conr"><a href="{//link_prefix}post&amp;fid={//_get/fid}"><xsl:value-of select="//label[key='post_new_topic']/value"/></a></p>
         </xsl:if>
-		<ul><li><a href="{//link_prefix}index"><xsl:value-of select="//label[key='index']/value"/></a>&#160;</li><li> - &#160;<xsl:value-of select="//forum_get_by_id/forum_name"/></li></ul>
+		<ul>
+            <li>
+                <a href="{//link_prefix}index">
+                <xsl:value-of select="//label[key='index']/value"/>
+                </a>&#160;
+            </li>
+            <li>
+                - &#160;<xsl:value-of select="//forum_get_by_id/forum_name"/>
+            </li>
+        </ul>
 		<div class="clearer"></div>
 	</div>
 </div>

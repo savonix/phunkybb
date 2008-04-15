@@ -29,7 +29,12 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <script type="text/javascript">
 function delete_post(post_id) {
     if(confirm('Are you sure?')){
-    $.post("<xsl:value-of select="//link_prefix"/>x-post-delete&amp;post_id="+post_id, {'post_id': post_id}, 
+    $.post("<xsl:value-of select="//link_prefix"/>x-post-delete&amp;post_id="+post_id, 
+    {
+        'post_id': post_id, 
+        'num_replies': <xsl:value-of select="count(//posts_get_by_topic_id)" />,
+        'topic_id': <xsl:value-of select="//_get/id" />
+    }, 
     function (data){
     });
     myDiv = document.getElementById("p"+post_id);
@@ -128,11 +133,11 @@ function delete_post(post_id) {
 	<div class="box">
 		<form method="post" action="{//link_prefix}post&amp;tid={//_get/id}" >
 			<div class="inform">
-
 				<fieldset>
 					<legend><xsl:value-of select="//label[key='write_your_message']/value"/></legend>
 					<div class="infldset txtarea">
 						<input type="hidden" name="topic_id" value="{//_get/id}" />
+						<input type="hidden" name="num_replies" value="{count(//posts_get_by_topic_id)}" />
 						<input type="hidden" name="forum_id" value="{//_get/fid}" />
 						<label><textarea name="message" rows="7" cols="75" tabindex="1"></textarea></label>
 					</div>
