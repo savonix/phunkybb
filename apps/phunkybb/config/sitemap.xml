@@ -1,4 +1,27 @@
-<map:sitemap xmlns:map="http://www.nexista.org/sitemap"> 
+<!--
+Program: PhunkyBB
+Component: sitemap.xml
+Copyright: Savonix Corporation
+Author: Albert L. Lash, IV
+License: Gnu Affero Public License version 3
+http://www.gnu.org/licenses
+
+This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation; either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with this program; if not, see http://www.gnu.org/licenses
+or write to the Free Software Foundation,Inc., 51 Franklin Street,
+Fifth Floor, Boston, MA 02110-1301  USA
+-->
+<map:sitemap xmlns:map="http://www.nexista.org/sitemap">
     <map:prepend>
         <map:script src="lib/php/config_check.php"/>
         <map:if name="//config_cache">
@@ -88,9 +111,7 @@
         <map:script src="lib/php/logout.php"/>
         <map:action type="redirect" params="{//link_prefix}"/>
     </map:gate>
-    
-    
-    
+
     <map:gate name="index" cache="60" client_cache="30">
         <map:block name="index">
             <map:query src="data/sql/categories_get_all.xml"/>
@@ -259,6 +280,21 @@
     <map:gate name="x-user-delete" role="phunky_admin">
         <map:query src="data/sql/user_delete.xml"/>
     </map:gate>
+    <map:gate name="user-email" role="phunky_admin">
+        <map:if name="//_post">
+            <map:true>
+                <map:action type="email"
+                    params="{//_post/rcpt_email},{//board_config/o_webmaster_email},
+                    Important,{//message},{//board_config/o_smtp_host}"/>
+                <map:query src="data/sql/user_register.xml"/>
+                <map:action type="redirect" params="{//link_prefix}profile&amp;user_id={//_post/user_id}"/>
+            </map:true>
+            <map:false>
+                <map:query src="data/sql/user_get_profile.xml"/>
+                <map:xsl src="templates/xsl/user_email.xsl"/>
+            </map:false>
+        </map:if>
+    </map:gate>
     <!--
     <map:gate name="groups" role="phunky_admin">
         <map:xsl src="templates/xsl/admin.xsl"/>
@@ -280,7 +316,7 @@
     </map:gate>
     <map:gate name="maintenance" role="phunky_admin">
         <map:xsl src="templates/xsl/admin.xsl"/>
-    </map:gate>  
+    </map:gate>
     -->
     
 </map:sitemap>
