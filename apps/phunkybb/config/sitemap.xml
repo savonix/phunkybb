@@ -157,7 +157,8 @@ Fifth Floor, Boston, MA 02110-1301  USA
                 <map:query src="data/sql/topic_last_post_update.xml"/>
                 <map:query src="data/sql/forum_last_post_update.xml"/>
                 <map:query src="data/sql/user_last_post_update.xml"/>
-                <map:action type="redirect" params="{//link_prefix}topic&amp;fid={//_post/forum_id}&amp;id={//_post/topic_id}"/>
+                <map:action type="redirect"
+                    params="{//link_prefix}topic&amp;fid={//_post/forum_id}&amp;id={//_post/topic_id}"/>
             </map:true>
             <map:false>
                 <map:xsl src="templates/xsl/post.xsl"/>
@@ -166,6 +167,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
     </map:gate>
     <map:gate name="x-post-delete" role="phunky_admin">
         <map:query src="data/sql/post_delete.xml"/>
+        <map:query src="date/sql/topic_set_num_replies.xml"/>
     </map:gate>
 
     <!-- Profile -->
