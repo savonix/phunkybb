@@ -27,7 +27,7 @@ This is a little more complex so that admin and regular users
 both use the same profile query.
 -->
 <query name="users_get_all">
-    <connection>phunkybb</connection>
+    <connection>&connection_read;</connection>
     <params>
 	</params>
     <sql>
