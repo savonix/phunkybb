@@ -1,34 +1,29 @@
-<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-<xsl:output method="html" indent="yes" encoding="UTF-8" 
-omit-xml-declaration="yes" doctype-public="-//W3C//DTD HTML 4.01 Transitional//EN"
-doctype-system="http://www.w3.org/TR/html4/loose.dtd"/>
-<xsl:template match="/">
-<html>
-<head>
-<link rel="stylesheet" type="text/css" href="s/style/Oxygen.css" />
-<title>
-    <xsl:value-of select="/__ROOT__/board_config/o_board_title"/>
-    <xsl:if test="//forum_get_by_id/forum_name">
-        : <xsl:value-of select="//forum_get_by_id/forum_name"/>
-    </xsl:if>
-    <xsl:if test="//topic_get_by_id/subject">
-        : <xsl:value-of select="//topic_get_by_id/subject"/>
-    </xsl:if>
-</title>
-<script type="text/javascript" src="{//path_prefix}/s/js/jquery/jquery.js"></script>
-<script type="text/javascript" src="{//path_prefix}/s/js/jquery/plugins/jquery.tablesorter.min.js"></script>
-<script type="text/javascript" src="{//path_prefix}/s/js/jquery/plugins/jquery.tablesorter.pager.js"></script>
-<xsl:for-each select="//in_head">
-    <xsl:sort select="priority"/>
-    <xsl:value-of select="string" disable-output-escaping="yes"/>
-</xsl:for-each>
-</head>
-<body>
-<xsl:for-each select="//pre_body_content">
-    <xsl:sort select="priority"/>
-    <xsl:value-of select="string" disable-output-escaping="yes"/>
-</xsl:for-each>
+<!--
+Program: PhunkyBB
+Component: main.xsl
+Copyright: Savonix Corporation
+Author: Albert L. Lash, IV
+License: Gnu Affero Public License version 3
+http://www.gnu.org/licenses
 
+This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation; either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with this program; if not, see http://www.gnu.org/licenses
+or write to the Free Software Foundation,Inc., 51 Franklin Street,
+Fifth Floor, Boston, MA 02110-1301  USA
+-->
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+<xsl:include href="html_shell.xsl"/>
+<xsl:template name="main">
 <div id="punwrap">
 <div id="" class="pun">
 
@@ -44,13 +39,12 @@ doctype-system="http://www.w3.org/TR/html4/loose.dtd"/>
             <a href="{//link_prefix}welcome" style="padding: 4px;">
                 <xsl:value-of select="//label[key='index']/value"/>
             </a>
-            
-            
+
             <xsl:if test="not(//runtime/username)">
             <a href="{//link_prefix}register" style="padding: 4px;"><xsl:value-of select="//label[key='register']/value"/></a>
             <a href="{//link_prefix}login" style="padding: 4px;"><xsl:value-of select="//label[key='login']/value"/></a>
             </xsl:if>
-            
+
             <xsl:if test="//runtime/group_id='1'">
             <a href="{//link_prefix}admin" style="padding: 4px;"><xsl:value-of select="//label[key='administration']/value"/></a>
             </xsl:if>
@@ -88,11 +82,5 @@ doctype-system="http://www.w3.org/TR/html4/loose.dtd"/>
 </div>
 </div>
 </div>
-<xsl:for-each select="//footer">
-    <xsl:sort select="priority"/>
-    <xsl:value-of select="string" disable-output-escaping="yes"/>
-</xsl:for-each>
-</body>
-</html>
 </xsl:template>
 </xsl:stylesheet>
