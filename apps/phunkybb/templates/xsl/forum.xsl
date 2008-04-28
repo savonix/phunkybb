@@ -69,7 +69,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
                 </xsl:for-each>
                 <xsl:if test="not(//topics_get_by_forum_id)">
 				<tr>
-					<td class="tcl" colspan="4"><xsl:value-of select="//label[key='forum_is_empty']/value"/>.</td>
+					<td class="tcl" colspan="3"><xsl:value-of select="//label[key='forum_is_empty']/value"/>.</td>
 				</tr>
                 </xsl:if>
             </tbody>
