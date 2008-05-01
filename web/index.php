@@ -4,9 +4,11 @@
 // Where is nexista? This path should be to a folder which contains a folder called "nexista"
 $nexista_path = "/var/www/dev/nexista/";
 
-if($_SERVER['REQUEST_URI']=="/forums/") { 
-    header("Location: /forums/index.php");
-    }
+// Bad hack
+if(!strpos($_SERVER['REQUEST_URI'],'.php')) { 
+    header("Location: ".$_SERVER['REQUEST_URI']."index.php");
+    exit;
+}
 
 $server_name = $_SERVER['SERVER_NAME'];
 define('SERVER_NAME',$server_name);
