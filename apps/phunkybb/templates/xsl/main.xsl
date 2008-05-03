@@ -36,21 +36,21 @@ Fifth Floor, Boston, MA 02110-1301  USA
 		<div id="brdmenu" class="inbox">
             <xsl:for-each select="//navlinks">
             </xsl:for-each>
-            <a href="{//link_prefix}welcome" style="padding: 4px;">
+            <a href="{//link_prefix}welcome">
                 <xsl:value-of select="//label[key='index']/value"/>
             </a>
 
             <xsl:if test="not(//runtime/username)">
-            <a href="{//link_prefix}register" style="padding: 4px;"><xsl:value-of select="//label[key='register']/value"/></a>
-            <a href="{//link_prefix}login" style="padding: 4px;"><xsl:value-of select="//label[key='login']/value"/></a>
+            <a href="{//link_prefix}register"><xsl:value-of select="//label[key='register']/value"/></a>
+            <a href="{//link_prefix}login"><xsl:value-of select="//label[key='login']/value"/></a>
             </xsl:if>
 
             <xsl:if test="//runtime/group_id='1'">
-            <a href="{//link_prefix}admin" style="padding: 4px;"><xsl:value-of select="//label[key='administration']/value"/></a>
+            <a href="{//link_prefix}admin"><xsl:value-of select="//label[key='administration']/value"/></a>
             </xsl:if>
             <xsl:if test="//runtime/username">
-            <a href="{//link_prefix}profile" style="padding: 4px;">Profile</a>
-            <a href="{//link_prefix}logout" style="padding: 4px;">Logout</a>
+            <a href="{//link_prefix}profile">Profile</a>
+            <a href="{//link_prefix}logout">Logout</a>
             </xsl:if>
         </div>
 		<div id="brdwelcome" class="inbox">
