@@ -72,6 +72,7 @@ function do_encrypt() {
 <input type="hidden" name="my_tz_offset" value=""/>
     <div class="inform">
         <fieldset>
+            <noscript><br/><b>Javascript must be enabled to log in.</b></noscript>
             <legend><xsl:value-of select="//label[key='enter_username']/value"/></legend>
             <div class="infldset">
             <label class="conl"><strong><xsl:value-of select="//label[key='username']/value"/></strong><br />
