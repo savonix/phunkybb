@@ -88,7 +88,10 @@ without interferring with IE's rather nice default */
 
 /* 4.2 This is the colour for links in header rows and the navigation bar */
 
-.pun H2 A:link, .pun H2 A:visited, #brdmenu A:link, #brdmenu A:visited {COLOR: #FFF}
+.pun H2 A:link, .pun H2 A:visited, #brdmenu A:link, #brdmenu A:visited {
+    COLOR: #FFF;
+    padding: 4px;
+}
 .pun H2 A:hover, #brdmenu A:hover {COLOR: #FFF}
 
 /* 4.3 This is for closed topics and "hot" links */
