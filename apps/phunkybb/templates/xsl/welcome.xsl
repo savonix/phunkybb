@@ -55,9 +55,11 @@ Fifth Floor, Boston, MA 02110-1301  USA
                 <td class="tc2"><xsl:value-of select="//forums_get_totals[forum_id=$my_fid]/total_topics"/></td>
                 <td class="tc3"><xsl:value-of select="//forums_get_totals[forum_id=$my_fid]/total_posts"/></td>
                 <td class="tcr">
-                    <xsl:value-of select="last_post"/>
-                    <xsl:if test="not(//runtime/user_id &gt; 0)">
-                        UTC
+                    <xsl:if test="not(last_post='1969-12-31 20:00:00') and not(last_post='1970-01-01 00:00:00')">
+                        <xsl:value-of select="last_post"/>
+                        <xsl:if test="not(//runtime/user_id &gt; 0)">
+                            UTC
+                        </xsl:if>
                     </xsl:if>
                 </td>
             </tr>

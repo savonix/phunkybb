@@ -29,6 +29,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <div class="box">
     <form id="post" method="post" action="{//link_prefix}topic-submit">
         <input type="hidden" name="fid" value="{//_get/fid}"/>
+        <input type="hidden" name="forum_id" value="{//_get/fid}"/>
         <div class="inform">
             <fieldset>
                 <legend><xsl:value-of select="//label[key='write_your_message']/value"/></legend>

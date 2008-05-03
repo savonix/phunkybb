@@ -146,6 +146,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
         <map:query src="data/sql/topic_create.xml"/>
         <map:query src="data/sql/topic_get_id_by_detail.xml"/>
         <map:query src="data/sql/post_create_first.xml"/>
+        <map:query src="data/sql/forum_last_post_update.xml"/>
         <map:action type="redirect" params="{//link_prefix}topic&amp;submit=yes&amp;id={//topic_get_id_by_detail/id}"/>
     </map:gate>
     <map:gate name="post">

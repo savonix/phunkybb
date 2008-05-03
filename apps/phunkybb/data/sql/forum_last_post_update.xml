@@ -33,6 +33,6 @@ Fifth Floor, Boston, MA 02110-1301  USA
     <sql>
     UPDATE &prefix;forums 
     SET last_post = ?, last_poster = ?, last_post_id = ?
-    WHERE id=?
+    WHERE id = ?
     </sql>
 </query>

@@ -27,11 +27,21 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <xsl:template name="content">
 <div class="linkst">
 	<div class="inbox">
-		<p class="pagelink conl"><xsl:value-of select="//label[key='pages']/value"/>: <strong>1</strong></p>
+		<p class="pagelink conl"><xsl:value-of select="//label[key='pages']/value"/>:
+            <strong>1</strong>
+        </p>
         <xsl:if test="//runtime/username">
 		<p class="postlink conr"><a href="{//link_prefix}post&amp;fid={//_get/fid}"><xsl:value-of select="//label[key='post_new_topic']/value"/></a></p>
         </xsl:if>
-		<ul><li><a href="{//link_prefix}index"><xsl:value-of select="//label[key='index']/value"/></a>&#160;</li><li> - &#160;<xsl:value-of select="//forum_get_by_id/forum_name"/></li></ul>
+		<ul>
+            <li>
+                <a href="{//link_prefix}index">
+                    <xsl:value-of select="//label[key='index']/value"/></a>&#160;
+            </li>
+            <li>
+                - &#160;<xsl:value-of select="//forum_get_by_id/forum_name"/>
+            </li>
+        </ul>
 		<div class="clearer"></div>
 	</div>
 </div>
@@ -54,13 +64,17 @@ Fifth Floor, Boston, MA 02110-1301  USA
 						<div class="intd">
 							<div class="icon"><div class="nosize"></div></div>
 							<div class="tclcon">
-								<a href="{//link_prefix}topic&amp;fid={//_get/fid}&amp;id={id}"><xsl:value-of select="subject"/></a>
+								<a href="{//link_prefix}topic&amp;fid={//_get/fid}&amp;id={id}">
+                                    <xsl:value-of select="subject"/>
+                                </a>
 							</div>
 						</div>
 					</td>
 					<td class="tc2"><xsl:value-of select="num_replies"/></td>
 					<td class="tcr">
-                        <xsl:value-of select="last_post"/>
+                        <xsl:if test="not(last_post='1969-12-31 20:00:00')">
+                            <xsl:value-of select="last_post"/>
+                        </xsl:if>
                         <xsl:if test="not(//runtime/user_id &gt; 0)">
                             UTC
                         </xsl:if>
