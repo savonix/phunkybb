@@ -1,17 +1,35 @@
 <?php
+/*
+Program: PhunkyBB
+Component: runtime.php
+Copyright: Savonix Corporation
+Author: Albert L. Lash, IV
+License: Gnu Affero Public License version 3
+http://www.gnu.org/licenses
 
-//Nexista_Flow::add("board_config",$config,false);
+This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation; either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with this program; if not, see http://www.gnu.org/licenses
+or write to the Free Software Foundation,Inc., 51 Franklin Street,
+Fifth Floor, Boston, MA 02110-1301  USA
+*/
 
 $defaults = Nexista_Config::getSection("./defaults");
 Nexista_Flow::add("defaults",$defaults);
 
 # This wacky path builder is required due to mod_rewrite situations
 $path = $_SERVER['REQUEST_URI'];
-Nexista_Flow::add("request_uri",$path);
 $path = dirname($path)."/".basename($_SERVER['SCRIPT_NAME']);
 $path_prefix = dirname($path)."/";
-//$app_prefix = "acc/".APP_NAME."/";
-//$link_prefix = $path."?nid=".$app_prefix;
 $link_prefix = $path."?nid=";
 
 // Also need server location
@@ -35,10 +53,6 @@ $runtime = array('host_name'=>$_SERVER['SERVER_NAME'],
                 'user_id'=>$_SESSION['NX_AUTH']['user_id'],
                 'group_id'=>$_SESSION['NX_AUTH']['group_id'],
                 'remote_ip'=>$_SERVER['REMOTE_ADDR'],
-                'debug'=>$debug,
-                'admin'=>1,
-                'top_left_logo'=>$top_left_logo,
-                'db_version'=>$db_version,
                 'timestamp'=>time());
 
 Nexista_Flow::add("runtime",$runtime,false);
