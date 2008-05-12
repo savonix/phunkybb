@@ -41,6 +41,17 @@ function delete_post(post_id) {
     myDiv.innerHTML = "";
     }
 }
+function delete_topic(topic_id) {
+    if(confirm('Are you sure?')){
+    $.post("<xsl:value-of select="//link_prefix"/>x-topic-delete&amp;topic_id="+topic_id,
+    {
+        'topic_id': topic_id
+    },
+    function (data){
+        window.location ='<xsl:value-of select="//link_prefix"/>index';
+    });
+    }
+}
 </script>
 
 <div class="linkst">
@@ -54,7 +65,7 @@ function delete_post(post_id) {
 		<p class="postlink conr">&#160;
         <xsl:if test="//runtime/group_id=1 or poster=//runtime/username">
             <a href="{//link_prefix}topic-delete&amp;topic_id={//_get/id}&amp;fid={//_get/fid}" 
-                onclick="return(confirm('You sure?'));">Delete</a>
+                onclick="delete_topic({//_get/id}); return false;">Delete</a>
         </xsl:if>
         </p>
 		<ul>
