@@ -23,7 +23,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 -->
 <!DOCTYPE query SYSTEM "__default_table_names__.txt">
 <query name="user_last_visit_update">
-    <connection>phunkybb</connection>
+    <connection>&connection;</connection>
     <params>
         <param name="//runtime/timestamp" type="integer" default="0"/>
         <param name="//runtime/user_id" type="text" default="0"/>

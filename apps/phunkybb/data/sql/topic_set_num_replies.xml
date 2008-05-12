@@ -23,7 +23,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 -->
 <!DOCTYPE query SYSTEM "__default_table_names__.txt">
 <query name="topic_set_num_replies">
-    <connection>phunkybb</connection>
+    <connection>&connection;</connection>
     <params>
         <param name="//_post/num_replies" type="integer"/>
         <param name="//_post/topic_id" type="integer"/>
