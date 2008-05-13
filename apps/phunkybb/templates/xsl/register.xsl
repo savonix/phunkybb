@@ -110,20 +110,6 @@ function do_encrypt() {
                 </div>
             </fieldset>
         </div>
-        <div class="inform">
-            <fieldset>
-                <legend><xsl:value-of select="//label[key='set_localisation_options']/value"/></legend>
-                <div class="infldset">
-                    <label><xsl:value-of select="//label[key='select_timezone']/value"/><br />
-                    <select id="time_zone" name="timezone">
-                    <xsl:for-each select="//tzdata/option">
-                        <option value="{@value}"><xsl:value-of select="."/></option>
-                    </xsl:for-each>
-                    </select>
-                    <br /></label>
-                </div>
-            </fieldset>
-        </div>
         <p><input type="submit" name="register" value="Register" /></p>
     </form>
 </div>
