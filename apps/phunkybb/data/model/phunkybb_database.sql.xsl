@@ -31,7 +31,7 @@ CREATE TABLE IF NOT EXISTS `<xsl:value-of select="//table_prefix"/>categories` (
   `cat_name` varchar(80) NOT NULL default 'New Category',
   `disp_position` int(10) NOT NULL default '0',
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 
 CREATE TABLE IF NOT EXISTS `<xsl:value-of select="//table_prefix"/>config` (
@@ -56,8 +56,9 @@ CREATE TABLE IF NOT EXISTS `<xsl:value-of select="//table_prefix"/>forums` (
   `sort_by` tinyint(1) NOT NULL default '0',
   `disp_position` int(10) NOT NULL default '0',
   `cat_id` int(10) unsigned NOT NULL default '0',
-  PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=18 ;
+  PRIMARY KEY  (`id`),
+  KEY `<xsl:value-of select="//table_prefix"/>forum_cat_id_idx` (`cat_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 
 
@@ -89,7 +90,7 @@ CREATE TABLE IF NOT EXISTS `<xsl:value-of select="//table_prefix"/>groups` (
   `g_post_flood` smallint(6) NOT NULL default '30',
   `g_search_flood` smallint(6) NOT NULL default '30',
   PRIMARY KEY  (`g_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 
 
@@ -118,7 +119,7 @@ CREATE TABLE IF NOT EXISTS `<xsl:value-of select="//table_prefix"/>posts` (
   PRIMARY KEY  (`id`),
   KEY `<xsl:value-of select="//table_prefix"/>posts_topic_id_idx` (`topic_id`),
   KEY `<xsl:value-of select="//table_prefix"/>posts_multi_idx` (`poster_id`,`topic_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=35 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 
 
@@ -135,7 +136,7 @@ CREATE TABLE IF NOT EXISTS `<xsl:value-of select="//table_prefix"/>subscriptions
   `user_id` int(10) unsigned NOT NULL default '0',
   `topic_id` int(10) unsigned NOT NULL default '0',
   PRIMARY KEY  (`user_id`,`topic_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
 CREATE TABLE IF NOT EXISTS `<xsl:value-of select="//table_prefix"/>topics` (
@@ -155,7 +156,7 @@ CREATE TABLE IF NOT EXISTS `<xsl:value-of select="//table_prefix"/>topics` (
   PRIMARY KEY  (`id`),
   KEY `<xsl:value-of select="//table_prefix"/>topics_forum_id_idx` (`forum_id`),
   KEY `<xsl:value-of select="//table_prefix"/>topics_moved_to_idx` (`moved_to`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=24 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 
 CREATE TABLE IF NOT EXISTS `<xsl:value-of select="//table_prefix"/>users` (
@@ -194,7 +195,17 @@ CREATE TABLE IF NOT EXISTS `<xsl:value-of select="//table_prefix"/>users` (
   PRIMARY KEY  (`id`),
   KEY `<xsl:value-of select="//table_prefix"/>users_registered_idx` (`registered`),
   KEY `<xsl:value-of select="//table_prefix"/>users_username_idx` (`username`(8))
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+
+ALTER TABLE `<xsl:value-of select="//table_prefix"/>forums`
+  ADD CONSTRAINT `<xsl:value-of select="//table_prefix"/>forums_ibfk_1` FOREIGN KEY (`cat_id`) REFERENCES `<xsl:value-of select="//table_prefix"/>categories` (`id`);
+
+ALTER TABLE `<xsl:value-of select="//table_prefix"/>posts`
+  ADD CONSTRAINT `<xsl:value-of select="//table_prefix"/>posts_ibfk_1` FOREIGN KEY (`topic_id`) REFERENCES `<xsl:value-of select="//table_prefix"/>topics` (`id`) ON DELETE CASCADE;
+
+ALTER TABLE `<xsl:value-of select="//table_prefix"/>topics`
+  ADD CONSTRAINT `<xsl:value-of select="//table_prefix"/>topics_ibfk_1` FOREIGN KEY (`forum_id`) REFERENCES `<xsl:value-of select="//table_prefix"/>forums` (`id`);
 
 </xsl:template>
 </xsl:stylesheet>
