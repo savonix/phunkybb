@@ -207,5 +207,27 @@ ALTER TABLE `<xsl:value-of select="//table_prefix"/>posts`
 ALTER TABLE `<xsl:value-of select="//table_prefix"/>topics`
   ADD CONSTRAINT `<xsl:value-of select="//table_prefix"/>topics_ibfk_1` FOREIGN KEY (`forum_id`) REFERENCES `<xsl:value-of select="//table_prefix"/>forums` (`id`);
 
+
+INSERT INTO <xsl:value-of select="//table_prefix"/>users 
+    (username,password,email) 
+    VALUES 
+    ('<xsl:value-of select="//admin"/>','<xsl:value-of select="//password"/>','<xsl:value-of select="//email"/>');
+
+INSERT INTO `<xsl:value-of select="//table_prefix"/>groups` (`g_id`, `g_title`, `g_user_title`, `g_read_board`, `g_post_replies`, `g_post_topics`, `g_post_polls`, `g_edit_posts`, `g_delete_posts`, `g_delete_topics`, `g_set_title`, `g_search`, `g_search_users`, `g_edit_subjects_interval`, `g_post_flood`, `g_search_flood`) VALUES
+(1, 'Administrators', 'Administrator', 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0),
+(2, 'Moderators', 'Moderator', 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0),
+(3, 'Guest', NULL, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0),
+(4, 'Members', NULL, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 300, 60, 30);
+
+
+INSERT INTO `<xsl:value-of select="//table_prefix"/>ranks` (`id`, `rank`, `min_posts`) VALUES
+(1, 'New member', 0),
+(2, 'Member', 10);
+
+
+INSERT INTO `<xsl:value-of select="//table_prefix"/>users` (`id`, `group_id`, `username`, `password`, `email`, `title`, `realname`, `url`,`location`, `use_avatar`, `signature`, `disp_topics`, `disp_posts`, `email_setting`, `save_pass`, `notify_with_post`, `show_smilies`, `show_img`, `show_img_sig`, `show_avatars`, `show_sig`, `timezone`, `language`, `style`, `num_posts`, `last_post`, `registered`, `registration_ip`, `last_visit`, `admin_note`, `activate_string`, `activate_key`) VALUES
+(1, 3, 'Guest', 'Guest', 'Guest',NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL, 1, 1, 0, 1, 1, 1, 1, 1, 0, 'English', 'Oxygen', 0, NULL, 0, '0.0.0.0', 0, NULL, NULL, NULL),
+(2, 1, '<xsl:value-of select="//admin"/>', '<xsl:value-of select="//password"/>', '<xsl:value-of select="//email"/>',NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL, 1, 1, 0, 1, 1, 1, 1, 1, -5, 'English', 'Oxygen', 23, 1206375054, 1194536945, '127.0.0.1', 1210736221, NULL, NULL, "active");
+
 </xsl:template>
 </xsl:stylesheet>

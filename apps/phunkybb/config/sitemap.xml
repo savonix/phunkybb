@@ -147,7 +147,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
         <map:query src="data/sql/topic_get_id_by_detail.xml"/>
         <map:query src="data/sql/post_create_first.xml"/>
         <map:query src="data/sql/forum_last_post_update.xml"/>
-        <map:action type="redirect" params="{//link_prefix}topic&amp;submit=yes&amp;id={//topic_get_id_by_detail/id}"/>
+        <map:action type="redirect" params="{//link_prefix}topic&amp;fid={//_post/forum_id}&amp;id={//topic_get_id_by_detail/id}"/>
     </map:gate>
     <map:gate name="post">
         <map:if name="//_post">
@@ -299,6 +299,16 @@ Fifth Floor, Boston, MA 02110-1301  USA
         <map:xsl src="templates/xsl/install.xsl"/>
     </map:gate>
     <map:gate name="dynamic-database-model">
+        <map:if name="//defaults/install_settings">
+            <map:true>
+            </map:true>
+            <map:false>
+                <map:set name="admin" value="admin"/>
+                <!-- default password is phunkybb -->
+                <map:set name="password" value="f20f7f3c358148d57be1a241e9d7d7199642afbb"/>
+                <map:set name="email" value="email@example.com"/>
+            </map:false>
+        </map:if>
         <map:set name="table_prefix" value="wwwneofilmzcom_"/>
         <map:action type="header" params="Content-type,text/plain"/>
         <map:xsl src="data/model/phunkybb_database.sql.xsl"/>
