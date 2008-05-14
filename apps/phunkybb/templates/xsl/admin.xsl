@@ -35,18 +35,17 @@ Fifth Floor, Boston, MA 02110-1301  USA
 					<dt>PhunkyBB version</dt>
 					<dd>
 						PhunkyBB 2.0<br />
-						Copyright 2002, 2003, 2004, 2005 Rickard Andersson
-                        Changes post 2008 copyright Savonix Corporation, authored by Albert Lash. 
+						Copyright 2002, 2003, 2004, 2005 Rickard Andersson<br/>
+                        Changes post 2008 copyright Savonix Corporation, authored by Albert Lash.
 					</dd>
 					<dt>Environment</dt>
 					<dd>
-						Operating system: Linux<br />
-						PHP: 5.2.3-1ubuntu6.3<br />
+						Operating system: <br/>
+						PHP: <br/>
 						Accelerator: <a href="http://xcache.lighttpd.net/">XCache</a>
 					</dd>
 					<dt>Database</dt>
 					<dd>
-						SQLite 2.8.17
 					</dd>
 				</dl>
 			</div>
