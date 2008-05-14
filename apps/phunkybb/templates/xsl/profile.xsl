@@ -28,7 +28,11 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <div id="profile" class="block2col">
     <xsl:call-template name="profile-menu"/>
 	<div class="blockform">
-		<h2><span><xsl:value-of select="//runtime/username"/> - <xsl:value-of select="//label[key='essentials']/value"/></span></h2>
+		<h2>
+        <span>
+            <xsl:value-of select="//runtime/username"/> - <xsl:value-of select="//label[key='essentials']/value"/>
+        </span>
+        </h2>
 
 		<div class="box">
 			<form id="profile1" method="post" onsubmit="return process_form(this)">
@@ -42,7 +46,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
                             <input type="text" name="req_username" value="{//user_get_profile/username}"/><br />
                             </label>
                         <p><a href="#">Change password</a></p>
-					</div>
+                        </div>
 					</fieldset>
 				</div>
 				<div class="inform">
