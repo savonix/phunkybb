@@ -219,10 +219,6 @@ Fifth Floor, Boston, MA 02110-1301  USA
     </map:gate>
     
     
-    
-    
-    
-    
     <!-- REAL ADMIN -->
     <map:gate name="admin" role="phunky_admin">
         <map:xsl src="templates/xsl/admin.xsl"/>
@@ -298,30 +294,9 @@ Fifth Floor, Boston, MA 02110-1301  USA
             </map:false>
         </map:if>
     </map:gate>
-    <!--
-    <map:gate name="groups" role="phunky_admin">
-        <map:xsl src="templates/xsl/admin.xsl"/>
-    </map:gate>
-    <map:gate name="permissions" role="phunky_admin">
-        <map:xsl src="templates/xsl/admin.xsl"/>
-    </map:gate>
-    <map:gate name="censoring" role="phunky_admin">
-        <map:xsl src="templates/xsl/admin.xsl"/>
-    </map:gate>
-    <map:gate name="ranks" role="phunky_admin">
-        <map:xsl src="templates/xsl/admin.xsl"/>
-    </map:gate>
-    <map:gate name="bans" role="phunky_admin">
-        <map:xsl src="templates/xsl/admin.xsl"/>
-    </map:gate>
-    <map:gate name="prune" role="phunky_admin">
-        <map:xsl src="templates/xsl/admin.xsl"/>
-    </map:gate>
-    <map:gate name="maintenance" role="phunky_admin">
-        <map:xsl src="templates/xsl/admin.xsl"/>
-    </map:gate>
-    -->
+    
     <map:gate name="dynamic-database-model">
+        <map:set name="table_prefix" value="wwwneofilmzcom_"/>
         <map:action type="header" params="Content-type,text/plain"/>
         <map:xsl src="data/model/phunkybb_database.sql.xsl"/>
     </map:gate>
