@@ -207,12 +207,6 @@ ALTER TABLE `<xsl:value-of select="//table_prefix"/>posts`
 ALTER TABLE `<xsl:value-of select="//table_prefix"/>topics`
   ADD CONSTRAINT `<xsl:value-of select="//table_prefix"/>topics_ibfk_1` FOREIGN KEY (`forum_id`) REFERENCES `<xsl:value-of select="//table_prefix"/>forums` (`id`);
 
-
-INSERT INTO <xsl:value-of select="//table_prefix"/>users 
-    (username,password,email) 
-    VALUES 
-    ('<xsl:value-of select="//admin"/>','<xsl:value-of select="//password"/>','<xsl:value-of select="//email"/>');
-
 INSERT INTO `<xsl:value-of select="//table_prefix"/>groups` (`g_id`, `g_title`, `g_user_title`, `g_read_board`, `g_post_replies`, `g_post_topics`, `g_post_polls`, `g_edit_posts`, `g_delete_posts`, `g_delete_topics`, `g_set_title`, `g_search`, `g_search_users`, `g_edit_subjects_interval`, `g_post_flood`, `g_search_flood`) VALUES
 (1, 'Administrators', 'Administrator', 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0),
 (2, 'Moderators', 'Moderator', 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0),
