@@ -1,6 +1,6 @@
 <!--
 Program: PhunkyBB
-Component: forum_admin.xsl
+Component: forum_admin_edit.xsl
 Copyright: Savonix Corporation
 Author: Albert L. Lash, IV
 License: Gnu Affero Public License version 3
@@ -26,52 +26,10 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <xsl:include href="admin_menu.xsl"/>
 <xsl:template name="content">
 
-<script type="text/javascript">
-function delete_forum(fid,cid) {
-    var question = '<xsl:value-of select="/__ROOT__/i18n/labels/label[key='delete_confirm']/value"/>';
-    if(confirm(question)) {
-        $.post("<xsl:value-of select="//link_prefix"/>x-forum-delete&amp;id="+fid, {'id': fid},
-        function (data){
-        });
-        myTable = document.getElementById("cat_table_"+cid);
-        myTable.deleteRow("row_"+fid);
-    }
-}
-</script>
-
 <div id="adminconsole" class="block2col">
     <xsl:call-template name="admin-menu"/>
 	<div class="blockform">
-		<h2><span>Add forum</span></h2>
-		<div class="box">
-			<form method="post" action="{//link_prefix}forums">
-				<div class="inform">
-					<fieldset>
-						<legend>Create a new forum</legend>
-
-						<div class="infldset">
-							<table class="aligntop" cellspacing="0">
-								<tr>
-									<th scope="row">Add forum to category<div><input type="submit" name="add_forum" value=" Add " tabindex="2" /></div></th>
-									<td>
-                                    <input type="text" name="forum_name" />
-										<select name="add_to_cat" tabindex="1">
-                                        <xsl:for-each select="//categories_get_all">
-										<option value="{cid}"><xsl:value-of select="cat_name"/></option>
-                                        </xsl:for-each>
-										</select>
-										<span>Select the category to which you wish to add a new forum.</span>
-
-									</td>
-								</tr>
-							</table>
-						</div>
-					</fieldset>
-				</div>
-			</form>
-		</div>
-
-		<h2 class="block2"><span>Edit forums</span></h2>
+		<h2 class="block2"><span>Edit forum</span></h2>
 		<div class="box">
 			<form id="edforum" method="post" action="{//link_prefix}forums">
 				<p class="submittop"><input type="submit" name="update_positions" value="Update positions" tabindex="3" /></p>

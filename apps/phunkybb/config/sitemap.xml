@@ -269,7 +269,20 @@ Fifth Floor, Boston, MA 02110-1301  USA
         <map:query src="data/sql/forums_get_all.xml"/>
         <map:xsl src="templates/xsl/admin_forum.xsl"/>
     </map:gate>
-    <map:gate name="forum-delete" role="phunky_admin">
+    <map:gate name="forum-edit" role="phunky_admin">
+        <map:if name="//_post">
+            <map:true>
+                <map:query src="data/sql/forum_update.xml"/>
+                <map:action type="redirect" params="{//link_prefix}forums"/>
+            </map:true>
+            <map:false>
+            </map:false>
+        </map:if>
+        <map:query src="data/sql/categories_get_all.xml"/>
+        <map:query src="data/sql/forum_get_by_id.xml"/>
+        <map:xsl src="templates/xsl/admin_forum_edit.xsl"/>
+    </map:gate>
+    <map:gate name="x-forum-delete" role="phunky_admin">
         <map:query src="data/sql/forum_delete.xml"/>
     </map:gate>
     <map:gate name="users" role="phunky_admin">
