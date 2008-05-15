@@ -38,6 +38,7 @@ $(document).ready(function()
     myform.e.value="10001";
     var d = new Date()
     myform.my_tz_offset.value = 0 - d.getTimezoneOffset()/60;
+    myform.my_tz_offset_debug.value = 0 - d.getTimezoneOffset()/60;
 });
 
 function do_encrypt() {
@@ -90,6 +91,13 @@ function do_encrypt() {
         </fieldset>
     </div>
     <p><input type="submit" name="login" value="Login" tabindex="3" /></p>
+<xsl:if test="//debug">
+<input type="text" name="my_tz_offset_debug" value=""/>
+<br/>
+<textarea style="width: 100%; height: 200px;">
+
+</textarea>
+</xsl:if>
 </form>
 
 </div>

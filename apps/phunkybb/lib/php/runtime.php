@@ -26,12 +26,13 @@ Fifth Floor, Boston, MA 02110-1301  USA
 $defaults = Nexista_Config::getSection("./defaults");
 Nexista_Flow::add("defaults",$defaults);
 
-# This wacky path builder is required due to mod_rewrite situations
 $path = $_SERVER['REQUEST_URI'];
 $path = dirname($path)."/".basename($_SERVER['SCRIPT_NAME']);
 $path_prefix = dirname($path)."/";
 $link_prefix = $path."?nid=";
 
+/* Time stuff */
+$tz_offset = $_SESSION['timezone'];
 $utcdate = gmdate('Y-m-d H:i:s');
 
 /* Expired session */
@@ -51,6 +52,8 @@ $runtime = array(
                 'link_prefix' => $link_prefix,
                 'svn_revision' => $svn_revision,
                 'right_now' => $utcdate,
+                'debug' => 1,
+                'user_timezone_offset'=> $tz_offset,
                 'user_time_format' => "Y-m-d H:i:s",
                 'username' => $_SESSION['NX_AUTH']['username'],
                 'user_id' => $_SESSION['NX_AUTH']['user_id'],
