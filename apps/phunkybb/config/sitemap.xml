@@ -40,7 +40,6 @@ Fifth Floor, Boston, MA 02110-1301  USA
 
 <!-- SESSIONS -->
 <map:gate name="register">
-    <map:xml src="data/xml/tzdata.xml"/>
     <map:if name="//_post">
         <map:true>
             <map:validate src="validators/registration_validation.xml">
