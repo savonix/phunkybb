@@ -32,28 +32,32 @@ $path = dirname($path)."/".basename($_SERVER['SCRIPT_NAME']);
 $path_prefix = dirname($path)."/";
 $link_prefix = $path."?nid=";
 
-// Also need server location
-$tz_offset = $_SESSION['timezone'];
-$right_now = date('Y-m-d H:i:s',time()+(3600*$tz_offset));
+$utcdate = gmdate('Y-m-d H:i:s');
 
-//Expired session
+/* Expired session */
 if($_SESSION['NX_AUTH']['username']==1016)
 {
     $_SESSION['NX_AUTH']['username']=0;
 }
 
-$runtime = array('host_name'=>$_SERVER['SERVER_NAME'],
-                'request_uri'=>$_SERVER['REQUEST_URI'],
-                'path_prefix'=>$path_prefix,
-                'link_prefix'=>$link_prefix,
-                'right_now'=>$right_now,
-                'user_timezone_offset'=> $tz_offset,
-                'user_time_format'=> "Y-m-d H:i:s",
-                'username'=>$_SESSION['NX_AUTH']['username'],
-                'user_id'=>$_SESSION['NX_AUTH']['user_id'],
-                'group_id'=>$_SESSION['NX_AUTH']['group_id'],
-                'remote_ip'=>$_SERVER['REMOTE_ADDR'],
-                'timestamp'=>time());
+/* Subversion revision */
+if(is_file('../revision')) { 
+    $svn_revision = file_get_contents('../revision');
+} else {
+
+}
+$runtime = array(
+                'path_prefix' => $path_prefix,
+                'link_prefix' => $link_prefix,
+                'svn_revision' => $svn_revision,
+                'right_now' => $utcdate,
+                'user_time_format' => "Y-m-d H:i:s",
+                'username' => $_SESSION['NX_AUTH']['username'],
+                'user_id' => $_SESSION['NX_AUTH']['user_id'],
+                'group_id' => $_SESSION['NX_AUTH']['group_id'],
+                'remote_ip' => $_SERVER['REMOTE_ADDR'],
+                'timestamp' => time()
+                );
 
 Nexista_Flow::add("runtime",$runtime,false);
 
