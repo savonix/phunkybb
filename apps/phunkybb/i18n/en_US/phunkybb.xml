@@ -1883,44 +1883,44 @@ Fifth Floor, Boston, MA 02110-1301  USA
             <value>Password for SMTP server. Only enter a password if it is required by the SMTP server (most servers</value>
         </label>
         <label>
-            <key>not</key>
-            <value>not</value>
+            <key>registration</key>
+            <value>Registration</value>
         </label>
         <label>
-            <key>not</key>
-            <value>not</value>
+            <key>allow_new_registration</key>
+            <value>Allow new registrations</value>
         </label>
         <label>
-            <key>not</key>
-            <value>not</value>
+            <key>controls_whether_forum_accepts_new_registration</key>
+            <value>Controls whether this forum accepts new registrations. Disable only under special circumstances</value>
         </label>
         <label>
-            <key>not</key>
-            <value>not</value>
+            <key>verify_registrations</key>
+            <value>Verify registrations</value>
         </label>
         <label>
-            <key>not</key>
-            <value>not</value>
+            <key>when_enabled_users_are_emailed</key>
+            <value>When enabled, users are e-mailed a random password when they register. They can then log in and change the password in their profile if they see fit. This feature also requires users to verify new e-mail addresses if they choose to change from the one they registered with. This is an effective way of avoiding registration abuse and making sure that all users have "correct" e-mail addresses in their profiles</value>
         </label>
         <label>
-            <key>not</key>
-            <value>not</value>
+            <key>use_forum_rules</key>
+            <value>Use forum rules</value>
         </label>
         <label>
-            <key>not</key>
-            <value>not</value>
+            <key>when_enabled_users_must</key>
+            <value>When enabled, users must agree to a set of rules when registering (enter text below). The rules will always be available through a link in the navigation table at the top of every page</value>
         </label>
         <label>
-            <key>not</key>
-            <value>not</value>
+            <key>rules</key>
+            <value>Rules</value>
         </label>
         <label>
-            <key>not</key>
-            <value>not</value>
+            <key>enter_rules_here</key>
+            <value>Enter your rules here</value>
         </label>
         <label>
-            <key>not</key>
-            <value>not</value>
+            <key>here_you_can_enter_any_rules</key>
+            <value>Here you can enter any rules or other information that the user must review and accept when registering. If you enabled rules above you have to enter something here, otherwise it will be disabled. This text will not be parsed like regular posts and thus may contain HTML</value>
         </label>
     </labels>
 </i18n>

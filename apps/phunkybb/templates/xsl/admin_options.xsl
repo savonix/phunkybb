@@ -197,39 +197,39 @@ Fifth Floor, Boston, MA 02110-1301  USA
             </div>
             <div class="inform">
                 <fieldset>
-                    <legend><xsl:value-of select="//label[key='add']/value"/>Registration</legend>
+                    <legend><xsl:value-of select="//label[key='registration']/value"/></legend>
                     <div class="infldset">
                         <table class="aligntop" cellspacing="0">
                             <tr>
-                                <th scope="row"><xsl:value-of select="//label[key='add']/value"/>Allow new registrations</th>
+                                <th scope="row"><xsl:value-of select="//label[key='allow_new_registration']/value"/></th>
 
                                 <td>
-                                    <input type="radio" name="form[o_regs_allow]" value="" /><strong>No</strong>
-                                    <span><xsl:value-of select="//label[key='add']/value"/>Controls whether this forum accepts new registrations. Disable only under special circumstances.</span>
+                                    <input type="radio" name="form[o_regs_allow]" value="" /><strong><xsl:value-of select="//label[key='no']/value"/></strong>
+                                    <span><xsl:value-of select="//label[key='controls_whether_forum_accepts_new_registration']/value"/>.</span>
                                 </td>
                             </tr>
                             <tr>
-                                <th scope="row"><xsl:value-of select="//label[key='add']/value"/>Verify registrations</th>
+                                <th scope="row"><xsl:value-of select="//label[key='verify_registrations']/value"/></th>
 
                                 <td>
-                                    <input type="radio" name="form[o_regs_verify]" value="" /><strong>No</strong>
-                                    <span><xsl:value-of select="//label[key='add']/value"/>When enabled, users are e-mailed a random password when they register. They can then log in and change the password in their profile if they see fit. This feature also requires users to verify new e-mail addresses if they choose to change from the one they registered with. This is an effective way of avoiding registration abuse and making sure that all users have "correct" e-mail addresses in their profiles.</span>
+                                    <input type="radio" name="form[o_regs_verify]" value="" /><strong><xsl:value-of select="//label[key='no']/value"/></strong>
+                                    <span><xsl:value-of select="//label[key='when_enabled_users_are_emailed']/value"/>.</span>
                                 </td>
                             </tr>
                             <tr>
-                                <th scope="row"><xsl:value-of select="//label[key='add']/value"/>Use forum rules</th>
+                                <th scope="row"><xsl:value-of select="//label[key='use_forum_rules']/value"/></th>
 
                                 <td>
-                                    <input type="radio" name="form[o_rules]" value="" /><strong>No</strong>
-                                    <span><xsl:value-of select="//label[key='add']/value"/>When enabled, users must agree to a set of rules when registering (enter text below). The rules will always be available through a link in the navigation table at the top of every page.</span>
+                                    <input type="radio" name="form[o_rules]" value="" /><strong><xsl:value-of select="//label[key='no']/value"/></strong>
+                                    <span><xsl:value-of select="//label[key='when_enabled_users_must']/value"/>.</span>
                                 </td>
                             </tr>
                             <tr>
-                                <th scope="row"><xsl:value-of select="//label[key='add']/value"/>Rules</th>
+                                <th scope="row"><xsl:value-of select="//label[key='rules']/value"/></th>
 
                                 <td>
-                                    <textarea name="form[o_rules_message]" rows="10" cols="55">Enter your rules here.</textarea>
-                                    <span><xsl:value-of select="//label[key='add']/value"/>Here you can enter any rules or other information that the user must review and accept when registering. If you enabled rules above you have to enter something here, otherwise it will be disabled. This text will not be parsed like regular posts and thus may contain HTML.</span>
+                                    <textarea name="form[o_rules_message]" rows="10" cols="55"><xsl:value-of select="//label[key='enter_rules_here']/value"/>.</textarea>
+                                    <span><xsl:value-of select="//label[key='here_you_can_enter_any_rules']/value"/>.</span>
                                 </td>
                             </tr>
                         </table>
