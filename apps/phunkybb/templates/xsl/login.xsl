@@ -47,7 +47,7 @@ function do_encrypt() {
     rsa.setPublic(linebrk(myform.id_rsa_pub.value,64), myform.e.value);
     var res = linebrk(hex2b64(rsa.encrypt(myform.password.value)),64);
 
-    $.post("<xsl:value-of select="//link_prefix"/>ajax-check",
+    $.post("<xsl:value-of select="//link_prefix"/>x-login",
     {
         'username': myform.username.value,
         'password': res,

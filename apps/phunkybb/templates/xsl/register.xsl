@@ -30,7 +30,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <script type="text/javascript" src="{__ROOT__/runtime/path_prefix}/s/js/prng4.js"></script>
 <script type="text/javascript" src="{__ROOT__/runtime/path_prefix}/s/js/rng.js"></script>
 <script type="text/javascript" src="{__ROOT__/runtime/path_prefix}/s/js/base64.js"></script>
-<script language="javascript" src="{//path_prefix}s/js/jsval.js"></script>
+<script language="javascript" src="{//path_prefix}/s/js/jsval.js"></script>
 <script language="javascript">
 <![CDATA[
     function initValidation()
@@ -45,7 +45,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 ]]>
 </script>
 <script type="text/javascript">
-$(document).ready(function() 
+$(document).ready(function()
 {
     var myform = document.forms["mlogin"];
     myform.id_rsa_pub.value="<xsl:value-of select="//defaults/modulus"/>";
@@ -59,10 +59,10 @@ function do_encrypt() {
         var rsa = new RSAKey();
         rsa.setPublic(linebrk(myform.id_rsa_pub.value,64), myform.e.value);
         var res = linebrk(hex2b64(rsa.encrypt(myform.password.value)),64);
-    
-        $.post("<xsl:value-of select="//link_prefix"/>register",
+
+        $.post("<xsl:value-of select="//link_prefix"/>x-register",
         {
-            'username': myform.username.value, 
+            'username': myform.username.value,
             'password': res
         }, 
         function (data){
@@ -74,8 +74,8 @@ function do_encrypt() {
 <div class="blockform">
 <h2><span><xsl:value-of select="//label[key='register']/value"/></span></h2>
 <div class="box">
-    <form name="register" method="post" onSubmit="do_encrypt()"
-        action="{//link_prefix}register&amp;view_flow=true">
+    <form name="register" method="post" onSubmit="do_encrypt(); return false;"
+        action="{//link_prefix}register">
         <div class="inform">
             <div class="forminfo">
                 <h3><xsl:value-of select="//label[key='important_information']/value"/></h3>
@@ -85,8 +85,8 @@ function do_encrypt() {
             <fieldset>
                 <legend><xsl:value-of select="//label[key='username_legend']/value"/></legend>
                 <div class="infldset">
-                    <label><strong><xsl:value-of select="//label[key='username']/value"/></strong><br />
-                    <input type="text" name="username" maxlength="25" value="{//_post/username}"/><br /></label>
+                    <label><strong><xsl:value-of select="//label[key='username']/value"/></strong><br/>
+                    <input type="text" name="username" maxlength="25" value="{//_post/username}"/><br/></label>
                 </div>
             </fieldset>
         </div>
@@ -94,8 +94,8 @@ function do_encrypt() {
             <fieldset>
                 <legend><xsl:value-of select="//label[key='pass_legend_1']/value"/></legend>
                 <div class="infldset">
-                    <label class="conl"><strong><xsl:value-of select="//label[key='password']/value"/></strong><br /><input type="password" name="password1" size="16" maxlength="16" /><br /></label>
-                    <label class="conl"><strong><xsl:value-of select="//label[key='confirm_password']/value"/></strong><br /><input type="password" name="password2" size="16" maxlength="16" /><br /></label>
+                    <label class="conl"><strong><xsl:value-of select="//label[key='password']/value"/></strong><br/><input type="password" name="password1" size="16" maxlength="16" /><br/></label>
+                    <label class="conl"><strong><xsl:value-of select="//label[key='confirm_password']/value"/></strong><br/><input type="password" name="password2" size="16" maxlength="16" /><br/></label>
                     <p class="clearb"><xsl:value-of select="//label[key='pass_info']/value"/></p>
                 </div>
             </fieldset>
@@ -105,12 +105,12 @@ function do_encrypt() {
                 <legend><xsl:value-of select="//label[key='valid_email']/value"/></legend>
                 <div class="infldset">
 
-                <label><strong><xsl:value-of select="//label[key='email']/value"/></strong><br />
-                    <input type="text" name="email" maxlength="50"  value="{//_post/email}"/><br /></label>
+                <label><strong><xsl:value-of select="//label[key='email']/value"/></strong><br/>
+                    <input type="text" name="email" maxlength="50" value="{//_post/email}"/><br/></label>
                 </div>
             </fieldset>
         </div>
-        <p><input type="submit" name="register" value="Register" /></p>
+        <p><input type="submit" name="register" value="Register"/></p>
     </form>
 </div>
 </div>

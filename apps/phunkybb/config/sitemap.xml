@@ -41,6 +41,10 @@ Fifth Floor, Boston, MA 02110-1301  USA
 
 <!-- SESSIONS -->
 <map:gate name="register">
+    <map:xsl src="templates/xsl/register.xsl"/>
+</map:gate>
+
+<map:gate name="x-register">
     <map:if name="//_post">
         <map:true>
             <map:validate src="validators/registration_validation.xml">
@@ -54,28 +58,26 @@ Fifth Floor, Boston, MA 02110-1301  USA
                             <map:plugin type="hash" params="sha1,//random_password"/>
                         </map:true>
                         <map:false>
+                            <map:script src="lib/php/rsa_decrypt.php"/>
                             <map:plugin type="hash" params="sha1,//_post/password"/>
                         </map:false>
                     </map:if>
                     <map:set name="registration_info" value="Registration Info"/>
                     <map:plugin type="detokenize"
                         params="{//label[key='welcome_email']/value},//emails/welcome/token"/>
-                    <map:action type="email" 
+                    <map:action type="email"
                         params="{//_post/email},{//board_config/o_webmaster_email},{//registration_info},{//new_text},{//board_config/o_smtp_host}"/>
-                        
                         <map:xsl src="templates/xsl/register.xsl"/>
-                    <!--
-                    <map:query src="data/sql/user_register.xml"/>
-                    <map:action type="redirect" params="{//link_prefix}registered"/>
-                    -->
+                        <map:query src="data/sql/user_register.xml"/>
                 </map:valid>
                 <map:invalid>
-                    <map:xsl src="templates/xsl/register.xsl"/>
+                    <map:action type="header" params="Content-type,text/xml"/>
+                    <map:raw src="data/xml/x-error.xml"/>
                 </map:invalid>
             </map:validate>
         </map:true>
         <map:false>
-            <map:xsl src="templates/xsl/register.xsl"/>
+            <map:action type="access" params="deny,all"/>
         </map:false>
     </map:if>
 </map:gate>
@@ -107,7 +109,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
             </map:false>
         </map:if>
     </map:gate>
-    <map:gate name="ajax-check" cache="0">
+    <map:gate name="x-login" cache="0">
         <map:action type="header" params="Content-Type,text/xml"/>
         <map:script src="lib/php/rsa_decrypt.php"/>
         <map:plugin type="hash" params="sha1,//cleartext"/>
