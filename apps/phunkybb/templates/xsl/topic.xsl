@@ -107,12 +107,7 @@ function delete_topic(topic_id) {
 				<dl>
 					<dt><strong><a href="{//link_prefix}profile&amp;id={poster_id}">
                     <xsl:value-of select="username"/></a></strong></dt>
-					<!--
-                    <dd class="usertitle"><strong>Administrator</strong></dd>
 
-					<dd class="postavatar"></dd>
-					<dd>Registered: </dd>
-					<dd>Posts: 22</dd>-->
 				</dl>
 			</div>
 			<div class="postright">

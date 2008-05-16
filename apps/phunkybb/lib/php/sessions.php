@@ -24,6 +24,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 */
 
 $username = Nexista_Path::get('//user_login/username', 'flow');
+$user_last_visit = Nexista_Path::get('//user_login/user_last_visit', 'flow');
 $user_id = Nexista_Path::get('//user_login/id', 'flow');
 $group_id = Nexista_Path::get('//user_login/group_id', 'flow');
 
@@ -58,6 +59,7 @@ if(!$auth->registerUser($newarr))
 $auth->setSessionData("user_id", $user_id);
 $auth->setSessionData("group_id", $group_id);
 $auth->setSessionData("username", $username);
+$auth->setSessionData("user_last_visit", $user_last_visit);
 
 
 //go back where we were called from

@@ -98,6 +98,10 @@ Fifth Floor, Boston, MA 02110-1301  USA
                                 <xsl:value-of select="//label[key='registered']/value"/>:
                                 <xsl:value-of select="//user_get_profile/registered"/>
                             </p>
+							<p>
+                                <xsl:value-of select="//label[key='last_visit']/value"/>:
+                                <xsl:value-of select="//user_get_profile/last_visit"/>
+                            </p>
 							<p><xsl:value-of select="//label[key='last_post']/value"/>: 
                                 <xsl:value-of select="//user_get_profile/last_post"/></p>
 

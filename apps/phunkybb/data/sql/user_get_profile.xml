@@ -35,7 +35,7 @@ both use the same profile query.
         <param name="//runtime/group_id" type="text" default="0"/>
 	</params>
     <sql>
-        SELECT *,  
+        SELECT *,
         last_visit,
         registered,
         last_post

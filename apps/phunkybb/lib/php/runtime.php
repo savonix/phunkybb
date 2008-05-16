@@ -56,6 +56,7 @@ $runtime = array(
                 'user_timezone_offset'=> $tz_offset,
                 'user_time_format' => "Y-m-d H:i:s",
                 'username' => $_SESSION['NX_AUTH']['username'],
+                'user_last_visit' => $_SESSION['NX_AUTH']['user_last_visit'],
                 'user_id' => $_SESSION['NX_AUTH']['user_id'],
                 'group_id' => $_SESSION['NX_AUTH']['group_id'],
                 'remote_ip' => $_SERVER['REMOTE_ADDR'],

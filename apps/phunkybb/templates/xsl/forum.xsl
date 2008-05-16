@@ -62,7 +62,12 @@ Fifth Floor, Boston, MA 02110-1301  USA
 				<tr>
 					<td class="tcl">
 						<div class="intd">
-							<div class="icon"><div class="nosize"></div></div>
+                            <xsl:if test="not(//user_get_info/last_login &gt; last_post)">
+                            <div class="icon"><div class="nosize"></div></div>
+                            </xsl:if>
+                            <xsl:if test="//user_get_info/last_login &gt; last_post">
+                            <div class="icon inew"><div class="nosize"></div></div>
+                            </xsl:if>
 							<div class="tclcon">
 								<a href="{//link_prefix}topic&amp;fid={//_get/fid}&amp;id={id}">
                                     <xsl:value-of select="subject"/>

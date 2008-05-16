@@ -33,6 +33,15 @@ Fifth Floor, Boston, MA 02110-1301  USA
                 <map:script src="lib/php/config_build.php"/>
             </map:false>
         </map:if>
+        <!--
+        <map:if name="//runtime/username">
+            <map:true>
+            </map:true>
+            <map:false>
+                <map:query src="data/sql/user_last_visit_update.xml"/>
+            </map:false>
+        </map:if>
+        -->
         <map:script src="lib/php/runtime.php"/>
         <map:xml src="data/xml/menu.xml"/>
         <map:xml src="i18n/en_US/phunkybb.xml"/>
@@ -86,7 +95,6 @@ Fifth Floor, Boston, MA 02110-1301  USA
         <map:if name="//user_login">
             <map:true>
                 <map:script src="lib/php/sessions.php"/>
-                <map:query src="data/sql/user_last_visit_update.xml"/>
                 <map:action type="redirect" params="{//link_prefix}index"/>
             </map:true>
             <map:false>
@@ -100,6 +108,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
         <map:query src="data/sql/user_login.xml"/>
         <map:if name="//user_login">
             <map:true>
+                <map:query src="data/sql/user_last_visit_update.xml"/>
                 <map:script src="lib/php/sessions.php"/>
             </map:true>
             <map:false>
@@ -121,9 +130,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
             <map:xsl src="templates/xsl/welcome.xsl"/>
         </map:block>
     </map:gate>
-    <map:gate name="welcome" cache="60" client_cache="30">
-        <map:insert name="index"/>
-    </map:gate>
+    
     <map:gate name="forum">
         <map:query src="data/sql/forum_get_by_id.xml"/>
         <map:query src="data/sql/topics_get_by_forum_id.xml"/>
