@@ -33,15 +33,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
                 <map:script src="lib/php/config_build.php"/>
             </map:false>
         </map:if>
-        <!--
-        <map:if name="//runtime/username">
-            <map:true>
-            </map:true>
-            <map:false>
-                <map:query src="data/sql/user_last_visit_update.xml"/>
-            </map:false>
-        </map:if>
-        -->
+
         <map:script src="lib/php/runtime.php"/>
         <map:xml src="data/xml/menu.xml"/>
         <map:xml src="i18n/en_US/phunkybb.xml"/>
@@ -57,7 +49,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
                     <map:xml src="data/xml/emails.xml"/>
                     <map:plugin type="random" params="random,8"/>
                     <map:plugin type="hash" params="sha1,//_post/password"/>
-                    <map:plugin type="detokenize" 
+                    <map:plugin type="detokenize"
                         params="{//label[key='welcome_email']/value},//emails/email/token"/>
                     <map:action type="email" 
                         params="{//_post/email},{//board_config/o_webmaster_email},Reg Info,{//new_text},{//board_config/o_smtp_host}"/>
@@ -109,9 +101,6 @@ Fifth Floor, Boston, MA 02110-1301  USA
         <map:query src="data/sql/user_login.xml"/>
         <map:if name="//user_login">
             <map:true>
-                <!--
-                <map:action type="datetime" params="//user_login/last_visit,unix_epoch,{//runtime/user_time_format},{//_post/my_tz_offset}"/>
-                -->
                 <map:query src="data/sql/user_last_visit_update.xml"/>
                 <map:script src="lib/php/sessions.php"/>
             </map:true>
@@ -134,7 +123,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
             <map:xsl src="templates/xsl/welcome.xsl"/>
         </map:block>
     </map:gate>
-    
+
     <map:gate name="forum">
         <map:query src="data/sql/forum_get_by_id.xml"/>
         <map:query src="data/sql/topics_get_by_forum_id.xml"/>
@@ -189,8 +178,8 @@ Fifth Floor, Boston, MA 02110-1301  USA
                 <map:action type="redirect" params="{//link_prefix}profile"/>
             </map:true>
             <map:false>
-            <map:xml src="data/xml/tzdata.xml"/>
             <map:query src="data/sql/user_get_profile.xml"/>
+            <map:action type="datetime" params="//user_get_profile/last_visit,unix_epoch,{//runtime/user_time_format},{//runtime/user_timezone_offset}"/>
             <map:action type="datetime" params="//user_get_profile/last_post,unix_epoch,{//runtime/user_time_format},{//runtime/user_timezone_offset}"/>
             <map:action type="datetime" params="//user_get_profile/registered,unix_epoch,{//runtime/user_time_format},{//runtime/user_timezone_offset}"/>
             <map:xsl src="templates/xsl/profile.xsl"/>
@@ -224,6 +213,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
     </map:gate>
     <map:gate name="user-admin" role="phunky_user">
         <map:query src="data/sql/user_get_profile.xml"/>
+        <map:action type="datetime" params="//user_get_profile/last_visit,unix_epoch,{//runtime/user_time_format},{//runtime/user_timezone_offset}"/>
         <map:action type="datetime" params="//user_get_profile/registered,unix_epoch,{//runtime/user_time_format},{//runtime/user_timezone_offset}"/>
         <map:xsl src="templates/xsl/user_admin.xsl"/>
     </map:gate>
@@ -234,7 +224,6 @@ Fifth Floor, Boston, MA 02110-1301  USA
         <map:xsl src="templates/xsl/admin.xsl"/>
     </map:gate>
     <map:gate name="options" role="phunky_admin">
-        <map:xml src="data/xml/tzdata.xml"/>
         <map:xsl src="templates/xsl/admin_options.xsl"/>
     </map:gate>
     <map:gate name="options-submit" role="phunky_admin">
