@@ -1615,5 +1615,74 @@ Fifth Floor, Boston, MA 02110-1301  USA
             <key>all_users</key>
             <value>All</value>
         </label>
+        <label>
+            <key>copyright</key>
+            <value>Copyright Savonix Corporation, authored by Albert Lash<br/>
+                        Based on Punbb, written by Rickard Andersson</value>
+        </label>
+        <label>
+            <key>environment</key>
+            <value>Environment</value>
+        </label>
+        <label>
+            <key>operating_system</key>
+            <value>Operating system</value>
+        </label>
+        <label>
+            <key>accelerator</key>
+            <value>Accelerator</value>
+        </label>
+        <label>
+            <key>database</key>
+            <value>Database</value>
+        </label>
+        <label>
+            <key>add</key>
+            <value>Add</value>
+        </label>
+        <label>
+            <key>remove</key>
+            <value>remove</value>
+        </label>
+        <label>
+            <key>edit_catagories</key>
+            <value>Edit Categories</value>
+        </label>
+        <label>
+            <key>delete_categories</key>
+            <value>delete categories</value>
+        </label>
+        <label>
+            <key>delete_a_category</key>
+            <value>Delete a category</value>
+        </label>
+        <label>
+            <key>add_a_new_category</key>
+            <value>Add a new category</value>
+        </label>
+        <label>
+            <key>name_of_new_category</key>
+            <value>The name of the new category you want to add. You can edit the name of the category later (see below). Go to</value>
+        </label>
+        <label>
+            <key>forums</key>
+            <value>Forums</value>
+        </label>
+        <label>
+            <key>to_add_forums</key>
+            <value>to add forums to your new category</value>
+        </label>
+        <label>
+            <key>select_the_name_of</key>
+            <value>Select the name of the category you want to delete. You will be asked to confirm your choice of category for deletion before it is deleted</value>
+        </label>
+        <label>
+            <key>name</key>
+            <value>Name</value>
+        </label>
+        <label>
+            <key>position</key>
+            <value>Position</value>
+        </label>
     </labels>
 </i18n>

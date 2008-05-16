@@ -28,21 +28,21 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <div id="adminconsole" class="block2col">
     <xsl:call-template name="admin-menu"/>
 	<div class="blockform">
-		<h2><span>Add/remove/edit categories</span></h2>
+		<h2><span><xsl:value-of select="//label[key='add']/value"/>/<xsl:value-of select="//label[key='remove']/value"/>/<xsl:value-of select="//label[key='edit_categories']/value"/></span></h2>
 		<div class="box">
 			<div class="inform">
 				<fieldset>
-					<legend>Add/delete categories</legend>
+					<legend><xsl:value-of select="//label[key='add']/value"/>/<xsl:value-of select="//label[key='delete_categories']/value"/></legend>
 					<div class="infldset">
 						<table class="aligntop" cellspacing="0">
                             <form method="post" action="{//link_prefix}categories&amp;view_flow=true">
                             <input type="hidden" name="action" value="add_cat"/>
 							<tr>
-								<th scope="row">Add a new category<div>
+								<th scope="row"><xsl:value-of select="//label[key='add_a_new_category']/value"/><div>
                                 <input type="submit" name="add_cat" value="Add New" tabindex="2" /></div></th>
 								<td>
 									<input type="text" name="new_cat_name" size="35" maxlength="80" tabindex="1" />
-									<span>The name of the new category you want to add. You can edit the name of the category later (see below). Go to <a href="{//link_prefix}forums">Forums</a> to add forums to your new category.</span>
+									<span><xsl:value-of select="//label[key='name_of_new_category']/value"/> <a href="{//link_prefix}forums"><xsl:value-of select="//label[key='forums']/value"/></a> <xsl:value-of select="//label[key='to_add_forums']/value"/>.</span>
 
 								</td>
 							</tr>
@@ -50,7 +50,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
                             <form method="post" action="{//link_prefix}categories&amp;view_flow=true">
                             <input type="hidden" name="action" value="del_cat"/>
 							<tr>
-								<th scope="row">Delete a category<div>
+								<th scope="row"><xsl:value-of select="//label[key='delete_a_category']/value"/><div>
                                 <input type="submit" name="del_cat" value="Delete" tabindex="4" /></div></th>
 								<td>
 									<select name="cat_to_delete" tabindex="3">
@@ -58,7 +58,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 										<option value="{cid}"><xsl:value-of select="cat_name"/></option>
                                         </xsl:for-each>
 									</select>
-									<span>Select the name of the category you want to delete. You will be asked to confirm your choice of category for deletion before it is deleted.</span>
+									<span><xsl:value-of select="//label[key='select_the_name_of']/value"/>.</span>
 								</td>
 							</tr>
                             </form>
@@ -69,14 +69,14 @@ Fifth Floor, Boston, MA 02110-1301  USA
 			</div>
 			<div class="inform">
 				<fieldset>
-					<legend>Edit categories</legend>
+					<legend><xsl:value-of select="//label[key='edit_categories']/value"/></legend>
 					<div class="infldset">
 						<table id="categoryedit" cellspacing="0" >
 						<thead>
 							<tr>
 
-								<th class="tcl" scope="col">Name</th>
-								<th scope="col">Position</th>
+								<th class="tcl" scope="col"><xsl:value-of select="//label[key='name']/value"/></th>
+								<th scope="col"><xsl:value-of select="//label[key='position']/value"/></th>
 								<th>&#160;</th>
 							</tr>
 						</thead>

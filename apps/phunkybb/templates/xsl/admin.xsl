@@ -32,19 +32,18 @@ Fifth Floor, Boston, MA 02110-1301  USA
 		<div id="adstats" class="box">
 			<div class="inbox">
 				<dl>
-					<dt>PhunkyBB version</dt>
+					<dt>PhunkyBB <xsl:value-of select="//label[key='version']/value"/></dt>
 					<dd>
 						PhunkyBB 0.2<br/>
-                        Copyright Savonix Corporation, authored by Albert Lash<br/>
-                        Based on Punbb, written by Rickard Andersson
+                        <xsl:value-of select="//label[key='copyright']/value"/>
 					</dd>
-					<dt>Environment</dt>
+					<dt><xsl:value-of select="//label[key='enviornment']/value"/></dt>
 					<dd>
-						Operating system: <br/>
+						<xsl:value-of select="//label[key='operating_system']/value"/>: <br/>
 						PHP: <br/>
-						Accelerator: <a href="http://xcache.lighttpd.net/">XCache</a>
+						<xsl:value-of select="//label[key='accelerator']/value"/>: <a href="http://xcache.lighttpd.net/">XCache</a>
 					</dd>
-					<dt>Database</dt>
+					<dt><xsl:value-of select="//label[key='database']/value"/></dt>
 					<dd>
                         MySQL
 					</dd>
