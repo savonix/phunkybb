@@ -63,7 +63,7 @@ function do_encrypt() {
         {
             'username': myform.username.value,
             'password': res
-        }, 
+        },
         function (data){
             document.getElementById("replace").value = $("result",data).text();
         });
