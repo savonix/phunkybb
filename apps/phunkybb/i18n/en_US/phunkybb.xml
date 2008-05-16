@@ -1843,6 +1843,74 @@ Fifth Floor, Boston, MA 02110-1301  USA
             <value>This is the address that all e-mails sent by the forum will be addressed from</value>
         </label>
         <label>
+            <key>subscriptions</key>
+            <value>Subscriptions</value>
+        </label>
+        <label>
+            <key>enable_users_to_subscribe</key>
+            <value>Enable users to subscribe to topics (recieve e-mail when someone replies)</value>
+        </label>
+        <label>
+            <key>smtp_server_address</key>
+            <value>SMTP server address</value>
+        </label>
+        <label>
+            <key>smtp_username</key>
+            <value>SMTP username</value>
+        </label>
+        <label>
+            <key>address_of_external_smtp</key>
+            <value>The address of an external SMTP server to send e-mails with. You can specify a custom port number if the SMTP server doesn't run on the default port 25 (example: mail.myhost.com:3580). Leave blank to use the local mail program</value>
+        </label>
+        <label>
+            <key>username_for_smtp_server</key>
+            <value>Username for SMTP server. Only enter a username if it is required by the SMTP server (most servers</value>
+        </label>
+        <label>
+            <key>do_not</key>
+            <value> do not </value>
+        </label>
+        <label>
+            <key>require_auth</key>
+            <value>require authentication)</value>
+        </label>
+        <label>
+            <key>smtp_password</key>
+            <value>SMTP password</value>
+        </label>
+        <label>
+            <key>password_for_smtp_server</key>
+            <value>Password for SMTP server. Only enter a password if it is required by the SMTP server (most servers</value>
+        </label>
+        <label>
+            <key>not</key>
+            <value>not</value>
+        </label>
+        <label>
+            <key>not</key>
+            <value>not</value>
+        </label>
+        <label>
+            <key>not</key>
+            <value>not</value>
+        </label>
+        <label>
+            <key>not</key>
+            <value>not</value>
+        </label>
+        <label>
+            <key>not</key>
+            <value>not</value>
+        </label>
+        <label>
+            <key>not</key>
+            <value>not</value>
+        </label>
+        <label>
+            <key>not</key>
+            <value>not</value>
+        </label>
+        <label>
             <key>not</key>
             <value>not</value>
         </label>

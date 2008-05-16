@@ -159,35 +159,35 @@ Fifth Floor, Boston, MA 02110-1301  USA
                                 </td>
                             </tr>
                             <tr>
-                                <th scope="row"><xsl:value-of select="//label[key='add']/value"/>Subscriptions</th>
+                                <th scope="row"><xsl:value-of select="//label[key='subscriptions']/value"/></th>
                                 <td>
 
                                     <input type="radio" name="form[o_subscriptions]" value="{//board_config/o_subscriptions}" /><strong>No</strong>
-                                    <span><xsl:value-of select="//label[key='add']/value"/>Enable users to subscribe to topics (recieve e-mail when someone replies).</span>
+                                    <span><xsl:value-of select="//label[key='enable_users_to_subscribe']/value"/>.</span>
                                 </td>
                             </tr>
                             <tr>
-                                <th scope="row"><xsl:value-of select="//label[key='add']/value"/>SMTP server address</th>
+                                <th scope="row"><xsl:value-of select="//label[key='smtp_server_address']/value"/></th>
                                 <td>
 
                                     <input type="text" name="form[o_smtp_host]" size="30" maxlength="100" value="{//board_config/o_smtp_host}" />
-                                    <span><xsl:value-of select="//label[key='add']/value"/>The address of an external SMTP server to send e-mails with. You can specify a custom port number if the SMTP server doesn't run on the default port 25 (example: mail.myhost.com:3580). Leave blank to use the local mail program.</span>
+                                    <span><xsl:value-of select="//label[key='address_of_external_smtp']/value"/>.</span>
                                 </td>
                             </tr>
                             <tr>
-                                <th scope="row"><xsl:value-of select="//label[key='add']/value"/>SMTP username</th>
+                                <th scope="row"><xsl:value-of select="//label[key='smtp_username']/value"/></th>
                                 <td>
                                     <input type="text" name="form[o_smtp_user]" size="25" maxlength="50" value="{//board_config/o_smtp_user}" />
 
-                                    <span><xsl:value-of select="//label[key='add']/value"/>Username for SMTP server. Only enter a username if it is required by the SMTP server (most servers <strong>do not</strong> require authentication).</span>
+                                    <span><xsl:value-of select="//label[key='username_for_smtp_server']/value"/> <strong><xsl:value-of select="//label[key='do_not']/value"/></strong> <xsl:value-of select="//label[key='require_auth']/value"/>.</span>
                                 </td>
                             </tr>
                             <tr>
-                                <th scope="row"><xsl:value-of select="//label[key='add']/value"/>SMTP password</th>
+                                <th scope="row"><xsl:value-of select="//label[key='smtp_password']/value"/></th>
                                 <td>
 
                                     <input type="text" name="form[o_smtp_pass]" size="25" maxlength="50" value="{//board_config/o_smtp_pass}" />
-                                    <span><xsl:value-of select="//label[key='add']/value"/>Password for SMTP server. Only enter a password if it is required by the SMTP server (most servers <strong>do not</strong> require authentication).</span>
+                                    <span><xsl:value-of select="//label[key='password_for_smtp_server']/value"/> <strong><xsl:value-of select="//label[key='do_not']/value"/></strong> <xsl:value-of select="//label[key='require_auth']/value"/>.</span>
                                 </td>
                             </tr>
                         </table>
