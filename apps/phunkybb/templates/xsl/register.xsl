@@ -24,13 +24,11 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 <xsl:include href="main.xsl"/>
 <xsl:template name="content">
-<script type="text/javascript" src="{__ROOT__/runtime/path_prefix}/s/js/jquery-1.2.1.min.js"></script>
-<script type="text/javascript" src="{__ROOT__/runtime/path_prefix}/s/js/jsbn.js"></script>
-<script type="text/javascript" src="{__ROOT__/runtime/path_prefix}/s/js/rsa.js"></script>
-<script type="text/javascript" src="{__ROOT__/runtime/path_prefix}/s/js/prng4.js"></script>
-<script type="text/javascript" src="{__ROOT__/runtime/path_prefix}/s/js/rng.js"></script>
-<script type="text/javascript" src="{__ROOT__/runtime/path_prefix}/s/js/base64.js"></script>
-<script language="javascript" src="{//path_prefix}/s/js/jsval.js"></script>
+<script type="text/javascript" src="{__ROOT__/runtime/path_prefix}/s/js/rsa/jsbn.js"></script>
+<script type="text/javascript" src="{__ROOT__/runtime/path_prefix}/s/js/rsa/rsa.js"></script>
+<script type="text/javascript" src="{__ROOT__/runtime/path_prefix}/s/js/rsa/prng4.js"></script>
+<script type="text/javascript" src="{__ROOT__/runtime/path_prefix}/s/js/rsa/rng.js"></script>
+<script type="text/javascript" src="{__ROOT__/runtime/path_prefix}/s/js/rsa/base64.js"></script>
 <script language="javascript">
 <![CDATA[
     function initValidation()
@@ -47,12 +45,13 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <script type="text/javascript">
 $(document).ready(function()
 {
-    var myform = document.forms["mlogin"];
+    var myform = document.forms["register"];
     myform.id_rsa_pub.value="<xsl:value-of select="//defaults/modulus"/>";
     myform.e.value="10001";
 });
 
 function do_encrypt() {
+
     if(validateStandard(this))
         {
         var myform = document.forms["register"];
@@ -74,8 +73,10 @@ function do_encrypt() {
 <div class="blockform">
 <h2><span><xsl:value-of select="//label[key='register']/value"/></span></h2>
 <div class="box">
-    <form name="register" method="post" onSubmit="do_encrypt(); return false;"
+    <form id="register" name="register" method="post" onSubmit="do_encrypt(); return false;"
         action="{//link_prefix}register">
+        <input type="hidden" name="id_rsa_pub" value=""/>
+        <input type="hidden" name="e" value=""/>
         <div class="inform">
             <div class="forminfo">
                 <h3><xsl:value-of select="//label[key='important_information']/value"/></h3>
@@ -94,7 +95,7 @@ function do_encrypt() {
             <fieldset>
                 <legend><xsl:value-of select="//label[key='pass_legend_1']/value"/></legend>
                 <div class="infldset">
-                    <label class="conl"><strong><xsl:value-of select="//label[key='password']/value"/></strong><br/><input type="password" name="password1" size="16" maxlength="16" /><br/></label>
+                    <label class="conl"><strong><xsl:value-of select="//label[key='password']/value"/></strong><br/><input type="password" name="password" size="16" maxlength="16" /><br/></label>
                     <label class="conl"><strong><xsl:value-of select="//label[key='confirm_password']/value"/></strong><br/><input type="password" name="password2" size="16" maxlength="16" /><br/></label>
                     <p class="clearb"><xsl:value-of select="//label[key='pass_info']/value"/></p>
                 </div>
