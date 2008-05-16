@@ -65,8 +65,12 @@ function do_encrypt() {
             'password': res
         },
         function (data){
-            document.getElementById("replace").value = $("result",data).text();
+            var myResult = $("result",data).text();
+            $('div#replace').html(myResult);
         });
+    } else {
+        var myResult = $("result",data).text();
+        $('div#replace').html(myResult);
     }
 }
 </script>
