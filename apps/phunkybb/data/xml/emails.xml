@@ -41,7 +41,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
         </token>
         <token>
             <key>@@forums_link@@</key>
-            <value>//runtime/request_uri</value>
+            <value>//_SERVER/request_uri</value>
         </token>
     </welcome>
 

@@ -399,6 +399,10 @@ Fifth Floor, Boston, MA 02110-1301  USA
             <value>Register</value>
         </label>
         <label>
+            <key>registration_info</key>
+            <value>Registration Info</value>
+        </label>
+        <label>
             <key>login</key>
             <value>Login</value>
         </label>

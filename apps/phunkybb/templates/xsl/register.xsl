@@ -75,7 +75,7 @@ function do_encrypt() {
 <h2><span><xsl:value-of select="//label[key='register']/value"/></span></h2>
 <div class="box">
     <form name="register" method="post" onSubmit="do_encrypt()"
-        action="{//request_uri}&amp;view_flow=true">
+        action="{//link_prefix}register&amp;view_flow=true">
         <div class="inform">
             <div class="forminfo">
                 <h3><xsl:value-of select="//label[key='important_information']/value"/></h3>

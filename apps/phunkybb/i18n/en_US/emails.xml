@@ -1,10 +1,7 @@
 <i18n>
     <labels>
 <!-- Emails -->
-        <label>
-            <key>registration_info</key>
-            <value>Registration Information</value>
-        </label>
+
         <label>
             <key>welcome_email</key>
             <value>Subject: Welcome to @@board_title@@!
