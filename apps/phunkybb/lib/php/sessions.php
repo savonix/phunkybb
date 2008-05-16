@@ -31,7 +31,7 @@ $group_id = Nexista_Path::get('//user_login/group_id', 'flow');
 $user_timezone = Nexista_Path::get('//_post/my_tz_offset', 'flow');
 $user_last_visit = Nexista_Path::get('//user_login/last_visit', 'flow');
 $tz = $user_timezone * 3600;
-$user_last_visit = gmdate('Y-m-d H:i:s',$user_last_visit + $tz);
+$last_visit = gmdate('Y-m-d H:i:s',$user_last_visit + $tz);
 $_SESSION['timezone'] = $user_timezone;
 
 // Remove duplicate roles
@@ -62,7 +62,8 @@ if(!$auth->registerUser($newarr))
 $auth->setSessionData("user_id", $user_id);
 $auth->setSessionData("group_id", $group_id);
 $auth->setSessionData("username", $username);
-$auth->setSessionData("user_last_visit", $user_last_visit);
+$auth->setSessionData("last_visit", $last_visit);
+$auth->setSessionData("last_visit_timestamp", $user_last_visit);
 
 
 //go back where we were called from

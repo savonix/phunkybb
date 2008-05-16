@@ -62,10 +62,10 @@ Fifth Floor, Boston, MA 02110-1301  USA
 				<tr>
 					<td class="tcl">
 						<div class="intd">
-                            <xsl:if test="not(//user_get_info/last_login &gt; last_post)">
+                            <xsl:if test="not(//runtime/last_visit_timestamp &lt; last_post_timestamp)">
                             <div class="icon"><div class="nosize"></div></div>
                             </xsl:if>
-                            <xsl:if test="//user_get_info/last_login &gt; last_post">
+                            <xsl:if test="//runtime/last_visit_timestamp &lt; last_post_timestamp">
                             <div class="icon inew"><div class="nosize"></div></div>
                             </xsl:if>
 							<div class="tclcon">
