@@ -37,6 +37,7 @@ To change your e-mail address, please visit the following page:
 (Do not reply to this message)
 </value></label>
 
+<!-- EMAIL START -->
 <label><key>new_reply</key>
 <value>
 Subject: Reply to topic: 
@@ -52,6 +53,19 @@ You can unsubscribe by going to
 (Do not reply to this message)
 </value>
 </label>
+<!-- END EMAIL -->
+
+<!-- EMAIL START -->
+<label><key>test_email</key>
+<value>
+Subject: Test email from @@board_title@@!
+
+Thank you for registering in the forums at @@base_url@@. Your account details are:
+
+Username: @@username@@
+</value>
+</label>
+<!-- END EMAIL -->
 
 
     </labels>
