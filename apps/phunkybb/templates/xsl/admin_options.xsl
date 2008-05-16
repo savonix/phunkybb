@@ -41,26 +41,26 @@ Fifth Floor, Boston, MA 02110-1301  USA
                     <div class="infldset">
                         <table class="aligntop" cellspacing="0">
                             <tr>
-                                <th scope="row">Board title</th>
+                                <th scope="row"><xsl:value-of select="//label[key='board_title']/value"/></th>
                                 <td>
                                     <input type="text" name="form[o_board_title]" size="50" maxlength="255" value="{//board_config/o_board_title}" />
-                                    <span>The title of this bulletin board (shown at the top of every page). This field may <strong>not</strong> contain HTML.</span>
+                                    <span><xsl:value-of select="//label[key='title_of_buletine_board']/value"/> <strong><xsl:value-of select="//label[key='not']/value"/></strong> <xsl:value-of select="//label[key='contain_html']/value"/>.</span>
 
                                 </td>
                             </tr>
                             <tr>
-                                <th scope="row">Board description</th>
+                                <th scope="row"><xsl:value-of select="//label[key='board_description']/value"/></th>
                                 <td>
                                     <input type="text" name="form[o_board_desc]" size="50" maxlength="255" value="{//board_config/o_board_desc}" />
-                                    <span>A short description of this bulletin board (shown at the top of every page). This field may contain HTML.</span>
+                                    <span><xsl:value-of select="//label[key='short_description_of_this']/value"/>.</span>
                                 </td>
 
                             </tr>
                             <tr>
-                                <th scope="row">Base URL</th>
+                                <th scope="row"><xsl:value-of select="//label[key='base_url']/value"/></th>
                                 <td>
                                     <input type="text" name="form[o_base_url]" size="50" maxlength="100" value="{//board_config/o_base_url}" />
-                                    <span>The complete URL of the forum without trailing slash (i.e. http://www.mydomain.com/forums). This <strong>must</strong> be correct in order for all admin and moderator features to work. If you get "Bad referer" errors, it's probably incorrect.</span>
+                                    <span><xsl:value-of select="//label[key='complete_url_of_the_forum']/value"/> <strong><xsl:value-of select="//label[key='must']/value"/></strong> <xsl:value-of select="//label[key='be_correct_in_order']/value"/>.</span>
 
                                 </td>
                             </tr>
@@ -71,38 +71,38 @@ Fifth Floor, Boston, MA 02110-1301  USA
             <div class="inform">
                 <fieldset>
 
-                    <legend>Time and timeouts</legend>
+                    <legend><xsl:value-of select="//label[key='time_and_timeouts']/value"/></legend>
                     <div class="infldset">
                         <table class="aligntop" cellspacing="0">
                             <tr>
-                                <th scope="row">Time format</th>
+                                <th scope="row"><xsl:value-of select="//label[key='time_format']/value"/></th>
                                 <td>
                                     <input type="text" name="form[o_time_format]" size="25" maxlength="25" value="{//board_config/o_time_format}" />
-                                    <span>[Current format: 12:11:16]See <a href="http://www.php.net/manual/en/function.date.php">here</a> for formatting options.</span>
+                                    <span>[Current format: 12:11:16]See <a href="http://www.php.net/manual/en/function.date.php"><xsl:value-of select="//label[key='here']/value"/></a> <xsl:value-of select="//label[key='for_formatting_options']/value"/>.</span>
 
                                 </td>
                             </tr>
                             <tr>
-                                <th scope="row">Date format</th>
+                                <th scope="row"><xsl:value-of select="//label[key='date_format']/value"/></th>
                                 <td>
                                     <input type="text" name="form[o_date_format]" size="25" maxlength="25" value="{//board_config/o_date_format}" />
-                                    <span>[Current format: 2008-03-01]See <a href="http://www.php.net/manual/en/function.date.php">here</a> for formatting options.</span>
+                                    <span>[Current format: 2008-03-01]See <a href="http://www.php.net/manual/en/function.date.php"><xsl:value-of select="//label[key='here']/value"/></a> <xsl:value-of select="//label[key='for_formatting_options']/value"/>.</span>
 
                                 </td>
                             </tr>
                             <tr>
-                                <th scope="row">Visit timeout</th>
+                                <th scope="row"><xsl:value-of select="//label[key='visit_timeout']/value"/></th>
                                 <td>
                                     <input type="text" name="form[o_timeout_visit]" size="5" maxlength="5" value="{//board_config/o_timeout_visit}" />
-                                    <span>Number of seconds a user must be idle before his/hers last visit data is updated (primarily affects new message indicators).</span>
+                                    <span><xsl:value-of select="//label[key='number_of_seconds_a_user_last_visit']/value"/>.</span>
                                 </td>
 
                             </tr>
                             <tr>
-                                <th scope="row">Online timeout</th>
+                                <th scope="row"><xsl:value-of select="//label[key='online_timeout']/value"/></th>
                                 <td>
                                     <input type="text" name="form[o_timeout_online]" size="5" maxlength="5" value="" />
-                                    <span>Number of seconds a user must be idle before being removed from the online users list.</span>
+                                    <span><xsl:value-of select="//label[key='number_of_seconds_a_user_idle_before_removed']/value"/>.</span>
                                 </td>
                             </tr>
                         </table>
@@ -113,23 +113,23 @@ Fifth Floor, Boston, MA 02110-1301  USA
 
             <div class="inform">
                 <fieldset>
-                    <legend>Features</legend>
+                    <legend><xsl:value-of select="//label[key='features']/value"/></legend>
                     <div class="infldset">
                         <table class="aligntop" cellspacing="0">
                             <tr>
-                                <th scope="row">Quick post</th>
+                                <th scope="row"><xsl:value-of select="//label[key='quick_post']/value"/></th>
                                 <td>
 
-                                    <input type="radio" name="form[o_quickpost]" value="" /><strong>No</strong>
-                                    <span>When enabled, PunBB will add a quick post form at the bottom of topics. This way users can post directly from the topic view.</span>
+                                    <input type="radio" name="form[o_quickpost]" value="" /><strong><xsl:value-of select="//label[key='no']/value"/></strong>
+                                    <span><xsl:value-of select="//label[key='when_enabled_punbb']/value"/>.</span>
                                 </td>
                             </tr>
                             <tr>
 
-                                <th scope="row">Additional menu items</th>
+                                <th scope="row"><xsl:value-of select="//label[key='additional_menu_items']/value"/></th>
                                 <td>
                                     <textarea name="form[o_additional_navlinks]" rows="3" cols="55"></textarea>
-                                    <span>By entering HTML hyperlinks into this textbox, any number of items can be added to the navigation menu at the top of all pages. The format for adding new links is X = &lt;a href="URL"&gt;LINK&lt;/a&gt; where X is the position at which the link should be inserted (e.g. 0 to insert at the beginning and 2 to insert after "User list"). Separate entries with a linebreak.</span>
+                                    <span><xsl:value-of select="//label[key='by entering html hyperlinks']/value"/> X = &lt;a href="URL"&gt;LINK&lt;/a&gt; <xsl:value-of select="//label[key='x_is_the_position']/value"/>.</span>
                                 </td>
 
                             </tr>
@@ -139,55 +139,55 @@ Fifth Floor, Boston, MA 02110-1301  USA
             </div>
             <div class="inform">
                 <fieldset>
-                    <legend>E-mail</legend>
+                    <legend><xsl:value-of select="//label[key='email']/value"/></legend>
                     <div class="infldset">
                         <table class="aligntop" cellspacing="0">
                             <tr>
 
-                                <th scope="row">Admin e-mail</th>
+                                <th scope="row"><xsl:value-of select="//label[key='admin_email']/value"/></th>
                                 <td>
                                     <input type="text" name="form[o_admin_email]" size="50" maxlength="50" value="{//board_config/o_admin_email}" />
-                                    <span>The e-mail address of the forum administrator.</span>
+                                    <span><xsl:value-of select="//label[key='email_of_forum_admin']/value"/>.</span>
                                 </td>
                             </tr>
                             <tr>
-                                <th scope="row">Webmaster e-mail</th>
+                                <th scope="row"><xsl:value-of select="//label[key='webmaster_email']/value"/></th>
 
                                 <td>
                                     <input type="text" name="form[o_webmaster_email]" size="50" maxlength="50" value="{//board_config/o_webmaster_email}" />
-                                    <span>This is the address that all e-mails sent by the forum will be addressed from.</span>
+                                    <span><xsl:value-of select="//label[key='address_all_email_sent_from']/value"/>.</span>
                                 </td>
                             </tr>
                             <tr>
-                                <th scope="row">Subscriptions</th>
+                                <th scope="row"><xsl:value-of select="//label[key='add']/value"/>Subscriptions</th>
                                 <td>
 
                                     <input type="radio" name="form[o_subscriptions]" value="{//board_config/o_subscriptions}" /><strong>No</strong>
-                                    <span>Enable users to subscribe to topics (recieve e-mail when someone replies).</span>
+                                    <span><xsl:value-of select="//label[key='add']/value"/>Enable users to subscribe to topics (recieve e-mail when someone replies).</span>
                                 </td>
                             </tr>
                             <tr>
-                                <th scope="row">SMTP server address</th>
+                                <th scope="row"><xsl:value-of select="//label[key='add']/value"/>SMTP server address</th>
                                 <td>
 
                                     <input type="text" name="form[o_smtp_host]" size="30" maxlength="100" value="{//board_config/o_smtp_host}" />
-                                    <span>The address of an external SMTP server to send e-mails with. You can specify a custom port number if the SMTP server doesn't run on the default port 25 (example: mail.myhost.com:3580). Leave blank to use the local mail program.</span>
+                                    <span><xsl:value-of select="//label[key='add']/value"/>The address of an external SMTP server to send e-mails with. You can specify a custom port number if the SMTP server doesn't run on the default port 25 (example: mail.myhost.com:3580). Leave blank to use the local mail program.</span>
                                 </td>
                             </tr>
                             <tr>
-                                <th scope="row">SMTP username</th>
+                                <th scope="row"><xsl:value-of select="//label[key='add']/value"/>SMTP username</th>
                                 <td>
                                     <input type="text" name="form[o_smtp_user]" size="25" maxlength="50" value="{//board_config/o_smtp_user}" />
 
-                                    <span>Username for SMTP server. Only enter a username if it is required by the SMTP server (most servers <strong>do not</strong> require authentication).</span>
+                                    <span><xsl:value-of select="//label[key='add']/value"/>Username for SMTP server. Only enter a username if it is required by the SMTP server (most servers <strong>do not</strong> require authentication).</span>
                                 </td>
                             </tr>
                             <tr>
-                                <th scope="row">SMTP password</th>
+                                <th scope="row"><xsl:value-of select="//label[key='add']/value"/>SMTP password</th>
                                 <td>
 
                                     <input type="text" name="form[o_smtp_pass]" size="25" maxlength="50" value="{//board_config/o_smtp_pass}" />
-                                    <span>Password for SMTP server. Only enter a password if it is required by the SMTP server (most servers <strong>do not</strong> require authentication).</span>
+                                    <span><xsl:value-of select="//label[key='add']/value"/>Password for SMTP server. Only enter a password if it is required by the SMTP server (most servers <strong>do not</strong> require authentication).</span>
                                 </td>
                             </tr>
                         </table>
@@ -197,39 +197,39 @@ Fifth Floor, Boston, MA 02110-1301  USA
             </div>
             <div class="inform">
                 <fieldset>
-                    <legend>Registration</legend>
+                    <legend><xsl:value-of select="//label[key='add']/value"/>Registration</legend>
                     <div class="infldset">
                         <table class="aligntop" cellspacing="0">
                             <tr>
-                                <th scope="row">Allow new registrations</th>
+                                <th scope="row"><xsl:value-of select="//label[key='add']/value"/>Allow new registrations</th>
 
                                 <td>
                                     <input type="radio" name="form[o_regs_allow]" value="" /><strong>No</strong>
-                                    <span>Controls whether this forum accepts new registrations. Disable only under special circumstances.</span>
+                                    <span><xsl:value-of select="//label[key='add']/value"/>Controls whether this forum accepts new registrations. Disable only under special circumstances.</span>
                                 </td>
                             </tr>
                             <tr>
-                                <th scope="row">Verify registrations</th>
+                                <th scope="row"><xsl:value-of select="//label[key='add']/value"/>Verify registrations</th>
 
                                 <td>
                                     <input type="radio" name="form[o_regs_verify]" value="" /><strong>No</strong>
-                                    <span>When enabled, users are e-mailed a random password when they register. They can then log in and change the password in their profile if they see fit. This feature also requires users to verify new e-mail addresses if they choose to change from the one they registered with. This is an effective way of avoiding registration abuse and making sure that all users have "correct" e-mail addresses in their profiles.</span>
+                                    <span><xsl:value-of select="//label[key='add']/value"/>When enabled, users are e-mailed a random password when they register. They can then log in and change the password in their profile if they see fit. This feature also requires users to verify new e-mail addresses if they choose to change from the one they registered with. This is an effective way of avoiding registration abuse and making sure that all users have "correct" e-mail addresses in their profiles.</span>
                                 </td>
                             </tr>
                             <tr>
-                                <th scope="row">Use forum rules</th>
+                                <th scope="row"><xsl:value-of select="//label[key='add']/value"/>Use forum rules</th>
 
                                 <td>
                                     <input type="radio" name="form[o_rules]" value="" /><strong>No</strong>
-                                    <span>When enabled, users must agree to a set of rules when registering (enter text below). The rules will always be available through a link in the navigation table at the top of every page.</span>
+                                    <span><xsl:value-of select="//label[key='add']/value"/>When enabled, users must agree to a set of rules when registering (enter text below). The rules will always be available through a link in the navigation table at the top of every page.</span>
                                 </td>
                             </tr>
                             <tr>
-                                <th scope="row">Rules</th>
+                                <th scope="row"><xsl:value-of select="//label[key='add']/value"/>Rules</th>
 
                                 <td>
                                     <textarea name="form[o_rules_message]" rows="10" cols="55">Enter your rules here.</textarea>
-                                    <span>Here you can enter any rules or other information that the user must review and accept when registering. If you enabled rules above you have to enter something here, otherwise it will be disabled. This text will not be parsed like regular posts and thus may contain HTML.</span>
+                                    <span><xsl:value-of select="//label[key='add']/value"/>Here you can enter any rules or other information that the user must review and accept when registering. If you enabled rules above you have to enter something here, otherwise it will be disabled. This text will not be parsed like regular posts and thus may contain HTML.</span>
                                 </td>
                             </tr>
                         </table>
