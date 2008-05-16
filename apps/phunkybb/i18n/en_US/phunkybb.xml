@@ -1922,5 +1922,9 @@ Fifth Floor, Boston, MA 02110-1301  USA
             <key>here_you_can_enter_any_rules</key>
             <value>Here you can enter any rules or other information that the user must review and accept when registering. If you enabled rules above you have to enter something here, otherwise it will be disabled. This text will not be parsed like regular posts and thus may contain HTML</value>
         </label>
+        <label>
+            <key>users</key>
+            <value>Users</value>
+        </label>
     </labels>
 </i18n>

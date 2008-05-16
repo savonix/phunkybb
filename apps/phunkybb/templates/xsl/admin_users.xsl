@@ -54,7 +54,7 @@ function delete_user(user_id,row) {
         <table class="tablesorter" id="users_table">
             <thead>
                 <tr>
-                    <th>Users</th>
+                    <th><xsl:value-of select="//label[key='users']/value"/></th>
                     <th></th>
                     <th></th>
                 </tr>
