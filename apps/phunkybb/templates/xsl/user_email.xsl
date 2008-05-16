@@ -41,6 +41,8 @@ Fifth Floor, Boston, MA 02110-1301  USA
                             <br />
                             </label>
 						</div>
+                        <input type="text" name="subject"/>
+                        <br/>
                         <textarea name="message"/>
                         <br/>
                         <input type="submit"/>

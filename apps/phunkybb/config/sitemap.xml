@@ -295,10 +295,9 @@ Fifth Floor, Boston, MA 02110-1301  USA
         <map:if name="//_post">
             <map:true>
                 <map:action type="email"
-                    params="{//_post/rcpt_email},{//board_config/o_webmaster_email},
-                    Important,{//message},{//board_config/o_smtp_host}"/>
+                    params="{//_post/rcpt_email},{//board_config/o_webmaster_email},{//_post/subject},{//_post/message},{//board_config/o_smtp_host}"/>
                 <map:query src="data/sql/user_register.xml"/>
-                <map:action type="redirect" params="{//link_prefix}profile&amp;user_id={//_post/user_id}"/>
+                <map:action type="redirect" params="{//link_prefix}user-email&amp;user_id={//_post/user_id}"/>
             </map:true>
             <map:false>
                 <map:query src="data/sql/user_get_profile.xml"/>
