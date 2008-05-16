@@ -72,12 +72,13 @@ Fifth Floor, Boston, MA 02110-1301  USA
                 </map:valid>
                 <map:invalid>
                     <map:action type="header" params="Content-type,text/xml"/>
-                    <map:raw src="templates/xml/x-error.xml"/>
+                    <map:xsl src="templates/xml/error.xml.xsl"/>
                 </map:invalid>
             </map:validate>
         </map:true>
         <map:false>
-            <map:action type="access" params="deny,all"/>
+            <map:action type="header" params="Content-type,text/xml"/>
+            <map:xsl src="templates/xml/error.xml.xsl"/>
         </map:false>
     </map:if>
 </map:gate>
