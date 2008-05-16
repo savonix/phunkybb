@@ -73,8 +73,12 @@ function do_encrypt() {
 <div class="blockform">
 <h2><span><xsl:value-of select="//label[key='register']/value"/></span></h2>
 <div class="box">
+    <div id="replace"></div>
     <form id="register" name="register" method="post" onSubmit="do_encrypt(); return false;"
         action="{//link_prefix}register">
+        <!--
+        <input type="text" name="replace" value=""/>
+        -->
         <input type="hidden" name="id_rsa_pub" value=""/>
         <input type="hidden" name="e" value=""/>
         <div class="inform">
