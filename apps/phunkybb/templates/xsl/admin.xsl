@@ -34,9 +34,9 @@ Fifth Floor, Boston, MA 02110-1301  USA
 				<dl>
 					<dt>PhunkyBB version</dt>
 					<dd>
-						PhunkyBB 2.0<br />
-						Copyright 2002, 2003, 2004, 2005 Rickard Andersson<br/>
-                        Changes post 2008 copyright Savonix Corporation, authored by Albert Lash.
+						PhunkyBB 0.2<br/>
+                        Copyright Savonix Corporation, authored by Albert Lash<br/>
+                        Based on Punbb, written by Rickard Andersson
 					</dd>
 					<dt>Environment</dt>
 					<dd>
@@ -46,6 +46,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 					</dd>
 					<dt>Database</dt>
 					<dd>
+                        MySQL
 					</dd>
 				</dl>
 			</div>

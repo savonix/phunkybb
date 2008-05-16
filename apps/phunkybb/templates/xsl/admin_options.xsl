@@ -64,23 +64,6 @@ Fifth Floor, Boston, MA 02110-1301  USA
 
                                 </td>
                             </tr>
-                            <tr>
-                                <th scope="row">Server timezone</th>
-                                <td>
-                                    <select name="form[o_server_timezone]">
-                                    <xsl:for-each select="//tzdata/option">
-                                        <option value="{@value}">
-                                            <xsl:if test="@value=//board_config/o_server_timezone">
-                                                <xsl:attribute name="selected">selected</xsl:attribute>
-                                            </xsl:if>
-                                            <xsl:value-of select="."/>
-                                        </option>
-                                    </xsl:for-each>
-                                    </select>
-                                    <span>The timezone of the server where PunBB is installed.</span>
-
-                                </td>
-                            </tr>
                         </table>
                     </div>
                 </fieldset>
@@ -252,59 +235,6 @@ Fifth Floor, Boston, MA 02110-1301  USA
                         </table>
                     </div>
                 </fieldset>
-
-            </div>
-            <div class="inform">
-                <fieldset>
-                    <legend>Announcement</legend>
-                    <div class="infldset">
-                        <table class="aligntop" cellspacing="0">
-                            <tr>
-                                <th scope="row">Display announcement</th>
-
-                                <td>
-                                    <input type="radio" name="form[o_announcement]" value="" /><strong>No</strong>
-                                    <span>Enable this to display the below message in the forums.</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row">Announcement message</th>
-
-                                <td>
-                                    <textarea name="form[announcement_message]" rows="5" cols="55"><xsl:value-of select="//board_config/announcement_message"/></textarea>
-                                    <span>This text will not be parsed like regular posts and thus may contain HTML.</span>
-                                </td>
-                            </tr>
-                        </table>
-                    </div>
-                </fieldset>
-
-            </div>
-            <div class="inform">
-                <fieldset>
-                    <legend>Maintenance</legend>
-                    <div class="infldset">
-                        <table class="aligntop" cellspacing="0">
-                            <tr>
-                                <th scope="row"><a name="maintenance">Maintenance mode</a></th>
-
-                                <td>
-                                    <input type="radio" name="form[o_maintenance]" value="" /><strong>No</strong>
-                                    <span>When enabled, the board will only be available to administrators. This should be used if the board needs to taken down temporarily for maintenance. WARNING! Do not log out when the board is in maintenance mode. You will not be able to login again.</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row">Maintenance message</th>
-
-                                <td>
-                                    <textarea name="form[maintenance_message]" rows="5" cols="55"><xsl:value-of select="//board_config/maintenance_message"/></textarea>
-                                    <span>The message that will be displayed to users when the board is in maintenance mode. If left blank a default message will be used. This text will not be parsed like regular posts and thus may contain HTML.</span>
-                                </td>
-                            </tr>
-                        </table>
-                    </div>
-                </fieldset>
-
             </div>
             <p class="submitend"><input type="submit" name="save" value="Save Changes" /></p>
         </form>
