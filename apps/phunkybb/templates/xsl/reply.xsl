@@ -35,8 +35,8 @@ Fifth Floor, Boston, MA 02110-1301  USA
 					<div class="infldset txtarea">
 						<input type="hidden" name="form_sent" value="1" />
 						<input type="hidden" name="form_user" value="demo" />
-						<label><strong><xsl:value-of select="//label[key='message']/value"/></strong><br />
-						<textarea name="req_message" rows="20" cols="95"></textarea><br /></label>
+						<label><strong><xsl:value-of select="//label[key='message']/value"/></strong><br/>
+						<textarea name="req_message" rows="20" cols="95"></textarea><br/></label>
 						<ul class="bblinks">
 							<li><a href="help.php#bbcode" onclick="window.open(this.href); return false;">BBCode</a>: on</li>
 							<li><a href="help.php#img" onclick="window.open(this.href); return false;">[img] tag</a>: on</li>
@@ -50,8 +50,8 @@ Fifth Floor, Boston, MA 02110-1301  USA
 					<legend>Options</legend>
 					<div class="infldset">
 						<div class="rbox">
-							<label><input type="checkbox" name="hide_smilies" value="1" />Never show smilies as icons for this post<br /></label>
-				<label><input type="checkbox" name="subscribe" value="1" />Subscribe to this topic<br /></label>
+							<label><input type="checkbox" name="hide_smilies" value="1" />Never show smilies as icons for this post<br/></label>
+				<label><input type="checkbox" name="subscribe" value="1" />Subscribe to this topic<br/></label>
 						</div>
 
 					</div>

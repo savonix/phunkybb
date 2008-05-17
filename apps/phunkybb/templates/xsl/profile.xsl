@@ -31,7 +31,6 @@ Fifth Floor, Boston, MA 02110-1301  USA
 		<h2>
             <xsl:value-of select="//runtime/username"/> - <xsl:value-of select="//label[key='essentials']/value"/>
         </h2>
-
 		<div class="box">
 			<form id="profile1" method="post" onsubmit="return process_form(this)">
 				<div class="inform">
@@ -40,8 +39,8 @@ Fifth Floor, Boston, MA 02110-1301  USA
 						<div class="infldset">
 							<input type="hidden" name="form_sent" value="1" />
 							<input type="hidden" name="old_username" value="demo" />
-                            <label><strong><xsl:value-of select="//label[key='username']/value"/></strong><br />
-                            <input type="text" name="req_username" value="{//user_get_profile/username}"/><br />
+                            <label><strong><xsl:value-of select="//label[key='username']/value"/></strong><br/>
+                            <input type="text" name="req_username" value="{//user_get_profile/username}"/><br/>
                             </label>
                         <p><a href="#">Change password</a></p>
                         </div>
@@ -51,34 +50,12 @@ Fifth Floor, Boston, MA 02110-1301  USA
 					<fieldset>
 						<legend>Enter a valid e-mail address</legend>
 						<div class="infldset">
-							<label><strong><xsl:value-of select="//label[key='email']/value"/></strong><br />
-                            <input type="text" name="req_email" value="{//user_get_profile/email}"/><br />
+							<label><strong><xsl:value-of select="//label[key='email']/value"/></strong><br/>
+                            <input type="text" name="req_email" value="{//user_get_profile/email}"/><br/>
                             </label>
 						</div>
 					</fieldset>
 				</div>
-                <!--
-				<div class="inform">
-					<fieldset>
-						<legend>Set your localisation options</legend>
-						<div class="infldset">
-							<label>Timezone: For the forum to display times correctly you must select your local timezone.
-                            <br />
-                    <select name="timezone">
-                    <xsl:for-each select="//tzdata/option">
-                        <option value="{@value}">
-                            <xsl:if test="@value=//user_get_profile/timezone">
-                                <xsl:attribute name="selected">selected</xsl:attribute>
-                            </xsl:if>
-                            <xsl:value-of select="."/>
-                        </option>
-                    </xsl:for-each>
-                    </select>
-							<br /></label>
-						</div>
-					</fieldset>
-				</div>
-                -->
 				<div class="inform">
 					<fieldset>
 						<legend><xsl:value-of select="//label[key='user_activity']/value"/></legend>
@@ -103,17 +80,16 @@ Fifth Floor, Boston, MA 02110-1301  USA
 							<p><xsl:value-of select="//label[key='last_post']/value"/>: 
                                 <xsl:value-of select="//user_get_profile/last_post"/></p>
 
-								<label><xsl:value-of select="//label[key='posts']/value"/><br />
+								<label><xsl:value-of select="//label[key='posts']/value"/><br/>
                                 <input type="text" name="num_posts" value="{//user_get_profile/num_posts}"/>
-                                <br />
+                                <br/>
                                 </label>
-							<label><xsl:value-of select="//label[key='admin_note']/value"/><br />
-							<input id="admin_note" type="text" name="admin_note" value="{//user_get_profile/admin_note}" size="30" maxlength="30" /><br /></label>
+							<label><xsl:value-of select="//label[key='admin_note']/value"/><br/>
+							<input id="admin_note" type="text" name="admin_note" value="{//user_get_profile/admin_note}" size="30" maxlength="30" /><br/></label>
 						</div>
 					</fieldset>
 				</div>
 				<p><input type="submit" name="update" value="Submit" /></p>
-
 			</form>
 		</div>
 	</div>

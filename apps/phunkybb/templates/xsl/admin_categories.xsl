@@ -51,8 +51,12 @@ Fifth Floor, Boston, MA 02110-1301  USA
                             <form method="post" action="{//link_prefix}categories&amp;view_flow=true">
                             <input type="hidden" name="action" value="del_cat"/>
 							<tr>
-								<th scope="row"><xsl:value-of select="//label[key='delete_a_category']/value"/><div>
-                                <input type="submit" name="del_cat" value="Delete" /></div></th>
+								<th scope="row">
+                                    <xsl:value-of select="//label[key='delete_a_category']/value"/>
+                                    <div>
+                                        <input type="submit" name="del_cat" value="Delete" />
+                                    </div>
+                                </th>
 								<td>
 									<select name="cat_to_delete">
                                         <xsl:for-each select="//categories_get_all">
@@ -66,7 +70,6 @@ Fifth Floor, Boston, MA 02110-1301  USA
 						</table>
 					</div>
 				</fieldset>
-
 			</div>
 			<div class="inform">
 				<fieldset>
@@ -75,7 +78,6 @@ Fifth Floor, Boston, MA 02110-1301  USA
 						<table id="categoryedit" cellspacing="0" >
 						<thead>
 							<tr>
-
 								<th class="tcl" scope="col"><xsl:value-of select="//label[key='name']/value"/></th>
 								<th scope="col"><xsl:value-of select="//label[key='position']/value"/></th>
 								<th>&#160;</th>

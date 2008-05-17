@@ -34,10 +34,10 @@ Fifth Floor, Boston, MA 02110-1301  USA
             <fieldset>
                 <legend><xsl:value-of select="//label[key='write_your_message']/value"/></legend>
                 <div class="infldset txtarea">
-                    <label><strong><xsl:value-of select="//label[key='subject']/value"/></strong><br />
-                    <input class="longinput" type="text" name="subject" /><br /></label>
-                    <label><strong><xsl:value-of select="//label[key='message']/value"/></strong><br />
-                    <textarea name="message" rows="20" cols="95"></textarea><br /></label>
+                    <label><strong><xsl:value-of select="//label[key='subject']/value"/></strong><br/>
+                    <input class="longinput" type="text" name="subject" /><br/></label>
+                    <label><strong><xsl:value-of select="//label[key='message']/value"/></strong><br/>
+                    <textarea name="message" rows="20" cols="95"></textarea><br/></label>
                 </div>
             </fieldset>
         </div>
@@ -48,7 +48,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
                     <div class="rbox">
                     <label>
                     <input type="checkbox" name="subscribe" value="1" />
-                    <xsl:value-of select="//label[key='subscribe']/value"/><br />
+                    <xsl:value-of select="//label[key='subscribe']/value"/><br/>
                     </label>
                     </div>
                 </div>

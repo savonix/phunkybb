@@ -36,11 +36,11 @@ Fifth Floor, Boston, MA 02110-1301  USA
 					<fieldset>
 						<legend>Select your preferred style</legend>
 						<div class="infldset">
-							<label>If you like you can use a different visual style for this forum.<br />
+							<label>If you like you can use a different visual style for this forum.<br/>
 							<select name="form[style]">
 								<option value="Oxygen" selected="selected">Oxygen</option>
 							</select>
-							<br /></label>
+							<br/></label>
 						</div>
 					</fieldset>
 				</div>
@@ -51,12 +51,12 @@ Fifth Floor, Boston, MA 02110-1301  USA
 						<div class="infldset">
 							<p>If you are on a slow connection, disabling these options, particularly showing images in posts and signatures, will make pages load faster.</p>
 							<div class="rbox">
-								<label><input type="checkbox" name="form[show_smilies]" value="1" checked="checked" />Show smilies as graphic icons<br /></label>
-								<label><input type="checkbox" name="form[show_sig]" value="1" checked="checked" />Show user signatures.<br /></label>
-							<label><input type="checkbox" name="form[show_avatars]" value="1" checked="checked" />Show user avatars in posts.<br /></label>
+								<label><input type="checkbox" name="form[show_smilies]" value="1" checked="checked" />Show smilies as graphic icons<br/></label>
+								<label><input type="checkbox" name="form[show_sig]" value="1" checked="checked" />Show user signatures.<br/></label>
+							<label><input type="checkbox" name="form[show_avatars]" value="1" checked="checked" />Show user avatars in posts.<br/></label>
 
-								<label><input type="checkbox" name="form[show_img]" value="1" checked="checked" />Show images in posts.<br /></label>
-								<label><input type="checkbox" name="form[show_img_sig]" value="1" checked="checked" />Show images in user signatures.<br /></label>
+								<label><input type="checkbox" name="form[show_img]" value="1" checked="checked" />Show images in posts.<br/></label>
+								<label><input type="checkbox" name="form[show_img_sig]" value="1" checked="checked" />Show images in user signatures.<br/></label>
 							</div>
 						</div>
 					</fieldset>
@@ -66,8 +66,8 @@ Fifth Floor, Boston, MA 02110-1301  USA
 
 						<legend>Enter your pagination options</legend>
 						<div class="infldset">
-							<label class="conl">Topics<br /><input type="text" name="form[disp_topics]" value="" size="6" maxlength="3" /><br /></label>
-							<label class="conl">Posts<br /><input type="text" name="form[disp_posts]" value="" size="6" maxlength="3" /><br /></label>
+							<label class="conl">Topics<br/><input type="text" name="form[disp_topics]" value="" size="6" maxlength="3" /><br/></label>
+							<label class="conl">Posts<br/><input type="text" name="form[disp_posts]" value="" size="6" maxlength="3" /><br/></label>
 							<p class="clearb">Enter the number of topics and posts you wish to view on each page. Leave blank to use forum default.</p>
 						</div>
 					</fieldset>

@@ -38,9 +38,9 @@ Fifth Floor, Boston, MA 02110-1301  USA
 						<div class="infldset">
 							<p>A signature is a small piece of text that is attached to your posts. In it, you can enter just about anything you like. Perhaps you would like to enter your favourite quote or your star sign. It's up to you! In your signature you can use BBCode if it is allowed in this particular forum. You can see the features that are allowed/enabled listed below whenever you edit your signature.</p>
 							<div class="txtarea">
-								<label>Max length: 400 / Max lines: 4<br />
+								<label>Max length: 400 / Max lines: 4<br/>
 
-								<textarea name="signature" rows="4" cols="65"><xsl:value-of select="//user_get_profile/signature"/></textarea><br /></label>
+								<textarea name="signature" rows="4" cols="65"><xsl:value-of select="//user_get_profile/signature"/></textarea><br/></label>
 							</div>
 							<ul class="bblinks">
 								<li><a href="help.php#bbcode" onclick="window.open(this.href); return false;">BBCode</a>: on</li>
