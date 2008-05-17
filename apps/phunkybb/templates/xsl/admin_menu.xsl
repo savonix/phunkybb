@@ -24,7 +24,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" >
 <xsl:template name="admin-menu">
 <div id="adminmenu" class="blockmenu">
-    <h2><span><xsl:value-of select="//label[key='admin_menu']/value"/></span></h2>
+    <h2><xsl:value-of select="//label[key='admin_menu']/value"/></h2>
     <div class="box">
         <div class="inbox">
         <ul>

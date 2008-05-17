@@ -25,7 +25,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <xsl:include href="main.xsl"/>
 <xsl:template name="content">
 <div class="blockform">
-	<h2><span><xsl:value-of select="//label[key='post_a_reply']/value"/></span></h2>
+	<h2><xsl:value-of select="//label[key='post_a_reply']/value"/></h2>
 	<div class="box">
 		<form id="post" method="post" action="{//link_prefix}post">
 			<div class="inform">
@@ -39,7 +39,6 @@ Fifth Floor, Boston, MA 02110-1301  USA
 						<textarea name="req_message" rows="20" cols="95" tabindex="1"></textarea><br /></label>
 						<ul class="bblinks">
 							<li><a href="help.php#bbcode" onclick="window.open(this.href); return false;">BBCode</a>: on</li>
-
 							<li><a href="help.php#img" onclick="window.open(this.href); return false;">[img] tag</a>: on</li>
 							<li><a href="help.php#smilies" onclick="window.open(this.href); return false;">Smilies</a>: on</li>
 						</ul>
@@ -47,7 +46,6 @@ Fifth Floor, Boston, MA 02110-1301  USA
 				</fieldset>
 			</div>
 			<div class="inform">
-
 				<fieldset>
 					<legend>Options</legend>
 					<div class="infldset">
@@ -59,7 +57,11 @@ Fifth Floor, Boston, MA 02110-1301  USA
 					</div>
 				</fieldset>
 			</div>
-			<p><input type="submit" name="submit" value="Submit" tabindex="4" accesskey="s" /><input type="submit" name="preview" value="Preview" tabindex="5" accesskey="p" /><a href="javascript:history.go(-1)">Go back</a></p>
+			<p>
+                <input type="submit" name="submit" value="Submit" tabindex="4" accesskey="s"/>
+                <input type="submit" name="preview" value="Preview" tabindex="5" accesskey="p"/>
+                <a href="javascript:history.go(-1)">Go back</a>
+            </p>
 		</form>
 	</div>
 </div>

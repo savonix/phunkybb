@@ -25,16 +25,15 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <xsl:include href="main.xsl"/>
 <xsl:include href="prev_next.xsl"/>
 <xsl:template name="content">
-<script src="{//path_prefix}s/js/jquery-1.2.1.min.js" type="text/javascript"></script>
 <script type="text/javascript">
 function delete_post(post_id) {
     if(confirm('Are you sure?')){
-    $.post("<xsl:value-of select="//link_prefix"/>x-post-delete&amp;post_id="+post_id, 
+    $.post("<xsl:value-of select="//link_prefix"/>x-post-delete&amp;post_id="+post_id,
     {
-        'post_id': post_id, 
+        'post_id': post_id,
         'num_replies': <xsl:value-of select="count(//posts_get_by_topic_id)" />,
         'topic_id': <xsl:value-of select="//_get/id" />
-    }, 
+    },
     function (data){
     });
     myDiv = document.getElementById("p"+post_id);
@@ -72,13 +71,13 @@ function delete_topic(topic_id) {
             <li><a href="{//link_prefix}index">
                 <xsl:value-of select="//label[key='index']/value"/>
                 </a></li>
-            <li>&#160; > &#160; 
+            <li>&#160; &gt; &#160;
                 <a href="{//link_prefix}forum&amp;fid={//_get/fid}">
                 <xsl:value-of select="//forum_get_by_id/forum_name"/>
                 </a>
                 <a href="{//link_prefix}forum&amp;id={//_get/id}"></a>
             </li>
-            <li>&#160;&gt;&#160;<xsl:value-of select="//topic_get_by_id/subject"/>
+            <li>&#160; &gt; &#160;<xsl:value-of select="//topic_get_by_id/subject"/>
             </li>
         </ul>
         <p class="postlink conl">
@@ -96,22 +95,20 @@ function delete_topic(topic_id) {
 <!-- Post loop -->
 <xsl:for-each select="//posts_get_by_topic_id">
 <div id="p{id}" class="blockpost roweven">
-	<h2><span><span class="conr">#<xsl:value-of select="id"/></span>
+	<h2><span class="conr">#<xsl:value-of select="id"/></span>
     <a href="#post{id}" name="post{id}">
         <xsl:value-of select="posted"/>
     </a>
-    </span></h2>
+    </h2>
 	<div class="box">
 		<div class="inbox">
 			<div class="postleft">
 				<dl>
 					<dt><strong><a href="{//link_prefix}profile&amp;id={poster_id}">
                     <xsl:value-of select="username"/></a></strong></dt>
-
 				</dl>
 			</div>
 			<div class="postright">
-
 				<div class="postmsg">
 					<p><xsl:value-of select="message" disable-output-escaping="yes"/></p>
                     <hr/>
@@ -123,11 +120,12 @@ function delete_topic(topic_id) {
                 <xsl:if test="//runtime/group_id=1 or poster=//runtime/username">
                     <a href="#"><xsl:value-of select="//label[key='edit']/value"/></a>&#160;
                     <a href="{//link_prefix}x-post-delete&amp;post_id={id}" 
-                        onclick="delete_post({id}); return false;"><xsl:value-of select="//label[key='delete']/value"/></a>
+                        onclick="delete_post({id}); return false;">
+                        <xsl:value-of select="//label[key='delete']/value"/>
+                    </a>
                 </xsl:if>
             </div></div>
 		</div>
-
 	</div>
 </div>
 </xsl:for-each>
@@ -137,20 +135,19 @@ function delete_topic(topic_id) {
 <div class="blockform">
 	<h2><span><xsl:value-of select="//label[key='quick_post']/value"/></span></h2>
 	<div class="box">
-		<form method="post" action="{//link_prefix}post&amp;tid={//_get/id}" >
+		<form method="post" action="{//link_prefix}post&amp;tid={//_get/id}">
 			<div class="inform">
 				<fieldset>
 					<legend><xsl:value-of select="//label[key='write_your_message']/value"/></legend>
 					<div class="infldset txtarea">
-						<input type="hidden" name="topic_id" value="{//_get/id}" />
-						<input type="hidden" name="num_replies" value="{count(//posts_get_by_topic_id)}" />
+						<input type="hidden" name="topic_id" value="{//_get/id}"/>
+						<input type="hidden" name="num_replies" value="{count(//posts_get_by_topic_id)}"/>
 						<input type="hidden" name="forum_id" value="{//_get/fid}" />
-						<label><textarea name="message" rows="7" cols="75" tabindex="1"></textarea></label>
+						<label><textarea name="message" rows="7" cols="75"></textarea></label>
 					</div>
 				</fieldset>
 			</div>
-			<p><input type="submit" name="submit" tabindex="2" value="Submit" accesskey="s" /></p>
-
+			<p><input type="submit" name="submit" value="Submit" accesskey="s"/></p>
 		</form>
 	</div>
 </div>

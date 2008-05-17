@@ -28,7 +28,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <div id="profile" class="block2col">
     <xsl:call-template name="profile-menu"/>
 	<div class="blockform">
-		<h2><span><xsl:value-of select="//runtime/username"/> - </span></h2>
+		<h2><xsl:value-of select="//runtime/username"/> - </h2>
 		<div class="box">
 			<form id="profile6" method="post">
 				<div class="inform">

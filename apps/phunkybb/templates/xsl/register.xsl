@@ -75,7 +75,7 @@ function do_encrypt() {
 }
 </script>
 <div class="blockform">
-<h2><span><xsl:value-of select="//label[key='register']/value"/></span></h2>
+<h2><xsl:value-of select="//label[key='register']/value"/></h2>
 <div class="box">
     <form id="register" name="register" method="post" onSubmit="do_encrypt(); return false;">
         <input type="hidden" name="id_rsa_pub" value=""/>

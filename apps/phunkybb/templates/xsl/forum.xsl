@@ -28,15 +28,20 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <div class="linkst">
 	<div class="inbox">
 		<p class="pagelink conl"><xsl:value-of select="//label[key='pages']/value"/>:
-            <strong>1</strong>
+            <strong><xsl:value-of select="//forum_get_number_of_pages/pages"/></strong>
         </p>
         <xsl:if test="//runtime/username">
-		<p class="postlink conr"><a href="{//link_prefix}post&amp;fid={//_get/fid}"><xsl:value-of select="//label[key='post_new_topic']/value"/></a></p>
+		<p class="postlink conr">
+            <a href="{//link_prefix}post&amp;fid={//_get/fid}">
+                <xsl:value-of select="//label[key='post_new_topic']/value"/>
+            </a>
+        </p>
         </xsl:if>
 		<ul>
             <li>
                 <a href="{//link_prefix}index">
-                    <xsl:value-of select="//label[key='index']/value"/></a>&#160;
+                    <xsl:value-of select="//label[key='index']/value"/>
+                </a>&#160;
             </li>
             <li>
                 - &#160;<xsl:value-of select="//forum_get_by_id/forum_name"/>
@@ -98,9 +103,16 @@ Fifth Floor, Boston, MA 02110-1301  USA
 </div>
 <div class="linkst">
 	<div class="inbox">
-		<p class="pagelink conl"><xsl:value-of select="//label[key='pages']/value"/>: <strong>1</strong></p>
+		<p class="pagelink conl">
+            <xsl:value-of select="//label[key='pages']/value"/>: 
+            <strong>1</strong>
+        </p>
         <xsl:if test="//runtime/username">
-		<p class="postlink conr"><a href="{//link_prefix}post&amp;fid={//_get/fid}"><xsl:value-of select="//label[key='post_new_topic']/value"/></a></p>
+		    <p class="postlink conr">
+                <a href="{//link_prefix}post&amp;fid={//_get/fid}">
+                    <xsl:value-of select="//label[key='post_new_topic']/value"/>
+                </a>
+            </p>
         </xsl:if>
 		<ul>
             <li>

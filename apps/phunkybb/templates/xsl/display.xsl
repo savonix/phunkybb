@@ -28,7 +28,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <div id="profile" class="block2col">
     <xsl:call-template name="profile-menu"/>
 	<div class="blockform">
-		<h2><span><xsl:value-of select="//runtime/username"/> - <xsl:value-of select="//label[key=//_get/nid]/value"/></span></h2>
+		<h2><xsl:value-of select="//runtime/username"/> - <xsl:value-of select="//label[key=//_get/nid]/value"/></h2>
 		<div class="box">
 			<form id="profile5" method="post">
 				<div><input type="hidden" name="form_sent" value="1" /></div>

@@ -41,6 +41,11 @@ Fifth Floor, Boston, MA 02110-1301  USA
     <xsl:with-param name="background-color">#F1F1F1</xsl:with-param>
     <xsl:with-param name="color">#0066B9</xsl:with-param>
 </xsl:call-template>
+<xsl:call-template name="thematic-button">
+    <xsl:with-param name="button-name">basic-green</xsl:with-param>
+    <xsl:with-param name="background-color">#66FF99</xsl:with-param>
+    <xsl:with-param name="color">#009900</xsl:with-param>
+</xsl:call-template>
 
 </xsl:template>
 

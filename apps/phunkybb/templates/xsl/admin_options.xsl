@@ -29,7 +29,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <xsl:call-template name="admin-menu"/>
 
 <div class="blockform">
-    <h2><span><xsl:value-of select="//i18n/labels/label[key='options']/value"/></span></h2>
+    <h2><xsl:value-of select="//i18n/labels/label[key='options']/value"/></h2>
     <div class="box">
         <form method="post" action="{//link_prefix}options-submit&amp;view_flow=true">
             <p class="submittop"><input type="submit" name="save" value="Save Changes" /></p>

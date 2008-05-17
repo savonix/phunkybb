@@ -44,6 +44,8 @@ $(document).ready(function()
 });
 
 function do_encrypt() {
+    $('span#login_button').removeClass("button-basic-blue");
+    $('span#login_button').addClass("button-basic-green");
     $('span#replace').css("visibility","visible");
     $('span#replace').html("<xsl:value-of select="//label[key='working']/value"/>...");
 
@@ -68,7 +70,7 @@ function do_encrypt() {
 }
 </script>
 <div class="blockform">
-<h2><span><xsl:value-of select="//label[key='login']/value"/></span></h2>
+<h2><xsl:value-of select="//label[key='login']/value"/></h2>
 
 <div class="box">
 <form id="mlogin" name="mlogin" method="post" action="{//link_prefix}login"
@@ -78,7 +80,6 @@ function do_encrypt() {
 <input type="hidden" name="my_tz_offset" value=""/>
     <div class="inform">
         <fieldset>
-            <noscript><br/><b>Javascript must be enabled to log in.</b></noscript>
             <legend><xsl:value-of select="//label[key='enter_username']/value"/></legend>
             <div class="infldset">
             <label class="conl"><strong><xsl:value-of select="//label[key='username']/value"/></strong><br/>
@@ -98,6 +99,7 @@ function do_encrypt() {
     <p>
         <span id="login_button" class="button-basic-blue disableSelection" onclick="do_encrypt();">Submit</span>
         <span id="replace" class="interstatus"></span>
+        <noscript><span id="replace" class="interstatus">Javascript must be enabled to log in.</span></noscript>
     </p>
 </form>
 

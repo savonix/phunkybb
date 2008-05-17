@@ -29,9 +29,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
     <xsl:call-template name="profile-menu"/>
 	<div class="blockform">
 		<h2>
-        <span>
             <xsl:value-of select="//runtime/username"/> - <xsl:value-of select="//label[key='essentials']/value"/>
-        </span>
         </h2>
 
 		<div class="box">

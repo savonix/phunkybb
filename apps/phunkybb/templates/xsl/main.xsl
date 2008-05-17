@@ -24,30 +24,19 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 <xsl:include href="html_shell.xsl"/>
 <xsl:include href="main_menu.xsl"/>
+<xsl:include href="footer.xsl"/>
 <xsl:template name="main">
 <div id="punwrap">
 <div id="" class="pun">
 <xsl:call-template name="main-menu"/>
 
-<div id="" class="blocktable">
+<div class="blocktable">
     <xsl:call-template name="content"/>
 </div>
 
-<div id="brdfooter" class="block">
-	<h2><span>Board footer</span></h2>
-	<div class="box">
-		<div class="inbox">
-			<dl id="searchlinks" class="conl">
-			</dl>
-			<p class="conr">Powered by <a href="http://www.phunkybb.docunext.com/blog/">PhunkyBB</a>, a fork of punbb.
-            <xsl:if test="//runtime/svn_revision">
-                Revision <xsl:value-of select="//runtime/svn_revision"/>
-            </xsl:if>
-            </p>
-			<div class="clearer"></div>
-		</div>
-	</div>
-</div>
+<xsl:call-template name="footer"/>
+
+
 </div>
 </div>
 </xsl:template>

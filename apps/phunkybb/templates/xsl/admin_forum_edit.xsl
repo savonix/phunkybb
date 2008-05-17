@@ -29,7 +29,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <div id="adminconsole" class="block2col">
     <xsl:call-template name="admin-menu"/>
 	<div class="blockform">
-		<h2 class="block2"><span><xsl:value-of select="//label[key='edit_forum']/value"/></span></h2>
+		<h2 class="block2"><xsl:value-of select="//label[key='edit_forum']/value"/></h2>
 		<div class="box">
 			<form id="edforum" method="post" action="{//link_prefix}forums">
 				<p class="submittop"><input type="submit" name="update_positions" value="Update positions" tabindex="3" /></p>

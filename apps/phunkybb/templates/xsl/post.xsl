@@ -25,7 +25,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <xsl:include href="main.xsl"/>
 <xsl:template name="content">
 <div class="blockform">
-<h2><span><xsl:value-of select="//label[key='post_new_topic']/value"/></span></h2>
+<h2><xsl:value-of select="//label[key='post_new_topic']/value"/></h2>
 <div class="box">
     <form id="post" method="post" action="{//link_prefix}topic-submit">
         <input type="hidden" name="fid" value="{//_get/fid}"/>

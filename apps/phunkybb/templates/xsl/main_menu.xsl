@@ -26,7 +26,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <div id="brdheader" class="block">
 	<div class="box">
 		<div id="brdtitle" class="inbox">
-        <h1><span><xsl:value-of select="//o_board_title"/></span></h1>
+        <h1><a href="{//link_prefix}welcome"><xsl:value-of select="//o_board_title"/></a></h1>
 		<p><span><xsl:value-of select="//o_board_desc"/></span></p>
 		</div>
 		<div id="brdmenu" class="inbox">
