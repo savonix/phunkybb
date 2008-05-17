@@ -36,7 +36,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 					<legend><xsl:value-of select="//label[key='add']/value"/>/<xsl:value-of select="//label[key='delete_categories']/value"/></legend>
 					<div class="infldset">
 						<table class="aligntop" cellspacing="0">
-                            <form method="post" action="{//link_prefix}categories&amp;view_flow=true">
+                            <form method="post" action="{//link_prefix}categories">
                             <input type="hidden" name="action" value="add_cat"/>
 							<tr>
 								<th scope="row"><xsl:value-of select="//label[key='add_a_new_category']/value"/><div>
@@ -48,7 +48,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 								</td>
 							</tr>
                             </form>
-                            <form method="post" action="{//link_prefix}categories&amp;view_flow=true">
+                            <form method="post" action="{//link_prefix}categories">
                             <input type="hidden" name="action" value="del_cat"/>
 							<tr>
 								<th scope="row">

@@ -51,7 +51,12 @@ $(document).ready(function()
 });
 
 function do_encrypt() {
+
+    $('span#login_button').removeClass("button-basic-blue");
+    $('span#login_button').addClass("button-basic-green");
+    $('span#replace').css("visibility","visible");
     $('span#replace').html("<xsl:value-of select="//label[key='working']/value"/>...");
+    
     if(validateStandard(this))
     {
         var myform = document.forms["register"];
@@ -67,6 +72,9 @@ function do_encrypt() {
         function (data){
             var myResult = $("result",data).text();
             $('span#replace').html(myResult);
+            if(myResult=='Success') {
+                window.location = '<xsl:value-of select="//link_prefix"/>login';
+            }
         });
     } else {
         var myResult = $("result",data).text();
@@ -114,8 +122,9 @@ function do_encrypt() {
             </fieldset>
         </div>
         <p>
-            <input type="submit" name="register" value="Register"/>
-            <span id="replace"></span>
+        <span id="login_button" class="button-basic-blue disableSelection" onclick="do_encrypt();">Submit</span>
+        <span id="replace" class="interstatus"></span>
+        <noscript><span id="replace" class="interstatus">Javascript must be enabled to register.</span></noscript>
         </p>
     </form>
 </div>
