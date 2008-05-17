@@ -24,7 +24,6 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" >
 <xsl:include href="main.xsl"/>
 <xsl:template name="content">
-<script type="text/javascript" src="{__ROOT__/runtime/path_prefix}/s/js/jquery/jquery.js"></script>
 <script type="text/javascript" src="{__ROOT__/runtime/path_prefix}/s/js/rsa/jsbn.js"></script>
 <script type="text/javascript" src="{__ROOT__/runtime/path_prefix}/s/js/rsa/rsa.js"></script>
 <script type="text/javascript" src="{__ROOT__/runtime/path_prefix}/s/js/rsa/prng4.js"></script>
@@ -39,6 +38,9 @@ $(document).ready(function()
     var d = new Date();
     myform.my_tz_offset.value = 0 - d.getTimezoneOffset()/60;
     myform.my_tz_offset_debug.value = 0 - d.getTimezoneOffset()/60;
+    $(function() {
+        $('#login_button').disableTextSelect();
+    });
 });
 
 function do_encrypt() {
@@ -94,7 +96,7 @@ function do_encrypt() {
         </fieldset>
     </div>
     <p>
-        <span id="login_button" class="interbutton" onclick="do_encrypt();">Submit</span>
+        <span id="login_button" class="interbutton disableSelection" onclick="do_encrypt();">Submit</span>
         <span id="replace" class="interstatus"></span>
     </p>
 </form>
