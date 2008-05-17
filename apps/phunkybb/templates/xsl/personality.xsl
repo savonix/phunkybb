@@ -28,26 +28,19 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <div id="profile" class="block2col">
     <xsl:call-template name="profile-menu"/>
 	<div class="blockform">
-		<h2><xsl:value-of select="//runtime/username"/> - </h2>
+		<h2><xsl:value-of select="//runtime/username"/></h2>
 		<div class="box">
-			<form id="profile4" method="post" action="{//request_uri}&amp;view_flow=true">
-				<div><input type="hidden" name="form_sent" value="1"/></div>
+			<form id="profile4" method="post" action="{//request_uri}">
+				<input type="hidden" name="form_sent" value="1"/>
 				<div class="inform">
 					<fieldset>
 						<legend>Compose your signature</legend>
 						<div class="infldset">
-							<p>A signature is a small piece of text that is attached to your posts. In it, you can enter just about anything you like. Perhaps you would like to enter your favourite quote or your star sign. It's up to you! In your signature you can use BBCode if it is allowed in this particular forum. You can see the features that are allowed/enabled listed below whenever you edit your signature.</p>
+							<p>A signature is a small piece of text that is attached to your posts.</p>
 							<div class="txtarea">
 								<label>Max length: 400 / Max lines: 4<br/>
-
 								<textarea name="signature" rows="4" cols="65"><xsl:value-of select="//user_get_profile/signature"/></textarea><br/></label>
 							</div>
-							<ul class="bblinks">
-								<li><a href="help.php#bbcode" onclick="window.open(this.href); return false;">BBCode</a>: on</li>
-								<li><a href="help.php#img" onclick="window.open(this.href); return false;">[img] tag</a>: off</li>
-								<li><a href="help.php#smilies" onclick="window.open(this.href); return false;">Smilies</a>: on</li>
-
-							</ul>
 							<p><xsl:value-of select="//user_get_profile/signature" disable-output-escaping="yes"/>.</p>
 						</div>
 					</fieldset>

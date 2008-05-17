@@ -108,7 +108,6 @@ function do_encrypt() {
             <fieldset>
                 <legend><xsl:value-of select="//label[key='valid_email']/value"/></legend>
                 <div class="infldset">
-
                 <label><strong><xsl:value-of select="//label[key='email']/value"/></strong><br/>
                     <input type="text" name="email" maxlength="50" value="{//_post/email}"/><br/></label>
                 </div>
