@@ -42,7 +42,7 @@ function delete_forum(fid,cid) {
 <div id="adminconsole" class="block2col">
     <xsl:call-template name="admin-menu"/>
 	<div class="blockform">
-		<h2><span><xsl:value-of select="//label[key='add_forum']/value"/></span></h2>
+		<h2><xsl:value-of select="//label[key='add_forum']/value"/></h2>
 		<div class="box">
 			<form method="post" action="{//link_prefix}forums">
 				<div class="inform">

@@ -28,26 +28,10 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <div id="profile" class="block2col">
     <xsl:call-template name="profile-menu"/>
 	<div class="blockform">
-		<h2><span><xsl:value-of select="//runtime/username"/> - </span></h2>
+		<h2><xsl:value-of select="//runtime/username"/> - </h2>
 		<div class="box">
 			<form id="profile4" method="post" action="{//request_uri}&amp;view_flow=true">
 				<div><input type="hidden" name="form_sent" value="1" /></div>
-				<!--
-                <div class="inform">
-					<fieldset id="profileavatar">
-						<legend>Set your avatar display options</legend>
-						<div class="infldset">
-					<img src="img/avatars/2.jpg" width="55" height="54" alt="" />
-
-					<p>An avatar is a small image that will be displayed with all your posts. You can upload an avatar by clicking the link below. The checkbox 'Use avatar' below must be checked in order for the avatar to be visible in your posts.</p>
-							<div class="rbox">
-								<label><input type="checkbox" name="form[use_avatar]" value="1" />Use avatar.<br /></label>
-							</div>
-							<p class="clearb"><a href="">Change avatar</a><a href="">Delete avatar</a></p>
-						</div>
-					</fieldset>
-				</div>
-                -->
 				<div class="inform">
 					<fieldset>
 						<legend>Compose your signature</legend>

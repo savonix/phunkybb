@@ -28,7 +28,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <div id="adminconsole" class="block2col">
     <xsl:call-template name="admin-menu"/>
 	<div class="block">
-		<h2 class="block2"><span><xsl:value-of select="//label[key='statistics']/value"/></span></h2>
+		<h2 class="block2"><xsl:value-of select="//label[key='statistics']/value"/></h2>
 		<div id="adstats" class="box">
 			<div class="inbox">
 				<dl>
