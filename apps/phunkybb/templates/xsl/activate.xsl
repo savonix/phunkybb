@@ -30,10 +30,9 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <div class="box">
     <div class="inform">
         <fieldset>
-                <xsl:value-of select="//label[key='activated']/value"/>!
+            <xsl:value-of select="//label[key='activated']/value"/>!
         </fieldset>
     </div>
-
 </div>
 </div>
 </xsl:template>
