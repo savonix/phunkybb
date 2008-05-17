@@ -32,7 +32,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 		<h2 class="block2"><xsl:value-of select="//label[key='edit_forum']/value"/></h2>
 		<div class="box">
 			<form id="edforum" method="post" action="{//link_prefix}forums">
-				<p class="submittop"><input type="submit" name="update_positions" value="Update positions" /></p>
+				<p class="submittop"><input type="submit" name="update_positions" value="Update positions"/></p>
                 <xsl:for-each select="//categories_get_all[cid=//forums_get_all/cid]">
                 <xsl:variable name="my_cid"><xsl:value-of select="cid"/></xsl:variable>
 				<div class="inform">
@@ -46,7 +46,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 									<th><a href="{//link_prefix}forum-edit"><xsl:value-of select="//label[key='edit']/value"/></a> - 
                                     <a href="{//link_prefix}forum-delete&amp;id={fid}" 
                                     onclick="delete_forum({fid},{cid}); return false;"><xsl:value-of select="//label[key='delete']/value"/></a></th>
-									<td><xsl:value-of select="//label[key='position']/value"/><input type="text" name="position[3]" size="3" maxlength="3" value="0" />
+									<td><xsl:value-of select="//label[key='position']/value"/><input type="text" name="position[3]" size="3" maxlength="3" value="0"/>
 									&#160;<strong><xsl:value-of select="forum_name"/></strong></td>
 								</tr>
                             </xsl:for-each>
@@ -56,7 +56,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 					</fieldset>
 				</div>
                 </xsl:for-each>
-				<p class="submitend"><input type="submit" name="update_positions" value="Update positions" /></p>
+				<p class="submitend"><input type="submit" name="update_positions" value="Update positions"/></p>
 			</form>
 		</div>
 	</div>

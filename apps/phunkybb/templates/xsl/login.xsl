@@ -83,7 +83,7 @@ function do_encrypt() {
             <legend><xsl:value-of select="//label[key='enter_username']/value"/></legend>
             <div class="infldset">
             <label class="conl"><strong><xsl:value-of select="//label[key='username']/value"/></strong><br/>
-            <input type="text" name="username" /><br/>
+            <input type="text" name="username"/><br/>
             </label>
 
             <label class="conl"><strong><xsl:value-of select="//label[key='password']/value"/></strong><br/>

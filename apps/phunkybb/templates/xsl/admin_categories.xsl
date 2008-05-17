@@ -40,9 +40,9 @@ Fifth Floor, Boston, MA 02110-1301  USA
                             <input type="hidden" name="action" value="add_cat"/>
 							<tr>
 								<th scope="row"><xsl:value-of select="//label[key='add_a_new_category']/value"/><div>
-                                <input type="submit" name="add_cat" value="Add New" /></div></th>
+                                <input type="submit" name="add_cat" value="Add New"/></div></th>
 								<td>
-									<input type="text" name="new_cat_name" size="35" maxlength="80" />
+									<input type="text" name="new_cat_name" size="35" maxlength="80"/>
 									<span><xsl:value-of select="//label[key='name_of_new_category']/value"/> <a href="{//link_prefix}forums"><xsl:value-of select="//label[key='forums']/value"/></a> <xsl:value-of select="//label[key='to_add_forums']/value"/>.</span>
 
 								</td>
@@ -54,7 +54,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 								<th scope="row">
                                     <xsl:value-of select="//label[key='delete_a_category']/value"/>
                                     <div>
-                                        <input type="submit" name="del_cat" value="Delete" />
+                                        <input type="submit" name="del_cat" value="Delete"/>
                                     </div>
                                 </th>
 								<td>
@@ -85,13 +85,13 @@ Fifth Floor, Boston, MA 02110-1301  USA
 						</thead>
 						<tbody>
                             <xsl:for-each select="//categories_get_all">
-							<tr><td><input type="text" name="cat_name[0]" value="{cat_name}" size="35" maxlength="80" /></td>
-                            <td><input type="text" name="cat_order[0]" value="0" size="3" maxlength="3" /></td>
+							<tr><td><input type="text" name="cat_name[0]" value="{cat_name}" size="35" maxlength="80"/></td>
+                            <td><input type="text" name="cat_order[0]" value="0" size="3" maxlength="3"/></td>
                             <td></td></tr>
                             </xsl:for-each>
                         </tbody>
 						</table>
-						<div class="fsetsubmit"><input type="submit" name="update" value="Update" /></div>
+						<div class="fsetsubmit"><input type="submit" name="update" value="Update"/></div>
 					</div>
 				</fieldset>
 			</div>

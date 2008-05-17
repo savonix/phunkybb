@@ -32,9 +32,9 @@ Fifth Floor, Boston, MA 02110-1301  USA
     <h2><xsl:value-of select="//i18n/labels/label[key='options']/value"/></h2>
     <div class="box">
         <form method="post" action="{//link_prefix}options-submit&amp;view_flow=true">
-            <p class="submittop"><input type="submit" name="save" value="Save Changes" /></p>
+            <p class="submittop"><input type="submit" name="save" value="Save Changes"/></p>
             <div class="inform">
-            <input type="hidden" name="form_sent" value="" />
+            <input type="hidden" name="form_sent" value=""/>
                 <fieldset>
 
                     <legend><xsl:value-of select="//i18n/labels/label[key='essentials']/value"/></legend>
@@ -43,7 +43,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
                             <tr>
                                 <th scope="row"><xsl:value-of select="//label[key='board_title']/value"/></th>
                                 <td>
-                                    <input type="text" name="form[o_board_title]" size="50" maxlength="255" value="{//board_config/o_board_title}" />
+                                    <input type="text" name="form[o_board_title]" size="50" maxlength="255" value="{//board_config/o_board_title}"/>
                                     <span><xsl:value-of select="//label[key='title_of_buletine_board']/value"/> <strong><xsl:value-of select="//label[key='not']/value"/></strong> <xsl:value-of select="//label[key='contain_html']/value"/>.</span>
 
                                 </td>
@@ -51,7 +51,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
                             <tr>
                                 <th scope="row"><xsl:value-of select="//label[key='board_description']/value"/></th>
                                 <td>
-                                    <input type="text" name="form[o_board_desc]" size="50" maxlength="255" value="{//board_config/o_board_desc}" />
+                                    <input type="text" name="form[o_board_desc]" size="50" maxlength="255" value="{//board_config/o_board_desc}"/>
                                     <span><xsl:value-of select="//label[key='short_description_of_this']/value"/>.</span>
                                 </td>
 
@@ -59,7 +59,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
                             <tr>
                                 <th scope="row"><xsl:value-of select="//label[key='base_url']/value"/></th>
                                 <td>
-                                    <input type="text" name="form[o_base_url]" size="50" maxlength="100" value="{//board_config/o_base_url}" />
+                                    <input type="text" name="form[o_base_url]" size="50" maxlength="100" value="{//board_config/o_base_url}"/>
                                     <span><xsl:value-of select="//label[key='complete_url_of_the_forum']/value"/> <strong><xsl:value-of select="//label[key='must']/value"/></strong> <xsl:value-of select="//label[key='be_correct_in_order']/value"/>.</span>
 
                                 </td>
@@ -77,7 +77,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
                             <tr>
                                 <th scope="row"><xsl:value-of select="//label[key='time_format']/value"/></th>
                                 <td>
-                                    <input type="text" name="form[o_time_format]" size="25" maxlength="25" value="{//board_config/o_time_format}" />
+                                    <input type="text" name="form[o_time_format]" size="25" maxlength="25" value="{//board_config/o_time_format}"/>
                                     <span>[Current format: 12:11:16]See <a href="http://www.php.net/manual/en/function.date.php"><xsl:value-of select="//label[key='here']/value"/></a> <xsl:value-of select="//label[key='for_formatting_options']/value"/>.</span>
 
                                 </td>
@@ -85,7 +85,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
                             <tr>
                                 <th scope="row"><xsl:value-of select="//label[key='date_format']/value"/></th>
                                 <td>
-                                    <input type="text" name="form[o_date_format]" size="25" maxlength="25" value="{//board_config/o_date_format}" />
+                                    <input type="text" name="form[o_date_format]" size="25" maxlength="25" value="{//board_config/o_date_format}"/>
                                     <span>[Current format: 2008-03-01]See <a href="http://www.php.net/manual/en/function.date.php"><xsl:value-of select="//label[key='here']/value"/></a> <xsl:value-of select="//label[key='for_formatting_options']/value"/>.</span>
 
                                 </td>
@@ -93,7 +93,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
                             <tr>
                                 <th scope="row"><xsl:value-of select="//label[key='visit_timeout']/value"/></th>
                                 <td>
-                                    <input type="text" name="form[o_timeout_visit]" size="5" maxlength="5" value="{//board_config/o_timeout_visit}" />
+                                    <input type="text" name="form[o_timeout_visit]" size="5" maxlength="5" value="{//board_config/o_timeout_visit}"/>
                                     <span><xsl:value-of select="//label[key='number_of_seconds_a_user_last_visit']/value"/>.</span>
                                 </td>
 
@@ -101,7 +101,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
                             <tr>
                                 <th scope="row"><xsl:value-of select="//label[key='online_timeout']/value"/></th>
                                 <td>
-                                    <input type="text" name="form[o_timeout_online]" size="5" maxlength="5" value="" />
+                                    <input type="text" name="form[o_timeout_online]" size="5" maxlength="5" value=""/>
                                     <span><xsl:value-of select="//label[key='number_of_seconds_a_user_idle_before_removed']/value"/>.</span>
                                 </td>
                             </tr>
@@ -120,7 +120,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
                                 <th scope="row"><xsl:value-of select="//label[key='quick_post']/value"/></th>
                                 <td>
 
-                                    <input type="radio" name="form[o_quickpost]" value="" /><strong><xsl:value-of select="//label[key='no']/value"/></strong>
+                                    <input type="radio" name="form[o_quickpost]" value=""/><strong><xsl:value-of select="//label[key='no']/value"/></strong>
                                     <span><xsl:value-of select="//label[key='when_enabled_punbb']/value"/>.</span>
                                 </td>
                             </tr>
@@ -146,7 +146,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 
                                 <th scope="row"><xsl:value-of select="//label[key='admin_email']/value"/></th>
                                 <td>
-                                    <input type="text" name="form[o_admin_email]" size="50" maxlength="50" value="{//board_config/o_admin_email}" />
+                                    <input type="text" name="form[o_admin_email]" size="50" maxlength="50" value="{//board_config/o_admin_email}"/>
                                     <span><xsl:value-of select="//label[key='email_of_forum_admin']/value"/>.</span>
                                 </td>
                             </tr>
@@ -154,7 +154,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
                                 <th scope="row"><xsl:value-of select="//label[key='webmaster_email']/value"/></th>
 
                                 <td>
-                                    <input type="text" name="form[o_webmaster_email]" size="50" maxlength="50" value="{//board_config/o_webmaster_email}" />
+                                    <input type="text" name="form[o_webmaster_email]" size="50" maxlength="50" value="{//board_config/o_webmaster_email}"/>
                                     <span><xsl:value-of select="//label[key='address_all_email_sent_from']/value"/>.</span>
                                 </td>
                             </tr>
@@ -162,7 +162,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
                                 <th scope="row"><xsl:value-of select="//label[key='subscriptions']/value"/></th>
                                 <td>
 
-                                    <input type="radio" name="form[o_subscriptions]" value="{//board_config/o_subscriptions}" /><strong>No</strong>
+                                    <input type="radio" name="form[o_subscriptions]" value="{//board_config/o_subscriptions}"/><strong>No</strong>
                                     <span><xsl:value-of select="//label[key='enable_users_to_subscribe']/value"/>.</span>
                                 </td>
                             </tr>
@@ -170,14 +170,14 @@ Fifth Floor, Boston, MA 02110-1301  USA
                                 <th scope="row"><xsl:value-of select="//label[key='smtp_server_address']/value"/></th>
                                 <td>
 
-                                    <input type="text" name="form[o_smtp_host]" size="30" maxlength="100" value="{//board_config/o_smtp_host}" />
+                                    <input type="text" name="form[o_smtp_host]" size="30" maxlength="100" value="{//board_config/o_smtp_host}"/>
                                     <span><xsl:value-of select="//label[key='address_of_external_smtp']/value"/>.</span>
                                 </td>
                             </tr>
                             <tr>
                                 <th scope="row"><xsl:value-of select="//label[key='smtp_username']/value"/></th>
                                 <td>
-                                    <input type="text" name="form[o_smtp_user]" size="25" maxlength="50" value="{//board_config/o_smtp_user}" />
+                                    <input type="text" name="form[o_smtp_user]" size="25" maxlength="50" value="{//board_config/o_smtp_user}"/>
 
                                     <span><xsl:value-of select="//label[key='username_for_smtp_server']/value"/> <strong><xsl:value-of select="//label[key='do_not']/value"/></strong> <xsl:value-of select="//label[key='require_auth']/value"/>.</span>
                                 </td>
@@ -186,7 +186,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
                                 <th scope="row"><xsl:value-of select="//label[key='smtp_password']/value"/></th>
                                 <td>
 
-                                    <input type="text" name="form[o_smtp_pass]" size="25" maxlength="50" value="{//board_config/o_smtp_pass}" />
+                                    <input type="text" name="form[o_smtp_pass]" size="25" maxlength="50" value="{//board_config/o_smtp_pass}"/>
                                     <span><xsl:value-of select="//label[key='password_for_smtp_server']/value"/> <strong><xsl:value-of select="//label[key='do_not']/value"/></strong> <xsl:value-of select="//label[key='require_auth']/value"/>.</span>
                                 </td>
                             </tr>
@@ -204,7 +204,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
                                 <th scope="row"><xsl:value-of select="//label[key='allow_new_registration']/value"/></th>
 
                                 <td>
-                                    <input type="radio" name="form[o_regs_allow]" value="" /><strong><xsl:value-of select="//label[key='no']/value"/></strong>
+                                    <input type="radio" name="form[o_regs_allow]" value=""/><strong><xsl:value-of select="//label[key='no']/value"/></strong>
                                     <span><xsl:value-of select="//label[key='controls_whether_forum_accepts_new_registration']/value"/>.</span>
                                 </td>
                             </tr>
@@ -212,7 +212,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
                                 <th scope="row"><xsl:value-of select="//label[key='verify_registrations']/value"/></th>
 
                                 <td>
-                                    <input type="radio" name="form[o_regs_verify]" value="" /><strong><xsl:value-of select="//label[key='no']/value"/></strong>
+                                    <input type="radio" name="form[o_regs_verify]" value=""/><strong><xsl:value-of select="//label[key='no']/value"/></strong>
                                     <span><xsl:value-of select="//label[key='when_enabled_users_are_emailed']/value"/>.</span>
                                 </td>
                             </tr>
@@ -220,7 +220,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
                                 <th scope="row"><xsl:value-of select="//label[key='use_forum_rules']/value"/></th>
 
                                 <td>
-                                    <input type="radio" name="form[o_rules]" value="" /><strong><xsl:value-of select="//label[key='no']/value"/></strong>
+                                    <input type="radio" name="form[o_rules]" value=""/><strong><xsl:value-of select="//label[key='no']/value"/></strong>
                                     <span><xsl:value-of select="//label[key='when_enabled_users_must']/value"/>.</span>
                                 </td>
                             </tr>
@@ -236,7 +236,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
                     </div>
                 </fieldset>
             </div>
-            <p class="submitend"><input type="submit" name="save" value="Save Changes" /></p>
+            <p class="submitend"><input type="submit" name="save" value="Save Changes"/></p>
         </form>
     </div>
 </div>

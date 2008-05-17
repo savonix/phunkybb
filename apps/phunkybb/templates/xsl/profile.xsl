@@ -37,8 +37,8 @@ Fifth Floor, Boston, MA 02110-1301  USA
 					<fieldset>
 						<legend>Enter your username and password</legend>
 						<div class="infldset">
-							<input type="hidden" name="form_sent" value="1" />
-							<input type="hidden" name="old_username" value="demo" />
+							<input type="hidden" name="form_sent" value="1"/>
+							<input type="hidden" name="old_username" value="demo"/>
                             <label><strong><xsl:value-of select="//label[key='username']/value"/></strong><br/>
                             <input type="text" name="req_username" value="{//user_get_profile/username}"/><br/>
                             </label>
@@ -85,11 +85,11 @@ Fifth Floor, Boston, MA 02110-1301  USA
                                 <br/>
                                 </label>
 							<label><xsl:value-of select="//label[key='admin_note']/value"/><br/>
-							<input id="admin_note" type="text" name="admin_note" value="{//user_get_profile/admin_note}" size="30" maxlength="30" /><br/></label>
+							<input id="admin_note" type="text" name="admin_note" value="{//user_get_profile/admin_note}" size="30" maxlength="30"/><br/></label>
 						</div>
 					</fieldset>
 				</div>
-				<p><input type="submit" name="update" value="Submit" /></p>
+				<p><input type="submit" name="update" value="Submit"/></p>
 			</form>
 		</div>
 	</div>

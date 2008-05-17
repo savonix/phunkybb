@@ -98,8 +98,8 @@ function do_encrypt() {
             <fieldset>
                 <legend><xsl:value-of select="//label[key='pass_legend_1']/value"/></legend>
                 <div class="infldset">
-                    <label class="conl"><strong><xsl:value-of select="//label[key='password']/value"/></strong><br/><input type="password" name="password" size="16" maxlength="16" /><br/></label>
-                    <label class="conl"><strong><xsl:value-of select="//label[key='confirm_password']/value"/></strong><br/><input type="password" name="password2" size="16" maxlength="16" /><br/></label>
+                    <label class="conl"><strong><xsl:value-of select="//label[key='password']/value"/></strong><br/><input type="password" name="password" size="16" maxlength="16"/><br/></label>
+                    <label class="conl"><strong><xsl:value-of select="//label[key='confirm_password']/value"/></strong><br/><input type="password" name="password2" size="16" maxlength="16"/><br/></label>
                     <p class="clearb"><xsl:value-of select="//label[key='pass_info']/value"/></p>
                 </div>
             </fieldset>

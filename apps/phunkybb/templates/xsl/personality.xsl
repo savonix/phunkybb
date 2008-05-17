@@ -31,7 +31,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 		<h2><xsl:value-of select="//runtime/username"/> - </h2>
 		<div class="box">
 			<form id="profile4" method="post" action="{//request_uri}&amp;view_flow=true">
-				<div><input type="hidden" name="form_sent" value="1" /></div>
+				<div><input type="hidden" name="form_sent" value="1"/></div>
 				<div class="inform">
 					<fieldset>
 						<legend>Compose your signature</legend>
@@ -52,7 +52,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 						</div>
 					</fieldset>
 				</div>
-				<p><input type="submit" name="update" value="Submit" />When you update your profile, you will be redirected back to this page.</p>
+				<p><input type="submit" name="update" value="Submit"/>When you update your profile, you will be redirected back to this page.</p>
 			</form>
 		</div>
 	<div class="clearer"></div>

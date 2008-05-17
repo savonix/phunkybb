@@ -31,8 +31,8 @@ function delete_post(post_id) {
     $.post("<xsl:value-of select="//link_prefix"/>x-post-delete&amp;post_id="+post_id,
     {
         'post_id': post_id,
-        'num_replies': <xsl:value-of select="count(//posts_get_by_topic_id)" />,
-        'topic_id': <xsl:value-of select="//_get/id" />
+        'num_replies': <xsl:value-of select="count(//posts_get_by_topic_id)"/>,
+        'topic_id': <xsl:value-of select="//_get/id"/>
     },
     function (data){
     });
@@ -142,12 +142,12 @@ function delete_topic(topic_id) {
 					<div class="infldset txtarea">
 						<input type="hidden" name="topic_id" value="{//_get/id}"/>
 						<input type="hidden" name="num_replies" value="{count(//posts_get_by_topic_id)}"/>
-						<input type="hidden" name="forum_id" value="{//_get/fid}" />
+						<input type="hidden" name="forum_id" value="{//_get/fid}"/>
 						<label><textarea name="message" rows="7" cols="75"></textarea></label>
 					</div>
 				</fieldset>
 			</div>
-			<p><input type="submit" name="submit" value="Submit" accesskey="s"/></p>
+			<p><input type="submit" name="submit" value="Submit"/></p>
 		</form>
 	</div>
 </div>

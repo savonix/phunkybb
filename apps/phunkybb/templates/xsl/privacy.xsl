@@ -35,28 +35,28 @@ Fifth Floor, Boston, MA 02110-1301  USA
 					<fieldset>
 						<legend>Set your privacy options</legend>
 						<div class="infldset">
-							<input type="hidden" name="form_sent" value="1" />
+							<input type="hidden" name="form_sent" value="1"/>
 							<p>Select whether you want your e-mail address to be viewable to other users or not and if you want other users to be able to send you e-mail via the forum (form e-mail) or not.</p>
 
 							<div class="rbox">
-								<label><input type="radio" name="form[email_setting]" value="0" />Display your e-mail address.<br/></label>
-								<label><input type="radio" name="form[email_setting]" value="1" checked="checked" />Hide your e-mail address but allow form e-mail.<br/></label>
-								<label><input type="radio" name="form[email_setting]" value="2" />Hide your e-mail address and disallow form e-mail.<br/></label>
+								<label><input type="radio" name="form[email_setting]" value="0"/>Display your e-mail address.<br/></label>
+								<label><input type="radio" name="form[email_setting]" value="1" checked="checked"/>Hide your e-mail address but allow form e-mail.<br/></label>
+								<label><input type="radio" name="form[email_setting]" value="2"/>Hide your e-mail address and disallow form e-mail.<br/></label>
 							</div>
 							<p>This option sets whether the forum should "remember" you between visits. If enabled, you will not have to login every time you visit the forum. You will be logged in automatically. Recommended.</p>
 							<div class="rbox">
 
-								<label><input type="checkbox" name="form[save_pass]" value="1" checked="checked" />Save username and password between visits.<br/></label>
+								<label><input type="checkbox" name="form[save_pass]" value="1" checked="checked"/>Save username and password between visits.<br/></label>
 							</div>
 							<p>With this enabled, a plain text version of the new post will be included in subscription notification e-mails.</p>
 							<div class="rbox">
-								<label><input type="checkbox" name="form[notify_with_post]" value="1" />Include post in subscription e-mails.<br/></label>
+								<label><input type="checkbox" name="form[notify_with_post]" value="1"/>Include post in subscription e-mails.<br/></label>
 							</div>
 						</div>
 
 					</fieldset>
 				</div>
-				<p><input type="submit" name="update" value="Submit" />When you update your profile, you will be redirected back to this page.</p>
+				<p><input type="submit" name="update" value="Submit"/>When you update your profile, you will be redirected back to this page.</p>
 			</form>
 		</div>
 	<div class="clearer"></div>
