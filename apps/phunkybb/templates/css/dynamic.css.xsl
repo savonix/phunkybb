@@ -36,17 +36,33 @@ Fifth Floor, Boston, MA 02110-1301  USA
     border-color: red;
 }
 
-.interbutton
+<xsl:call-template name="thematic-button">
+    <xsl:with-param name="button-name">basic-blue</xsl:with-param>
+    <xsl:with-param name="background-color">#F1F1F1</xsl:with-param>
+    <xsl:with-param name="color">#0066B9</xsl:with-param>
+</xsl:call-template>
+
+</xsl:template>
+
+
+
+<xsl:template name="thematic-button">
+<xsl:param name="button-name"/>
+<xsl:param name="background-color"/>
+<xsl:param name="color"/>
+.button-<xsl:value-of select="$button-name"/>
 {
     padding: .2em .4em;
-    background-color: #F1F1F1;
-    color: blue;
+    background-color: <xsl:value-of select="$background-color"/>;
+    color: <xsl:value-of select="$color"/>;
     font-weight: bold;
     border-style: solid;
     border-width: 1px;
-    border-color: blue;
+    border-color: <xsl:value-of select="$color"/>;
     margin: .5em;
-    cursor: default;
+    cursor: pointer;
 }
+
 </xsl:template>
+
 </xsl:stylesheet>

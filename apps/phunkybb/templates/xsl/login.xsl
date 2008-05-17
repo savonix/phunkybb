@@ -96,7 +96,7 @@ function do_encrypt() {
         </fieldset>
     </div>
     <p>
-        <span id="login_button" class="interbutton disableSelection" onclick="do_encrypt();">Submit</span>
+        <span id="login_button" class="button-basic-blue disableSelection" onclick="do_encrypt();">Submit</span>
         <span id="replace" class="interstatus"></span>
     </p>
 </form>
