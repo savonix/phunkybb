@@ -1,6 +1,6 @@
 <!--
 Program: PhunkyBB
-Component: user_admin.xsl
+Component: dynamic.css.xsl
 Copyright: Savonix Corporation
 Author: Albert L. Lash, IV
 License: Gnu Affero Public License version 3
@@ -22,29 +22,30 @@ or write to the Free Software Foundation,Inc., 51 Franklin Street,
 Fifth Floor, Boston, MA 02110-1301  USA
 -->
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" >
-<xsl:include href="main.xsl"/>
-<xsl:include href="profile_menu.xsl"/>
-<xsl:template name="content">
-<div id="adminconsole" class="block2col">
-    <xsl:call-template name="profile-menu"/>
-	<div class="blockform">
-		<h2><span><xsl:value-of select="//runtime/username"/> - </span></h2>
-		<div class="box">
-			<form id="profile7" method="post">
-				<div class="inform">
-				<input type="hidden" name="form_sent" value="1" />
-					<fieldset>
-						<legend>Delete (administrators only) or ban user</legend>
-						<div class="infldset">
-							<input type="submit" name="delete_user" value="Delete user" /><input type="submit" name="ban" value="Ban user" />
+<xsl:output method="text" indent="yes" encoding="UTF-8" omit-xml-declaration="yes"/>
+<xsl:template match="/">
+.interstatus
+{
+    visibility: hidden;
+    padding: .2em .4em;
+    background-color: pink;
+    color: red;
+    font-weight: bold;
+    border-style: solid;
+    border-width: 1px;
+    border-color: red;
+}
 
-						</div>
-					</fieldset>
-				</div>
-			</form>
-		</div>
-	</div>
-	<div class="clearer"></div>
-</div>
+.interbutton
+{
+    padding: .2em .4em;
+    background-color: #F1F1F1;
+    color: blue;
+    font-weight: bold;
+    border-style: solid;
+    border-width: 1px;
+    border-color: blue;
+    margin: .5em;
+}
 </xsl:template>
 </xsl:stylesheet>

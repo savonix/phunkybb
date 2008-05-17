@@ -28,8 +28,9 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <div id="adminconsole" class="block2col">
     <xsl:call-template name="admin-menu"/>
 	<div class="blockform">
-		<h2><span><xsl:value-of select="//label[key='add']/value"/>/<xsl:value-of select="//label[key='remove']/value"/>/<xsl:value-of select="//label[key='edit_categories']/value"/></span></h2>
+		<h2><span><xsl:value-of select="//label[key='add']/value"/> / <xsl:value-of select="//label[key='remove']/value"/>/<xsl:value-of select="//label[key='edit_categories']/value"/></span></h2>
 		<div class="box">
+            <form>
 			<div class="inform">
 				<fieldset>
 					<legend><xsl:value-of select="//label[key='add']/value"/>/<xsl:value-of select="//label[key='delete_categories']/value"/></legend>
@@ -92,6 +93,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 					</div>
 				</fieldset>
 			</div>
+            </form>
 		</div>
 
 	</div>
