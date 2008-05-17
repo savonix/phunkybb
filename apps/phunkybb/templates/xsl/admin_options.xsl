@@ -31,12 +31,12 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <div class="blockform">
     <h2><xsl:value-of select="//i18n/labels/label[key='options']/value"/></h2>
     <div class="box">
-        <form method="post" action="{//link_prefix}options-submit&amp;view_flow=true">
-            <p class="submittop"><input type="submit" name="save" value="Save Changes"/></p>
+        <form method="post" action="{//link_prefix}options-submit">
+            <p class="submittop">
+                <input type="submit" name="save" value="Save Changes"/>
+            </p>
             <div class="inform">
-            <input type="hidden" name="form_sent" value=""/>
                 <fieldset>
-
                     <legend><xsl:value-of select="//i18n/labels/label[key='essentials']/value"/></legend>
                     <div class="infldset">
                         <table class="aligntop" cellspacing="0">
@@ -44,94 +44,22 @@ Fifth Floor, Boston, MA 02110-1301  USA
                                 <th scope="row"><xsl:value-of select="//label[key='board_title']/value"/></th>
                                 <td>
                                     <input type="text" name="form[o_board_title]" size="50" maxlength="255" value="{//board_config/o_board_title}"/>
-                                    <span><xsl:value-of select="//label[key='title_of_buletine_board']/value"/> <strong><xsl:value-of select="//label[key='not']/value"/></strong> <xsl:value-of select="//label[key='contain_html']/value"/>.</span>
-
+                                    <xsl:value-of select="//label[key='title_of_buletine_board']/value"/> <strong><xsl:value-of select="//label[key='not']/value"/></strong> <xsl:value-of select="//label[key='contain_html']/value"/>.
                                 </td>
                             </tr>
                             <tr>
                                 <th scope="row"><xsl:value-of select="//label[key='board_description']/value"/></th>
                                 <td>
                                     <input type="text" name="form[o_board_desc]" size="50" maxlength="255" value="{//board_config/o_board_desc}"/>
-                                    <span><xsl:value-of select="//label[key='short_description_of_this']/value"/>.</span>
+                                    <xsl:value-of select="//label[key='short_description_of_this']/value"/>.
                                 </td>
-
                             </tr>
                             <tr>
                                 <th scope="row"><xsl:value-of select="//label[key='base_url']/value"/></th>
                                 <td>
                                     <input type="text" name="form[o_base_url]" size="50" maxlength="100" value="{//board_config/o_base_url}"/>
-                                    <span><xsl:value-of select="//label[key='complete_url_of_the_forum']/value"/> <strong><xsl:value-of select="//label[key='must']/value"/></strong> <xsl:value-of select="//label[key='be_correct_in_order']/value"/>.</span>
-
+                                    <xsl:value-of select="//label[key='complete_url_of_the_forum']/value"/> <strong><xsl:value-of select="//label[key='must']/value"/></strong> <xsl:value-of select="//label[key='be_correct_in_order']/value"/>.
                                 </td>
-                            </tr>
-                        </table>
-                    </div>
-                </fieldset>
-            </div>
-            <div class="inform">
-                <fieldset>
-
-                    <legend><xsl:value-of select="//label[key='time_and_timeouts']/value"/></legend>
-                    <div class="infldset">
-                        <table class="aligntop" cellspacing="0">
-                            <tr>
-                                <th scope="row"><xsl:value-of select="//label[key='time_format']/value"/></th>
-                                <td>
-                                    <input type="text" name="form[o_time_format]" size="25" maxlength="25" value="{//board_config/o_time_format}"/>
-                                    <span>[Current format: 12:11:16]See <a href="http://www.php.net/manual/en/function.date.php"><xsl:value-of select="//label[key='here']/value"/></a> <xsl:value-of select="//label[key='for_formatting_options']/value"/>.</span>
-
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row"><xsl:value-of select="//label[key='date_format']/value"/></th>
-                                <td>
-                                    <input type="text" name="form[o_date_format]" size="25" maxlength="25" value="{//board_config/o_date_format}"/>
-                                    <span>[Current format: 2008-03-01]See <a href="http://www.php.net/manual/en/function.date.php"><xsl:value-of select="//label[key='here']/value"/></a> <xsl:value-of select="//label[key='for_formatting_options']/value"/>.</span>
-
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row"><xsl:value-of select="//label[key='visit_timeout']/value"/></th>
-                                <td>
-                                    <input type="text" name="form[o_timeout_visit]" size="5" maxlength="5" value="{//board_config/o_timeout_visit}"/>
-                                    <span><xsl:value-of select="//label[key='number_of_seconds_a_user_last_visit']/value"/>.</span>
-                                </td>
-
-                            </tr>
-                            <tr>
-                                <th scope="row"><xsl:value-of select="//label[key='online_timeout']/value"/></th>
-                                <td>
-                                    <input type="text" name="form[o_timeout_online]" size="5" maxlength="5" value=""/>
-                                    <span><xsl:value-of select="//label[key='number_of_seconds_a_user_idle_before_removed']/value"/>.</span>
-                                </td>
-                            </tr>
-                        </table>
-
-                    </div>
-                </fieldset>
-            </div>
-
-            <div class="inform">
-                <fieldset>
-                    <legend><xsl:value-of select="//label[key='features']/value"/></legend>
-                    <div class="infldset">
-                        <table class="aligntop" cellspacing="0">
-                            <tr>
-                                <th scope="row"><xsl:value-of select="//label[key='quick_post']/value"/></th>
-                                <td>
-
-                                    <input type="radio" name="form[o_quickpost]" value=""/><strong><xsl:value-of select="//label[key='no']/value"/></strong>
-                                    <span><xsl:value-of select="//label[key='when_enabled_punbb']/value"/>.</span>
-                                </td>
-                            </tr>
-                            <tr>
-
-                                <th scope="row"><xsl:value-of select="//label[key='additional_menu_items']/value"/></th>
-                                <td>
-                                    <textarea name="form[o_additional_navlinks]" rows="3" cols="55"></textarea>
-                                    <span><xsl:value-of select="//label[key='by entering html hyperlinks']/value"/> X = &lt;a href="URL"&gt;LINK&lt;/a&gt; <xsl:value-of select="//label[key='x_is_the_position']/value"/>.</span>
-                                </td>
-
                             </tr>
                         </table>
                     </div>
@@ -143,57 +71,51 @@ Fifth Floor, Boston, MA 02110-1301  USA
                     <div class="infldset">
                         <table class="aligntop" cellspacing="0">
                             <tr>
-
                                 <th scope="row"><xsl:value-of select="//label[key='admin_email']/value"/></th>
                                 <td>
                                     <input type="text" name="form[o_admin_email]" size="50" maxlength="50" value="{//board_config/o_admin_email}"/>
-                                    <span><xsl:value-of select="//label[key='email_of_forum_admin']/value"/>.</span>
+                                    <xsl:value-of select="//label[key='email_of_forum_admin']/value"/>.
                                 </td>
                             </tr>
                             <tr>
                                 <th scope="row"><xsl:value-of select="//label[key='webmaster_email']/value"/></th>
-
                                 <td>
                                     <input type="text" name="form[o_webmaster_email]" size="50" maxlength="50" value="{//board_config/o_webmaster_email}"/>
-                                    <span><xsl:value-of select="//label[key='address_all_email_sent_from']/value"/>.</span>
+                                    <br/><xsl:value-of select="//label[key='address_all_email_sent_from']/value"/>.
                                 </td>
                             </tr>
                             <tr>
                                 <th scope="row"><xsl:value-of select="//label[key='subscriptions']/value"/></th>
                                 <td>
-
-                                    <input type="radio" name="form[o_subscriptions]" value="{//board_config/o_subscriptions}"/><strong>No</strong>
-                                    <span><xsl:value-of select="//label[key='enable_users_to_subscribe']/value"/>.</span>
+                                    <input type="radio" name="form[o_subscriptions]" value="{//board_config/o_subscriptions}"/><strong>Yes</strong>
+                                    <br/><input type="radio" name="form[o_subscriptions]" value="{//board_config/o_subscriptions}"/><strong>No</strong>
+                                    <br/><xsl:value-of select="//label[key='enable_users_to_subscribe']/value"/>.
                                 </td>
                             </tr>
                             <tr>
                                 <th scope="row"><xsl:value-of select="//label[key='smtp_server_address']/value"/></th>
                                 <td>
-
                                     <input type="text" name="form[o_smtp_host]" size="30" maxlength="100" value="{//board_config/o_smtp_host}"/>
-                                    <span><xsl:value-of select="//label[key='address_of_external_smtp']/value"/>.</span>
+                                    <xsl:value-of select="//label[key='address_of_external_smtp']/value"/>.
                                 </td>
                             </tr>
                             <tr>
                                 <th scope="row"><xsl:value-of select="//label[key='smtp_username']/value"/></th>
                                 <td>
                                     <input type="text" name="form[o_smtp_user]" size="25" maxlength="50" value="{//board_config/o_smtp_user}"/>
-
-                                    <span><xsl:value-of select="//label[key='username_for_smtp_server']/value"/> <strong><xsl:value-of select="//label[key='do_not']/value"/></strong> <xsl:value-of select="//label[key='require_auth']/value"/>.</span>
+                                    <xsl:value-of select="//label[key='username_for_smtp_server']/value"/>
                                 </td>
                             </tr>
                             <tr>
                                 <th scope="row"><xsl:value-of select="//label[key='smtp_password']/value"/></th>
                                 <td>
-
                                     <input type="text" name="form[o_smtp_pass]" size="25" maxlength="50" value="{//board_config/o_smtp_pass}"/>
-                                    <span><xsl:value-of select="//label[key='password_for_smtp_server']/value"/> <strong><xsl:value-of select="//label[key='do_not']/value"/></strong> <xsl:value-of select="//label[key='require_auth']/value"/>.</span>
+                                    <xsl:value-of select="//label[key='password_for_smtp_server']/value"/>
                                 </td>
                             </tr>
                         </table>
                     </div>
                 </fieldset>
-
             </div>
             <div class="inform">
                 <fieldset>
@@ -205,7 +127,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 
                                 <td>
                                     <input type="radio" name="form[o_regs_allow]" value=""/><strong><xsl:value-of select="//label[key='no']/value"/></strong>
-                                    <span><xsl:value-of select="//label[key='controls_whether_forum_accepts_new_registration']/value"/>.</span>
+                                    <xsl:value-of select="//label[key='controls_whether_forum_accepts_new_registration']/value"/>.
                                 </td>
                             </tr>
                             <tr>
@@ -213,7 +135,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 
                                 <td>
                                     <input type="radio" name="form[o_regs_verify]" value=""/><strong><xsl:value-of select="//label[key='no']/value"/></strong>
-                                    <span><xsl:value-of select="//label[key='when_enabled_users_are_emailed']/value"/>.</span>
+                                    <xsl:value-of select="//label[key='when_enabled_users_are_emailed']/value"/>.
                                 </td>
                             </tr>
                             <tr>
@@ -221,7 +143,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 
                                 <td>
                                     <input type="radio" name="form[o_rules]" value=""/><strong><xsl:value-of select="//label[key='no']/value"/></strong>
-                                    <span><xsl:value-of select="//label[key='when_enabled_users_must']/value"/>.</span>
+                                    <xsl:value-of select="//label[key='when_enabled_users_must']/value"/>.
                                 </td>
                             </tr>
                             <tr>
@@ -229,7 +151,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 
                                 <td>
                                     <textarea name="form[o_rules_message]" rows="10" cols="55"><xsl:value-of select="//label[key='enter_rules_here']/value"/>.</textarea>
-                                    <span><xsl:value-of select="//label[key='here_you_can_enter_any_rules']/value"/>.</span>
+                                    <xsl:value-of select="//label[key='here_you_can_enter_any_rules']/value"/>.
                                 </td>
                             </tr>
                         </table>

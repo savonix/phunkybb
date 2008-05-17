@@ -1872,15 +1872,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
         </label>
         <label>
             <key>username_for_smtp_server</key>
-            <value>Username for SMTP server. Only enter a username if it is required by the SMTP server (most servers</value>
-        </label>
-        <label>
-            <key>do_not</key>
-            <value> do not </value>
-        </label>
-        <label>
-            <key>require_auth</key>
-            <value>require authentication)</value>
+            <value>Username for SMTP server.</value>
         </label>
         <label>
             <key>smtp_password</key>
@@ -1888,7 +1880,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
         </label>
         <label>
             <key>password_for_smtp_server</key>
-            <value>Password for SMTP server. Only enter a password if it is required by the SMTP server (most servers</value>
+            <value>Password for SMTP server.</value>
         </label>
         <label>
             <key>registration</key>

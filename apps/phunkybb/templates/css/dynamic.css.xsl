@@ -24,6 +24,14 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" >
 <xsl:output method="text" indent="yes" encoding="UTF-8" omit-xml-declaration="yes"/>
 <xsl:template match="/">
+.infldset table tr td input[type="radio"]
+{
+    margin: 4px;
+}
+.infldset input[type="text"]
+{
+    display: block;
+}
 .interstatus
 {
     visibility: hidden;
