@@ -1448,6 +1448,14 @@ Fifth Floor, Boston, MA 02110-1301  USA
             <key>register</key>
             <value>Register</value>
         </label>
+        <label>
+            <key>working</key>
+            <value>Working</value>
+        </label>
+        <label>
+            <key>registration_error</key>
+            <value>Registration Error</value>
+        </label>
         
         <label>
             <key>username_censor</key>

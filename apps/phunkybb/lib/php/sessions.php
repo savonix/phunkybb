@@ -74,7 +74,7 @@ if(isset($_SESSION['NX_AUTH']['requestedUrl']) && (!$_SESSION['NX_AUTH']['reques
     $redirect = Nexista_Config::get("//build/default");
 }
 
-if($_GET['nid']=="ajax-check")
+if($_GET['nid']=="x-login")
 {
     echo '<result>Success</result>';
     exit;

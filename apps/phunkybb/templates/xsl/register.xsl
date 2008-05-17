@@ -51,9 +51,9 @@ $(document).ready(function()
 });
 
 function do_encrypt() {
-
+    $('span#replace').html("<xsl:value-of select="//label[key='working']/value"/>...");
     if(validateStandard(this))
-        {
+    {
         var myform = document.forms["register"];
         var rsa = new RSAKey();
         rsa.setPublic(linebrk(myform.id_rsa_pub.value,64), myform.e.value);
@@ -66,23 +66,18 @@ function do_encrypt() {
         },
         function (data){
             var myResult = $("result",data).text();
-            $('div#replace').html(myResult);
+            $('span#replace').html(myResult);
         });
     } else {
         var myResult = $("result",data).text();
-        $('div#replace').html(myResult);
+        $('span#replace').html(myResult);
     }
 }
 </script>
 <div class="blockform">
 <h2><span><xsl:value-of select="//label[key='register']/value"/></span></h2>
 <div class="box">
-    <div id="replace"></div>
-    <form id="register" name="register" method="post" onSubmit="do_encrypt(); return false;"
-        action="{//link_prefix}register">
-        <!--
-        <input type="text" name="replace" value=""/>
-        -->
+    <form id="register" name="register" method="post" onSubmit="do_encrypt(); return false;">
         <input type="hidden" name="id_rsa_pub" value=""/>
         <input type="hidden" name="e" value=""/>
         <div class="inform">
@@ -119,7 +114,10 @@ function do_encrypt() {
                 </div>
             </fieldset>
         </div>
-        <p><input type="submit" name="register" value="Register"/></p>
+        <p>
+            <input type="submit" name="register" value="Register"/>
+            <span id="replace"></span>
+        </p>
     </form>
 </div>
 </div>

@@ -42,6 +42,9 @@ $(document).ready(function()
 });
 
 function do_encrypt() {
+    $('span#replace').css("visibility","visible");
+    $('span#replace').html("<xsl:value-of select="//label[key='working']/value"/>...");
+
     var myform = document.forms["mlogin"];
     var rsa = new RSAKey();
     rsa.setPublic(linebrk(myform.id_rsa_pub.value,64), myform.e.value);
@@ -54,10 +57,10 @@ function do_encrypt() {
         'my_tz_offset': myform.my_tz_offset.value
     },
     function (data){
-        if($("result",data).text()=='Success') {
+        var myResult = $("result",data).text();
+        $('span#replace').html(myResult);
+        if(myResult=='Success') {
             window.location = '<xsl:value-of select="//link_prefix"/>index';
-        } else {
-            document.getElementById("failure").style.visibility = "visible";
         }
     });
 }
@@ -90,14 +93,10 @@ function do_encrypt() {
             </div>
         </fieldset>
     </div>
-    <p><input type="submit" name="login" value="Login" tabindex="3" /></p>
-<xsl:if test="//debug">
-<input type="text" name="my_tz_offset_debug" value=""/>
-<br/>
-<textarea style="width: 100%; height: 200px;">
-
-</textarea>
-</xsl:if>
+    <p>
+        <span id="login_button" class="interbutton" onclick="do_encrypt();">Submit</span>
+        <span id="replace" class="interstatus"></span>
+    </p>
 </form>
 
 </div>

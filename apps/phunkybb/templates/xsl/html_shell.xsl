@@ -37,10 +37,11 @@ doctype-system="http://www.w3.org/TR/html4/loose.dtd"/>
             : <xsl:value-of select="//topic_get_by_id/subject"/>
         </xsl:if>
     </title>
-    <link rel="stylesheet" type="text/css" href="s/style/Oxygen.css" />
+    <link rel="stylesheet" type="text/css" href="s/style/Oxygen.css"/>
     <xsl:if test="//runtime/username">
-    <link rel="stylesheet" type="text/css" href="s/style/imports/base_admin.css" />
+    <link rel="stylesheet" type="text/css" href="s/style/imports/base_admin.css"/>
     </xsl:if>
+    <link rel="stylesheet" type="text/css" href="{//link_prefix}dynamic-css"/>
     <script type="text/javascript" src="{//path_prefix}/s/js/jquery/jquery.js"></script>
     <script type="text/javascript" src="{//path_prefix}s/js/jquery/plugins/jquery.cookiejar.js"></script>
     <script type="text/javascript" src="{//path_prefix}/s/js/jquery/plugins/jquery.tablesorter.min.js"></script>

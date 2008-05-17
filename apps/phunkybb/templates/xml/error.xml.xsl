@@ -1,6 +1,6 @@
 <!--
 Program: PhunkyBB
-Component: error.xsl
+Component: error.xml.xsl
 Copyright: Savonix Corporation
 Author: Albert L. Lash, IV
 License: Gnu Affero Public License version 3
@@ -24,6 +24,8 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" >
 <xsl:output method="xml" indent="yes" encoding="UTF-8" omit-xml-declaration="no"/>
 <xsl:template match="/">
-<result>error</result>
+<result>
+    error
+</result>
 </xsl:template>
 </xsl:stylesheet>
