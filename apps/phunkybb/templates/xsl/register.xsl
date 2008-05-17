@@ -48,6 +48,9 @@ $(document).ready(function()
     var myform = document.forms["register"];
     myform.id_rsa_pub.value="<xsl:value-of select="//defaults/modulus"/>";
     myform.e.value="10001";
+    $(function() {
+        $('#register_button').disableTextSelect();
+    });
 });
 
 function do_encrypt() {
@@ -77,8 +80,7 @@ function do_encrypt() {
             }
         });
     } else {
-        var myResult = $("result",data).text();
-        $('span#replace').html(myResult);
+        $('span#replace').html("<xsl:value-of select="//label[key='invalid_registration']/value"/>");
     }
 }
 </script>
@@ -122,7 +124,7 @@ function do_encrypt() {
             </fieldset>
         </div>
         <p>
-        <span id="login_button" class="button-basic-blue disableSelection" onclick="do_encrypt();">Submit</span>
+        <span id="register_button" class="button-basic-blue disableSelection" onclick="do_encrypt();">Submit</span>
         <span id="replace" class="interstatus"></span>
         <noscript><span id="replace" class="interstatus">Javascript must be enabled to register.</span></noscript>
         </p>
