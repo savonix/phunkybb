@@ -35,9 +35,9 @@ Fifth Floor, Boston, MA 02110-1301  USA
                 <legend><xsl:value-of select="//label[key='write_your_message']/value"/></legend>
                 <div class="infldset txtarea">
                     <label><strong><xsl:value-of select="//label[key='subject']/value"/></strong><br />
-                    <input class="longinput" type="text" name="subject" tabindex="1" /><br /></label>
+                    <input class="longinput" type="text" name="subject" /><br /></label>
                     <label><strong><xsl:value-of select="//label[key='message']/value"/></strong><br />
-                    <textarea name="message" rows="20" cols="95" tabindex="2"></textarea><br /></label>
+                    <textarea name="message" rows="20" cols="95"></textarea><br /></label>
                 </div>
             </fieldset>
         </div>
@@ -47,7 +47,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
                 <div class="infldset">
                     <div class="rbox">
                     <label>
-                    <input type="checkbox" name="subscribe" value="1" tabindex="4" />
+                    <input type="checkbox" name="subscribe" value="1" />
                     <xsl:value-of select="//label[key='subscribe']/value"/><br />
                     </label>
                     </div>
@@ -55,8 +55,8 @@ Fifth Floor, Boston, MA 02110-1301  USA
             </fieldset>
         </div>
         <p>
-            <input type="submit" name="submit" value="Submit" tabindex="5" accesskey="s" />
-            <input type="submit" name="preview" value="Preview" tabindex="6" accesskey="p" />
+            <input type="submit" name="submit" value="Submit" accesskey="s" />
+            <input type="submit" name="preview" value="Preview" accesskey="p" />
             <a href="{//link_prefix}" onclick="history.go(-1);">
                 <xsl:value-of select="//label[key='go_back']/value"/>
             </a>

@@ -40,9 +40,9 @@ Fifth Floor, Boston, MA 02110-1301  USA
                             <input type="hidden" name="action" value="add_cat"/>
 							<tr>
 								<th scope="row"><xsl:value-of select="//label[key='add_a_new_category']/value"/><div>
-                                <input type="submit" name="add_cat" value="Add New" tabindex="2" /></div></th>
+                                <input type="submit" name="add_cat" value="Add New" /></div></th>
 								<td>
-									<input type="text" name="new_cat_name" size="35" maxlength="80" tabindex="1" />
+									<input type="text" name="new_cat_name" size="35" maxlength="80" />
 									<span><xsl:value-of select="//label[key='name_of_new_category']/value"/> <a href="{//link_prefix}forums"><xsl:value-of select="//label[key='forums']/value"/></a> <xsl:value-of select="//label[key='to_add_forums']/value"/>.</span>
 
 								</td>
@@ -52,9 +52,9 @@ Fifth Floor, Boston, MA 02110-1301  USA
                             <input type="hidden" name="action" value="del_cat"/>
 							<tr>
 								<th scope="row"><xsl:value-of select="//label[key='delete_a_category']/value"/><div>
-                                <input type="submit" name="del_cat" value="Delete" tabindex="4" /></div></th>
+                                <input type="submit" name="del_cat" value="Delete" /></div></th>
 								<td>
-									<select name="cat_to_delete" tabindex="3">
+									<select name="cat_to_delete">
                                         <xsl:for-each select="//categories_get_all">
 										<option value="{cid}"><xsl:value-of select="cat_name"/></option>
                                         </xsl:for-each>

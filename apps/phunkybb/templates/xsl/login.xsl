@@ -83,15 +83,15 @@ function do_encrypt() {
             <legend><xsl:value-of select="//label[key='enter_username']/value"/></legend>
             <div class="infldset">
             <label class="conl"><strong><xsl:value-of select="//label[key='username']/value"/></strong><br/>
-            <input type="text" name="username" tabindex="1" /><br/>
+            <input type="text" name="username" /><br/>
             </label>
 
             <label class="conl"><strong><xsl:value-of select="//label[key='password']/value"/></strong><br/>
-            <input type="password" name="password" tabindex="2"/><br/>
+            <input type="password" name="password"/><br/>
             </label>
 
-            <p><a href="{//link_prefix}register" tabindex="4"><xsl:value-of select="//label[key='not_registered_yet']/value"/>?</a>
-            <div style="visibility: hidden;" id="failure"><a href="" tabindex="5">Forgotten your password?</a></div>
+            <p><a href="{//link_prefix}register"><xsl:value-of select="//label[key='not_registered_yet']/value"/>?</a>
+            <div style="visibility: hidden;" id="failure"><a href="">Forgotten your password?</a></div>
             </p>
             </div>
         </fieldset>
