@@ -1,6 +1,6 @@
 <!--
 Program: PhunkyBB
-Component: post.xsl
+Component: post_edit.xsl
 Copyright: Savonix Corporation
 Author: Albert L. Lash, IV
 License: Gnu Affero Public License version 3
@@ -25,19 +25,16 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <xsl:include href="main.xsl"/>
 <xsl:template name="content">
 <div class="blockform">
-<h2><xsl:value-of select="//label[key='post_new_topic']/value"/></h2>
+<h2><xsl:value-of select="//label[key='edit_post']/value"/></h2>
 <div class="box">
     <form id="post" method="post" action="{//link_prefix}topic-submit">
-        <input type="hidden" name="fid" value="{//_get/fid}"/>
-        <input type="hidden" name="forum_id" value="{//_get/fid}"/>
+        <input type="hidden" name="post_id" value="{//_get/post_id}"/>
         <div class="inform">
             <fieldset>
                 <legend><xsl:value-of select="//label[key='write_your_message']/value"/></legend>
                 <div class="infldset txtarea">
-                    <label><strong><xsl:value-of select="//label[key='subject']/value"/></strong><br/>
-                    <input class="longinput" type="text" name="subject"/><br/></label>
                     <label><strong><xsl:value-of select="//label[key='message']/value"/></strong><br/>
-                    <textarea name="message" rows="20" cols="95"></textarea><br/></label>
+                    <textarea name="message" rows="20" cols="95"><xsl:value-of select="//post_get_by_id/message"/></textarea><br/></label>
                 </div>
             </fieldset>
         </div>
@@ -57,11 +54,9 @@ Fifth Floor, Boston, MA 02110-1301  USA
         <p>
             <input type="submit" name="submit" value="Submit"/>
             <input type="submit" name="preview" value="Preview"/>
-            <a href="{//link_prefix}welcome" onclick="history.go(-1);">
+            <a href="{//link_prefix}" onclick="history.go(-1);">
                 <xsl:value-of select="//label[key='go_back']/value"/>
             </a>
-            
-<span class="button-basic-black disableSelection">Submit</span>
         </p>
     </form>
 </div>
