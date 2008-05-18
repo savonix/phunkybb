@@ -1,0 +1,27 @@
+PHUNKYBB
+========
+
+Summary
+-------
+
+
+Requirements
+------------
+* Nexista
+* PHP
+* Database - SQLite, MySQL, Postgres (only MySQL tested at this point)
+* PEAR: MDB2, BBCode, php5 mcrypt, and more
+
+
+Installation
+------------
+
+
+Usage
+-----
+Its a forum. Post stuff.
+
+
+Credits
+-------
+Punbb developers wrote a great forum application which is the basis for PhunkyBB.
