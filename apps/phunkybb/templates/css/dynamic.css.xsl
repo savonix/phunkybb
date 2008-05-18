@@ -44,6 +44,14 @@ Fifth Floor, Boston, MA 02110-1301  USA
     border-color: red;
 }
 
+
+<xsl:if test="//path_prefix='/demo/'">
+.webads iframe {
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+</xsl:if>
+
 <xsl:call-template name="thematic-button">
     <xsl:with-param name="button-name">basic-blue</xsl:with-param>
     <xsl:with-param name="background-color">#F1F1F1</xsl:with-param>
@@ -81,5 +89,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
     cursor: pointer;
 }
 </xsl:template>
+
+
 
 </xsl:stylesheet>
