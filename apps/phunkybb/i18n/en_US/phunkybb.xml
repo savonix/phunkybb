@@ -219,6 +219,10 @@ Fifth Floor, Boston, MA 02110-1301  USA
             <value>The e-mail address you entered is invalid.</value>
         </label>
         <label>
+            <key>invalid_registration</key>
+            <value>The registration information you entered is invalid.</value>
+        </label>
+        <label>
             <key>required_field</key>
             <value>is a required field in this form.</value>
         </label>

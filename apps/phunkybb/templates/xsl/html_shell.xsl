@@ -44,7 +44,7 @@ doctype-system="http://www.w3.org/TR/html4/loose.dtd"/>
     <link rel="stylesheet" type="text/css" href="{//link_prefix}dynamic-css"/>
     <script type="text/javascript" src="{//path_prefix}/s/js/jsval.js"></script>
     <script type="text/javascript" src="{//path_prefix}/s/js/jquery/jquery.js"></script>
-    <script type="text/javascript" src="{//path_prefix}s/js/jquery/plugins/jquery.disabletextselect.js"></script>
+    <script type="text/javascript" src="{//path_prefix}/s/js/jquery/plugins/jquery.disabletextselect.js"></script>
     <script type="text/javascript" src="{//path_prefix}/s/js/jquery/plugins/jquery.tablesorter.min.js"></script>
     <script type="text/javascript" src="{//path_prefix}/s/js/jquery/plugins/jquery.tablesorter.pager.js"></script>
 <xsl:for-each select="//in_head">

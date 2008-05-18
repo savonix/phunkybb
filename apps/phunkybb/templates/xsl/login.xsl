@@ -100,6 +100,7 @@ function do_encrypt() {
         <span id="login_button" class="button-basic-blue disableSelection" onclick="do_encrypt();">Submit</span>
         <span id="replace" class="interstatus"></span>
         <noscript><span id="replace" class="interstatus">Javascript must be enabled to log in.</span></noscript>
+        <input type="submit" style="visibility: hidden;"/>
     </p>
 </form>
 

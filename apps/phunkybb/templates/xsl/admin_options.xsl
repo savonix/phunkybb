@@ -87,8 +87,8 @@ Fifth Floor, Boston, MA 02110-1301  USA
                             <tr>
                                 <th scope="row"><xsl:value-of select="//label[key='subscriptions']/value"/></th>
                                 <td>
-                                    <input type="radio" name="form[o_subscriptions]" value="{//board_config/o_subscriptions}"/><strong>Yes</strong>
-                                    <br/><input type="radio" name="form[o_subscriptions]" value="{//board_config/o_subscriptions}"/><strong>No</strong>
+                                    <input type="radio" name="form[o_subscriptions]" value="yes"/><strong>Yes</strong>
+                                    <br/><input type="radio" name="form[o_subscriptions]" value="no"/><strong>No</strong>
                                     <br/><xsl:value-of select="//label[key='enable_users_to_subscribe']/value"/>.
                                 </td>
                             </tr>
@@ -126,24 +126,27 @@ Fifth Floor, Boston, MA 02110-1301  USA
                                 <th scope="row"><xsl:value-of select="//label[key='allow_new_registration']/value"/></th>
 
                                 <td>
-                                    <input type="radio" name="form[o_regs_allow]" value=""/><strong><xsl:value-of select="//label[key='no']/value"/></strong>
-                                    <xsl:value-of select="//label[key='controls_whether_forum_accepts_new_registration']/value"/>.
+                                    <input type="radio" name="form[o_regs_allow]" value="yes"/><strong>Yes</strong>
+                                    <br/><input type="radio" name="form[o_regs_allow]" value="no"/><strong>No</strong>
+                                    <br/><xsl:value-of select="//label[key='controls_whether_forum_accepts_new_registration']/value"/>.
                                 </td>
                             </tr>
                             <tr>
                                 <th scope="row"><xsl:value-of select="//label[key='verify_registrations']/value"/></th>
 
                                 <td>
-                                    <input type="radio" name="form[o_regs_verify]" value=""/><strong><xsl:value-of select="//label[key='no']/value"/></strong>
-                                    <xsl:value-of select="//label[key='when_enabled_users_are_emailed']/value"/>.
+                                    <input type="radio" name="form[o_regs_verify]" value="yes"/><strong>Yes</strong>
+                                    <br/><input type="radio" name="form[o_regs_verify]" value="no"/><strong>No</strong>
+                                    <br/><xsl:value-of select="//label[key='when_enabled_users_are_emailed']/value"/>.
                                 </td>
                             </tr>
                             <tr>
                                 <th scope="row"><xsl:value-of select="//label[key='use_forum_rules']/value"/></th>
 
                                 <td>
-                                    <input type="radio" name="form[o_rules]" value=""/><strong><xsl:value-of select="//label[key='no']/value"/></strong>
-                                    <xsl:value-of select="//label[key='when_enabled_users_must']/value"/>.
+                                    <input type="radio" name="form[o_rules]" value="yes"/><strong>Yes</strong>
+                                    <br/><input type="radio" name="form[o_rules]" value="no"/><strong>No</strong>
+                                    <br/><xsl:value-of select="//label[key='when_enabled_users_must']/value"/>.
                                 </td>
                             </tr>
                             <tr>
@@ -158,7 +161,9 @@ Fifth Floor, Boston, MA 02110-1301  USA
                     </div>
                 </fieldset>
             </div>
-            <p class="submitend"><input type="submit" name="save" value="Save Changes"/></p>
+            <p class="submitend">
+                <input type="submit" name="save" value="Save Changes"/>
+            </p>
         </form>
     </div>
 </div>
