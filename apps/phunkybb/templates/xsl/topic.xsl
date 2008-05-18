@@ -118,8 +118,9 @@ function delete_topic(topic_id) {
 			<div class="clearer"></div>
 			<div class="postfootright"><div>
                 <xsl:if test="//runtime/group_id=1 or poster=//runtime/username">
-                    <a href="{//link_prefix}post-edit&amp;post_id={id}"><xsl:value-of select="//label[key='edit']/value"/></a>&#160;
-                    <a href="{//link_prefix}x-post-delete&amp;post_id={id}" 
+                    <a href="{//link_prefix}post-edit&amp;post_id={id}">
+                        <xsl:value-of select="//label[key='edit']/value"/></a>&#160;
+                    <a href="{//link_prefix}x-post-delete&amp;post_id={id}"
                         onclick="delete_post({id}); return false;">
                         <xsl:value-of select="//label[key='delete']/value"/>
                     </a>
@@ -133,7 +134,7 @@ function delete_topic(topic_id) {
 <!-- Reply -->
 <xsl:if test="//runtime/username">
 <div class="blockform">
-	<h2><span><xsl:value-of select="//label[key='quick_post']/value"/></span></h2>
+	<h2><xsl:value-of select="//label[key='quick_post']/value"/></h2>
 	<div class="box">
 		<form method="post" action="{//link_prefix}post&amp;tid={//_get/id}">
 			<div class="inform">
