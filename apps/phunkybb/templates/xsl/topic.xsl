@@ -47,7 +47,7 @@ function delete_topic(topic_id) {
         'topic_id': topic_id
     },
     function (data){
-        window.location ='<xsl:value-of select="//link_prefix"/>index';
+        window.location ='<xsl:value-of select="//link_prefix"/>welcome';
     });
     }
 }
@@ -68,7 +68,7 @@ function delete_topic(topic_id) {
         </xsl:if>
         </p>
 		<ul>
-            <li><a href="{//link_prefix}index">
+            <li><a href="{//link_prefix}welcome">
                 <xsl:value-of select="//label[key='index']/value"/>
                 </a></li>
             <li>&#160; &gt; &#160;

@@ -39,7 +39,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
         </xsl:if>
 		<ul>
             <li>
-                <a href="{//link_prefix}index">
+                <a href="{//link_prefix}welcome">
                     <xsl:value-of select="//label[key='index']/value"/>
                 </a>&#160;
             </li>
@@ -116,7 +116,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
         </xsl:if>
 		<ul>
             <li>
-                <a href="{//link_prefix}index">
+                <a href="{//link_prefix}welcome">
                 <xsl:value-of select="//label[key='index']/value"/>
                 </a>&#160;
             </li>
