@@ -27,7 +27,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <xsl:include href="footer.xsl"/>
 <xsl:template name="main">
 <div id="punwrap">
-<div id="" class="pun">
+<div class="pun">
 <xsl:call-template name="main-menu"/>
 
 <div class="blocktable">

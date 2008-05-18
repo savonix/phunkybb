@@ -39,7 +39,8 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <script type="text/javascript">
 function delete_user(user_id,row) {
     if(confirm('Are you sure?')){
-    $.post("<xsl:value-of select="//link_prefix"/>x-user-delete&amp;user_id="+user_id, {'user_id': user_id}, 
+    $.post("<xsl:value-of select="//link_prefix"/>x-user-delete&amp;user_id="+user_id,
+    {'user_id': user_id},
     function (data){
     });
     myTable = document.getElementById("users_table");
@@ -73,9 +74,9 @@ function delete_user(user_id,row) {
             </tbody>
         </table>
         </div>
-            <xsl:call-template name="pager">
-                <xsl:with-param name="my-table">users_table</xsl:with-param>
-            </xsl:call-template>
+        <xsl:call-template name="pager">
+            <xsl:with-param name="my-table">users_table</xsl:with-param>
+        </xsl:call-template>
         <br/>
     </div>
 </div>

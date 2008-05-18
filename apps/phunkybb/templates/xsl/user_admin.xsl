@@ -34,10 +34,9 @@ Fifth Floor, Boston, MA 02110-1301  USA
 				<div class="inform">
 				<input type="hidden" name="form_sent" value="1"/>
 					<fieldset>
-						<legend>Delete (administrators only) or ban user</legend>
+						<legend>Delete (administrators only)</legend>
 						<div class="infldset">
-							<input type="submit" name="delete_user" value="Delete user"/><input type="submit" name="ban" value="Ban user"/>
-
+							<input type="submit" name="delete_user" value="Delete user"/>
 						</div>
 					</fieldset>
 				</div>
