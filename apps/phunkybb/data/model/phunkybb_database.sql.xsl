@@ -25,7 +25,6 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <xsl:output method="text" indent="yes" encoding="UTF-8" omit-xml-declaration="yes"/>
 <xsl:template match="/">
 
-
 CREATE TABLE IF NOT EXISTS `<xsl:value-of select="//table_prefix"/>categories` (
   `id` int(10) unsigned NOT NULL auto_increment,
   `cat_name` varchar(80) NOT NULL default 'New Category',
@@ -33,13 +32,11 @@ CREATE TABLE IF NOT EXISTS `<xsl:value-of select="//table_prefix"/>categories` (
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
-
 CREATE TABLE IF NOT EXISTS `<xsl:value-of select="//table_prefix"/>config` (
   `conf_name` varchar(255) NOT NULL default '',
   `conf_value` text,
   PRIMARY KEY  (`conf_name`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-
 
 
 CREATE TABLE IF NOT EXISTS `<xsl:value-of select="//table_prefix"/>forums` (
@@ -59,17 +56,6 @@ CREATE TABLE IF NOT EXISTS `<xsl:value-of select="//table_prefix"/>forums` (
   PRIMARY KEY  (`id`),
   KEY `<xsl:value-of select="//table_prefix"/>forum_cat_id_idx` (`cat_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
-
-
-
-CREATE TABLE IF NOT EXISTS `<xsl:value-of select="//table_prefix"/>forum_perms` (
-  `group_id` int(10) NOT NULL default '0',
-  `forum_id` int(10) NOT NULL default '0',
-  `read_forum` tinyint(1) NOT NULL default '1',
-  `post_replies` tinyint(1) NOT NULL default '1',
-  `post_topics` tinyint(1) NOT NULL default '1',
-  PRIMARY KEY  (`group_id`,`forum_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 
 CREATE TABLE IF NOT EXISTS `<xsl:value-of select="//table_prefix"/>groups` (
@@ -94,16 +80,6 @@ CREATE TABLE IF NOT EXISTS `<xsl:value-of select="//table_prefix"/>groups` (
 
 
 
-CREATE TABLE IF NOT EXISTS `<xsl:value-of select="//table_prefix"/>online` (
-  `user_id` int(10) unsigned NOT NULL default '1',
-  `ident` varchar(200) NOT NULL default '',
-  `logged` int(10) unsigned NOT NULL default '0',
-  `idle` tinyint(1) NOT NULL default '0',
-  UNIQUE KEY `<xsl:value-of select="//table_prefix"/>online_user_id_ident_idx` (`user_id`,`ident`),
-  KEY `<xsl:value-of select="//table_prefix"/>online_user_id_idx` (`user_id`)
-) ENGINE=MEMORY DEFAULT CHARSET=latin1;
-
-
 CREATE TABLE IF NOT EXISTS `<xsl:value-of select="//table_prefix"/>posts` (
   `id` int(10) unsigned NOT NULL auto_increment,
   `poster` varchar(200) NOT NULL default '',
@@ -120,16 +96,6 @@ CREATE TABLE IF NOT EXISTS `<xsl:value-of select="//table_prefix"/>posts` (
   KEY `<xsl:value-of select="//table_prefix"/>posts_topic_id_idx` (`topic_id`),
   KEY `<xsl:value-of select="//table_prefix"/>posts_multi_idx` (`poster_id`,`topic_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
-
-
-
-
-CREATE TABLE IF NOT EXISTS `<xsl:value-of select="//table_prefix"/>ranks` (
-  `id` int(10) unsigned NOT NULL auto_increment,
-  `rank` varchar(50) NOT NULL default '',
-  `min_posts` mediumint(8) unsigned NOT NULL default '0',
-  PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 
 CREATE TABLE IF NOT EXISTS `<xsl:value-of select="//table_prefix"/>subscriptions` (
@@ -165,25 +131,11 @@ CREATE TABLE IF NOT EXISTS `<xsl:value-of select="//table_prefix"/>users` (
   `username` varchar(200) NOT NULL default '',
   `password` varchar(40) NOT NULL default '',
   `email` varchar(50) NOT NULL default '',
-  `title` varchar(50) default NULL,
-  `realname` varchar(40) default NULL,
   `url` varchar(100) default NULL,
   `location` varchar(30) default NULL,
   `use_avatar` tinyint(1) NOT NULL default '0',
   `signature` text,
-  `disp_topics` tinyint(3) unsigned default NULL,
-  `disp_posts` tinyint(3) unsigned default NULL,
   `email_setting` tinyint(1) NOT NULL default '1',
-  `save_pass` tinyint(1) NOT NULL default '1',
-  `notify_with_post` tinyint(1) NOT NULL default '0',
-  `show_smilies` tinyint(1) NOT NULL default '1',
-  `show_img` tinyint(1) NOT NULL default '1',
-  `show_img_sig` tinyint(1) NOT NULL default '1',
-  `show_avatars` tinyint(1) NOT NULL default '1',
-  `show_sig` tinyint(1) NOT NULL default '1',
-  `timezone` float NOT NULL default '0',
-  `language` varchar(25) NOT NULL default 'English',
-  `style` varchar(25) NOT NULL default 'Oxygen',
   `num_posts` int(10) unsigned NOT NULL default '0',
   `last_post` int(10) unsigned default NULL,
   `registered` int(10) unsigned NOT NULL default '0',
