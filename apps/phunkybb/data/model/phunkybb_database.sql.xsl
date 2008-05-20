@@ -166,14 +166,9 @@ INSERT INTO `<xsl:value-of select="//table_prefix"/>groups` (`g_id`, `g_title`, 
 (4, 'Members', NULL, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 300, 60, 30);
 
 
-INSERT INTO `<xsl:value-of select="//table_prefix"/>ranks` (`id`, `rank`, `min_posts`) VALUES
-(1, 'New member', 0),
-(2, 'Member', 10);
 
-
-INSERT INTO `<xsl:value-of select="//table_prefix"/>users` (`id`, `group_id`, `username`, `password`, `email`, `title`, `realname`, `url`,`location`, `use_avatar`, `signature`, `disp_topics`, `disp_posts`, `email_setting`, `save_pass`, `notify_with_post`, `show_smilies`, `show_img`, `show_img_sig`, `show_avatars`, `show_sig`, `timezone`, `language`, `style`, `num_posts`, `last_post`, `registered`, `registration_ip`, `last_visit`, `admin_note`, `activate_string`, `activate_key`) VALUES
-(1, 3, 'Guest', 'Guest', 'Guest',NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL, 1, 1, 0, 1, 1, 1, 1, 1, 0, 'English', 'Oxygen', 0, NULL, 0, '0.0.0.0', 0, NULL, NULL, NULL),
-(2, 1, '<xsl:value-of select="//admin"/>', '<xsl:value-of select="//password"/>', '<xsl:value-of select="//email"/>',NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL, 1, 1, 0, 1, 1, 1, 1, 1, -5, 'English', 'Oxygen', 23, 1206375054, 1194536945, '127.0.0.1', 1210736221, NULL, NULL, "active");
+INSERT INTO `<xsl:value-of select="//table_prefix"/>users` (`id`, `group_id`, `username`, `password`, `email`,`activate_key`) VALUES
+(2, 1, '<xsl:value-of select="//admin"/>', '<xsl:value-of select="//password"/>', '<xsl:value-of select="//email"/>',"active");
 
 </xsl:template>
 </xsl:stylesheet>

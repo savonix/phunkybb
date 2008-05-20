@@ -25,16 +25,13 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <query name="forum_get_by_id">
     <connection>&connection_read;</connection>
     <params>
-        <param name="//runtime/group_id" type="text" default="0"/>
         <param name="//_get/fid" type="text" default="0"/>
 	</params>
     <sql>
-        SELECT f.forum_name, f.redirect_url, f.moderators, f.num_topics, f.sort_by, fp.post_topics 
+        SELECT f.forum_name
         
         FROM &prefix;forums AS f 
         
-        LEFT JOIN &prefix;forum_perms AS fp ON (fp.forum_id=f.id AND fp.group_id=?) 
-        
-        WHERE (fp.read_forum IS NULL OR fp.read_forum=1) AND f.id=?
+        WHERE f.id=?
     </sql>
 </query>
