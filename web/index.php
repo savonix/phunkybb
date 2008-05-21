@@ -1,7 +1,7 @@
 <?php
 
 // Configuration 
-// Where is nexista? This path should be to a folder which contains a folder called "nexista"
+// Where is nexista? This path should be to a folder containing the nexista source 
 $nexista_path = "/var/www/dev/nexista/";
 
 // Bad hack
@@ -9,22 +9,26 @@ if(!strpos($_SERVER['REQUEST_URI'],'.php')) {
     header("Location: ".$_SERVER['REQUEST_URI']."index.php");
     exit;
 }
-
 $server_name = $_SERVER['SERVER_NAME'];
 define('SERVER_NAME',$server_name);
 $project_root = dirname(dirname(__FILE__));
+$project_root = str_replace('\\','/',$project_root);
 define('PROJECT_ROOT',$project_root);
 define('PROJECT_NAME','phunkybb');
 define('APP_NAME','phunkybb');
 
-$server_init = "/dev/shm/".SERVER_NAME."/".APP_NAME."/".APP_NAME.".php";
+$server_init = PROJECT_ROOT."/cache/".SERVER_NAME."/".APP_NAME."/".APP_NAME.".php";
 
 
+    
+    
+    
 
 if(!include($nexista_path.'/plugins/builder.php')) {
     echo "Error: Unable to load server loader or builder.";
     exit;
 }
+
 
 
 
