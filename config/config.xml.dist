@@ -79,7 +79,7 @@
 
         <prepend>&project_root;/lib/php/prepend.php</prepend>
         <!-- enter a gate name for missing when there is no match -->
-        <missing>index</missing>
+        <missing>install</missing>
         <!-- this needs the relative url, not the gate -->
         <default>index.php?nid=index</default>
         <query>nid</query>

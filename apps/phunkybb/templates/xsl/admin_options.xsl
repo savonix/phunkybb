@@ -87,8 +87,19 @@ Fifth Floor, Boston, MA 02110-1301  USA
                             <tr>
                                 <th scope="row"><xsl:value-of select="//label[key='subscriptions']/value"/></th>
                                 <td>
-                                    <input type="radio" name="form[o_subscriptions]" value="yes"/><strong>Yes</strong>
-                                    <br/><input type="radio" name="form[o_subscriptions]" value="no"/><strong>No</strong>
+                                    <input type="radio" name="form[o_subscriptions]" value="yes">
+                                        <xsl:if test="//board_config/o_subscriptions='yes'">
+                                            <xsl:attribute name="checked">true</xsl:attribute>
+                                        </xsl:if>
+                                    </input>
+                                    <strong>Yes</strong>
+                                    <br/>
+                                    <input type="radio" name="form[o_subscriptions]" value="no">
+                                        <xsl:if test="not(//board_config/o_subscriptions='yes')">
+                                            <xsl:attribute name="checked">true</xsl:attribute>
+                                        </xsl:if>
+                                    </input>
+                                    <strong>No</strong>
                                     <br/><xsl:value-of select="//label[key='enable_users_to_subscribe']/value"/>.
                                 </td>
                             </tr>
@@ -111,50 +122,6 @@ Fifth Floor, Boston, MA 02110-1301  USA
                                 <td>
                                     <input type="text" name="form[o_smtp_pass]" size="25" maxlength="50" value="{//board_config/o_smtp_pass}"/>
                                     <xsl:value-of select="//label[key='password_for_smtp_server']/value"/>
-                                </td>
-                            </tr>
-                        </table>
-                    </div>
-                </fieldset>
-            </div>
-            <div class="inform">
-                <fieldset>
-                    <legend><xsl:value-of select="//label[key='registration']/value"/></legend>
-                    <div class="infldset">
-                        <table class="aligntop" cellspacing="0">
-                            <tr>
-                                <th scope="row"><xsl:value-of select="//label[key='allow_new_registration']/value"/></th>
-
-                                <td>
-                                    <input type="radio" name="form[o_regs_allow]" value="yes"/><strong>Yes</strong>
-                                    <br/><input type="radio" name="form[o_regs_allow]" value="no"/><strong>No</strong>
-                                    <br/><xsl:value-of select="//label[key='controls_whether_forum_accepts_new_registration']/value"/>.
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row"><xsl:value-of select="//label[key='verify_registrations']/value"/></th>
-
-                                <td>
-                                    <input type="radio" name="form[o_regs_verify]" value="yes"/><strong>Yes</strong>
-                                    <br/><input type="radio" name="form[o_regs_verify]" value="no"/><strong>No</strong>
-                                    <br/><xsl:value-of select="//label[key='when_enabled_users_are_emailed']/value"/>.
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row"><xsl:value-of select="//label[key='use_forum_rules']/value"/></th>
-
-                                <td>
-                                    <input type="radio" name="form[o_rules]" value="yes"/><strong>Yes</strong>
-                                    <br/><input type="radio" name="form[o_rules]" value="no"/><strong>No</strong>
-                                    <br/><xsl:value-of select="//label[key='when_enabled_users_must']/value"/>.
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row"><xsl:value-of select="//label[key='rules']/value"/></th>
-
-                                <td>
-                                    <textarea name="form[o_rules_message]" rows="10" cols="55"><xsl:value-of select="//label[key='enter_rules_here']/value"/>.</textarea>
-                                    <xsl:value-of select="//label[key='here_you_can_enter_any_rules']/value"/>.
                                 </td>
                             </tr>
                         </table>
