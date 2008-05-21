@@ -82,7 +82,10 @@ function delete_topic(topic_id) {
         </ul>
         <p class="postlink conl">
             <xsl:if test="//posts_get_number_of_pages/count &gt; 2">
-            <xsl:call-template name="previous_next"/>
+            <xsl:call-template name="previous_next">
+                <xsl:with-param name="qsa">&amp;fid=<xsl:value-of select="//_get/fid"/>&amp;id=<xsl:value-of select="//_get/id"/>
+                </xsl:with-param>
+            </xsl:call-template>
             </xsl:if>
         </p>
         <p class="postlink conr">

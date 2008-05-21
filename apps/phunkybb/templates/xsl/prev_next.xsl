@@ -1,6 +1,6 @@
 <!--
 Program: PhunkyBB
-Component: previous_next.xsl
+Component: prev_next.xsl
 Copyright: Savonix Corporation
 Author: Albert L. Lash, IV
 License: Gnu Affero Public License version 3
@@ -23,33 +23,17 @@ Fifth Floor, Boston, MA 02110-1301  USA
 -->
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" >
 <xsl:template name="previous_next">
+<xsl:param name="qsa"/>
+<xsl:if test="(/__ROOT__/_get/start!=0) and not(/__ROOT__/_get/start='NaN')">
+<a href="{//link_prefix}{//_get/nid}{$qsa}&amp;start={//_get/start - //incr}">Previous</a>
+&#160;
+<a href="{//link_prefix}{//_get/nid}{$qsa}&amp;start={//_get/start + //incr}">Next</a>
+</xsl:if>
 
-<table>
-    <tr>
-        <xsl:if test="(/__ROOT__/_get/start!=0) and not(/__ROOT__/_get/start='NaN')">
-        <td>
-        <a href="{//link_prefix}{//_get/nid}&amp;start={//_get/start - //incr + 1}" 
-            class="button-basic-blue">Previous</a>
-        </td>
-
-        <td>
-        <input type="button" value="Next"
-        onclick="document.location.href='{//link_prefix}{//_get/nid}&amp;start={//_get/start + //incr + 1}'"/>
-        </td>
-        </xsl:if>
-
-        <xsl:if test="(//_get/start=0) or not(//_get/start)">
-        <td>
-        <input type="button" value="Previous" disabled="disabled">
-        </input>
-        </td>
-
-        <td>
-        <a href="{//link_prefix}{//_get/nid}&amp;fid={//_get/fid}&amp;id={//_get/id}&amp;start={//_get/start + //incr + 1}" 
-            class="button-basic-blue">Next</a>
-        </td>
-        </xsl:if>
-    </tr>
-</table>
+<xsl:if test="(//_get/start=0) or not(//_get/start)">
+Previous
+&#160;
+<a href="{//link_prefix}{//_get/nid}{$qsa}&amp;start={//incr}">Next</a>
+</xsl:if>
 </xsl:template>
 </xsl:stylesheet>

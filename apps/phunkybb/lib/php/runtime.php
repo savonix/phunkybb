@@ -53,6 +53,7 @@ $runtime = array(
                 'svn_revision' => $svn_revision,
                 'utcdate' => $utcdate,
                 'debug' => 1,
+                'incr' => 10,
                 'user_timezone_offset'=> $tz_offset,
                 'user_time_format' => "Y-m-d H:i:s",
                 'username' => $_SESSION['NX_AUTH']['username'],
