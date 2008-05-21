@@ -23,7 +23,7 @@ or write to the Free Software Foundation,Inc., 51 Franklin Street,
 Fifth Floor, Boston, MA 02110-1301  USA
 */
 
-class Nexista_Encrypt_KeyAction extends Nexista_Action
+class Nexista_Decrypt_RsaAction extends Nexista_Action
 {
 
 
@@ -53,10 +53,10 @@ class Nexista_Encrypt_KeyAction extends Nexista_Action
         // str_replace('Modulus=','',$modulus);
         // put modulus in config.xml defaults
         
-        $mpk = $this->params['hash_type'];
+        $mpk = Nexista_Path::get($this->params['private_key']);
         
         $pk = file_get_contents($mpk);
-        $private_key = openssl_pkey_get_private($pk);
+        $my_private_key = openssl_pkey_get_private($pk);
         
         $cipher_text = Nexista_Flow::find($this->params['ciphered_text']);
         if($cipher_text->length === 1)
@@ -66,10 +66,10 @@ class Nexista_Encrypt_KeyAction extends Nexista_Action
         
         $my_cipher_text_bin = base64_decode($my_cipher_text);
         
-        if(openssl_private_decrypt($my_cipher_text_bin,&$my_clear_text,$private_key))
+        if(openssl_private_decrypt($my_cipher_text_bin,&$my_clear_text,$my_private_key))
         {
             // success
-            $ct->item(0)->nodeValue = $my_clear_text;
+            $cipher_text->item(0)->nodeValue = $my_clear_text;
         }
         else
         {

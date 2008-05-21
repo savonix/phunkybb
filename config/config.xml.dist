@@ -1,21 +1,21 @@
 <config>
     <datasource id="phunkybb">
-        <type>mysql</type>
-        <hostname>127.0.0.1</hostname>
+        <type>mysqli</type>
+        <hostname>localhost</hostname>
         <database>db</database>
         <username>username</username>
         <password>password</password>
     </datasource>
     <datasource id="phunkybb_read">
-        <type>mysql</type>
-        <hostname>127.0.0.1</hostname>
+        <type>mysqli</type>
+        <hostname>localhost</hostname>
         <database>db</database>
         <username>username</username>
         <password>password</password>
     </datasource>
     <datasource id="auth">
         <type>mysql</type>
-        <hostname>127.0.0.1</hostname>
+        <hostname>localhost</hostname>
         <database>db</database>
         <username>username</username>
         <password>password</password>
