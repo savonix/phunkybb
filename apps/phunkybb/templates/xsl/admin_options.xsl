@@ -54,13 +54,6 @@ Fifth Floor, Boston, MA 02110-1301  USA
                                     <xsl:value-of select="//label[key='short_description_of_this']/value"/>.
                                 </td>
                             </tr>
-                            <tr>
-                                <th scope="row"><xsl:value-of select="//label[key='base_url']/value"/></th>
-                                <td>
-                                    <input type="text" name="form[o_base_url]" size="50" maxlength="100" value="{//board_config/o_base_url}"/>
-                                    <xsl:value-of select="//label[key='complete_url_of_the_forum']/value"/> <strong><xsl:value-of select="//label[key='must']/value"/></strong> <xsl:value-of select="//label[key='be_correct_in_order']/value"/>.
-                                </td>
-                            </tr>
                         </table>
                     </div>
                 </fieldset>

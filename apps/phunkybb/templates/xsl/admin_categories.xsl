@@ -25,18 +25,30 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <xsl:include href="main.xsl"/>
 <xsl:include href="admin_menu.xsl"/>
 <xsl:template name="content">
+<script type="text/javascript">
+function category_delete(category_id) {
+    if(confirm('Are you sure?')){
+    $.post("<xsl:value-of select="//link_prefix"/>categories&amp;cat_to_delete="+category_id,
+    {
+        'cat_to_delete': category_id,
+        'action': 'del_cat'
+    },
+    function (data){
+    });
+    }
+}
+</script>
 <div id="adminconsole" class="block2col">
     <xsl:call-template name="admin-menu"/>
 	<div class="blockform">
 		<h2><xsl:value-of select="//label[key='add']/value"/> / <xsl:value-of select="//label[key='remove']/value"/>/<xsl:value-of select="//label[key='edit_categories']/value"/></h2>
 		<div class="box">
-            <form>
+            <form method="post">
 			<div class="inform">
 				<fieldset>
 					<legend><xsl:value-of select="//label[key='add']/value"/>/<xsl:value-of select="//label[key='delete_categories']/value"/></legend>
 					<div class="infldset">
 						<table class="aligntop" cellspacing="0">
-                            <form method="post" action="{//link_prefix}categories">
                             <input type="hidden" name="action" value="add_cat"/>
 							<tr>
 								<th scope="row"><xsl:value-of select="//label[key='add_a_new_category']/value"/><div>
@@ -47,26 +59,6 @@ Fifth Floor, Boston, MA 02110-1301  USA
 
 								</td>
 							</tr>
-                            </form>
-                            <form method="post" action="{//link_prefix}categories">
-                            <input type="hidden" name="action" value="del_cat"/>
-							<tr>
-								<th scope="row">
-                                    <xsl:value-of select="//label[key='delete_a_category']/value"/>
-                                    <div>
-                                        <input type="submit" name="del_cat" value="Delete"/>
-                                    </div>
-                                </th>
-								<td>
-									<select name="cat_to_delete">
-                                        <xsl:for-each select="//categories_get_all">
-										<option value="{cid}"><xsl:value-of select="cat_name"/></option>
-                                        </xsl:for-each>
-									</select>
-									<span><xsl:value-of select="//label[key='select_the_name_of']/value"/>.</span>
-								</td>
-							</tr>
-                            </form>
 						</table>
 					</div>
 				</fieldset>
@@ -85,9 +77,16 @@ Fifth Floor, Boston, MA 02110-1301  USA
 						</thead>
 						<tbody>
                             <xsl:for-each select="//categories_get_all">
-							<tr><td><input type="text" name="cat_name[0]" value="{cat_name}" size="35" maxlength="80"/></td>
+							<tr>
+                            <td><input type="text" name="cat_name[0]" value="{cat_name}" size="35" maxlength="80"/></td>
                             <td><input type="text" name="cat_order[0]" value="0" size="3" maxlength="3"/></td>
-                            <td></td></tr>
+                            <td>
+                                <a href="{//link_prefix}categories&amp;action=del_cat&amp;category_id={cid}"
+                                    onclick="category_delete({cid}); return false;">
+                                    Delete
+                                </a>
+                            </td>
+                            </tr>
                             </xsl:for-each>
                         </tbody>
 						</table>
