@@ -1,6 +1,6 @@
 <?php
 /*
- * -File        hash.plugin.php
+ * -File        random.plugin.php
  * -License     LGPL (http://www.gnu.org/copyleft/lesser.html)
  * -Copyright   Savonix Corporation
  * -Author		Albert Lash
