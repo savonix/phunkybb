@@ -28,7 +28,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 	<div class="block">
 		<h2 class="block2"><xsl:value-of select="//label[key='install']/value"/></h2>
 		<div class="box">
-			<form id="profile1" method="post" onsubmit="return process_form(this)">
+			<form id="profile1" method="post">
             <div class="inform">
                 <fieldset>
                     <legend><xsl:value-of select="//label[key='install']/value"/></legend>

@@ -251,6 +251,10 @@ Fifth Floor, Boston, MA 02110-1301  USA
             <value>Password</value>
         </label>
         <label>
+            <key>change_password</key>
+            <value>Change Password</value>
+        </label>
+        <label>
             <key>email</key>
             <value>E-mail</value>
         </label>

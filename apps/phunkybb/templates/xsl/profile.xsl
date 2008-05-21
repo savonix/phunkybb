@@ -32,7 +32,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
             <xsl:value-of select="//runtime/username"/> - <xsl:value-of select="//label[key='essentials']/value"/>
         </h2>
 		<div class="box">
-			<form id="profile1" method="post" onsubmit="return process_form(this)">
+			<form id="profile1" method="post">
 				<div class="inform">
 					<fieldset>
 						<legend>Enter your username and password</legend>
@@ -42,7 +42,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
                             <label><strong><xsl:value-of select="//label[key='username']/value"/></strong><br/>
                             <input type="text" name="req_username" value="{//user_get_profile/username}"/><br/>
                             </label>
-                        <p><a href="#">Change password</a></p>
+                        <p><a href="{//link_prefix}password">Change password</a></p>
                         </div>
 					</fieldset>
 				</div>
