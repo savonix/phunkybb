@@ -22,6 +22,13 @@ along with this program; if not, see http://www.gnu.org/licenses
 or write to the Free Software Foundation,Inc., 51 Franklin Street,
 Fifth Floor, Boston, MA 02110-1301  USA
 */
+
+$pre_install_check = PROJECT_ROOT."/config/del_file_after_install";
+if(is_file($pre_install_check) && $_GET['nid']!='install') {
+    header("Location: index.php?nid=install");
+    exit;
+}
+
 $config_cache = NX_PATH_COMPILE."config_cache.php";
 
 if(is_file($config_cache)) { 
