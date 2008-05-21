@@ -58,8 +58,8 @@ Fifth Floor, Boston, MA 02110-1301  USA
                             <map:plugin type="hash" params="sha1,//random_password"/>
                         </map:true>
                         <map:false>
-                            <map:script src="lib/php/rsa_decrypt.php"/>
-                            <map:plugin type="hash" params="sha1,//cleartext"/>
+                            <map:plugin type="decrypt_rsa" params="{//defaults/private_key},//_post/password"/>
+                            <map:plugin type="hash" params="sha1,//_post/password"/>
                         </map:false>
                     </map:if>
                     <map:set name="registration_info" value="Registration Info"/>
@@ -223,8 +223,8 @@ Fifth Floor, Boston, MA 02110-1301  USA
     <map:gate name="password" role="phunky_user">
         <map:if name="//_post">
             <map:true>
-                <map:script src="lib/php/rsa_decrypt.php"/>
-                <map:plugin type="hash" params="sha1,//cleartext"/>
+        <map:plugin type="decrypt_rsa" params="{//defaults/private_key},//_post/password"/>
+                <map:plugin type="hash" params="sha1,//_post/password"/>
                 <map:query src="data/sql/user_update_password.xml"/>
                 <map:action type="redirect" params="{//link_prefix}profile"/>
             </map:true>
