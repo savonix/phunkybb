@@ -74,7 +74,7 @@ function do_encrypt() {
 
 <div class="box">
 <form id="mlogin" name="mlogin" method="post" action="{//link_prefix}login"
-    onSubmit="do_encrypt();">
+    onSubmit="do_encrypt(); return false;">
 <input type="hidden" name="id_rsa_pub" value=""/>
 <input type="hidden" name="e" value=""/>
 <input type="hidden" name="my_tz_offset" value=""/>

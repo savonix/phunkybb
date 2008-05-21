@@ -92,6 +92,7 @@ function do_encrypt() {
         <br/>
         <span id="submit" class="button-basic-blue disableSelection" onclick="do_encrypt();">Submit</span>
         <span id="replace" class="interstatus"></span>
+        <input type="submit" style="visibility: hidden;"/>
         </form>
         </div>
 	</div>
