@@ -33,7 +33,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <script type="text/javascript">
 $(document).ready(function()
 {
-    var myform = document.forms["register"];
+    var myform = document.forms["password"];
     myform.id_rsa_pub.value="<xsl:value-of select="//defaults/modulus"/>";
     myform.e.value="10001";
     $(function() {
@@ -55,16 +55,15 @@ function do_encrypt() {
         rsa.setPublic(linebrk(myform.id_rsa_pub.value,64), myform.e.value);
         var res = linebrk(hex2b64(rsa.encrypt(myform.password.value)),64);
 
-        $.post("<xsl:value-of select="//link_prefix"/>x-register",
+        $.post("<xsl:value-of select="//link_prefix"/>password",
         {
-            'username': myform.username.value,
             'password': res
         },
         function (data){
             var myResult = $("result",data).text();
             $('span#replace').html(myResult);
             if(myResult=='Success') {
-                window.location = '<xsl:value-of select="//link_prefix"/>login';
+                window.location = '<xsl:value-of select="//link_prefix"/>profile';
             }
         });
     } else {
@@ -80,16 +79,19 @@ function do_encrypt() {
         <form id="password" name="password" method="post" onSubmit="do_encrypt(); return false;">
         <input type="hidden" name="id_rsa_pub" value=""/>
         <input type="hidden" name="e" value=""/>
-            <div class="inform">
-                <fieldset>
-                    <legend><xsl:value-of select="//label[key='change_password']/value"/></legend>
-                    <div class="infldset">
-                        <label><strong><xsl:value-of select="//label[key='password']/value"/></strong><br/>
-                        <input type="password" name="password"/><br/>
-                        </label>
-                    </div>
-                </fieldset>
-            </div>
+        <div class="inform">
+            <fieldset>
+                <legend><xsl:value-of select="//label[key='pass_legend_1']/value"/></legend>
+                <div class="infldset">
+                    <label class="conl"><strong><xsl:value-of select="//label[key='password']/value"/></strong><br/><input type="password" name="password" size="16" maxlength="16"/><br/></label>
+                    <label class="conl"><strong><xsl:value-of select="//label[key='confirm_password']/value"/></strong><br/><input type="password" name="password2" size="16" maxlength="16"/><br/></label>
+                    <p class="clearb"><xsl:value-of select="//label[key='pass_info']/value"/></p>
+                </div>
+            </fieldset>
+        </div>
+        <br/>
+        <span id="submit" class="button-basic-blue disableSelection" onclick="do_encrypt();">Submit</span>
+        <span id="replace" class="interstatus"></span>
         </form>
         </div>
 	</div>

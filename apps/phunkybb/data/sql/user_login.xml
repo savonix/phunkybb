@@ -30,7 +30,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 	</params>
     <sql>
         SELECT * FROM &prefix;users 
-        WHERE username=?
-        AND password=?
+        WHERE username = ?
+        AND password = ?
     </sql>
 </query>
