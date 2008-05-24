@@ -60,8 +60,6 @@ Fifth Floor, Boston, MA 02110-1301  USA
             <a href="{//link_prefix}welcome" onclick="history.go(-1);">
                 <xsl:value-of select="//label[key='go_back']/value"/>
             </a>
-            
-<span class="button-basic-black disableSelection">Submit</span>
         </p>
     </form>
 </div>

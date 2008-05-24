@@ -25,6 +25,7 @@
 <xsl:template name="footer"><xsl:call-template name="source_spacer">
     <xsl:with-param name="section_start">header</xsl:with-param>
 </xsl:call-template>
+<footer>
 <div id="brdfooter" class="block">
 	<h2>Board footer</h2>
 	<div class="box">
@@ -39,6 +40,7 @@
 		</div>
 	</div>
 </div>
+</footer>
 <xsl:call-template name="source_spacer">
     <xsl:with-param name="section_end">header</xsl:with-param>
 </xsl:call-template>
