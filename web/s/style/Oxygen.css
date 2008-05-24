@@ -129,6 +129,16 @@ DIV.block DIV.inbox, DIV.blockmenu DIV.inbox {PADDING: 3px 6px}
 .pun P, .pun UL, .pun DL, DIV.blockmenu LI, .pun LABEL, #announce DIV.inbox DIV {PADDING: 3px 0}
 .pun H2 {PADDING: 4px 6px}
 
+DIV.inbox:after {
+  clear: both;
+  content: ".";
+  display: block;
+  font-size: 0;
+  height: 0;
+  line-height: 0.0;
+  overflow:hidden;
+  visibility: hidden;
+}
 /* 6.2 Special spacing for various elements */
 
 .pun H1 {PADDING: 3px 0px 0px 0}
