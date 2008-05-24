@@ -47,7 +47,6 @@ Fifth Floor, Boston, MA 02110-1301  USA
                 - &#160;<xsl:value-of select="//forum_get_by_id/forum_name"/>
             </li>
         </ul>
-		<div class="clearer"></div>
 	</div>
 </div>
 <div id="vf" class="blocktable">
@@ -124,7 +123,6 @@ Fifth Floor, Boston, MA 02110-1301  USA
                 - &#160;<xsl:value-of select="//forum_get_by_id/forum_name"/>
             </li>
         </ul>
-		<div class="clearer"></div>
 	</div>
 </div>
 </xsl:template>

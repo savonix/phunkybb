@@ -41,14 +41,13 @@ Fifth Floor, Boston, MA 02110-1301  USA
 								<label>Max length: 400 / Max lines: 4<br/>
 								<textarea name="signature" rows="4" cols="65"><xsl:value-of select="//user_get_profile/signature"/></textarea><br/></label>
 							</div>
-							<p><xsl:value-of select="//user_get_profile/signature" disable-output-escaping="yes"/>.</p>
+							<p><xsl:value-of select="//user_get_profile/signature" disable-output-escaping="yes"/></p>
 						</div>
 					</fieldset>
 				</div>
 				<p><input type="submit" name="update" value="Submit"/>When you update your profile, you will be redirected back to this page.</p>
 			</form>
 		</div>
-	<div class="clearer"></div>
     </div>
 </div>
 

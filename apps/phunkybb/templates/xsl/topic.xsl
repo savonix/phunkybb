@@ -91,8 +91,7 @@ function delete_topic(topic_id) {
         <p class="postlink conr">
             <xsl:value-of select="//topic_get_by_id/subject"/>
         </p>
-		<div class="clearer"></div>
-	</div>
+		</div>
 </div>
 
 <!-- Post loop -->
@@ -118,8 +117,7 @@ function delete_topic(topic_id) {
 					<p><xsl:value-of select="signature" disable-output-escaping="yes"/></p>
 				</div>
 			</div>
-			<div class="clearer"></div>
-			<div class="postfootright"><div>
+					<div class="postfootright"><div>
                 <xsl:if test="//runtime/group_id=1 or poster=//runtime/username">
                     <a href="{//link_prefix}post-edit&amp;post_id={id}">
                         <xsl:value-of select="//label[key='edit']/value"/></a>&#160;

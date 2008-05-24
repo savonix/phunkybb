@@ -27,31 +27,7 @@ doctype-public="-//W3C//DTD HTML 4.01 Transitional//EN"
 doctype-system="http://www.w3.org/TR/html4/loose.dtd"/>
 <xsl:template match="/">
 <html>
-<head>
-    <title>
-        <xsl:value-of select="/__ROOT__/board_config/o_board_title"/>
-        <xsl:if test="//forum_get_by_id/forum_name">
-            : <xsl:value-of select="//forum_get_by_id/forum_name"/>
-        </xsl:if>
-        <xsl:if test="//topic_get_by_id/subject">
-            : <xsl:value-of select="//topic_get_by_id/subject"/>
-        </xsl:if>
-    </title>
-    <link rel="stylesheet" type="text/css" href="{//path_prefix}/s/style/Oxygen.css"/>
-    <xsl:if test="//runtime/username">
-    <link rel="stylesheet" type="text/css" href="{//path_prefix}/s/style/imports/base_admin.css"/>
-    </xsl:if>
-    <link rel="stylesheet" type="text/css" href="{//link_prefix}dynamic-css"/>
-    <script type="text/javascript" src="{//path_prefix}/s/js/jsval.js"></script>
-    <script type="text/javascript" src="{//path_prefix}/s/js/jquery/jquery.js"></script>
-    <script type="text/javascript" src="{//path_prefix}/s/js/jquery/plugins/jquery.disabletextselect.js"></script>
-    <script type="text/javascript" src="{//path_prefix}/s/js/jquery/plugins/jquery.tablesorter.min.js"></script>
-    <script type="text/javascript" src="{//path_prefix}/s/js/jquery/plugins/jquery.tablesorter.pager.js"></script>
-<xsl:for-each select="//in_head">
-    <xsl:sort select="priority"/>
-    <xsl:value-of select="string" disable-output-escaping="yes"/>
-</xsl:for-each>
-</head>
+<xsl:call-template name="head"/>
 <body>
 <xsl:for-each select="//pre_body_content">
     <xsl:sort select="priority"/>

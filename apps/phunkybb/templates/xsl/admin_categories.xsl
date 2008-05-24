@@ -98,7 +98,6 @@ function category_delete(category_id) {
 		</div>
 
 	</div>
-	<div class="clearer"></div>
 </div>
 
 </xsl:template>

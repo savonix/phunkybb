@@ -96,7 +96,6 @@ function do_encrypt() {
         </form>
         </div>
 	</div>
-	<div class="clearer"></div>
 </div>
 </xsl:template>
 </xsl:stylesheet>

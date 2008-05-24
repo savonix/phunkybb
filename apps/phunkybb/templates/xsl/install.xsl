@@ -43,7 +43,6 @@ Fifth Floor, Boston, MA 02110-1301  USA
         </div>
 	</div>
     If you have already installed PhunkyBB, remove the file "config/delete_this_after_install".
-	<div class="clearer"></div>
 </div>
 </xsl:template>
 </xsl:stylesheet>

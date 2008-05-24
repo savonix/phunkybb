@@ -101,7 +101,6 @@ function delete_forum(fid,cid) {
 			</form>
 		</div>
 	</div>
-	<div class="clearer"></div>
 </div>
 </xsl:template>
 </xsl:stylesheet>

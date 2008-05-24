@@ -1,6 +1,6 @@
 <!--
     Program: PhunkyBB
-    Component: footer.xsl
+    Component: head.xsl
     Copyright: Savonix Corporation
     Author: Albert L. Lash, IV
     License: Gnu Affero Public License version 3
@@ -22,23 +22,11 @@
     Fifth Floor, Boston, MA 02110-1301  USA
 -->
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-<xsl:template name="footer"><xsl:call-template name="source_spacer">
+<xsl:template name="header">
+<xsl:call-template name="source_spacer">
     <xsl:with-param name="section_start">header</xsl:with-param>
 </xsl:call-template>
-<div id="brdfooter" class="block">
-	<h2>Board footer</h2>
-	<div class="box">
-		<div class="inbox">
-			<dl id="searchlinks" class="conl">
-			</dl>
-			<p class="conr">Powered by <a href="http://www.phunkybb.docunext.com/blog/">PhunkyBB</a>, a fork of punbb.
-            <xsl:if test="//runtime/svn_revision">
-                Revision <xsl:value-of select="//runtime/svn_revision"/>
-            </xsl:if>
-            </p>
-		</div>
-	</div>
-</div>
+
 <xsl:call-template name="source_spacer">
     <xsl:with-param name="section_end">header</xsl:with-param>
 </xsl:call-template>
