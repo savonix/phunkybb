@@ -73,8 +73,6 @@
     <build>
         <loader>&project_root;/cache/&server_name;/&app_name;/&app_name;.php</loader>
         <sitemap>&project_root;/apps/&app_name;/config/sitemap.xml</sitemap>
-
-        <prepend>&project_root;/lib/php/prepend.php</prepend>
         <!-- enter a gate name for missing when there is no match -->
         <missing>install</missing>
         <!-- this needs the relative url, not the gate -->
@@ -86,12 +84,8 @@
     <runtime>
         <debug>0</debug>
     </runtime>
-    <defaults>
-        <pk>&project_root;/pem.key</pk>
-        <modulus></modulus>
-    </defaults>
 
-    <plugins>
+    <extensions>
         <!--
         <dev_buffer>
             <placement>prepend</placement>
@@ -100,15 +94,15 @@
 
         <nx_cache>
             <placement>prepend</placement>
-            <source>&includepath;plugins/nx_cache.php</source>
+            <source>&includepath;extensions/nx_cache.php</source>
             <directory>&project_root;/cache/&server_name;/cache/</directory>
             <active>1</active>
             <compress>0</compress>
         </nx_cache>
         <nx_auth>
             <placement>prepend</placement>
-            <source>&includepath;plugins/nx_auth.php</source>
+            <source>&includepath;extensions/nx_auth.php</source>
             <login>auth.php?nid=login</login>
         </nx_auth>
-    </plugins>
+    </extensions>
 </config>
