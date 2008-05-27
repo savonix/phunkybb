@@ -38,9 +38,6 @@
         </xsl:if>
     </title>
     <link rel="stylesheet" type="text/css" href="{//path_prefix}/s/style/Oxygen.css"/>
-    <xsl:if test="//runtime/username">
-    <link rel="stylesheet" type="text/css" href="{//path_prefix}/s/style/imports/base_admin.css"/>
-    </xsl:if>
     <link rel="stylesheet" type="text/css" href="{//link_prefix}dynamic-css"/>
     <script type="text/javascript" src="{//path_prefix}/s/js/jsval.js"></script>
     <script type="text/javascript" src="{//path_prefix}/s/js/jquery/jquery.js"></script>
