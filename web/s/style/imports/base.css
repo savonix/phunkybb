@@ -108,3 +108,31 @@ DIV.blockmenu, #viewprofile DT {
 
 #punindex TD.tcr SPAN.byuser {DISPLAY: block}
 
+
+#adminconsole .block2 {MARGIN-TOP: 12px}
+
+/*** Admin Main Content ***/
+* HTML #adstats DD {HEIGHT: 1%}
+#adstats DD {MARGIN-LEFT: 14em; PADDING: 3px; MARGIN-BOTTOM: 5px; LINE-HEIGHT: 1.5em}
+#adstats DT {FLOAT:left; WIDTH: 13em; PADDING: 3px; line-height: 1.5em}
+#adstats {PADDING: 15px 15px 5px 10px}
+#adintro {PADDING: 5px}
+#adintro P {PADDING: 10px}
+#adstats DL {PADDING: 5px 0 10px 5px}
+
+#adminconsole FIELDSET TD {TEXT-ALIGN: left; PADDING: 4px; WHITE-SPACE: normal}
+#adminconsole FIELDSET TH {TEXT-ALIGN: left; PADDING: 4px; WHITE-SPACE: normal}
+#adminconsole FIELDSET TD SPAN, #adminconsole FIELDSET TH SPAN {DISPLAY: block; FONT-SIZE: 1em; FONT-WEIGHT: normal}
+#adminconsole TH {WIDTH: 15em; FONT-WEIGHT: bold}
+#adminconsole INPUT, #adminconsole SELECT, #adminconsole TEXTAREA {MARGIN-BOTTOM: 0; MARGIN-TOP: 0; FONT-WEIGHT: normal}
+#adminconsole TABLE.aligntop TH, #adminconsole TABLE.aligntop TD {VERTICAL-ALIGN: top}
+#adminconsole TABLE.aligntop TH {PADDING-TOP: 0.7em}
+#adminconsole TD, #adminconsole TH {BORDER-STYLE: solid; BORDER-WIDTH: 3px 0px 3px 0px}
+#adminconsole P {PADDING-BOTTOM: 6px}
+#adminconsole .topspace {PADDING-TOP: 6px}
+#adminconsole P.submittop, #adminconsole P.submitend {TEXT-ALIGN: center}
+#adminconsole TH.hidehead {COLOR: #f1f1f1}
+#adminconsole THEAD TH {PADDING-BOTTOM: 0px}
+#adminconsole P.linkactions {FONT-WEIGHT: bold; PADDING-LEFT: 5px}
+#adminconsole TH INPUT, #adminconsole DIV.fsetsubmit {MARGIN-TOP: 6px}
+
