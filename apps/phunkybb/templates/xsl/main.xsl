@@ -28,6 +28,7 @@
 <xsl:include href="header.xsl"/>
 <xsl:include href="footer.xsl"/>
 <xsl:include href="source_spacer.xsl"/>
+<xsl:include href="link_builder.xsl"/>
 <xsl:template name="main">
 <xsl:call-template name="source_spacer">
     <xsl:with-param name="section_start">main</xsl:with-param>
