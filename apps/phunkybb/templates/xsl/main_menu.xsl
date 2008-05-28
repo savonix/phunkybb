@@ -23,29 +23,30 @@ Fifth Floor, Boston, MA 02110-1301  USA
 -->
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 <xsl:template name="main-menu">
+<xsl:param name="link_prefix"/>
 <xsl:call-template name="source_spacer">
     <xsl:with-param name="section_start">main_menu</xsl:with-param>
 </xsl:call-template>
 
         <div id="main_menu">
 		<div id="brdmenu" class="inbox">
-            <xsl:for-each select="//navlinks">
+            <xsl:for-each select="/_R_/board_config//navlinks">
             </xsl:for-each>
-            <a href="{//link_prefix}welcome">
-                <xsl:value-of select="//label[key='index']/value"/>
+            <a href="{$link_prefix}welcome">
+                <xsl:value-of select="/_R_/i18n/label[key='index']/value"/>
             </a>
 
-            <xsl:if test="not(//runtime/username)">
-            <a href="{//link_prefix}register"><xsl:value-of select="//label[key='register']/value"/></a>
-            <a href="{//link_prefix}login"><xsl:value-of select="//label[key='login']/value"/></a>
+            <xsl:if test="not(/_R_/runtime/username)">
+            <a href="{$link_prefix}register"><xsl:value-of select="/_R_/i18n/label[key='register']/value"/></a>
+            <a href="{$link_prefix}login"><xsl:value-of select="/_R_/i18n/label[key='login']/value"/></a>
             </xsl:if>
 
-            <xsl:if test="//runtime/group_id='1'">
-            <a href="{//link_prefix}admin"><xsl:value-of select="//label[key='administration']/value"/></a>
+            <xsl:if test="/_R_/runtime/group_id='1'">
+            <a href="{$link_prefix}admin"><xsl:value-of select="/_R_/i18n/label[key='administration']/value"/></a>
             </xsl:if>
-            <xsl:if test="//runtime/username">
-            <a href="{//link_prefix}profile">Profile</a>
-            <a href="{//link_prefix}logout">Logout</a>
+            <xsl:if test="/_R_/runtime/username">
+            <a href="{$link_prefix}profile">Profile</a>
+            <a href="{$link_prefix}logout">Logout</a>
             </xsl:if>
         </div>
         </div>

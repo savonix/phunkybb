@@ -26,20 +26,42 @@
 doctype-public="-//W3C//DTD HTML 4.01 Transitional//EN"
 doctype-system="http://www.w3.org/TR/html4/loose.dtd"/>
 <xsl:template match="/">
+
+<xsl:variable name="link_prefix">
+    <xsl:value-of select="/_R_/runtime/link_prefix"/>
+</xsl:variable>
+
+<xsl:variable name="path_prefix">
+    <xsl:value-of select="/_R_/runtime/path_prefix"/>
+</xsl:variable>
 <html>
-<xsl:call-template name="head"/>
+<xsl:call-template name="head">
+    <xsl:with-param name="link_prefix">
+        <xsl:value-of select="$link_prefix"/>
+    </xsl:with-param>
+    <xsl:with-param name="path_prefix">
+        <xsl:value-of select="$path_prefix"/>
+    </xsl:with-param>
+</xsl:call-template>
 <body>
-<xsl:for-each select="//pre_body_content">
+<xsl:for-each select="/_R_/pre_body_content">
     <xsl:sort select="priority"/>
     <xsl:value-of select="string" disable-output-escaping="yes"/>
 </xsl:for-each>
 
 
-<xsl:call-template name="main"/>
+<xsl:call-template name="main">
+    <xsl:with-param name="link_prefix">
+        <xsl:value-of select="$link_prefix"/>
+    </xsl:with-param>
+    <xsl:with-param name="path_prefix">
+        <xsl:value-of select="$path_prefix"/>
+    </xsl:with-param>
+</xsl:call-template>
 
 
 
-<xsl:for-each select="//footer">
+<xsl:for-each select="/_R_/footer">
     <xsl:sort select="priority"/>
     <xsl:value-of select="string" disable-output-escaping="yes"/>
 </xsl:for-each>

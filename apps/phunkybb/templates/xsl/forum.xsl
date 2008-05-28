@@ -25,55 +25,62 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <xsl:include href="main.xsl"/>
 
 <xsl:template name="content">
+<xsl:param name="link_prefix"/>
 <div class="linkst">
 	<div class="inbox">
-		<p class="pagelink conl"><xsl:value-of select="//label[key='pages']/value"/>:
-            <strong><xsl:value-of select="//forum_get_number_of_pages/pages"/></strong>
+		<p class="pagelink conl"><xsl:value-of select="/_R_/i18n/label[key='pages']/value"/>:
+            <strong><xsl:value-of select="/_R_/forum_get_number_of_pages/pages"/></strong>
         </p>
-        <xsl:if test="//runtime/username">
+        <xsl:if test="/_R_/runtime/username">
 		<p class="postlink conr">
-            <a href="{//link_prefix}post&amp;fid={//_get/fid}">
-                <xsl:value-of select="//label[key='post_new_topic']/value"/>
+            <a href="{$link_prefix}post&amp;fid={/_R_/_get/fid}">
+                <xsl:value-of select="/_R_/i18n/label[key='post_new_topic']/value"/>
             </a>
         </p>
         </xsl:if>
 		<ul>
             <li>
-                <a href="{//link_prefix}welcome">
-                    <xsl:value-of select="//label[key='index']/value"/>
+                <a href="{$link_prefix}welcome">
+                    <xsl:value-of select="/_R_/i18n/label[key='index']/value"/>
                 </a>&#160;
             </li>
             <li>
-                - &#160;<xsl:value-of select="//forum_get_by_id/forum_name"/>
+                - &#160;<xsl:value-of select="/_R_/forum_get_by_id/forum_name"/>
             </li>
         </ul>
 	</div>
 </div>
 <div id="vf" class="blocktable">
-	<h2><span><xsl:value-of select="//forum_get_by_id/forum_name"/></span></h2>
+	<h2><span><xsl:value-of select="/_R_/forum_get_by_id/forum_name"/></span></h2>
 	<div class="box">
 		<div class="inbox">
 			<table cellspacing="0">
 			<thead>
 				<tr>
-					<th class="tcl" scope="col"><xsl:value-of select="//label[key='topic']/value"/></th>
-					<th class="tc2" scope="col"><xsl:value-of select="//label[key='replies']/value"/></th>
-					<th class="tcr" scope="col"><xsl:value-of select="//label[key='last_post']/value"/></th>
+					<th class="tcl" scope="col">
+                        <xsl:value-of select="/_R_/i18n/label[key='topic']/value"/>
+                    </th>
+					<th class="tc2" scope="col">
+                        <xsl:value-of select="/_R_/i18n/label[key='replies']/value"/>
+                    </th>
+					<th class="tcr" scope="col">
+                        <xsl:value-of select="/_R_/i18n/label[key='last_post']/value"/>
+                    </th>
 				</tr>
 			</thead>
 			<tbody>
-                <xsl:for-each select="//topics_get_by_forum_id">
+                <xsl:for-each select="/_R_/topics_get_by_forum_id">
 				<tr>
 					<td class="tcl">
 						<div class="intd">
-                            <xsl:if test="not(//runtime/last_visit_timestamp &lt; last_post_timestamp)">
+                            <xsl:if test="not(/_R_/runtime/last_visit_timestamp &lt; last_post_timestamp)">
                             <div class="icon"><div class="nosize"></div></div>
                             </xsl:if>
-                            <xsl:if test="//runtime/last_visit_timestamp &lt; last_post_timestamp">
+                            <xsl:if test="/_R_/runtime/last_visit_timestamp &lt; last_post_timestamp">
                             <div class="icon inew"><div class="nosize"></div></div>
                             </xsl:if>
 							<div class="tclcon">
-								<a href="{//link_prefix}topic&amp;fid={//_get/fid}&amp;id={id}">
+								<a href="{$link_prefix}topic&amp;fid={//_get/fid}&amp;id={id}">
                                     <xsl:value-of select="subject"/>
                                 </a>
 							</div>
@@ -84,15 +91,17 @@ Fifth Floor, Boston, MA 02110-1301  USA
                         <xsl:if test="not(last_post='1969-12-31 20:00:00')">
                             <xsl:value-of select="last_post"/>
                         </xsl:if>
-                        <xsl:if test="not(//runtime/user_id &gt; 0)">
+                        <xsl:if test="not(/_R_/runtime/user_id &gt; 0)">
                             UTC
                         </xsl:if>
                     </td>
 				</tr>
                 </xsl:for-each>
-                <xsl:if test="not(//topics_get_by_forum_id)">
+                <xsl:if test="not(/_R_/topics_get_by_forum_id)">
 				<tr>
-					<td class="tcl" colspan="3"><xsl:value-of select="//label[key='forum_is_empty']/value"/>.</td>
+					<td class="tcl" colspan="3">
+                        <xsl:value-of select="/_R_/i18n/label[key='forum_is_empty']/value"/>.
+                    </td>
 				</tr>
                 </xsl:if>
             </tbody>
@@ -103,24 +112,24 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <div class="linkst">
 	<div class="inbox">
 		<p class="pagelink conl">
-            <xsl:value-of select="//label[key='pages']/value"/>: 
+            <xsl:value-of select="/_R_/i18n/label[key='pages']/value"/>: 
             <strong>1</strong>
         </p>
-        <xsl:if test="//runtime/username">
+        <xsl:if test="/_R_/runtime/username">
 		    <p class="postlink conr">
-                <a href="{//link_prefix}post&amp;fid={//_get/fid}">
-                    <xsl:value-of select="//label[key='post_new_topic']/value"/>
+                <a href="{$link_prefix}post&amp;fid={/_R_/_get/fid}">
+                    <xsl:value-of select="/_R_/i18n/label[key='post_new_topic']/value"/>
                 </a>
             </p>
         </xsl:if>
 		<ul>
             <li>
-                <a href="{//link_prefix}welcome">
-                <xsl:value-of select="//label[key='index']/value"/>
+                <a href="{$link_prefix}welcome">
+                <xsl:value-of select="/_R_/i18n/label[key='index']/value"/>
                 </a>&#160;
             </li>
             <li>
-                - &#160;<xsl:value-of select="//forum_get_by_id/forum_name"/>
+                - &#160;<xsl:value-of select="/_R_/forum_get_by_id/forum_name"/>
             </li>
         </ul>
 	</div>

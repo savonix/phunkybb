@@ -24,10 +24,11 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" >
 <xsl:include href="main.xsl"/>
 <xsl:template name="content">
+<xsl:param name="link_prefix"/>
 <div class="blockform">
 <h2><xsl:value-of select="//label[key='edit_post']/value"/></h2>
 <div class="box">
-    <form id="post" method="post" action="{//link_prefix}topic-submit">
+    <form id="post" method="post" action="{$link_prefix}topic-submit">
         <input type="hidden" name="post_id" value="{//_get/post_id}"/>
         <div class="inform">
             <fieldset>
@@ -54,7 +55,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
         <p>
             <input type="submit" name="submit" value="Submit"/>
             <input type="submit" name="preview" value="Preview"/>
-            <a href="{//link_prefix}" onclick="history.go(-1);">
+            <a href="{$link_prefix}" onclick="history.go(-1);">
                 <xsl:value-of select="//label[key='go_back']/value"/>
             </a>
         </p>

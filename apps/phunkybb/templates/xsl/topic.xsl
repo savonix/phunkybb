@@ -25,10 +25,11 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <xsl:include href="main.xsl"/>
 <xsl:include href="prev_next.xsl"/>
 <xsl:template name="content">
+<xsl:param name="link_prefix"/>
 <script type="text/javascript">
 function delete_post(post_id) {
     if(confirm('Are you sure?')){
-    $.post("<xsl:value-of select="//link_prefix"/>x-post-delete&amp;post_id="+post_id,
+    $.post("<xsl:value-of select="$link_prefix"/>x-post-delete&amp;post_id="+post_id,
     {
         'post_id': post_id,
         'num_replies': <xsl:value-of select="count(//posts_get_by_topic_id)"/>,
@@ -42,12 +43,12 @@ function delete_post(post_id) {
 }
 function delete_topic(topic_id) {
     if(confirm('Are you sure?')){
-    $.post("<xsl:value-of select="//link_prefix"/>x-topic-delete&amp;topic_id="+topic_id,
+    $.post("<xsl:value-of select="$link_prefix"/>x-topic-delete&amp;topic_id="+topic_id,
     {
         'topic_id': topic_id
     },
     function (data){
-        window.location ='<xsl:value-of select="//link_prefix"/>welcome';
+        window.location ='<xsl:value-of select="$link_prefix"/>welcome';
     });
     }
 }
@@ -57,25 +58,25 @@ function delete_topic(topic_id) {
 	<div class="inbox">
 		<p class="pagelink conl"><xsl:value-of select="//label[key='pages']/value"/>: 
         <strong><xsl:value-of select="//posts_get_number_of_pages/pages"/></strong>&#160;
-        <xsl:value-of select="//label[key='posts']/value"/>: 
-        <strong><xsl:value-of select="//posts_get_number_of_pages/count"/></strong>
+        <xsl:value-of select="/_R_/i18n/labels/label[key='posts']/value"/>: 
+        <strong><xsl:value-of select="/_R_/posts_get_number_of_pages/count"/></strong>
         
         </p>
 		<p class="postlink conr">&#160;
         <xsl:if test="//runtime/group_id=1 or poster=//runtime/username">
-            <a href="{//link_prefix}topic-delete&amp;topic_id={//_get/id}&amp;fid={//_get/fid}" 
+            <a href="{$link_prefix}topic-delete&amp;topic_id={//_get/id}&amp;fid={//_get/fid}" 
                 onclick="delete_topic({//_get/id}); return false;">Delete</a>
         </xsl:if>
         </p>
 		<ul>
-            <li><a href="{//link_prefix}welcome">
+            <li><a href="{$link_prefix}welcome">
                 <xsl:value-of select="//label[key='index']/value"/>
                 </a></li>
             <li>&#160; &gt; &#160;
-                <a href="{//link_prefix}forum&amp;fid={//_get/fid}">
+                <a href="{$link_prefix}forum&amp;fid={/_R_/_get/fid}">
                 <xsl:value-of select="//forum_get_by_id/forum_name"/>
                 </a>
-                <a href="{//link_prefix}forum&amp;id={//_get/id}"></a>
+                <a href="{$link_prefix}forum&amp;id={/_R_/_get/id}"></a>
             </li>
             <li>&#160; &gt; &#160;<xsl:value-of select="//topic_get_by_id/subject"/>
             </li>
@@ -106,7 +107,7 @@ function delete_topic(topic_id) {
 		<div class="inbox">
 			<div class="postleft">
 				<dl>
-					<dt><strong><a href="{//link_prefix}profile&amp;id={poster_id}">
+					<dt><strong><a href="{$link_prefix}profile&amp;id={poster_id}">
                     <xsl:value-of select="username"/></a></strong></dt>
 				</dl>
 			</div>
@@ -118,10 +119,10 @@ function delete_topic(topic_id) {
 				</div>
 			</div>
 					<div class="postfootright"><div>
-                <xsl:if test="//runtime/group_id=1 or poster=//runtime/username">
-                    <a href="{//link_prefix}post-edit&amp;post_id={id}">
+                <xsl:if test="//runtime/group_id=1 or poster=/_R_/runtime/username">
+                    <a href="{$link_prefix}post-edit&amp;post_id={id}">
                         <xsl:value-of select="//label[key='edit']/value"/></a>&#160;
-                    <a href="{//link_prefix}x-post-delete&amp;post_id={id}"
+                    <a href="{$link_prefix}x-post-delete&amp;post_id={id}"
                         onclick="delete_post({id}); return false;">
                         <xsl:value-of select="//label[key='delete']/value"/>
                     </a>
@@ -133,11 +134,11 @@ function delete_topic(topic_id) {
 </xsl:for-each>
 
 <!-- Reply -->
-<xsl:if test="//runtime/username">
+<xsl:if test="/_R_/runtime/username">
 <div class="blockform">
-	<h2><xsl:value-of select="//label[key='quick_post']/value"/></h2>
+	<h2><xsl:value-of select="/_R_/i18n/labels/label[key='quick_post']/value"/></h2>
 	<div class="box">
-		<form method="post" action="{//link_prefix}post&amp;tid={//_get/id}">
+		<form method="post" action="{$link_prefix}post&amp;tid={//_get/id}">
 			<div class="inform">
 				<fieldset>
 					<legend><xsl:value-of select="//label[key='write_your_message']/value"/></legend>

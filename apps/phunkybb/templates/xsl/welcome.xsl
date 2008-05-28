@@ -23,9 +23,9 @@ Fifth Floor, Boston, MA 02110-1301  USA
 -->
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" >
 <xsl:include href="main.xsl"/>
-
 <xsl:template name="content">
-    <xsl:for-each select="//categories_get_all[cid=//forums_get_all/cid]">
+<xsl:param name="link_prefix"/>
+    <xsl:for-each select="/_R_/categories_get_all[cid=/_R_/forums_get_all/cid]">
     <xsl:variable name="my_cid"><xsl:value-of select="cid"/></xsl:variable>
 	<h2><xsl:value-of select="cat_name"/></h2>
 	<div class="box">
@@ -33,35 +33,47 @@ Fifth Floor, Boston, MA 02110-1301  USA
 			<table cellspacing="0">
 			<thead>
 				<tr>
-					<th class="tcl" scope="col"><xsl:value-of select="//label[key='forums']/value"/></th>
-					<th class="tc2" scope="col"><xsl:value-of select="//label[key='topics']/value"/></th>
-					<th class="tc3" scope="col"><xsl:value-of select="//label[key='posts']/value"/></th>
-					<th class="tcr" scope="col"><xsl:value-of select="//label[key='last_post']/value"/></th>
+					<th class="tcl" scope="col">
+                        <xsl:value-of select="/_R_/i18n/label[key='forums']/value"/>
+                    </th>
+					<th class="tc2" scope="col">
+                        <xsl:value-of select="/_R_/i18n/label[key='topics']/value"/>
+                    </th>
+					<th class="tc3" scope="col">
+                        <xsl:value-of select="/_R_/i18n/label[key='posts']/value"/>
+                    </th>
+					<th class="tcr" scope="col">
+                        <xsl:value-of select="/_R_/i18n/label[key='last_post']/value"/>
+                    </th>
 				</tr>
 			</thead>
 			<tbody>
-            <xsl:for-each select="//forums_get_all[cid=$my_cid]">
+            <xsl:for-each select="/_R_/forums_get_all[cid=$my_cid]">
             <xsl:variable name="my_fid"><xsl:value-of select="fid"/></xsl:variable>
             <tr>
                 <td class="tcl">
                     <div class="intd">
-                            <xsl:if test="not(//runtime/last_visit_timestamp &lt; last_post_timestamp)">
+                            <xsl:if test="not(/_R_/runtime/last_visit_timestamp &lt; last_post_timestamp)">
                             <div class="icon"><div class="nosize"></div></div>
                             </xsl:if>
-                            <xsl:if test="//runtime/last_visit_timestamp &lt; last_post_timestamp">
+                            <xsl:if test="/_R_/runtime/last_visit_timestamp &lt; last_post_timestamp">
                             <div class="icon inew"><div class="nosize"></div></div>
                             </xsl:if>
                         <div class="tclcon">
-                        <h3><a href="{//link_prefix}forum&amp;fid={fid}"><xsl:value-of select="forum_name"/></a></h3>
+                        <h3>
+                            <a href="{$link_prefix}forum&amp;fid={fid}">
+                                <xsl:value-of select="forum_name"/>
+                            </a>
+                        </h3>
                         </div>
                     </div>
                 </td>
-                <td class="tc2"><xsl:value-of select="//forums_get_totals[forum_id=$my_fid]/total_topics"/></td>
-                <td class="tc3"><xsl:value-of select="//forums_get_totals[forum_id=$my_fid]/total_posts"/></td>
+                <td class="tc2"><xsl:value-of select="/_R_/forums_get_totals[forum_id=$my_fid]/total_topics"/></td>
+                <td class="tc3"><xsl:value-of select="/_R_/forums_get_totals[forum_id=$my_fid]/total_posts"/></td>
                 <td class="tcr">
                     <xsl:if test="not(last_post='1969-12-31 20:00:00') and not(last_post='1970-01-01 00:00:00')">
                         <xsl:value-of select="last_post"/>
-                        <xsl:if test="not(//runtime/user_id &gt; 0)">
+                        <xsl:if test="not(/_R_/runtime/user_id &gt; 0)">
                             UTC
                         </xsl:if>
                     </xsl:if>

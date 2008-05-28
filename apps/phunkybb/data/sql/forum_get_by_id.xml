@@ -25,7 +25,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <query name="forum_get_by_id">
     <connection>&connection_read;</connection>
     <params>
-        <param name="//_get/fid" type="text" default="0"/>
+        <param name="/_R_/_get/fid" type="integer" default="0"/>
 	</params>
     <sql>
         SELECT f.forum_name

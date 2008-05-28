@@ -23,28 +23,30 @@
 -->
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 <xsl:template name="head">
+<xsl:param name="link_prefix"/>
+<xsl:param name="path_prefix"/>
 <xsl:call-template name="source_spacer">
     <xsl:with-param name="section_start">head</xsl:with-param>
 </xsl:call-template>
 
 <head>
     <title>
-        <xsl:value-of select="/__ROOT__/board_config/o_board_title"/>
-        <xsl:if test="//forum_get_by_id/forum_name">
-            : <xsl:value-of select="//forum_get_by_id/forum_name"/>
+        <xsl:value-of select="/_R_/board_config/o_board_title"/>
+        <xsl:if test="/_R_/forum_get_by_id/forum_name">
+            : <xsl:value-of select="/_R_/forum_get_by_id/forum_name"/>
         </xsl:if>
-        <xsl:if test="//topic_get_by_id/subject">
-            : <xsl:value-of select="//topic_get_by_id/subject"/>
+        <xsl:if test="/_R_/topic_get_by_id/subject">
+            : <xsl:value-of select="/_R_/topic_get_by_id/subject"/>
         </xsl:if>
     </title>
-    <link rel="stylesheet" type="text/css" href="{//path_prefix}/s/style/Oxygen.css"/>
-    <link rel="stylesheet" type="text/css" href="{//link_prefix}dynamic-css"/>
-    <script type="text/javascript" src="{//path_prefix}/s/js/jsval.js"></script>
-    <script type="text/javascript" src="{//path_prefix}/s/js/jquery/jquery.js"></script>
-    <script type="text/javascript" src="{//path_prefix}/s/js/jquery/plugins/jquery.disabletextselect.js"></script>
-    <script type="text/javascript" src="{//path_prefix}/s/js/jquery/plugins/jquery.tablesorter.min.js"></script>
-    <script type="text/javascript" src="{//path_prefix}/s/js/jquery/plugins/jquery.tablesorter.pager.js"></script>
-<xsl:for-each select="//in_head">
+    <link rel="stylesheet" type="text/css" href="{$path_prefix}/s/style/Oxygen.css"/>
+    <link rel="stylesheet" type="text/css" href="{$link_prefix}dynamic-css"/>
+    <script type="text/javascript" src="{$path_prefix}/s/js/jsval.js"></script>
+    <script type="text/javascript" src="{$path_prefix}/s/js/jquery/jquery.js"></script>
+    <script type="text/javascript" src="{$path_prefix}/s/js/jquery/plugins/jquery.disabletextselect.js"></script>
+    <script type="text/javascript" src="{$path_prefix}/s/js/jquery/plugins/jquery.tablesorter.min.js"></script>
+    <script type="text/javascript" src="{$path_prefix}/s/js/jquery/plugins/jquery.tablesorter.pager.js"></script>
+<xsl:for-each select="/_R_/in_head">
     <xsl:sort select="priority"/>
     <xsl:value-of select="string" disable-output-escaping="yes"/>
 </xsl:for-each>

@@ -29,21 +29,39 @@
 <xsl:include href="footer.xsl"/>
 <xsl:include href="source_spacer.xsl"/>
 <xsl:include href="link_builder.xsl"/>
+
 <xsl:template name="main">
+<xsl:param name="link_prefix"/>
+<xsl:param name="path_prefix"/>
+
 <xsl:call-template name="source_spacer">
     <xsl:with-param name="section_start">main</xsl:with-param>
 </xsl:call-template>
+
+
+
 <div id="main">
 <div id="punwrap">
 <div class="pun">
-<xsl:call-template name="header"/>
+<xsl:call-template name="header">
+    <xsl:with-param name="link_prefix">
+        <xsl:value-of select="$link_prefix"/>
+    </xsl:with-param>
+    <xsl:with-param name="path_prefix">
+        <xsl:value-of select="$path_prefix"/>
+    </xsl:with-param>
+</xsl:call-template>
 
 <xsl:call-template name="source_spacer">
     <xsl:with-param name="section_start">content</xsl:with-param>
 </xsl:call-template>
-<div id="content" class="blocktable">
-<xsl:call-template name="content"/>
-</div>
+    <div id="content" class="blocktable">
+        <xsl:call-template name="content">
+            <xsl:with-param name="link_prefix">
+                <xsl:value-of select="$link_prefix"/>
+            </xsl:with-param>
+        </xsl:call-template>
+    </div>
 <xsl:call-template name="source_spacer">
     <xsl:with-param name="section_end">content</xsl:with-param>
 </xsl:call-template>

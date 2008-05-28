@@ -33,7 +33,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
         
         FROM &prefix;categories AS c 
         
-        INNER JOIN &prefix;forums AS f ON c.id=f.cat_id 
+        INNER JOIN &prefix;forums AS f ON c.id=f.cat_id
         
         ORDER BY c.disp_position, c.id, f.disp_position
     </sql>

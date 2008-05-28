@@ -23,15 +23,12 @@ or write to the Free Software Foundation,Inc., 51 Franklin Street,
 Fifth Floor, Boston, MA 02110-1301  USA
 */
 
-$config = Nexista_Flow::getbypath('//config_get');
+$config = Nexista_Flow::getbypath('/_R_/config_get');
 
-
-// Believe it or not, for Nexista, XML is faster.
 $code = '<?php $config = array(';
 
 foreach($config as $conf_item) { 
     $code .= "'".$conf_item['conf_name']."' => '".addslashes($conf_item['conf_value'])."',\n";
-//    print_r($conf_item);
 }
 $code .= "); ?>";
 

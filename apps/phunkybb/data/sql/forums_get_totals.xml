@@ -25,17 +25,19 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <query name="forums_get_totals" loop="//forums_get_all/fid">
     <connection>&connection_read;</connection>
     <params>
-        <param array="//forums_get_all/fid" type="text" default="0"/>
-        <param array="//forums_get_all/fid" type="text" default="0"/>
-        <param array="//forums_get_all/fid" type="text" default="0"/>
+        <param array="/_R_/forums_get_all/fid" type="integer" default="0"/>
+        <param array="/_R_/forums_get_all/fid" type="integer" default="0"/>
+        <param array="/_R_/forums_get_all/fid" type="integer" default="0"/>
 	</params>
     <sql>
+        <!-- THIS QUERY NEEDS TO BE CACHED INTO FORUMS TABLE -->
         SELECT 
         (SELECT ?) as forum_id,
-        
+
         (SELECT count(id) FROM  &prefix;topics WHERE forum_id=?) as total_topics,
-        
-        (SELECT count(p.id) FROM  &prefix;posts as p, &prefix;topics as t WHERE t.forum_id=? AND p.topic_id=t.id) as total_posts
-        
+
+        (SELECT count(p.id) FROM  &prefix;posts as p, &prefix;topics as t
+            WHERE t.forum_id=? AND p.topic_id=t.id) as total_posts
+
     </sql>
 </query>
