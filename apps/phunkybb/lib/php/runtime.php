@@ -26,8 +26,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 $defaults = Nexista_Config::getSection("./defaults");
 Nexista_Flow::add("defaults",$defaults);
 
-$path = $_SERVER['REQUEST_URI'];
-$path = dirname($path)."/".basename($_SERVER['SCRIPT_NAME']);
+$path = $_SERVER['SCRIPT_NAME'];
 $path_prefix = dirname($path)."/";
 $link_prefix = $path."?nid=";
 
@@ -44,9 +43,8 @@ if($_SESSION['NX_AUTH']['username']==1016)
 /* Subversion revision */
 if(is_file('../revision')) { 
     $svn_revision = file_get_contents('../revision');
-} else {
-
 }
+
 $runtime = array(
                 'path_prefix' => $path_prefix,
                 'link_prefix' => $link_prefix,
@@ -67,11 +65,4 @@ $runtime = array(
 
 Nexista_Flow::add("runtime",$runtime,false);
 
-
-// From common.php, not sure if needed
-define('PUN_UNVERIFIED', 32000);
-define('PUN_ADMIN', 1);
-define('PUN_MOD', 2);
-define('PUN_GUEST', 3);
-define('PUN_MEMBER', 4);
 ?>
