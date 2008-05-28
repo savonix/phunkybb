@@ -41,7 +41,7 @@ class Nexista_RandomAction extends Nexista_Action
      */
 
     protected  function main()
-    {   
+    {
         $name = $this->params['name'];
         $count = $this->params['randomness'];
         if(!($count > 0)) { 

@@ -41,7 +41,7 @@ class Nexista_DetokenizeAction extends Nexista_Action
      */
 
     protected  function main()
-    {   
+    {
 		$text = Nexista_Path::get($this->params['haystack']);
         $tokens = Nexista_Flow::getbypath($this->params['token_array_xpath']);
         /*

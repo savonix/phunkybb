@@ -1,6 +1,6 @@
 <?php
 /*
- * -File        bbcode.plugin.php
+ * -File        striptags.plugin.php
  * -License     LGPL (http://www.gnu.org/copyleft/lesser.html)
  * -Copyright   Savonix Corporation
  * -Author		Albert Lash

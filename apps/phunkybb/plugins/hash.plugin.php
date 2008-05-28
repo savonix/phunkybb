@@ -49,7 +49,7 @@ class Nexista_HashAction extends Nexista_Action
         $hash_type = $this->params['hash_type'];
         $count = 8;
         if($pwd->length === 1)
-        {            
+        {
             $mypwd = $pwd->item(0)->nodeValue;
         }
         // If a cryptmd5 is selected, a hash is either provided or is generated.
@@ -67,12 +67,12 @@ class Nexista_HashAction extends Nexista_Action
                     $mysalt = substr($mysalt, 0, $count);
                 }
                 $mysalt = "$1$".$mysalt."$";
-            } else { 
+            } else {
                 $salt = Nexista_Flow::find($this->params['salt']);
                 $mysalt = $salt->item(0)->nodeValue;
             }
             $hash = crypt($mypwd, $mysalt);
-            
+
         // Non-salted hash
         // http://www.php.net/manual/en/function.hash.php
         } elseif (in_array($hash_type,hash_algos())) { 
