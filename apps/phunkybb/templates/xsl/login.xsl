@@ -47,7 +47,7 @@ function do_encrypt() {
     $('span#login_button').removeClass("button-basic-blue");
     $('span#login_button').addClass("button-basic-green");
     $('span#replace').css("visibility","visible");
-    $('span#replace').html("<xsl:value-of select="//label[key='working']/value"/>...");
+    $('span#replace').html("<xsl:value-of select="/_R_/i18n/label[key='working']/value"/>...");
 
     var myform = document.forms["mlogin"];
     var rsa = new RSAKey();
@@ -70,7 +70,7 @@ function do_encrypt() {
 }
 </script>
 <div class="blockform">
-<h2><xsl:value-of select="//label[key='login']/value"/></h2>
+<h2><xsl:value-of select="/_R_/i18n/label[key='login']/value"/></h2>
 
 <div class="box">
 <form id="mlogin" name="mlogin" method="post" action="{//link_prefix}login"
@@ -80,17 +80,17 @@ function do_encrypt() {
 <input type="hidden" name="my_tz_offset" value=""/>
     <div class="inform">
         <fieldset>
-            <legend><xsl:value-of select="//label[key='enter_username']/value"/></legend>
+            <legend><xsl:value-of select="/_R_/i18n/label[key='enter_username']/value"/></legend>
             <div class="infldset">
-            <label class="conl"><strong><xsl:value-of select="//label[key='username']/value"/></strong><br/>
+            <label class="conl"><strong><xsl:value-of select="/_R_/i18n/label[key='username']/value"/></strong><br/>
             <input type="text" name="username"/><br/>
             </label>
 
-            <label class="conl"><strong><xsl:value-of select="//label[key='password']/value"/></strong><br/>
+            <label class="conl"><strong><xsl:value-of select="/_R_/i18n/label[key='password']/value"/></strong><br/>
             <input type="password" name="password"/><br/>
             </label>
 
-            <p><a href="{//link_prefix}register"><xsl:value-of select="//label[key='not_registered_yet']/value"/>?</a>
+            <p><a href="{//link_prefix}register"><xsl:value-of select="/_R_/i18n/label[key='not_registered_yet']/value"/>?</a>
             <div style="visibility: hidden;" id="failure"><a href="">Forgotten your password?</a></div>
             </p>
             </div>

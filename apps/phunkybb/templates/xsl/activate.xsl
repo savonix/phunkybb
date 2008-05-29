@@ -25,12 +25,12 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <xsl:include href="html_main.xsl"/>
 <xsl:template name="content">
 <div class="blockform">
-	<h2><xsl:value-of select="//label[key='activate']/value"/></h2>
+	<h2><xsl:value-of select="/_R_/i18n/label[key='activate']/value"/></h2>
 
 <div class="box">
     <div class="inform">
         <fieldset>
-            <xsl:value-of select="//label[key='activated']/value"/>!
+            <xsl:value-of select="/_R_/i18n/label[key='activated']/value"/>!
         </fieldset>
     </div>
 </div>

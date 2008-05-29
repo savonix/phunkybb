@@ -42,17 +42,17 @@ function delete_forum(fid,cid) {
 <div id="adminconsole" class="block2col">
     <xsl:call-template name="admin-menu"/>
 	<div class="blockform">
-		<h2><xsl:value-of select="//label[key='add_forum']/value"/></h2>
+		<h2><xsl:value-of select="/_R_/i18n/label[key='add_forum']/value"/></h2>
 		<div class="box">
 			<form method="post" action="{//link_prefix}forums">
 				<div class="inform">
 					<fieldset>
-						<legend><xsl:value-of select="//label[key='create_a_new_forum']/value"/></legend>
+						<legend><xsl:value-of select="/_R_/i18n/label[key='create_a_new_forum']/value"/></legend>
 
 						<div class="infldset">
 							<table class="aligntop" cellspacing="0">
 								<tr>
-									<th scope="row"><xsl:value-of select="//label[key='add_forum_to_category']/value"/><div><input type="submit" name="add_forum" value=" Add "/></div></th>
+									<th scope="row"><xsl:value-of select="/_R_/i18n/label[key='add_forum_to_category']/value"/><div><input type="submit" name="add_forum" value=" Add "/></div></th>
 									<td>
                                     <input type="text" name="forum_name"/>
 										<select name="add_to_cat">
@@ -60,7 +60,7 @@ function delete_forum(fid,cid) {
 										<option value="{cid}"><xsl:value-of select="cat_name"/></option>
                                         </xsl:for-each>
 										</select>
-										<xsl:value-of select="//label[key='select_a_category_to_add']/value"/>.
+										<xsl:value-of select="/_R_/i18n/label[key='select_a_category_to_add']/value"/>.
 									</td>
 								</tr>
 							</table>
@@ -70,7 +70,7 @@ function delete_forum(fid,cid) {
 			</form>
 		</div>
 
-		<h2 class="block2"><span><xsl:value-of select="//label[key='edit_forums']/value"/></span></h2>
+		<h2 class="block2"><span><xsl:value-of select="/_R_/i18n/label[key='edit_forums']/value"/></span></h2>
 		<div class="box">
 			<form id="edforum" method="post" action="{//link_prefix}forums">
 				<p class="submittop"><input type="submit" name="update_positions" value="Update positions"/></p>
@@ -78,16 +78,16 @@ function delete_forum(fid,cid) {
                 <xsl:variable name="my_cid"><xsl:value-of select="cid"/></xsl:variable>
 				<div class="inform">
 					<fieldset>
-						<legend><xsl:value-of select="//label[key='category']/value"/>: <xsl:value-of select="cat_name"/></legend>
+						<legend><xsl:value-of select="/_R_/i18n/label[key='category']/value"/>: <xsl:value-of select="cat_name"/></legend>
 						<div class="infldset">
 
 							<table cellspacing="0" id="cat_table_{cid}">
                             <xsl:for-each select="//forums_get_all[cid=$my_cid]">
 								<tr id="row_{fid}">
-									<th><a href="{//link_prefix}forum-edit"><xsl:value-of select="//label[key='edit']/value"/></a> - 
+									<th><a href="{//link_prefix}forum-edit"><xsl:value-of select="/_R_/i18n/label[key='edit']/value"/></a> - 
                                     <a href="{//link_prefix}forum-delete&amp;id={fid}" 
-                                    onclick="delete_forum({fid},{cid}); return false;"><xsl:value-of select="//label[key='delete']/value"/></a></th>
-									<td><xsl:value-of select="//label[key='position']/value"/><input type="text" name="position[3]" size="3" maxlength="3" value="0"/>
+                                    onclick="delete_forum({fid},{cid}); return false;"><xsl:value-of select="/_R_/i18n/label[key='delete']/value"/></a></th>
+									<td><xsl:value-of select="/_R_/i18n/label[key='position']/value"/><input type="text" name="position[3]" size="3" maxlength="3" value="0"/>
 									&#160;<strong><xsl:value-of select="forum_name"/></strong></td>
 								</tr>
                             </xsl:for-each>

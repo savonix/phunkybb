@@ -58,7 +58,7 @@ function do_encrypt() {
     $('span#login_button').removeClass("button-basic-blue");
     $('span#login_button').addClass("button-basic-green");
     $('span#replace').css("visibility","visible");
-    $('span#replace').html("<xsl:value-of select="//label[key='working']/value"/>...");
+    $('span#replace').html("<xsl:value-of select="/_R_/i18n/label[key='working']/value"/>...");
     
     if(validateStandard(this))
     {
@@ -80,45 +80,45 @@ function do_encrypt() {
             }
         });
     } else {
-        $('span#replace').html("<xsl:value-of select="//label[key='invalid_registration']/value"/>");
+        $('span#replace').html("<xsl:value-of select="/_R_/i18n/label[key='invalid_registration']/value"/>");
     }
 }
 </script>
 <div class="blockform">
-<h2><xsl:value-of select="//label[key='register']/value"/></h2>
+<h2><xsl:value-of select="/_R_/i18n/label[key='register']/value"/></h2>
 <div class="box">
     <form id="register" name="register" method="post" onSubmit="do_encrypt(); return false;">
         <input type="hidden" name="id_rsa_pub" value=""/>
         <input type="hidden" name="e" value=""/>
         <div class="inform">
             <div class="forminfo">
-                <h3><xsl:value-of select="//label[key='important_information']/value"/></h3>
-                <p><xsl:value-of select="//label[key='reg_desc_1']/value"/></p>
-                <p><xsl:value-of select="//label[key='reg_desc_2']/value"/></p>
+                <h3><xsl:value-of select="/_R_/i18n/label[key='important_information']/value"/></h3>
+                <p><xsl:value-of select="/_R_/i18n/label[key='reg_desc_1']/value"/></p>
+                <p><xsl:value-of select="/_R_/i18n/label[key='reg_desc_2']/value"/></p>
             </div>
             <fieldset>
-                <legend><xsl:value-of select="//label[key='username_legend']/value"/></legend>
+                <legend><xsl:value-of select="/_R_/i18n/label[key='username_legend']/value"/></legend>
                 <div class="infldset">
-                    <label><strong><xsl:value-of select="//label[key='username']/value"/></strong><br/>
+                    <label><strong><xsl:value-of select="/_R_/i18n/label[key='username']/value"/></strong><br/>
                     <input type="text" name="username" maxlength="25" value="{//_post/username}"/><br/></label>
                 </div>
             </fieldset>
         </div>
         <div class="inform">
             <fieldset>
-                <legend><xsl:value-of select="//label[key='pass_legend_1']/value"/></legend>
+                <legend><xsl:value-of select="/_R_/i18n/label[key='pass_legend_1']/value"/></legend>
                 <div class="infldset">
-                    <label class="conl"><strong><xsl:value-of select="//label[key='password']/value"/></strong><br/><input type="password" name="password" size="16" maxlength="16"/><br/></label>
-                    <label class="conl"><strong><xsl:value-of select="//label[key='confirm_password']/value"/></strong><br/><input type="password" name="password2" size="16" maxlength="16"/><br/></label>
-                    <p class="clearb"><xsl:value-of select="//label[key='pass_info']/value"/></p>
+                    <label class="conl"><strong><xsl:value-of select="/_R_/i18n/label[key='password']/value"/></strong><br/><input type="password" name="password" size="16" maxlength="16"/><br/></label>
+                    <label class="conl"><strong><xsl:value-of select="/_R_/i18n/label[key='confirm_password']/value"/></strong><br/><input type="password" name="password2" size="16" maxlength="16"/><br/></label>
+                    <p class="clearb"><xsl:value-of select="/_R_/i18n/label[key='pass_info']/value"/></p>
                 </div>
             </fieldset>
         </div>
         <div class="inform">
             <fieldset>
-                <legend><xsl:value-of select="//label[key='valid_email']/value"/></legend>
+                <legend><xsl:value-of select="/_R_/i18n/label[key='valid_email']/value"/></legend>
                 <div class="infldset">
-                <label><strong><xsl:value-of select="//label[key='email']/value"/></strong><br/>
+                <label><strong><xsl:value-of select="/_R_/i18n/label[key='email']/value"/></strong><br/>
                     <input type="text" name="email" maxlength="50" value="{//_post/email}"/><br/></label>
                 </div>
             </fieldset>

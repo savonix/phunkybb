@@ -28,22 +28,22 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <div id="adminconsole" class="block2col">
     <xsl:call-template name="admin-menu"/>
 	<div class="block">
-		<h2 class="block2"><xsl:value-of select="//label[key='statistics']/value"/></h2>
+		<h2 class="block2"><xsl:value-of select="/_R_/i18n/label[key='statistics']/value"/></h2>
 		<div id="adstats" class="box">
 			<div class="inbox">
 				<dl>
-					<dt>PhunkyBB <xsl:value-of select="//label[key='version']/value"/></dt>
+					<dt>PhunkyBB <xsl:value-of select="/_R_/i18n/label[key='version']/value"/></dt>
 					<dd>
 						PhunkyBB 0.2<br/>
-                        <xsl:value-of select="//label[key='copyright']/value"/>
+                        <xsl:value-of select="/_R_/i18n/label[key='copyright']/value"/>
 					</dd>
-					<dt><xsl:value-of select="//label[key='enviornment']/value"/></dt>
+					<dt><xsl:value-of select="/_R_/i18n/label[key='enviornment']/value"/></dt>
 					<dd>
-						<xsl:value-of select="//label[key='operating_system']/value"/>: <br/>
+						<xsl:value-of select="/_R_/i18n/label[key='operating_system']/value"/>: <br/>
 						PHP: <br/>
-						<xsl:value-of select="//label[key='accelerator']/value"/>: <a href="http://xcache.lighttpd.net/">XCache</a>
+						<xsl:value-of select="/_R_/i18n/label[key='accelerator']/value"/>: <a href="http://xcache.lighttpd.net/">XCache</a>
 					</dd>
-					<dt><xsl:value-of select="//label[key='database']/value"/></dt>
+					<dt><xsl:value-of select="/_R_/i18n/label[key='database']/value"/></dt>
 					<dd>
                         MySQL
 					</dd>

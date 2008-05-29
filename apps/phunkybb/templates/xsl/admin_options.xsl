@@ -41,17 +41,17 @@ Fifth Floor, Boston, MA 02110-1301  USA
                     <div class="infldset">
                         <table class="aligntop" cellspacing="0">
                             <tr>
-                                <th scope="row"><xsl:value-of select="//label[key='board_title']/value"/></th>
+                                <th scope="row"><xsl:value-of select="/_R_/i18n/label[key='board_title']/value"/></th>
                                 <td>
                                     <input type="text" name="form[o_board_title]" size="50" maxlength="255" value="{//board_config/o_board_title}"/>
-                                    <xsl:value-of select="//label[key='title_of_buletine_board']/value"/> <strong><xsl:value-of select="//label[key='not']/value"/></strong> <xsl:value-of select="//label[key='contain_html']/value"/>.
+                                    <xsl:value-of select="/_R_/i18n/label[key='title_of_buletine_board']/value"/> <strong><xsl:value-of select="/_R_/i18n/label[key='not']/value"/></strong> <xsl:value-of select="/_R_/i18n/label[key='contain_html']/value"/>.
                                 </td>
                             </tr>
                             <tr>
-                                <th scope="row"><xsl:value-of select="//label[key='board_description']/value"/></th>
+                                <th scope="row"><xsl:value-of select="/_R_/i18n/label[key='board_description']/value"/></th>
                                 <td>
                                     <input type="text" name="form[o_board_desc]" size="50" maxlength="255" value="{//board_config/o_board_desc}"/>
-                                    <xsl:value-of select="//label[key='short_description_of_this']/value"/>.
+                                    <xsl:value-of select="/_R_/i18n/label[key='short_description_of_this']/value"/>.
                                 </td>
                             </tr>
                         </table>
@@ -60,25 +60,25 @@ Fifth Floor, Boston, MA 02110-1301  USA
             </div>
             <div class="inform">
                 <fieldset>
-                    <legend><xsl:value-of select="//label[key='email']/value"/></legend>
+                    <legend><xsl:value-of select="/_R_/i18n/label[key='email']/value"/></legend>
                     <div class="infldset">
                         <table class="aligntop" cellspacing="0">
                             <tr>
-                                <th scope="row"><xsl:value-of select="//label[key='admin_email']/value"/></th>
+                                <th scope="row"><xsl:value-of select="/_R_/i18n/label[key='admin_email']/value"/></th>
                                 <td>
                                     <input type="text" name="form[o_admin_email]" size="50" maxlength="50" value="{//board_config/o_admin_email}"/>
-                                    <xsl:value-of select="//label[key='email_of_forum_admin']/value"/>.
+                                    <xsl:value-of select="/_R_/i18n/label[key='email_of_forum_admin']/value"/>.
                                 </td>
                             </tr>
                             <tr>
-                                <th scope="row"><xsl:value-of select="//label[key='webmaster_email']/value"/></th>
+                                <th scope="row"><xsl:value-of select="/_R_/i18n/label[key='webmaster_email']/value"/></th>
                                 <td>
                                     <input type="text" name="form[o_webmaster_email]" size="50" maxlength="50" value="{//board_config/o_webmaster_email}"/>
-                                    <br/><xsl:value-of select="//label[key='address_all_email_sent_from']/value"/>.
+                                    <br/><xsl:value-of select="/_R_/i18n/label[key='address_all_email_sent_from']/value"/>.
                                 </td>
                             </tr>
                             <tr>
-                                <th scope="row"><xsl:value-of select="//label[key='subscriptions']/value"/></th>
+                                <th scope="row"><xsl:value-of select="/_R_/i18n/label[key='subscriptions']/value"/></th>
                                 <td>
                                     <input type="radio" name="form[o_subscriptions]" value="yes">
                                         <xsl:if test="//board_config/o_subscriptions='yes'">
@@ -93,28 +93,28 @@ Fifth Floor, Boston, MA 02110-1301  USA
                                         </xsl:if>
                                     </input>
                                     <strong>No</strong>
-                                    <br/><xsl:value-of select="//label[key='enable_users_to_subscribe']/value"/>.
+                                    <br/><xsl:value-of select="/_R_/i18n/label[key='enable_users_to_subscribe']/value"/>.
                                 </td>
                             </tr>
                             <tr>
-                                <th scope="row"><xsl:value-of select="//label[key='smtp_server_address']/value"/></th>
+                                <th scope="row"><xsl:value-of select="/_R_/i18n/label[key='smtp_server_address']/value"/></th>
                                 <td>
                                     <input type="text" name="form[o_smtp_host]" size="30" maxlength="100" value="{//board_config/o_smtp_host}"/>
-                                    <xsl:value-of select="//label[key='address_of_external_smtp']/value"/>.
+                                    <xsl:value-of select="/_R_/i18n/label[key='address_of_external_smtp']/value"/>.
                                 </td>
                             </tr>
                             <tr>
-                                <th scope="row"><xsl:value-of select="//label[key='smtp_username']/value"/></th>
+                                <th scope="row"><xsl:value-of select="/_R_/i18n/label[key='smtp_username']/value"/></th>
                                 <td>
                                     <input type="text" name="form[o_smtp_user]" size="25" maxlength="50" value="{//board_config/o_smtp_user}"/>
-                                    <xsl:value-of select="//label[key='username_for_smtp_server']/value"/>
+                                    <xsl:value-of select="/_R_/i18n/label[key='username_for_smtp_server']/value"/>
                                 </td>
                             </tr>
                             <tr>
-                                <th scope="row"><xsl:value-of select="//label[key='smtp_password']/value"/></th>
+                                <th scope="row"><xsl:value-of select="/_R_/i18n/label[key='smtp_password']/value"/></th>
                                 <td>
                                     <input type="text" name="form[o_smtp_pass]" size="25" maxlength="50" value="{//board_config/o_smtp_pass}"/>
-                                    <xsl:value-of select="//label[key='password_for_smtp_server']/value"/>
+                                    <xsl:value-of select="/_R_/i18n/label[key='password_for_smtp_server']/value"/>
                                 </td>
                             </tr>
                         </table>

@@ -26,14 +26,14 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <xsl:template name="content">
 <div id="install" class="blockform">
 	<div class="block">
-		<h2 class="block2"><xsl:value-of select="//label[key='install']/value"/></h2>
+		<h2 class="block2"><xsl:value-of select="/_R_/i18n/label[key='install']/value"/></h2>
 		<div class="box">
 			<form id="profile1" method="post">
             <div class="inform">
                 <fieldset>
-                    <legend><xsl:value-of select="//label[key='install']/value"/></legend>
+                    <legend><xsl:value-of select="/_R_/i18n/label[key='install']/value"/></legend>
                     <div class="infldset">
-                        <label><strong><xsl:value-of select="//label[key='username']/value"/></strong><br/>
+                        <label><strong><xsl:value-of select="/_R_/i18n/label[key='username']/value"/></strong><br/>
                         <input type="text" name="req_username" value="{//user_get_profile/username}"/><br/>
                         </label>
                     </div>
