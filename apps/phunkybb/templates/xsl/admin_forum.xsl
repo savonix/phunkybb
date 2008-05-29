@@ -28,7 +28,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 
 <script type="text/javascript">
 function delete_forum(fid,cid) {
-    var question = '<xsl:value-of select="/__ROOT__/i18n/labels/label[key='delete_confirm']/value"/>';
+    var question = '<xsl:value-of select="/_R_/i18n/labels/label[key='delete_confirm']/value"/>';
     if(confirm(question)) {
         $.post("<xsl:value-of select="//link_prefix"/>x-forum-delete&amp;id="+fid, {'id': fid},
         function (data){
