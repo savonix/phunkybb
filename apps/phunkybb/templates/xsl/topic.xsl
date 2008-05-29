@@ -33,7 +33,7 @@ function delete_post(post_id) {
     {
         'post_id': post_id,
         'num_replies': <xsl:value-of select="count(//posts_get_by_topic_id)"/>,
-        'topic_id': <xsl:value-of select="//_get/id"/>
+        'topic_id': <xsl:value-of select="/_R_/_get/id"/>
     },
     function (data){
     });
@@ -64,8 +64,8 @@ function delete_topic(topic_id) {
         </p>
 		<p class="postlink conr">&#160;
         <xsl:if test="//runtime/group_id=1 or poster=//runtime/username">
-            <a href="{$link_prefix}topic-delete&amp;topic_id={//_get/id}&amp;fid={//_get/fid}" 
-                onclick="delete_topic({//_get/id}); return false;">Delete</a>
+            <a href="{$link_prefix}topic-delete&amp;topic_id={/_R_/_get/id}&amp;fid={/_R_/_get/fid}" 
+                onclick="delete_topic({/_R_/_get/id}); return false;">Delete</a>
         </xsl:if>
         </p>
 		<ul>
@@ -84,7 +84,7 @@ function delete_topic(topic_id) {
         <p class="postlink conl">
             <xsl:if test="//posts_get_number_of_pages/count &gt; 2">
             <xsl:call-template name="previous_next">
-                <xsl:with-param name="qsa">&amp;fid=<xsl:value-of select="//_get/fid"/>&amp;id=<xsl:value-of select="//_get/id"/>
+                <xsl:with-param name="qsa">&amp;fid=<xsl:value-of select="/_R_/_get/fid"/>&amp;id=<xsl:value-of select="/_R_/_get/id"/>
                 </xsl:with-param>
             </xsl:call-template>
             </xsl:if>
@@ -138,14 +138,14 @@ function delete_topic(topic_id) {
 <div class="blockform">
 	<h2><xsl:value-of select="/_R_/i18n/labels/label[key='quick_post']/value"/></h2>
 	<div class="box">
-		<form method="post" action="{$link_prefix}post&amp;tid={//_get/id}">
+		<form method="post" action="{$link_prefix}post&amp;tid={/_R_/_get/id}">
 			<div class="inform">
 				<fieldset>
 					<legend><xsl:value-of select="/_R_/i18n/label[key='write_your_message']/value"/></legend>
 					<div class="infldset txtarea">
-						<input type="hidden" name="topic_id" value="{//_get/id}"/>
+						<input type="hidden" name="topic_id" value="{/_R_/_get/id}"/>
 						<input type="hidden" name="num_replies" value="{count(//posts_get_by_topic_id)}"/>
-						<input type="hidden" name="forum_id" value="{//_get/fid}"/>
+						<input type="hidden" name="forum_id" value="{/_R_/_get/fid}"/>
 						<label><textarea name="message" rows="7" cols="75"></textarea></label>
 					</div>
 				</fieldset>

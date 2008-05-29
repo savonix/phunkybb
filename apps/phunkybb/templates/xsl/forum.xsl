@@ -80,7 +80,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
                             <div class="icon inew"><div class="nosize"></div></div>
                             </xsl:if>
 							<div class="tclcon">
-								<a href="{$link_prefix}topic&amp;fid={//_get/fid}&amp;id={id}">
+								<a href="{$link_prefix}topic&amp;fid={/_R_/_get/fid}&amp;id={id}">
                                     <xsl:value-of select="subject"/>
                                 </a>
 							</div>

@@ -25,15 +25,15 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <xsl:template name="previous_next">
 <xsl:param name="qsa"/>
 <xsl:if test="(/_R_/_get/start!=0) and not(/_R_/_get/start='NaN')">
-<a href="{//link_prefix}{//_get/nid}{$qsa}&amp;start={//_get/start - //incr}">Previous</a>
+<a href="{//link_prefix}{/_R_/_get/nid}{$qsa}&amp;start={/_R_/_get/start - //incr}">Previous</a>
 &#160;
-<a href="{//link_prefix}{//_get/nid}{$qsa}&amp;start={//_get/start + //incr}">Next</a>
+<a href="{//link_prefix}{/_R_/_get/nid}{$qsa}&amp;start={/_R_/_get/start + //incr}">Next</a>
 </xsl:if>
 
-<xsl:if test="(//_get/start=0) or not(//_get/start)">
+<xsl:if test="(/_R_/_get/start=0) or not(/_R_/_get/start)">
 Previous
 &#160;
-<a href="{//link_prefix}{//_get/nid}{$qsa}&amp;start={//incr}">Next</a>
+<a href="{//link_prefix}{/_R_/_get/nid}{$qsa}&amp;start={//incr}">Next</a>
 </xsl:if>
 </xsl:template>
 </xsl:stylesheet>

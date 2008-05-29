@@ -31,7 +31,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 		<h2><xsl:value-of select="//runtime/username"/></h2>
 		<div class="box">
 			<form id="profile7" method="post">
-                <input type="hidden" name="user_id" value="{//_get/user_id}"/>
+                <input type="hidden" name="user_id" value="{/_R_/_get/user_id}"/>
 				<div class="inform">
 					<fieldset>
 						<legend>Enter a valid e-mail address</legend>

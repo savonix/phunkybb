@@ -29,7 +29,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <h2><xsl:value-of select="/_R_/i18n/label[key='edit_post']/value"/></h2>
 <div class="box">
     <form id="post" method="post" action="{$link_prefix}topic-submit">
-        <input type="hidden" name="post_id" value="{//_get/post_id}"/>
+        <input type="hidden" name="post_id" value="{/_R_/_get/post_id}"/>
         <div class="inform">
             <fieldset>
                 <legend><xsl:value-of select="/_R_/i18n/label[key='write_your_message']/value"/></legend>
