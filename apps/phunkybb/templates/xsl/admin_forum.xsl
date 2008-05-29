@@ -80,7 +80,7 @@ function delete_forum(fid,cid) {
 		<div class="box">
 			<form id="edforum" method="post" action="{$link_prefix}forums">
 				<p class="submittop"><input type="submit" name="update_positions" value="Update positions"/></p>
-                <xsl:for-each select="//categories_get_all[cid=//forums_get_all/cid]">
+                <xsl:for-each select="/_R_/categories_get_all[cid=/_R_/forums_get_all/cid]">
                 <xsl:variable name="my_cid"><xsl:value-of select="cid"/></xsl:variable>
 				<div class="inform">
 					<fieldset>

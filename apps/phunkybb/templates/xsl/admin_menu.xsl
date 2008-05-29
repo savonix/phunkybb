@@ -29,7 +29,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
     <div class="box">
         <div class="inbox">
         <ul>
-            <xsl:for-each select="//navigation/admin_menu/button">
+            <xsl:for-each select="/_R_/navigation/admin_menu/button">
                 <xsl:variable name="mykey"><xsl:value-of select="."/></xsl:variable>
                 <li><a href="{$link_prefix}{$mykey}"><xsl:value-of select="/_R_/i18n/label[key=$mykey]/value"/></a></li>
             </xsl:for-each>

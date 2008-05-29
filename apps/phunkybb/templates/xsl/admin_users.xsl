@@ -68,7 +68,7 @@ function delete_user(user_id,row) {
                 </tr>
             </thead>
             <tbody>
-                <xsl:for-each select="//users_get_all">
+                <xsl:for-each select="/_R_/users_get_all">
                 <tr>
                     <td><a href="{$link_prefix}profile&amp;user_id={id}"><xsl:value-of select="username"/></a></td>
                     <td><a href="{$link_prefix}profile&amp;user_id={id}" >Edit</a></td>
