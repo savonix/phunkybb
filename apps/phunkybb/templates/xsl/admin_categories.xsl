@@ -29,7 +29,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <script type="text/javascript">
 function category_delete(category_id) {
     if(confirm('Are you sure?')){
-    $.post("<xsl:value-of select="ink_prefix"/>categories&amp;cat_to_delete="+category_id,
+    $.post("<xsl:value-of select="$link_prefix"/>categories&amp;cat_to_delete="+category_id,
     {
         'cat_to_delete': category_id,
         'action': 'del_cat'

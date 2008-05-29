@@ -68,7 +68,7 @@ function do_encrypt() {
         rsa.setPublic(linebrk(myform.id_rsa_pub.value,64), myform.e.value);
         var res = linebrk(hex2b64(rsa.encrypt(myform.password.value)),64);
 
-        $.post("<xsl:value-of select="ink_prefix"/>x-register",
+        $.post("<xsl:value-of select="$link_prefix"/>x-register",
         {
             'username': myform.username.value,
             'password': res
@@ -77,7 +77,7 @@ function do_encrypt() {
             var myResult = $("result",data).text();
             $('span#replace').html(myResult);
             if(myResult=='Success') {
-                window.location = '<xsl:value-of select="ink_prefix"/>login';
+                window.location = '<xsl:value-of select="$link_prefix"/>login';
             }
         });
     } else {

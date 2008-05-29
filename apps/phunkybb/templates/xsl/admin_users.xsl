@@ -39,7 +39,7 @@
 <script type="text/javascript">
 function delete_user(user_id,row) {
     if(confirm('Are you sure?')){
-    $.post("<xsl:value-of select="ink_prefix"/>x-user-delete&amp;user_id="+user_id,
+    $.post("<xsl:value-of select="$link_prefix"/>x-user-delete&amp;user_id="+user_id,
     {'user_id': user_id},
     function (data){
     });

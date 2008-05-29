@@ -26,6 +26,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 
 <!-- This template is used by pages which use the tablesorter and the table paginator -->
 <xsl:template name="jquery-setup">
+<xsl:param name="link_prefix"/>
 <xsl:param name="my-table"/>
 <xsl:param name="my-table-div"/>
 <xsl:param name="my-sort-column"/>
