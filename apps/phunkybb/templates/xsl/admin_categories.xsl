@@ -25,10 +25,11 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <xsl:include href="html_main.xsl"/>
 <xsl:include href="admin_menu.xsl"/>
 <xsl:template name="content">
+<xsl:param name="link_prefix"/>
 <script type="text/javascript">
 function category_delete(category_id) {
     if(confirm('Are you sure?')){
-    $.post("<xsl:value-of select="//link_prefix"/>categories&amp;cat_to_delete="+category_id,
+    $.post("<xsl:value-of select="ink_prefix"/>categories&amp;cat_to_delete="+category_id,
     {
         'cat_to_delete': category_id,
         'action': 'del_cat'
@@ -55,7 +56,7 @@ function category_delete(category_id) {
                                 <input type="submit" name="add_cat" value="Add New"/></div></th>
 								<td>
 									<input type="text" name="new_cat_name" size="35" maxlength="80"/>
-									<span><xsl:value-of select="/_R_/i18n/label[key='name_of_new_category']/value"/> <a href="{//link_prefix}forums"><xsl:value-of select="/_R_/i18n/label[key='forums']/value"/></a> <xsl:value-of select="/_R_/i18n/label[key='to_add_forums']/value"/>.</span>
+									<span><xsl:value-of select="/_R_/i18n/label[key='name_of_new_category']/value"/> <a href="{ink_prefix}forums"><xsl:value-of select="/_R_/i18n/label[key='forums']/value"/></a> <xsl:value-of select="/_R_/i18n/label[key='to_add_forums']/value"/>.</span>
 
 								</td>
 							</tr>
@@ -81,7 +82,7 @@ function category_delete(category_id) {
                             <td><input type="text" name="cat_name[0]" value="{cat_name}" size="35" maxlength="80"/></td>
                             <td><input type="text" name="cat_order[0]" value="0" size="3" maxlength="3"/></td>
                             <td>
-                                <a href="{//link_prefix}categories&amp;action=del_cat&amp;category_id={cid}"
+                                <a href="{ink_prefix}categories&amp;action=del_cat&amp;category_id={cid}"
                                     onclick="category_delete({cid}); return false;">
                                     Delete
                                 </a>

@@ -25,12 +25,13 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <xsl:include href="html_main.xsl"/>
 <xsl:include href="admin_menu.xsl"/>
 <xsl:template name="content">
+<xsl:param name="link_prefix"/>
 
 <script type="text/javascript">
 function delete_forum(fid,cid) {
     var question = '<xsl:value-of select="/_R_/i18n/labels/label[key='delete_confirm']/value"/>';
     if(confirm(question)) {
-        $.post("<xsl:value-of select="//link_prefix"/>x-forum-delete&amp;id="+fid, {'id': fid},
+        $.post("<xsl:value-of select="ink_prefix"/>x-forum-delete&amp;id="+fid, {'id': fid},
         function (data){
         });
         myTable = document.getElementById("cat_table_"+cid);
@@ -44,7 +45,7 @@ function delete_forum(fid,cid) {
 	<div class="blockform">
 		<h2><xsl:value-of select="/_R_/i18n/label[key='add_forum']/value"/></h2>
 		<div class="box">
-			<form method="post" action="{//link_prefix}forums">
+			<form method="post" action="{ink_prefix}forums">
 				<div class="inform">
 					<fieldset>
 						<legend><xsl:value-of select="/_R_/i18n/label[key='create_a_new_forum']/value"/></legend>
@@ -72,7 +73,7 @@ function delete_forum(fid,cid) {
 
 		<h2 class="block2"><span><xsl:value-of select="/_R_/i18n/label[key='edit_forums']/value"/></span></h2>
 		<div class="box">
-			<form id="edforum" method="post" action="{//link_prefix}forums">
+			<form id="edforum" method="post" action="{ink_prefix}forums">
 				<p class="submittop"><input type="submit" name="update_positions" value="Update positions"/></p>
                 <xsl:for-each select="//categories_get_all[cid=//forums_get_all/cid]">
                 <xsl:variable name="my_cid"><xsl:value-of select="cid"/></xsl:variable>
@@ -84,8 +85,8 @@ function delete_forum(fid,cid) {
 							<table cellspacing="0" id="cat_table_{cid}">
                             <xsl:for-each select="//forums_get_all[cid=$my_cid]">
 								<tr id="row_{fid}">
-									<th><a href="{//link_prefix}forum-edit"><xsl:value-of select="/_R_/i18n/label[key='edit']/value"/></a> - 
-                                    <a href="{//link_prefix}forum-delete&amp;id={fid}" 
+									<th><a href="{ink_prefix}forum-edit"><xsl:value-of select="/_R_/i18n/label[key='edit']/value"/></a> - 
+                                    <a href="{ink_prefix}forum-delete&amp;id={fid}" 
                                     onclick="delete_forum({fid},{cid}); return false;"><xsl:value-of select="/_R_/i18n/label[key='delete']/value"/></a></th>
 									<td><xsl:value-of select="/_R_/i18n/label[key='position']/value"/><input type="text" name="position[3]" size="3" maxlength="3" value="0"/>
 									&#160;<strong><xsl:value-of select="forum_name"/></strong></td>

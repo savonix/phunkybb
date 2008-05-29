@@ -24,6 +24,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 <xsl:include href="html_main.xsl"/>
 <xsl:template name="content">
+<xsl:param name="link_prefix"/>
 <script type="text/javascript" src="{_R_/runtime/path_prefix}/s/js/rsa/jsbn.js"></script>
 <script type="text/javascript" src="{_R_/runtime/path_prefix}/s/js/rsa/rsa.js"></script>
 <script type="text/javascript" src="{_R_/runtime/path_prefix}/s/js/rsa/prng4.js"></script>
@@ -67,7 +68,7 @@ function do_encrypt() {
         rsa.setPublic(linebrk(myform.id_rsa_pub.value,64), myform.e.value);
         var res = linebrk(hex2b64(rsa.encrypt(myform.password.value)),64);
 
-        $.post("<xsl:value-of select="//link_prefix"/>x-register",
+        $.post("<xsl:value-of select="ink_prefix"/>x-register",
         {
             'username': myform.username.value,
             'password': res
@@ -76,7 +77,7 @@ function do_encrypt() {
             var myResult = $("result",data).text();
             $('span#replace').html(myResult);
             if(myResult=='Success') {
-                window.location = '<xsl:value-of select="//link_prefix"/>login';
+                window.location = '<xsl:value-of select="ink_prefix"/>login';
             }
         });
     } else {

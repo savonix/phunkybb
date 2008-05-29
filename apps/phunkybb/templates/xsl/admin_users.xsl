@@ -26,6 +26,7 @@
 <xsl:include href="admin_menu.xsl"/>
 <xsl:include href="pager.xsl"/>
 <xsl:template name="content">
+<xsl:param name="link_prefix"/>
 <xsl:call-template name="jquery-setup">
     <xsl:with-param name="my-table">users_table</xsl:with-param>
     <xsl:with-param name="no-sort-column">,
@@ -38,7 +39,7 @@
 <script type="text/javascript">
 function delete_user(user_id,row) {
     if(confirm('Are you sure?')){
-    $.post("<xsl:value-of select="//link_prefix"/>x-user-delete&amp;user_id="+user_id,
+    $.post("<xsl:value-of select="ink_prefix"/>x-user-delete&amp;user_id="+user_id,
     {'user_id': user_id},
     function (data){
     });
@@ -64,10 +65,10 @@ function delete_user(user_id,row) {
             <tbody>
                 <xsl:for-each select="//users_get_all">
                 <tr>
-                    <td><a href="{//link_prefix}profile&amp;user_id={id}"><xsl:value-of select="username"/></a></td>
-                    <td><a href="{//link_prefix}profile&amp;user_id={id}" >Edit</a></td>
+                    <td><a href="{ink_prefix}profile&amp;user_id={id}"><xsl:value-of select="username"/></a></td>
+                    <td><a href="{ink_prefix}profile&amp;user_id={id}" >Edit</a></td>
                     <td>
-                        <a href="{//link_prefix}x-user-delete&amp;user_id={id}" 
+                        <a href="{ink_prefix}x-user-delete&amp;user_id={id}" 
                         onclick="delete_user({id},this.parentNode.parentNode.rowIndex); return false;">Delete</a>
                     </td>
                 </tr>

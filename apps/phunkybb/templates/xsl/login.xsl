@@ -24,6 +24,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" >
 <xsl:include href="html_main.xsl"/>
 <xsl:template name="content">
+<xsl:param name="link_prefix"/>
 <script type="text/javascript" src="{_R_/runtime/path_prefix}/s/js/rsa/jsbn.js"></script>
 <script type="text/javascript" src="{_R_/runtime/path_prefix}/s/js/rsa/rsa.js"></script>
 <script type="text/javascript" src="{_R_/runtime/path_prefix}/s/js/rsa/prng4.js"></script>
@@ -54,7 +55,7 @@ function do_encrypt() {
     rsa.setPublic(linebrk(myform.id_rsa_pub.value,64), myform.e.value);
     var res = linebrk(hex2b64(rsa.encrypt(myform.password.value)),64);
 
-    $.post("<xsl:value-of select="//link_prefix"/>x-login",
+    $.post("<xsl:value-of select="ink_prefix"/>x-login",
     {
         'username': myform.username.value,
         'password': res,
@@ -64,7 +65,7 @@ function do_encrypt() {
         var myResult = $("result",data).text();
         $('span#replace').html(myResult);
         if(myResult=='Success') {
-            window.location = '<xsl:value-of select="//link_prefix"/>index';
+            window.location = '<xsl:value-of select="ink_prefix"/>index';
         }
     });
 }
@@ -73,7 +74,7 @@ function do_encrypt() {
 <h2><xsl:value-of select="/_R_/i18n/label[key='login']/value"/></h2>
 
 <div class="box">
-<form id="mlogin" name="mlogin" method="post" action="{//link_prefix}login"
+<form id="mlogin" name="mlogin" method="post" action="{ink_prefix}login"
     onSubmit="do_encrypt(); return false;">
 <input type="hidden" name="id_rsa_pub" value=""/>
 <input type="hidden" name="e" value=""/>
@@ -90,7 +91,7 @@ function do_encrypt() {
             <input type="password" name="password"/><br/>
             </label>
 
-            <p><a href="{//link_prefix}register"><xsl:value-of select="/_R_/i18n/label[key='not_registered_yet']/value"/>?</a>
+            <p><a href="{ink_prefix}register"><xsl:value-of select="/_R_/i18n/label[key='not_registered_yet']/value"/>?</a>
             <div style="visibility: hidden;" id="failure"><a href="">Forgotten your password?</a></div>
             </p>
             </div>

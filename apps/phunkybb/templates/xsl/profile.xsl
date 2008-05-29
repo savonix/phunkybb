@@ -25,6 +25,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <xsl:include href="html_main.xsl"/>
 <xsl:include href="profile_menu.xsl"/>
 <xsl:template name="content">
+<xsl:param name="link_prefix"/>
 <div id="profile" class="block2col">
     <xsl:call-template name="profile-menu"/>
 	<div class="blockform">
@@ -42,7 +43,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
                             <label><strong><xsl:value-of select="/_R_/i18n/label[key='username']/value"/></strong><br/>
                             <input type="text" name="req_username" value="{//user_get_profile/username}"/><br/>
                             </label>
-                        <p><a href="{//link_prefix}password">Change password</a></p>
+                        <p><a href="{ink_prefix}password">Change password</a></p>
                         </div>
 					</fieldset>
 				</div>

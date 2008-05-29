@@ -32,6 +32,7 @@
 
 <xsl:template name="main">
 <xsl:param name="link_prefix"/>
+
 <xsl:param name="path_prefix"/>
 
 <xsl:call-template name="source_spacer">

@@ -24,6 +24,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" >
 <xsl:template name="profile-menu">
 <xsl:param name="link_prefix"/>
+
 	<div class="blockmenu">
     <h2><span><xsl:value-of select="/_R_/i18n/label[key='profile_menu']/value"/></span></h2>
 	    <div class="box">

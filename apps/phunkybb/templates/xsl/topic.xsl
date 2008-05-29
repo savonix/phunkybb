@@ -26,6 +26,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <xsl:include href="prev_next.xsl"/>
 <xsl:template name="content">
 <xsl:param name="link_prefix"/>
+
 <script type="text/javascript">
 function delete_post(post_id) {
     if(confirm('Are you sure?')){

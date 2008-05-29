@@ -25,6 +25,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <xsl:include href="html_main.xsl"/>
 <xsl:include href="profile_menu.xsl"/>
 <xsl:template name="content">
+<xsl:param name="link_prefix"/>
 <div id="profile" class="block2col">
     <xsl:call-template name="profile-menu"/>
 	<div class="blockform">
