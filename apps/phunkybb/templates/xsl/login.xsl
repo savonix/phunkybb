@@ -74,7 +74,7 @@ function do_encrypt() {
 <h2><xsl:value-of select="/_R_/i18n/label[key='login']/value"/></h2>
 
 <div class="box">
-<form id="mlogin" name="mlogin" method="post" action="{ink_prefix}login"
+<form id="mlogin" name="mlogin" method="post" action="{$link_prefix}login"
     onSubmit="do_encrypt(); return false;">
 <input type="hidden" name="id_rsa_pub" value=""/>
 <input type="hidden" name="e" value=""/>
@@ -91,7 +91,7 @@ function do_encrypt() {
             <input type="password" name="password"/><br/>
             </label>
 
-            <p><a href="{ink_prefix}register"><xsl:value-of select="/_R_/i18n/label[key='not_registered_yet']/value"/>?</a>
+            <p><a href="{$link_prefix}register"><xsl:value-of select="/_R_/i18n/label[key='not_registered_yet']/value"/>?</a>
             <div style="visibility: hidden;" id="failure"><a href="">Forgotten your password?</a></div>
             </p>
             </div>

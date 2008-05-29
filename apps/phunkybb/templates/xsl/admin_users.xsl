@@ -51,7 +51,7 @@ function delete_user(user_id,row) {
 <div id="adminconsole" class="block2col">
     <xsl:call-template name="admin-menu"/>
 	<div class="blockform">
-    <h2><xsl:value-of select="//i18n/labels/label[key='users']/value"/></h2>
+    <h2><xsl:value-of select="/_R_/i18n/label[key='users']/value"/></h2>
     <div class="box">
         <div style="min-height: 400px; padding: 1em;">
         <table class="tablesorter" id="users_table">
@@ -65,10 +65,10 @@ function delete_user(user_id,row) {
             <tbody>
                 <xsl:for-each select="//users_get_all">
                 <tr>
-                    <td><a href="{ink_prefix}profile&amp;user_id={id}"><xsl:value-of select="username"/></a></td>
-                    <td><a href="{ink_prefix}profile&amp;user_id={id}" >Edit</a></td>
+                    <td><a href="{$link_prefix}profile&amp;user_id={id}"><xsl:value-of select="username"/></a></td>
+                    <td><a href="{$link_prefix}profile&amp;user_id={id}" >Edit</a></td>
                     <td>
-                        <a href="{ink_prefix}x-user-delete&amp;user_id={id}" 
+                        <a href="{$link_prefix}x-user-delete&amp;user_id={id}" 
                         onclick="delete_user({id},this.parentNode.parentNode.rowIndex); return false;">Delete</a>
                     </td>
                 </tr>

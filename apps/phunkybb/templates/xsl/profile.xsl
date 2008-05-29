@@ -43,7 +43,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
                             <label><strong><xsl:value-of select="/_R_/i18n/label[key='username']/value"/></strong><br/>
                             <input type="text" name="req_username" value="{//user_get_profile/username}"/><br/>
                             </label>
-                        <p><a href="{ink_prefix}password">Change password</a></p>
+                        <p><a href="{$link_prefix}password">Change password</a></p>
                         </div>
 					</fieldset>
 				</div>
