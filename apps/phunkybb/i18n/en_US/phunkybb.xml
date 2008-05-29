@@ -23,7 +23,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 -->
 <i18n>
     <label key="install">
-        <key>forums</key>
+        <key>install</key>
         <value>Install PhunkyBB</value>
     </label>
     <label key="forums">
