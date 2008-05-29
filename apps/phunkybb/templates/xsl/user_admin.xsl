@@ -27,7 +27,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <xsl:template name="content">
 <xsl:param name="link_prefix"/>
 <div id="adminconsole" class="block2col">
-<xsl:call-template name="admin-menu">
+<xsl:call-template name="profile-menu">
     <xsl:with-param name="link_prefix">
         <xsl:value-of select="$link_prefix"/>
     </xsl:with-param>

@@ -27,15 +27,15 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <xsl:template name="content">
 <xsl:param name="link_prefix"/>
 <div id="profile" class="block2col">
-<xsl:call-template name="admin-menu">
+<xsl:call-template name="profile-menu">
     <xsl:with-param name="link_prefix">
         <xsl:value-of select="$link_prefix"/>
     </xsl:with-param>
 </xsl:call-template>
 	<div class="blockform">
-		<h2><xsl:value-of select="//runtime/username"/></h2>
+		<h2><xsl:value-of select="/_R_/runtime/username"/></h2>
 		<div class="box">
-			<form id="profile4" method="post" action="{//request_uri}">
+			<form id="profile4" method="post">
 				<input type="hidden" name="form_sent" value="1"/>
 				<div class="inform">
 					<fieldset>
@@ -46,7 +46,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 								<label>Max length: 400 / Max lines: 4<br/>
 								<textarea name="signature" rows="4" cols="65"><xsl:value-of select="//user_get_profile/signature"/></textarea><br/></label>
 							</div>
-							<p><xsl:value-of select="//user_get_profile/signature" disable-output-escaping="yes"/></p>
+							<p><xsl:value-of select="/_R_/user_get_profile/signature" disable-output-escaping="yes"/></p>
 						</div>
 					</fieldset>
 				</div>
