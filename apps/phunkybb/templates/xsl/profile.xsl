@@ -27,7 +27,11 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <xsl:template name="content">
 <xsl:param name="link_prefix"/>
 <div id="profile" class="block2col">
-    <xsl:call-template name="profile-menu"/>
+<xsl:call-template name="admin-menu">
+    <xsl:with-param name="link_prefix">
+        <xsl:value-of select="$link_prefix"/>
+    </xsl:with-param>
+</xsl:call-template>
 	<div class="blockform">
 		<h2>
             <xsl:value-of select="//runtime/username"/> - <xsl:value-of select="/_R_/i18n/label[key='essentials']/value"/>

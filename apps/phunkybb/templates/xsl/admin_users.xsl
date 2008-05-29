@@ -49,7 +49,12 @@ function delete_user(user_id,row) {
 }
 </script>
 <div id="adminconsole" class="block2col">
-    <xsl:call-template name="admin-menu"/>
+    <xsl:call-template name="admin-menu">
+    <xsl:with-param name="link_prefix">
+        <xsl:value-of select="$link_prefix"/>
+    </xsl:with-param>
+</xsl:call-template>
+
 	<div class="blockform">
     <h2><xsl:value-of select="/_R_/i18n/label[key='users']/value"/></h2>
     <div class="box">

@@ -41,7 +41,12 @@ function delete_forum(fid,cid) {
 </script>
 
 <div id="adminconsole" class="block2col">
-    <xsl:call-template name="admin-menu"/>
+<xsl:call-template name="admin-menu">
+    <xsl:with-param name="link_prefix">
+        <xsl:value-of select="$link_prefix"/>
+    </xsl:with-param>
+</xsl:call-template>
+
 	<div class="blockform">
 		<h2><xsl:value-of select="/_R_/i18n/label[key='add_forum']/value"/></h2>
 		<div class="box">
@@ -57,7 +62,7 @@ function delete_forum(fid,cid) {
 									<td>
                                     <input type="text" name="forum_name"/>
 										<select name="add_to_cat">
-                                        <xsl:for-each select="//categories_get_all">
+                                        <xsl:for-each select="/_R_/categories_get_all">
 										<option value="{cid}"><xsl:value-of select="cat_name"/></option>
                                         </xsl:for-each>
 										</select>
@@ -83,7 +88,7 @@ function delete_forum(fid,cid) {
 						<div class="infldset">
 
 							<table cellspacing="0" id="cat_table_{cid}">
-                            <xsl:for-each select="//forums_get_all[cid=$my_cid]">
+                            <xsl:for-each select="/_R_/forums_get_all[cid=$my_cid]">
 								<tr id="row_{fid}">
 									<th><a href="{$link_prefix}forum-edit"><xsl:value-of select="/_R_/i18n/label[key='edit']/value"/></a> - 
                                     <a href="{$link_prefix}forum-delete&amp;id={fid}" 

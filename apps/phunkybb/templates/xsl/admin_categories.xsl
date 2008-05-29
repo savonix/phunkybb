@@ -40,7 +40,12 @@ function category_delete(category_id) {
 }
 </script>
 <div id="adminconsole" class="block2col">
-    <xsl:call-template name="admin-menu"/>
+<xsl:call-template name="admin-menu">
+    <xsl:with-param name="link_prefix">
+        <xsl:value-of select="$link_prefix"/>
+    </xsl:with-param>
+</xsl:call-template>
+
 	<div class="blockform">
 		<h2><xsl:value-of select="/_R_/i18n/label[key='add']/value"/> / <xsl:value-of select="/_R_/i18n/label[key='remove']/value"/>/<xsl:value-of select="/_R_/i18n/label[key='edit_categories']/value"/></h2>
 		<div class="box">

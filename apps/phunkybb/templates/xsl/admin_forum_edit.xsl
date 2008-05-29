@@ -28,7 +28,12 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <xsl:param name="link_prefix"/>
 
 <div id="adminconsole" class="block2col">
-    <xsl:call-template name="admin-menu"/>
+<xsl:call-template name="admin-menu">
+    <xsl:with-param name="link_prefix">
+        <xsl:value-of select="$link_prefix"/>
+    </xsl:with-param>
+</xsl:call-template>
+
 	<div class="blockform">
 		<h2 class="block2"><xsl:value-of select="/_R_/i18n/label[key='edit_forum']/value"/></h2>
 		<div class="box">
