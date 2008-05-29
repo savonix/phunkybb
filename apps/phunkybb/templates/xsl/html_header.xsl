@@ -35,7 +35,7 @@
         <h1><a href="{$link_prefix}welcome"><xsl:value-of select="/_R_/board_config/o_board_title"/></a></h1>
 		<p><span><xsl:value-of select="/_R_/board_config/o_board_desc"/></span></p>
 		</div>
-        <xsl:call-template name="main-menu">
+        <xsl:call-template name="menu">
             <xsl:with-param name="link_prefix">
                 <xsl:value-of select="$link_prefix"/>
             </xsl:with-param>
