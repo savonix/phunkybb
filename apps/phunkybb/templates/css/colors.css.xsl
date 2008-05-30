@@ -25,7 +25,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <xsl:output method="text" indent="yes" encoding="UTF-8" omit-xml-declaration="yes"/>
 <xsl:template name="colors">
 html, body {
-    background: #F2E5B8;
+    background: #<xsl:value-of select="//css/colors/light-background"/>;
     color: #333;
 }
 

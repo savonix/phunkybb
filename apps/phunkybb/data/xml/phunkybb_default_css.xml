@@ -22,5 +22,8 @@ or write to the Free Software Foundation,Inc., 51 Franklin Street,
 Fifth Floor, Boston, MA 02110-1301  USA
 -->
 <css>
-    <colors></colors>
+    <colors>
+        <light-background>#F2E5B8</light-background>
+        <dark-background></dark-background>
+    </colors>
 </css>
