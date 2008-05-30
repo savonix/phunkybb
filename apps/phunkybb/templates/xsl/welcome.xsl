@@ -25,7 +25,12 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <xsl:include href="html_main.xsl"/>
 <xsl:template name="content">
 <xsl:param name="link_prefix"/>
-
+<script type="text/javascript">
+$(document).ready(function()
+{
+    done_loading_js();
+});
+</script>
     <xsl:for-each select="/_R_/categories_get_all[cid=/_R_/forums_get_all/cid]">
     <xsl:variable name="my_cid"><xsl:value-of select="cid"/></xsl:variable>
 	<h2><xsl:value-of select="cat_name"/></h2>
@@ -50,7 +55,6 @@ Fifth Floor, Boston, MA 02110-1301  USA
 			</thead>
 			<tbody>
             <xsl:for-each select="/_R_/forums_get_all[cid=$my_cid]">
-            <xsl:variable name="my_fid"><xsl:value-of select="fid"/></xsl:variable>
             <tr>
                 <td class="tcl">
                     <div class="intd">
@@ -69,8 +73,8 @@ Fifth Floor, Boston, MA 02110-1301  USA
                         </div>
                     </div>
                 </td>
-                <td class="tc2"><xsl:value-of select="/_R_/forums_get_totals[forum_id=$my_fid]/total_topics"/></td>
-                <td class="tc3"><xsl:value-of select="/_R_/forums_get_totals[forum_id=$my_fid]/total_posts"/></td>
+                <td class="tc2"><xsl:value-of select="num_topics"/></td>
+                <td class="tc3"><xsl:value-of select="num_posts"/></td>
                 <td class="tcr">
                     <xsl:if test="not(last_post='1969-12-31 20:00:00') and not(last_post='1970-01-01 00:00:00')">
                         <xsl:value-of select="last_post"/>

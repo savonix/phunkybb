@@ -129,12 +129,11 @@ Fifth Floor, Boston, MA 02110-1301  USA
         <map:action type="redirect" params="{//link_prefix}"/>
     </map:gate>
 
-    <map:gate name="index" cache="60" client_cache="30">
+    <map:gate name="index" cache="60" client_cache="0">
         <map:block name="index">
             <map:query src="data/sql/categories_get_all.xml"/>
             <map:query src="data/sql/forums_get_all.xml"/>
-            <map:query src="data/sql/forums_get_totals.xml"/>
-            <map:action type="datetime" params="//forums_get_all/last_post,unix_epoch,{//runtime/user_time_format},{//runtime/user_timezone_offset}"/>
+            <map:action type="datetime" params="/_R_/forums_get_all/last_post,unix_epoch,{/_R_/runtime/user_time_format},{/_R_/runtime/user_timezone_offset}"/>
             <map:xsl src="templates/xsl/welcome.xsl"/>
         </map:block>
     </map:gate>
@@ -144,6 +143,12 @@ Fifth Floor, Boston, MA 02110-1301  USA
         <map:query src="data/sql/topics_get_by_forum_id.xml"/>
         <map:action type="datetime" params="//topics_get_by_forum_id/last_post,unix_epoch,{//runtime/user_time_format},{//runtime/user_timezone_offset}"/>
         <map:xsl src="templates/xsl/forum.xsl"/>
+    </map:gate>
+    <map:gate name="forum-stats" cache="0">
+        <map:query src="data/sql/forums_get_all.xml"/>
+        <map:query src="data/sql/forums_get_totals.xml"/>
+        <map:query src="data/sql/forums_update_totals.xml"/>
+        <map:xsl src="templates/xsl/welcome.xsl"/>
     </map:gate>
     <map:gate name="topic">
         <map:query src="data/sql/forum_get_by_id.xml"/>
@@ -347,7 +352,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
     </map:gate>
 
 
-    <map:gate name="dynamic-css" cache="0">
+    <map:gate name="dynamic-css" cache="300" client_cache="100" content_type="text/css">
         <map:action type="header" params="Content-type,text/css"/>
         <map:xsl src="templates/css/dynamic.css.xsl"/>
     </map:gate>
