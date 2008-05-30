@@ -1,7 +1,6 @@
-<?php
-/*
+<!--
 Program: PhunkyBB
-Component: logout.php
+Component: forums_update_totals.xml
 Copyright: Savonix Corporation
 Author: Albert L. Lash, IV
 License: Gnu Affero Public License version 3
@@ -21,31 +20,17 @@ You should have received a copy of the GNU Affero General Public License
 along with this program; if not, see http://www.gnu.org/licenses
 or write to the Free Software Foundation,Inc., 51 Franklin Street,
 Fifth Floor, Boston, MA 02110-1301  USA
-*/
+-->
+<!DOCTYPE query SYSTEM "__default_table_names__.txt">
+<query name="forums_update_totals" loop="//forums_get_totals">
+    <connection>&connection;</connection>
+    <params>
+        <param array="//forums_get_totals/total_posts" type="integer" default="0"/>
+        <param array="//forums_get_totals/total_topics" type="integer" default="0"/>
+        <param array="//forums_get_totals/forum_id" type="integer" default="0"/>
+	</params>
+    <sql>
+        UPDATE &prefix;forums SET num_posts = ?, num_topics = ? WHERE id = ?
 
-
-if($_GET['nid']=="logout") {
-    $auth = &new Nexista_Auth();
-    $auth->removeUser();
-    $auth->removeUser();
-
-    unset($_SESSION['NX_AUTH']);
-    Nexista_Flow::delete("logged_in");
-    Nexista_Flow::add("logged_in", "false");
-    session_start();
-
-    // Unset all of the session variables.
-    $_SESSION = array();
-
-    // If it's desired to kill the session, also delete the session cookie.
-    // Note: This will destroy the session, and not just the session data!
-    if (isset($_COOKIE[session_name()])) {
-       setcookie(session_name(), '', time()-42000, '/');
-    }
-
-    // Finally, destroy the session.
-    session_destroy();
-}
-
-
-?>
+    </sql>
+</query>

@@ -25,12 +25,6 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <xsl:include href="html_main.xsl"/>
 <xsl:template name="content">
 <xsl:param name="link_prefix"/>
-<script type="text/javascript">
-$(document).ready(function()
-{
-    done_loading_js();
-});
-</script>
     <xsl:for-each select="/_R_/categories_get_all[cid=/_R_/forums_get_all/cid]">
     <xsl:variable name="my_cid"><xsl:value-of select="cid"/></xsl:variable>
 	<h2><xsl:value-of select="cat_name"/></h2>

@@ -33,7 +33,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 		<div id="brdmenu" class="inbox">
             <xsl:for-each select="/_R_/board_config//navlinks">
             </xsl:for-each>
-            <a href="{$link_prefix}welcome">
+            <a href="{$link_prefix}index">
                 <xsl:value-of select="/_R_/i18n/label[key='index']/value"/>
             </a>
 
