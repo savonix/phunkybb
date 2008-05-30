@@ -25,7 +25,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <xsl:output method="text" indent="yes" encoding="UTF-8" omit-xml-declaration="yes"/>
 <xsl:template name="colors">
 html, body {
-    background: #<xsl:value-of select="//css/colors/light-background"/>;
+    background: <xsl:value-of select="//css/colors/light-background"/>;
     color: #333;
 }
 
@@ -36,33 +36,47 @@ html, body {
 
 /* 1.1 Default background colour and text colour */
 
-BODY {BACKGROUND-COLOR: #FFF}
 
-.pun {COLOR: #333}
+.pun {
+        COLOR: #333
+        }
 
 DIV.box, .pun BLOCKQUOTE, DIV.codebox, #adminconsole FIELDSET TH, .rowodd, .roweven {BACKGROUND-COLOR: #F1F1F1}
-#adminconsole TD, #adminconsole TH {BORDER-COLOR: #F1F1F1}
+#adminconsole TD, #adminconsole TH {
+        BORDER-COLOR: #F1F1F1
+        }
 
 /* 1. 2 Darker background colours */
 
 TD.tc2, TD.tc3, TD.tcmod, #postpreview, #viewprofile DD, DIV.forminfo,
-#adminconsole FIELDSET TD, DIV.blockmenu DIV.box, #adstats DD {BACKGROUND-COLOR: #DEDFDF}
+#adminconsole FIELDSET TD, DIV.blockmenu DIV.box, #adstats DD {
+        BACKGROUND-COLOR: #DEDFDF
+        }
 
 /* 1.3 Main headers and navigation bar background and text colour */
 
-.pun H2, #brdmenu {BACKGROUND-COLOR: #0066B9; COLOR: #FFF}
+.pun H2, #brdmenu {
+        BACKGROUND-COLOR: #0066B9; 
+        COLOR: #FFF
+        }
 
 /* 1.4 Table header rows */
 
-.pun TH {BACKGROUND-COLOR: #D1D1D1}
+.pun TH {
+        BACKGROUND-COLOR: #D1D1D1
+        }
 
 /* 1.5 Fieldset legend text colour */
 
-.pun LEGEND {COLOR: #005CB1}
+.pun LEGEND {
+        COLOR: #005CB1
+        }
 
 /* 1.6 Highlighted text for various items */
 
-.pun DIV.blockmenu LI.isactive A, #posterror LI STRONG {COLOR: #333}
+.pun DIV.blockmenu LI.isactive A, #posterror LI STRONG {
+        COLOR: #333
+        }
 
 
 </xsl:template>
