@@ -130,7 +130,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
         <map:action type="redirect" params="{//link_prefix}"/>
     </map:gate>
 
-    <map:gate name="index" cache="120">
+    <map:gate name="index" cache="120" client_cache="1" content_type="text/html">
         <map:query src="data/sql/categories_get_all.xml"/>
         <map:query src="data/sql/forums_get_all.xml"/>
         <map:action type="datetime" params="/_R_/forums_get_all/last_post,unix_epoch,{/_R_/runtime/user_time_format},{/_R_/runtime/user_timezone_offset}"/>
