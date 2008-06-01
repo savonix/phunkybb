@@ -74,7 +74,7 @@
     <!-- BUILD SETTINGS -->
     <build>
         <loader>&project_root;/cache/&server_name;/&app_name;/&app_name;.php</loader>
-        <sitemap>&project_root;/apps/&app_name;sitemap.xml</sitemap>
+        <sitemap>&project_root;/apps/&app_name;/sitemap.xml</sitemap>
         <!-- enter a gate name for missing when there is no match -->
         <missing>install</missing>
         <!-- this needs the relative url, not the gate -->
