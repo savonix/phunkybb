@@ -45,7 +45,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 							<input type="hidden" name="form_sent" value="1"/>
 							<input type="hidden" name="old_username" value="demo"/>
                             <label><strong><xsl:value-of select="/_R_/i18n/label[key='username']/value"/></strong><br/>
-                            <input type="text" name="req_username" value="{/_R_/user_get_profile/username}"/><br/>
+                            <input type="text" name="req_username" value="{/_R_/user_get_profile/user_get_profile/username}"/><br/>
                             </label>
                         <p><a href="{$link_prefix}password">Change password</a></p>
                         </div>
@@ -56,7 +56,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 						<legend>Enter a valid e-mail address</legend>
 						<div class="infldset">
 							<label><strong><xsl:value-of select="/_R_/i18n/label[key='email']/value"/></strong><br/>
-                            <input type="text" name="req_email" value="{/_R_/user_get_profile/email}"/><br/>
+                            <input type="text" name="req_email" value="{/_R_/user_get_profile/user_get_profile/email}"/><br/>
                             </label>
 						</div>
 					</fieldset>
@@ -68,29 +68,29 @@ Fifth Floor, Boston, MA 02110-1301  USA
                             <xsl:if test="//runtime/group_id=1">
                             <p>
                                 <xsl:value-of select="/_R_/i18n/label[key='registration_ip']/value"/>:
-                                <a href="http://www.arin.net/?queryinput={/_R_/user_get_profile/registration_ip}"
+                                <a href="http://www.arin.net/?queryinput={/_R_/user_get_profile/user_get_profile/registration_ip}"
                                     target="_blank">
-                                    <xsl:value-of select="/_R_/user_get_profile/registration_ip"/>
+                                    <xsl:value-of select="/_R_/user_get_profile/user_get_profile/registration_ip"/>
                                 </a>
                             </p>
                             </xsl:if>
 							<p>
                                 <xsl:value-of select="/_R_/i18n/label[key='registered']/value"/>:
-                                <xsl:value-of select="/_R_/user_get_profile/registered"/>
+                                <xsl:value-of select="/_R_/user_get_profile/user_get_profile/registered"/>
                             </p>
 							<p>
                                 <xsl:value-of select="/_R_/i18n/label[key='last_visit']/value"/>:
-                                <xsl:value-of select="/_R_/user_get_profile/last_visit"/>
+                                <xsl:value-of select="/_R_/user_get_profile/user_get_profile/last_visit"/>
                             </p>
 							<p><xsl:value-of select="/_R_/i18n/label[key='last_post']/value"/>: 
-                                <xsl:value-of select="/_R_/user_get_profile/last_post"/></p>
+                                <xsl:value-of select="/_R_/user_get_profile/user_get_profile/last_post"/></p>
 
 								<label><xsl:value-of select="/_R_/i18n/label[key='posts']/value"/><br/>
-                                <input type="text" name="num_posts" value="{/_R_/user_get_profile/num_posts}"/>
+                                <input type="text" name="num_posts" value="{/_R_/user_get_profile/user_get_profile/num_posts}"/>
                                 <br/>
                                 </label>
 							<label><xsl:value-of select="/_R_/i18n/label[key='admin_note']/value"/><br/>
-							<input id="admin_note" type="text" name="admin_note" value="{/_R_/user_get_profile/admin_note}" size="30" maxlength="30"/><br/></label>
+							<input id="admin_note" type="text" name="admin_note" value="{/_R_/user_get_profile/user_get_profile/admin_note}" size="30" maxlength="30"/><br/></label>
 						</div>
 					</fieldset>
 				</div>

@@ -23,7 +23,7 @@ or write to the Free Software Foundation,Inc., 51 Franklin Street,
 Fifth Floor, Boston, MA 02110-1301  USA
 */
 
-$config = Nexista_Flow::getbypath('/_R_/config_get');
+$config = Nexista_Flow::getbypath('/_R_/config_get/config_get');
 
 $code = '<?php $config = array(';
 

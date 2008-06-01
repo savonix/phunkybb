@@ -91,13 +91,13 @@ function delete_topic(topic_id) {
             </xsl:if>
         </p>
         <p class="postlink conr">
-            <xsl:value-of select="//topic_get_by_id/subject"/>
+            <xsl:value-of select="/_R_/topic_get_by_id/topic_get_by_id/subject"/>
         </p>
 		</div>
 </div>
 
 <!-- Post loop -->
-<xsl:for-each select="//posts_get_by_topic_id">
+<xsl:for-each select="/_R_/posts_get_by_topic_id/posts_get_by_topic_id">
 <div id="p{id}" class="blockpost roweven">
 	<h2><span class="conr">#<xsl:value-of select="id"/></span>
     <a href="#post{id}" name="post{id}">

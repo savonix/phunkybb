@@ -70,7 +70,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 				</tr>
 			</thead>
 			<tbody>
-                <xsl:for-each select="/_R_/topics_get_by_forum_id">
+                <xsl:for-each select="/_R_/topics_get_by_forum_id/topics_get_by_forum_id">
 				<tr>
 					<td class="tcl">
 						<div class="intd">
