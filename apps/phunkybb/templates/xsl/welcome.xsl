@@ -34,16 +34,16 @@ Fifth Floor, Boston, MA 02110-1301  USA
 			<thead>
 				<tr>
 					<th class="tcl" scope="col">
-                        <xsl:value-of select="/_R_/i18n/label[key='forums']/value"/>
+                        <xsl:value-of select="/_R_/i18n/forums"/>
                     </th>
 					<th class="tc2" scope="col">
-                        <xsl:value-of select="/_R_/i18n/label[key='topics']/value"/>
+                        <xsl:value-of select="/_R_/i18n/topics"/>
                     </th>
 					<th class="tc3" scope="col">
-                        <xsl:value-of select="/_R_/i18n/label[key='posts']/value"/>
+                        <xsl:value-of select="/_R_/i18n/posts"/>
                     </th>
 					<th class="tcr" scope="col">
-                        <xsl:value-of select="/_R_/i18n/label[key='last_post']/value"/>
+                        <xsl:value-of select="/_R_/i18n/last_post"/>
                     </th>
 				</tr>
 			</thead>

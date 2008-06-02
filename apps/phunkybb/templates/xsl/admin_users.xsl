@@ -39,12 +39,12 @@
 <script type="text/javascript">
 function delete_user(user_id,row) {
     if(confirm('Are you sure?')){
-    $.post("<xsl:value-of select="$link_prefix"/>x-user-delete&amp;user_id="+user_id,
-    {'user_id': user_id},
-    function (data){
+      $.post("<xsl:value-of select="$link_prefix"/>x-user-delete&amp;user_id="+user_id,
+      {'user_id': user_id},
+      function (data){
     });
     myTable = document.getElementById("users_table");
-    myTable.deleteRow(row);
+      myTable.deleteRow(row);
     }
 }
 </script>
@@ -56,13 +56,13 @@ function delete_user(user_id,row) {
 </xsl:call-template>
 
 	<div class="blockform">
-    <h2><xsl:value-of select="/_R_/i18n/label[key='users']/value"/></h2>
+    <h2><xsl:value-of select="/_R_/i18n/users"/></h2>
     <div class="box">
         <div style="min-height: 400px; padding: 1em;">
         <table class="tablesorter" id="users_table">
             <thead>
                 <tr>
-                    <th><xsl:value-of select="/_R_/i18n/label[key='users']/value"/></th>
+                    <th><xsl:value-of select="/_R_/i18n/users"/></th>
                     <th></th>
                     <th></th>
                 </tr>

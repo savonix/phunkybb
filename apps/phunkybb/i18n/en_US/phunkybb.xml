@@ -5,1117 +5,823 @@ Copyright: Savonix Corporation
 Author: Albert L. Lash, IV
 License: Gnu Affero Public License version 3
 http://www.gnu.org/licenses
-
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU Affero General Public License as published by
 the Free Software Foundation; either version 3 of the License, or
 (at your option) any later version.
-
 This program is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 GNU Affero General Public License for more details.
-
 You should have received a copy of the GNU Affero General Public License
 along with this program; if not, see http://www.gnu.org/licenses
 or write to the Free Software Foundation,Inc., 51 Franklin Street,
 Fifth Floor, Boston, MA 02110-1301  USA
 -->
 <i18n>
-    <label key="install">
-        <key>install</key>
-        <value>Install PhunkyBB</value>
-    </label>
-    <label key="forums">
-        <key>forums</key>
-        <value>Forums</value>
-    </label>
-    <label>
-        <key>topics</key>
-        <value>Topics</value>
-    </label>
-    <label>
-        <key>posts</key>
-        <value>Posts</value>
-    </label>
-    <label>
-        <key>pages</key>
-        <value>Pages</value>
-    </label>
-    <label>
-        <key>last_post</key>
-        <value>Last Post</value>
-    </label>
-    <label>
-        <key>topic</key>
-        <value>Topic</value>
-    </label>
-    <label>
-        <key>index</key>
-        <value>Index</value>
-    </label>
-    <label>
-        <key>replies</key>
-        <value>Replies</value>
-    </label>
-    <label>
-        <key>views</key>
-        <value>Views</value>
-    </label>
-
-    <!-- Profile menu -->
-    <label>
-        <key>profile_menu</key>
-        <value>Profile menu</value>
-    </label>
-
-
-    <!-- Admin menu -->
-    <label>
-        <key>categories</key>
-        <value>Categories</value>
-    </label>
-    <label>
-        <key>forums</key>
-        <value>Forums</value>
-    </label>
-    <label>
-        <key>users</key>
-        <value>Users</value>
-    </label>
-    <label>
-        <key>groups</key>
-        <value>Groups</value>
-    </label>
-    <label>
-        <key>options</key>
-        <value>Options</value>
-    </label>
-    <label>
-        <key>permissions</key>
-        <value>Permissions</value>
-    </label>
-    <label>
-        <key>censoring</key>
-        <value>Censoring</value>
-    </label>
-    <label>
-        <key>ranks</key>
-        <value>Ranks</value>
-    </label>
-    <label>
-        <key>delete_confirm</key>
-        <value>Are you sure you want to delete this?</value>
-    </label>
-    <!-- Misc -->
-    <label>
-        <key>essentials</key>
-        <value>Essentials</value>
-    </label>
-    
-    <label>
-        <key>bad_request</key>
-        <value>Bad request. The link you followed is incorrect or outdated.</value>
-    </label>
-    <label>
-        <key>no_view</key>
-        <value>You do not have permission to view these forums.</value>
-    </label>
-    <label>
-        <key>no_permission</key>
-        <value>You do not have permission to access this page.</value>
-    </label>
-    <label>
-        <key>new_icon</key>
-        <value>There are new posts</value>
-    </label>
-    <label>
-        <key>closed_icon</key>
-        <value>This topic is closed</value>
-    </label>
-    <label>
-        <key>options</key>
-        <value>Options</value>
-    </label>
-    <label>
-        <key>actions</key>
-        <value>Actions</value>
-    </label>
-    <label>
-        <key>submit</key>
-        <value>Submit</value>
-    </label>
-    <label>
-        <key>never</key>
-        <value>Never</value>
-    </label>
-    <label>
-        <key>today</key>
-        <value>Today</value>
-    </label>
-    <label>
-        <key>yesterday</key>
-        <value>Yesterday</value>
-    </label>
-    <label>
-        <key>info</key>
-        <value>Info</value>
-    </label>
-    <label>
-        <key>go_back</key>
-        <value>Go back</value>
-    </label>
-    <label>
-        <key>maintenance</key>
-        <value>Maintenance</value>
-    </label>
-    <label>
-        <key>on</key>
-        <value>on</value>
-    </label>
-    <label>
-        <key>off</key>
-        <value>off</value>
-    </label>
-    <label>
-        <key>invalid_email</key>
-        <value>The e-mail address you entered is invalid.</value>
-    </label>
-    <label>
-        <key>invalid_registration</key>
-        <value>The registration information you entered is invalid.</value>
-    </label>
-    <label>
-        <key>required_field</key>
-        <value>is a required field in this form.</value>
-    </label>
-    <label>
-        <key>last_post</key>
-        <value>Last post</value>
-    </label>
-    <label>
-        <key>by</key>
-        <value>by</value>
-    </label>
-    <label>
-        <key>new_posts</key>
-        <value>New posts</value>
-    </label>
-    <label>
-        <key>new_posts_info</key>
-        <value>Go to the first new post in this topic.</value>
-    </label>
-    <label>
-        <key>username</key>
-        <value>Username</value>
-    </label>
-    <label>
-        <key>password</key>
-        <value>Password</value>
-    </label>
-    <label>
-        <key>change_password</key>
-        <value>Change Password</value>
-    </label>
-    <label>
-        <key>email</key>
-        <value>E-mail</value>
-    </label>
-    <label>
-        <key>send_email</key>
-        <value>Send e-mail</value>
-    </label>
-    <label>
-        <key>moderated_by</key>
-        <value>Moderated by</value>
-    </label>
-    <label>
-        <key>registration_ip</key>
-        <value>Registration IP</value>
-    </label>
-    <label>
-        <key>registered</key>
-        <value>Registered</value>
-    </label>
-    <label>
-        <key>subject</key>
-        <value>Subject</value>
-    </label>
-    <label>
-        <key>message</key>
-        <value>Message</value>
-    </label>
-    <label>
-        <key>activate</key>
-        <value>Activate</value>
-    </label>
-    <label>
-        <key>activated</key>
-        <value>Activated</value>
-    </label>
-    <label>
-        <key>topic</key>
-        <value>Topic</value>
-    </label>
-    <label>
-        <key>forum</key>
-        <value>Forum</value>
-    </label>
-    <label>
-        <key>posts</key>
-        <value>Posts</value>
-    </label>
-    <label>
-        <key>replies</key>
-        <value>Replies</value>
-    </label>
-    <label>
-        <key>author</key>
-        <value>Author</value>
-    </label>
-    <label>
-        <key>pages</key>
-        <value>Pages</value>
-    </label>
-    <label>
-        <key>code</key>
-        <value>Code</value>
-    </label>
-    <label>
-        <key>statistics</key>
-        <value>Statistics</value>
-    </label>
-    <label>
-        <key>mailer</key>
-        <value>Mailer</value>
-    </label>
-    <label>
-        <key>important_information</key>
-        <value>Important information</value>
-    </label>
-    <label>
-        <key>write_your_message</key>
-        <value>Write your message and submit</value>
-    </label>
-    <label>
-        <key>title</key>
-        <value>Title</value>
-    </label>
-    <label>
-        <key>member</key>
-        <value>Member</value>
-    </label>
-    <label>
-        <key>moderator</key>
-        <value>Moderator</value>
-    </label>
-    <label>
-        <key>administrator</key>
-        <value>Administrator</value>
-    </label>
-    <label>
-        <key>administration</key>
-        <value>Administration</value>
-    </label>
-    <label>
-        <key>index</key>
-        <value>Index</value>
-    </label>
-    <label>
-        <key>user_list</key>
-        <value>User list</value>
-    </label>
-    <label>
-        <key>rules</key>
-        <value>Rules</value>
-    </label>
-    <label>
-        <key>register</key>
-        <value>Register</value>
-    </label>
-    <label>
-        <key>registration_info</key>
-        <value>Registration Info</value>
-    </label>
-    <label>
-        <key>login</key>
-        <value>Login</value>
-    </label>
-    <label>
-        <key>not_logged_in</key>
-        <value>You are not logged in.</value>
-    </label>
-    <label>
-        <key>profile</key>
-        <value>Profile</value>
-    </label>
-    <label>
-        <key>logout</key>
-        <value>Logout</value>
-    </label>
-    <label>
-        <key>logged_in_as</key>
-        <value>Logged in as</value>
-    </label>
-    <label>
-        <key>admin</key>
-        <value>Administration</value>
-    </label>
-    <label>
-        <key>last_visit</key>
-        <value>Last visit</value>
-    </label>
-    <label>
-        <key>show_new_posts</key>
-        <value>Show new posts since last visit</value>
-    </label>
-    <label>
-        <key>mark all_as_read</key>
-        <value>Mark all topics as read</value>
-    </label>
-    
-    <label>
-        <key>show_recent_posts</key>
-        <value>Show recent posts</value>
-    </label>
-    <label>
-        <key>show_unanswered_posts</key>
-        <value>Show unanswered posts</value>
-    </label>
-    <label>
-        <key>show_your_posts</key>
-        <value>Show your posts</value>
-    </label>
-    <label>
-        <key>show_subscriptions</key>
-        <value>Show your subscribed topics</value>
-    </label>
-    <label>
-        <key>go</key>
-        <value> Go </value>
-    </label>
-    <label>
-        <key>move_topic</key>
-        <value>Move topic</value>
-    </label>
-    <label>
-        <key>open_topic</key>
-        <value>Open topic</value>
-    </label>
-    <label>
-        <key>close_topic</key>
-        <value>Close topic</value>
-    </label>
-    <label>
-        <key>moderate_forum</key>
-        <value>Moderate forum</value>
-    </label>
-    <label>
-        <key>delete_posts</key>
-        <value>Delete multiple posts</value>
-    </label>
-    
-    
-    <label>
-        <key>posted</key>
-        <value>Posted</value>
-    </label>
-    <label>
-        <key>delete_post</key>
-        <value>Delete post</value>
-    </label>
-    <label>
-        <key>warning</key>
-        <value>Warning! If this is the first post in the topic, the whole topic will be deleted.</value>
-    </label>
-    <label>
-        <key>post_topic</key>
-        <value>Post new topic</value>
-    </label>
-    <label>
-        <key>views</key>
-        <value>Views</value>
-    </label>
-    <label>
-        <key>moved</key>
-        <value>Moved</value>
-    </label>
-    <label>
-        <key>sticky</key>
-        <value>Sticky</value>
-    </label>
-    <label>
-        <key>forum_is_empty</key>
-        <value>Forum is empty.</value>
-    </label>
-    <label>
-        <key>help</key>
-        <value>Help</value>
-    </label>
-
-    <label>
-        <key>wrong_user_pass</key>
-        <value>Wrong username and/or password.</value>
-    </label>
-    <label>
-        <key>forgotten_pass</key>
-        <value>Forgotten your password?</value>
-    </label>
-    <label>
-        <key>request_pass</key>
-        <value>Request password</value>
-    </label>
-    <label>
-        <key>request_pass_legend</key>
-        <value>Enter the e-mail address with which you registered</value>
-    </label>
-    <label>
-        <key>request_pass_info</key>
-        <value>A new password together with a link to activate the new password will be sent to that address.</value>
-    </label>
-    <label>
-        <key>not_registered_yet</key>
-        <value>Not registered yet?</value>
-    </label>
-    <label>
-        <key>enter_username</key>
-        <value>Enter your username and password below</value>
-    </label>
-    <label>
-        <key>login_info</key>
-        <value>If you have not registered or have forgotten your password click on the appropriate link below.</value>
-    </label>
-    <label>
-        <key>already_subscribed</key>
-        <value>You are already subscribed to this topic.</value>
-    </label>
-    <label>
-        <key>not_subscribed</key>
-        <value>You are not subscribed to this topic.</value>
-    </label>
-    <label>
-        <key>moderate</key>
-        <value>Moderate</value>
-    </label>
-    <label>
-        <key>delete_topics_comply</key>
-        <value>Are you sure you want to delete the selected topics?</value>
-    </label>
-    <label>
-        <key>delete_posts_comply</key>
-        <value>Are you sure you want to delete the selected posts?</value>
-    </label>
-    <label>
-        <key>post_a_reply</key>
-        <value>Post a reply</value>
-    </label>
-    <label>
-        <key>post_new_topic</key>
-        <value>Post new topic</value>
-    </label>
-    <label>
-        <key>subscribe</key>
-        <value>Subscribe to this topic</value>
-    </label>
-    <label>
-        <key>topic_review</key>
-        <value>Topic review (newest first)</value>
-    </label>
-    <label>
-        <key>preview</key>
-        <value>Preview</value>
-    </label>
-    <label>
-        <key>edit_post_legend</key>
-        <value>Edit the post and submit changes</value>
-    </label>
-    <label>
-        <key>edit_post</key>
-        <value>Edit post</value>
-    </label>
-    
-    <label>
-        <key>profile_menu</key>
-        <value>Profile menu</value>
-    </label>
-    <label>
-        <key>section_essentials</key>
-        <value>Essentials</value>
-    </label>
-    <label>
-        <key>section_personal</key>
-        <value>Personal</value>
-    </label>
-    <label>
-        <key>section_personality</key>
-        <value>Personality</value>
-    </label>
-    <label>
-        <key>section_display</key>
-        <value>Display</value>
-    </label>
-    <label>
-        <key>section_admin</key>
-        <value>Administration</value>
-    </label>
-    <label>
-        <key>username_and_pass_legend</key>
-        <value>Enter your username and password</value>
-    </label>
-    <label>
-        <key>pass_key_bad</key>
-        <value>The specified password activation key was incorrect or has expired. Please re-request a new password. If that fails, contact the forum administrator at</value>
-    </label>
-    <label>
-        <key>pass_updated</key>
-        <value>Your password has been updated. You can now login with your new password.</value>
-    </label>
-    <label>
-        <key>pass_updated_redirect</key>
-        <value>Password updated. Redirecting </value>
-    </label>
-    <label>
-        <key>wrong_pass</key>
-        <value>Wrong old password.</value>
-    </label>
-    <label>
-        <key>change_pass_legend</key>
-        <value>Enter and confirm your new password</value>
-    </label>
-    <label>
-        <key>old_pass</key>
-        <value>Old password</value>
-    </label>
-    <label>
-        <key>new_pass</key>
-        <value>New password</value>
-    </label>
-    <label>
-        <key>confirm_new_pass</key>
-        <value>Confirm new password</value>
-    </label>
-    <label>
-        <key>email_key_bad</key>
-        <value>The specified e-mail activation key was incorrect or has expired. Please re-request change of e-mail address. If that fails, contact the forum administrator at</value>
-    </label>
-    <label>
-        <key>email_updated</key>
-        <value>Your e-mail address has been updated.</value>
-    </label>
-    <label>
-        <key>activate_email_sent</key>
-        <value>An email has been sent to the specified address with instructions on how to activate the new e-mail address. If it doesn't arrive you can contact the forum administrator at</value>
-    </label>
-    <label>
-        <key>email_legend</key>
-        <value>Enter your new e-mail address</value>
-    </label>
-    <label>
-        <key>email_instructions</key>
-        <value>An e-mail will be sent to your new address with an activation link. You must click the link in the e-mail you receive to activate the new address.</value>
-    </label>
-    <label>
-        <key>change_email</key>
-        <value>Change e-mail address</value>
-    </label>
-    <label>
-        <key>new_email</key>
-        <value>New e-mail</value>
-    </label>
-    
-    <label>
-        <key>unknown_failure</key>
-        <value>An unknown error occurred. Please try again.</value>
-    </label>
-    <label>
-        <key>file</key>
-        <value>File</value>
-    </label>
-    <label>
-        <key>upload</key>
-        <value>Upload</value>
-    </label>
-    <label>
-        <key>dupe_username</key>
-        <value>Someone else has already registered with that username. Please go back and try a different username.</value>
-    </label>
-    <label>
-        <key>show_posts</key>
-        <value>Show all posts</value>
-    </label>
-    <label>
-        <key>realname</key>
-        <value>Real name</value>
-    </label>
-    <label>
-        <key>location</key>
-        <value>Location</value>
-    </label>
-    <label>
-        <key>website</key>
-        <value>Website</value>
-    </label>
-    <label>
-        <key>jabber</key>
-        <value>Jabber</value>
-    </label>
-    <label>
-        <key>avatar</key>
-        <value>Avatar</value>
-    </label>
-    <label>
-        <key>signature</key>
-        <value>Signature</value>
-    </label>
-    <label>
-        <key>signature_legend</key>
-        <value>Compose your signature</value>
-    </label>
-    <label>
-        <key>signature_info</key>
-        <value>A signature is a small piece of text that is attached to your posts. In it, you can enter just about anything you like. Perhaps you would like to enter your favourite quote or your star sign. It's up to you! In your signature you can use BBCode if it is allowed in this particular forum. You can see the features that are allowed/enabled listed below whenever you edit your signature.</value>
-    </label>
-    <label>
-        <key>sig_preview</key>
-        <value>Current signature preview:</value>
-    </label>
-    <label>
-        <key>no_sig</key>
-        <value>No signature currently stored in profile.</value>
-    </label>
-    <label>
-        <key>admin_note</key>
-        <value>Admin note</value>
-    </label>
-    <label>
-        <key>instructions</key>
-        <value>When you update your profile, you will be redirected back to this page.</value>
-    </label>
-    <label>
-        <key>save</key>
-        <value>Save</value>
-    </label>
-    <label>
-        <key>update_forums</key>
-        <value>Update forums</value>
-    </label>
-    <label>
-        <key>delete_user</key>
-        <value>Delete user</value>
-    </label>
-    <label>
-        <key>delete_warning</key>
-        <value>Warning! Deleted users and/or posts cannot be restored. If you choose not to delete the posts made by this user, the posts can only be deleted manually at a later time.</value>
-    </label>
-    <label>
-        <key>delete_posts</key>
-        <value>Delete any posts and topics this user has made.</value>
-    </label>
-    <label>
-        <key>delete</key>
-        <value>Delete</value>
-    </label>
-    
-    <label>
-        <key>no_new_regs</key>
-        <value>This forum is not accepting new registrations.</value>
-    </label>
-    <label>
-        <key>forum_rules</key>
-        <value>Forum rules</value>
-    </label>
-    <label>
-        <key>rules_legend</key>
-        <value>You must agree to the following in order to register</value>
-    </label>
-    <label>
-        <key>agree</key>
-        <value>Agree</value>
-    </label>
-    <label>
-        <key>cancel</key>
-        <value>Cancel</value>
-    </label>
-    <label>
-        <key>register</key>
-        <value>Register</value>
-    </label>
-    <label>
-        <key>working</key>
-        <value>Working</value>
-    </label>
-    <label>
-        <key>registration_error</key>
-        <value>Registration Error</value>
-    </label>
-    
-    <label>
-        <key>username_dupe_1</key>
-        <value>Someone is already registered with the username</value>
-    </label>
-    <label>
-        <key>email_not_match</key>
-        <value>E-mail addresses do not match. Please go back and correct.</value>
-    </label>
-    
-    <label>
-        <key>reg_email</key>
-        <value>Thank you for registering. Your password has been sent to the specified address. If it doesn't arrive you can contact the forum administrator at</value>
-    </label>
-    <label>
-        <key>reg_complete</key>
-        <value>Registration complete. Logging in and redirecting </value>
-    </label>
-    
-    <label>
-        <key>reg_desc_1</key>
-        <value>Registration will grant you access to a number of features and capabilities otherwise unavailable. These functions include the ability to edit and delete posts, design your own signature that accompanies your posts and much more. If you have any questions regarding this forum you should ask an administrator.</value>
-    </label>
-    <label>
-        <key>reg_desc_2</key>
-        <value>Below is a form you must fill out in order to register. Once you are registered you should visit your profile and review the different settings you can change. The fields below only make up a small part of all the settings you can alter in your profile.</value>
-    </label>
-    <label>
-        <key>username_legend</key>
-        <value>Please enter a username between 2 and 25 characters long</value>
-    </label>
-    <label>
-        <key>pass_legend_1</key>
-        <value>Please enter and confirm your chosen password</value>
-    </label>
-    <label>
-        <key>pass_legend_2</key>
-        <value>Please read the instructions below</value>
-    </label>
-    <label>
-        <key>pass_info</key>
-        <value>Passwords can be between 4 and 16 characters long. Passwords are case sensitive.</value>
-    </label>
-    <label>
-        <key>valid_email</key>
-        <value>Enter a valid e-mail address</value>
-    </label>
-    <label>
-        <key>email_info</key>
-        <value>You must enter a valid e-mail address as your randomly generated password will be sent to that address.</value>
-    </label>
-    <label>
-        <key>confirm_email</key>
-        <value>Confirm e-mail address</value>
-    </label>
-    <label>
-        <key>post_reply</key>
-        <value>Post reply</value>
-    </label>
-    <label>
-        <key>topic_closed</key>
-        <value>Topic closed</value>
-    </label>
-    <label>
-        <key>from</key>
-        <value>From</value>
-    </label>
-    <label>
-        <key>note</key>
-        <value>Note</value>
-    </label>
-    <label>
-        <key>website</key>
-        <value>Website</value>
-    </label>
-    <label>
-        <key>guest</key>
-        <value>Guest</value>
-    </label>
-    <label>
-        <key>online</key>
-        <value>Online</value>
-    </label>
-    <label>
-        <key>offline</key>
-        <value>Offline</value>
-    </label>
-    <label>
-        <key>last_edit</key>
-        <value>Last edited by</value>
-    </label>
-    <label>
-        <key>report</key>
-        <value>Report</value>
-    </label>
-    <label>
-        <key>delete</key>
-        <value>Delete</value>
-    </label>
-    <label>
-        <key>edit</key>
-        <value>Edit</value>
-    </label>
-    <label>
-        <key>quote</key>
-        <value>Quote</value>
-    </label>
-    <label>
-        <key>is_subscribed</key>
-        <value>You are currently subscribed to this topic</value>
-    </label>
-    <label>
-        <key>unsubscribe</key>
-        <value>Unsubscribe</value>
-    </label>
-    <label>
-        <key>subscribe</key>
-        <value>Subscribe to this topic</value>
-    </label>
-    <label>
-        <key>quick_post</key>
-        <value>Quick post</value>
-    </label>
-    <label>
-        <key>link_separator</key>
-        <value> | </value>
-    </label>
-    <label>
-        <key>mod_controls</key>
-        <value>Moderator controls</value>
-    </label>
-    <label>
-        <key>user_find_legend</key>
-        <value>Find and sort users</value>
-    </label>
-    <label>
-        <key>user_group</key>
-        <value>User group</value>
-    </label>
-    <label>
-        <key>no_of_posts</key>
-        <value>No. of posts</value>
-    </label>
-    <label>
-        <key>all_users</key>
-        <value>All</value>
-    </label>
-    <label>
-        <key>copyright</key>
-        <value>Copyright Savonix Corporation, authored by Albert Lash<br/>
-                    Based on Punbb, written by Rickard Andersson</value>
-    </label>
-    <label>
-        <key>environment</key>
-        <value>Environment</value>
-    </label>
-    <label>
-        <key>operating_system</key>
-        <value>Operating system</value>
-    </label>
-    <label>
-        <key>accelerator</key>
-        <value>Accelerator</value>
-    </label>
-    <label>
-        <key>database</key>
-        <value>Database</value>
-    </label>
-    <label>
-        <key>add</key>
-        <value>Add</value>
-    </label>
-    <label>
-        <key>remove</key>
-        <value>remove</value>
-    </label>
-    <label>
-        <key>edit_categories</key>
-        <value>Edit Categories</value>
-    </label>
-    <label>
-        <key>delete_categories</key>
-        <value>delete categories</value>
-    </label>
-    <label>
-        <key>delete_a_category</key>
-        <value>Delete a category</value>
-    </label>
-    <label>
-        <key>add_a_new_category</key>
-        <value>Add a new category</value>
-    </label>
-    <label>
-        <key>name_of_new_category</key>
-        <value>The name of the new category you want to add. You can edit the name of the category later (see below). Go to</value>
-    </label>
-    <label>
-        <key>forums</key>
-        <value>Forums</value>
-    </label>
-    <label>
-        <key>to_add_forums</key>
-        <value>to add forums to your new category</value>
-    </label>
-    <label>
-        <key>select_the_name_of</key>
-        <value>Select the name of the category you want to delete. You will be asked to confirm your choice of category for deletion before it is deleted</value>
-    </label>
-    <label>
-        <key>name</key>
-        <value>Name</value>
-    </label>
-    <label>
-        <key>position</key>
-        <value>Position</value>
-    </label>
-    <!-- admin forum -->
-    <label>
-        <key>add_forum</key>
-        <value>Add forum</value>
-    </label>
-    <label>
-        <key>create_a_new_forum</key>
-        <value>Create a new forum</value>
-    </label>
-    <label>
-        <key>add_forum_to_category</key>
-        <value>Add forum to category</value>
-    </label>
-    <label>
-        <key>select_category_to_add</key>
-        <value>Select the category to which you wish to add a new forum</value>
-    </label>
-    <label>
-        <key>edit_forums</key>
-        <value>Edit forums</value>
-    </label>
-    <label>
-        <key>edit_forum</key>
-        <value>Edit forum</value>
-    </label>
-    <label>
-        <key>position</key>
-        <value>Position</value>
-    </label>
-    <label>
-        <key>admin_menu</key>
-        <value>Admin menu</value>
-    </label>
-    <!-- admin options -->
-    <label>
-        <key>board_title</key>
-        <value>Board title</value>
-    </label>
-    <label>
-        <key>title_of_bulletin_board</key>
-        <value>The title of this bulletin board (shown at the top of every page).</value>
-    </label>
-    <label>
-        <key>board_description</key>
-        <value>Board description</value>
-    </label>
-   <label>
-        <key>short_description_of_this</key>
-        <value>A short description of this bulletin board (shown at the top of every page).</value>
-    </label>
-    <label>
-        <key>features</key>
-        <value>Features</value>
-    </label>
-    <label>
-        <key>quick_post</key>
-        <value>Quick post</value>
-    </label>
-    <label>
-        <key>email</key>
-        <value>E-mail</value>
-    </label>
-    <label>
-        <key>admin_email</key>
-        <value>Admin e-mail</value>
-    </label>
-    <label>
-        <key>email_of_forum_admin</key>
-        <value>The e-mail address of the forum administrator</value>
-    </label>
-    <label>
-        <key>webmaster_email</key>
-        <value>Webmaster e-mail</value>
-    </label>
-    <label>
-        <key>address_all_email_sent_from</key>
-        <value>This is the address that all e-mails sent by the forum will be addressed from</value>
-    </label>
-    <label>
-        <key>subscriptions</key>
-        <value>Subscriptions</value>
-    </label>
-    <label>
-        <key>enable_users_to_subscribe</key>
-        <value>Enable users to subscribe to topics (recieve e-mail when someone replies)</value>
-    </label>
-    <label>
-        <key>smtp_server_address</key>
-        <value>SMTP server address</value>
-    </label>
-    <label>
-        <key>smtp_username</key>
-        <value>SMTP username</value>
-    </label>
-    <label>
-        <key>address_of_external_smtp</key>
-        <value>The address of an external SMTP server to send e-mails with. You can specify a custom port number if the SMTP server doesn't run on the default port 25 (example: mail.myhost.com:3580). Leave blank to use the local mail program</value>
-    </label>
-    <label>
-        <key>username_for_smtp_server</key>
-        <value>Username for SMTP server.</value>
-    </label>
-    <label>
-        <key>smtp_password</key>
-        <value>SMTP password</value>
-    </label>
-    <label>
-        <key>password_for_smtp_server</key>
-        <value>Password for SMTP server.</value>
-    </label>
-    <label>
-        <key>registration</key>
-        <value>Registration</value>
-    </label>
-    <label>
-        <key>allow_new_registration</key>
-        <value>Allow new registrations</value>
-    </label>
-    <label>
-        <key>controls_whether_forum_accepts_new_registration</key>
-        <value>Controls whether this forum accepts new registrations. Disable only under special circumstances</value>
-    </label>
-    <label>
-        <key>verify_registrations</key>
-        <value>Verify registrations</value>
-    </label>
-    <label>
-        <key>when_enabled_users_are_emailed</key>
-        <value>When enabled, users are e-mailed a random password when they register. They can then log in and change the password in their profile if they see fit. This feature also requires users to verify new e-mail addresses if they choose to change from the one they registered with. This is an effective way of avoiding registration abuse and making sure that all users have "correct" e-mail addresses in their profiles</value>
-    </label>
-    <label>
-        <key>use_forum_rules</key>
-        <value>Use forum rules</value>
-    </label>
-    <label>
-        <key>when_enabled_users_must</key>
-        <value>When enabled, users must agree to a set of rules when registering (enter text below). The rules will always be available through a link in the navigation table at the top of every page</value>
-    </label>
-    <label>
-        <key>rules</key>
-        <value>Rules</value>
-    </label>
-    <label>
-        <key>enter_rules_here</key>
-        <value>Enter your rules here</value>
-    </label>
-    <label>
-        <key>here_you_can_enter_any_rules</key>
-        <value>Here you can enter any rules or other information that the user must review and accept when registering. If you enabled rules above you have to enter something here, otherwise it will be disabled. This text will not be parsed like regular posts and thus may contain HTML</value>
-    </label>
-    <label>
-        <key>users</key>
-        <value>Users</value>
-    </label>
+  <install>
+    Install PhunkyBB
+  </install>
+  <forums>
+    Forums
+  </forums>
+  <topics>
+    Topics
+  </topics>
+  <posts>
+    Posts
+  </posts>
+  <pages>
+    Pages
+  </pages>
+  <last_post>
+    Last Post
+  </last_post>
+  <topic>
+    Topic
+  </topic>
+  <index>
+    Index
+  </index>
+  <replies>
+    Replies
+  </replies>
+  <views>
+    Views
+  </views>
+  <profile_menu>
+    Profile menu
+  </profile_menu>
+  <categories>
+    Categories
+  </categories>
+  <forums>
+    Forums
+  </forums>
+  <users>
+    Users
+  </users>
+  <groups>
+    Groups
+  </groups>
+  <options>
+    Options
+  </options>
+  <permissions>
+    Permissions
+  </permissions>
+  <censoring>
+    Censoring
+  </censoring>
+  <ranks>
+    Ranks
+  </ranks>
+  <delete_confirm>
+    Are you sure you want to delete this?
+  </delete_confirm>
+  <essentials>
+    Essentials
+  </essentials>
+  <bad_request>
+    Bad request. The link you followed is incorrect or outdated.
+  </bad_request>
+  <no_view>
+    You do not have permission to view these forums.
+  </no_view>
+  <no_permission>
+    You do not have permission to access this page.
+  </no_permission>
+  <new_icon>
+    There are new posts
+  </new_icon>
+  <closed_icon>
+    This topic is closed
+  </closed_icon>
+  <options>
+    Options
+  </options>
+  <actions>
+    Actions
+  </actions>
+  <submit>
+    Submit
+  </submit>
+  <never>
+    Never
+  </never>
+  <today>
+    Today
+  </today>
+  <yesterday>
+    Yesterday
+  </yesterday>
+  <info>
+    Info
+  </info>
+  <go_back>
+    Go back
+  </go_back>
+  <maintenance>
+    Maintenance
+  </maintenance>
+  <on>
+    on
+  </on>
+  <off>
+    off
+  </off>
+  <invalid_email>
+    The e-mail address you entered is invalid.
+  </invalid_email>
+  <invalid_registration>
+    The registration information you entered is invalid.
+  </invalid_registration>
+  <required_field>
+    is a required field in this form.
+  </required_field>
+  <last_post>
+    Last post
+  </last_post>
+  <by>
+    by
+  </by>
+  <new_posts>
+    New posts
+  </new_posts>
+  <new_posts_info>
+    Go to the first new post in this topic.
+  </new_posts_info>
+  <username>
+    Username
+  </username>
+  <password>
+    Password
+  </password>
+  <change_password>
+    Change Password
+  </change_password>
+  <email>
+    E-mail
+  </email>
+  <send_email>
+    Send e-mail
+  </send_email>
+  <moderated_by>
+    Moderated by
+  </moderated_by>
+  <registration_ip>
+    Registration IP
+  </registration_ip>
+  <registered>
+    Registered
+  </registered>
+  <subject>
+    Subject
+  </subject>
+  <message>
+    Message
+  </message>
+  <activate>
+    Activate
+  </activate>
+  <activated>
+    Activated
+  </activated>
+  <topic>
+    Topic
+  </topic>
+  <forum>
+    Forum
+  </forum>
+  <posts>
+    Posts
+  </posts>
+  <replies>
+    Replies
+  </replies>
+  <author>
+    Author
+  </author>
+  <pages>
+    Pages
+  </pages>
+  <code>
+    Code
+  </code>
+  <statistics>
+    Statistics
+  </statistics>
+  <mailer>
+    Mailer
+  </mailer>
+  <important_information>
+    Important information
+  </important_information>
+  <write_your_message>
+    Write your message and submit
+  </write_your_message>
+  <title>
+    Title
+  </title>
+  <member>
+    Member
+  </member>
+  <moderator>
+    Moderator
+  </moderator>
+  <administrator>
+    Administrator
+  </administrator>
+  <administration>
+    Administration
+  </administration>
+  <index>
+    Index
+  </index>
+  <user_list>
+    User list
+  </user_list>
+  <rules>
+    Rules
+  </rules>
+  <register>
+    Register
+  </register>
+  <registration_info>
+    Registration Info
+  </registration_info>
+  <login>
+    Login
+  </login>
+  <not_logged_in>
+    You are not logged in.
+  </not_logged_in>
+  <profile>
+    Profile
+  </profile>
+  <logout>
+    Logout
+  </logout>
+  <logged_in_as>
+    Logged in as
+  </logged_in_as>
+  <admin>
+    Administration
+  </admin>
+  <last_visit>
+    Last visit
+  </last_visit>
+  <show_new_posts>
+    Show new posts since last visit
+  </show_new_posts>
+  <show_recent_posts>
+    Show recent posts
+  </show_recent_posts>
+  <show_unanswered_posts>
+    Show unanswered posts
+  </show_unanswered_posts>
+  <show_your_posts>
+    Show your posts
+  </show_your_posts>
+  <show_subscriptions>
+    Show your subscribed topics
+  </show_subscriptions>
+  <go>
+     Go 
+  </go>
+  <move_topic>
+    Move topic
+  </move_topic>
+  <open_topic>
+    Open topic
+  </open_topic>
+  <close_topic>
+    Close topic
+  </close_topic>
+  <moderate_forum>
+    Moderate forum
+  </moderate_forum>
+  <delete_posts>
+    Delete multiple posts
+  </delete_posts>
+  <posted>
+    Posted
+  </posted>
+  <delete_post>
+    Delete post
+  </delete_post>
+  <warning>
+    Warning! If this is the first post in the topic, the whole topic will be deleted.
+  </warning>
+  <post_topic>
+    Post new topic
+  </post_topic>
+  <views>
+    Views
+  </views>
+  <moved>
+    Moved
+  </moved>
+  <sticky>
+    Sticky
+  </sticky>
+  <forum_is_empty>
+    Forum is empty.
+  </forum_is_empty>
+  <help>
+    Help
+  </help>
+  <wrong_user_pass>
+    Wrong username and/or password.
+  </wrong_user_pass>
+  <forgotten_pass>
+    Forgotten your password?
+  </forgotten_pass>
+  <request_pass>
+    Request password
+  </request_pass>
+  <request_pass_legend>
+    Enter the e-mail address with which you registered
+  </request_pass_legend>
+  <request_pass_info>
+    A new password together with a link to activate the new password will be sent to that address.
+  </request_pass_info>
+  <not_registered_yet>
+    Not registered yet?
+  </not_registered_yet>
+  <enter_username>
+    Enter your username and password below
+  </enter_username>
+  <login_info>
+    If you have not registered or have forgotten your password click on the appropriate link below.
+  </login_info>
+  <already_subscribed>
+    You are already subscribed to this topic.
+  </already_subscribed>
+  <not_subscribed>
+    You are not subscribed to this topic.
+  </not_subscribed>
+  <moderate>
+    Moderate
+  </moderate>
+  <delete_topics_comply>
+    Are you sure you want to delete the selected topics?
+  </delete_topics_comply>
+  <delete_posts_comply>
+    Are you sure you want to delete the selected posts?
+  </delete_posts_comply>
+  <post_a_reply>
+    Post a reply
+  </post_a_reply>
+  <post_new_topic>
+    Post new topic
+  </post_new_topic>
+  <subscribe>
+    Subscribe to this topic
+  </subscribe>
+  <topic_review>
+    Topic review (newest first)
+  </topic_review>
+  <preview>
+    Preview
+  </preview>
+  <edit_post_legend>
+    Edit the post and submit changes
+  </edit_post_legend>
+  <edit_post>
+    Edit post
+  </edit_post>
+  <profile_menu>
+    Profile menu
+  </profile_menu>
+  <section_essentials>
+    Essentials
+  </section_essentials>
+  <section_personal>
+    Personal
+  </section_personal>
+  <section_personality>
+    Personality
+  </section_personality>
+  <section_display>
+    Display
+  </section_display>
+  <section_admin>
+    Administration
+  </section_admin>
+  <username_and_pass_legend>
+    Enter your username and password
+  </username_and_pass_legend>
+  <pass_key_bad>
+    The specified password activation key was incorrect or has expired. Please re-request a new password. If that fails, contact the forum administrator at
+  </pass_key_bad>
+  <pass_updated>
+    Your password has been updated. You can now login with your new password.
+  </pass_updated>
+  <pass_updated_redirect>
+    Password updated. Redirecting 
+  </pass_updated_redirect>
+  <wrong_pass>
+    Wrong old password.
+  </wrong_pass>
+  <change_pass_legend>
+    Enter and confirm your new password
+  </change_pass_legend>
+  <old_pass>
+    Old password
+  </old_pass>
+  <new_pass>
+    New password
+  </new_pass>
+  <confirm_new_pass>
+    Confirm new password
+  </confirm_new_pass>
+  <email_key_bad>
+    The specified e-mail activation key was incorrect or has expired. Please re-request change of e-mail address. If that fails, contact the forum administrator at
+  </email_key_bad>
+  <email_updated>
+    Your e-mail address has been updated.
+  </email_updated>
+  <activate_email_sent>
+    An email has been sent to the specified address with instructions on how to activate the new e-mail address. If it doesn't arrive you can contact the forum administrator at
+  </activate_email_sent>
+  <email_legend>
+    Enter your new e-mail address
+  </email_legend>
+  <email_instructions>
+    An e-mail will be sent to your new address with an activation link. You must click the link in the e-mail you receive to activate the new address.
+  </email_instructions>
+  <change_email>
+    Change e-mail address
+  </change_email>
+  <new_email>
+    New e-mail
+  </new_email>
+  <unknown_failure>
+    An unknown error occurred. Please try again.
+  </unknown_failure>
+  <file>
+    File
+  </file>
+  <upload>
+    Upload
+  </upload>
+  <dupe_username>
+    Someone else has already registered with that username. Please go back and try a different username.
+  </dupe_username>
+  <show_posts>
+    Show all posts
+  </show_posts>
+  <realname>
+    Real name
+  </realname>
+  <location>
+    Location
+  </location>
+  <website>
+    Website
+  </website>
+  <jabber>
+    Jabber
+  </jabber>
+  <avatar>
+    Avatar
+  </avatar>
+  <signature>
+    Signature
+  </signature>
+  <signature_legend>
+    Compose your signature
+  </signature_legend>
+  <signature_info>
+    A signature is a small piece of text that is attached to your posts. In it, you can enter just about anything you like. Perhaps you would like to enter your favourite quote or your star sign. It's up to you! In your signature you can use BBCode if it is allowed in this particular forum. You can see the features that are allowed/enabled listed below whenever you edit your signature.
+  </signature_info>
+  <sig_preview>
+    Current signature preview:
+  </sig_preview>
+  <no_sig>
+    No signature currently stored in profile.
+  </no_sig>
+  <admin_note>
+    Admin note
+  </admin_note>
+  <instructions>
+    When you update your profile, you will be redirected back to this page.
+  </instructions>
+  <save>
+    Save
+  </save>
+  <update_forums>
+    Update forums
+  </update_forums>
+  <delete_user>
+    Delete user
+  </delete_user>
+  <delete_warning>
+    Warning! Deleted users and/or posts cannot be restored. If you choose not to delete the posts made by this user, the posts can only be deleted manually at a later time.
+  </delete_warning>
+  <delete_posts>
+    Delete any posts and topics this user has made.
+  </delete_posts>
+  <delete>
+    Delete
+  </delete>
+  <no_new_regs>
+    This forum is not accepting new registrations.
+  </no_new_regs>
+  <forum_rules>
+    Forum rules
+  </forum_rules>
+  <rules_legend>
+    You must agree to the following in order to register
+  </rules_legend>
+  <agree>
+    Agree
+  </agree>
+  <cancel>
+    Cancel
+  </cancel>
+  <register>
+    Register
+  </register>
+  <working>
+    Working
+  </working>
+  <registration_error>
+    Registration Error
+  </registration_error>
+  <username_dupe_1>
+    Someone is already registered with the username
+  </username_dupe_1>
+  <email_not_match>
+    E-mail addresses do not match. Please go back and correct.
+  </email_not_match>
+  <reg_email>
+    Thank you for registering. Your password has been sent to the specified address. If it doesn't arrive you can contact the forum administrator at
+  </reg_email>
+  <reg_complete>
+    Registration complete. Logging in and redirecting 
+  </reg_complete>
+  <reg_desc_1>
+    Registration will grant you access to a number of features and capabilities otherwise unavailable. These functions include the ability to edit and delete posts, design your own signature that accompanies your posts and much more. If you have any questions regarding this forum you should ask an administrator.
+  </reg_desc_1>
+  <reg_desc_2>
+    Below is a form you must fill out in order to register. Once you are registered you should visit your profile and review the different settings you can change. The fields below only make up a small part of all the settings you can alter in your profile.
+  </reg_desc_2>
+  <username_legend>
+    Please enter a username between 2 and 25 characters long
+  </username_legend>
+  <pass_legend_1>
+    Please enter and confirm your chosen password
+  </pass_legend_1>
+  <pass_legend_2>
+    Please read the instructions below
+  </pass_legend_2>
+  <pass_info>
+    Passwords can be between 4 and 16 characters long. Passwords are case sensitive.
+  </pass_info>
+  <valid_email>
+    Enter a valid e-mail address
+  </valid_email>
+  <email_info>
+    You must enter a valid e-mail address as your randomly generated password will be sent to that address.
+  </email_info>
+  <confirm_email>
+    Confirm e-mail address
+  </confirm_email>
+  <post_reply>
+    Post reply
+  </post_reply>
+  <topic_closed>
+    Topic closed
+  </topic_closed>
+  <from>
+    From
+  </from>
+  <note>
+    Note
+  </note>
+  <website>
+    Website
+  </website>
+  <guest>
+    Guest
+  </guest>
+  <online>
+    Online
+  </online>
+  <offline>
+    Offline
+  </offline>
+  <last_edit>
+    Last edited by
+  </last_edit>
+  <report>
+    Report
+  </report>
+  <delete>
+    Delete
+  </delete>
+  <edit>
+    Edit
+  </edit>
+  <quote>
+    Quote
+  </quote>
+  <is_subscribed>
+    You are currently subscribed to this topic
+  </is_subscribed>
+  <unsubscribe>
+    Unsubscribe
+  </unsubscribe>
+  <subscribe>
+    Subscribe to this topic
+  </subscribe>
+  <quick_post>
+    Quick post
+  </quick_post>
+  <link_separator>
+     | 
+  </link_separator>
+  <mod_controls>
+    Moderator controls
+  </mod_controls>
+  <user_find_legend>
+    Find and sort users
+  </user_find_legend>
+  <user_group>
+    User group
+  </user_group>
+  <no_of_posts>
+    No. of posts
+  </no_of_posts>
+  <all_users>
+    All
+  </all_users>
+  <copyright>
+    Copyright Savonix Corporation, authored by Albert Lash
+                    Based on Punbb, written by Rickard Andersson
+  </copyright>
+  <environment>
+    Environment
+  </environment>
+  <operating_system>
+    Operating system
+  </operating_system>
+  <accelerator>
+    Accelerator
+  </accelerator>
+  <database>
+    Database
+  </database>
+  <add>
+    Add
+  </add>
+  <remove>
+    remove
+  </remove>
+  <edit_categories>
+    Edit Categories
+  </edit_categories>
+  <delete_categories>
+    delete categories
+  </delete_categories>
+  <delete_a_category>
+    Delete a category
+  </delete_a_category>
+  <add_a_new_category>
+    Add a new category
+  </add_a_new_category>
+  <name_of_new_category>
+    The name of the new category you want to add. You can edit the name of the category later (see below). Go to
+  </name_of_new_category>
+  <forums>
+    Forums
+  </forums>
+  <to_add_forums>
+    to add forums to your new category
+  </to_add_forums>
+  <select_the_name_of>
+    Select the name of the category you want to delete. You will be asked to confirm your choice of category for deletion before it is deleted
+  </select_the_name_of>
+  <name>
+    Name
+  </name>
+  <position>
+    Position
+  </position>
+  <add_forum>
+    Add forum
+  </add_forum>
+  <create_a_new_forum>
+    Create a new forum
+  </create_a_new_forum>
+  <add_forum_to_category>
+    Add forum to category
+  </add_forum_to_category>
+  <select_category_to_add>
+    Select the category to which you wish to add a new forum
+  </select_category_to_add>
+  <edit_forums>
+    Edit forums
+  </edit_forums>
+  <edit_forum>
+    Edit forum
+  </edit_forum>
+  <position>
+    Position
+  </position>
+  <admin_menu>
+    Admin menu
+  </admin_menu>
+  <board_title>
+    Board title
+  </board_title>
+  <title_of_bulletin_board>
+    The title of this bulletin board (shown at the top of every page).
+  </title_of_bulletin_board>
+  <board_description>
+    Board description
+  </board_description>
+  <short_description_of_this>
+    A short description of this bulletin board (shown at the top of every page).
+  </short_description_of_this>
+  <features>
+    Features
+  </features>
+  <quick_post>
+    Quick post
+  </quick_post>
+  <email>
+    E-mail
+  </email>
+  <admin_email>
+    Admin e-mail
+  </admin_email>
+  <email_of_forum_admin>
+    The e-mail address of the forum administrator
+  </email_of_forum_admin>
+  <webmaster_email>
+    Webmaster e-mail
+  </webmaster_email>
+  <address_all_email_sent_from>
+    This is the address that all e-mails sent by the forum will be addressed from
+  </address_all_email_sent_from>
+  <subscriptions>
+    Subscriptions
+  </subscriptions>
+  <enable_users_to_subscribe>
+    Enable users to subscribe to topics (recieve e-mail when someone replies)
+  </enable_users_to_subscribe>
+  <smtp_server_address>
+    SMTP server address
+  </smtp_server_address>
+  <smtp_username>
+    SMTP username
+  </smtp_username>
+  <address_of_external_smtp>
+    The address of an external SMTP server to send e-mails with. You can specify a custom port number if the SMTP server doesn't run on the default port 25 (example: mail.myhost.com:3580). Leave blank to use the local mail program
+  </address_of_external_smtp>
+  <username_for_smtp_server>
+    Username for SMTP server.
+  </username_for_smtp_server>
+  <smtp_password>
+    SMTP password
+  </smtp_password>
+  <password_for_smtp_server>
+    Password for SMTP server.
+  </password_for_smtp_server>
+  <registration>
+    Registration
+  </registration>
+  <allow_new_registration>
+    Allow new registrations
+  </allow_new_registration>
+  <controls_whether_forum_accepts_new_registration>
+    Controls whether this forum accepts new registrations. Disable only under special circumstances
+  </controls_whether_forum_accepts_new_registration>
+  <verify_registrations>
+    Verify registrations
+  </verify_registrations>
+  <when_enabled_users_are_emailed>
+    When enabled, users are e-mailed a random password when they register. They can then log in and change the password in their profile if they see fit. This feature also requires users to verify new e-mail addresses if they choose to change from the one they registered with. This is an effective way of avoiding registration abuse and making sure that all users have "correct" e-mail addresses in their profiles
+  </when_enabled_users_are_emailed>
+  <use_forum_rules>
+    Use forum rules
+  </use_forum_rules>
+  <when_enabled_users_must>
+    When enabled, users must agree to a set of rules when registering (enter text below). The rules will always be available through a link in the navigation table at the top of every page
+  </when_enabled_users_must>
+  <rules>
+    Rules
+  </rules>
+  <enter_rules_here>
+    Enter your rules here
+  </enter_rules_here>
+  <here_you_can_enter_any_rules>
+    Here you can enter any rules or other information that the user must review and accept when registering. If you enabled rules above you have to enter something here, otherwise it will be disabled. This text will not be parsed like regular posts and thus may contain HTML
+  </here_you_can_enter_any_rules>
+  <users>
+    Users
+  </users>
 </i18n>

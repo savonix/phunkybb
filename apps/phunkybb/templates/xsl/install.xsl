@@ -27,23 +27,34 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <xsl:param name="link_prefix"/>
 <div id="install" class="blockform">
 	<div class="block">
-		<h2 class="block2"><xsl:value-of select="/_R_/i18n/label[key='install']/value"/></h2>
-		<div class="box">
-			<form id="profile1" method="post">
-            <div class="inform">
-                <fieldset>
-                    <legend><xsl:value-of select="/_R_/i18n/label[key='install']/value"/></legend>
-                    <div class="infldset">
-                        <label><strong><xsl:value-of select="/_R_/i18n/label[key='username']/value"/></strong><br/>
-                        <input type="text" name="req_username" value="{//user_get_profile/username}"/><br/>
-                        </label>
-                    </div>
-                </fieldset>
+		<h2 class="block2">
+      <xsl:value-of select="/_R_/i18n/install"/>
+    </h2>
+    <div class="box">
+      <form id="profile1" method="post">
+        <div class="inform">
+          <fieldset>
+            <legend>
+              <xsl:value-of select="/_R_/i18n/install"/>
+            </legend>
+            <div class="infldset">
+              <label>
+                <strong>
+                  <xsl:value-of select="/_R_/i18n/username"/>
+                </strong>
+                <br/>
+                <input type="text" name="req_username"
+                  value="{//user_get_profile/username}"/>
+                <br/>
+              </label>
             </div>
-            </form>
+          </fieldset>
         </div>
+      </form>
+    </div>
 	</div>
-    If you have already installed PhunkyBB, remove the file "config/delete_this_after_install".
+    If you have already installed PhunkyBB, 
+    remove the file "config/delete_this_after_install".
 </div>
 </xsl:template>
 </xsl:stylesheet>

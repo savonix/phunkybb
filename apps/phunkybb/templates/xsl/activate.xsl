@@ -26,12 +26,12 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <xsl:template name="content">
 <xsl:param name="link_prefix"/>
 <div class="blockform">
-	<h2><xsl:value-of select="/_R_/i18n/label[key='activate']/value"/></h2>
+	<h2><xsl:value-of select="/_R_/i18n/activate"/></h2>
 
 <div class="box">
     <div class="inform">
         <fieldset>
-            <xsl:value-of select="/_R_/i18n/label[key='activated']/value"/>!
+            <xsl:value-of select="/_R_/i18n/activated"/>!
         </fieldset>
     </div>
 </div>

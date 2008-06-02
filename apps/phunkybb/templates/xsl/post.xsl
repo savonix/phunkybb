@@ -26,30 +26,30 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <xsl:template name="content">
 <xsl:param name="link_prefix"/>
 <div class="blockform">
-<h2><xsl:value-of select="/_R_/i18n/label[key='post_new_topic']/value"/></h2>
+<h2><xsl:value-of select="/_R_/i18n/post_new_topic"/></h2>
 <div class="box">
     <form id="post" method="post" action="{$link_prefix}topic-submit">
         <input type="hidden" name="fid" value="{/_R_/_get/fid}"/>
         <input type="hidden" name="forum_id" value="{/_R_/_get/fid}"/>
         <div class="inform">
             <fieldset>
-                <legend><xsl:value-of select="/_R_/i18n/label[key='write_your_message']/value"/></legend>
+                <legend><xsl:value-of select="/_R_/i18n/write_your_message"/></legend>
                 <div class="infldset txtarea">
-                    <label><strong><xsl:value-of select="/_R_/i18n/label[key='subject']/value"/></strong><br/>
+                    <label><strong><xsl:value-of select="/_R_/i18n/subject"/></strong><br/>
                     <input class="longinput" type="text" name="subject"/><br/></label>
-                    <label><strong><xsl:value-of select="/_R_/i18n/label[key='message']/value"/></strong><br/>
+                    <label><strong><xsl:value-of select="/_R_/i18n/message"/></strong><br/>
                     <textarea name="message" rows="20" cols="95"></textarea><br/></label>
                 </div>
             </fieldset>
         </div>
         <div class="inform">
             <fieldset>
-                <legend><xsl:value-of select="/_R_/i18n/label[key='options']/value"/></legend>
+                <legend><xsl:value-of select="/_R_/i18n/options"/></legend>
                 <div class="infldset">
                     <div class="rbox">
                     <label>
                     <input type="checkbox" name="subscribe" value="1"/>
-                    <xsl:value-of select="/_R_/i18n/label[key='subscribe']/value"/><br/>
+                    <xsl:value-of select="/_R_/i18n/subscribe"/><br/>
                     </label>
                     </div>
                 </div>
@@ -59,7 +59,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
             <input type="submit" name="submit" value="Submit"/>
             <input type="submit" name="preview" value="Preview"/>
             <a href="{$link_prefix}welcome" onclick="history.go(-1);">
-                <xsl:value-of select="/_R_/i18n/label[key='go_back']/value"/>
+                <xsl:value-of select="/_R_/i18n/go_back"/>
             </a>
         </p>
     </form>
