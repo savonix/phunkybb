@@ -21,32 +21,32 @@
     or write to the Free Software Foundation,Inc., 51 Franklin Street,
     Fifth Floor, Boston, MA 02110-1301 USA
 -->
-<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" >
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 <xsl:include href="html_main.xsl"/>
 <xsl:include href="admin_menu.xsl"/>
 <xsl:include href="pager.xsl"/>
 <xsl:template name="content">
 <xsl:param name="link_prefix"/>
 <xsl:call-template name="jquery-setup">
-    <xsl:with-param name="my-table">users_table</xsl:with-param>
-    <xsl:with-param name="no-sort-column">,
-        headers: {
-            1: {sorter: false},
-            2: {sorter: false}
-        }
-    </xsl:with-param>
+  <xsl:with-param name="my-table">users_table</xsl:with-param>
+  <xsl:with-param name="no-sort-column">,
+    headers: {
+      1: {sorter: false},
+      2: {sorter: false}
+    }
+  </xsl:with-param>
 </xsl:call-template>
 <script type="text/javascript">
-function delete_user(user_id,row) {
-    if(confirm('Are you sure?')){
+  function delete_user(user_id,row) {
+    if (confirm('Are you sure?')){
       $.post("<xsl:value-of select="$link_prefix"/>x-user-delete&amp;user_id="+user_id,
-      {'user_id': user_id},
-      function (data){
-    });
+        {'user_id': user_id},
+        function (data){
+      });
     myTable = document.getElementById("users_table");
       myTable.deleteRow(row);
     }
-}
+  }
 </script>
 <div id="adminconsole" class="block2col">
     <xsl:call-template name="admin-menu">

@@ -23,13 +23,13 @@ or write to the Free Software Foundation,Inc., 51 Franklin Street,
 Fifth Floor, Boston, MA 02110-1301  USA
 */
 
-$username = Nexista_Path::get('//user_login/username', 'flow');
+$username = Nexista_Path::get('//user_login/user_login/username', 'flow');
 
-$user_id = Nexista_Path::get('//user_login/id', 'flow');
-$group_id = Nexista_Path::get('//user_login/group_id', 'flow');
+$user_id = Nexista_Path::get('//user_login/user_login/id', 'flow');
+$group_id = Nexista_Path::get('//user_login/user_login/group_id', 'flow');
 
 $user_timezone = Nexista_Path::get('//_post/my_tz_offset', 'flow');
-$user_last_visit = Nexista_Path::get('//user_login/last_visit', 'flow');
+$user_last_visit = Nexista_Path::get('//user_login/user_login/last_visit', 'flow');
 $tz = $user_timezone * 3600;
 $last_visit = gmdate('Y-m-d H:i:s',$user_last_visit + $tz);
 $_SESSION['timezone'] = $user_timezone;
@@ -46,10 +46,10 @@ if(is_array($roles)) {
 	}
 
 } else {
-	$newarr=$roles;
+	$newarr = $roles;
 }
 
-$newarr =array('phunky_user','phunky_admin');
+$newarr = array('phunky_user','phunky_admin');
 
 $auth = &new Nexista_Auth();
 

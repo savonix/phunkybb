@@ -25,11 +25,11 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <xsl:include href="html_main.xsl"/>
 <xsl:template name="content">
 <xsl:param name="link_prefix"/>
-<script type="text/javascript" src="{_R_/runtime/path_prefix}/s/js/rsa/jsbn.js"></script>
-<script type="text/javascript" src="{_R_/runtime/path_prefix}/s/js/rsa/rsa.js"></script>
-<script type="text/javascript" src="{_R_/runtime/path_prefix}/s/js/rsa/prng4.js"></script>
-<script type="text/javascript" src="{_R_/runtime/path_prefix}/s/js/rsa/rng.js"></script>
-<script type="text/javascript" src="{_R_/runtime/path_prefix}/s/js/rsa/base64.js"></script>
+<script type="text/javascript" src="{/_R_/runtime/path_prefix}/s/js/rsa/jsbn.js"></script>
+<script type="text/javascript" src="{/_R_/runtime/path_prefix}/s/js/rsa/rsa.js"></script>
+<script type="text/javascript" src="{/_R_/runtime/path_prefix}/s/js/rsa/prng4.js"></script>
+<script type="text/javascript" src="{/_R_/runtime/path_prefix}/s/js/rsa/rng.js"></script>
+<script type="text/javascript" src="{/_R_/runtime/path_prefix}/s/js/rsa/base64.js"></script>
 <script language="javascript">
 <![CDATA[
     function initValidation()
@@ -60,7 +60,7 @@ function do_encrypt() {
     $('span#login_button').addClass("button-basic-green");
     $('span#replace').css("visibility","visible");
     $('span#replace').html("<xsl:value-of select="/_R_/i18n/working"/>...");
-    
+
     if(validateStandard(this))
     {
         var myform = document.forms["register"];
@@ -86,50 +86,90 @@ function do_encrypt() {
 }
 </script>
 <div class="blockform">
-<h2><xsl:value-of select="/_R_/i18n/register"/></h2>
+<h2>
+  <xsl:value-of select="/_R_/i18n/register"/>
+</h2>
 <div class="box">
-    <form id="register" name="register" method="post" onSubmit="do_encrypt(); return false;">
-        <input type="hidden" name="id_rsa_pub" value=""/>
-        <input type="hidden" name="e" value=""/>
-        <div class="inform">
-            <div class="forminfo">
-                <h3><xsl:value-of select="/_R_/i18n/important_information"/></h3>
-                <p><xsl:value-of select="/_R_/i18n/reg_desc_1"/></p>
-                <p><xsl:value-of select="/_R_/i18n/reg_desc_2"/></p>
-            </div>
-            <fieldset>
-                <legend><xsl:value-of select="/_R_/i18n/username_legend"/></legend>
-                <div class="infldset">
-                    <label><strong><xsl:value-of select="/_R_/i18n/username"/></strong><br/>
-                    <input type="text" name="username" maxlength="25" value="{//_post/username}"/><br/></label>
-                </div>
-            </fieldset>
+  <form id="register" name="register" method="post"
+    onSubmit="do_encrypt(); return false;">
+    <input type="hidden" name="id_rsa_pub" value=""/>
+    <input type="hidden" name="e" value=""/>
+    <div class="inform">
+      <div class="forminfo">
+        <h3><xsl:value-of select="/_R_/i18n/important_information"/></h3>
+        <p><xsl:value-of select="/_R_/i18n/reg_desc_1"/></p>
+        <p><xsl:value-of select="/_R_/i18n/reg_desc_2"/></p>
+      </div>
+      <fieldset>
+        <legend><xsl:value-of select="/_R_/i18n/username_legend"/></legend>
+        <div class="infldset">
+          <label>
+            <strong><xsl:value-of select="/_R_/i18n/username"/></strong>
+            <br/>
+            <input type="text" name="username" value="{//_post/username}"/>
+            <br/>
+          </label>
         </div>
-        <div class="inform">
-            <fieldset>
-                <legend><xsl:value-of select="/_R_/i18n/pass_legend_1"/></legend>
-                <div class="infldset">
-                    <label class="conl"><strong><xsl:value-of select="/_R_/i18n/password"/></strong><br/><input type="password" name="password" size="16" maxlength="16"/><br/></label>
-                    <label class="conl"><strong><xsl:value-of select="/_R_/i18n/confirm_password"/></strong><br/><input type="password" name="password2" size="16" maxlength="16"/><br/></label>
-                    <p class="clearb"><xsl:value-of select="/_R_/i18n/pass_info"/></p>
-                </div>
-            </fieldset>
+      </fieldset>
+    </div>
+    <div class="inform">
+      <fieldset>
+        <legend>
+          <xsl:value-of select="/_R_/i18n/pass_legend_1"/>
+        </legend>
+        <div class="infldset">
+          <label class="conl">
+            <strong>
+              <xsl:value-of select="/_R_/i18n/password"/>
+            </strong>
+            <br/>
+            <input type="password" name="password" size="16" maxlength="16"/>
+            <br/>
+          </label>
+          <label class="conl">
+          <strong>
+            <xsl:value-of select="/_R_/i18n/confirm_password"/>
+          </strong>
+          <br/>
+          <input type="password" name="password2" size="16" maxlength="16"/>
+          <br/>
+          </label>
+          <p class="clearb">
+            <xsl:value-of select="/_R_/i18n/pass_info"/>
+          </p>
         </div>
-        <div class="inform">
-            <fieldset>
-                <legend><xsl:value-of select="/_R_/i18n/valid_email"/></legend>
-                <div class="infldset">
-                <label><strong><xsl:value-of select="/_R_/i18n/email"/></strong><br/>
-                    <input type="text" name="email" maxlength="50" value="{//_post/email}"/><br/></label>
-                </div>
-            </fieldset>
+      </fieldset>
+    </div>
+    <div class="inform">
+      <fieldset>
+        <legend>
+          <xsl:value-of select="/_R_/i18n/valid_email"/>
+        </legend>
+        <div class="infldset">
+          <label>
+            <strong>
+              <xsl:value-of select="/_R_/i18n/email"/>
+            </strong>
+            <br/>
+            <input type="text" name="email" value="{/_R_/_post/email}"/>
+            <br/>
+          </label>
         </div>
-        <p>
-        <span id="register_button" class="button-basic-blue disableSelection" onclick="do_encrypt();">Submit</span>
-        <span id="replace" class="interstatus"></span>
-        <noscript><span id="replace" class="interstatus">Javascript must be enabled to register.</span></noscript>
-        </p>
-    </form>
+      </fieldset>
+    </div>
+    <p>
+      <span id="register_button"
+        class="button-basic-blue disableSelection" onclick="do_encrypt();">
+        Submit
+      </span>
+      <span id="replace" class="interstatus"></span>
+      <noscript>
+        <span id="replace" class="interstatus">
+          Javascript must be enabled to register.
+        </span>
+      </noscript>
+    </p>
+  </form>
 </div>
 </div>
 <script language="javascript">

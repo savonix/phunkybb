@@ -57,43 +57,56 @@ function delete_topic(topic_id) {
 
 <div class="linkst">
 	<div class="inbox">
-		<p class="pagelink conl"><xsl:value-of select="/_R_/i18n/pages"/>: 
-        <strong><xsl:value-of select="//posts_get_number_of_pages/pages"/></strong>&#160;
-        <xsl:value-of select="/_R_/i18n/posts"/>: 
-        <strong><xsl:value-of select="/_R_/posts_get_number_of_pages/count"/></strong>
-        
-        </p>
-		<p class="postlink conr">&#160;
-        <xsl:if test="//runtime/group_id=1 or poster=//runtime/username">
-            <a href="{$link_prefix}topic-delete&amp;topic_id={/_R_/_get/id}&amp;fid={/_R_/_get/fid}" 
-                onclick="delete_topic({/_R_/_get/id}); return false;">Delete</a>
-        </xsl:if>
-        </p>
-		<ul>
-            <li><a href="{$link_prefix}welcome">
-                <xsl:value-of select="/_R_/i18n/index"/>
-                </a></li>
-            <li>&#160; &gt; &#160;
-                <a href="{$link_prefix}forum&amp;fid={/_R_/_get/fid}">
-                <xsl:value-of select="//forum_get_by_id/forum_name"/>
-                </a>
-                <a href="{$link_prefix}forum&amp;id={/_R_/_get/id}"></a>
-            </li>
-            <li>&#160; &gt; &#160;<xsl:value-of select="//topic_get_by_id/subject"/>
-            </li>
-        </ul>
-        <p class="postlink conl">
-            <xsl:if test="//posts_get_number_of_pages/count &gt; 2">
-            <xsl:call-template name="previous_next">
-                <xsl:with-param name="qsa">&amp;fid=<xsl:value-of select="/_R_/_get/fid"/>&amp;id=<xsl:value-of select="/_R_/_get/id"/>
-                </xsl:with-param>
-            </xsl:call-template>
-            </xsl:if>
-        </p>
-        <p class="postlink conr">
-            <xsl:value-of select="/_R_/topic_get_by_id/topic_get_by_id/subject"/>
-        </p>
-		</div>
+		<p class="pagelink conl">
+      <xsl:value-of select="/_R_/i18n/pages"/>:
+      <strong>
+        <xsl:value-of select="//posts_get_number_of_pages/pages"/>
+      </strong>&#160;
+      <xsl:value-of select="/_R_/i18n/posts"/>:
+      <strong>
+        <xsl:value-of select="/_R_/posts_get_number_of_pages/count"/>
+      </strong>
+    </p>
+    <p class="postlink conr">&#160;
+      <xsl:if test="//runtime/group_id=1 or poster=//runtime/username">
+        <a href="{$link_prefix}topic-delete&amp;topic_id={/_R_/_get/id}&amp;fid={/_R_/_get/fid}"
+          onclick="delete_topic({/_R_/_get/id}); return false;">
+          Delete
+        </a>
+      </xsl:if>
+    </p>
+    <ul>
+      <li>
+        <a href="{$link_prefix}welcome">
+          <xsl:value-of select="/_R_/i18n/index"/>
+        </a>
+      </li>
+      <li>&#160; &gt; &#160;
+        <a href="{$link_prefix}forum&amp;fid={/_R_/_get/fid}">
+          <xsl:value-of select="//forum_get_by_id/forum_name"/>
+        </a>
+        <a href="{$link_prefix}forum&amp;id={/_R_/_get/id}"></a>
+      </li>
+      <li>
+        &#160; &gt; &#160;<xsl:value-of select="//topic_get_by_id/subject"/>
+      </li>
+    </ul>
+    <p class="postlink conl">
+      <xsl:if test="//posts_get_number_of_pages/count &gt; 2">
+        <xsl:call-template name="previous_next">
+          <xsl:with-param name="qsa">
+            <xsl:text>&amp;fid=</xsl:text>
+            <xsl:value-of select="/_R_/_get/fid"/>
+            <xsl:text>&amp;id=</xsl:text>
+            <xsl:value-of select="/_R_/_get/id"/>
+          </xsl:with-param>
+        </xsl:call-template>
+      </xsl:if>
+    </p>
+    <p class="postlink conr">
+      <xsl:value-of select="/_R_/topic_get_by_id/topic_get_by_id/subject"/>
+    </p>
+  </div>
 </div>
 
 <!-- Post loop -->
@@ -101,34 +114,45 @@ function delete_topic(topic_id) {
 <div id="p{id}" class="blockpost roweven">
 	<h2><span class="conr">#<xsl:value-of select="id"/></span>
     <a href="#post{id}" name="post{id}">
-        <xsl:value-of select="posted"/>
+      <xsl:value-of select="posted"/>
     </a>
-    </h2>
+  </h2>
 	<div class="box">
 		<div class="inbox">
 			<div class="postleft">
 				<dl>
-					<dt><strong><a href="{$link_prefix}profile&amp;id={poster_id}">
-                    <xsl:value-of select="username"/></a></strong></dt>
-				</dl>
+					<dt>
+            <strong>
+              <a href="{$link_prefix}profile&amp;id={poster_id}">
+                <xsl:value-of select="username"/>
+              </a>
+            </strong>
+          </dt>
+      </dl>
 			</div>
 			<div class="postright">
 				<div class="postmsg">
-					<p><xsl:value-of select="message" disable-output-escaping="yes"/></p>
-                    <hr/>
-					<p><xsl:value-of select="signature" disable-output-escaping="yes"/></p>
+					<p>
+            <xsl:value-of select="message" disable-output-escaping="yes"/>
+          </p>
+          <hr/>
+					<p>
+            <xsl:value-of select="signature" disable-output-escaping="yes"/>
+          </p>
 				</div>
 			</div>
-					<div class="postfootright"><div>
-                <xsl:if test="//runtime/group_id=1 or poster=/_R_/runtime/username">
-                    <a href="{$link_prefix}post-edit&amp;post_id={id}">
-                        <xsl:value-of select="/_R_/i18n/edit"/></a>&#160;
-                    <a href="{$link_prefix}x-post-delete&amp;post_id={id}"
-                        onclick="delete_post({id}); return false;">
-                        <xsl:value-of select="/_R_/i18n/delete"/>
-                    </a>
-                </xsl:if>
-            </div></div>
+      <div class="postfootright">
+        <div>
+          <xsl:if test="//runtime/group_id=1 or poster=/_R_/runtime/username">
+            <a href="{$link_prefix}post-edit&amp;post_id={id}">
+              <xsl:value-of select="/_R_/i18n/edit"/></a>&#160;
+            <a href="{$link_prefix}x-post-delete&amp;post_id={id}"
+              onclick="delete_post({id}); return false;">
+              <xsl:value-of select="/_R_/i18n/delete"/>
+            </a>
+          </xsl:if>
+        </div>
+      </div>
 		</div>
 	</div>
 </div>
@@ -142,16 +166,23 @@ function delete_topic(topic_id) {
 		<form method="post" action="{$link_prefix}post&amp;tid={/_R_/_get/id}">
 			<div class="inform">
 				<fieldset>
-					<legend><xsl:value-of select="/_R_/i18n/write_your_message"/></legend>
+					<legend>
+            <xsl:value-of select="/_R_/i18n/write_your_message"/>
+          </legend>
 					<div class="infldset txtarea">
 						<input type="hidden" name="topic_id" value="{/_R_/_get/id}"/>
-						<input type="hidden" name="num_replies" value="{count(//posts_get_by_topic_id)}"/>
+						<input type="hidden"
+              name="num_replies" value="{count(//posts_get_by_topic_id)}"/>
 						<input type="hidden" name="forum_id" value="{/_R_/_get/fid}"/>
-						<label><textarea name="message" rows="7" cols="75"></textarea></label>
+						<label>
+              <textarea name="message" rows="7" cols="75"></textarea>
+            </label>
 					</div>
 				</fieldset>
 			</div>
-			<p><input type="submit" name="submit" value="Submit"/></p>
+			<p>
+        <input type="submit" name="submit" value="Submit"/>
+      </p>
 		</form>
 	</div>
 </div>

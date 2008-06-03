@@ -24,18 +24,26 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" >
 <xsl:template name="admin-menu">
 <xsl:param name="link_prefix"/>
-<div id="adminmenu" class="blockmenu">
-    <h2><xsl:value-of select="/_R_/i18n/admin_menu"/></h2>
+  <div id="adminmenu" class="blockmenu">
+    <h2>
+      <xsl:value-of select="/_R_/i18n/admin_menu"/>
+    </h2>
     <div class="box">
-        <div class="inbox">
-        <ul>
-            <xsl:for-each select="/_R_/navigation/admin_menu/button">
-                <xsl:variable name="mykey"><xsl:value-of select="."/></xsl:variable>
-                <li><a href="{$link_prefix}{$mykey}"><xsl:value-of select="/_R_/i18n/label[key=$mykey]/value"/></a></li>
-            </xsl:for-each>
-        </ul>
-        </div>
+      <div class="inbox">
+      <ul>
+        <xsl:for-each select="/_R_/navigation/admin_menu/button">
+          <xsl:variable name="mykey">
+            <xsl:value-of select="."/>
+          </xsl:variable>
+          <li>
+            <a href="{$link_prefix}{$mykey}">
+              <xsl:value-of select="/_R_/i18n/*[local-name()=$mykey]"/>
+            </a>
+          </li>
+        </xsl:for-each>
+      </ul>
+      </div>
     </div>
-</div>
+  </div>
 </xsl:template>
 </xsl:stylesheet>
