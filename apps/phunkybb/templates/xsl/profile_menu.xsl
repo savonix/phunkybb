@@ -34,24 +34,25 @@ Fifth Floor, Boston, MA 02110-1301  USA
     <div class="box">
 			<div class="inbox">
 				<ul>
-          <xsl:if test="$my_user_id and /_R_/runtime/group_id=1">
-            <li>
-              <a href="{$link_prefix}profile&amp;user_id={$my_user_id}">
-                Essentials
-              </a>
-            </li>
-            <li>
-              <a href="{$link_prefix}personality&amp;user_id={$my_user_id}">
-                Personality
-              </a>
-            </li>
-            <li>
-              <a href="{$link_prefix}user-admin&amp;user_id={$my_user_id}">
-                Administration
-              </a>
-            </li>
-            </xsl:if>
-            <xsl:if test="not($my_user_id)">
+          <xsl:choose>
+            <xsl:when test="$my_user_id and /_R_/runtime/group_id=1">
+              <li>
+                <a href="{$link_prefix}profile&amp;user_id={$my_user_id}">
+                  Essentials
+                </a>
+              </li>
+              <li>
+                <a href="{$link_prefix}personality&amp;user_id={$my_user_id}">
+                  Personality
+                </a>
+              </li>
+              <li>
+                <a href="{$link_prefix}user-admin&amp;user_id={$my_user_id}">
+                  Administration
+                </a>
+              </li>
+            </xsl:when>
+            <xsl:otherwise>
               <li>
                 <a href="{$link_prefix}profile">
                   Essentials
@@ -62,14 +63,15 @@ Fifth Floor, Boston, MA 02110-1301  USA
                   Personality
                 </a>
               </li>
-            <xsl:if test="/_R_/runtime/group_id=1">
-              <li>
-                <a href="{$link_prefix}user-admin">
-                  Administration
-                </a>
-              </li>
-            </xsl:if>
-          </xsl:if>
+              <xsl:if test="/_R_/runtime/group_id=1">
+                <li>
+                  <a href="{$link_prefix}user-admin">
+                    Administration
+                  </a>
+                </li>
+              </xsl:if>
+            </xsl:otherwise>
+          </xsl:choose>
         </ul>
       </div>
 		</div>

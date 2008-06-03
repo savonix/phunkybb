@@ -29,10 +29,10 @@ both use the same profile query.
 <query name="user_get_profile">
     <connection>&connection_read;</connection>
     <params>
-        <param name="//runtime/username" type="text" default="0"/>
-        <param name="//_get/user_id" type="text" default="-1"/>
-        <param name="//_get/user_id" type="text" default="0"/>
-        <param name="//runtime/group_id" type="text" default="0"/>
+        <param name="/_R_/runtime/username" type="text" default="0"/>
+        <param name="/_R_/_get/user_id" type="text" default="-1"/>
+        <param name="/_R_/_get/user_id" type="text" default="0"/>
+        <param name="/_R_/runtime/group_id" type="text" default="0"/>
 	</params>
     <sql>
         SELECT *,
@@ -40,10 +40,10 @@ both use the same profile query.
         registered,
         last_post
         FROM &prefix;users 
-        WHERE 
+        WHERE
         (username=?
         AND ? &lt; 0)
-        OR 
+        OR
         (id=?
         AND 
         ?=1)

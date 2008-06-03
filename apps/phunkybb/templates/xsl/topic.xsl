@@ -60,35 +60,35 @@ function delete_topic(topic_id) {
 		<p class="pagelink conl">
       <xsl:value-of select="/_R_/i18n/pages"/>:
       <strong>
-        <xsl:value-of select="//posts_get_number_of_pages/pages"/>
+        <xsl:value-of select="/_R_/posts_get_number_of_pages/posts_get_number_of_pages/pages"/>
       </strong>&#160;
       <xsl:value-of select="/_R_/i18n/posts"/>:
       <strong>
-        <xsl:value-of select="/_R_/posts_get_number_of_pages/count"/>
+        <xsl:value-of select="/_R_/posts_get_number_of_pages/posts_get_number_of_pages/count"/>
       </strong>
     </p>
     <p class="postlink conr">&#160;
-      <xsl:if test="//runtime/group_id=1 or poster=//runtime/username">
+      <xsl:if test="/_R_/runtime/group_id=1 or poster=/_R_/runtime/username">
         <a href="{$link_prefix}topic-delete&amp;topic_id={/_R_/_get/id}&amp;fid={/_R_/_get/fid}"
           onclick="delete_topic({/_R_/_get/id}); return false;">
           Delete
         </a>
       </xsl:if>
     </p>
-    <ul>
+    <ul class="breadcrumbs">
       <li>
-        <a href="{$link_prefix}welcome">
+        <a href="{$link_prefix}index">
           <xsl:value-of select="/_R_/i18n/index"/>
         </a>
       </li>
       <li>&#160; &gt; &#160;
         <a href="{$link_prefix}forum&amp;fid={/_R_/_get/fid}">
-          <xsl:value-of select="//forum_get_by_id/forum_name"/>
+          <xsl:value-of select="/_R_/forum_get_by_id/forum_get_by_id/forum_name"/>
         </a>
         <a href="{$link_prefix}forum&amp;id={/_R_/_get/id}"></a>
       </li>
       <li>
-        &#160; &gt; &#160;<xsl:value-of select="//topic_get_by_id/subject"/>
+        &#160; &gt; &#160;<xsl:value-of select="/_R_/topic_get_by_id/topic_get_by_id/subject"/>
       </li>
     </ul>
     <p class="postlink conl">

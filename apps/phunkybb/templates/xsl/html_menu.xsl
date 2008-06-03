@@ -25,36 +25,41 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <xsl:template name="menu">
   <xsl:param name="link_prefix"/>
 
+  <!-- i18n prefix -->
+  <xsl:variable name="my18n" select="/_R_/i18n"/>
+
     <xsl:call-template name="source_spacer">
         <xsl:with-param name="section_start">main_menu</xsl:with-param>
     </xsl:call-template>
 
     <div id="main_menu">
       <div id="brdmenu" class="inbox">
-        <xsl:for-each select="/_R_/board_config//navlinks">
+        <xsl:for-each select="/_R_/board_config/navlinks">
         </xsl:for-each>
         <a href="{$link_prefix}index">
-            <xsl:value-of select="/_R_/i18n/index"/>
+            <xsl:value-of select="$my18n/index"/>
         </a>
 
-        <xsl:if test="not(/_R_/runtime/username)">
-          <a href="{$link_prefix}register">
-            <xsl:value-of select="/_R_/i18n/register"/>
-          </a>
-          <a href="{$link_prefix}login">
-            <xsl:value-of select="/_R_/i18n/login"/>
-          </a>
-        </xsl:if>
+        <xsl:choose>
+          <xsl:when test="/_R_/runtime/username">
+            <xsl:if test="/_R_/runtime/group_id='1'">
+              <a href="{$link_prefix}admin">
+                <xsl:value-of select="$my18n/administration"/>
+              </a>
+            </xsl:if>
+            <a href="{$link_prefix}profile">Profile</a>
+            <a href="{$link_prefix}logout">Logout</a>
+          </xsl:when>
+          <xsl:otherwise>
+            <a href="{$link_prefix}register">
+              <xsl:value-of select="$my18n/register"/>
+            </a>
+            <a href="{$link_prefix}login">
+              <xsl:value-of select="$my18n/login"/>
+            </a>
+          </xsl:otherwise>
+        </xsl:choose>
 
-        <xsl:if test="/_R_/runtime/group_id='1'">
-          <a href="{$link_prefix}admin">
-            <xsl:value-of select="/_R_/i18n/administration"/>
-          </a>
-        </xsl:if>
-        <xsl:if test="/_R_/runtime/username">
-          <a href="{$link_prefix}profile">Profile</a>
-          <a href="{$link_prefix}logout">Logout</a>
-        </xsl:if>
       </div>
     </div>
 
