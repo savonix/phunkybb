@@ -28,7 +28,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 	</params>
     <sql>
         SELECT c.id AS cid,
-        c.cat_name 
+        c.cat_name
 
         FROM &prefix;categories AS c 
 
