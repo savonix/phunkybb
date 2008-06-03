@@ -41,7 +41,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
     <div class="box">
         <form id="edforum" method="post" action="{$link_prefix}forums">
             <p class="submittop"><input type="submit" name="update_positions" value="Update positions"/></p>
-            <xsl:for-each select="//categories_get_all[cid=//forums_get_all/cid]">
+            <xsl:for-each select="//categories_get_all/categories_get_all[cid=//forums_get_all/forums_get_all/cid]">
             <xsl:variable name="my_cid"><xsl:value-of select="cid"/></xsl:variable>
             <div class="inform">
                 <fieldset>
@@ -49,7 +49,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
                     <div class="infldset">
 
                         <table cellspacing="0" id="cat_table_{cid}">
-                        <xsl:for-each select="/_R_/forums_get_all[cid=$my_cid]">
+                        <xsl:for-each select="/_R_/forums_get_all/forums_get_all[cid=$my_cid]">
                             <tr id="row_{fid}">
                                 <th><a href="{$link_prefix}forum-edit"><xsl:value-of select="/_R_/i18n/edit"/></a> - 
                                 <a href="{$link_prefix}forum-delete&amp;id={fid}" 

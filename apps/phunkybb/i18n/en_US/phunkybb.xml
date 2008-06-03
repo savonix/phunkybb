@@ -239,6 +239,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
   <database>Database</database>
   <add>Add</add>
   <remove>remove</remove>
+  <category>Category</category>
   <edit_categories>Edit Categories</edit_categories>
   <delete_categories>delete categories</delete_categories>
   <delete_a_category>Delete a category</delete_a_category>

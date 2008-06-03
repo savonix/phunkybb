@@ -70,7 +70,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
                       <td>
                         <input type="text" name="forum_name"/>
                         <select name="add_to_cat">
-                          <xsl:for-each select="/_R_/categories_get_all">
+                          <xsl:for-each select="/_R_/categories_get_all/categories_get_all">
                             <option value="{cid}">
                               <xsl:value-of select="cat_name"/>
                             </option>
@@ -85,7 +85,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
             </div>
           </form>
         </div>
-		
+
         <h2 class="block2">
           <span>
             <xsl:value-of select="/_R_/i18n/edit_forums"/>
@@ -108,7 +108,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
                   </legend>
                   <div class="infldset">
                     <table cellspacing="0" id="cat_table_{cid}">
-                      <xsl:for-each select="/_R_/forums_get_all[cid=$my_cid]">
+                      <xsl:for-each select="/_R_/forums_get_all/forums_get_all[cid=$my_cid]">
                         <tr id="row_{fid}">
                           <th>
                             <a href="{$link_prefix}forum-edit">
