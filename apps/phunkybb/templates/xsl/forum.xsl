@@ -49,7 +49,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
         </a>&#160;
       </li>
       <li>
-        - &#160;<xsl:value-of
+        &gt; &#160;<xsl:value-of
           select="/_R_/forum_get_by_id/forum_get_by_id/forum_name"/>
       </li>
     </ul>
