@@ -135,14 +135,14 @@ Fifth Floor, Boston, MA 02110-1301  USA
         </a>
       </p>
     </xsl:if>
-    <ul>
+    <ul class="breadcrumbs">
       <li>
         <a href="{$link_prefix}welcome">
           <xsl:value-of select="/_R_/i18n/index"/>
         </a>&#160;
       </li>
       <li>
-        - &#160;<xsl:value-of select="/_R_/forum_get_by_id/forum_name"/>
+        &gt; &#160;<xsl:value-of select="/_R_/forum_get_by_id/forum_get_by_id/forum_name"/>
       </li>
     </ul>
   </div>
