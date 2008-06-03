@@ -21,19 +21,19 @@ along with this program; if not, see http://www.gnu.org/licenses
 or write to the Free Software Foundation,Inc., 51 Franklin Street,
 Fifth Floor, Boston, MA 02110-1301  USA
 -->
-<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" >
-<xsl:output method="html" omit-xml-declaration="yes"/> 
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+  <xsl:output method="html" omit-xml-declaration="yes"/> 
 
 <!-- This template is used by pages which use the tablesorter and the table paginator -->
-<xsl:template name="jquery-setup">
-<xsl:param name="link_prefix"/>
-<xsl:param name="my-table"/>
-<xsl:param name="my-table-div"/>
-<xsl:param name="my-sort-column"/>
-<xsl:param name="no-sort-column"/>
-<xsl:param name="my-page-num">0</xsl:param>
-<xsl:call-template name="jquery-links"/>
-<script type="text/javascript">
+  <xsl:template name="jquery-setup">
+    <xsl:param name="link_prefix"/>
+    <xsl:param name="my-table"/>
+    <xsl:param name="my-table-div"/>
+    <xsl:param name="my-sort-column"/>
+    <xsl:param name="no-sort-column"/>
+    <xsl:param name="my-page-num">0</xsl:param>
+    <xsl:call-template name="jquery-links"/>
+    <script type="text/javascript">
 $(document).ready(function()
     { 
         $("#<xsl:value-of select="$my-table"/>")
@@ -41,7 +41,7 @@ $(document).ready(function()
             {
                 widgets:['zebra']
                 <xsl:value-of select="$my-sort-column"/>
-                <xsl:value-of select="$no-sort-column"/>
+      <xsl:value-of select="$no-sort-column"/>
             }
         )
         .tablesorterPager(
@@ -55,15 +55,15 @@ $(document).ready(function()
     }
 ); 
 </script>
-</xsl:template>
+  </xsl:template>
 
 <!-- This template is used by pages which only use the tablesorter, not the paginator-->
-<xsl:template name="jquery-setup-simple">
-<xsl:param name="my-table"/>
-<xsl:param name="my-sort-column"/>
-<xsl:param name="no-sort-column"/>
-<xsl:call-template name="jquery-links"/>
-<script type="text/javascript">
+  <xsl:template name="jquery-setup-simple">
+    <xsl:param name="my-table"/>
+    <xsl:param name="my-sort-column"/>
+    <xsl:param name="no-sort-column"/>
+    <xsl:call-template name="jquery-links"/>
+    <script type="text/javascript">
 $(document).ready(function() 
     {
         $("#<xsl:value-of select="$my-table"/>")
@@ -71,39 +71,39 @@ $(document).ready(function()
             {
                 widgets:['zebra']
                 <xsl:value-of select="$my-sort-column"/>
-                <xsl:value-of select="$no-sort-column"/>
+      <xsl:value-of select="$no-sort-column"/>
             }
         );
     }
 );
 </script>
-</xsl:template>
+  </xsl:template>
 
 <!-- load the javascript -->
-<xsl:template name="jquery-links">
-<link rel="stylesheet" href="{_R_/runtime/path_prefix}/s/js/blue/style.css"
-    type="text/css" media="print, projection, screen"/>
-</xsl:template>
+  <xsl:template name="jquery-links">
+    <link rel="stylesheet" href="{_R_/runtime/path_prefix}/s/js/blue/style.css"
+        type="text/css" media="print, projection, screen"/>
+  </xsl:template>
 
-<xsl:template name="pager">
-<xsl:param name="my-table"/>
-<div id="{$my-table}-pager" class="pager" style="margin-top: 20px;">
-    <input id="mypagesize" class="pagesize" type="hidden" name="pagesize" value="16"/>
-    <table>
+  <xsl:template name="pager">
+    <xsl:param name="my-table"/>
+    <div id="{$my-table}-pager" class="pager" style="margin-top: 20px;">
+      <input id="mypagesize" class="pagesize" type="hidden" name="pagesize" value="16"/>
+      <table>
         <tr>
-        <td>
-		<img src="{/_R_/runtime/path_prefix}/s/js/blue/first.png" class="first"/>
-		<img src="{/_R_/runtime/path_prefix}/s/js/blue/prev.png" class="prev"/>
-		</td>
-        <td>
-        <input type="text" class="pagedisplay" size="10" readonly="readonly"/>
-        </td>
-        <td>
-		<img src="{/_R_/runtime/path_prefix}/s/js/blue/next.png" class="next"/>
-		<img src="{/_R_/runtime/path_prefix}/s/js/blue/last.png" class="last"/>
-        </td>
+          <td>
+            <img src="{/_R_/runtime/path_prefix}/s/js/blue/first.png" class="first"/>
+            <img src="{/_R_/runtime/path_prefix}/s/js/blue/prev.png" class="prev"/>
+          </td>
+          <td>
+            <input type="text" class="pagedisplay" size="10" readonly="readonly"/>
+          </td>
+          <td>
+            <img src="{/_R_/runtime/path_prefix}/s/js/blue/next.png" class="next"/>
+            <img src="{/_R_/runtime/path_prefix}/s/js/blue/last.png" class="last"/>
+          </td>
         </tr>
-    </table>
-</div>
-</xsl:template>
+      </table>
+    </div>
+  </xsl:template>
 </xsl:stylesheet>

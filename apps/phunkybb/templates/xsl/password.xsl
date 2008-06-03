@@ -22,16 +22,16 @@ or write to the Free Software Foundation,Inc., 51 Franklin Street,
 Fifth Floor, Boston, MA 02110-1301  USA
 -->
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-<xsl:include href="html_main.xsl"/>
-<xsl:template name="content">
-<xsl:param name="link_prefix"/>
-<script type="text/javascript" src="{/_R_/runtime/path_prefix}/s/js/rsa/jsbn.js"></script>
-<script type="text/javascript" src="{/_R_/runtime/path_prefix}/s/js/rsa/rsa.js"></script>
-<script type="text/javascript" src="{/_R_/runtime/path_prefix}/s/js/rsa/prng4.js"></script>
-<script type="text/javascript" src="{/_R_/runtime/path_prefix}/s/js/rsa/rng.js"></script>
-<script type="text/javascript" src="{/_R_/runtime/path_prefix}/s/js/rsa/base64.js"></script>
+  <xsl:include href="html_main.xsl"/>
+  <xsl:template name="content">
+    <xsl:param name="link_prefix"/>
+    <script type="text/javascript" src="{/_R_/runtime/path_prefix}/s/js/rsa/jsbn.js"></script>
+    <script type="text/javascript" src="{/_R_/runtime/path_prefix}/s/js/rsa/rsa.js"></script>
+    <script type="text/javascript" src="{/_R_/runtime/path_prefix}/s/js/rsa/prng4.js"></script>
+    <script type="text/javascript" src="{/_R_/runtime/path_prefix}/s/js/rsa/rng.js"></script>
+    <script type="text/javascript" src="{/_R_/runtime/path_prefix}/s/js/rsa/base64.js"></script>
 
-<script type="text/javascript">
+    <script type="text/javascript">
 $(document).ready(function()
 {
     var myform = document.forms["password"];
@@ -73,30 +73,50 @@ function do_encrypt() {
 }
 </script>
 
-<div id="install" class="blockform">
-	<div class="block">
-		<h2 class="block2"><xsl:value-of select="/_R_/i18n/change_password"/></h2>
-		<div class="box">
-        <form id="password" name="password" method="post" onSubmit="do_encrypt(); return false;">
-        <input type="hidden" name="id_rsa_pub" value=""/>
-        <input type="hidden" name="e" value=""/>
-        <div class="inform">
-            <fieldset>
-                <legend><xsl:value-of select="/_R_/i18n/pass_legend_1"/></legend>
+    <div id="install" class="blockform">
+      <div class="block">
+        <h2 class="block2">
+          <xsl:value-of select="/_R_/i18n/change_password"/>
+        </h2>
+        <div class="box">
+          <form id="password" name="password" method="post" onSubmit="do_encrypt(); return false;">
+            <input type="hidden" name="id_rsa_pub" value=""/>
+            <input type="hidden" name="e" value=""/>
+            <div class="inform">
+              <fieldset>
+                <legend>
+                  <xsl:value-of select="/_R_/i18n/pass_legend_1"/>
+                </legend>
                 <div class="infldset">
-                    <label class="conl"><strong><xsl:value-of select="/_R_/i18n/password"/></strong><br/><input type="password" name="password" size="16" maxlength="16"/><br/></label>
-                    <label class="conl"><strong><xsl:value-of select="/_R_/i18n/confirm_password"/></strong><br/><input type="password" name="password2" size="16" maxlength="16"/><br/></label>
-                    <p class="clearb"><xsl:value-of select="/_R_/i18n/pass_info"/></p>
+                  <label class="conl">
+                    <strong>
+                      <xsl:value-of select="/_R_/i18n/password"/>
+                    </strong>
+                    <br/>
+                    <input type="password" name="password" size="16" maxlength="16"/>
+                    <br/>
+                  </label>
+                  <label class="conl">
+                    <strong>
+                      <xsl:value-of select="/_R_/i18n/confirm_password"/>
+                    </strong>
+                    <br/>
+                    <input type="password" name="password2" size="16" maxlength="16"/>
+                    <br/>
+                  </label>
+                  <p class="clearb">
+                    <xsl:value-of select="/_R_/i18n/pass_info"/>
+                  </p>
                 </div>
-            </fieldset>
+              </fieldset>
+            </div>
+            <br/>
+            <span id="submit" class="button-basic-blue disableSelection" onclick="do_encrypt();">Submit</span>
+            <span id="replace" class="interstatus"></span>
+            <input type="submit" style="visibility: hidden;"/>
+          </form>
         </div>
-        <br/>
-        <span id="submit" class="button-basic-blue disableSelection" onclick="do_encrypt();">Submit</span>
-        <span id="replace" class="interstatus"></span>
-        <input type="submit" style="visibility: hidden;"/>
-        </form>
-        </div>
-	</div>
-</div>
-</xsl:template>
+      </div>
+    </div>
+  </xsl:template>
 </xsl:stylesheet>

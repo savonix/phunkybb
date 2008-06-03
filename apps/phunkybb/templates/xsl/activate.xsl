@@ -21,20 +21,22 @@ along with this program; if not, see http://www.gnu.org/licenses
 or write to the Free Software Foundation,Inc., 51 Franklin Street,
 Fifth Floor, Boston, MA 02110-1301  USA
 -->
-<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" >
-<xsl:include href="html_main.xsl"/>
-<xsl:template name="content">
-<xsl:param name="link_prefix"/>
-<div class="blockform">
-	<h2><xsl:value-of select="/_R_/i18n/activate"/></h2>
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+  <xsl:include href="html_main.xsl"/>
+  <xsl:template name="content">
+    <xsl:param name="link_prefix"/>
+    <div class="blockform">
+      <h2>
+        <xsl:value-of select="/_R_/i18n/activate"/>
+      </h2>
 
-<div class="box">
-    <div class="inform">
-        <fieldset>
+      <div class="box">
+        <div class="inform">
+          <fieldset>
             <xsl:value-of select="/_R_/i18n/activated"/>!
         </fieldset>
+        </div>
+      </div>
     </div>
-</div>
-</div>
-</xsl:template>
+  </xsl:template>
 </xsl:stylesheet>

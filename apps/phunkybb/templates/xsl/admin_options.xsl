@@ -21,119 +21,147 @@ along with this program; if not, see http://www.gnu.org/licenses
 or write to the Free Software Foundation,Inc., 51 Franklin Street,
 Fifth Floor, Boston, MA 02110-1301  USA
 -->
-<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" >
-<xsl:include href="html_main.xsl"/>
-<xsl:include href="admin_menu.xsl"/>
-<xsl:template name="content">
-<xsl:param name="link_prefix"/>
-<div id="adminconsole" class="block2col">
-<xsl:call-template name="admin-menu">
-    <xsl:with-param name="link_prefix">
-        <xsl:value-of select="$link_prefix"/>
-    </xsl:with-param>
-</xsl:call-template>
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+  <xsl:include href="html_main.xsl"/>
+  <xsl:include href="admin_menu.xsl"/>
+  <xsl:template name="content">
+    <xsl:param name="link_prefix"/>
+    <div id="adminconsole" class="block2col">
+      <xsl:call-template name="admin-menu">
+        <xsl:with-param name="link_prefix">
+          <xsl:value-of select="$link_prefix"/>
+        </xsl:with-param>
+      </xsl:call-template>
 
 
-<div class="blockform">
-    <h2><xsl:value-of select="/_R_/i18n/options"/></h2>
-    <div class="box">
-        <form method="post" action="{$link_prefix}options-submit">
+      <div class="blockform">
+        <h2>
+          <xsl:value-of select="/_R_/i18n/options"/>
+        </h2>
+        <div class="box">
+          <form method="post" action="{$link_prefix}options-submit">
             <p class="submittop">
-                <input type="submit" name="save" value="Save Changes"/>
+              <input type="submit" name="save" value="Save Changes"/>
             </p>
             <div class="inform">
-                <fieldset>
-                    <legend><xsl:value-of select="/_R_/i18n/essentials"/></legend>
-                    <div class="infldset">
-                        <table class="aligntop" cellspacing="0">
-                            <tr>
-                                <th scope="row"><xsl:value-of select="/_R_/i18n/board_title"/></th>
-                                <td>
-                                    <input type="text" name="form[o_board_title]" value="{//board_config/o_board_title}"/>
-                                    <xsl:value-of select="/_R_/i18n/title_of_buletine_board"/> <strong><xsl:value-of select="/_R_/i18n/not"/></strong> <xsl:value-of select="/_R_/i18n/contain_html"/>.
+              <fieldset>
+                <legend>
+                  <xsl:value-of select="/_R_/i18n/essentials"/>
+                </legend>
+                <div class="infldset">
+                  <table class="aligntop" cellspacing="0">
+                    <tr>
+                      <th scope="row">
+                        <xsl:value-of select="/_R_/i18n/board_title"/>
+                      </th>
+                      <td>
+                        <input type="text" name="form[o_board_title]" value="{//board_config/o_board_title}"/>
+                        <xsl:value-of select="/_R_/i18n/title_of_buletine_board"/>
+                        <strong>
+                          <xsl:value-of select="/_R_/i18n/not"/>
+                        </strong>
+                        <xsl:value-of select="/_R_/i18n/contain_html"/>.
                                 </td>
-                            </tr>
-                            <tr>
-                                <th scope="row"><xsl:value-of select="/_R_/i18n/board_description"/></th>
-                                <td>
-                                    <input type="text" name="form[o_board_desc]" value="{//board_config/o_board_desc}"/>
-                                    <xsl:value-of select="/_R_/i18n/short_description_of_this"/>.
+                    </tr>
+                    <tr>
+                      <th scope="row">
+                        <xsl:value-of select="/_R_/i18n/board_description"/>
+                      </th>
+                      <td>
+                        <input type="text" name="form[o_board_desc]" value="{//board_config/o_board_desc}"/>
+                        <xsl:value-of select="/_R_/i18n/short_description_of_this"/>.
                                 </td>
-                            </tr>
-                        </table>
-                    </div>
-                </fieldset>
+                    </tr>
+                  </table>
+                </div>
+              </fieldset>
             </div>
             <div class="inform">
-                <fieldset>
-                    <legend><xsl:value-of select="/_R_/i18n/email"/></legend>
-                    <div class="infldset">
-                        <table class="aligntop" cellspacing="0">
-                            <tr>
-                                <th scope="row"><xsl:value-of select="/_R_/i18n/admin_email"/></th>
-                                <td>
-                                    <input type="text" name="form[o_admin_email]" value="{//board_config/o_admin_email}"/>
-                                    <xsl:value-of select="/_R_/i18n/email_of_forum_admin"/>.
+              <fieldset>
+                <legend>
+                  <xsl:value-of select="/_R_/i18n/email"/>
+                </legend>
+                <div class="infldset">
+                  <table class="aligntop" cellspacing="0">
+                    <tr>
+                      <th scope="row">
+                        <xsl:value-of select="/_R_/i18n/admin_email"/>
+                      </th>
+                      <td>
+                        <input type="text" name="form[o_admin_email]" value="{//board_config/o_admin_email}"/>
+                        <xsl:value-of select="/_R_/i18n/email_of_forum_admin"/>.
                                 </td>
-                            </tr>
-                            <tr>
-                                <th scope="row"><xsl:value-of select="/_R_/i18n/webmaster_email"/></th>
-                                <td>
-                                    <input type="text" name="form[o_webmaster_email]" value="{//board_config/o_webmaster_email}"/>
-                                    <br/><xsl:value-of select="/_R_/i18n/address_all_email_sent_from"/>.
+                    </tr>
+                    <tr>
+                      <th scope="row">
+                        <xsl:value-of select="/_R_/i18n/webmaster_email"/>
+                      </th>
+                      <td>
+                        <input type="text" name="form[o_webmaster_email]" value="{//board_config/o_webmaster_email}"/>
+                        <br/>
+                        <xsl:value-of select="/_R_/i18n/address_all_email_sent_from"/>.
                                 </td>
-                            </tr>
-                            <tr>
-                                <th scope="row"><xsl:value-of select="/_R_/i18n/subscriptions"/></th>
-                                <td>
-                                    <input type="radio" name="form[o_subscriptions]" value="yes">
-                                        <xsl:if test="//board_config/o_subscriptions='yes'">
-                                            <xsl:attribute name="checked">true</xsl:attribute>
-                                        </xsl:if>
-                                    </input>
-                                    <strong>Yes</strong>
-                                    <br/>
-                                    <input type="radio" name="form[o_subscriptions]" value="no">
-                                        <xsl:if test="not(//board_config/o_subscriptions='yes')">
-                                            <xsl:attribute name="checked">true</xsl:attribute>
-                                        </xsl:if>
-                                    </input>
-                                    <strong>No</strong>
-                                    <br/><xsl:value-of select="/_R_/i18n/enable_users_to_subscribe"/>.
+                    </tr>
+                    <tr>
+                      <th scope="row">
+                        <xsl:value-of select="/_R_/i18n/subscriptions"/>
+                      </th>
+                      <td>
+                        <input type="radio" name="form[o_subscriptions]" value="yes">
+                          <xsl:if test="//board_config/o_subscriptions='yes'">
+                            <xsl:attribute name="checked">true</xsl:attribute>
+                          </xsl:if>
+                        </input>
+                        <strong>Yes</strong>
+                        <br/>
+                        <input type="radio" name="form[o_subscriptions]" value="no">
+                          <xsl:if test="not(//board_config/o_subscriptions='yes')">
+                            <xsl:attribute name="checked">true</xsl:attribute>
+                          </xsl:if>
+                        </input>
+                        <strong>No</strong>
+                        <br/>
+                        <xsl:value-of select="/_R_/i18n/enable_users_to_subscribe"/>.
                                 </td>
-                            </tr>
-                            <tr>
-                                <th scope="row"><xsl:value-of select="/_R_/i18n/smtp_server_address"/></th>
-                                <td>
-                                    <input type="text" name="form[o_smtp_host]" value="{//board_config/o_smtp_host}"/>
-                                    <xsl:value-of select="/_R_/i18n/address_of_external_smtp"/>.
+                    </tr>
+                    <tr>
+                      <th scope="row">
+                        <xsl:value-of select="/_R_/i18n/smtp_server_address"/>
+                      </th>
+                      <td>
+                        <input type="text" name="form[o_smtp_host]" value="{//board_config/o_smtp_host}"/>
+                        <xsl:value-of select="/_R_/i18n/address_of_external_smtp"/>.
                                 </td>
-                            </tr>
-                            <tr>
-                                <th scope="row"><xsl:value-of select="/_R_/i18n/smtp_username"/></th>
-                                <td>
-                                    <input type="text" name="form[o_smtp_user]" value="{//board_config/o_smtp_user}"/>
-                                    <xsl:value-of select="/_R_/i18n/username_for_smtp_server"/>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row"><xsl:value-of select="/_R_/i18n/smtp_password"/></th>
-                                <td>
-                                    <input type="text" name="form[o_smtp_pass]" value="{//board_config/o_smtp_pass}"/>
-                                    <xsl:value-of select="/_R_/i18n/password_for_smtp_server"/>
-                                </td>
-                            </tr>
-                        </table>
-                    </div>
-                </fieldset>
+                    </tr>
+                    <tr>
+                      <th scope="row">
+                        <xsl:value-of select="/_R_/i18n/smtp_username"/>
+                      </th>
+                      <td>
+                        <input type="text" name="form[o_smtp_user]" value="{//board_config/o_smtp_user}"/>
+                        <xsl:value-of select="/_R_/i18n/username_for_smtp_server"/>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">
+                        <xsl:value-of select="/_R_/i18n/smtp_password"/>
+                      </th>
+                      <td>
+                        <input type="text" name="form[o_smtp_pass]" value="{//board_config/o_smtp_pass}"/>
+                        <xsl:value-of select="/_R_/i18n/password_for_smtp_server"/>
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+              </fieldset>
             </div>
             <p class="submitend">
-                <input type="submit" name="save" value="Save Changes"/>
+              <input type="submit" name="save" value="Save Changes"/>
             </p>
-        </form>
+          </form>
+        </div>
+      </div>
     </div>
-</div>
-</div>
 
-</xsl:template>
+  </xsl:template>
 </xsl:stylesheet>
