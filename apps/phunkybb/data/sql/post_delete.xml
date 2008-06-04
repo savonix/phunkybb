@@ -25,7 +25,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <query name="post_delete">
     <connection>&connection;</connection>
     <params>
-        <param name="//_post/post_id" type="integer" default="0"/>
+        <param name="/_R_/_post/post_id" type="integer" default="0"/>
 	</params>
     <sql>
         DELETE FROM &prefix;posts

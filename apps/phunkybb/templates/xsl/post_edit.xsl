@@ -21,47 +21,62 @@ along with this program; if not, see http://www.gnu.org/licenses
 or write to the Free Software Foundation,Inc., 51 Franklin Street,
 Fifth Floor, Boston, MA 02110-1301  USA
 -->
-<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" >
-<xsl:include href="html_main.xsl"/>
-<xsl:template name="content">
-<xsl:param name="link_prefix"/>
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+  <xsl:include href="html_main.xsl"/>
+  <xsl:template name="content">
+    <xsl:param name="link_prefix"/>
 
-<div class="blockform">
-<h2><xsl:value-of select="/_R_/i18n/edit_post"/></h2>
-<div class="box">
-    <form id="post" method="post" action="{$link_prefix}topic-submit">
-        <input type="hidden" name="post_id" value="{/_R_/_get/post_id}"/>
-        <div class="inform">
+    <div class="blockform">
+      <h2>
+        <xsl:value-of select="/_R_/i18n/edit_post"/>
+      </h2>
+      <div class="box">
+        <form id="post" method="post">
+          <input type="hidden" name="post_id" value="{/_R_/_get/post_id}"/>
+          <div class="inform">
             <fieldset>
-                <legend><xsl:value-of select="/_R_/i18n/write_your_message"/></legend>
-                <div class="infldset txtarea">
-                    <label><strong><xsl:value-of select="/_R_/i18n/message"/></strong><br/>
-                    <textarea name="message" rows="20" cols="95"><xsl:value-of select="//post_get_by_id/message"/></textarea><br/></label>
-                </div>
+              <legend>
+                <xsl:value-of select="/_R_/i18n/write_your_message"/>
+              </legend>
+              <div class="infldset txtarea">
+                <label>
+                  <strong>
+                    <xsl:value-of select="/_R_/i18n/message"/>
+                  </strong>
+                  <br/>
+                  <textarea name="message" rows="20" cols="95">
+                    <xsl:value-of select="/_R_/post_get_by_id/post_get_by_id/message"/>
+                  </textarea>
+                  <br/>
+                </label>
+              </div>
             </fieldset>
-        </div>
-        <div class="inform">
+          </div>
+          <div class="inform">
             <fieldset>
-                <legend><xsl:value-of select="/_R_/i18n/options"/></legend>
-                <div class="infldset">
-                    <div class="rbox">
-                    <label>
+              <legend>
+                <xsl:value-of select="/_R_/i18n/options"/>
+              </legend>
+              <div class="infldset">
+                <div class="rbox">
+                  <label>
                     <input type="checkbox" name="subscribe" value="1"/>
-                    <xsl:value-of select="/_R_/i18n/subscribe"/><br/>
-                    </label>
-                    </div>
+                    <xsl:value-of select="/_R_/i18n/subscribe"/>
+                    <br/>
+                  </label>
                 </div>
+              </div>
             </fieldset>
-        </div>
-        <p>
+          </div>
+          <p>
             <input type="submit" name="submit" value="Submit"/>
             <input type="submit" name="preview" value="Preview"/>
             <a href="{$link_prefix}" onclick="history.go(-1);">
-                <xsl:value-of select="/_R_/i18n/go_back"/>
+              <xsl:value-of select="/_R_/i18n/go_back"/>
             </a>
-        </p>
-    </form>
-</div>
-</div>
-</xsl:template>
+          </p>
+        </form>
+      </div>
+    </div>
+  </xsl:template>
 </xsl:stylesheet>

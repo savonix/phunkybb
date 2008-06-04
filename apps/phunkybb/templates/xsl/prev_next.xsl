@@ -24,6 +24,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" >
 <xsl:template name="previous_next">
 <xsl:param name="qsa"/>
+<xsl:param name="link_prefix"/>
 <xsl:if test="(/_R_/_get/start!=0) and not(/_R_/_get/start='NaN')">
 <a href="{$link_prefix}{/_R_/_get/nid}{$qsa}&amp;start={/_R_/_get/start - //incr}">Previous</a>
 &#160;

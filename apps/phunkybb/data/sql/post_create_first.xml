@@ -35,7 +35,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 	</params>
     <sql>
     INSERT INTO &prefix;posts 
-    (poster, poster_id, poster_ip, message, hide_smilies, posted, topic_id) 
+    (poster, poster_id, poster_ip, message, hide_smilies, posted, topic_id)
     VALUES
     (?,?,?,?,?,?,?)
     </sql>

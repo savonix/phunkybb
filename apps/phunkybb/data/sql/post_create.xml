@@ -29,14 +29,13 @@ Fifth Floor, Boston, MA 02110-1301  USA
         <param name="//runtime/user_id" type="integer" default="0"/>
         <param name="//runtime/user_ip" type="text" default="0"/>
         <param name="clean_message" type="text" default=""/>
-        <param name="//_post/hide_smilies" type="integer" default="0"/>
         <param name="//runtime/timestamp" type="integer" default="0"/>
         <param name="//_post/topic_id" type="integer" default="0"/>
 	</params>
     <sql>
     INSERT INTO &prefix;posts 
-    (poster, poster_id, poster_ip, message, hide_smilies, posted, topic_id) 
+    (poster, poster_id, poster_ip, message, posted, topic_id)
     VALUES
-    (?,?,?,?,?,?,?)
+    (?,?,?,?,?,?)
     </sql>
 </query>

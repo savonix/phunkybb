@@ -25,9 +25,9 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <query name="forums_get_totals" loop="//forums_get_all/fid">
     <connection>&connection_read;</connection>
     <params>
-        <param array="/_R_/forums_get_all/fid" type="integer" default="0"/>
-        <param array="/_R_/forums_get_all/fid" type="integer" default="0"/>
-        <param array="/_R_/forums_get_all/fid" type="integer" default="0"/>
+        <param array="/_R_/forums_get_all/forums_get_all/fid" type="integer" default="0"/>
+        <param array="/_R_/forums_get_all/forums_get_all/fid" type="integer" default="0"/>
+        <param array="/_R_/forums_get_all/forums_get_all/fid" type="integer" default="0"/>
 	</params>
     <sql>
         <!-- THIS QUERY NEEDS TO BE CACHED INTO FORUMS TABLE -->
