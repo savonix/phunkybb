@@ -67,7 +67,9 @@ function delete_topic(topic_id) {
         <xsl:value-of select="/_R_/posts_get_number_of_pages/posts_get_number_of_pages/count"/>
       </strong>
     </p>
-    <p class="postlink conr">&#160;
+    <p class="postlink conr">
+      <xsl:value-of select="/_R_/topic_get_by_id/topic_get_by_id/subject"/>
+      &#160;
       <xsl:if test="/_R_/runtime/group_id=1 or poster=/_R_/runtime/username">
         <a href="{$link_prefix}topic-delete&amp;topic_id={/_R_/_get/id}&amp;fid={/_R_/_get/fid}"
           onclick="delete_topic({/_R_/_get/id}); return false;">
@@ -102,9 +104,6 @@ function delete_topic(topic_id) {
           </xsl:with-param>
         </xsl:call-template>
       </xsl:if>
-    </p>
-    <p class="postlink conr">
-      <xsl:value-of select="/_R_/topic_get_by_id/topic_get_by_id/subject"/>
     </p>
   </div>
 </div>
