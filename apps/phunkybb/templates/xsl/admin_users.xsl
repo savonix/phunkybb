@@ -72,7 +72,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
                 </tr>
               </thead>
               <tbody>
-                <xsl:for-each select="/_R_/users_get_all">
+                <xsl:for-each select="/_R_/users_get_all/users_get_all">
                   <tr>
                     <td>
                       <a href="{$link_prefix}profile&amp;user_id={id}">
