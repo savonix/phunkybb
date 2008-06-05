@@ -30,10 +30,11 @@ both use the same profile query.
     <connection>&connection;</connection>
     <params>
         <param name="//html_text" type="text" default="0"/>
+        <param name="/_post/email" type="text" default="0"/>
         <param name="//runtime/username" type="text" default="0"/>
 	</params>
     <sql>
-        UPDATE &prefix;users SET signature=?
+        UPDATE &prefix;users SET signature=?, email=?
         WHERE
         username=?
     </sql>

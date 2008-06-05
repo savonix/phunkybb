@@ -75,7 +75,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
                   <xsl:value-of select="/_R_/i18n/email"/>
                 </strong>
                 <br/>
-                <input type="text" name="req_email" value="{$my_user/email}"/>
+                <input type="text" name="email" value="{$my_user/email}"/>
                 <br/>
               </label>
 						</div>

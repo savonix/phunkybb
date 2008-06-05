@@ -29,12 +29,12 @@ both use the same profile query.
 <query name="user_get_profile">
     <connection>phunkybb</connection>
     <params>
-        <param name="//_post/timezone" type="text" default="0"/>
+        <param name="//_post/email" type="text" default="0"/>
         <param name="//runtime/username" type="text" default="0"/>
 	</params>
     <sql>
-        UPDATE &prefix;users SET timezone=?
-        WHERE 
+        UPDATE &prefix;users SET email=?
+        WHERE
         username=?
     </sql>
 </query>
