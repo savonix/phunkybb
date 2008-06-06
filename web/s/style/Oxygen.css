@@ -455,11 +455,6 @@ DIV.blockpost H2 SPAN.conr {COLOR: #AABDCD}
 /* 3. BORDER COLOURS */
 /****************************************************************/
 
-/* 3.1 All external borders */
-
-DIV.box {BORDER-COLOR: #0066B9}
-
-/* 3.2 Makes the top border of posts match the colour used for post headers */
 
 DIV.blockpost DIV.box {BORDER-COLOR: #006fC9 #0066B9 #0066B9}
 

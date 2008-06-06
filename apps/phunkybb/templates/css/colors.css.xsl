@@ -44,7 +44,7 @@ html, body {
 
 DIV.box, .pun BLOCKQUOTE, DIV.codebox, #adminconsole FIELDSET TH, .rowodd, .roweven {BACKGROUND-COLOR: #F1F1F1}
 #adminconsole TD, #adminconsole TH {
-        BORDER-COLOR: #F1F1F1
+        BORDER-COLOR: <xsl:value-of select="//css/colors/dark-background"/>
         }
 
 /* 1. 2 Darker background colours */
