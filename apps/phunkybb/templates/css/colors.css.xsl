@@ -26,7 +26,8 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <xsl:template name="colors">
 html, body {
     background: <xsl:value-of select="//css/colors/light-background"/>;
-    color: #333;
+    color: #333
+    ;
 }
 
 /* The following is obviously punbb */
@@ -56,9 +57,12 @@ TD.tc2, TD.tc3, TD.tcmod, #postpreview, #viewprofile DD, DIV.forminfo,
 /* 1.3 Main headers and navigation bar background and text colour */
 
 .pun H2, #brdmenu {
-        BACKGROUND-COLOR: #0066B9; 
+        BACKGROUND-COLOR: <xsl:value-of select="//css/colors/dark-background"/>; 
         COLOR: #FFF
         }
+        
+.pun A:link, .pun A:visited {COLOR: #005CB1}
+.pun A:hover {COLOR: <xsl:value-of select="//css/colors/header-hover"/>;}
 
 /* 1.4 Table header rows */
 
