@@ -25,62 +25,58 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <xsl:output method="text" indent="yes" encoding="UTF-8" omit-xml-declaration="yes"/>
 <xsl:template name="colors">
 html, body {
-    background: <xsl:value-of select="//css/colors/light-background"/>;
-    color: #333
-    ;
+  background: <xsl:value-of select="//css/colors/background"/>;
+  color: #333;
 }
-
-/* The following is obviously punbb */
-/****************************************************************/
-/* 1. BACKGROUND AND TEXT COLOURS */
-/****************************************************************/
-
-/* 1.1 Default background colour and text colour */
 
 
 .pun {
-        COLOR: #333
-        }
+  color: #333
+}
 
-DIV.box, .pun BLOCKQUOTE, DIV.codebox, #adminconsole FIELDSET TH, .rowodd, .roweven {BACKGROUND-COLOR: #F1F1F1}
+div.box, .pun BLOCKQUOTE, div.codebox, #adminconsole FIELDSET TH, .rowodd, .roweven {
+background-color: <xsl:value-of select="//css/colors/med-background-alt"/>;
+}
+
 #adminconsole TD, #adminconsole TH {
-        BORDER-COLOR: <xsl:value-of select="//css/colors/dark-background"/>
-        }
+  border-color: <xsl:value-of select="//css/colors/dark-background"/>
+}
 
-/* 1. 2 Darker background colours */
+TD.tc2, TD.tc3, TD.tcmod, #postpreview, #viewprofile DD, div.forminfo,
+#adminconsole FIELDSET TD, div.blockmenu div.box, #adstats DD {
+  background-color: <xsl:value-of select="//css/colors/light-background-alt"/>;
+}
 
-TD.tc2, TD.tc3, TD.tcmod, #postpreview, #viewprofile DD, DIV.forminfo,
-#adminconsole FIELDSET TD, DIV.blockmenu DIV.box, #adstats DD {
-        BACKGROUND-COLOR: #DEDFDF
-        }
+.pun h2, #brdmenu {
+  background-color: <xsl:value-of select="//css/colors/dark-background"/>;
+  color: #FFF
+}
+div.blockpost h2 {
+  background-color: <xsl:value-of select="//css/colors/dark-background"/>;
+}
 
-/* 1.3 Main headers and navigation bar background and text colour */
 
-.pun H2, #brdmenu {
-        BACKGROUND-COLOR: <xsl:value-of select="//css/colors/dark-background"/>; 
-        COLOR: #FFF
-        }
-        
-.pun A:link, .pun A:visited {COLOR: #005CB1}
-.pun A:hover {COLOR: <xsl:value-of select="//css/colors/header-hover"/>;}
+.pun a:link, .pun A:visited {
+  color: #005CB1
+}
 
-/* 1.4 Table header rows */
+.pun a:hover {
+  color: <xsl:value-of select="//css/colors/header-hover"/>;
+}
 
-.pun TH {
-        BACKGROUND-COLOR: #D1D1D1
-        }
+.pun th {
+  background-color: <xsl:value-of select="//css/colors/med-background"/>;
+}
 
-/* 1.5 Fieldset legend text colour */
 
 .pun LEGEND {
-        COLOR: #005CB1
-        }
+  color: #005CB1
+}
 
-/* 1.6 Highlighted text for various items */
 
-.pun DIV.blockmenu LI.isactive A, #posterror LI STRONG {
-        COLOR: #333
-        }
+.pun div.blockmenu LI.isactive A, #posterror LI STRONG {
+  color: #333
+}
 
 
 </xsl:template>
