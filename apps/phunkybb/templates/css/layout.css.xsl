@@ -26,10 +26,16 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <xsl:template name="layout">
 
 #main {
-    width: 100%;
-    text-align: left;
-    margin-left: auto;
-    margin-right: auto;
+  width: 100%;
+  text-align: left;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+iframe {
+  overflow-x: hidden;
+  overflow-y: scroll;
 }
 
 </xsl:template>

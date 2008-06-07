@@ -1,13 +1,4 @@
-/****************************************************************/
-/* 1. IMPORTED STYLESHEETS */
-/****************************************************************/
 
-
-/****************************************************************/
-/* 4. HIDDEN ELEMENTS */
-/****************************************************************/
-
-/* These are hidden in normal display. Add comments to make them visible */
 
 #brdfooter H2, #brdstats H2, #brdstats .conl DT, #brdstats .conr DT,
 #modcontrols DT, #searchlinks DT, DIV.postright H3 {
@@ -25,10 +16,10 @@
 /* 5.1. Setup all left and right content using floats. */  
 
 .conr {
-	FLOAT: right;
-	TEXT-ALIGN: right;
-	CLEAR: right;
-	WIDTH: 40%
+	float: right;
+	text-align: right;
+	clear: right;
+	width: 40%
 }
 
 .conl {
@@ -391,33 +382,6 @@ margin creates space for the post status indicator */
 TD DIV.tclcon {MARGIN-LEFT: 2.3em}
 
 
-iframe {
-overflow-x: hidden;
-overflow-y: scroll;
-}
-
-
-
-/* The following is obviously punbb */
-/****************************************************************/
-/* 1. BACKGROUND AND TEXT COLOURS */
-/****************************************************************/
-
-/* 1.1 Default background colour and text colour */
-
-BODY {BACKGROUND-COLOR: #FFF}
-
-.pun {COLOR: #333}
-
-DIV.box, .pun BLOCKQUOTE, DIV.codebox, #adminconsole FIELDSET TH, .rowodd, .roweven {BACKGROUND-COLOR: #F1F1F1}
-#adminconsole TD, #adminconsole TH {BORDER-COLOR: #F1F1F1}
-
-/* 1. 2 Darker background colours */
-
-TD.tc2, TD.tc3, TD.tcmod, #postpreview, #viewprofile DD, DIV.forminfo,
-#adminconsole FIELDSET TD, DIV.blockmenu DIV.box, #adstats DD {BACKGROUND-COLOR: #DEDFDF}
-
-/* 1.3 Main headers and navigation bar background and text colour */
 
 
 /* 1.4 Table header rows */
