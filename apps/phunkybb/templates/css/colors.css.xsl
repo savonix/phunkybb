@@ -25,7 +25,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <xsl:output method="text" indent="yes" encoding="UTF-8" omit-xml-declaration="yes"/>
 <xsl:template name="colors">
 html, body {
-  background: <xsl:value-of select="//css/colors/background"/>;
+  background: <xsl:value-of select="/_R_/css/colors/background"/>;
   color: #333;
 }
 
@@ -34,47 +34,47 @@ html, body {
   color: #333
 }
 
-div.box, .pun BLOCKQUOTE, div.codebox, #adminconsole FIELDSET TH, .rowodd, .roweven {
-background-color: <xsl:value-of select="//css/colors/med-background-alt"/>;
+div.box, .pun blockquote, div.codebox, #adminconsole fieldset th, .rowodd, .roweven {
+background-color: <xsl:value-of select="/_R_/css/colors/med-background-alt"/>;
 }
 
-#adminconsole TD, #adminconsole TH {
-  border-color: <xsl:value-of select="//css/colors/dark-background"/>
+#adminconsole tq, #adminconsole th {
+  border-color: <xsl:value-of select="/_R_/css/colors/dark-background"/>
 }
 
-TD.tc2, TD.tc3, TD.tcmod, #postpreview, #viewprofile DD, div.forminfo,
-#adminconsole FIELDSET TD, div.blockmenu div.box, #adstats DD {
-  background-color: <xsl:value-of select="//css/colors/light-background-alt"/>;
+td.tc2, td.tc3, td.tcmod, #postpreview, #viewprofile dd, div.forminfo,
+#adminconsole fieldset td, div.blockmenu div.box, #adstats dd {
+  background-color: <xsl:value-of select="/_R_/css/colors/light-background-alt"/>;
 }
 
 .pun h2, #brdmenu {
-  background-color: <xsl:value-of select="//css/colors/dark-background"/>;
+  background-color: <xsl:value-of select="/_R_/css/colors/dark-background"/>;
   color: #FFF
 }
 div.blockpost h2 {
-  background-color: <xsl:value-of select="//css/colors/dark-background"/>;
+  background-color: <xsl:value-of select="/_R_/css/colors/dark-background"/>;
 }
 
 
-.pun a:link, .pun A:visited {
+.pun a:link, .pun a:visited {
   color: #005CB1
 }
 
 .pun a:hover {
-  color: <xsl:value-of select="//css/colors/header-hover"/>;
+  color: <xsl:value-of select="/_R_/css/colors/header-hover"/>;
 }
 
 .pun th {
-  background-color: <xsl:value-of select="//css/colors/med-background"/>;
+  background-color: <xsl:value-of select="/_R_/css/colors/med-background"/>;
 }
 
 
-.pun LEGEND {
+.pun legend {
   color: #005CB1
 }
 
 
-.pun div.blockmenu LI.isactive A, #posterror LI STRONG {
+.pun div.blockmenu li.isactive a, #posterror li strong {
   color: #333
 }
 
