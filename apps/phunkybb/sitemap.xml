@@ -75,7 +75,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
                     </map:if>
                     <map:set name="registration_info" value="Registration Info"/>
                     <map:plugin type="detokenize"
-                        params="{//label[key='welcome_email']/value},//emails/welcome/token"/>
+                        params="{/_R_/i18n/welcome_email},//emails/welcome/token"/>
                     <map:action type="email"
                         params="{//_post/email},{//board_config/o_webmaster_email},{//registration_info},{//new_text},{//board_config/o_smtp_host}"/>
                         <map:xsl src="templates/xsl/register.xsl"/>
@@ -349,7 +349,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
                 <map:xml src="data/xml/emails.xml"/>
                 <map:xml src="i18n/en_US/emails.xml"/>
                 <map:plugin type="detokenize"
-                    params="{//label[key='test_email']/value},//emails/test/token"/>
+                    params="{/_R_/i18n/test_email},//emails/test/token"/>
                 <map:action type="email"
                     params="{//_post/rcpt_email},{//board_config/o_webmaster_email},{//_post/subject},{//new_text},{//board_config/o_smtp_host}"/>
                 <map:action type="redirect" params="{/_R_/runtime/link_prefix}user-email&amp;user_id={//_post/user_id}"/>

@@ -1,10 +1,15 @@
 <i18n>
-    <labels>
-<!-- Emails -->
 
-        <label>
-            <key>welcome_email</key>
-            <value>Subject: Welcome to @@board_title@@!
+
+
+
+
+
+
+
+
+  <welcome_email>
+Subject: Welcome to @@board_title@@!
 
 Thank you for registering in the forums at @@base_url@@. Your account details are:
 
@@ -13,12 +18,19 @@ Username: @@username@@
 Login at @@base_url@@/index.php?nid=activate&amp;activate_key=@@activate_key@@ to activate the account.
 
 --
-(Do not reply to this message)</value>
-        </label>
-        
-        <label>
-            <key>change_email</key>
-            <value>
+(Do not reply to this message)
+  </welcome_email>
+
+
+
+
+
+
+
+
+
+
+  <change_email>
 Subject: Change e-mail address requested
 
 Hello ,
@@ -30,40 +42,53 @@ In order for the activation page to work, you must be logged in to the forum.
 
 To change your e-mail address, please visit the following page:
 
--- 
+--
 (Do not reply to this message)
-</value></label>
+  </change_email>
+
+
+
+
+
 
 <!-- EMAIL START -->
-<label><key>new_reply</key>
-<value>
-Subject: Reply to topic: 
+  <new_reply>
+Subject: Reply to topic:
 
  has replied to the topic  to which you are subscribed. 
  There may be more new replies, but this is the only notification you will receive until you visit the board again.
 
-The post is located at 
+The post is located at
 
-You can unsubscribe by going to 
+You can unsubscribe by going to
 
--- 
+--
 (Do not reply to this message)
-</value>
-</label>
+  </new_reply>
 <!-- END EMAIL -->
 
+
+
+
+
+
+
 <!-- EMAIL START -->
-<label><key>test_email</key>
-<value>
+  <test_email>
 Subject: Test email from @@board_title@@!
 
 Thank you for registering in the forums at @@base_url@@. Your account details are:
 
 Username: @@username@@
-</value>
-</label>
+  </test_email>
 <!-- END EMAIL -->
 
 
-    </labels>
+
+
+
+
+
+
+
 </i18n>
