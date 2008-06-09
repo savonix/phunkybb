@@ -31,21 +31,19 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <script type="text/javascript" src="{/_R_/runtime/path_prefix}/s/js/rsa/rng.js"></script>
 <script type="text/javascript" src="{/_R_/runtime/path_prefix}/s/js/rsa/base64.js"></script>
 <script language="javascript">
-<![CDATA[
-    function initValidation()
-    {
-        var objForm = document.forms["register"];
-        objForm.username.required = 1;
-        objForm.username.minlength = 2;
-        objForm.username.maxlength = 25;
-        objForm.email.required = 1;
-        objForm.email.regexp = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
-    }
-]]>
-</script>
-<script type="text/javascript">
+function initValidation()
+{
+    var objForm = document.forms["register"];
+    objForm.username.required = 1;
+    objForm.username.minlength = 4;
+    objForm.username.maxlength = 25;
+    objForm.email.required = 1;
+    objForm.email.regexp = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+}
+
 $(document).ready(function()
 {
+    initValidation();
     var myform = document.forms["register"];
     myform.id_rsa_pub.value="<xsl:value-of select="//defaults/modulus"/>";
     myform.e.value="10001";
@@ -56,13 +54,14 @@ $(document).ready(function()
 
 function do_encrypt() {
 
-    $('span#login_button').removeClass("button-basic-blue");
-    $('span#login_button').addClass("button-basic-green");
-    $('span#replace').css("visibility","visible");
-    $('span#replace').html("<xsl:value-of select="/_R_/i18n/working"/>...");
-
-    if(validateStandard(this))
+    if(validateStandard(document.forms["register"]))
     {
+
+        $('span#login_button').removeClass("button-basic-blue");
+        $('span#login_button').addClass("button-basic-green");
+        $('span#replace').css("visibility","visible");
+        $('span#replace').html("<xsl:value-of select="/_R_/i18n/working"/>...");
+
         var myform = document.forms["register"];
         var rsa = new RSAKey();
         rsa.setPublic(linebrk(myform.id_rsa_pub.value,64), myform.e.value);
@@ -82,8 +81,6 @@ function do_encrypt() {
               $('span#replace').html("error");
             }
         });
-    } else {
-        $('span#replace').html("<xsl:value-of select="/_R_/i18n/invalid_registration"/>");
     }
 }
 </script>
@@ -108,7 +105,7 @@ function do_encrypt() {
           <label>
             <strong><xsl:value-of select="/_R_/i18n/username"/></strong>
             <br/>
-            <input type="text" name="username" value="{//_post/username}"/>
+            <input type="text" name="username" value="{/_R_/_post/username}"/>
             <br/>
           </label>
         </div>
@@ -175,7 +172,6 @@ function do_encrypt() {
 </div>
 </div>
 <script language="javascript">
-    initValidation();
     rng_seed_time();
 </script>
 </xsl:template>
