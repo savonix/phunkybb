@@ -44,6 +44,7 @@ function initValidation()
 $(document).ready(function()
 {
     initValidation();
+    rng_seed_time();
     var myform = document.forms["register"];
     myform.id_rsa_pub.value="<xsl:value-of select="//defaults/modulus"/>";
     myform.e.value="10001";
@@ -78,7 +79,7 @@ function do_encrypt() {
             if(myResult=='Success') {
                 window.location = '<xsl:value-of select="$link_prefix"/>login';
             } else {
-              $('span#replace').html("error");
+              $('span#replace').html(myResult);
             }
         });
     }

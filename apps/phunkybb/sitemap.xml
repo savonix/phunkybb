@@ -56,39 +56,31 @@ Fifth Floor, Boston, MA 02110-1301  USA
 </map:gate>
 
 <map:gate name="x-register">
-    <map:if name="//_post">
+    <map:if name="/_R_/_post">
         <map:true>
-            <map:validate src="validators/registration_validation.xml">
-                <map:valid>
-                    <map:xml src="i18n/{//selected_lang}/emails.xml"/>
-                    <map:xml src="data/xml/emails.xml"/>
-                    <map:plugin type="random" params="random,8"/>
-                    <map:if name="//use_random_pass">
-                        <map:true>
-                            <map:plugin type="random" params="random_password,8"/>
-                            <map:plugin type="hash" params="sha1,//random_password"/>
-                        </map:true>
-                        <map:false>
-                            <map:plugin type="decrypt_rsa" params="{//defaults/private_key},//_post/password"/>
-                            <map:plugin type="hash" params="sha1,//_post/password"/>
-                        </map:false>
-                    </map:if>
-                    <map:set name="registration_info" value="Registration Info"/>
-                    <map:plugin type="detokenize"
-                        params="{/_R_/i18n/welcome_email},//emails/welcome/token"/>
-                    <map:action type="email"
-                        params="{//_post/email},{//board_config/o_webmaster_email},{//registration_info},{//new_text},{//board_config/o_smtp_host}"/>
-                        <map:xsl src="templates/xsl/register.xsl"/>
-                        <map:query src="data/sql/user_register.xml"/>
-                </map:valid>
-                <map:invalid>
-                    <map:action type="header" params="Content-type,text/xml"/>
-                    <map:xsl src="templates/xml/error.xml.xsl"/>
-                </map:invalid>
-            </map:validate>
+          <map:xml src="i18n/{//selected_lang}/emails.xml"/>
+          <map:xml src="data/xml/emails.xml"/>
+          <map:if name="//use_random_pass">
+              <map:true>
+                  <map:plugin type="random" params="random_password,8"/>
+                  <map:plugin type="hash" params="sha1,//random_password"/>
+              </map:true>
+              <map:false>
+                  <map:plugin type="decrypt_rsa" params="{//defaults/private_key},//_post/password"/>
+                  <map:plugin type="hash" params="sha1,//_post/password"/>
+              </map:false>
+          </map:if>
+          <map:set name="registration_info" value="Registration Info"/>
+          <map:plugin type="detokenize"
+              params="{/_R_/i18n/welcome_email},//emails/welcome/token"/>
+          <map:action type="email"
+              params="{//_post/email},{//board_config/o_webmaster_email},{//registration_info},{//new_text},{//board_config/o_smtp_host}"/>
+              <map:xsl src="templates/xsl/register.xsl"/>
+              <map:query src="data/sql/user_register.xml"/>
         </map:true>
         <map:false>
             <map:action type="header" params="Content-type,text/xml"/>
+            <map:set name="error_message" value="No post."/>
             <map:xsl src="templates/xml/error.xml.xsl"/>
         </map:false>
     </map:if>

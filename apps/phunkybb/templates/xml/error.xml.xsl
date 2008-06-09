@@ -25,7 +25,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <xsl:output method="xml" indent="yes" encoding="UTF-8" omit-xml-declaration="no"/>
 <xsl:template match="/">
 <result>
-    error
+    error <xsl:value-of select="//error_message"/>
     <xsl:if test="//sirbarfsalot='hesbarfingnow'">
         <xsl:value-of select="//cleartext"/> - <xsl:value-of select="//hash"/>
     </xsl:if>

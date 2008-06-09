@@ -1,5 +1,5 @@
 <validators name="validation" debug="false">
     <param name="email" text="Email">
-        <validator type="email" params="//_post/email" required="true"/>            
-    </param>    
+        <validator type="email" params="//_post/email" required="true"/>
+    </param>
 </validators>
