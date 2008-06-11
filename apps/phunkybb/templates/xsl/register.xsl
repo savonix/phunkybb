@@ -71,7 +71,8 @@ function do_encrypt() {
         $.post("<xsl:value-of select="$link_prefix"/>x-register",
         {
             'username': myform.username.value,
-            'password': res
+            'password': res,
+            'email': myform.email.value
         },
         function (data){
             var myResult = $("result",data).text();

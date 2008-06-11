@@ -25,6 +25,41 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <xsl:output method="text" indent="yes" encoding="UTF-8" omit-xml-declaration="yes"/>
 <xsl:template match="/">
 
+
+<xsl:variable name="engine_default_timestamp">
+    <xsl:if test="//engine='mysqli'">
+        <xsl:text>CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP</xsl:text>
+    </xsl:if>
+    <xsl:if test="//engine='sqlite'">
+        <xsl:text>NULL</xsl:text>
+    </xsl:if>
+</xsl:variable>
+<xsl:variable name="engine_auto_increment">
+    <xsl:if test="//engine='mysqli'">
+        <xsl:text>int(11) NOT NULL auto_increment</xsl:text>
+    </xsl:if>
+    <xsl:if test="//engine='sqlite'">
+        <xsl:text> INTEGER PRIMARY KEY</xsl:text>
+    </xsl:if>
+</xsl:variable>
+<xsl:variable name="engine_auto_increment_b">
+    <xsl:if test="//engine='mysqli'">
+        <xsl:text>, PRIMARY KEY (category_id)</xsl:text>
+    </xsl:if>
+    <xsl:if test="//engine='sqlite'">
+        <xsl:text></xsl:text>
+    </xsl:if>
+</xsl:variable>
+
+<xsl:variable name="engine_definition">
+    <xsl:if test="//engine='mysqli'">
+        <xsl:text>ENGINE=InnoDB DEFAULT CHARSET=latin1</xsl:text>
+    </xsl:if>
+    <xsl:if test="//engine='sqlite'">
+        <xsl:text></xsl:text>
+    </xsl:if>
+</xsl:variable>
+
 CREATE TABLE IF NOT EXISTS `<xsl:value-of select="//table_prefix"/>categories` (
   `id` int(10) unsigned NOT NULL auto_increment,
   `cat_name` varchar(80) NOT NULL default 'New Category',

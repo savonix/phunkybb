@@ -70,13 +70,20 @@ Fifth Floor, Boston, MA 02110-1301  USA
                   <map:plugin type="hash" params="sha1,//_post/password"/>
               </map:false>
           </map:if>
-          <map:set name="registration_info" value="Registration Info"/>
+
+
+          <map:set name="my_registration_info" value="Registration Info"/>
           <map:plugin type="detokenize"
               params="{/_R_/i18n/welcome_email},//emails/welcome/token"/>
           <map:action type="email"
-              params="{//_post/email},{//board_config/o_webmaster_email},{//registration_info},{//new_text},{//board_config/o_smtp_host}"/>
+              params="{//_post/email},{//board_config/o_webmaster_email},{//my_registration_info},{//new_text},{//board_config/o_smtp_host}"/>
               <map:xsl src="templates/xsl/register.xsl"/>
               <map:query src="data/sql/user_register.xml"/>
+
+
+
+
+
         </map:true>
         <map:false>
             <map:action type="header" params="Content-type,text/xml"/>
