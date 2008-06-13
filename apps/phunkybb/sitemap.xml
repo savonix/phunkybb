@@ -30,6 +30,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
             <map:false>
                 <map:query src="data/sql/config_get.xml"/>
                 <map:script src="lib/php/config_build.php"/>
+                <map:script src="lib/php/config_check.php"/>
             </map:false>
         </map:if>
         <!--
@@ -140,7 +141,14 @@ Fifth Floor, Boston, MA 02110-1301  USA
         <map:action type="redirect" params="{/_R_/runtime/link_prefix}"/>
     </map:gate>
 
-    <map:gate name="index" cache="120" client_cache="1" content_type="text/html">
+    <map:gate name="index"
+      cache="20"
+      nosession="true"
+      content_type="text/html"
+      cache_control="no-cache, max-age=20, must-revalidate"
+      >
+        <map:action type="header" params="Content-type,text/html"/>
+        <map:action type="header" params="Cache-Control,no-cache; max-age=300; must-revalidate"/>
         <map:query src="data/sql/categories_get_all.xml"/>
         <map:query src="data/sql/forums_get_all.xml"/>
         <map:action type="datetime" params="/_R_/forums_get_all/forums_get_all/last_post,unix_epoch,{/_R_/runtime/user_time_format},{/_R_/runtime/user_timezone_offset}"/>
@@ -361,8 +369,12 @@ Fifth Floor, Boston, MA 02110-1301  USA
     </map:gate>
 
 
-    <map:gate name="dynamic-css" cache="300" client_cache="100" content_type="text/css">
-        <map:action type="header" params="Content-type,text/css"/>
+    <map:gate name="dynamic-css"
+      cache="600"
+      nosession="true"
+      content_type="text/css"
+      cache_control="public, max-age=600, must-revalidate"
+      >
         <map:xsl src="templates/css/dynamic.css.xsl"/>
     </map:gate>
 
