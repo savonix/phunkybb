@@ -20,14 +20,14 @@ sub handler {
 
     # Parse request
     my $nid = "index";
+
     $flow->init();
-    # Match to a gate and parse gate items as SAX events or pull parser
+    # Match to a gate and parse gate items
     $init->process_gate();
 
     # These handlers are used for examples, should be done by gate processor
-    Apache2::Aortica::Modules::Handlers::XmlHandler::process();
-    my $output = Apache2::Aortica::Modules::Handlers::XslHandler::process('/var/www/dev/phunkybb/apps/phunkybb/templates/xsl/welcome.xsl');
-
+    #my $output = $flow->{ DOC }->toString;
+    my $output = $init->display();
     # Flush Flow
     $root->removeChildNodes();
 
