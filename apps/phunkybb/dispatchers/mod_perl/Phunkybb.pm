@@ -37,7 +37,4 @@ sub handler {
 
 }
 
-sub barf {
-
-}
 1;
