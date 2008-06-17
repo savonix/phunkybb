@@ -33,7 +33,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <xsl:template match="/">
 
   <xsl:variable name="link_prefix">
-    <xsl:value-of select="/_R_/runtime/link_prefix"/>
+    <xsl:value-of select="//link_prefix"/>
   </xsl:variable>
 
   <xsl:variable name="path_prefix">

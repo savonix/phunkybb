@@ -1,5 +1,6 @@
 package phunkybb::apps::phunkybb::dispatchers::mod_perl::Phunkybb;
 use Apache2::Aortica::Aortica;
+use Apache2::Request;
 
 
 my $tree = Apache2::Directive::conftree();
@@ -44,7 +45,9 @@ sub handler {
     my $my_session = $session->start();
 
     # Parse request
-    my $nid = "index";
+    $req = Apache2::Request->new($r);
+    # TODO - set missing nid if nothing is passed
+    my $nid = $req->param('nid');
 
     $flow->init();
     # Match to a gate and parse gate items
