@@ -25,11 +25,12 @@ Fifth Floor, Boston, MA 02110-1301  USA
   <xsl:include href="html_main.xsl"/>
   <xsl:template name="content">
     <xsl:param name="link_prefix"/>
-    <script type="text/javascript" src="{/_R_/runtime/path_prefix}/s/js/rsa/jsbn.js"></script>
-    <script type="text/javascript" src="{/_R_/runtime/path_prefix}/s/js/rsa/rsa.js"></script>
-    <script type="text/javascript" src="{/_R_/runtime/path_prefix}/s/js/rsa/prng4.js"></script>
-    <script type="text/javascript" src="{/_R_/runtime/path_prefix}/s/js/rsa/rng.js"></script>
-    <script type="text/javascript" src="{/_R_/runtime/path_prefix}/s/js/rsa/base64.js"></script>
+    <xsl:param name="path_prefix"/>
+    <script type="text/javascript" src="{$path_prefix}/s/js/rsa/jsbn.js"></script>
+    <script type="text/javascript" src="{$path_prefix}/s/js/rsa/rsa.js"></script>
+    <script type="text/javascript" src="{$path_prefix}/s/js/rsa/prng4.js"></script>
+    <script type="text/javascript" src="{$path_prefix}/s/js/rsa/rng.js"></script>
+    <script type="text/javascript" src="{$path_prefix}/s/js/rsa/base64.js"></script>
     <script type="text/javascript">
 $(document).ready(function()
 {

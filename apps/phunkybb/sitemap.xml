@@ -351,6 +351,8 @@
       content_type="text/css"
       cache_control="public, max-age=600, must-revalidate"
       >
+<map:xml src="data/xml/summertime_color_scheme.xml"/>
+
         <map:xsl src="templates/css/dynamic.css.xsl"/>
     </map:gate>
 
