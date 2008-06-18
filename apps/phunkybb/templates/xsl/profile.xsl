@@ -78,6 +78,11 @@ Fifth Floor, Boston, MA 02110-1301  USA
                 <input type="text" name="email" value="{$my_user/email}"/>
                 <br/>
               </label>
+                <xsl:if test="/_R_/runtime/group_id=1">
+                <a href="{//link_prefix}user-email&amp;user_id={//_get/user_id}">
+                  Email user
+                </a>
+                </xsl:if>
 						</div>
 					</fieldset>
 				</div>
