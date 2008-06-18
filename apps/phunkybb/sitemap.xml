@@ -51,6 +51,7 @@
           </map:if>
 
 
+          <map:plugin type="random" params="activation_key,4"/>
           <map:set name="my_registration_info" value="Registration Info"/>
           <map:plugin type="detokenize"
               params="{/_R_/i18n/welcome_email},//emails/welcome/token"/>

@@ -33,7 +33,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
         </token>
         <token>
             <key>@@activate_key@@</key>
-            <value>//random</value>
+            <value>//activation_key</value>
         </token>
         <token>
             <key>@@base_url@@</key>
