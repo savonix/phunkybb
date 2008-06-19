@@ -56,6 +56,10 @@ sub handler {
     # These handlers are used for examples, should be done by gate processor
     my $output = undef;
     $output = $init->display();
+    my $duration = $init->stop();
+
+    $output .= '<!--'.$duration.'-->';
+
     if( $req->param('view_flow') eq "true") {
         $output .= '<textarea rows="20" style="width: 100%">'.$flow->{ DOC }->toString.'</textarea>';
     }
