@@ -54,16 +54,18 @@ sub handler {
     $init->process_gate($nid);
 
     # These handlers are used for examples, should be done by gate processor
-    #my $output = $flow->{ DOC }->toString;
-    my $output = $init->display();
+    my $output = undef;
+    $output = $init->display();
+    if( $req->param('view_flow') eq "true") {
+        $output .= '<textarea rows="20" style="width: 100%">'.$flow->{ DOC }->toString.'</textarea>';
+    }
 
     # Flush Flow
     $root->removeChildNodes();
 
     # Print Output
     my $length = length($output);
-    $r->set_content_length($length);
-    #$r->headers_out->set(My-Header => "SomeValue");
+    #$r->set_content_length($length);
     $r->print($output);
     return Apache2::Const::OK;
 
