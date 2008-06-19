@@ -61,6 +61,9 @@ sub handler {
     $root->removeChildNodes();
 
     # Print Output
+    my $length = length($output);
+    $r->set_content_length($length);
+    #$r->headers_out->set(My-Header => "SomeValue");
     $r->print($output);
     return Apache2::Const::OK;
 
