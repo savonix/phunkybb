@@ -348,9 +348,8 @@
       cache="600"
       nosession="true"
       content_type="text/css"
-      cache_control="public, max-age=600, must-revalidate"
-      >
-<map:xml src="data/xml/beach_ball.xml"/>
+      cache_control="public, max-age=600, must-revalidate">
+<map:xml src="data/xml/pastel_css.xml"/>
 
         <map:xsl src="templates/css/dynamic.css.xsl"/>
     </map:gate>
