@@ -26,6 +26,7 @@
         <map:script src="lib/php/runtime.php"/>
         <map:xml src="data/xml/menu.xml"/>
         <map:xml src="i18n/en_US/phunkybb.xml"/>
+        <map:xml src="data/xml/summertime_color_scheme.xml"/>
     </map:prepend>
 
 <!-- SESSIONS -->
@@ -350,9 +351,10 @@
       content_type="text/css"
       cache_control="public, max-age=600, must-revalidate"
       >
-    <map:xml src="data/xml/summertime_color_scheme.xml"/>    
-    <map:xsl src="templates/css/dynamic.css.xsl"/>
-</map:gate>
+<map:xml src="data/xml/beach_ball.xml"/>
+
+        <map:xsl src="templates/css/dynamic.css.xsl"/>
+    </map:gate>
 
 
     <map:gate name="install">
