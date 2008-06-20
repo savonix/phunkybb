@@ -1,0 +1,36 @@
+<!--
+Program: PhunkyBB
+Component: menu.xml
+Copyright: Savonix Corporation
+Author: Albert L. Lash, IV
+License: Gnu Affero Public License version 3
+http://www.gnu.org/licenses
+
+This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation; either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with this program; if not, see http://www.gnu.org/licenses
+or write to the Free Software Foundation,Inc., 51 Franklin Street,
+Fifth Floor, Boston, MA 02110-1301  USA
+
+http://www.colourlovers.com/palette/394860/maybe_im_colorblind Thanks for the great colors DarkStar
+-->
+<css>
+    <colors>
+        <background>#357567</background><!-- base background -->
+        <light-background>#1F394D</light-background>
+        <light-background-alt>#F0E0F5</light-background-alt> <!-- replies column -->
+        <med-background>#F17AA6</med-background> <!-- topic-replies-post header -->
+        <med-background-alt>#D1FFDB</med-background-alt> <!-- text-background -->
+        <dark-background>#ABCC78</dark-background> <!-- index - register - login header -->
+        <header-hover>#000000</header-hover>
+    </colors>
+</css>
