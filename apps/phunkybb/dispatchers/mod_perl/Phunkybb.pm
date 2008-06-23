@@ -1,72 +1,94 @@
 package phunkybb::apps::phunkybb::dispatchers::mod_perl::Phunkybb;
 use Apache2::Aortica::Aortica;
-use Apache2::Request;
+use Data::Dumper;
 
 
-my $tree = Apache2::Directive::conftree();
-my $node = $tree->lookup('Location', '/aortica');
-my $app_cfg = $node->{ AppConfigFile };
+
+$tree = Apache2::Directive::conftree();
+$node = $tree->lookup('Location', '/aortica');
+$app_cfg = $node->{ AppConfigFile };
 
 # Create config
-my $config = Apache2::Aortica::Kernel::Config->instance($app_cfg);
+$config = Apache2::Aortica::Kernel::Config->instance($app_cfg);
 
 # Create fence
-my $fence_file = $config->{ CONFIG }->{build}->{sitemap};
-Apache2::Aortica::Kernel::Fence->instance($fence_file);
-
-# Create Gatekeeper
-my $init = Apache2::Aortica::Kernel::Init->instance();
-
-# Start the Gatekeeper
-$init->start();
-
-# Maybe create flow dom document, but populate it and flush it for each request
-my $flow = Apache2::Aortica::Kernel::Flow->instance();
-my $doc  = $flow->{ DOC };
-my $root = $flow->{ ROOT };
+$fence_file = $config->{ CONFIG }->{build}->{sitemap};
+$my_obj = Apache2::Aortica::Kernel::Fence->instance($fence_file);
 
 
-Apache2::Aortica::Modules::DataSources::DBIDataSource->instance()->connect();
+
+use DBD::mysql();
+
 
 sub handler {
 
     my $r = shift;
+    my $output;
+    my $req = Apache2::Request->new($r);
+    my $nid = $req->param('nid');
+    my $duration;
 
-    # Start the Gatekeeper
+    # Create Gatekeeper
+    my $init = Apache2::Aortica::Kernel::Init->instance();
+    
+    # Maybe create flow dom document, but populate it and flush it for each request
+    my $flow = Apache2::Aortica::Kernel::Flow->instance();
+    $doc  = $flow->{ DOC };
+    $root = $flow->{ ROOT };
+
+    my $dbh = Apache2::Aortica::Modules::DataSources::DBIDataSource->instance();
     $init->start();
 
-    #my $session = Apache2::Aortica::Kernel::Session->instance();
-    #my $my_session = $session->start();
-
-    # Parse request
-    $req = Apache2::Request->new($r);
-    # TODO - set missing nid if nothing is passed
-    my $nid = $req->param('nid');
-
     $flow->init();
-    # Match to a gate and parse gate items
     $init->process_gate($nid);
-
-    # These handlers are used for examples, should be done by gate processor
-    my $output = undef;
     $output = $init->display();
-    my $duration = $init->stop();
 
-    $output .= '<!--'.$duration.'-->';
+
+    $duration = $init->stop();
+    $duration = sprintf("%.3f", $duration);
+
+    $output .= '    '.$duration.'';
 
     if( $req->param('view_flow') eq "true") {
         $output .= '<textarea rows="20" style="width: 100%">'.$flow->{ DOC }->toString.'</textarea>';
     }
+    my $mem = GTop->new->proc_mem($$)->share/1024;
+    my $proc_mem = GTop->new->proc_mem($$)->size/1024;
+    my $diff     = $proc_mem - $mem;
+    my $shared   = GTop->new->proc_mem($$)->vsize/1024;
 
-    # Flush Flow
-    $root->removeChildNodes();
+    my $memory = " Shared: ".$mem." Total: ".$proc_mem." PID: ".$$ ;
+    $output .= $memory;
 
-    # Print Output
-    #my $length = length($output);
-    #$r->set_content_length($length);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     $r->print($output);
+    #    $r->print("MEM".$mem."PROX".$proc_mem."DIFF".$diff);
+    undef $output;
+    $dbh->datasource_disconnect();
     return Apache2::Const::OK;
-
 }
 
 1;
