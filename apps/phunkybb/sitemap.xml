@@ -74,9 +74,6 @@
                 <map:plugin type="hash" params="sha1,//_post/password"/>
                 <map:query src="data/sql/user_login.xml"/>
             </map:true>
-            <map:false>
-                <map:xsl src="templates/xsl/login.xsl"/>
-            </map:false>
         </map:if>
         <!-- this should be used if the user doesn't have javascript? -->
         <map:if name="//user_login/user_login">
@@ -85,6 +82,7 @@
                 <map:action type="redirect" params="{/_R_/runtime/link_prefix}index"/>
             </map:true>
         </map:if>
+        <map:xsl src="templates/xsl/login.xsl"/>
     </map:gate>
     <map:gate name="x-login" cache="0">
         <map:action type="header" params="Content-Type,text/xml"/>
