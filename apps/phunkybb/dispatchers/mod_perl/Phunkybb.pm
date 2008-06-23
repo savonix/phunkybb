@@ -1,6 +1,5 @@
 package phunkybb::apps::phunkybb::dispatchers::mod_perl::Phunkybb;
-use Apache2::Aortica::Aortica;
-use Data::Dumper;
+use Apache2::Aortica::Aortica ();
 
 
 
@@ -17,7 +16,6 @@ $my_obj = Apache2::Aortica::Kernel::Fence->instance($fence_file);
 
 
 
-use DBD::mysql();
 
 
 sub handler {
@@ -26,7 +24,8 @@ sub handler {
     my $output;
     my $req = Apache2::Request->new($r);
     my $nid = $req->param('nid');
-    my $duration;
+    my $duration = undef;
+    my $output = undef;
 
     # Create Gatekeeper
     my $init = Apache2::Aortica::Kernel::Init->instance();
@@ -40,14 +39,12 @@ sub handler {
     $init->start();
 
     $flow->init();
-    $init->process_gate($nid);
-    $output = $init->display();
+    $output = $init->process_gate($nid);
 
 
     $duration = $init->stop();
     $duration = sprintf("%.3f", $duration);
 
-    $output .= '    '.$duration.'';
 
     if( $req->param('view_flow') eq "true") {
         $output .= '<textarea rows="20" style="width: 100%">'.$flow->{ DOC }->toString.'</textarea>';
@@ -58,7 +55,7 @@ sub handler {
     my $shared   = GTop->new->proc_mem($$)->vsize/1024;
 
     my $memory = " Shared: ".$mem." Total: ".$proc_mem." PID: ".$$ ;
-    $output .= $memory;
+
 
 
 
@@ -85,7 +82,8 @@ sub handler {
 
 
     $r->print($output);
-    #    $r->print("MEM".$mem."PROX".$proc_mem."DIFF".$diff);
+    $r->print($duration);
+    $r->print($memory);
     undef $output;
     $dbh->datasource_disconnect();
     return Apache2::Const::OK;
