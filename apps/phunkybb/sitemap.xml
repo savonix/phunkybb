@@ -2,30 +2,19 @@
 <map:sitemap xmlns:map="http://www.nexista.org/sitemap">
     <map:prepend>
         <map:script src="lib/php/config_check.php"/>
+        <map:perl src="lib/perl/config_build.pl"/>
         <map:if name="/_R_/config_cache">
-            <map:true>
-            </map:true>
             <map:false>
                 <map:query src="data/sql/config_get.xml"/>
                 <map:script src="lib/php/config_build.php"/>
                 <map:script src="lib/php/config_check.php"/>
+                <map:perl src="lib/perl/config_build.pl"/>
             </map:false>
         </map:if>
-        <!--
-        <map:if name="/_R_/_post">
-            <map:true>
-                <map:query src="data/sql/forums_get_all.xml"/>
-                <map:query src="data/sql/forums_get_totals.xml"/>
-                <map:query src="data/sql/forums_update_totals.xml"/>
-            </map:true>
-            <map:false>
-            </map:false>
-        </map:if>
-        -->
         <map:set name="selected_lang" value="en_US"/>
         <map:script src="lib/php/runtime.php"/>
         <map:xml src="data/xml/menu.xml"/>
-        <map:xml src="i18n/en_US/phunkybb.xml"/>
+        <map:xml src="i18n/{//selected_lang}/phunkybb.xml"/>
     </map:prepend>
 
 <!-- SESSIONS -->
@@ -95,8 +84,6 @@
                 <map:script src="lib/php/sessions.php"/>
                 <map:action type="redirect" params="{/_R_/runtime/link_prefix}index"/>
             </map:true>
-            <map:false>
-            </map:false>
         </map:if>
     </map:gate>
     <map:gate name="x-login" cache="0">
@@ -374,6 +361,10 @@
         <map:xsl src="data/model/phunkybb_database.sql.xsl"/>
     </map:gate>
 
+
+    <map:gate name="license">
+        <map:raw src="LICENSE"/>
+    </map:gate>
 
 
     <map:gate name="ml-test">
