@@ -1,9 +1,9 @@
 use XML::Simple;
 use XML::LibXML;
-
+{
 my $xml_file = '/tmp/config_cache.xml';
 my $parser = XML::LibXML->new();
-$flow = Apache2::Aortica::Kernel::Flow->instance();
+my $flow = Apache2::Aortica::Kernel::Flow->instance();
 
 unless ( -e $xml_file ) {
     $config_barf = $flow->get_value_by_path("/_R_/config_get/config_get")->{config_get}->{config_get};
@@ -19,7 +19,6 @@ unless ( -e $xml_file ) {
     
     my $xml_str = XMLout($new_hash, RootName => 'board_config', NoAttr => 1, OutputFile => $xml_file);
 } else { 
-
     $flow->add("config_cache", "true");
 }
 
@@ -27,3 +26,6 @@ unless ( -e $xml_file ) {
 my $xml = $parser->parse_file( $xml_file  );
 my $node = $flow->{ DOC }->importNode($xml->documentElement());
 $flow->{ ROOT }->appendChild($node);
+undef $node;
+undef $xml;
+}
