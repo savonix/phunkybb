@@ -84,3 +84,13 @@ def phunky_app(environ, start_response):
     
 application = SessionMiddleware(phunky_app, type='memory', data_dir='/tmp/')
 
+
+"""
+Example conf:
+<IfModule mod_wsgi.c>
+    WSGIScriptAlias /schematronic /var/www/dev/phunkybb/apps/phunkybb/dispatchers/wsgi/phunkybb.wsgi
+    WSGIProcessGroup schematronic
+    WSGIDaemonProcess schematronic user=www-data group=www-data threads=2
+    WSGIPythonOptimize 1
+</IfModule>
+"""
