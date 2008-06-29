@@ -3,6 +3,7 @@
     <map:prepend>
         <map:script src="lib/php/config_check.php"/>
         <map:perl src="lib/perl/config_build.pl"/>
+        <map:python src="lib/python/config_build.py"/>
         <map:if name="/_R_/config_cache">
             <map:false>
                 <map:query src="data/sql/config_get.xml"/>
@@ -14,7 +15,7 @@
         <map:set name="selected_lang" value="en_US"/>
         <map:script src="lib/php/runtime.php"/>
         <map:xml src="data/xml/menu.xml"/>
-        <map:xml src="i18n/{/_R_/selected_lang}/phunkybb.xml"/>
+        <map:xml src="i18n/en_US/phunkybb.xml"/>
     </map:prepend>
 
 <!-- SESSIONS -->
@@ -360,7 +361,7 @@
     </map:gate>
 
 
-    <map:gate name="license">
+    <map:gate name="license" content_type="text/plain">
         <map:raw src="LICENSE"/>
     </map:gate>
 

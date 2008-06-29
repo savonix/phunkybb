@@ -10,6 +10,8 @@ from time import gmtime, strftime
 from StringIO import StringIO
 import time
 import os
+import libxml2
+from beaker.middleware import SessionMiddleware
 
 # Import classes
 from schematronic import Singleton as Singleton
@@ -21,6 +23,15 @@ from schematronic.modules.handlers.xsl import XslHandler
 from schematronic.modules.handlers.xml import XmlHandler
 from schematronic.modules.handlers.query import Query
 import schematronic.kernel.flow
+try:
+    import psyco
+    psyco.log(logfile='/tmp/schematronic.log')
+    psyco.full(memory=10)
+
+except ImportError:
+    pass
+
+libxml2.initParser()
 
 
 thexsl   = XslHandler()
@@ -28,26 +39,32 @@ thexml   = XmlHandler()
 thequery = Query()
 myinit   = Initializer(thexsl,thexml,thequery)
 
+import hotshot
+prof = hotshot.Profile("/tmp/schema.log")
 
-def application(environ, start_response):
 
-    myinit.start()
+def _application(environ, start_response):
+    prof.start()
+    res = myapplication(environ, start_response)
+    prof.stop()
+    #prof.close()
+    return res
+
+
+def phunky_app(environ, start_response):
+
+    myinit.start(environ)
 
     theflow = Flow()
 
     qs_dict = cgi.parse_qs(environ["QUERY_STRING"], \
         keep_blank_values = True, strict_parsing = False)
 
-
     theflow.start(qs_dict)
 
     mynid = qs_dict.get('nid','index')[0]
 
-
     myinit.process_gate(mynid)
-
-
-
 
     output = myinit.display()
 
@@ -63,4 +80,7 @@ def application(environ, start_response):
     response_headers = [('Content-type',content_type),('Cache-Control',cache_control)]
     start_response(status, response_headers)
     return output
+
+    
+application = SessionMiddleware(phunky_app, type='memory', data_dir='/tmp/')
 
