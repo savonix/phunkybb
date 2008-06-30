@@ -3,6 +3,7 @@
     <map:prepend>
         <map:script src="lib/php/config_check.php"/>
         <map:perl src="lib/perl/config_build.pl"/>
+        <map:perl src="lib/perl/runtime.pl"/>
         <map:python src="lib/python/config_build.py"/>
         <map:if name="/_R_/config_cache">
             <map:false>

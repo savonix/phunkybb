@@ -6,11 +6,19 @@ use DateTime;
 
 
 my $tree = Apache2::Directive::conftree();
-my $node = $tree->lookup('Location', '/aortica');
-my $app_cfg = $node->{ AppConfigFile };
+#my $srv_node = $tree->as_hash();
+#my $srv_cfg = $srv_node->{ AorticaServerConfigFile };
+my $srv_cfg = $tree->lookup('AorticaServerConfigFile');
+
+my $app_node = $tree->lookup('Location', '/aortica');
+my $app_cfg = $app_node->{ AppConfigFile };
 our $doc;
+
+
+
+
 # Create config
-my $config = Apache2::Aortica::Kernel::Config->instance($app_cfg);
+my $config = Apache2::Aortica::Kernel::Config->instance($srv_cfg, $app_cfg);
 
 # Create fence
 my $fence_file = $config->{ CONFIG }->{build}->{sitemap};
