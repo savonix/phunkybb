@@ -146,7 +146,7 @@ function delete_topic(topic_id) {
       <div class="postfootright">
         <div>
           <xsl:if test="//runtime/group_id=1 or poster=/_R_/runtime/username">
-            <a href="{$link_prefix}post-edit&amp;post_id={id}">
+            <a href="{$link_prefix}post-edit&amp;post_id={id}&amp;fid={//_get/fid}&amp;tid={//_get/id}">
               <xsl:value-of select="/_R_/i18n/edit"/></a>&#160;
             <a href="{$link_prefix}x-post-delete&amp;post_id={id}"
               onclick="delete_post({id}); return false;">

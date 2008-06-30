@@ -167,7 +167,7 @@
                 <map:action type="newline" params="//clean_message"/>
                 <map:query src="data/sql/post_update.xml"/>
                 <map:action type="redirect"
-                    params="{/_R_/runtime/link_prefix}topic&amp;post_id={//_post/post_id}"/>
+                    params="{/_R_/runtime/link_prefix}topic&amp;fid={//_post/fid}&amp;id={//_post/tid}#post{//_post/post_id}"/>
             </map:true>
             <map:false>
                 <map:query src="data/sql/post_get_by_id.xml"/>
@@ -335,7 +335,7 @@
       nosession="true"
       content_type="text/css"
       cache_control="public, max-age=600, must-revalidate">
-      
+
         <map:if name="//board_config/o_board_theme">
             <map:true>
               <map:xml src="{//board_config/o_board_theme}"/>
