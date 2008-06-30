@@ -62,7 +62,7 @@ if ( $@ ) {
 
 
 
-my $sha1pw = sha1($ptxt);
+my $sha1pw = sha1_hex($ptxt);
 
 my $node = $flow->{ DOC }->createElement("error_message");
 
