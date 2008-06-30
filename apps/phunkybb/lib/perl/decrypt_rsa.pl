@@ -28,7 +28,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 use Crypt::OpenSSL::RSA;
 use Apache2::Aortica::Kernel::Flow;
 use MIME::Base64;
-
+use Digest::SHA1  qw(sha1 sha1_hex sha1_base64);
 
 my $flow = Apache2::Aortica::Kernel::Flow->instance();
 
@@ -62,9 +62,17 @@ if ( $@ ) {
 
 
 
-
+my $sha1pw = sha1($ptxt);
 
 my $node = $flow->{ DOC }->createElement("error_message");
 
-$node->appendText("Success");
+$node->appendText("");
 $flow->{ ROOT }->appendChild($node);
+
+my $pw = $flow->{ DOC }->createElement("hash");
+
+$pw->appendText($sha1pw);
+$flow->{ ROOT }->appendChild($pw);
+
+
+

@@ -32,3 +32,6 @@ $roles = {
 };
 
 $auth->register_user("admin", $roles, "ok");
+
+return "<result>Success</result>";
+

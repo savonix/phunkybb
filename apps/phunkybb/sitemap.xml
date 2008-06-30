@@ -101,7 +101,7 @@
             <map:false>
             </map:false>
         </map:if>
-        <map:xsl src="templates/xml/error.xml.xsl"/>
+          <map:perl src="lib/perl/login.pl"/>
     </map:gate>
     <map:gate name="logout">
         <map:perl src="lib/perl/logout.pl"/>
