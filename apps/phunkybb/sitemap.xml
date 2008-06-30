@@ -335,7 +335,7 @@
       nosession="true"
       content_type="text/css"
       cache_control="public, max-age=600, must-revalidate">
-<map:xml src="data/xml/pastel_css.xml"/>
+        <map:xml src="{//board_config/o_board_theme}"/>
 
         <map:xsl src="templates/css/dynamic.css.xsl"/>
     </map:gate>

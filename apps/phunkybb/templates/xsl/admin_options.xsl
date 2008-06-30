@@ -155,6 +155,26 @@ Fifth Floor, Boston, MA 02110-1301  USA
                 </div>
               </fieldset>
             </div>
+            <div class="inform">
+              <fieldset>
+                <legend>
+                  Look and Feel
+                </legend>
+                <div class="infldset">
+                  <table class="aligntop" cellspacing="0">
+                    <tr>
+                      <th scope="row">
+                        Theme file:
+                      </th>
+                      <td>
+                        <input type="text" name="form[o_board_theme]" value="{//board_config/o_board_theme}"/>
+                        <xsl:value-of select="/_R_/i18n/title_of_buletine_board"/>
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+              </fieldset>
+            </div>
             <p class="submitend">
               <input type="submit" name="save" value="Save Changes"/>
             </p>
