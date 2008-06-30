@@ -1,6 +1,6 @@
 =pod
 Program: PhunkyBB
-Component: runtime.pl
+Component: decrypt_rsa.pl
 Copyright: Savonix Corporation
 Author: Albert L. Lash, IV
 License: Gnu Affero Public License version 3
@@ -22,31 +22,34 @@ or write to the Free Software Foundation,Inc., 51 Franklin Street,
 Fifth Floor, Boston, MA 02110-1301  USA
 =cut
 
-use XML::Simple;
+use Crypt::RSA;
 
-my $parser = XML::LibXML->new();
 my $flow = Apache2::Aortica::Kernel::Flow->instance();
 
-my $config  = Apache2::Aortica::Kernel::Config->instance();
+my $mpk = '/var/www/dev/phunkybb/config/key.pem';
 
-my $defaults = $config->{ CONFIG }->{ defaults };
+open MYKEY, '<', $mpk || die("can't open datafile: $!");
+my @key_lines = <MYKEY>;
+close(MYKEY);
 
-my $xml_str = XMLout($defaults, 'RootName' => 'defaults', 'NoAttr' => 1 );
+my $key = join( '', @key_lines );
 
-my $xml = $parser->parse_string( $xml_str );
 
-my $node = $flow->{ DOC }->importNode($xml->documentElement());
+
+
+my $ctxt = $flow->get_value_by_path("//_post/password");
+
+my $rsa = new Crypt::RSA;
+my $ptxt =
+    $rsa->decrypt ( 
+        Cyphertext => $ctxt,
+        Key        => $key,
+        Armour     => 1,
+    ) || die $rsa->errstr();
+
+
+
+my $node = $flow->{ DOC }->createElement("error_message");
+
+$node->appendText("hi");
 $flow->{ ROOT }->appendChild($node);
-
-
-my $runtime = "
-<runtime>
-    <user_id>1</user_id>
-    <group_id>1</group_id>
-    <username>admin</username>
-</runtime>";
-
-my $xml2 = $parser->parse_string( $runtime );
-
-my $node2 = $flow->{ DOC }->importNode($xml2->documentElement());
-$flow->{ ROOT }->appendChild($node2);
