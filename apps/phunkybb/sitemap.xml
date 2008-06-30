@@ -335,8 +335,15 @@
       nosession="true"
       content_type="text/css"
       cache_control="public, max-age=600, must-revalidate">
-        <map:xml src="{//board_config/o_board_theme}"/>
-
+      
+        <map:if name="//board_config/o_board_theme">
+            <map:true>
+              <map:xml src="{//board_config/o_board_theme}"/>
+            </map:true>
+            <map:false>
+              <map:xml src="data/xml/phunkybb_default_css.xml"/>
+            </map:false>
+        </map:if>
         <map:xsl src="templates/css/dynamic.css.xsl"/>
     </map:gate>
 
