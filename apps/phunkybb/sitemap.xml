@@ -104,6 +104,7 @@
         <map:xsl src="templates/xml/error.xml.xsl"/>
     </map:gate>
     <map:gate name="logout">
+        <map:perl src="lib/perl/logout.pl"/>
         <map:script src="lib/php/logout.php"/>
         <map:action type="redirect" params="{/_R_/runtime/link_prefix}"/>
     </map:gate>
