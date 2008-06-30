@@ -107,6 +107,9 @@
         <map:action type="redirect" params="{/_R_/runtime/link_prefix}"/>
     </map:gate>
 
+    <map:gate name="redirect2">
+      <map:action type="redirect" params="/aortica?nid=index"/>
+    </map:gate>
     <map:gate name="index"
       cache="300"
       content_type="text/html"

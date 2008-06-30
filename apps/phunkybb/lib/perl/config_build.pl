@@ -6,7 +6,7 @@ my $parser = XML::LibXML->new();
 my $flow = Apache2::Aortica::Kernel::Flow->instance();
 
 unless ( -e $xml_file ) {
-    $config_barf = $flow->get_value_by_path("/_R_/config_get/config_get")->{config_get}->{config_get};
+    my $config_barf = $flow->get_value_by_path("/_R_/config_get/config_get")->{config_get}->{config_get};
     
     # dereference the array
     @config_array = @{$config_barf};
