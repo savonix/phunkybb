@@ -22,34 +22,49 @@ or write to the Free Software Foundation,Inc., 51 Franklin Street,
 Fifth Floor, Boston, MA 02110-1301  USA
 =cut
 
-use Crypt::RSA;
+# apt-get install libcrypt-openssl-rsa-perl
+
+
+use Crypt::OpenSSL::RSA;
+use Apache2::Aortica::Kernel::Flow;
+use MIME::Base64;
+
 
 my $flow = Apache2::Aortica::Kernel::Flow->instance();
 
 my $mpk = '/var/www/dev/phunkybb/config/key.pem';
+
+my $ctxt;
+my $ptxt;
 
 open MYKEY, '<', $mpk || die("can't open datafile: $!");
 my @key_lines = <MYKEY>;
 close(MYKEY);
 
 my $key = join( '', @key_lines );
+my $private;
+
+$ctxt = $flow->get_value_by_path("//_post/password");
+my $ctxt_bin = decode_base64($ctxt);
+
+eval {
+    $private = Crypt::OpenSSL::RSA->new_private_key($key);
+    $private->use_sslv23_padding();
+};
+
+eval {
+    $ptxt = $private->decrypt($ctxt_bin);
+};
+if ( $@ ) {
+    $ptxt = $@;
+}
 
 
 
-
-my $ctxt = $flow->get_value_by_path("//_post/password");
-
-my $rsa = new Crypt::RSA;
-my $ptxt =
-    $rsa->decrypt ( 
-        Cyphertext => $ctxt,
-        Key        => $key,
-        Armour     => 1,
-    ) || die $rsa->errstr();
 
 
 
 my $node = $flow->{ DOC }->createElement("error_message");
 
-$node->appendText("hi");
+$node->appendText("Success");
 $flow->{ ROOT }->appendChild($node);

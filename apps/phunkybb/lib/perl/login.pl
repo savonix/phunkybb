@@ -22,9 +22,13 @@ or write to the Free Software Foundation,Inc., 51 Franklin Street,
 Fifth Floor, Boston, MA 02110-1301  USA
 =cut
 
-$auth =  Apache2::Aortica::Kernel::Auth->new();
+use Apache2::Aortica::Kernel::Auth;
+
+my $auth =  Apache2::Aortica::Kernel::Auth->new();
+
 $roles = {
     'user' => 1,
     'phunky_admin' => 1
 };
-$auth->register_user($roles);
+
+$auth->register_user("admin", $roles, "ok");

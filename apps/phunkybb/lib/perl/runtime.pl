@@ -23,6 +23,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 =cut
 
 use XML::Simple;
+use Data::Dumper;
 
 my $parser = XML::LibXML->new();
 my $flow = Apache2::Aortica::Kernel::Flow->instance();
@@ -39,14 +40,26 @@ my $node = $flow->{ DOC }->importNode($xml->documentElement());
 $flow->{ ROOT }->appendChild($node);
 
 
-my $runtime = "
-<runtime>
-    <user_id>1</user_id>
-    <group_id>1</group_id>
-    <username>admin</username>
-</runtime>";
 
-my $xml2 = $parser->parse_string( $runtime );
 
-my $node2 = $flow->{ DOC }->importNode($xml2->documentElement());
-$flow->{ ROOT }->appendChild($node2);
+
+
+my $auth = Apache2::Aortica::Kernel::Auth->new();
+
+$auth_info = $auth->check_status();
+$username = $auth_info->{username};
+
+#print(Dumper($auth_info));
+if ($username) {
+    my $runtime = "
+    <runtime>
+        <user_id>1</user_id>
+        <group_id>1</group_id>
+        <username>$username</username>
+    </runtime>";
+    
+    my $xml2 = $parser->parse_string( $runtime );
+    
+    my $node2 = $flow->{ DOC }->importNode($xml2->documentElement());
+    $flow->{ ROOT }->appendChild($node2);
+}

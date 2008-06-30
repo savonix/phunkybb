@@ -23,7 +23,5 @@ Fifth Floor, Boston, MA 02110-1301  USA
 =cut
 
 $auth =  Apache2::Aortica::Kernel::Auth->new();
-$roles = {
-    'null' => 1,
-};
-$auth->register_user($roles);
+
+$auth->remove_user();
