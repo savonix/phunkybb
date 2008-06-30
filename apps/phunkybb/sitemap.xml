@@ -94,19 +94,19 @@
         <map:query src="data/sql/user_login.xml"/>
         <map:if name="/_R_/user_login/user_login">
             <map:true>
-                <map:query src="data/sql/user_last_visit_update.xml"/>
                 <map:script src="lib/php/sessions.php"/>
                 <map:perl src="lib/perl/login.pl"/>
+                <map:xsl src="templates/xml/success.xml.xsl"/>
             </map:true>
             <map:false>
+              <map:xsl src="templates/xml/error.xml.xsl"/>
             </map:false>
         </map:if>
-          <map:perl src="lib/perl/login.pl"/>
     </map:gate>
     <map:gate name="logout">
         <map:perl src="lib/perl/logout.pl"/>
         <map:script src="lib/php/logout.php"/>
-        <map:action type="redirect" params="{/_R_/runtime/link_prefix}"/>
+        <map:action type="redirect" params="{//link_prefix}index{//barf}"/>
     </map:gate>
 
     <map:gate name="redirect2">
