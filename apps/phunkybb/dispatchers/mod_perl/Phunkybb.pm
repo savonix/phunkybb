@@ -40,6 +40,7 @@ sub handler {
     my $nid = $req->param('nid');
     my $duration = undef;
     my $output = undef;
+    my $gate_content_type = undef;
 
     # Create Gatekeeper
     my $init = Apache2::Aortica::Kernel::Init->instance();
@@ -53,7 +54,7 @@ sub handler {
     $duration = $init->stop();
     $duration = sprintf("%.3f", $duration);
     {
-        if ( my $gate_content_type = $init->{ GATE }->{ $nid }->{ CONTENT_TYPE } ) {
+        if ( $gate_content_type = $init->{ GATE }->{ $nid }->{ CONTENT_TYPE } ) {
             # Memory leak???
             #unless($gate_content_type eq 'text/html') {
             $r->content_type($gate_content_type);
@@ -91,8 +92,9 @@ sub handler {
 
 
 
-
-    $output .= $duration.$memory;
+    unless ( $gate_content_type eq "text/xml") { 
+        $output .= $duration.$memory;
+    }
     #my $length = length($output);
     #$r->set_content_length($length);
     my $mtime = time();
