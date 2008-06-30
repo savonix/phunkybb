@@ -95,6 +95,7 @@
             <map:true>
                 <map:query src="data/sql/user_last_visit_update.xml"/>
                 <map:script src="lib/php/sessions.php"/>
+                <map:perl src="lib/perl/login.pl"/>
             </map:true>
             <map:false>
             </map:false>
