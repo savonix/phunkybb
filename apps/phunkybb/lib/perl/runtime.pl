@@ -53,6 +53,8 @@ $username = $auth_info->{username};
 if ($username) {
     my $runtime = "
     <runtime>
+        <link_prefix>/aortica?nid=</link_prefix>
+        <path_prefix>/a/dev/phunkybb/</path_prefix>
         <user_id>1</user_id>
         <group_id>1</group_id>
         <username>$username</username>
