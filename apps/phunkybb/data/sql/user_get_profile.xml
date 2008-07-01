@@ -22,10 +22,6 @@ or write to the Free Software Foundation,Inc., 51 Franklin Street,
 Fifth Floor, Boston, MA 02110-1301  USA
 -->
 <!DOCTYPE query SYSTEM "__default_table_names__.txt">
-<!-- 
-This is a little more complex so that admin and regular users
-both use the same profile query.
--->
 <query name="user_get_profile">
     <connection>&connection_read;</connection>
     <params>
@@ -42,7 +38,7 @@ both use the same profile query.
         FROM &prefix;users 
         WHERE
         (username=?
-        AND ? &lt; 0)
+        AND ? = -1)
         OR
         (id=?
         AND 
