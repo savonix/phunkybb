@@ -34,6 +34,16 @@ except ImportError:
 libxml2.initParser()
 
 
+
+# What about the app config?
+# "/var/www/dev/phunkybb/apps/phunkybb/config/config.xml"
+# These shouldn't be in here anyway.
+#config = etree.parse("/var/www/dev/phunkybb/config/config.xml").getroot()
+#config_list = []
+#environ['SCRIPT_NAME'] = posixpath.dirname(environ['SCRIPT_NAME'])
+
+
+
 thexsl   = XslHandler()
 thexml   = XmlHandler()
 thequery = Query()
@@ -60,7 +70,7 @@ def phunky_app(environ, start_response):
     qs_dict = cgi.parse_qs(environ["QUERY_STRING"], \
         keep_blank_values = True, strict_parsing = False)
 
-    theflow.start(qs_dict)
+    theflow.start(qs_dict,environ)
 
     mynid = qs_dict.get('nid','index')[0]
 
@@ -86,7 +96,8 @@ application = SessionMiddleware(phunky_app, type='memory', data_dir='/tmp/')
 
 
 """
-Example conf:
+# Example conf:
+# SetEnv demo.templates /usr/local/wsgi/templates
 <IfModule mod_wsgi.c>
     WSGIScriptAlias /schematronic /var/www/dev/phunkybb/apps/phunkybb/dispatchers/wsgi/phunkybb.wsgi
     WSGIProcessGroup schematronic
