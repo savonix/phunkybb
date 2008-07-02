@@ -49,8 +49,10 @@ Fifth Floor, Boston, MA 02110-1301  USA
         </a>&#160;
       </li>
       <li>
-        &gt; &#160;<xsl:value-of
-          select="/_R_/forum_get_by_id/forum_get_by_id/forum_name"/>
+        &gt; &#160;
+        <a href="{$link_prefix}forum&amp;fid={/_R_/_get/fid}">
+          <xsl:value-of select="/_R_/forum_get_by_id/forum_get_by_id/forum_name"/>
+        </a>
       </li>
     </ul>
 	</div>
@@ -142,7 +144,10 @@ Fifth Floor, Boston, MA 02110-1301  USA
         </a>&#160;
       </li>
       <li>
-        &gt; &#160;<xsl:value-of select="/_R_/forum_get_by_id/forum_get_by_id/forum_name"/>
+        &gt; &#160;
+        <a href="{$link_prefix}forum&amp;fid={/_R_/_get/fid}">
+          <xsl:value-of select="/_R_/forum_get_by_id/forum_get_by_id/forum_name"/>
+        </a>
       </li>
     </ul>
   </div>

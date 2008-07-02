@@ -87,10 +87,12 @@ function delete_topic(topic_id) {
         <a href="{$link_prefix}forum&amp;fid={/_R_/_get/fid}">
           <xsl:value-of select="/_R_/forum_get_by_id/forum_get_by_id/forum_name"/>
         </a>
-        <a href="{$link_prefix}forum&amp;id={/_R_/_get/id}"></a>
       </li>
       <li>
-        &#160; &gt; &#160;<xsl:value-of select="/_R_/topic_get_by_id/topic_get_by_id/subject"/>
+        &#160; &gt; &#160;
+        <a href="{$link_prefix}topic&amp;fid={/_R_/_get/fid}&amp;id={/_R_/_get/id}">
+          <xsl:value-of select="/_R_/topic_get_by_id/topic_get_by_id/subject"/>
+        </a>
       </li>
     </ul>
     <p class="postlink conl">

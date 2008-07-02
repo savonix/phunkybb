@@ -6,8 +6,6 @@ use DateTime;
 
 
 my $tree = Apache2::Directive::conftree();
-#my $srv_node = $tree->as_hash();
-#my $srv_cfg = $srv_node->{ AorticaServerConfigFile };
 my $srv_cfg = $tree->lookup('AorticaServerConfigFile');
 
 my $app_node = $tree->lookup('Location', '/aortica');
@@ -92,11 +90,11 @@ sub handler {
 
 
 
-    unless ( $gate_content_type eq "text/xml") { 
+    unless ( $gate_content_type eq "text/xml") {
         $output .= $duration.$memory;
     }
-    #my $length = length($output);
-    #$r->set_content_length($length);
+    my $length = length($output);
+    $r->set_content_length($length);
     my $mtime = time();
     $r->set_last_modified($mtime);
     $r->print($output);
