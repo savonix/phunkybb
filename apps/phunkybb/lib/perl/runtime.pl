@@ -32,8 +32,6 @@ my $config  = Apache2::Aortica::Kernel::Config->instance();
 
 my $defaults = $config->{ CONFIG }->{ defaults };
 
-$defaults->{link_prefix} = '/aortica?nid=';
-$defaults->{path_prefix} = '/a/dev/phunkybb/';
 
 my $xml_str = XMLout($defaults, 'RootName' => 'defaults', 'NoAttr' => 1 );
 
@@ -51,20 +49,30 @@ my $auth = Apache2::Aortica::Kernel::Auth->new();
 
 $auth_info = $auth->check_status();
 $username = $auth_info->{username};
+my $runtime;
+my $link_prefix = '/aortica?nid=';
+my $path_prefix = '/a/dev/phunkybb/';
 
 #print(Dumper($auth_info));
 if ($username) {
-    my $runtime = "
+    $runtime = "
     <runtime>
-        <link_prefix>/aortica?nid=</link_prefix>
-        <path_prefix>/a/dev/phunkybb/</path_prefix>
+        <link_prefix>$link_prefix</link_prefix>
+        <path_prefix>$path_prefix</path_prefix>
         <user_id>1</user_id>
         <group_id>1</group_id>
         <username>$username</username>
     </runtime>";
-    
-    my $xml2 = $parser->parse_string( $runtime );
-    
-    my $node2 = $flow->{ DOC }->importNode($xml2->documentElement());
-    $flow->{ ROOT }->appendChild($node2);
+} else {
+    $runtime = "
+    <runtime>
+        <link_prefix>$link_prefix</link_prefix>
+        <path_prefix>$path_prefix</path_prefix>
+    </runtime>";
 }
+
+my $xml2 = $parser->parse_string( $runtime );
+
+my $node2 = $flow->{ DOC }->importNode($xml2->documentElement());
+$flow->{ ROOT }->appendChild($node2);
+
