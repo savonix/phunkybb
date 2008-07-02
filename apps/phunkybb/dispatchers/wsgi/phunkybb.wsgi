@@ -42,8 +42,6 @@ libxml2.initParser()
 #config_list = []
 #environ['SCRIPT_NAME'] = posixpath.dirname(environ['SCRIPT_NAME'])
 
-
-
 thexsl   = XslHandler()
 thexml   = XmlHandler()
 thequery = Query()
@@ -62,6 +60,11 @@ def _application(environ, start_response):
 
 
 def phunky_app(environ, start_response):
+
+    server_config = environ['server_config']
+    app_config    = environ['app_config']
+    myconfig = Config(server_config, app_config)
+    config = myconfig.getConfig()
 
     myinit.start(environ)
 
