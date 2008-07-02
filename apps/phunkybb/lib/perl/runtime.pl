@@ -32,6 +32,9 @@ my $config  = Apache2::Aortica::Kernel::Config->instance();
 
 my $defaults = $config->{ CONFIG }->{ defaults };
 
+$defaults->{link_prefix} = '/aortica?nid=';
+$defaults->{path_prefix} = '/a/dev/phunkybb/';
+
 my $xml_str = XMLout($defaults, 'RootName' => 'defaults', 'NoAttr' => 1 );
 
 my $xml = $parser->parse_string( $xml_str );
