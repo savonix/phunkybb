@@ -6,23 +6,25 @@ use DateTime;
 
 
 my $tree = Apache2::Directive::conftree();
-my $srv_cfg = $tree->lookup('AorticaServerConfigFile');
 
 my $app_node = $tree->lookup('Location', '/aortica');
 my $app_cfg = $app_node->{ AppConfigFile };
+my $srv_cfg = $app_node->{ AorticaServerConfigFile };
 our $doc;
 
 
 
 
 # Create config
-my $config = Apache2::Aortica::Kernel::Config->instance($srv_cfg, $app_cfg);
+my $config = Apache2::Aortica::Kernel::Config->instance();
+$config->configure($srv_cfg, $app_cfg, 'phunkybb');
 
 # Create fence
-my $fence_file = $config->{ CONFIG }->{build}->{sitemap};
-Apache2::Aortica::Kernel::Fence->instance($fence_file);
+my $fence_file = $config->{ CONFIG }->{ phunkybb }->{build}->{sitemap};
+my $fence = Apache2::Aortica::Kernel::Fence->instance();
+$fence->set_fence($fence_file, 'phunkybb');
 
-Apache2::Aortica::Kernel::Init->instance();
+Apache2::Aortica::Kernel::Init->instance('phunkybb');
 
 
 sub handler {
@@ -52,7 +54,7 @@ sub handler {
     $duration = $init->stop();
     $duration = sprintf("%.3f", $duration);
     {
-        if ( $gate_content_type = $init->{ GATE }->{ $nid }->{ CONTENT_TYPE } ) {
+        if ( $gate_content_type = $init->{ phunkybb }->{ GATE }->{ $nid }->{ CONTENT_TYPE } ) {
             # Memory leak???
             #unless($gate_content_type eq 'text/html') {
             $r->content_type($gate_content_type);
