@@ -3,7 +3,7 @@ use Apache2::Aortica::Aortica ();
 use strict;
 use Data::Dumper;
 use DateTime;
-
+use Digest::MD5 qw(md5 md5_hex md5_base64);
 
 my $tree = Apache2::Directive::conftree();
 
@@ -29,6 +29,11 @@ Apache2::Aortica::Modules::Handlers::QueryHandler->instance('phunkybb');
 Apache2::Aortica::Modules::Handlers::XmlHandler->instance('phunkybb');
 Apache2::Aortica::Modules::Handlers::XslHandler->instance('phunkybb');
 
+use Cache::MemoryCache;
+
+my $cache = new Cache::MemoryCache( { 'namespace' => 'MyNamespace',
+                                    'default_expires_in' => 600 } );
+
 sub handler {
 
     #$| = 1;
@@ -46,30 +51,36 @@ sub handler {
 
     # Create Gatekeeper
     my $init = Apache2::Aortica::Kernel::Init->instance('phunkybb');
-
-
+    my @params = $req->param();
+    my $params = join('', @params);
+    $params = md5_base64($params);
+    my $key = $nid.$params;
     $init->start();
-    my $dbh = Apache2::Aortica::Modules::DataSources::DBIDataSource->instance();
-    $output = $init->process_gate($nid);
 
+    my $output = $cache->get( $key );
+
+    if ( not defined $output ) {
+
+        my $dbh = Apache2::Aortica::Modules::DataSources::DBIDataSource->instance();
+        $output = $init->process_gate($nid);
+
+        if( $req->param('view_flow') eq "true") {
+            # Maybe create flow dom document, but populate it and flush it for each request
+            my $flow = Apache2::Aortica::Kernel::Flow->instance();
+            $doc  = $flow->{ DOC };
+            $output .= '<textarea rows="20" style="width: 100%">'.$flow->{ DOC }->toString.'</textarea>';
+        }
+        $cache->set( $key, $output, "10 minutes" );
+    }
 
     $duration = $init->stop();
     $duration = sprintf("%.3f", $duration);
     {
         if ( $gate_content_type = $init->{ phunkybb }->{ GATE }->{ $nid }->{ CONTENT_TYPE } ) {
-            # Memory leak???
-            #unless($gate_content_type eq 'text/html') {
             $r->content_type($gate_content_type);
-            #}
         }
     }
 
-    if( $req->param('view_flow') eq "true") {
-        # Maybe create flow dom document, but populate it and flush it for each request
-        my $flow = Apache2::Aortica::Kernel::Flow->instance();
-        $doc  = $flow->{ DOC };
-        $output .= '<textarea rows="20" style="width: 100%">'.$flow->{ DOC }->toString.'</textarea>';
-    }
     my $mem = GTop->new->proc_mem($$)->share/1024;
     my $proc_mem = GTop->new->proc_mem($$)->size/1024;
     my $diff     = $proc_mem - $mem;
