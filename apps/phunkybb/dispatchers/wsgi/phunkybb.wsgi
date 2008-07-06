@@ -7,26 +7,31 @@ License: Affero GPL v3 or later
 """
 import cgi
 from time import gmtime, strftime
-from StringIO import StringIO
+from cStringIO import StringIO
 import time
 import os
 import libxml2
 from beaker.middleware import SessionMiddleware
+from beaker.middleware import CacheMiddleware
 
 # Import classes
-from schematronic import Singleton as Singleton
 from schematronic.kernel.flow import Flow
 from schematronic.kernel.initializer import Initializer
 from schematronic.kernel.config import Config
 from schematronic.kernel.fence import Fence
-from schematronic.modules.handlers.xsl import XslHandler
-from schematronic.modules.handlers.xml import XmlHandler
-from schematronic.modules.handlers.query import Query
-import schematronic.kernel.flow
+
+from schematronic.modules.handlers.xsl_pyx import XslHandler
+from schematronic.modules.handlers.xml_pyx import XmlHandler
+from schematronic.modules.handlers.query_pyx import Query
+
+
+#from schematronic.modules.handlers.xsl import XslHandler
+#from schematronic.modules.handlers.xml import XmlHandler
+#from schematronic.modules.handlers.query import Query
+
 try:
     import psyco
-    psyco.log(logfile='/tmp/schematronic.log')
-    psyco.full(memory=10)
+    psyco.full(memory=100)
 
 except ImportError:
     pass
@@ -47,8 +52,8 @@ thexml   = XmlHandler()
 thequery = Query()
 myinit   = Initializer(thexsl,thexml,thequery)
 
-import hotshot
-prof = hotshot.Profile("/tmp/schema.log")
+#import hotshot
+#prof = hotshot.Profile("/tmp/schema.log")
 
 
 def _application(environ, start_response):
@@ -60,6 +65,7 @@ def _application(environ, start_response):
 
 
 def phunky_app(environ, start_response):
+    
 
     server_config = environ['server_config']
     app_config    = environ['app_config']
@@ -77,16 +83,24 @@ def phunky_app(environ, start_response):
 
     mynid = qs_dict.get('nid','index')[0]
 
-    myinit.process_gate(mynid)
-
-    output = myinit.display()
+    cache = environ['beaker.cache'].get_cache(mynid)
+    try:
+        output = cache.get_value('value') + '<!-- cached -->'
+        content_type = cache.get_value('content_type')
+        cache_control = cache.get_value('cache_control')
+    except KeyError:
+        myinit.process_gate(mynid)
+        output = myinit.display()
+        content_type  = myinit.content_type
+        cache_control = myinit.cache_control
+        cache.set_value('value', output)
+        cache.set_value('content_type', content_type)
+        cache.set_value('cache_control', cache_control)
 
     if(qs_dict.get('view_flow','none')[0] == "true"):
         flowdump = theflow.toXml()
         output = output + "<textarea rows='14' cols='200'>"+flowdump+"</textarea>"
 
-    content_type  = myinit.content_type
-    cache_control = myinit.cache_control
 
     """Simplest possible application object"""
     status = '200 OK'
@@ -94,8 +108,14 @@ def phunky_app(environ, start_response):
     start_response(status, response_headers)
     return output
 
-    
-application = SessionMiddleware(phunky_app, type='memory', data_dir='/tmp/')
+
+app_session = SessionMiddleware(phunky_app, type='memory', data_dir='/tmp/')
+
+
+
+
+
+application = CacheMiddleware(app_session, type='dbm', data_dir='/tmp/cache')
 
 
 """
