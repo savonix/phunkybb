@@ -65,30 +65,37 @@ def _application(environ, start_response):
 
 
 def phunky_app(environ, start_response):
-    
-
-    server_config = environ['server_config']
-    app_config    = environ['app_config']
-    myconfig = Config(server_config, app_config)
-    config = myconfig.getConfig()
 
     myinit.start(environ)
 
-    theflow = Flow()
-
-    qs_dict = cgi.parse_qs(environ["QUERY_STRING"], \
+    qs_dict = cgi.parse_qs(environ['QUERY_STRING'], \
         keep_blank_values = True, strict_parsing = False)
 
-    theflow.start(qs_dict,environ)
-
     mynid = qs_dict.get('nid','index')[0]
+    
+    my_cache_key = mynid + environ["QUERY_STRING"]
+    cache = environ['beaker.cache'].get_cache(my_cache_key)
 
-    cache = environ['beaker.cache'].get_cache(mynid)
+    if( 'POST' in environ ):
+        cache.clear()
+
     try:
-        output = cache.get_value('value') + '<!-- cached -->'
+        output = cache.get_value('value')
+        duration = myinit.stop()
+        output += '-- Beaker Cached ' + `duration`
         content_type = cache.get_value('content_type')
         cache_control = cache.get_value('cache_control')
+
     except KeyError:
+        server_config = environ['server_config']
+        app_config    = environ['app_config']
+        myconfig = Config(server_config, app_config)
+        config = myconfig.getConfig()
+
+        theflow = Flow()
+
+        theflow.start(qs_dict,environ)
+
         myinit.process_gate(mynid)
         output = myinit.display()
         content_type  = myinit.content_type
@@ -115,7 +122,7 @@ app_session = SessionMiddleware(phunky_app, type='memory', data_dir='/tmp/')
 
 
 
-application = CacheMiddleware(app_session, type='dbm', data_dir='/tmp/cache')
+application = CacheMiddleware(app_session, type='memory', data_dir='/tmp/cache')
 
 
 """
