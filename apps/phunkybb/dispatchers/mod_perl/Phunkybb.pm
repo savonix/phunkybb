@@ -3,6 +3,7 @@ use Apache2::Aortica::Aortica ();
 use strict;
 use Data::Dumper;
 use DateTime;
+use Cache::MemoryCache;
 use Digest::MD5 qw(md5 md5_hex md5_base64);
 
 my $tree = Apache2::Directive::conftree();
@@ -29,7 +30,7 @@ Apache2::Aortica::Modules::Handlers::QueryHandler->instance('phunkybb');
 Apache2::Aortica::Modules::Handlers::XmlHandler->instance('phunkybb');
 Apache2::Aortica::Modules::Handlers::XslHandler->instance('phunkybb');
 
-use Cache::MemoryCache;
+
 
 my $cache = new Cache::MemoryCache( { 'namespace' => 'MyNamespace',
                                     'default_expires_in' => 600 } );
@@ -51,10 +52,8 @@ sub handler {
 
     # Create Gatekeeper
     my $init = Apache2::Aortica::Kernel::Init->instance('phunkybb');
-    my @params = $req->param();
-    my $params = join('', @params);
-    $params = md5_base64($params);
-    my $key = $nid.$params;
+    my $uri = md5_base64($ENV{'REQUEST_URI'});
+    my $key = $nid.$uri;
     $init->start();
 
     my $output = $cache->get( $key );
@@ -71,6 +70,10 @@ sub handler {
             $output .= '<textarea rows="20" style="width: 100%">'.$flow->{ DOC }->toString.'</textarea>';
         }
         $cache->set( $key, $output, "10 minutes" );
+    } else {
+        if($ENV{'REQUEST_METHOD'} eq 'POST') {
+            $cache->clear();
+        }
     }
 
     $duration = $init->stop();
