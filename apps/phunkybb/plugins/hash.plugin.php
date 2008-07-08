@@ -43,7 +43,7 @@ class Nexista_HashAction extends Nexista_Action
      */
 
     protected  function main()
-    {   
+    {
         // http://www.php.net/manual/en/function.crypt.php
 		$pwd = Nexista_Flow::find($this->params['pwd']);
         $hash_type = $this->params['hash_type'];

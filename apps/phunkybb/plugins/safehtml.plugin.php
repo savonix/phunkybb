@@ -29,7 +29,7 @@ class Nexista_SafehtmlAction extends Nexista_Action
      */
 
     protected  $params = array(
-        'text' => '', //text to parse
+        'text' => '', //text node to parse
         'name' => '' //name of new flow node
         );
 
@@ -41,13 +41,18 @@ class Nexista_SafehtmlAction extends Nexista_Action
      */
 
     protected  function main()
-    {   
+    {
         include('HTML/Safe.php');
 		$mytext = Nexista_Flow::getByPath($this->params['text']);
         $name = $this->params['name'];
         $parser =& new HTML_Safe();
         $new_text = $parser->parse($mytext);
-        Nexista_Flow::add($name, $new_text);
+        if(empty($name)) {
+            $node = Nexista_Flow::find($this->params['text']);
+            $node->item(0)->nodeValue = $new_text;
+        } else {
+            Nexista_Flow::add($name, $new_text);
+        }
         return true;
 
     }
