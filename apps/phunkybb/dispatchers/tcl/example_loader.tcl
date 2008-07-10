@@ -3,7 +3,6 @@
 set robo_path "/var/www/dev/robotizeme"
 
 source /var/www/dev/phunkybb/apps/phunkybb/dispatchers/tcl/phunkybb.tcl
-
 %>
 
 <%
