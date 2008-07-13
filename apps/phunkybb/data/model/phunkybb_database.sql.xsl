@@ -42,9 +42,24 @@ Fifth Floor, Boston, MA 02110-1301  USA
         <xsl:text> INTEGER PRIMARY KEY</xsl:text>
     </xsl:if>
     <xsl:if test="//engine='postgres'">
+        <xsl:text>integer</xsl:text>
+    </xsl:if>
+</xsl:variable>
+<xsl:variable name="engine_increment_start">
+    <xsl:if test="//engine='mysqli'">
+        <xsl:text>AUTO_INCREMENT=1</xsl:text>
+    </xsl:if>
+    <xsl:if test="//engine='sqlite'">
+        <xsl:text></xsl:text>
+    </xsl:if>
+    <xsl:if test="//engine='postgres'">
         <xsl:text></xsl:text>
     </xsl:if>
 </xsl:variable>
+
+
+
+
 <xsl:variable name="engine_auto_increment_b">
     <xsl:if test="//engine='mysqli'">
         <xsl:text>, PRIMARY KEY (category_id)</xsl:text>
@@ -54,9 +69,17 @@ Fifth Floor, Boston, MA 02110-1301  USA
     </xsl:if>
 </xsl:variable>
 
-<xsl:variable name="engine_definition">
+<xsl:variable name="innodb_engine">
     <xsl:if test="//engine='mysqli'">
-        <xsl:text>ENGINE=InnoDB DEFAULT CHARSET=latin1</xsl:text>
+        <xsl:text>ENGINE=InnoDB</xsl:text>
+    </xsl:if>
+    <xsl:if test="//engine='sqlite' or //engine='postgres'">
+        <xsl:text></xsl:text>
+    </xsl:if>
+</xsl:variable>
+<xsl:variable name="myisam_engine">
+    <xsl:if test="//engine='mysqli'">
+        <xsl:text>ENGINE=MyISAM</xsl:text>
     </xsl:if>
     <xsl:if test="//engine='sqlite' or //engine='postgres'">
         <xsl:text></xsl:text>
@@ -73,130 +96,138 @@ Fifth Floor, Boston, MA 02110-1301  USA
     </xsl:if>
 </xsl:variable>
 
+<xsl:variable name="integer">
+    <xsl:if test="//engine='sqlite' or //engine='mysqli'">
+        <xsl:text>int(10)</xsl:text>
+    </xsl:if>
+    <xsl:if test="//engine='postgres'">
+        <xsl:text>integer</xsl:text>
+    </xsl:if>
+</xsl:variable>
 
 CREATE TABLE <xsl:value-of select="$if_not_exists"/> <xsl:value-of select="//table_prefix"/>categories (
-  id int(10) unsigned NOT NULL auto_increment,
+  id <xsl:value-of select="$engine_auto_increment"/>,
   cat_name varchar(80) NOT NULL default 'New Category',
-  disp_position int(10) NOT NULL default '0',
+  disp_position <xsl:value-of select="$integer"/> NOT NULL default '0',
   PRIMARY KEY  (id)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) <xsl:value-of select="$innodb_engine"/> <xsl:value-of select="$engine_increment_start"/> ;
 
-CREATE TABLE IF NOT EXISTS <xsl:value-of select="//table_prefix"/>config (
+CREATE TABLE <xsl:value-of select="f_not_exists"/> <xsl:value-of select="//table_prefix"/>config (
   conf_name varchar(255) NOT NULL default '',
   conf_value text,
   PRIMARY KEY  (conf_name)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) <xsl:value-of select="$myisam_engine"/>;
 
 
-CREATE TABLE IF NOT EXISTS <xsl:value-of select="//table_prefix"/>forums (
-  id int(10) unsigned NOT NULL auto_increment,
+CREATE TABLE <xsl:value-of select="f_not_exists"/> <xsl:value-of select="//table_prefix"/>forums (
+  id <xsl:value-of select="$engine_auto_increment"/>,
   forum_name varchar(80) NOT NULL default 'New forum',
   forum_desc text,
   redirect_url varchar(100) default NULL,
   moderators text,
-  num_topics mediumint(8) unsigned NOT NULL default '0',
-  num_posts mediumint(8) unsigned NOT NULL default '0',
-  last_post int(10) unsigned default NULL,
-  last_post_id int(10) unsigned default NULL,
+  num_topics <xsl:value-of select="$integer"/> NOT NULL default '0',
+  num_posts <xsl:value-of select="$integer"/> NOT NULL default '0',
+  last_post <xsl:value-of select="$integer"/> default NULL,
+  last_post_id <xsl:value-of select="$integer"/> default NULL,
   last_poster varchar(200) default NULL,
-  sort_by tinyint(1) NOT NULL default '0',
-  disp_position int(10) NOT NULL default '0',
-  cat_id int(10) unsigned NOT NULL default '0',
-  PRIMARY KEY  (id),
-  KEY <xsl:value-of select="//table_prefix"/>forum_cat_id_idx (cat_id)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+  sort_by <xsl:value-of select="$integer"/> NOT NULL default '0',
+  disp_position <xsl:value-of select="$integer"/> NOT NULL default '0',
+  cat_id <xsl:value-of select="$integer"/> NOT NULL default '0',
+  PRIMARY KEY  (id)<xsl:if test="//engine='mysqli'">,
+  KEY <xsl:value-of select="//table_prefix"/>forum_cat_id_idx (cat_id)</xsl:if>
+) <xsl:value-of select="$innodb_engine"/> <xsl:value-of select="$engine_increment_start"/> ;
 
 
-CREATE TABLE IF NOT EXISTS <xsl:value-of select="//table_prefix"/>groups (
-  g_id int(10) unsigned NOT NULL auto_increment,
+CREATE TABLE <xsl:value-of select="f_not_exists"/> <xsl:value-of select="//table_prefix"/>groups (
+  g_id <xsl:value-of select="$engine_auto_increment"/>,
   g_title varchar(50) NOT NULL default '',
   g_user_title varchar(50) default NULL,
-  g_read_board tinyint(1) NOT NULL default '1',
-  g_post_replies tinyint(1) NOT NULL default '1',
-  g_post_topics tinyint(1) NOT NULL default '1',
-  g_post_polls tinyint(1) NOT NULL default '1',
-  g_edit_posts tinyint(1) NOT NULL default '1',
-  g_delete_posts tinyint(1) NOT NULL default '1',
-  g_delete_topics tinyint(1) NOT NULL default '1',
-  g_set_title tinyint(1) NOT NULL default '1',
-  g_search tinyint(1) NOT NULL default '1',
-  g_search_users tinyint(1) NOT NULL default '1',
-  g_edit_subjects_interval smallint(6) NOT NULL default '300',
-  g_post_flood smallint(6) NOT NULL default '30',
-  g_search_flood smallint(6) NOT NULL default '30',
+  g_read_board <xsl:value-of select="$integer"/> NOT NULL default '1',
+  g_post_replies <xsl:value-of select="$integer"/> NOT NULL default '1',
+  g_post_topics <xsl:value-of select="$integer"/> NOT NULL default '1',
+  g_post_polls <xsl:value-of select="$integer"/> NOT NULL default '1',
+  g_edit_posts <xsl:value-of select="$integer"/> NOT NULL default '1',
+  g_delete_posts <xsl:value-of select="$integer"/> NOT NULL default '1',
+  g_delete_topics <xsl:value-of select="$integer"/> NOT NULL default '1',
+  g_set_title <xsl:value-of select="$integer"/> NOT NULL default '1',
+  g_search <xsl:value-of select="$integer"/> NOT NULL default '1',
+  g_search_users <xsl:value-of select="$integer"/> NOT NULL default '1',
+  g_edit_subjects_interval <xsl:value-of select="$integer"/> NOT NULL default '300',
+  g_post_flood <xsl:value-of select="$integer"/> NOT NULL default '30',
+  g_search_flood <xsl:value-of select="$integer"/> NOT NULL default '30',
   PRIMARY KEY  (g_id)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) <xsl:value-of select="$myisam_engine"/>  <xsl:value-of select="$engine_increment_start"/> ;
 
 
 
-CREATE TABLE IF NOT EXISTS <xsl:value-of select="//table_prefix"/>posts (
-  id int(10) unsigned NOT NULL auto_increment,
+CREATE TABLE <xsl:value-of select="f_not_exists"/> <xsl:value-of select="//table_prefix"/>posts (
+  id <xsl:value-of select="$engine_auto_increment"/>,
   poster varchar(200) NOT NULL default '',
-  poster_id int(10) unsigned NOT NULL default '1',
+  poster_id int(10) NOT NULL default '1',
   poster_ip varchar(15) default NULL,
   poster_email varchar(50) default NULL,
   message text,
-  hide_smilies tinyint(1) NOT NULL default '0',
-  posted int(10) unsigned NOT NULL default '0',
-  edited int(10) unsigned default NULL,
+  hide_smilies <xsl:value-of select="$integer"/> NOT NULL default '0',
+  posted int(10) NOT NULL default '0',
+  edited int(10) default NULL,
   edited_by varchar(200) default NULL,
-  topic_id int(10) unsigned NOT NULL default '0',
+  topic_id int(10) NOT NULL default '0',
   PRIMARY KEY  (id),
   KEY <xsl:value-of select="//table_prefix"/>posts_topic_id_idx (topic_id),
   KEY <xsl:value-of select="//table_prefix"/>posts_multi_idx (poster_id,topic_id)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) <xsl:value-of select="$innodb_engine"/> <xsl:value-of select="$engine_increment_start"/> ;
 
 
-CREATE TABLE IF NOT EXISTS <xsl:value-of select="//table_prefix"/>subscriptions (
-  user_id int(10) unsigned NOT NULL default '0',
-  topic_id int(10) unsigned NOT NULL default '0',
+CREATE TABLE <xsl:value-of select="f_not_exists"/> <xsl:value-of select="//table_prefix"/>subscriptions (
+  user_id int(10) NOT NULL default '0',
+  topic_id int(10) NOT NULL default '0',
   PRIMARY KEY  (user_id,topic_id)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) <xsl:value-of select="$innodb_engine"/>;
 
 
-CREATE TABLE IF NOT EXISTS <xsl:value-of select="//table_prefix"/>topics (
-  id int(10) unsigned NOT NULL auto_increment,
+CREATE TABLE <xsl:value-of select="f_not_exists"/> <xsl:value-of select="//table_prefix"/>topics (
+  id <xsl:value-of select="$engine_auto_increment"/>,
   poster varchar(200) NOT NULL default '',
   subject varchar(255) NOT NULL default '',
-  posted int(10) unsigned NOT NULL default '0',
-  last_post int(10) unsigned NOT NULL default '0',
-  last_post_id int(10) unsigned NOT NULL default '0',
+  posted int(10) NOT NULL default '0',
+  last_post int(10) NOT NULL default '0',
+  last_post_id int(10) NOT NULL default '0',
   last_poster varchar(200) default NULL,
-  num_views mediumint(8) unsigned NOT NULL default '0',
-  num_replies mediumint(8) unsigned NOT NULL default '0',
-  closed tinyint(1) NOT NULL default '0',
-  sticky tinyint(1) NOT NULL default '0',
-  moved_to int(10) unsigned default NULL,
-  forum_id int(10) unsigned NOT NULL default '0',
+  num_views mediumint(8) NOT NULL default '0',
+  num_replies mediumint(8) NOT NULL default '0',
+  closed <xsl:value-of select="$integer"/> NOT NULL default '0',
+  sticky <xsl:value-of select="$integer"/> NOT NULL default '0',
+  moved_to int(10) default NULL,
+  forum_id int(10) NOT NULL default '0',
   PRIMARY KEY  (id),
   KEY <xsl:value-of select="//table_prefix"/>topics_forum_id_idx (forum_id),
   KEY <xsl:value-of select="//table_prefix"/>topics_moved_to_idx (moved_to)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) <xsl:value-of select="$innodb_engine"/> <xsl:value-of select="$engine_increment_start"/> ;
 
 
-CREATE TABLE IF NOT EXISTS <xsl:value-of select="//table_prefix"/>users (
-  id int(10) unsigned NOT NULL auto_increment,
-  group_id int(10) unsigned NOT NULL default '4',
+CREATE TABLE <xsl:value-of select="f_not_exists"/> <xsl:value-of select="//table_prefix"/>users (
+  id <xsl:value-of select="$engine_auto_increment"/>,
+  group_id int(10) NOT NULL default '4',
   username varchar(200) NOT NULL default '',
   password varchar(40) NOT NULL default '',
   email varchar(50) NOT NULL default '',
   url varchar(100) default NULL,
   location varchar(30) default NULL,
-  use_avatar tinyint(1) NOT NULL default '0',
+  use_avatar <xsl:value-of select="$integer"/> NOT NULL default '0',
   signature text,
-  email_setting tinyint(1) NOT NULL default '1',
-  num_posts int(10) unsigned NOT NULL default '0',
-  last_post int(10) unsigned default NULL,
-  registered int(10) unsigned NOT NULL default '0',
+  email_setting <xsl:value-of select="$integer"/> NOT NULL default '1',
+  num_posts int(10) NOT NULL default '0',
+  last_post int(10) default NULL,
+  registered int(10) NOT NULL default '0',
   registration_ip varchar(15) NOT NULL default '0.0.0.0',
-  last_visit int(10) unsigned NOT NULL default '0',
+  last_visit int(10) NOT NULL default '0',
   admin_note varchar(30) default NULL,
   activate_string varchar(50) default NULL,
   activate_key varchar(8) default NULL,
   PRIMARY KEY  (id),
   KEY <xsl:value-of select="//table_prefix"/>users_registered_idx (registered),
   KEY <xsl:value-of select="//table_prefix"/>users_username_idx (username(8))
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) <xsl:value-of select="$innodb_engine"/> <xsl:value-of select="$engine_increment_start"/> ;
 
 
 ALTER TABLE <xsl:value-of select="//table_prefix"/>forums
@@ -219,5 +250,15 @@ INSERT INTO <xsl:value-of select="//table_prefix"/>groups (g_id, g_title, g_user
 INSERT INTO <xsl:value-of select="//table_prefix"/>users (id, group_id, username, password, email,activate_key) VALUES
 (2, 1, '<xsl:value-of select="//admin"/>', '<xsl:value-of select="//password"/>', '<xsl:value-of select="//email"/>',"active");
 
+
+<!-- Extra -->
+<!--
+INSERT INTO wwwneofilmzcom_forums (id, forum_name, forum_desc, redirect_url, moderators, num_topics, num_posts, last_post, last_post_id, last_poster, sort_by, disp_position, cat_id) VALUES
+(1, 'test', NULL, NULL, NULL, 12, 19, 0, 0, 'admin', 0, 0, 1)
+
+
+INSERT INTO wwwneofilmzcom_categories (id, cat_name, disp_position) VALUES
+(1, 'one', 0),
+-->
 </xsl:template>
 </xsl:stylesheet>
