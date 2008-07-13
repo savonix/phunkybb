@@ -35,7 +35,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
     <xsl:with-param name="my18n" select="$my18n"/>
 </xsl:call-template>
 	<div class="blockform">
-		<h2><xsl:value-of select="//runtime/username"/></h2>
+		<h2><xsl:value-of select="/_R_/runtime/username"/></h2>
 		<div class="box">
 			<form id="profile7" method="post">
 				<div class="inform">
