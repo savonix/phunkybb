@@ -24,7 +24,6 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
   <xsl:template name="header">
     <xsl:param name="link_prefix"/>
-    
     <xsl:param name="path_prefix"/>
 
     <xsl:call-template name="source_spacer">
@@ -37,7 +36,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
           <div id="brdtitle" class="inbox">
             <h1>
               <a href="{$link_prefix}index">
-                <xsl:value-of select="//o_board_title"/>
+                <xsl:value-of select="/_R_/board_config/o_board_title"/>
               </a>
             </h1>
             <p>
