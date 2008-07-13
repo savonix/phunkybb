@@ -21,42 +21,55 @@ along with this program; if not, see http://www.gnu.org/licenses
 or write to the Free Software Foundation,Inc., 51 Franklin Street,
 Fifth Floor, Boston, MA 02110-1301  USA
 -->
-<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" >
-<xsl:include href="html_main.xsl"/>
-<xsl:include href="profile_menu.xsl"/>
-<xsl:template name="content">
-<xsl:param name="link_prefix"/>
-<xsl:param name="my18n"/>
-<div id="profile" class="block2col">
-<xsl:call-template name="profile-menu">
-    <xsl:with-param name="link_prefix">
-        <xsl:value-of select="$link_prefix"/>
-    </xsl:with-param>
-    <xsl:with-param name="my18n" select="$my18n"/>
-</xsl:call-template>
-	<div class="blockform">
-		<h2><xsl:value-of select="/_R_/runtime/username"/></h2>
-		<div class="box">
-			<form id="profile4" method="post">
-				<input type="hidden" name="form_sent" value="1"/>
-				<div class="inform">
-					<fieldset>
-						<legend>Compose your signature</legend>
-						<div class="infldset">
-							<p>A signature is a small piece of text that is attached to your posts.</p>
-							<div class="txtarea">
-								<label>Max length: 400 / Max lines: 4<br/>
-								<textarea name="signature" rows="4" cols="65"><xsl:value-of select="//user_get_profile/signature"/></textarea><br/></label>
-							</div>
-							<p><xsl:value-of select="/_R_/user_get_profile/signature" disable-output-escaping="yes"/></p>
-						</div>
-					</fieldset>
-				</div>
-				<p><input type="submit" name="update" value="Submit"/>When you update your profile, you will be redirected back to this page.</p>
-			</form>
-		</div>
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+  <xsl:include href="html_main.xsl"/>
+  <xsl:include href="profile_menu.xsl"/>
+  <xsl:template name="content">
+    <xsl:param name="link_prefix"/>
+    <xsl:param name="my18n"/>
+    <div id="profile" class="block2col">
+      <xsl:call-template name="profile-menu">
+        <xsl:with-param name="link_prefix">
+          <xsl:value-of select="$link_prefix"/>
+        </xsl:with-param>
+        <xsl:with-param name="my18n" select="$my18n"/>
+      </xsl:call-template>
+      <div class="blockform">
+        <h2>
+          <xsl:value-of select="/_R_/runtime/username"/>
+        </h2>
+        <div class="box">
+          <form id="profile4" method="post">
+            <input type="hidden" name="form_sent" value="1"/>
+            <div class="inform">
+              <fieldset>
+                <legend>Compose your signature</legend>
+                <div class="infldset">
+                  <p>A signature is a small piece of text that is attached to your posts.</p>
+                  <div class="txtarea">
+                    <label>Max length: 400 / Max lines: 4<br/>
+                      <textarea name="signature" rows="4" cols="65">
+                        <xsl:value-of select="//user_get_profile/signature"/>
+                      </textarea>
+                      <br/>
+                    </label>
+                  </div>
+                  <p>
+                    <xsl:value-of
+                        select="/_R_/user_get_profile/signature"
+                        disable-output-escaping="yes"/>
+                  </p>
+                </div>
+              </fieldset>
+            </div>
+            <p>
+              <input type="submit" name="update" value="Submit"/>
+              When you update your profile, you will be redirected back to this page.
+            </p>
+          </form>
+        </div>
+      </div>
     </div>
-</div>
 
-</xsl:template>
+  </xsl:template>
 </xsl:stylesheet>
