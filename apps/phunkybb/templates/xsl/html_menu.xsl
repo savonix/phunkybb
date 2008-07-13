@@ -37,25 +37,25 @@ Fifth Floor, Boston, MA 02110-1301  USA
         <xsl:for-each select="/_R_/board_config/navlinks">
         </xsl:for-each>
         <a href="{$link_prefix}index">
-            <xsl:value-of select="$my18n/index"/>
+            <xsl:value-of select="$my18n/i/index"/>
         </a>
 
         <xsl:choose>
           <xsl:when test="/_R_/runtime/username">
             <xsl:if test="/_R_/runtime/group_id='1'">
               <a href="{$link_prefix}admin">
-                <xsl:value-of select="$my18n/administration"/>
+                <xsl:value-of select="$my18n/a/administration"/>
               </a>
             </xsl:if>
             <a href="{$link_prefix}profile">Profile</a>
-            <a href="{$link_prefix}logout">Logout</a>
+            <a href="{$link_prefix}logout"><xsl:value-of select="$my18n/a/logout"/></a>
           </xsl:when>
           <xsl:otherwise>
             <a href="{$link_prefix}register">
-              <xsl:value-of select="$my18n/register"/>
+              <xsl:value-of select="$my18n/r/register"/>
             </a>
             <a href="{$link_prefix}login">
-              <xsl:value-of select="$my18n/login"/>
+              <xsl:value-of select="$my18n/l/login"/>
             </a>
           </xsl:otherwise>
         </xsl:choose>
