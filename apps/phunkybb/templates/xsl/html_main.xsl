@@ -33,6 +33,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
   <xsl:template name="main">
     <xsl:param name="link_prefix"/>
     <xsl:param name="path_prefix"/>
+    <xsl:param name="my18n"/>
 
     <xsl:call-template name="source_spacer">
       <xsl:with-param name="section_start">main</xsl:with-param>
@@ -46,6 +47,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
           <xsl:call-template name="header">
             <xsl:with-param name="link_prefix" select="$link_prefix"/>
             <xsl:with-param name="path_prefix" select="$path_prefix"/>
+            <xsl:with-param name="my18n" select="$my18n"/>
           </xsl:call-template>
 
           <xsl:call-template name="source_spacer">
@@ -55,6 +57,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
             <xsl:call-template name="content">
               <xsl:with-param name="link_prefix" select="$link_prefix"/>
               <xsl:with-param name="path_prefix" select="$path_prefix"/>
+              <xsl:with-param name="my18n" select="$my18n"/>
             </xsl:call-template>
           </div>
           <xsl:call-template name="source_spacer">

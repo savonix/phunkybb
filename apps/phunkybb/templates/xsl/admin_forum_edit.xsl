@@ -26,6 +26,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <xsl:include href="admin_menu.xsl"/>
 <xsl:template name="content">
 <xsl:param name="link_prefix"/>
+<xsl:param name="my18n"/>
 
 <div id="adminconsole" class="block2col">
 <xsl:call-template name="admin-menu">
@@ -36,7 +37,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 
 <div class="blockform">
     <h2 class="block2">
-        <xsl:value-of select="/_R_/i18n/edit_forum"/>
+        <xsl:value-of select="$my18n/e/edit_forum"/>
     </h2>
     <div class="box">
         <form id="edforum" method="post" action="{$link_prefix}forums">
@@ -45,16 +46,16 @@ Fifth Floor, Boston, MA 02110-1301  USA
             <xsl:variable name="my_cid"><xsl:value-of select="cid"/></xsl:variable>
             <div class="inform">
                 <fieldset>
-                    <legend><xsl:value-of select="/_R_/i18n/category"/>: <xsl:value-of select="cat_name"/></legend>
+                    <legend><xsl:value-of select="$my18n/c/category"/>: <xsl:value-of select="cat_name"/></legend>
                     <div class="infldset">
 
                         <table cellspacing="0" id="cat_table_{cid}">
                         <xsl:for-each select="/_R_/forums_get_all/forums_get_all[cid=$my_cid]">
                             <tr id="row_{fid}">
-                                <th><a href="{$link_prefix}forum-edit"><xsl:value-of select="/_R_/i18n/edit"/></a> - 
+                                <th><a href="{$link_prefix}forum-edit"><xsl:value-of select="$my18n/e/edit"/></a> - 
                                 <a href="{$link_prefix}forum-delete&amp;id={fid}" 
-                                onclick="delete_forum({fid},{cid}); return false;"><xsl:value-of select="/_R_/i18n/delete"/></a></th>
-                                <td><xsl:value-of select="/_R_/i18n/position"/><input type="text" name="position[3]" size="3" maxlength="3" value="0"/>
+                                onclick="delete_forum({fid},{cid}); return false;"><xsl:value-of select="$my18n/d/delete"/></a></th>
+                                <td><xsl:value-of select="$my18n/p/position"/><input type="text" name="position[3]" size="3" maxlength="3" value="0"/>
                                 &#160;<strong><xsl:value-of select="forum_name"/></strong></td>
                             </tr>
                         </xsl:for-each>

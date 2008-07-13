@@ -26,9 +26,8 @@ Fifth Floor, Boston, MA 02110-1301  USA
   <xsl:include href="admin_menu.xsl"/>
   <xsl:template name="content">
     <xsl:param name="link_prefix"/>
+    <xsl:param name="my18n"/>
 
-<!-- i18n prefix -->
-<xsl:variable name="my18n" select="/_R_/i18n"/>
 
 <script type="text/javascript">
 function category_delete(category_id) {
@@ -52,23 +51,23 @@ function category_delete(category_id) {
 
       <div class="blockform">
         <h2>
-          <xsl:value-of select="$my18n/add"/>/
-          <xsl:value-of select="$my18n/remove"/>/
-          <xsl:value-of select="$my18n/edit_categories"/>
+          <xsl:value-of select="$my18n/a/add"/>/
+          <xsl:value-of select="$my18n/r/remove"/>/
+          <xsl:value-of select="$my18n/e/edit_categories"/>
         </h2>
         <div class="box">
         <form method="post" class="inform">
             <fieldset>
               <legend>
-                <xsl:value-of select="$my18n/add"/>/
-                <xsl:value-of select="$my18n/delete_categories"/>
+                <xsl:value-of select="$my18n/a/add"/>/
+                <xsl:value-of select="$my18n/d/delete_categories"/>
               </legend>
               <div class="infldset">
                 <table class="aligntop" cellspacing="0">
                   <input type="hidden" name="action" value="add_cat"/>
                   <tr>
                     <th scope="row">
-                      <xsl:value-of select="$my18n/add_a_new_category"/>
+                      <xsl:value-of select="$my18n/a/add_a_new_category"/>
                       <div>
                         <input type="submit" name="add_cat" value="Add New"/>
                       </div>
@@ -76,11 +75,11 @@ function category_delete(category_id) {
                     <td>
                       <input type="text" name="new_cat_name" size="35"/>
                       <span>
-                        <xsl:value-of select="$my18n/name_of_new_category"/>
+                        <xsl:value-of select="$my18n/n/name_of_new_category"/>
                         <a href="{$link_prefix}forums">
-                          <xsl:value-of select="$my18n/forums"/>
+                          <xsl:value-of select="$my18n/f/forums"/>
                         </a>
-                        <xsl:value-of select="$my18n/to_add_forums"/>.
+                        <xsl:value-of select="$my18n/t/to_add_forums"/>.
                       </span>
                     </td>
                   </tr>
@@ -89,17 +88,17 @@ function category_delete(category_id) {
             </fieldset>
             <fieldset>
               <legend>
-                <xsl:value-of select="$my18n/edit_categories"/>
+                <xsl:value-of select="$my18n/e/edit_categories"/>
               </legend>
               <div class="infldset">
                 <table id="categoryedit" cellspacing="0">
                   <thead>
                     <tr>
                       <th class="tcl" scope="col">
-                        <xsl:value-of select="$my18n/name"/>
+                        <xsl:value-of select="$my18n/n/name"/>
                       </th>
                       <th scope="col">
-                        <xsl:value-of select="$my18n/position"/>
+                        <xsl:value-of select="$my18n/p/position"/>
                       </th>
                       <th>&#160;</th>
                     </tr>

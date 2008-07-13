@@ -13,10 +13,7 @@
                 <map:perl src="lib/perl/config_build.pl"/>
             </map:false>
         </map:if>
-        <map:set name="selected_lang" value="en_US"/>
         <map:script src="lib/php/runtime.php"/>
-        <map:xml src="data/xml/menu.xml"/>
-        <map:xml src="i18n/en_US/phunkybb.xml"/>
     </map:prepend>
 
 <!-- SESSIONS -->

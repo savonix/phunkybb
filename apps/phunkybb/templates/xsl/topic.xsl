@@ -26,6 +26,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <xsl:include href="prev_next.xsl"/>
 <xsl:template name="content">
 <xsl:param name="link_prefix"/>
+<xsl:param name="my18n"/>
 
 <script type="text/javascript">
 function delete_post(post_id) {
@@ -58,11 +59,11 @@ function delete_topic(topic_id) {
 <div class="linkst">
 	<div class="inbox">
 		<p class="pagelink conl">
-      <xsl:value-of select="/_R_/i18n/pages"/>:
+      <xsl:value-of select="$my18n/p/pages"/>:
       <strong>
         <xsl:value-of select="/_R_/posts_get_number_of_pages/posts_get_number_of_pages/pages"/>
       </strong>&#160;
-      <xsl:value-of select="/_R_/i18n/posts"/>:
+      <xsl:value-of select="$my18n/p/posts"/>:
       <strong>
         <xsl:value-of select="/_R_/posts_get_number_of_pages/posts_get_number_of_pages/count"/>
       </strong>
@@ -80,7 +81,7 @@ function delete_topic(topic_id) {
     <ul class="breadcrumbs">
       <li>
         <a href="{$link_prefix}index">
-          <xsl:value-of select="/_R_/i18n/index"/>
+          <xsl:value-of select="$my18n/i/index"/>
         </a>
       </li>
       <li>&#160; &gt; &#160;
@@ -149,10 +150,10 @@ function delete_topic(topic_id) {
         <div>
           <xsl:if test="//runtime/group_id=1 or poster=/_R_/runtime/username">
             <a href="{$link_prefix}post-edit&amp;post_id={id}&amp;fid={//_get/fid}&amp;tid={//_get/id}">
-              <xsl:value-of select="/_R_/i18n/edit"/></a>&#160;
+              <xsl:value-of select="$my18n/e/edit"/></a>&#160;
             <a href="{$link_prefix}x-post-delete&amp;post_id={id}"
               onclick="delete_post({id}); return false;">
-              <xsl:value-of select="/_R_/i18n/delete"/>
+              <xsl:value-of select="$my18n/d/delete"/>
             </a>
           </xsl:if>
         </div>
@@ -165,13 +166,13 @@ function delete_topic(topic_id) {
 <!-- Reply -->
 <xsl:if test="/_R_/runtime/username">
 <div class="blockform">
-	<h2><xsl:value-of select="/_R_/i18n/quick_post"/></h2>
+	<h2><xsl:value-of select="$my18n/q/quick_post"/></h2>
 	<div class="box">
 		<form method="post" action="{$link_prefix}post&amp;tid={/_R_/_get/id}">
 			<div class="inform">
 				<fieldset>
 					<legend>
-            <xsl:value-of select="/_R_/i18n/write_your_message"/>
+            <xsl:value-of select="$my18n/w/write_your_message"/>
           </legend>
 					<div class="infldset txtarea">
 						<input type="hidden" name="topic_id" value="{/_R_/_get/id}"/>

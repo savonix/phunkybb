@@ -25,9 +25,10 @@ Fifth Floor, Boston, MA 02110-1301  USA
   <xsl:include href="html_main.xsl"/>
   <xsl:template name="content">
     <xsl:param name="link_prefix"/>
+    <xsl:param name="my18n"/>
     <div class="blockform">
       <h2>
-        <xsl:value-of select="/_R_/i18n/post_new_topic"/>
+        <xsl:value-of select="$my18n/p/post_new_topic"/>
       </h2>
       <div class="box">
         <form id="post" method="post" action="{$link_prefix}topic-submit">
@@ -36,12 +37,12 @@ Fifth Floor, Boston, MA 02110-1301  USA
           <div class="inform">
             <fieldset>
               <legend>
-                <xsl:value-of select="/_R_/i18n/write_your_message"/>
+                <xsl:value-of select="$my18n/w/write_your_message"/>
               </legend>
               <div class="infldset txtarea">
                 <label>
                   <strong>
-                    <xsl:value-of select="/_R_/i18n/subject"/>
+                    <xsl:value-of select="$my18n/s/subject"/>
                   </strong>
                   <br/>
                   <input class="longinput" type="text" name="subject"/>
@@ -49,7 +50,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
                 </label>
                 <label>
                   <strong>
-                    <xsl:value-of select="/_R_/i18n/message"/>
+                    <xsl:value-of select="$my18n/m/message"/>
                   </strong>
                   <br/>
                   <textarea name="message" rows="20" cols="95"></textarea>
@@ -61,13 +62,13 @@ Fifth Floor, Boston, MA 02110-1301  USA
           <div class="inform">
             <fieldset>
               <legend>
-                <xsl:value-of select="/_R_/i18n/options"/>
+                <xsl:value-of select="$my18n/o/options"/>
               </legend>
               <div class="infldset">
                 <div class="rbox">
                   <label>
                     <input type="checkbox" name="subscribe" value="1"/>
-                    <xsl:value-of select="/_R_/i18n/subscribe"/>
+                    <xsl:value-of select="$my18n/s/subscribe"/>
                     <br/>
                   </label>
                 </div>
@@ -78,7 +79,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
             <input type="submit" name="submit" value="Submit"/>
             <input type="submit" name="preview" value="Preview"/>
             <a href="{$link_prefix}welcome" onclick="history.go(-1);">
-              <xsl:value-of select="/_R_/i18n/go_back"/>
+              <xsl:value-of select="$my18n/g/go_back"/>
             </a>
           </p>
         </form>

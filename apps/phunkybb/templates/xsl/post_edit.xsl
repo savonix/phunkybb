@@ -25,10 +25,11 @@ Fifth Floor, Boston, MA 02110-1301  USA
   <xsl:include href="html_main.xsl"/>
   <xsl:template name="content">
     <xsl:param name="link_prefix"/>
+    <xsl:param name="my18n"/>
 
     <div class="blockform">
       <h2>
-        <xsl:value-of select="/_R_/i18n/edit_post"/>
+        <xsl:value-of select="$my18n/e/edit_post"/>
       </h2>
       <div class="box">
         <form id="post" method="post">
@@ -38,12 +39,12 @@ Fifth Floor, Boston, MA 02110-1301  USA
           <div class="inform">
             <fieldset>
               <legend>
-                <xsl:value-of select="/_R_/i18n/write_your_message"/>
+                <xsl:value-of select="$my18n/w/write_your_message"/>
               </legend>
               <div class="infldset txtarea">
                 <label>
                   <strong>
-                    <xsl:value-of select="/_R_/i18n/message"/>
+                    <xsl:value-of select="$my18n/m/message"/>
                   </strong>
                   <br/>
                   <textarea name="message" rows="20" cols="95">
@@ -57,13 +58,13 @@ Fifth Floor, Boston, MA 02110-1301  USA
           <div class="inform">
             <fieldset>
               <legend>
-                <xsl:value-of select="/_R_/i18n/options"/>
+                <xsl:value-of select="$my18n/o/options"/>
               </legend>
               <div class="infldset">
                 <div class="rbox">
                   <label>
                     <input type="checkbox" name="subscribe" value="1"/>
-                    <xsl:value-of select="/_R_/i18n/subscribe"/>
+                    <xsl:value-of select="$my18n/s/subscribe"/>
                     <br/>
                   </label>
                 </div>
@@ -74,7 +75,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
             <input type="submit" name="submit" value="Submit"/>
             <input type="submit" name="preview" value="Preview"/>
             <a href="{$link_prefix}" onclick="history.go(-1);">
-              <xsl:value-of select="/_R_/i18n/go_back"/>
+              <xsl:value-of select="$my18n/g/go_back"/>
             </a>
           </p>
         </form>

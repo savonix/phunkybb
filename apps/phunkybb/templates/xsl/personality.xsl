@@ -26,11 +26,13 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <xsl:include href="profile_menu.xsl"/>
 <xsl:template name="content">
 <xsl:param name="link_prefix"/>
+<xsl:param name="my18n"/>
 <div id="profile" class="block2col">
 <xsl:call-template name="profile-menu">
     <xsl:with-param name="link_prefix">
         <xsl:value-of select="$link_prefix"/>
     </xsl:with-param>
+    <xsl:with-param name="my18n" select="$my18n"/>
 </xsl:call-template>
 	<div class="blockform">
 		<h2><xsl:value-of select="/_R_/runtime/username"/></h2>

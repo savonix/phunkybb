@@ -25,22 +25,23 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <xsl:include href="html_main.xsl"/>
 <xsl:template name="content">
 <xsl:param name="link_prefix"/>
+<xsl:param name="my18n"/>
 <div id="install" class="blockform">
 	<div class="block">
 		<h2 class="block2">
-      <xsl:value-of select="/_R_/i18n/install"/>
+      <xsl:value-of select="$my18n/i/install"/>
     </h2>
     <div class="box">
       <form id="profile1" method="post">
         <div class="inform">
           <fieldset>
             <legend>
-              <xsl:value-of select="/_R_/i18n/install"/>
+              <xsl:value-of select="$my18n/i/install"/>
             </legend>
             <div class="infldset">
               <label>
                 <strong>
-                  <xsl:value-of select="/_R_/i18n/username"/>
+                  <xsl:value-of select="$my18n/u/username"/>
                 </strong>
                 <br/>
                 <input type="text" name="req_username"

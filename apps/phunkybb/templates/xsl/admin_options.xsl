@@ -26,6 +26,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
   <xsl:include href="admin_menu.xsl"/>
   <xsl:template name="content">
     <xsl:param name="link_prefix"/>
+    <xsl:param name="my18n"/>
     <div id="adminconsole" class="block2col">
       <xsl:call-template name="admin-menu">
         <xsl:with-param name="link_prefix">
@@ -36,7 +37,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 
       <div class="blockform">
         <h2>
-          <xsl:value-of select="/_R_/i18n/options"/>
+          <xsl:value-of select="$my18n/o/options"/>
         </h2>
         <div class="box">
           <form method="post" action="{$link_prefix}options-submit">
@@ -46,30 +47,30 @@ Fifth Floor, Boston, MA 02110-1301  USA
             <div class="inform">
               <fieldset>
                 <legend>
-                  <xsl:value-of select="/_R_/i18n/essentials"/>
+                  <xsl:value-of select="$my18n/e/essentials"/>
                 </legend>
                 <div class="infldset">
                   <table class="aligntop" cellspacing="0">
                     <tr>
                       <th scope="row">
-                        <xsl:value-of select="/_R_/i18n/board_title"/>
+                        <xsl:value-of select="$my18n/b/board_title"/>
                       </th>
                       <td>
                         <input type="text" name="form[o_board_title]" value="{//board_config/o_board_title}"/>
-                        <xsl:value-of select="/_R_/i18n/title_of_buletine_board"/>
+                        <xsl:value-of select="$my18n/t/title_of_buletine_board"/>
                         <strong>
-                          <xsl:value-of select="/_R_/i18n/not"/>
+                          <xsl:value-of select="$my18n/n/not"/>
                         </strong>
-                        <xsl:value-of select="/_R_/i18n/contain_html"/>.
+                        <xsl:value-of select="$my18n/c/contain_html"/>.
                                 </td>
                     </tr>
                     <tr>
                       <th scope="row">
-                        <xsl:value-of select="/_R_/i18n/board_description"/>
+                        <xsl:value-of select="$my18n/b/board_description"/>
                       </th>
                       <td>
                         <input type="text" name="form[o_board_desc]" value="{//board_config/o_board_desc}"/>
-                        <xsl:value-of select="/_R_/i18n/short_description_of_this"/>.
+                        <xsl:value-of select="$my18n/s/short_description_of_this"/>.
                                 </td>
                     </tr>
                   </table>
@@ -79,32 +80,32 @@ Fifth Floor, Boston, MA 02110-1301  USA
             <div class="inform">
               <fieldset>
                 <legend>
-                  <xsl:value-of select="/_R_/i18n/email"/>
+                  <xsl:value-of select="$my18n/e/email"/>
                 </legend>
                 <div class="infldset">
                   <table class="aligntop" cellspacing="0">
                     <tr>
                       <th scope="row">
-                        <xsl:value-of select="/_R_/i18n/admin_email"/>
+                        <xsl:value-of select="$my18n/a/admin_email"/>
                       </th>
                       <td>
                         <input type="text" name="form[o_admin_email]" value="{//board_config/o_admin_email}"/>
-                        <xsl:value-of select="/_R_/i18n/email_of_forum_admin"/>.
+                        <xsl:value-of select="$my18n/e/email_of_forum_admin"/>.
                                 </td>
                     </tr>
                     <tr>
                       <th scope="row">
-                        <xsl:value-of select="/_R_/i18n/webmaster_email"/>
+                        <xsl:value-of select="$my18n/w/webmaster_email"/>
                       </th>
                       <td>
                         <input type="text" name="form[o_webmaster_email]" value="{//board_config/o_webmaster_email}"/>
                         <br/>
-                        <xsl:value-of select="/_R_/i18n/address_all_email_sent_from"/>.
+                        <xsl:value-of select="$my18n/a/address_all_email_sent_from"/>.
                                 </td>
                     </tr>
                     <tr>
                       <th scope="row">
-                        <xsl:value-of select="/_R_/i18n/subscriptions"/>
+                        <xsl:value-of select="$my18n/s/subscriptions"/>
                       </th>
                       <td>
                         <input type="radio" name="form[o_subscriptions]" value="yes">
@@ -121,34 +122,34 @@ Fifth Floor, Boston, MA 02110-1301  USA
                         </input>
                         <strong>No</strong>
                         <br/>
-                        <xsl:value-of select="/_R_/i18n/enable_users_to_subscribe"/>.
+                        <xsl:value-of select="$my18n/e/enable_users_to_subscribe"/>.
                                 </td>
                     </tr>
                     <tr>
                       <th scope="row">
-                        <xsl:value-of select="/_R_/i18n/smtp_server_address"/>
+                        <xsl:value-of select="$my18n/s/smtp_server_address"/>
                       </th>
                       <td>
                         <input type="text" name="form[o_smtp_host]" value="{//board_config/o_smtp_host}"/>
-                        <xsl:value-of select="/_R_/i18n/address_of_external_smtp"/>.
+                        <xsl:value-of select="$my18n/a/address_of_external_smtp"/>.
                                 </td>
                     </tr>
                     <tr>
                       <th scope="row">
-                        <xsl:value-of select="/_R_/i18n/smtp_username"/>
+                        <xsl:value-of select="$my18n/s/smtp_username"/>
                       </th>
                       <td>
                         <input type="text" name="form[o_smtp_user]" value="{//board_config/o_smtp_user}"/>
-                        <xsl:value-of select="/_R_/i18n/username_for_smtp_server"/>
+                        <xsl:value-of select="$my18n/u/username_for_smtp_server"/>
                       </td>
                     </tr>
                     <tr>
                       <th scope="row">
-                        <xsl:value-of select="/_R_/i18n/smtp_password"/>
+                        <xsl:value-of select="$my18n/s/smtp_password"/>
                       </th>
                       <td>
                         <input type="text" name="form[o_smtp_pass]" value="{//board_config/o_smtp_pass}"/>
-                        <xsl:value-of select="/_R_/i18n/password_for_smtp_server"/>
+                        <xsl:value-of select="$my18n/p/password_for_smtp_server"/>
                       </td>
                     </tr>
                   </table>
@@ -168,7 +169,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
                       </th>
                       <td>
                         <input type="text" name="form[o_board_theme]" value="{//board_config/o_board_theme}"/>
-                        <xsl:value-of select="/_R_/i18n/title_of_buletine_board"/>
+                        <xsl:value-of select="$my18n/t/title_of_buletine_board"/>
                       </td>
                     </tr>
                   </table>

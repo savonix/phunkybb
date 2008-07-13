@@ -25,6 +25,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
   <xsl:include href="html_main.xsl"/>
   <xsl:template name="content">
     <xsl:param name="link_prefix"/>
+    <xsl:param name="my18n"/>
     <script type="text/javascript" src="{/_R_/runtime/path_prefix}/s/js/rsa/jsbn.js"></script>
     <script type="text/javascript" src="{/_R_/runtime/path_prefix}/s/js/rsa/rsa.js"></script>
     <script type="text/javascript" src="{/_R_/runtime/path_prefix}/s/js/rsa/prng4.js"></script>
@@ -47,7 +48,7 @@ function do_encrypt() {
     $('span#login_button').removeClass("button-basic-blue");
     $('span#login_button').addClass("button-basic-green");
     $('span#replace').css("visibility","visible");
-    $('span#replace').html("<xsl:value-of select="/_R_/i18n/working"/>...");
+    $('span#replace').html("<xsl:value-of select="$my18n/w/working"/>...");
     
     if(validateStandard(this))
     {
@@ -68,7 +69,7 @@ function do_encrypt() {
             }
         });
     } else {
-        $('span#replace').html("<xsl:value-of select="/_R_/i18n/invalid_registration"/>");
+        $('span#replace').html("<xsl:value-of select="$my18n/i/invalid_registration"/>");
     }
 }
 </script>
@@ -76,7 +77,7 @@ function do_encrypt() {
     <div id="install" class="blockform">
       <div class="block">
         <h2 class="block2">
-          <xsl:value-of select="/_R_/i18n/change_password"/>
+          <xsl:value-of select="$my18n/c/change_password"/>
         </h2>
         <div class="box">
           <form id="password" name="password" method="post" onSubmit="do_encrypt(); return false;">
@@ -85,12 +86,12 @@ function do_encrypt() {
             <div class="inform">
               <fieldset>
                 <legend>
-                  <xsl:value-of select="/_R_/i18n/pass_legend_1"/>
+                  <xsl:value-of select="$my18n/p/pass_legend_1"/>
                 </legend>
                 <div class="infldset">
                   <label class="conl">
                     <strong>
-                      <xsl:value-of select="/_R_/i18n/password"/>
+                      <xsl:value-of select="$my18n/p/password"/>
                     </strong>
                     <br/>
                     <input type="password" name="password" size="16" maxlength="16"/>
@@ -98,14 +99,14 @@ function do_encrypt() {
                   </label>
                   <label class="conl">
                     <strong>
-                      <xsl:value-of select="/_R_/i18n/confirm_password"/>
+                      <xsl:value-of select="$my18n/c/confirm_password"/>
                     </strong>
                     <br/>
                     <input type="password" name="password2" size="16" maxlength="16"/>
                     <br/>
                   </label>
                   <p class="clearb">
-                    <xsl:value-of select="/_R_/i18n/pass_info"/>
+                    <xsl:value-of select="$my18n/p/pass_info"/>
                   </p>
                 </div>
               </fieldset>

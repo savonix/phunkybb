@@ -26,26 +26,27 @@ Fifth Floor, Boston, MA 02110-1301  USA
 
 <xsl:template name="content">
 <xsl:param name="link_prefix"/>
+<xsl:param name="my18n"/>
 
 <div class="linkst">
 	<div class="inbox">
     <p class="pagelink conl">
-      <xsl:value-of select="/_R_/i18n/pages"/>:
+      <xsl:value-of select="$my18n/p/pages"/>:
       <strong>
-        <xsl:value-of select="/_R_/forum_get_number_of_pages/pages"/>
+        <xsl:value-of select="/_R_/forum_get_number_of_pages/forum_get_number_of_pages/pages"/>
       </strong>
     </p>
     <xsl:if test="/_R_/runtime/username">
       <p class="postlink conr">
         <a href="{$link_prefix}post&amp;fid={/_R_/_get/fid}">
-          <xsl:value-of select="/_R_/i18n/post_new_topic"/>
+          <xsl:value-of select="$my18n/p/post_new_topic"/>
         </a>
       </p>
     </xsl:if>
     <ul class="breadcrumbs">
       <li>
         <a href="{$link_prefix}index">
-          <xsl:value-of select="/_R_/i18n/index"/>
+          <xsl:value-of select="$my18n/i/index"/>
         </a>&#160;
       </li>
       <li>
@@ -69,13 +70,13 @@ Fifth Floor, Boston, MA 02110-1301  USA
         <thead>
           <tr>
             <th class="tcl" scope="col">
-              <xsl:value-of select="/_R_/i18n/topic"/>
+              <xsl:value-of select="$my18n/t/topic"/>
             </th>
             <th class="tc2" scope="col">
-              <xsl:value-of select="/_R_/i18n/replies"/>
+              <xsl:value-of select="$my18n/r/replies"/>
             </th>
             <th class="tcr" scope="col">
-              <xsl:value-of select="/_R_/i18n/last_post"/>
+              <xsl:value-of select="$my18n/l/last_post"/>
             </th>
           </tr>
         </thead>
@@ -115,7 +116,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
           <xsl:if test="not(/_R_/topics_get_by_forum_id)">
             <tr>
               <td class="tcl" colspan="3">
-                <xsl:value-of select="/_R_/i18n/forum_is_empty"/>.
+                <xsl:value-of select="$my18n/f/forum_is_empty"/>.
               </td>
             </tr>
           </xsl:if>
@@ -127,20 +128,20 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <div class="linkst">
   <div class="inbox">
     <p class="pagelink conl">
-      <xsl:value-of select="/_R_/i18n/pages"/>:
+      <xsl:value-of select="$my18n/p/pages"/>:
       <strong>1</strong>
     </p>
     <xsl:if test="/_R_/runtime/username">
       <p class="postlink conr">
         <a href="{$link_prefix}post&amp;fid={/_R_/_get/fid}">
-          <xsl:value-of select="/_R_/i18n/post_new_topic"/>
+          <xsl:value-of select="$my18n/p/post_new_topic"/>
         </a>
       </p>
     </xsl:if>
     <ul class="breadcrumbs">
       <li>
         <a href="{$link_prefix}index">
-          <xsl:value-of select="/_R_/i18n/index"/>
+          <xsl:value-of select="$my18n/i/index"/>
         </a>&#160;
       </li>
       <li>

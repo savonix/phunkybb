@@ -25,7 +25,11 @@ Fifth Floor, Boston, MA 02110-1301  USA
   <xsl:include href="html_main.xsl"/>
   <xsl:template name="content">
     <xsl:param name="link_prefix"/>
-    <xsl:for-each select="/_R_/categories_get_all/categories_get_all[cid=/_R_/forums_get_all/forums_get_all/cid]">
+    <xsl:param name="my18n"/>
+    <xsl:variable name="myzz">
+        <xsl:value-of select="/_R_/forums_get_all/forums_get_all/cid"/>
+    </xsl:variable>
+    <xsl:for-each select="/_R_/categories_get_all/categories_get_all[cid=$myzz]">
       <xsl:variable name="my_cid">
         <xsl:value-of select="cid"/>
       </xsl:variable>
@@ -38,16 +42,16 @@ Fifth Floor, Boston, MA 02110-1301  USA
             <thead>
               <tr>
                 <th class="tcl" scope="col">
-                  <xsl:value-of select="/_R_/i18n/forums"/>
+                  <xsl:value-of select="$my18n/f/forums"/>
                 </th>
                 <th class="tc2" scope="col">
-                  <xsl:value-of select="/_R_/i18n/topics"/>
+                  <xsl:value-of select="$my18n/t/topics"/>
                 </th>
                 <th class="tc3" scope="col">
-                  <xsl:value-of select="/_R_/i18n/posts"/>
+                  <xsl:value-of select="$my18n/p/posts"/>
                 </th>
                 <th class="tcr" scope="col">
-                  <xsl:value-of select="/_R_/i18n/last_post"/>
+                  <xsl:value-of select="$my18n/l/last_post"/>
                 </th>
               </tr>
             </thead>

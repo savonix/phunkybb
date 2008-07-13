@@ -24,9 +24,9 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 <xsl:template name="menu">
   <xsl:param name="link_prefix"/>
+    <xsl:param name="my18n"/>
 
   <!-- i18n prefix -->
-  <xsl:variable name="my18n" select="/_R_/i18n"/>
 
     <xsl:call-template name="source_spacer">
         <xsl:with-param name="section_start">main_menu</xsl:with-param>
@@ -34,10 +34,8 @@ Fifth Floor, Boston, MA 02110-1301  USA
 
     <div id="main_menu">
       <div id="brdmenu" class="inbox">
-        <xsl:for-each select="/_R_/board_config/navlinks">
-        </xsl:for-each>
         <a href="{$link_prefix}index">
-            <xsl:value-of select="$my18n/i/index"/>
+              <xsl:value-of select="$my18n/i/index"/>
         </a>
 
         <xsl:choose>

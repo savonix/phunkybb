@@ -26,6 +26,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
   <xsl:template name="content">
     <xsl:param name="link_prefix"/>
     <xsl:param name="path_prefix"/>
+    <xsl:param name="my18n"/>
     <script type="text/javascript" src="{$path_prefix}/s/js/rsa/jsbn.js"></script>
     <script type="text/javascript" src="{$path_prefix}/s/js/rsa/rsa.js"></script>
     <script type="text/javascript" src="{$path_prefix}/s/js/rsa/prng4.js"></script>
@@ -35,7 +36,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 $(document).ready(function()
 {
     var myform = document.forms["mlogin"];
-    myform.id_rsa_pub.value = "<xsl:value-of select="//defaults/modulus"/>";
+    myform.id_rsa_pub.value = "<xsl:value-of select="/_R_/defaults/modulus"/>";
     myform.e.value = "10001";
     var d = new Date();
     myform.my_tz_offset.value = 0 - d.getTimezoneOffset()/60;
@@ -49,7 +50,7 @@ function do_encrypt() {
     $('span#login_button').removeClass("button-basic-blue");
     $('span#login_button').addClass("button-basic-green");
     $('span#replace').css("visibility","visible");
-    $('span#replace').html("<xsl:value-of select="/_R_/i18n/working"/>...");
+    $('span#replace').html("<xsl:value-of select="$my18n/w/working"/>...");
 
     var myform = document.forms["mlogin"];
     var rsa = new RSAKey();
@@ -73,7 +74,7 @@ function do_encrypt() {
 </script>
     <div class="blockform">
       <h2>
-        <xsl:value-of select="/_R_/i18n/login"/>
+        <xsl:value-of select="$my18n/l/login"/>
       </h2>
 
       <div class="box">
@@ -85,12 +86,12 @@ function do_encrypt() {
           <div class="inform">
             <fieldset>
               <legend>
-                <xsl:value-of select="/_R_/i18n/enter_username"/>
+                <xsl:value-of select="$my18n/l/login"/>
               </legend>
               <div class="infldset">
                 <label class="conl">
                   <strong>
-                    <xsl:value-of select="/_R_/i18n/username"/>
+                    <xsl:value-of select="$my18n/u/username"/>
                   </strong>
                   <br/>
                   <input type="text" name="username"/>
@@ -99,7 +100,7 @@ function do_encrypt() {
 
                 <label class="conl">
                   <strong>
-                    <xsl:value-of select="/_R_/i18n/password"/>
+                    <xsl:value-of select="$my18n/p/password"/>
                   </strong>
                   <br/>
                   <input type="password" name="password"/>
@@ -108,7 +109,7 @@ function do_encrypt() {
 
                 <p>
                   <a href="{$link_prefix}register">
-                    <xsl:value-of select="/_R_/i18n/not_registered_yet"/>?</a>
+                    <xsl:value-of select="$my18n/n/not_registered_yet"/>?</a>
                   <div style="visibility: hidden;" id="failure">
                     <a href="">Forgotten your password?</a>
                   </div>

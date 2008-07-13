@@ -24,12 +24,13 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 <xsl:template name="profile-menu">
 <xsl:param name="link_prefix"/>
+<xsl:param name="my18n"/>
   <xsl:variable name="my_user_id">
     <xsl:value-of select="/_R_/_get/user_id"/>
   </xsl:variable>
 	<div class="blockmenu">
     <h2>
-      <span><xsl:value-of select="/_R_/i18n/profile_menu"/></span>
+      <span><xsl:value-of select="$my18n/p/profile_menu"/></span>
     </h2>
     <div class="box">
 			<div class="inbox">

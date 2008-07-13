@@ -25,6 +25,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <xsl:template name="footer">
 <xsl:param name="link_prefix"/>
 <xsl:param name="path_prefix"/>
+<xsl:param name="my18n"/>
 
 <xsl:call-template name="source_spacer">
     <xsl:with-param name="section_start">footer</xsl:with-param>

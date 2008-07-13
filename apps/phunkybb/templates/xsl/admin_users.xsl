@@ -27,6 +27,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
   <xsl:include href="pager.xsl"/>
   <xsl:template name="content">
     <xsl:param name="link_prefix"/>
+    <xsl:param name="my18n"/>
     <xsl:call-template name="jquery-setup">
       <xsl:with-param name="my-table">users_table</xsl:with-param>
       <xsl:with-param name="no-sort-column">,
@@ -57,7 +58,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 
       <div class="blockform">
         <h2>
-          <xsl:value-of select="/_R_/i18n/users"/>
+          <xsl:value-of select="$my18n/u/users"/>
         </h2>
         <div class="box">
           <div style="min-height: 400px; padding: 1em;">
@@ -65,7 +66,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
               <thead>
                 <tr>
                   <th>
-                    <xsl:value-of select="/_R_/i18n/users"/>
+                    <xsl:value-of select="$my18n/u/users"/>
                   </th>
                   <th></th>
                   <th></th>

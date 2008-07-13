@@ -31,26 +31,27 @@ Fifth Floor, Boston, MA 02110-1301  USA
     <xsl:with-param name="link_prefix">
         <xsl:value-of select="$link_prefix"/>
     </xsl:with-param>
+    <xsl:with-param name="my18n" select="$my18n"/>
 </xsl:call-template>
 
 	<div class="block">
-		<h2 class="block2"><xsl:value-of select="/_R_/i18n/statistics"/></h2>
+		<h2 class="block2"><xsl:value-of select="$my18n/s/statistics"/></h2>
 		<div id="adstats" class="box">
 			<div class="inbox">
 				<dl>
-					<dt>PhunkyBB <xsl:value-of select="/_R_/i18n/version"/></dt>
+					<dt>PhunkyBB <xsl:value-of select="$my18n/v/version"/></dt>
 					<dd>
 						PhunkyBB 0.2<br/>
-            <xsl:value-of select="/_R_/i18n/copyright"/>
+            <xsl:value-of select="$my18n/c/copyright"/>
 					</dd>
-					<dt><xsl:value-of select="/_R_/i18n/enviornment"/></dt>
+					<dt><xsl:value-of select="$my18n/e/enviornment"/></dt>
 					<dd>
-						<xsl:value-of select="/_R_/i18n/operating_system"/>: <br/>
+						<xsl:value-of select="$my18n/o/operating_system"/>: <br/>
 						PHP: <br/>
-						<xsl:value-of select="/_R_/i18n/accelerator"/>: 
+						<xsl:value-of select="$my18n/a/accelerator"/>: 
             <a href="http://xcache.lighttpd.net/">XCache</a>
 					</dd>
-					<dt><xsl:value-of select="/_R_/i18n/database"/></dt>
+					<dt><xsl:value-of select="$my18n/d/database"/></dt>
 					<dd>
               MySQL
 					</dd>

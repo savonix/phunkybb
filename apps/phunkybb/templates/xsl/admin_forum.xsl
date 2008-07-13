@@ -26,10 +26,11 @@ Fifth Floor, Boston, MA 02110-1301  USA
   <xsl:include href="admin_menu.xsl"/>
   <xsl:template name="content">
     <xsl:param name="link_prefix"/>
+    <xsl:param name="my18n"/>
 
     <script type="text/javascript">
     function delete_forum(fid,cid) {
-        var question = '<xsl:value-of select="/_R_/i18n/delete_confirm"/>';
+        var question = '<xsl:value-of select="$my18n/d/delete_confirm"/>';
         if(confirm(question)) {
             $.post("<xsl:value-of select="$link_prefix"/>x-forum-delete&amp;id="+fid, {'id': fid},
             function (data){
@@ -49,20 +50,20 @@ Fifth Floor, Boston, MA 02110-1301  USA
 
       <div class="blockform">
         <h2>
-          <xsl:value-of select="/_R_/i18n/add_forum"/>
+          <xsl:value-of select="$my18n/a/add_forum"/>
         </h2>
         <div class="box">
           <form method="post" action="{$link_prefix}forums">
             <div class="inform">
               <fieldset>
                 <legend>
-                  <xsl:value-of select="/_R_/i18n/create_a_new_forum"/>
+                  <xsl:value-of select="$my18n/c/create_a_new_forum"/>
                 </legend>
                 <div class="infldset">
                   <table class="aligntop" cellspacing="0">
                     <tr>
                       <th scope="row">
-                        <xsl:value-of select="/_R_/i18n/add_forum_to_category"/>
+                        <xsl:value-of select="$my18n/a/add_forum_to_category"/>
                         <div>
                           <input type="submit" name="add_forum" value=" Add "/>
                         </div>
@@ -76,7 +77,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
                             </option>
                           </xsl:for-each>
                         </select>
-                        <xsl:value-of select="/_R_/i18n/select_a_category_to_add"/>.
+                        <xsl:value-of select="$my18n/s/select_a_category_to_add"/>.
                       </td>
                     </tr>
                   </table>
@@ -88,7 +89,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 
         <h2 class="block2">
           <span>
-            <xsl:value-of select="/_R_/i18n/edit_forums"/>
+            <xsl:value-of select="$my18n/e/edit_forums"/>
           </span>
         </h2>
         <div class="box">
@@ -103,7 +104,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
               <div class="inform">
                 <fieldset>
                   <legend>
-                    <xsl:value-of select="/_R_/i18n/category"/>:
+                    <xsl:value-of select="$my18n/c/category"/>:
                     <xsl:value-of select="cat_name"/>
                   </legend>
                   <div class="infldset">
@@ -112,15 +113,15 @@ Fifth Floor, Boston, MA 02110-1301  USA
                         <tr id="row_{fid}">
                           <th>
                             <a href="{$link_prefix}forum-edit">
-                              <xsl:value-of select="/_R_/i18n/edit"/>
+                              <xsl:value-of select="$my18n/e/edit"/>
                             </a> - 
                             <a href="{$link_prefix}forum-delete&amp;id={fid}"
                               onclick="delete_forum({fid},{cid}); return false;">
-                              <xsl:value-of select="/_R_/i18n/delete"/>
+                              <xsl:value-of select="$my18n/d/delete"/>
                             </a>
                           </th>
                           <td>
-                            <xsl:value-of select="/_R_/i18n/position"/>
+                            <xsl:value-of select="$my18n/p/position"/>
                             <input type="text" name="position[3]" size="3" value="0"/>
                             &#160;<strong><xsl:value-of select="forum_name"/>
                             </strong>
