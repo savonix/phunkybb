@@ -1,0 +1,134 @@
+<!--
+Program: PhunkyBB
+Component: phunkybb_database.xml
+Copyright: Savonix Corporation
+Author: Albert L. Lash, IV
+License: Gnu Affero Public License version 3
+http://www.gnu.org/licenses
+This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation; either version 3 of the License, or
+(at your option) any later version.
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+You should have received a copy of the GNU Affero General Public License
+along with this program; if not, see http://www.gnu.org/licenses
+or write to the Free Software Foundation,Inc., 51 Franklin Street,
+Fifth Floor, Boston, MA 02110-1301  USA
+-->
+<i18n>
+
+  <new_posts_info>Go to the first new post in this topic.</new_posts_info>
+  <invalid_email>The e-mail address you entered is invalid.</invalid_email>
+  <invalid_registration>The registration information you entered is invalid.</invalid_registration>
+  <required_field>is a required field in this form.</required_field>
+  <show_new_posts>Show new posts since last visit</show_new_posts>
+  <show_recent_posts>Show recent posts</show_recent_posts>
+  <show_unanswered_posts>Show unanswered posts</show_unanswered_posts>
+  <show_your_posts>Show your posts</show_your_posts>
+  <show_subscriptions>Show your subscribed topics</show_subscriptions>
+  <delete_confirm>Are you sure you want to delete this?</delete_confirm>
+  <bad_request>Bad request. The link you followed is incorrect or outdated.</bad_request>
+  <no_view>You do not have permission to view these forums.</no_view>
+  <no_permission>You do not have permission to access this page.</no_permission>
+  <new_icon>There are new posts</new_icon>
+  <closed_icon>This topic is closed</closed_icon>
+  <warning>Warning! If this is the first post in the topic, the whole topic will be deleted.</warning>
+  <wrong_user_pass>Wrong username and/or password.</wrong_user_pass>
+  <forgotten_pass>Forgotten your password?</forgotten_pass>
+  <request_pass>Request password</request_pass>
+  <request_pass_legend>Enter the e-mail address with which you registered</request_pass_legend>
+  <request_pass_info>A new password together with a link to activate the new password will be sent to that address.</request_pass_info>
+  <not_registered_yet>Not registered yet?</not_registered_yet>
+  <enter_username>Enter your username and password below</enter_username>
+  <login_info>If you have not registered or have forgotten your password click on the appropriate link below.</login_info>
+  <already_subscribed>You are already subscribed to this topic.</already_subscribed>
+  <not_subscribed>You are not subscribed to this topic.</not_subscribed>
+  <moderate>Moderate</moderate>
+  <delete_topics_comply>Are you sure you want to delete the selected topics?</delete_topics_comply>
+  <delete_posts_comply>Are you sure you want to delete the selected posts?</delete_posts_comply>
+  <post_a_reply>Post a reply</post_a_reply>
+  <post_new_topic>Post new topic</post_new_topic>
+  <subscribe>Subscribe to this topic</subscribe>
+  <topic_review>Topic review (newest first)</topic_review>
+  <preview>Preview</preview>
+  <edit_post_legend>Edit the post and submit changes</edit_post_legend>
+
+  <username_and_pass_legend>Enter your username and password</username_and_pass_legend>
+  <pass_key_bad>The specified password activation key was incorrect or has expired. Please re-request a new password. If that fails, contact the forum administrator at</pass_key_bad>
+  <pass_updated>Your password has been updated. You can now login with your new password.</pass_updated>
+  <pass_updated_redirect>Password updated. Redirecting </pass_updated_redirect>
+  <wrong_pass>Wrong old password.</wrong_pass>
+
+  <confirm_new_pass>Confirm new password</confirm_new_pass>
+  <change_pass_legend>Enter and confirm your new password</change_pass_legend>
+  <email_key_bad>The specified e-mail activation key was incorrect or has expired. Please re-request change of e-mail address. If that fails, contact the forum administrator at</email_key_bad>
+  <email_updated>Your e-mail address has been updated.</email_updated>
+  <activate_email_sent>An email has been sent to the specified address with instructions on how to activate the new e-mail address. If it doesn't arrive you can contact the forum administrator at</activate_email_sent>
+  <email_legend>Enter your new e-mail address</email_legend>
+  <email_instructions>An e-mail will be sent to your new address with an activation link. You must click the link in the e-mail you receive to activate the new address.</email_instructions>
+
+  <dupe_username>Someone else has already registered with that username. Please go back and try a different username.</dupe_username>
+
+  <signature_legend>Compose your signature</signature_legend>
+  <signature_info>A signature is a small piece of text that is attached to your posts. In it, you can enter just about anything you like. Perhaps you would like to enter your favourite quote or your star sign. It's up to you! In your signature you can use BBCode if it is allowed in this particular forum. You can see the features that are allowed/enabled listed below whenever you edit your signature.</signature_info>
+  <sig_preview>Current signature preview:</sig_preview>
+  <no_sig>No signature currently stored in profile.</no_sig>
+  <admin_note>Admin note</admin_note>
+  <instructions>When you update your profile, you will be redirected back to this page.</instructions>
+  <update_forums>Update forums</update_forums>
+  <delete_user>Delete user</delete_user>
+  <delete_warning>Warning! Deleted users and/or posts cannot be restored. If you choose not to delete the posts made by this user, the posts can only be deleted manually at a later time.</delete_warning>
+  <delete_posts>Delete any posts and topics this user has made.</delete_posts>
+  <no_new_regs>This forum is not accepting new registrations.</no_new_regs>
+  <rules_legend>You must agree to the following in order to register</rules_legend>
+  <unknown_failure>An unknown error occurred. Please try again.</unknown_failure>
+
+  <username_dupe_1>Someone is already registered with the username</username_dupe_1>
+  <email_not_match>E-mail addresses do not match. Please go back and correct.</email_not_match>
+  <reg_email>Thank you for registering. Your password has been sent to the specified address. If it doesn't arrive you can contact the forum administrator at</reg_email>
+  <reg_complete>Registration complete. Logging in and redirecting </reg_complete>
+  <reg_desc_1>Registration will grant you access to a number of features and capabilities otherwise unavailable. These functions include the ability to edit and delete posts, design your own signature that accompanies your posts and much more. If you have any questions regarding this forum you should ask an administrator.</reg_desc_1>
+  <reg_desc_2>Below is a form you must fill out in order to register. Once you are registered you should visit your profile and review the different settings you can change. The fields below only make up a small part of all the settings you can alter in your profile.</reg_desc_2>
+  <username_legend>Please enter a username between 2 and 25 characters long</username_legend>
+  <pass_legend_1>Please enter and confirm your chosen password</pass_legend_1>
+  <pass_legend_2>Please read the instructions below</pass_legend_2>
+  <pass_info>Passwords can be between 4 and 16 characters long. Passwords are case sensitive.</pass_info>
+  <valid_email>Enter a valid e-mail address</valid_email>
+  <email_info>You must enter a valid e-mail address as your randomly generated password will be sent to that address.</email_info>
+
+  <is_subscribed>You are currently subscribed to this topic</is_subscribed>
+  <subscribe>Subscribe to this topic</subscribe>
+
+  <copyright>Copyright Savonix Corporation, authored by Albert Lash. Based on Punbb, written by Rickard Andersson</copyright>
+
+  <name_of_new_category>The name of the new category you want to add. You can edit the name of the category later (see below). Go to</name_of_new_category>
+
+  <to_add_forums>to add forums to your new category</to_add_forums>
+  <select_the_name_of>Select the name of the category you want to delete. You will be asked to confirm your choice of category for deletion before it is deleted</select_the_name_of>
+  <create_a_new_forum>Create a new forum</create_a_new_forum>
+  <add_forum_to_category>Add forum to category</add_forum_to_category>
+  <select_category_to_add>Select the category to which you wish to add a new forum</select_category_to_add>
+  <title_of_bulletin_board>The title of this bulletin board (shown at the top of every page).</title_of_bulletin_board>
+  <board_description>Board description</board_description>
+  <short_description_of_this>A short description of this bulletin board (shown at the top of every page).</short_description_of_this>
+  <email_of_forum_admin>The e-mail address of the forum administrator</email_of_forum_admin>
+  <webmaster_email>Webmaster e-mail</webmaster_email>
+  <address_all_email_sent_from>This is the address that all e-mails sent by the forum will be addressed from</address_all_email_sent_from>
+  <subscriptions>Subscriptions</subscriptions>
+  <enable_users_to_subscribe>Enable users to subscribe to topics (recieve e-mail when someone replies)</enable_users_to_subscribe>
+  <smtp_server_address>SMTP server address</smtp_server_address>
+  <address_of_external_smtp>The address of an external SMTP server to send e-mails with. You can specify a custom port number if the SMTP server doesn't run on the default port 25 (example: mail.myhost.com:3580). Leave blank to use the local mail program</address_of_external_smtp>
+  <username_for_smtp_server>Username for SMTP server.</username_for_smtp_server>
+  <password_for_smtp_server>Password for SMTP server.</password_for_smtp_server>
+  <allow_new_registration>Allow new registrations</allow_new_registration>
+  <controls_whether_forum_accepts_new_registration>Controls whether this forum accepts new registrations. Disable only under special circumstances</controls_whether_forum_accepts_new_registration>
+  <verify_registrations>Verify registrations</verify_registrations>
+  <when_enabled_users_are_emailed>When enabled, users are e-mailed a random password when they register. They can then log in and change the password in their profile if they see fit. This feature also requires users to verify new e-mail addresses if they choose to change from the one they registered with. This is an effective way of avoiding registration abuse and making sure that all users have "correct" e-mail addresses in their profiles</when_enabled_users_are_emailed>
+  <use_forum_rules>Use forum rules</use_forum_rules>
+  <when_enabled_users_must>When enabled, users must agree to a set of rules when registering (enter text below). The rules will always be available through a link in the navigation table at the top of every page</when_enabled_users_must>
+  <enter_rules_here>Enter your rules here</enter_rules_here>
+  <here_you_can_enter_any_rules>Here you can enter any rules or other information that the user must review and accept when registering. If you enabled rules above you have to enter something here, otherwise it will be disabled. This text will not be parsed like regular posts and thus may contain HTML</here_you_can_enter_any_rules>
+</i18n>
