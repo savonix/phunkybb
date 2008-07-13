@@ -48,7 +48,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
               </a>
             </xsl:if>
             <a href="{$link_prefix}profile">Profile</a>
-            <a href="{$link_prefix}logout"><xsl:value-of select="$my18n/a/logout"/></a>
+            <a href="{$link_prefix}logout"><xsl:value-of select="$my18n/l/logout"/></a>
           </xsl:when>
           <xsl:otherwise>
             <a href="{$link_prefix}register">

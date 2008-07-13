@@ -41,12 +41,8 @@ Fifth Floor, Boston, MA 02110-1301 USA
   </xsl:variable>
   <html>
     <xsl:call-template name="head">
-      <xsl:with-param name="link_prefix">
-        <xsl:value-of select="$link_prefix"/>
-      </xsl:with-param>
-      <xsl:with-param name="path_prefix">
-        <xsl:value-of select="$path_prefix"/>
-      </xsl:with-param>
+      <xsl:with-param name="link_prefix" select="$link_prefix"/>
+      <xsl:with-param name="path_prefix" select="$path_prefix"/>
     </xsl:call-template>
     <body>
       <xsl:for-each select="/_R_/pre_body_content">
@@ -56,12 +52,8 @@ Fifth Floor, Boston, MA 02110-1301 USA
 
 
       <xsl:call-template name="main">
-        <xsl:with-param name="link_prefix">
-          <xsl:value-of select="$link_prefix"/>
-        </xsl:with-param>
-        <xsl:with-param name="path_prefix">
-          <xsl:value-of select="$path_prefix"/>
-        </xsl:with-param>
+        <xsl:with-param name="link_prefix" select="$link_prefix"/>
+        <xsl:with-param name="path_prefix" select="$path_prefix"/>
       </xsl:call-template>
 
 
