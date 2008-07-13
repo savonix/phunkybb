@@ -101,6 +101,7 @@
         </map:if>
     </map:gate>
     <map:gate name="logout">
+        <map:query src="data/sql/user_last_visit_update.xml"/>
         <map:perl src="lib/perl/logout.pl"/>
         <map:script src="lib/php/logout.php"/>
         <map:action type="redirect" params="{//link_prefix}index{//barf}"/>

@@ -41,9 +41,9 @@ $(document).ready(function()
     var d = new Date();
     myform.my_tz_offset.value = 0 - d.getTimezoneOffset()/60;
     //myform.my_tz_offset_debug.value = 0 - d.getTimezoneOffset()/60;
-    $(function() {
-        $('#login_button').disableTextSelect();
-    });
+    //$(function() {
+    //   $('#login_button').disableTextSelect();
+    //});
 });
 
 function do_encrypt() {

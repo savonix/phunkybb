@@ -25,7 +25,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <xsl:output method="text" indent="yes" encoding="UTF-8" omit-xml-declaration="yes"/>
 <xsl:template name="colors">
 html, body {
-  background: <xsl:value-of select="/_R_/css/colors/background"/>;
+  background: <xsl:value-of select="//css/colors/background"/>;
   color: #333;
 }
 
@@ -35,24 +35,24 @@ html, body {
 }
 
 div.box, .pun blockquote, div.codebox, #adminconsole fieldset th, .rowodd, .roweven {
-background-color: <xsl:value-of select="/_R_/css/colors/med-background-alt"/>;
+background-color: <xsl:value-of select="//css/colors/med-background-alt"/>;
 }
 
 #adminconsole tq, #adminconsole th {
-  border-color: <xsl:value-of select="/_R_/css/colors/dark-background"/>
+  border-color: <xsl:value-of select="//css/colors/dark-background"/>
 }
 
 td.tc2, td.tc3, td.tcmod, #postpreview, #viewprofile dd, div.forminfo,
 #adminconsole fieldset td, div.blockmenu div.box, #adstats dd {
-  background-color: <xsl:value-of select="/_R_/css/colors/light-background-alt"/>;
+  background-color: <xsl:value-of select="//css/colors/light-background-alt"/>;
 }
 
 .pun h2, #brdmenu {
-  background-color: <xsl:value-of select="/_R_/css/colors/dark-background"/>;
+  background-color: <xsl:value-of select="//css/colors/dark-background"/>;
   color: #FFF
 }
 div.blockpost h2 {
-  background-color: <xsl:value-of select="/_R_/css/colors/dark-background"/>;
+  background-color: <xsl:value-of select="//css/colors/dark-background"/>;
 }
 
 
@@ -61,11 +61,11 @@ div.blockpost h2 {
 }
 
 .pun a:hover {
-  color: <xsl:value-of select="/_R_/css/colors/header-hover"/>;
+  color: <xsl:value-of select="//css/colors/header-hover"/>;
 }
 
 .pun th {
-  background-color: <xsl:value-of select="/_R_/css/colors/med-background"/>;
+  background-color: <xsl:value-of select="//css/colors/med-background"/>;
 }
 
 
