@@ -32,7 +32,6 @@ $link_prefix = $path."?nid=";
 
 /* Time stuff */
 $tz_offset = $_SESSION['timezone'];
-$utcdate = gmdate('Y-m-d H:i:s');
 
 /* Expired session */
 if($_SESSION['NX_AUTH']['username']==1016)
@@ -49,7 +48,7 @@ $runtime = array(
                 'path_prefix' => $path_prefix,
                 'link_prefix' => $link_prefix,
                 'svn_revision' => $svn_revision,
-                'utcdate' => $utcdate,
+                'utcdate' => gmdate('Y-m-d H:i:s'),
                 'debug' => 1,
                 'incr' => 10,
                 'user_timezone_offset'=> $tz_offset,
