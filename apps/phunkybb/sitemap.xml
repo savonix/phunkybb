@@ -1,6 +1,13 @@
 <?xml version="1.0"?>
 <map:sitemap xmlns:map="http://www.nexista.org/sitemap">
     <map:prepend>
+      <map:if name="/_R_/_post">
+        <map:true>
+          <map:query src="data/sql/forums_get_all.xml"/>
+          <map:query src="data/sql/forums_get_totals.xml"/>
+          <map:query src="data/sql/forums_update_totals.xml"/>
+        </map:true>
+      </map:if>
         <map:perl src="lib/perl/runtime.pl"/>
         <map:script src="lib/php/config_check.php"/>
         <map:perl src="lib/perl/config_build.pl"/>
