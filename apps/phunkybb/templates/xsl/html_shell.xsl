@@ -41,7 +41,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
   </xsl:variable>
 
   <xsl:variable name="my18n" select="document('../../i18n/en_US/phunkybb.xml')/i18n"/>
-  
+
   <html>
     <xsl:call-template name="head">
       <xsl:with-param name="link_prefix" select="$link_prefix"/>

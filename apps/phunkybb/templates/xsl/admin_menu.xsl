@@ -32,13 +32,20 @@ Fifth Floor, Boston, MA 02110-1301  USA
     <div class="box">
       <div class="inbox">
       <ul>
-        <xsl:for-each select="document('../../data/xml/menu.xml')//admin_menu/button">
+        <xsl:variable name="mymenu"
+          select="document('../../data/xml/menu.xml')/navigation/admin_menu/button"/>
+        <xsl:for-each select="$mymenu">
           <xsl:variable name="mykey">
             <xsl:value-of select="."/>
           </xsl:variable>
+
+          <xsl:variable name="mypre">
+            <xsl:value-of select="substring(.,1,1)"/>
+          </xsl:variable>
+
           <li>
             <a href="{$link_prefix}{$mykey}">
-              <xsl:value-of select="$my18n//*[local-name()=$mykey]"/>
+              <xsl:value-of select="$my18n/*[local-name()=$mypre]/*[local-name()=$mykey]"/>
             </a>
           </li>
         </xsl:for-each>

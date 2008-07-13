@@ -75,6 +75,7 @@ function do_encrypt() {
     <div class="blockform">
       <h2>
         <xsl:value-of select="$my18n/l/login"/>
+        <xsl:value-of select="//postgres_version"/>
       </h2>
 
       <div class="box">
