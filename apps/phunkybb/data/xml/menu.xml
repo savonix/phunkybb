@@ -22,21 +22,29 @@ or write to the Free Software Foundation,Inc., 51 Franklin Street,
 Fifth Floor, Boston, MA 02110-1301  USA
 -->
 <navigation>
-    <admin_menu>
-        <button status="active">categories</button>
-        <button status="active">forums</button>
-        <button status="active">users</button>
-        <button status="active">options</button>
-        <!--
-        <button status="active">groups</button>
-        <button status="active">permissions</button>
-        <button status="active">censoring</button>
-        <button status="active">ranks</button>
-        <button status="active">bans</button>
-        <button status="active">prune</button>
-        <button status="active">maintenance</button>
-        <button status="active">report</button>  -->
-    </admin_menu>
-    <activities>
-    </activities>
+  <public_menu>
+    <button status="active">index</button>
+    <button status="active">register</button>
+    <button status="active">forums</button>
+    <button status="active">profile</button>
+    <button status="active">login</button>
+  </public_menu>
+
+  <admin_menu>
+      <button status="active">categories</button>
+      <button status="active">forums</button>
+      <button status="active">users</button>
+      <button status="active">options</button>
+      <!--
+      <button status="active">groups</button>
+      <button status="active">permissions</button>
+      <button status="active">censoring</button>
+      <button status="active">ranks</button>
+      <button status="active">bans</button>
+      <button status="active">prune</button>
+      <button status="active">maintenance</button>
+      <button status="active">report</button>  -->
+  </admin_menu>
+  <activities>
+  </activities>
 </navigation>
