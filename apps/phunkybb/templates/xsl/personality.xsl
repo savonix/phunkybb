@@ -64,7 +64,6 @@ Fifth Floor, Boston, MA 02110-1301  USA
             </div>
             <p>
               <input type="submit" name="update" value="Submit"/>
-              When you update your profile, you will be redirected back to this page.
             </p>
           </form>
         </div>
