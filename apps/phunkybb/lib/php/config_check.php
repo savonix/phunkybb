@@ -23,11 +23,12 @@ or write to the Free Software Foundation,Inc., 51 Franklin Street,
 Fifth Floor, Boston, MA 02110-1301  USA
 */
 
-$pre_install_check = PROJECT_ROOT."/config/delete_this_after_install";
-if(is_file($pre_install_check) && $_GET['nid']!='install') {
-    header("Location: index.php?nid=install");
-    exit;
-}
+/* This isn't working too well. */
+//$pre_install_check = PROJECT_ROOT."/config/delete_this_after_install";
+//if(is_file($pre_install_check) && $_GET['nid']!='install') {
+//   header("Location: index.php?nid=install");
+//    exit;
+//}
 
 $config_cache = NX_PATH_COMPILE."config_cache.php";
 
