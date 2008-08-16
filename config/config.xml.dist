@@ -76,7 +76,7 @@
         <loader>&project_root;/cache/&server_name;/&app_name;/&app_name;.php</loader>
         <sitemap>&project_root;/apps/&app_name;/sitemap.xml</sitemap>
         <!-- enter a gate name for missing when there is no match -->
-        <missing>install</missing>
+        <missing>index</missing>
         <!-- this needs the relative url, not the gate -->
         <default>index.php?nid=index</default>
         <query>nid</query>
