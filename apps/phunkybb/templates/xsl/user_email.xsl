@@ -44,15 +44,15 @@ Fifth Floor, Boston, MA 02110-1301  USA
 						<legend>Enter a valid e-mail address</legend>
 						<div class="infldset">
 							<label><strong><xsl:value-of select="$my18n/e/email"/></strong><br/>
-                            <input type="text" name="rcpt_email" value="{//user_get_profile/email}" readonly="readonly"/>
-                            <br/>
-                            </label>
-						</div>
-                        <input type="text" name="subject"/>
-                        <br/>
-                        <textarea name="message"/>
-                        <br/>
-                        <input type="submit"/>
+									<input type="text" name="rcpt_email" value="{//user_get_profile/email}" readonly="readonly"/>
+									<br/>
+									</label>
+							</div>
+							<input type="text" name="subject"/>
+							<br/>
+							<textarea name="message"/>
+							<br/>
+							<input type="submit"/>
 					</fieldset>
 				</div>
 			</form>
