@@ -39,7 +39,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
     <xsl:if test="/_R_/runtime/username">
       <p class="postlink conr">
         <a href="{$link_prefix}post&amp;fid={/_R_/_get/fid}">
-          <xsl:value-of select="$my18n/p/post_new_topic"/>
+          <xsl:value-of select="$my18n/p/post_topic"/>
         </a>
       </p>
     </xsl:if>
