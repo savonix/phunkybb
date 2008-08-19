@@ -21,6 +21,7 @@
             </map:false>
         </map:if>
         <map:script src="lib/php/runtime.php"/>
+				<map:xml src="data/xml/extra_menu_items.xml"/>
     </map:prepend>
 
 <!-- SESSIONS -->
