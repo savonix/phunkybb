@@ -45,17 +45,6 @@ Fifth Floor, Boston, MA 02110-1301  USA
 						PhunkyBB 0.2<br/>
             <xsl:value-of select="$my18n/c/copyright"/>
 					</dd>
-					<dt><xsl:value-of select="$my18n/e/enviornment"/></dt>
-					<dd>
-						<xsl:value-of select="$my18n/o/operating_system"/>: <br/>
-						PHP: <br/>
-						<xsl:value-of select="$my18n/a/accelerator"/>: 
-            <a href="http://xcache.lighttpd.net/">XCache</a>
-					</dd>
-					<dt><xsl:value-of select="$my18n/d/database"/></dt>
-					<dd>
-              MySQL
-					</dd>
 				</dl>
 			</div>
 		</div>
