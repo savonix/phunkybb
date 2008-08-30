@@ -135,7 +135,7 @@
         <map:action type="datetime" params="/_R_/topics_get_by_forum_id/topics_get_by_forum_id/last_post,unix_epoch,{/_R_/runtime/user_time_format},{//runtime/user_timezone_offset}"/>
         <map:xsl src="templates/xsl/forum.xsl"/>
     </map:gate>
-    
+
     <map:gate name="topic">
         <map:query src="data/sql/forum_get_by_id.xml"/>
         <map:query src="data/sql/topic_get_by_id.xml"/>
@@ -143,6 +143,13 @@
         <map:query src="data/sql/posts_get_number_of_pages.xml"/>
         <map:action type="datetime" params="/_R_/posts_get_by_topic_id/posts_get_by_topic_id/posted,unix_epoch,{//runtime/user_time_format},{//runtime/user_timezone_offset}"/>
         <map:xsl src="templates/xsl/topic.xsl"/>
+    </map:gate>
+    <map:gate name="topic-edit">
+        <map:query src="data/sql/forum_get_by_id.xml"/>
+        <map:query src="data/sql/topic_get_by_id.xml"/>
+        <map:query src="data/sql/posts_get_by_topic_id.xml"/>
+        <map:query src="data/sql/posts_get_number_of_pages.xml"/>
+        <map:xsl src="templates/xsl/topic_edit.xsl"/>
     </map:gate>
     <map:gate name="x-topic-delete" role="phunky_admin">
         <map:query src="data/sql/topic_delete.xml"/>
