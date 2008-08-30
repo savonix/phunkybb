@@ -121,8 +121,7 @@
     <map:gate name="index"
       cache="300"
       content_type="text/html"
-      cache_control="no-cache, max-age=20, must-revalidate"
-      >
+      cache_control="no-cache, max-age=20, must-revalidate">
         <map:query src="data/sql/categories_get_all.xml"/>
         <map:query src="data/sql/forums_get_all.xml"/>
         <map:action type="datetime" params="/_R_/forums_get_all/forums_get_all/last_post,unix_epoch,{/_R_/runtime/user_time_format},{/_R_/runtime/user_timezone_offset}"/>
@@ -145,6 +144,13 @@
         <map:xsl src="templates/xsl/topic.xsl"/>
     </map:gate>
     <map:gate name="topic-edit">
+				<map:if name="//_post">
+					<map:true>
+						<map:query src="data/sql/topic_update.xml"/>
+						<map:action type="redirect" params="{//link_prefix}topic&amp;fid={//_post/forum_id}&amp;id={//_post/topic_id}"/>
+					</map:true>
+				</map:if>
+        <map:query src="data/sql/forums_get_all.xml"/>
         <map:query src="data/sql/forum_get_by_id.xml"/>
         <map:query src="data/sql/topic_get_by_id.xml"/>
         <map:query src="data/sql/posts_get_by_topic_id.xml"/>

@@ -1,6 +1,6 @@
 <!--
 Program: PhunkyBB
-Component: topic_edit.xsl
+Component: topic_update.xml
 Copyright: Savonix Corporation
 Author: Albert L. Lash, IV
 License: Gnu Affero Public License version 3
@@ -21,25 +21,14 @@ along with this program; if not, see http://www.gnu.org/licenses
 or write to the Free Software Foundation,Inc., 51 Franklin Street,
 Fifth Floor, Boston, MA 02110-1301  USA
 -->
-<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" >
-<xsl:include href="html_main.xsl"/>
-<xsl:include href="prev_next.xsl"/>
-<xsl:template name="content">
-<xsl:param name="link_prefix"/>
-<xsl:param name="my18n"/>
-<form method="post">
-<input type="hidden" name="topic_id" value="{//_get/topic_id}"/>
-Move topic to:
-<br/><br/>
-<select name="forum_id">
-<xsl:for-each select="/_R_/forums_get_all/forums_get_all">
-	<option value="{fid}"><xsl:value-of select="forum_name"/></option>
-</xsl:for-each>
-</select>
-<input type="submit"/>
-</form>
-<br/><br/>
-Make topic sticky:
-
-</xsl:template>
-</xsl:stylesheet>
+<!DOCTYPE query SYSTEM "__default_table_names__.txt">
+<query name="topic_update">
+    <connection>phunkybb</connection>
+    <params>
+        <param name="//_post/forum_id" type="text" default="-1"/>
+        <param name="//_post/topic_id" type="text" default="-1"/>
+	</params>
+    <sql>
+    UPDATE &prefix;topics SET forum_id = ? WHERE id=?
+    </sql>
+</query>
