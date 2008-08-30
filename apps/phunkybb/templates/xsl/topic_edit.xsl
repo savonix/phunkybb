@@ -27,6 +27,14 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <xsl:template name="content">
 <xsl:param name="link_prefix"/>
 <xsl:param name="my18n"/>
+Move topic to:
+<br/><br/>
+<select name="forum_id">
+<xsl:for-each select="/_R_/forums_get_all/forums_get_all">
+	<option value=""><xsl:value-of select="name"/></option>
+</xsl:for-each>
+</select>
+Make topic sticky:
 
 </xsl:template>
 </xsl:stylesheet>
