@@ -177,6 +177,8 @@
                 <map:query src="data/sql/topic_last_post_update.xml"/>
                 <map:query src="data/sql/forum_last_post_update.xml"/>
                 <map:query src="data/sql/user_last_post_update.xml"/>
+								<map:query src="data/sql/topic_get_num_replies.xml"/>
+								<map:query src="data/sql/topic_set_num_replies.xml"/>
                 <!-- TODO - process subscription mailing -->
                 <map:action type="redirect"
                     params="{//link_prefix}topic&amp;fid={//_post/forum_id}&amp;id={//_post/topic_id}"/>
@@ -203,7 +205,8 @@
     </map:gate>
     <map:gate name="x-post-delete" role="phunky_admin">
         <map:query src="data/sql/post_delete.xml"/>
-        <map:query src="date/sql/topic_set_num_replies.xml"/>
+        <map:query src="data/sql/topic_get_num_replies.xml"/>
+        <map:query src="data/sql/topic_set_num_replies.xml"/>
     </map:gate>
 
     <!-- Profile -->

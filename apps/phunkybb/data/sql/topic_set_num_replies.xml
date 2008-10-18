@@ -19,19 +19,19 @@ GNU Affero General Public License for more details.
 You should have received a copy of the GNU Affero General Public License
 along with this program; if not, see http://www.gnu.org/licenses
 or write to the Free Software Foundation,Inc., 51 Franklin Street,
-Fifth Floor, Boston, MA 02110-1301  USA
+Fifth Floor, Boston, MA 02110-1301 USA
 -->
 <!DOCTYPE query SYSTEM "__default_table_names__.txt">
 <query name="topic_set_num_replies">
     <connection>&connection;</connection>
     <params>
-        <param name="//_post/num_replies" type="integer"/>
-        <param name="//_post/topic_id" type="integer"/>
-	</params>
+			<param name="/_R_/topic_get_num_replies/topic_get_num_replies/num_replies" type="integer"/>
+			<param name="/_R_/_post/topic_id" type="integer"/>
+		</params>
     <sql>
-    UPDATE &prefix;topics 
-    SET 
-    num_replies = ? 
-    WHERE id=?
+			UPDATE &prefix;topics
+			SET
+			num_replies = ?
+			WHERE id = ?
     </sql>
 </query>
