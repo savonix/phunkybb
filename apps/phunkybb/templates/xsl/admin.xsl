@@ -21,34 +21,36 @@ along with this program; if not, see http://www.gnu.org/licenses
 or write to the Free Software Foundation,Inc., 51 Franklin Street,
 Fifth Floor, Boston, MA 02110-1301  USA
 -->
-<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" >
-<xsl:include href="html_main.xsl"/>
-<xsl:include href="admin_menu.xsl"/>
-<xsl:template name="content">
-<xsl:param name="link_prefix"/>
-<xsl:param name="my18n"/>
-<div id="adminconsole" class="block2col">
-<xsl:call-template name="admin-menu">
-    <xsl:with-param name="link_prefix">
-        <xsl:value-of select="$link_prefix"/>
-    </xsl:with-param>
-    <xsl:with-param name="my18n" select="$my18n"/>
-</xsl:call-template>
-
-	<div class="block">
-		<h2 class="block2"><xsl:value-of select="$my18n/s/statistics"/></h2>
-		<div id="adstats" class="box">
-			<div class="inbox">
-				<dl>
-					<dt>PhunkyBB <xsl:value-of select="$my18n/v/version"/></dt>
-					<dd>
-						PhunkyBB 0.2<br/>
-            <xsl:value-of select="$my18n/c/copyright"/>
-					</dd>
-				</dl>
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+	<xsl:include href="html_main.xsl"/>
+	<xsl:include href="admin_menu.xsl"/>
+	<xsl:template name="content">
+		<xsl:param name="link_prefix"/>
+		<xsl:param name="my18n"/>
+		<div id="adminconsole" class="block2col">
+			<xsl:call-template name="admin-menu">
+				<xsl:with-param name="link_prefix">
+					<xsl:value-of select="$link_prefix"/>
+				</xsl:with-param>
+				<xsl:with-param name="my18n" select="$my18n"/>
+			</xsl:call-template>
+			<div class="block">
+				<h2 class="block2">
+					<xsl:value-of select="$my18n/s/statistics"/>
+				</h2>
+				<div id="adstats" class="box">
+					<div class="inbox">
+						<dl>
+							<dt>PhunkyBB <xsl:value-of select="$my18n/v/version"/>
+							</dt>
+							<dd>
+								PhunkyBB 0.2<br/>
+								<xsl:value-of select="$my18n/c/copyright"/>
+							</dd>
+						</dl>
+					</div>
+				</div>
 			</div>
 		</div>
-	</div>
-</div>
-</xsl:template>
+	</xsl:template>
 </xsl:stylesheet>

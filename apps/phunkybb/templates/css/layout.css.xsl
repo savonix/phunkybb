@@ -38,5 +38,13 @@ iframe {
   overflow-y: scroll;
 }
 
+.interstatus
+{
+    padding: .2em .4em;
+    border-style: solid;
+    border-width: 1px;
+    border-color: red;
+}
+
 </xsl:template>
 </xsl:stylesheet>
