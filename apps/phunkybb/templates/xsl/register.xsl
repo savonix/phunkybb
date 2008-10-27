@@ -79,11 +79,6 @@ function do_encrypt() {
         function (data){
             var myResult = $("result",data).text();
             $('span#replace').html(myResult);
-            if(myResult=='Success') {
-                window.location = '<xsl:value-of select="$link_prefix"/>login';
-            } else {
-              $('span#replace').html(myResult);
-            }
         });
     }
 }

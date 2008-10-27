@@ -30,19 +30,25 @@
 </map:gate>
 
 <map:gate name="x-register">
-    <map:if name="/_R_/_post">
-        <map:true>
+		<map:query src="data/sql/user_get_by_email_or_username.xml"/>
+		<map:if name="//user_get_by_email_or_username">
+				<map:true>
+					<map:action type="header" params="Content-type,text/xml"/>
+					<map:set name="error_message" value="Username or email already registered."/>
+					<map:xsl src="templates/xml/error.xml.xsl"/>
+				</map:true>
+				<map:false>
           <map:xml src="i18n/en_US/emails.xml"/>
           <map:xml src="data/xml/emails.xml"/>
           <map:if name="//use_random_pass">
-              <map:true>
-                  <map:plugin type="random" params="random_password,8"/>
-                  <map:plugin type="hash" params="sha1,//random_password"/>
-              </map:true>
-              <map:false>
-                  <map:plugin type="decrypt_rsa" params="{//defaults/private_key},//_post/password"/>
-                  <map:plugin type="hash" params="sha1,//_post/password"/>
-              </map:false>
+						<map:true>
+							<map:plugin type="random" params="random_password,8"/>
+							<map:plugin type="hash" params="sha1,//random_password"/>
+						</map:true>
+						<map:false>
+							<map:plugin type="decrypt_rsa" params="{//defaults/private_key},//_post/password"/>
+							<map:plugin type="hash" params="sha1,//_post/password"/>
+						</map:false>
           </map:if>
 
 
@@ -58,14 +64,22 @@
 					<map:action type="email"
 						params="{//_post/email},{//board_config/o_webmaster_email},{//my_registration_info},//new_text,{//board_config/o_smtp_host}"/>
 
+					<map:action type="header" params="Content-type,text/xml"/>
+					<map:set name="result_message" value=" Registration successful, please check your email."/>
+					<map:xsl src="templates/xml/success.xml.xsl"/>
 
-
+				</map:false>
+		</map:if>
+    <map:if name="/_R_/_post">
+        <map:true>
 
         </map:true>
         <map:false>
-            <map:action type="header" params="Content-type,text/xml"/>
-            <map:set name="error_message" value="No post."/>
-            <map:xsl src="templates/xml/error.xml.xsl"/>
+				<!--
+					<map:action type="header" params="Content-type,text/xml"/>
+					<map:set name="error_message" value="No post."/>
+					<map:xsl src="templates/xml/error.xml.xsl"/>
+					-->
         </map:false>
     </map:if>
 </map:gate>
@@ -100,14 +114,14 @@
         <map:plugin type="hash" params="sha1,//_post/password"/>
         <map:query src="data/sql/user_login.xml"/>
         <map:if name="/_R_/user_login/user_login">
-            <map:true>
-                <map:script src="lib/php/sessions.php"/>
-                <map:perl src="lib/perl/login.pl"/>
-                <map:xsl src="templates/xml/success.xml.xsl"/>
-            </map:true>
-            <map:false>
-              <map:xsl src="templates/xml/error.xml.xsl"/>
-            </map:false>
+					<map:true>
+						<map:script src="lib/php/sessions.php"/>
+						<map:perl src="lib/perl/login.pl"/>
+						<map:xsl src="templates/xml/success.xml.xsl"/>
+					</map:true>
+					<map:false>
+						<map:xsl src="templates/xml/error.xml.xsl"/>
+					</map:false>
         </map:if>
     </map:gate>
     <map:gate name="logout">
