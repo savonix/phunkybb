@@ -15,7 +15,7 @@ Thank you for registering in the forums at @@base_url@@. Your account details ar
 
 Username: @@username@@
 
-To activate your account, please visit: 
+To activate your account, please visit:
 
 @@base_url@@/index.php?nid=activate&amp;activate_key=@@activate_key@@
 

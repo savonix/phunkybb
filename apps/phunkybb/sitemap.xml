@@ -49,14 +49,14 @@
           <map:plugin type="random" params="activation_key,4"/>
           <map:set name="my_registration_info" value="Registration Info"/>
           <map:plugin type="detokenize"
-              params="{/_R_/i18n/welcome_email},//emails/welcome/token"/>
-          
-			
-							
+						params="{/_R_/i18n/welcome_email},//emails/welcome/token"/>
+
+
+
 					<map:query src="data/sql/user_register.xml"/>
 
-							<map:action type="email"
-              params="{//_post/email},{//board_config/o_webmaster_email},{//my_registration_info},{//new_text},{//board_config/o_smtp_host}"/>
+					<map:action type="email"
+						params="{//_post/email},{//board_config/o_webmaster_email},{//my_registration_info},//new_text,{//board_config/o_smtp_host}"/>
 
 
 
