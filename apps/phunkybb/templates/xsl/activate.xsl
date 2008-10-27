@@ -35,6 +35,8 @@ Fifth Floor, Boston, MA 02110-1301  USA
         <div class="inform">
           <fieldset>
             <xsl:value-of select="$my18n/a/activated"/>!
+						<br/><br/>
+						You may now <a href="{$link_prefix}login">login</a>
         </fieldset>
         </div>
       </div>
