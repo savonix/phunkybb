@@ -18,8 +18,8 @@ GNU Affero General Public License for more details.
 
 You should have received a copy of the GNU Affero General Public License
 along with this program; if not, see http://www.gnu.org/licenses
-or write to the Free Software Foundation,Inc., 51 Franklin Street,
-Fifth Floor, Boston, MA 02110-1301  USA
+or write to the Free Software Foundation, Inc., 51 Franklin Street,
+Fifth Floor, Boston, MA 02110-1301 USA
 -->
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 <xsl:output method="text" indent="yes" encoding="UTF-8" omit-xml-declaration="yes"/>
@@ -189,6 +189,7 @@ CREATE TABLE <xsl:value-of select="f_not_exists"/> <xsl:value-of select="//table
   id <xsl:value-of select="$engine_auto_increment"/>,
   poster varchar(200) NOT NULL default '',
   subject varchar(255) NOT NULL default '',
+  basename varchar(255) NOT NULL default '',
   posted int(10) NOT NULL default '0',
   last_post int(10) NOT NULL default '0',
   last_post_id int(10) NOT NULL default '0',
