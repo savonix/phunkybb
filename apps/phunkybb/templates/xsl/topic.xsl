@@ -88,7 +88,8 @@ function delete_topic(topic_id) {
         </a>
       </li>
       <li>&#160; &gt; &#160;
-        <a href="{$link_prefix}forum&amp;fid={/_R_/_get/fid}">
+        <a href="{$link_prefix}forum&amp;fid={/_R_/_get/fid}"
+            title="{/_R_/forum_get_by_id/forum_get_by_id/forum_name}">
           <xsl:value-of select="/_R_/forum_get_by_id/forum_get_by_id/forum_name"/>
         </a>
       </li>
@@ -166,6 +167,7 @@ function delete_topic(topic_id) {
 </div>
 </xsl:for-each>
 
+<div class="inbox">
     <p class="postlink conl">
       <xsl:if test="//posts_get_number_of_pages/count &gt; 2">
         <xsl:call-template name="previous_next">
@@ -181,6 +183,7 @@ function delete_topic(topic_id) {
         </xsl:call-template>
       </xsl:if>
     </p>
+</div>
 
 <!-- Reply -->
 <xsl:if test="/_R_/runtime/username">
