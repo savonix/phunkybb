@@ -30,12 +30,14 @@ Fifth Floor, Boston, MA 02110-1301 USA
 
 <div class="linkst">
 	<div class="inbox">
+		<!--
     <p class="pagelink conl">
       <xsl:value-of select="$my18n/p/pages"/>:
       <strong>
         <xsl:value-of select="/_R_/forum_get_number_of_pages/forum_get_number_of_pages/pages"/>
       </strong>
     </p>
+		-->
     <xsl:if test="/_R_/runtime/username">
       <p class="postlink conr">
         <a href="{$link_prefix}post&amp;fid={/_R_/_get/fid}">
@@ -129,10 +131,12 @@ Fifth Floor, Boston, MA 02110-1301 USA
 </div>
 <div class="linkst">
   <div class="inbox">
+		<!--
     <p class="pagelink conl">
       <xsl:value-of select="$my18n/p/pages"/>:
-      <strong>1</strong>
+      <strong></strong>
     </p>
+		-->
     <xsl:if test="/_R_/runtime/username">
       <p class="postlink conr">
         <a href="{$link_prefix}post&amp;fid={/_R_/_get/fid}">
