@@ -24,14 +24,29 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 	<xsl:template name="previous_next">
 		<xsl:param name="qsa"/>
+		<xsl:param name="max"/>
 		<xsl:param name="link_prefix"/>
-		<xsl:if test="(/_R_/_get/start!=0) and not(/_R_/_get/start='NaN')">
+		<xsl:if test="
+			(/_R_/_get/start!=0) and
+			not(/_R_/_get/start='NaN') and
+			((/_R_/_get/start + //incr) &lt; $max)
+			">
 			<a href="{$link_prefix}{/_R_/_get/nid}{$qsa}&amp;start={/_R_/_get/start - //incr}">Previous</a>
 			&#160;
 			<a href="{$link_prefix}{/_R_/_get/nid}{$qsa}&amp;start={/_R_/_get/start + //incr}">Next</a>
-			</xsl:if>
+		</xsl:if>
 
-			<xsl:if test="(/_R_/_get/start=0) or not(/_R_/_get/start)">
+		<xsl:if test="
+			(/_R_/_get/start!=0) and
+			not(/_R_/_get/start='NaN') and
+			((/_R_/_get/start + //incr) &gt; $max)
+			">
+			<a href="{$link_prefix}{/_R_/_get/nid}{$qsa}&amp;start={/_R_/_get/start - //incr}">Previous</a>
+			&#160;
+			Next
+		</xsl:if>
+
+		<xsl:if test="(/_R_/_get/start=0) or not(/_R_/_get/start)">
 			Previous
 			&#160;
 			<a href="{$link_prefix}{/_R_/_get/nid}{$qsa}&amp;start={//incr}">Next</a>
