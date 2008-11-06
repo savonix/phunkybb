@@ -175,6 +175,7 @@ function delete_topic(topic_id) {
 
 		<div class="inbox">
 			<p class="postlink conl">
+			<xsl:value-of select="//posts_get_number_of_pages/posts_get_number_of_pages/count"/>
 				<xsl:if test="//posts_get_number_of_pages/posts_get_number_of_pages/count &gt; 2">
 					<xsl:call-template name="previous_next">
 						<xsl:with-param name="link_prefix">
