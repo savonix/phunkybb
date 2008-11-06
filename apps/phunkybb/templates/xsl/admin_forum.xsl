@@ -58,7 +58,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
             <div class="inform">
               <fieldset>
                 <legend>
-                  <xsl:value-of select="$my18n/c/create_a_new_forum"/>
+                  <xsl:value-of select="$my18n/a/add_forum"/>
                 </legend>
                 <div class="infldset">
                   <table class="aligntop" cellspacing="0">
@@ -113,7 +113,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
                       <xsl:for-each select="/_R_/forums_get_all/forums_get_all[cid=$my_cid]">
                         <tr id="row_{fid}">
                           <th>
-                            <a href="{$link_prefix}forum-edit">
+                            <a href="{$link_prefix}forum-edit&amp;fid={fid}">
                               <xsl:value-of select="$my18n/e/edit"/>
                             </a> - 
                             <a href="{$link_prefix}forum-delete&amp;id={fid}"

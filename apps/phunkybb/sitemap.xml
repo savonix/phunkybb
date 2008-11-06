@@ -323,7 +323,7 @@
     <map:gate name="forums" role="phunky_admin">
         <map:if name="//_post">
             <map:true>
-                <map:query src="data/sql/forum_create.xml"/>
+                <map:query src="data/sql/forum_update.xml"/>
                 <map:action type="redirect" params="{//link_prefix}forums"/>
             </map:true>
             <map:false>
