@@ -39,10 +39,6 @@ Fifth Floor, Boston, MA 02110-1301 USA
       <xsl:with-param name="section_start">main</xsl:with-param>
     </xsl:call-template>
 
-		<script type="text/javascript">
-			window.onLoad = getDates;
-		</script>
-
     <div id="main">
       <div id="punwrap">
         <div class="pun">
