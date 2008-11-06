@@ -128,11 +128,12 @@ function delete_topic(topic_id) {
 		<xsl:for-each select="/_R_/posts_get_by_topic_id/posts_get_by_topic_id">
 			<div id="p{id}" class="blockpost roweven">
 				<h2>
-					<span class="conr">#<xsl:value-of select="id"/>
+					<span class="conr">#<xsl:value-of select="id"/></span>
+					<span class="date">
+						<a href="#post{id}" name="post{id}">
+							<xsl:value-of select="posted"/>
+						</a>
 					</span>
-					<a href="#post{id}" name="post{id}">
-						<xsl:value-of select="posted"/>
-					</a>
 				</h2>
 				<div class="box">
 					<div class="inbox">

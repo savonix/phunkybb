@@ -18,7 +18,7 @@ GNU Affero General Public License for more details.
 
 You should have received a copy of the GNU Affero General Public License
 along with this program; if not, see http://www.gnu.org/licenses
-or write to the Free Software Foundation,Inc., 51 Franklin Street,
+or write to the Free Software Foundation, Inc., 51 Franklin Street,
 Fifth Floor, Boston, MA 02110-1301 USA
 -->
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
@@ -53,6 +53,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
       <script type="text/javascript" src="{$path_prefix}/s/js/jquery/plugins/jquery.tablesorter.min.js"></script>
       <script type="text/javascript" src="{$path_prefix}/s/js/jquery/plugins/jquery.tablesorter.pager.js"></script>
       <script type="text/javascript" src="{$path_prefix}/s/js/jsval.js"></script>
+      <script type="text/javascript" src="{$path_prefix}/s/js/time/relative_time.js"></script>
       <xsl:for-each select="/_R_/in_head">
         <xsl:sort select="priority"/>
         <xsl:value-of select="string" disable-output-escaping="yes"/>
