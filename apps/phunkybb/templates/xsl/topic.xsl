@@ -104,7 +104,7 @@ function delete_topic(topic_id) {
 				</li>
 				</ul>
 				<p class="postlink conl">
-				<xsl:if test="($page_num/count * 0.1) &gt; 1">
+					<xsl:if test="($page_num/count * 0.1) &gt; 1">
 						<xsl:call-template name="previous_next">
 							<xsl:with-param name="link_prefix">
 								<xsl:value-of select="$link_prefix"/>
@@ -114,6 +114,9 @@ function delete_topic(topic_id) {
 								<xsl:value-of select="/_R_/_get/fid"/>
 								<xsl:text>&amp;id=</xsl:text>
 								<xsl:value-of select="/_R_/_get/id"/>
+							</xsl:with-param>
+							<xsl:with-param name="max">
+								<xsl:value-of select="$page_num/count"/>
 							</xsl:with-param>
 						</xsl:call-template>
 					</xsl:if>
