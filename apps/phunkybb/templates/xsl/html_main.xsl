@@ -40,7 +40,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
     </xsl:call-template>
 
 		<script type="text/javascript">
-			window.onload = getDates;
+			window.onLoad = getDates;
 		</script>
 
     <div id="main">
