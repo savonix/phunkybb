@@ -130,7 +130,7 @@ function delete_topic(topic_id) {
 				<h2>
 					<span class="conr">#<xsl:value-of select="id"/></span>
 						<a href="#post{id}" name="post{id}">
-							<span class="date" title="Sat, 01 Nov 2008 14:02:03 -0400">
+							<span class="date">
 								<xsl:value-of select="posted"/>
 							</span>
 						</a>
