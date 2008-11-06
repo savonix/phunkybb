@@ -129,11 +129,11 @@ function delete_topic(topic_id) {
 			<div id="p{id}" class="blockpost roweven">
 				<h2>
 					<span class="conr">#<xsl:value-of select="id"/></span>
-					<span class="date">
 						<a href="#post{id}" name="post{id}">
-							<xsl:value-of select="posted"/>
+							<span class="date">
+								<xsl:value-of select="posted"/>
+							</span>
 						</a>
-					</span>
 				</h2>
 				<div class="box">
 					<div class="inbox">
