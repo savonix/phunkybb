@@ -56,17 +56,20 @@ function delete_topic(topic_id) {
 }
 </script>
 
+		<xsl:variable name="page_num"
+			select="/_R_/posts_get_number_of_pages/posts_get_number_of_pages"/>
+
 		<div class="linkst">
 			<div class="inbox">
 				<p class="pagelink conl">
 					<xsl:value-of select="$my18n/p/pages"/>:
       <strong>
-        <xsl:value-of select="format-number(/_R_/posts_get_number_of_pages/posts_get_number_of_pages/pages,'##')"/>
+        <xsl:value-of select="format-number($page_num/pages,'##')"/>
 					</strong>&#160;
       <xsl:value-of select="$my18n/p/posts"/>:
       <strong>
-        <xsl:value-of select="/_R_/posts_get_number_of_pages/posts_get_number_of_pages/count"/>
-					</strong>
+        <xsl:value-of select="$page_num/count"/>
+			</strong>
 				</p>
 				<p class="postlink conr">
 					<xsl:value-of select="/_R_/topic_get_by_id/topic_get_by_id/subject"/>
