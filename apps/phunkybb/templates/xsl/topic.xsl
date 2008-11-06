@@ -173,6 +173,7 @@ function delete_topic(topic_id) {
 			</div>
 		</xsl:for-each>
 
+	<div class="linkst">
 		<div class="inbox">
 			<p class="postlink conl">
 				<xsl:if test="(//posts_get_number_of_pages/posts_get_number_of_pages/count * 0.1) &gt; 1">
@@ -190,8 +191,8 @@ function delete_topic(topic_id) {
 				</xsl:if>
 			</p>
 		</div>
-
-<!-- Reply -->
+	</div>
+		<!-- Reply -->
 		<xsl:if test="/_R_/runtime/username">
 			<div class="blockform">
 				<h2>
