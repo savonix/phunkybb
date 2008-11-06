@@ -11,4 +11,3 @@
 <!ELEMENT sql      (#PCDATA)>
 <!ENTITY connection "phunkybb">
 <!ENTITY connection_read "phunkybb_read">
-<!ENTITY prefix "wwwneofilmzcom_">

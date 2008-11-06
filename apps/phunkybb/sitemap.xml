@@ -188,7 +188,7 @@
         <map:if name="//_post">
             <map:true>
                 <map:plugin type="safehtml" params="//_post/message"/>
-                <map:action type="newline" params="//clean_message"/>
+				<map:action type="newline" params="//clean_message"/>
                 <map:query src="data/sql/post_create.xml"/>
                 <map:query src="data/sql/topic_last_post_update.xml"/>
                 <map:query src="data/sql/forum_last_post_update.xml"/>
