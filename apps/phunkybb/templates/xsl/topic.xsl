@@ -65,14 +65,15 @@ function delete_topic(topic_id) {
 					<xsl:value-of select="$my18n/p/pages"/>:
       <strong>
         <xsl:value-of select="format-number($page_num/pages,'##')"/>
-					</strong>&#160;
+			</strong>&#160;
+
       <xsl:value-of select="$my18n/p/posts"/>:
       <strong>
         <xsl:value-of select="$page_num/count"/>
 			</strong>
-				</p>
-				<p class="postlink conr">
-					<xsl:value-of select="/_R_/topic_get_by_id/topic_get_by_id/subject"/>
+			</p>
+			<p class="postlink conr">
+				<xsl:value-of select="/_R_/topic_get_by_id/topic_get_by_id/subject"/>
       &#160;
       <xsl:if test="/_R_/runtime/group_id=1">
         <a href="{$link_prefix}topic-delete&amp;topic_id={/_R_/_get/id}&amp;fid={/_R_/_get/fid}" onclick="delete_topic({/_R_/_get/id}); return false;">
@@ -89,20 +90,21 @@ function delete_topic(topic_id) {
 							<xsl:value-of select="$my18n/i/index"/>
 						</a>
 					</li>
-					<li>&#160; &gt; &#160;
-        <a href="{$link_prefix}forum&amp;fid={/_R_/_get/fid}" title="{/_R_/forum_get_by_id/forum_get_by_id/forum_name}">
+				<li>&#160; &gt; &#160;
+        <a href="{$link_prefix}forum&amp;fid={/_R_/_get/fid}"
+					title="{/_R_/forum_get_by_id/forum_get_by_id/forum_name}">
           <xsl:value-of select="/_R_/forum_get_by_id/forum_get_by_id/forum_name"/>
-						</a>
-					</li>
-					<li>
+				</a>
+				</li>
+				<li>
         &#160; &gt; &#160;
         <a href="{$link_prefix}topic&amp;fid={/_R_/_get/fid}&amp;id={/_R_/_get/id}">
           <xsl:value-of select="/_R_/topic_get_by_id/topic_get_by_id/subject"/>
-						</a>
-					</li>
+				</a>
+				</li>
 				</ul>
 				<p class="postlink conl">
-					<xsl:if test="//posts_get_number_of_pages/count &gt; 2">
+					<xsl:if test="$page_num/count &gt; 2">
 						<xsl:call-template name="previous_next">
 							<xsl:with-param name="link_prefix">
 								<xsl:value-of select="$link_prefix"/>
@@ -119,7 +121,7 @@ function delete_topic(topic_id) {
 			</div>
 		</div>
 
-<!-- Post loop -->
+		<!-- Post loop -->
 		<xsl:for-each select="/_R_/posts_get_by_topic_id/posts_get_by_topic_id">
 			<div id="p{id}" class="blockpost roweven">
 				<h2>
@@ -159,8 +161,9 @@ function delete_topic(topic_id) {
 									<a href="{$link_prefix}post-edit&amp;post_id={id}&amp;fid={//_get/fid}&amp;tid={//_get/id}">
 										<xsl:value-of select="$my18n/e/edit"/>
 									</a>&#160;
-            <a href="{$link_prefix}x-post-delete&amp;post_id={id}" onclick="delete_post({id}); return false;">
-              <xsl:value-of select="$my18n/d/delete"/>
+									<a href="{$link_prefix}x-post-delete&amp;post_id={id}"
+										onclick="delete_post({id}); return false;">
+										<xsl:value-of select="$my18n/d/delete"/>
 									</a>
 								</xsl:if>
 							</div>
@@ -172,7 +175,7 @@ function delete_topic(topic_id) {
 
 		<div class="inbox">
 			<p class="postlink conl">
-				<xsl:if test="//posts_get_number_of_pages/count &gt; 2">
+				<xsl:if test="//posts_get_number_of_pages/posts_get_number_of_pages/count &gt; 2">
 					<xsl:call-template name="previous_next">
 						<xsl:with-param name="link_prefix">
 							<xsl:value-of select="$link_prefix"/>
