@@ -18,8 +18,8 @@ GNU Affero General Public License for more details.
 
 You should have received a copy of the GNU Affero General Public License
 along with this program; if not, see http://www.gnu.org/licenses
-or write to the Free Software Foundation,Inc., 51 Franklin Street,
-Fifth Floor, Boston, MA 02110-1301  USA
+or write to the Free Software Foundation, Inc., 51 Franklin Street,
+Fifth Floor, Boston, MA 02110-1301 USA
 -->
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" >
 <xsl:include href="html_main.xsl"/>
@@ -165,6 +165,22 @@ function delete_topic(topic_id) {
 	</div>
 </div>
 </xsl:for-each>
+
+    <p class="postlink conl">
+      <xsl:if test="//posts_get_number_of_pages/count &gt; 2">
+        <xsl:call-template name="previous_next">
+          <xsl:with-param name="link_prefix">
+            <xsl:value-of select="$link_prefix"/>
+          </xsl:with-param>
+          <xsl:with-param name="qsa">
+            <xsl:text>&amp;fid=</xsl:text>
+            <xsl:value-of select="/_R_/_get/fid"/>
+            <xsl:text>&amp;id=</xsl:text>
+            <xsl:value-of select="/_R_/_get/id"/>
+          </xsl:with-param>
+        </xsl:call-template>
+      </xsl:if>
+    </p>
 
 <!-- Reply -->
 <xsl:if test="/_R_/runtime/username">
