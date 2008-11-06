@@ -18,23 +18,23 @@ GNU Affero General Public License for more details.
 
 You should have received a copy of the GNU Affero General Public License
 along with this program; if not, see http://www.gnu.org/licenses
-or write to the Free Software Foundation,Inc., 51 Franklin Street,
-Fifth Floor, Boston, MA 02110-1301  USA
+or write to the Free Software Foundation, Inc., 51 Franklin Street,
+Fifth Floor, Boston, MA 02110-1301 USA
 -->
-<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" >
-<xsl:template name="previous_next">
-<xsl:param name="qsa"/>
-<xsl:param name="link_prefix"/>
-<xsl:if test="(/_R_/_get/start!=0) and not(/_R_/_get/start='NaN')">
-<a href="{$link_prefix}{/_R_/_get/nid}{$qsa}&amp;start={/_R_/_get/start - //incr}">Previous</a>
-&#160;
-<a href="{$link_prefix}{/_R_/_get/nid}{$qsa}&amp;start={/_R_/_get/start + //incr}">Next</a>
-</xsl:if>
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+	<xsl:template name="previous_next">
+		<xsl:param name="qsa"/>
+		<xsl:param name="link_prefix"/>
+		<xsl:if test="(/_R_/_get/start!=0) and not(/_R_/_get/start='NaN')">
+			<a href="{$link_prefix}{/_R_/_get/nid}{$qsa}&amp;start={/_R_/_get/start - //incr}">Previous</a>
+			&#160;
+			<a href="{$link_prefix}{/_R_/_get/nid}{$qsa}&amp;start={/_R_/_get/start + //incr}">Next</a>
+			</xsl:if>
 
-<xsl:if test="(/_R_/_get/start=0) or not(/_R_/_get/start)">
-Previous
-&#160;
-<a href="{$link_prefix}{/_R_/_get/nid}{$qsa}&amp;start={//incr}">Next</a>
-</xsl:if>
-</xsl:template>
+			<xsl:if test="(/_R_/_get/start=0) or not(/_R_/_get/start)">
+			Previous
+			&#160;
+			<a href="{$link_prefix}{/_R_/_get/nid}{$qsa}&amp;start={//incr}">Next</a>
+		</xsl:if>
+	</xsl:template>
 </xsl:stylesheet>
