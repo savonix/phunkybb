@@ -29,19 +29,19 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <div id="install" class="blockform">
 	<div class="block">
 		<h2 class="block2">
-      <xsl:value-of select="$my18n/i/install"/>
+      <xsl:value-of select="$my18n/install"/>
     </h2>
     <div class="box">
       <form id="profile1" method="post">
         <div class="inform">
           <fieldset>
             <legend>
-              <xsl:value-of select="$my18n/i/install"/>
+              <xsl:value-of select="$my18n/install"/>
             </legend>
             <div class="infldset">
               <label>
                 <strong>
-                  <xsl:value-of select="$my18n/u/username"/>
+                  <xsl:value-of select="$my18n/username"/>
                 </strong>
                 <br/>
                 <input type="text" name="req_username"

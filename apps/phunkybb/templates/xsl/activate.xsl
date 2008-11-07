@@ -28,13 +28,13 @@ Fifth Floor, Boston, MA 02110-1301  USA
     <xsl:param name="my18n"/>
     <div class="blockform">
       <h2>
-        <xsl:value-of select="$my18n/a/activate"/>
+        <xsl:value-of select="$my18n/activate"/>
       </h2>
 
       <div class="box">
         <div class="inform">
           <fieldset>
-            <xsl:value-of select="$my18n/a/activated"/>!
+            <xsl:value-of select="$my18n/activated"/>!
 						<br/><br/>
 						You may now <a href="{$link_prefix}login">login</a>
         </fieldset>

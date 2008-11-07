@@ -50,7 +50,7 @@ function do_encrypt() {
     $('span#login_button').removeClass("button-basic-blue");
     $('span#login_button').addClass("button-basic-green");
     $('span#replace').css("visibility","visible");
-    $('span#replace').html("<xsl:value-of select="$my18n/w/working"/>...");
+    $('span#replace').html("<xsl:value-of select="$my18n/working"/>...");
 
     var myform = document.forms["mlogin"];
     var rsa = new RSAKey();
@@ -74,7 +74,7 @@ function do_encrypt() {
 </script>
     <div class="blockform">
       <h2>
-        <xsl:value-of select="$my18n/l/login"/>
+        <xsl:value-of select="$my18n/login"/>
         <xsl:value-of select="//postgres_version"/>
       </h2>
 
@@ -87,12 +87,12 @@ function do_encrypt() {
           <div class="inform">
             <fieldset>
               <legend>
-                <xsl:value-of select="$my18n/l/login"/>
+                <xsl:value-of select="$my18n/login"/>
               </legend>
               <div class="infldset">
                 <label class="conl">
                   <strong>
-                    <xsl:value-of select="$my18n/u/username"/>
+                    <xsl:value-of select="$my18n/username"/>
                   </strong>
                   <br/>
                   <input type="text" name="username"/>
@@ -101,7 +101,7 @@ function do_encrypt() {
 
                 <label class="conl">
                   <strong>
-                    <xsl:value-of select="$my18n/p/password"/>
+                    <xsl:value-of select="$my18n/password"/>
                   </strong>
                   <br/>
                   <input type="password" name="password"/>
@@ -110,7 +110,7 @@ function do_encrypt() {
 
                 <p>
                   <a href="{$link_prefix}register">
-                    <xsl:value-of select="$my18n/n/not_registered_yet"/>?</a>
+                    <xsl:value-of select="$my18n/not_registered_yet"/>?</a>
                   <div style="visibility: hidden;" id="failure">
                     <a href="">Forgotten your password?</a>
                   </div>

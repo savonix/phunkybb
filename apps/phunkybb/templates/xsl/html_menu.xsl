@@ -36,25 +36,25 @@ Fifth Floor, Boston, MA 02110-1301  USA
       <div id="brdmenu" class="inbox">
 				<xsl:copy-of select="//extra_menu_items" disable-output-escaping="no"/>
         <a href="{$link_prefix}index">
-              <xsl:value-of select="$my18n/i/index"/>
+              <xsl:value-of select="$my18n/index"/>
         </a>
 
         <xsl:choose>
           <xsl:when test="/_R_/runtime/username">
             <xsl:if test="/_R_/runtime/group_id='1'">
               <a href="{$link_prefix}admin">
-                <xsl:value-of select="$my18n/a/administration"/>
+                <xsl:value-of select="$my18n/administration"/>
               </a>
             </xsl:if>
             <a href="{$link_prefix}profile">Profile</a>
-            <a href="{$link_prefix}logout"><xsl:value-of select="$my18n/l/logout"/></a>
+            <a href="{$link_prefix}logout"><xsl:value-of select="$my18n/logout"/></a>
           </xsl:when>
           <xsl:otherwise>
             <a href="{$link_prefix}register">
-              <xsl:value-of select="$my18n/r/register"/>
+              <xsl:value-of select="$my18n/register"/>
             </a>
             <a href="{$link_prefix}login">
-              <xsl:value-of select="$my18n/l/login"/>
+              <xsl:value-of select="$my18n/login"/>
             </a>
           </xsl:otherwise>
         </xsl:choose>

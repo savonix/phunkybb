@@ -48,7 +48,7 @@ function do_encrypt() {
     $('span#login_button').removeClass("button-basic-blue");
     $('span#login_button').addClass("button-basic-green");
     $('span#replace').css("visibility","visible");
-    $('span#replace').html("<xsl:value-of select="$my18n/w/working"/>...");
+    $('span#replace').html("<xsl:value-of select="$my18n/working"/>...");
     
     if(validateStandard(this))
     {
@@ -69,7 +69,7 @@ function do_encrypt() {
             }
         });
     } else {
-        $('span#replace').html("<xsl:value-of select="$my18n/i/invalid_registration"/>");
+        $('span#replace').html("<xsl:value-of select="$my18n/invalid_registration"/>");
     }
 }
 </script>
@@ -77,7 +77,7 @@ function do_encrypt() {
     <div id="install" class="blockform">
       <div class="block">
         <h2 class="block2">
-          <xsl:value-of select="$my18n/c/change_password"/>
+          <xsl:value-of select="$my18n/change_password"/>
         </h2>
         <div class="box">
           <form id="password" name="password" method="post" onSubmit="do_encrypt(); return false;">
@@ -86,12 +86,12 @@ function do_encrypt() {
             <div class="inform">
               <fieldset>
                 <legend>
-                  <xsl:value-of select="$my18n/p/pass_legend_1"/>
+                  <xsl:value-of select="$my18n/pass_legend_1"/>
                 </legend>
                 <div class="infldset">
                   <label class="conl">
                     <strong>
-                      <xsl:value-of select="$my18n/p/password"/>
+                      <xsl:value-of select="$my18n/password"/>
                     </strong>
                     <br/>
                     <input type="password" name="password" size="16" maxlength="16"/>
@@ -99,14 +99,14 @@ function do_encrypt() {
                   </label>
                   <label class="conl">
                     <strong>
-                      <xsl:value-of select="$my18n/c/confirm_password"/>
+                      <xsl:value-of select="$my18n/confirm_password"/>
                     </strong>
                     <br/>
                     <input type="password" name="password2" size="16" maxlength="16"/>
                     <br/>
                   </label>
                   <p class="clearb">
-                    <xsl:value-of select="$my18n/p/pass_info"/>
+                    <xsl:value-of select="$my18n/pass_info"/>
                   </p>
                 </div>
               </fieldset>

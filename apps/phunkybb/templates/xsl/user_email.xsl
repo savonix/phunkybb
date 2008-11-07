@@ -43,7 +43,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 					<fieldset>
 						<legend>Enter a valid e-mail address</legend>
 						<div class="infldset">
-							<label><strong><xsl:value-of select="$my18n/e/email"/></strong><br/>
+							<label><strong><xsl:value-of select="$my18n/email"/></strong><br/>
 									<input type="text" name="rcpt_email" value="{//user_get_profile/email}" readonly="readonly"/>
 									<br/>
 									</label>

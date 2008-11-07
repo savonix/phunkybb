@@ -38,7 +38,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 
 			<div class="blockform">
 				<h2 class="block2">
-					<xsl:value-of select="$my18n/e/edit_forum"/>
+					<xsl:value-of select="$my18n/edit_forum"/>
 				</h2>
 				<div class="box">
 					<form id="edforum" method="post" action="{$link_prefix}forum-edit">
@@ -51,7 +51,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 							<div class="inform">
 								<fieldset>
 									<legend>
-										<xsl:value-of select="$my18n/f/forum"/>: <xsl:value-of select="//forum_get_by_id/forum_name"/>
+										<xsl:value-of select="$my18n/forum"/>: <xsl:value-of select="//forum_get_by_id/forum_name"/>
 									</legend>
 									<div class="infldset">
 

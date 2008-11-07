@@ -27,7 +27,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <xsl:param name="my18n"/>
   <div id="adminmenu" class="blockmenu">
     <h2>
-      <xsl:value-of select="$my18n/a/admin_menu"/>
+      <xsl:value-of select="$my18n/admin_menu"/>
     </h2>
     <div class="box">
       <div class="inbox">
@@ -39,13 +39,10 @@ Fifth Floor, Boston, MA 02110-1301  USA
             <xsl:value-of select="."/>
           </xsl:variable>
 
-          <xsl:variable name="mypre">
-            <xsl:value-of select="substring(.,1,1)"/>
-          </xsl:variable>
 
           <li>
             <a href="{$link_prefix}{$mykey}">
-              <xsl:value-of select="$my18n/*[local-name()=$mypre]/*[local-name()=$mykey]"/>
+              <xsl:value-of select="$my18n/*[local-name()=$mykey]"/>
             </a>
           </li>
         </xsl:for-each>

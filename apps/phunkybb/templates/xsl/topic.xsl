@@ -62,12 +62,12 @@ function delete_topic(topic_id) {
 		<div class="linkst">
 			<div class="inbox">
 				<p class="pagelink conl">
-					<xsl:value-of select="$my18n/p/pages"/>:
+					<xsl:value-of select="$my18n/pages"/>:
       <strong>
         <xsl:value-of select="format-number($page_num/pages,'##')"/>
 			</strong>&#160;
 
-      <xsl:value-of select="$my18n/p/posts"/>:
+      <xsl:value-of select="$my18n/posts"/>:
       <strong>
         <xsl:value-of select="$page_num/count"/>
 			</strong>
@@ -87,7 +87,7 @@ function delete_topic(topic_id) {
 				<ul class="breadcrumbs">
 					<li>
 						<a href="{$link_prefix}index">
-							<xsl:value-of select="$my18n/i/index"/>
+							<xsl:value-of select="$my18n/index"/>
 						</a>
 					</li>
 				<li>&#160; &gt; &#160;
@@ -163,11 +163,11 @@ function delete_topic(topic_id) {
 							<div>
 								<xsl:if test="//runtime/group_id=1 or poster=/_R_/runtime/username">
 									<a href="{$link_prefix}post-edit&amp;post_id={id}&amp;fid={//_get/fid}&amp;tid={//_get/id}">
-										<xsl:value-of select="$my18n/e/edit"/>
+										<xsl:value-of select="$my18n/edit"/>
 									</a>&#160;
 									<a href="{$link_prefix}x-post-delete&amp;post_id={id}"
 										onclick="delete_post({id}); return false;">
-										<xsl:value-of select="$my18n/d/delete"/>
+										<xsl:value-of select="$my18n/delete"/>
 									</a>
 								</xsl:if>
 							</div>
@@ -203,14 +203,14 @@ function delete_topic(topic_id) {
 		<xsl:if test="/_R_/runtime/username">
 			<div class="blockform">
 				<h2>
-					<xsl:value-of select="$my18n/q/quick_post"/>
+					<xsl:value-of select="$my18n/quick_post"/>
 				</h2>
 				<div class="box">
 					<form method="post" action="{$link_prefix}post&amp;tid={/_R_/_get/id}">
 						<div class="inform">
 							<fieldset>
 								<legend>
-									<xsl:value-of select="$my18n/w/write_your_message"/>
+									<xsl:value-of select="$my18n/write_your_message"/>
 								</legend>
 								<div class="infldset txtarea">
 									<input type="hidden" name="topic_id" value="{/_R_/_get/id}"/>

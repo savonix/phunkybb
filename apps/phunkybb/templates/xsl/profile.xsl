@@ -41,7 +41,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 	<div class="blockform">
 		<h2>
       <xsl:value-of select="/_R_/runtime/username"/> -
-      <xsl:value-of select="$my18n/essentials"/>
+      <xsl:value-of select="$my18n/ssentials"/>
     </h2>
 		<div class="box">
 			<form id="profile1" method="post">
@@ -53,7 +53,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 							<input type="hidden" name="old_username" value="demo"/>
               <label>
                 <strong>
-                  <xsl:value-of select="$my18n/u/username"/>
+                  <xsl:value-of select="$my18n/username"/>
                 </strong>
                 <br/>
                 <input type="text" name="req_username"
@@ -72,7 +72,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 						<div class="infldset">
 							<label>
                 <strong>
-                  <xsl:value-of select="$my18n/e/email"/>
+                  <xsl:value-of select="$my18n/email"/>
                 </strong>
                 <br/>
                 <input type="text" name="email" value="{$my_user/email}"/>
@@ -89,12 +89,12 @@ Fifth Floor, Boston, MA 02110-1301  USA
 				<div class="inform">
 					<fieldset>
 						<legend>
-              <xsl:value-of select="$my18n/u/user_activity"/>
+              <xsl:value-of select="$my18n/user_activity"/>
             </legend>
 						<div class="infldset">
               <xsl:if test="/_R_/runtime/group_id=1">
                 <p>
-                  <xsl:value-of select="$my18n/r/registration_ip"/>:
+                  <xsl:value-of select="$my18n/registration_ip"/>:
                   <a href="http://www.arin.net/?queryinput={$my_user/r/registration_ip}"
                     target="_blank">
                     <xsl:value-of select="$my_user/r/registration_ip"/>
@@ -102,26 +102,26 @@ Fifth Floor, Boston, MA 02110-1301  USA
                 </p>
               </xsl:if>
               <p>
-                <xsl:value-of select="$my18n/r/registered"/>:
+                <xsl:value-of select="$my18n/registered"/>:
                 <xsl:value-of select="$my_user/registered"/>
               </p>
               <p>
-                <xsl:value-of select="$my18n/l/last_visit"/>:
+                <xsl:value-of select="$my18n/last_visit"/>:
                 <xsl:value-of select="$my_user/last_visit"/>
               </p>
               <p>
-                <xsl:value-of select="$my18n/l/last_post"/>:
+                <xsl:value-of select="$my18n/last_post"/>:
                 <xsl:value-of select="$my_user/last_post"/>
               </p>
               <label>
-                <xsl:value-of select="$my18n/p/posts"/>
+                <xsl:value-of select="$my18n/posts"/>
                 <br/>
                 <input type="text" name="num_posts"
                   value="{$my_user/num_posts}"/>
                 <br/>
               </label>
 							<label>
-                <xsl:value-of select="$my18n/a/admin_note"/>
+                <xsl:value-of select="$my18n/admin_note"/>
                 <br/>
                 <input
                   id="admin_note"

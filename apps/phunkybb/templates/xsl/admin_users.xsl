@@ -59,7 +59,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 
       <div class="blockform">
         <h2>
-          <xsl:value-of select="$my18n/u/users"/>
+          <xsl:value-of select="$my18n/users"/>
         </h2>
         <div class="box">
           <div style="min-height: 400px; padding: 1em;">
@@ -67,7 +67,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
               <thead>
                 <tr>
                   <th>
-                    <xsl:value-of select="$my18n/u/users"/>
+                    <xsl:value-of select="$my18n/users"/>
                   </th>
                   <th></th>
                   <th></th>
