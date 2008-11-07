@@ -86,6 +86,17 @@ Username: @@username@@
 <!-- END EMAIL -->
 
 
+<!-- EMAIL START -->
+  <subscription_email>
+Subject: Posting notice from @@board_title@@!
+
+A topic that you are subscribed to has been updated. You may view the
+topic here: @@base_url@@.
+
+  </subscription_email>
+<!-- END EMAIL -->
+
+
 
 
 

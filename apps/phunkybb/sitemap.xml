@@ -187,8 +187,16 @@
     <map:gate name="post">
         <map:if name="//_post">
             <map:true>
+						<!--
+								<map:xml src="data/xml/emails.xml"/>
+                <map:xml src="i18n/en_US/emails.xml"/>
+                <map:plugin type="detokenize"
+                    params="{/_R_/i18n/test_email},//emails/test/token"/>
+                <map:action type="email"
+                    params="{//_post/rcpt_email},{//board_config/o_webmaster_email},{//_post/subject},{//new_text},{//board_config/o_smtp_host}"/>
+										-->
                 <map:plugin type="safehtml" params="//_post/message"/>
-				<map:action type="newline" params="//clean_message"/>
+								<map:action type="newline" params="//clean_message"/>
                 <map:query src="data/sql/post_create.xml"/>
                 <map:query src="data/sql/topic_last_post_update.xml"/>
                 <map:query src="data/sql/forum_last_post_update.xml"/>
