@@ -45,7 +45,16 @@ Fifth Floor, Boston, MA 02110-1301  USA
                     <xsl:value-of select="$my18n/subject"/>
                   </strong>
                   <br/>
-                  <input class="longinput" type="text" name="subject"/>
+<script type="text/javascript">
+function copyValue(field1,field2)
+{
+  document.getElementById(field2).value=document.getElementById(field1).value.replace(/[ ]+/g,'_').replace(/[\W]+/g,'').toLowerCase();
+}
+</script>
+                  <input class="longinput" type="text" name="subject" id="subject" onkeyup="copyValue('subject','basename')"/>
+									<br/>
+
+                  <input class="longinput" type="text" name="basename" id="basename" />
                   <br/>
                 </label>
                 <label>
