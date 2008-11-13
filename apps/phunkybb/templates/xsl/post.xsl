@@ -54,7 +54,7 @@ function copyValue(field1,field2)
                   <input class="longinput" type="text" name="subject" id="subject" onkeyup="copyValue('subject','basename')"/>
 									<br/>
 
-                  <input class="longinput" type="text" name="basename" id="basename" />
+                  <input type="hidden" name="basename" id="basename" />
                   <br/>
                 </label>
                 <label>
