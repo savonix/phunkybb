@@ -55,7 +55,8 @@ function delete_topic(topic_id) {
     }
 }
 </script>
-
+		<xsl:variable name="this_forum"
+			select="/_R_/forum_get_by_id/forum_get_by_id"/>
 		<xsl:variable name="page_num"
 			select="/_R_/posts_get_number_of_pages/posts_get_number_of_pages"/>
 
@@ -63,9 +64,9 @@ function delete_topic(topic_id) {
 			<div class="inbox">
 				<p class="pagelink conl">
 					<xsl:value-of select="$my18n/pages"/>:
-      <strong>
-        <xsl:value-of select="format-number($page_num/pages,'##')"/>
-			</strong>&#160;
+					<strong>
+						<xsl:value-of select="format-number($page_num/pages,'##')"/>
+					</strong>&#160;
 
       <xsl:value-of select="$my18n/posts"/>:
       <strong>
@@ -76,7 +77,8 @@ function delete_topic(topic_id) {
 				<xsl:value-of select="/_R_/topic_get_by_id/topic_get_by_id/subject"/>
       &#160;
       <xsl:if test="/_R_/runtime/group_id=1">
-        <a href="{$link_prefix}topic-delete&amp;topic_id={/_R_/_get/id}&amp;fid={/_R_/_get/fid}" onclick="delete_topic({/_R_/_get/id}); return false;">
+        <a href="{$link_prefix}topic-delete&amp;topic_id={/_R_/_get/id}&amp;fid={/_R_/_get/fid}"
+					onclick="delete_topic({/_R_/_get/id}); return false;">
           Delete
         </a>
 						<a href="{$link_prefix}topic-edit&amp;topic_id={/_R_/_get/id}&amp;fid={/_R_/_get/fid}">
@@ -91,14 +93,14 @@ function delete_topic(topic_id) {
 						</a>
 					</li>
 				<li>&#160; &gt; &#160;
-        <a href="{$link_prefix}forum&amp;fid={/_R_/_get/fid}"
-					title="{/_R_/forum_get_by_id/forum_get_by_id/forum_name}">
-          <xsl:value-of select="/_R_/forum_get_by_id/forum_get_by_id/forum_name"/>
+        <a href="{$link_prefix}forum&amp;forum_basename={$this_forum/forum_basename}&amp;fid={$this_forum/id}"
+					title="{$this_forum/forum_name}">
+          <xsl:value-of select="$this_forum/forum_name"/>
 				</a>
 				</li>
 				<li>
         &#160; &gt; &#160;
-        <a href="{$link_prefix}topic&amp;fid={/_R_/_get/fid}&amp;id={/_R_/_get/id}">
+        <a href="{$link_prefix}topic&amp;forum_basename={$this_forum/forum_basename}&amp;fid={$this_forum/id}&amp;id={/_R_/_get/id}">
           <xsl:value-of select="/_R_/topic_get_by_id/topic_get_by_id/subject"/>
 				</a>
 				</li>
