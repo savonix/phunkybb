@@ -69,7 +69,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
                       </xsl:if>
                       <div class="tclcon">
                         <h3>
-                          <a href="{$link_prefix}forum&amp;fid={fid}">
+                          <a href="{$link_prefix}forum&amp;forum_basename={forum_basename}&amp;fid={fid}">
                             <xsl:value-of select="forum_name"/>
                           </a>
                         </h3>

@@ -58,7 +58,15 @@ Fifth Floor, Boston, MA 02110-1301 USA
 										<table cellspacing="0" id="cat_table_{cid}">
 												<tr id="row_{fid}">
 													<td>
-                            <input type="text" name="forum_name" value="{//forum_get_by_id/forum_name}"/>
+                            <input type="text" name="forum_name" id="forum_name" value="{//forum_get_by_id/forum_get_by_id/forum_name}" onkeyup="copyValue('forum_name','forum_basename')"/>
+														<script type="text/javascript">
+function copyValue(field1,field2)
+{
+  document.getElementById(field2).value=document.getElementById(field1).value.replace(/[ ]+/g,'_').replace(/[\W]+/g,'').toLowerCase();
+}
+</script>
+                  <input type="hidden" name="forum_basename" id="forum_basename" value="{//forum_get_by_id/forum_get_by_id/forum_basename}"/>
+									<br/>
 													</td>
 												</tr>
 										</table>
