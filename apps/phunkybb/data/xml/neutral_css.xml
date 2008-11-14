@@ -25,11 +25,11 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <css>
     <colors>
         <background>#706B55</background><!-- base background -->
-        <light-background>#1F394D</light-background>
-        <light-background-alt>#E6C0A1</light-background-alt> <!-- replies column -->
-        <med-background>#FFE987</med-background> <!-- topic-replies-post header -->
+        <light-background>#A3987C</light-background>
+        <light-background-alt>#A3987C</light-background-alt> <!-- replies column -->
+        <med-background>#C9C08A</med-background> <!-- topic-replies-post header -->
         <med-background-alt>#A4B3A5</med-background-alt> <!-- text-background -->
-        <dark-background>#A4EBA8</dark-background> <!-- index - register - login header -->
+        <dark-background>#696155</dark-background> <!-- index - register - login header -->
         <header-hover>#000000</header-hover>
     </colors>
 </css>
