@@ -112,7 +112,7 @@ function do_encrypt() {
               </fieldset>
             </div>
             <br/>
-            <span id="submit" class="button-basic-blue disableSelection" onclick="do_encrypt();">Submit</span>
+            <span id="submit" class="button-basic-blue disableSelection" onClick="do_encrypt(); return false;">Submit</span>
             <span id="replace" class="interstatus"></span>
             <input type="submit" style="visibility: hidden;"/>
           </form>
