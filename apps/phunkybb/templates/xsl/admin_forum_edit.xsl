@@ -75,7 +75,7 @@ function copyValue(field1,field2)
 								</fieldset>
 							</div>
 						<p class="submitend">
-							<input type="submit" name="update" value="Update"/>
+							<input type="submit" name="update_forum" value="Update"/>
 						</p>
 					</form>
 				</div>
