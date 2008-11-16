@@ -58,6 +58,7 @@ if(is_file('../revision')) {
 $runtime = array(
                 'path_prefix' => $path_prefix,
                 'link_prefix' => $link_prefix,
+                'mod_rewrite' => 'true',
                 'svn_revision' => $svn_revision,
                 'utcdate' => gmdate('Y-m-d H:i:s'),
                 'debug' => 1,

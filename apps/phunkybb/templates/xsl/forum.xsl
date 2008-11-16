@@ -96,9 +96,24 @@ Fifth Floor, Boston, MA 02110-1301 USA
                     <div class="icon inew"><div class="nosize"></div></div>
                   </xsl:if>
                   <div class="tclcon">
+										<!-- Need to use the link_builder here! -->
+										<xsl:if test="//mod_rewrite='true'">
+                    <a>
+											<xsl:attribute name="href">
+												<xsl:value-of select="//path_prefix"/>
+												<xsl:value-of select="//_get/forum_basename"/>
+												<xsl:text>/</xsl:text>
+												<xsl:value-of select="basename"/>
+												<xsl:text>/</xsl:text>
+											</xsl:attribute>
+                      <xsl:value-of select="subject"/>
+                    </a>
+										</xsl:if>
+										<xsl:if test="not(//mod_rewrite='true')">
                     <a href="{$link_prefix}topic&amp;basename={basename}&amp;fid={/_R_/_get/fid}&amp;id={id}">
                       <xsl:value-of select="subject"/>
                     </a>
+										</xsl:if>
                   </div>
                 </div>
               </td>
