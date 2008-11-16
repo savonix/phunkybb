@@ -28,7 +28,7 @@ For use with Apache's mod_rewrite
 
 RewriteCond %{REQUEST_URI} ^/a/dev/phunkybb/
 RewriteCond %{REQUEST_URI} !/a/dev/phunkybb/index.php|.css
-RewriteRule ^/a/dev/phunkybb/(\w+)/(\w+)/ /a/dev/phunkybb/index.php?nxrw_path=/a/dev/phunkybb/index.php&nid=topic&forum_basename=$1basename$2 [L]
+RewriteRule ^/a/dev/phunkybb/(\w+)/(\w+)/ /a/dev/phunkybb/index.php?nxrw_path=/a/dev/phunkybb/index.php&nid=topic&forum_basename=$1&basename=$2 [L]
 */
 
 $defaults = Nexista_Config::getSection("./defaults");
