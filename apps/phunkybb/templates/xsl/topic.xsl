@@ -77,11 +77,11 @@ function delete_topic(topic_id) {
 				<xsl:value-of select="/_R_/topic_get_by_id/topic_get_by_id/subject"/>
       &#160;
       <xsl:if test="/_R_/runtime/group_id=1">
-        <a href="{$link_prefix}topic-delete&amp;topic_id={/_R_/topic_get_by_id/topic_get_by_id/id}&amp;fid={/_R_/topic_get_by_id/topic_get_by_id/fid}"
+        <a href="{$link_prefix}topic-delete&amp;topic_id={/_R_/topic_get_by_id/topic_get_by_id/id}&amp;fid={/_R_/forum_get_by_id/forum_get_by_id/fid}"
 					onclick="delete_topic({/_R_/_get/id}); return false;">
           Delete
         </a>
-						<a href="{$link_prefix}topic-edit&amp;topic_id={/_R_/topic_get_by_id/topic_get_by_id/id}&amp;fid={/_R_/topic_get_by_id/topic_get_by_id/fid}">
+						<a href="{$link_prefix}topic-edit&amp;topic_id={/_R_/topic_get_by_id/topic_get_by_id/id}&amp;fid={/_R_/forum_get_by_id/forum_get_by_id/fid}">
           Move
         </a>
 					</xsl:if>
@@ -113,9 +113,9 @@ function delete_topic(topic_id) {
 							</xsl:with-param>
 							<xsl:with-param name="qsa">
 								<xsl:text>&amp;fid=</xsl:text>
-								<xsl:value-of select="/_R_/_get/fid"/>
+								<xsl:value-of select="/_R_/forum_get_by_id/forum_get_by_id/fid"/>
 								<xsl:text>&amp;id=</xsl:text>
-								<xsl:value-of select="/_R_/_get/id"/>
+								<xsl:value-of select="/_R_/topic_get_by_id/topic_get_by_id/id"/>
 							</xsl:with-param>
 							<xsl:with-param name="max">
 								<xsl:value-of select="$page_num/count"/>
@@ -164,7 +164,7 @@ function delete_topic(topic_id) {
 						<div class="postfootright">
 							<div>
 								<xsl:if test="//runtime/group_id=1 or poster=/_R_/runtime/username">
-									<a href="{$link_prefix}post-edit&amp;post_id={id}&amp;fid={//_get/fid}&amp;tid={//_get/id}">
+									<a href="{$link_prefix}post-edit&amp;post_id={id}&amp;topic_id={/_R_/topic_get_by_id/topic_get_by_id/id}&amp;fid={/_R_/forum_get_by_id/forum_get_by_id/fid}">
 										<xsl:value-of select="$my18n/edit"/>
 									</a>&#160;
 									<a href="{$link_prefix}x-post-delete&amp;post_id={id}"
@@ -189,9 +189,9 @@ function delete_topic(topic_id) {
 						</xsl:with-param>
 						<xsl:with-param name="qsa">
 							<xsl:text>&amp;fid=</xsl:text>
-							<xsl:value-of select="/_R_/_get/fid"/>
+							<xsl:value-of select="/_R_/forum_get_by_id/forum_get_by_id/fid"/>
 							<xsl:text>&amp;id=</xsl:text>
-							<xsl:value-of select="/_R_/_get/id"/>
+							<xsl:value-of select="/_R_/topic_get_by_id/topic_get_by_id/id"/>
 						</xsl:with-param>
 						<xsl:with-param name="max">
 							<xsl:value-of select="$page_num/count"/>
