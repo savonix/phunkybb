@@ -217,7 +217,7 @@ function delete_topic(topic_id) {
 								<div class="infldset txtarea">
 									<input type="hidden" name="topic_id" value="{/_R_/topic_get_by_id/topic_get_by_id/id}"/>
 									<input type="hidden" name="num_replies" value="{count(//posts_get_by_topic_id)}"/>
-									<input type="hidden" name="forum_id" value="{/_R_/topic_get_by_id/topic_get_by_id/fid}"/>
+									<input type="hidden" name="forum_id" value="{/_R_/forum_get_by_id/forum_get_by_id/id}"/>
 									<label>
 										<textarea name="message" rows="7" cols="75"></textarea>
 									</label>
