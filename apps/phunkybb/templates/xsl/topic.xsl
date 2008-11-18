@@ -208,7 +208,7 @@ function delete_topic(topic_id) {
 					<xsl:value-of select="$my18n/quick_post"/>
 				</h2>
 				<div class="box">
-					<form method="post" action="{$link_prefix}post&amp;tid={/_R_/_get/id}">
+					<form method="post" action="{$link_prefix}post&amp;tid={/_R_/topic_get_by_id/topic_get_by_id/id}">
 						<div class="inform">
 							<fieldset>
 								<legend>
