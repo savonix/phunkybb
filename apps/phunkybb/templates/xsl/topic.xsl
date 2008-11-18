@@ -215,9 +215,9 @@ function delete_topic(topic_id) {
 									<xsl:value-of select="$my18n/write_your_message"/>
 								</legend>
 								<div class="infldset txtarea">
-									<input type="hidden" name="topic_id" value="{/_R_/_get/id}"/>
+									<input type="hidden" name="topic_id" value="{/_R_/topic_get_by_id/topic_get_by_id/id}"/>
 									<input type="hidden" name="num_replies" value="{count(//posts_get_by_topic_id)}"/>
-									<input type="hidden" name="forum_id" value="{/_R_/_get/fid}"/>
+									<input type="hidden" name="forum_id" value="{/_R_/topic_get_by_id/topic_get_by_id/fid}"/>
 									<label>
 										<textarea name="message" rows="7" cols="75"></textarea>
 									</label>
