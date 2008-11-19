@@ -32,7 +32,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 
     <head>
 			<xsl:if test="/_R_/forum_get_by_id/forum_get_by_id/forum_name">
-					<meta name="description" content="{/_R_/forum_get_by_id/forum_get_by_id/forum_name} {/_R_/topic_get_by_id/topic_get_by_id/subject}"/>
+					<meta name="description" content="{/_R_/forum_get_by_id/forum_get_by_id/forum_name}: {/_R_/topic_get_by_id/topic_get_by_id/subject}"/>
 			</xsl:if>
 			<xsl:if test="not(/_R_/forum_get_by_id/forum_get_by_id/forum_name)">
 					<meta name="description" content="{/_R_/board_config/o_board_title}"/>
