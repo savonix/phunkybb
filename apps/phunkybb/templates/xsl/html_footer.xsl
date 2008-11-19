@@ -37,7 +37,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 		<div class="inbox">
 			<dl id="searchlinks" class="conl">
 			</dl>
-			<p class="conr">Powered by <a href="http://www.phunkybb.docunext.com/blog/">PhunkyBB</a>, a fork of punbb.
+			<p class="conr">Powered by <a href="http://www.phunkybb.com/blog/" title="Open Source Forums XSL Software">PhunkyBB</a>, a fork of punbb.
             <xsl:if test="/_R_/runtime/svn_revision">
                 Revision <xsl:value-of select="/_R_/runtime/svn_revision"/>
             </xsl:if>
