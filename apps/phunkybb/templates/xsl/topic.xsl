@@ -78,7 +78,7 @@ function delete_topic(topic_id) {
       &#160;
       <xsl:if test="/_R_/runtime/group_id=1">
         <a href="{$link_prefix}topic-delete&amp;topic_id={/_R_/topic_get_by_id/topic_get_by_id/id}&amp;fid={/_R_/forum_get_by_id/forum_get_by_id/id}"
-					onclick="delete_topic({/_R_/_get/id}); return false;">
+					onclick="delete_topic({/_R_/topic_get_by_id/topic_get_by_id/id}); return false;">
           Delete
         </a>
 						<a href="{$link_prefix}topic-edit&amp;topic_id={/_R_/topic_get_by_id/topic_get_by_id/id}&amp;fid={/_R_/forum_get_by_id/forum_get_by_id/id}">

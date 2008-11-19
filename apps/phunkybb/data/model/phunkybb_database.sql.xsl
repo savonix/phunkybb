@@ -105,21 +105,21 @@ Fifth Floor, Boston, MA 02110-1301 USA
     </xsl:if>
 </xsl:variable>
 
-CREATE TABLE <xsl:value-of select="$if_not_exists"/> <xsl:value-of select="//table_prefix"/>categories (
+CREATE TABLE <xsl:value-of select="$if_not_exists"/> <xsl:value-of select="//_get/table_prefix"/>categories (
   id <xsl:value-of select="$engine_auto_increment"/>,
   cat_name varchar(80) NOT NULL default 'New Category',
   disp_position <xsl:value-of select="$integer"/> NOT NULL default '0',
   PRIMARY KEY  (id)
 ) <xsl:value-of select="$innodb_engine"/> <xsl:value-of select="$engine_increment_start"/> ;
 
-CREATE TABLE <xsl:value-of select="f_not_exists"/> <xsl:value-of select="//table_prefix"/>config (
+CREATE TABLE <xsl:value-of select="f_not_exists"/> <xsl:value-of select="//_get/table_prefix"/>config (
   conf_name varchar(255) NOT NULL default '',
   conf_value text,
   PRIMARY KEY  (conf_name)
 ) <xsl:value-of select="$myisam_engine"/>;
 
 
-CREATE TABLE <xsl:value-of select="f_not_exists"/> <xsl:value-of select="//table_prefix"/>forums (
+CREATE TABLE <xsl:value-of select="f_not_exists"/> <xsl:value-of select="//_get/table_prefix"/>forums (
   id <xsl:value-of select="$engine_auto_increment"/>,
   forum_name varchar(80) NOT NULL default 'New forum',
   forum_basename varchar(80) NOT NULL default 'New forum',
@@ -135,33 +135,13 @@ CREATE TABLE <xsl:value-of select="f_not_exists"/> <xsl:value-of select="//table
   disp_position <xsl:value-of select="$integer"/> NOT NULL default '0',
   cat_id <xsl:value-of select="$integer"/> NOT NULL default '0',
   PRIMARY KEY  (id)<xsl:if test="//engine='mysqli'">,
-  KEY <xsl:value-of select="//table_prefix"/>forum_cat_id_idx (cat_id)</xsl:if>
+  KEY <xsl:value-of select="//_get/table_prefix"/>forum_cat_id_idx (cat_id)</xsl:if>
 ) <xsl:value-of select="$innodb_engine"/> <xsl:value-of select="$engine_increment_start"/> ;
 
 
-CREATE TABLE <xsl:value-of select="f_not_exists"/> <xsl:value-of select="//table_prefix"/>groups (
-  g_id <xsl:value-of select="$engine_auto_increment"/>,
-  g_title varchar(50) NOT NULL default '',
-  g_user_title varchar(50) default NULL,
-  g_read_board <xsl:value-of select="$integer"/> NOT NULL default '1',
-  g_post_replies <xsl:value-of select="$integer"/> NOT NULL default '1',
-  g_post_topics <xsl:value-of select="$integer"/> NOT NULL default '1',
-  g_post_polls <xsl:value-of select="$integer"/> NOT NULL default '1',
-  g_edit_posts <xsl:value-of select="$integer"/> NOT NULL default '1',
-  g_delete_posts <xsl:value-of select="$integer"/> NOT NULL default '1',
-  g_delete_topics <xsl:value-of select="$integer"/> NOT NULL default '1',
-  g_set_title <xsl:value-of select="$integer"/> NOT NULL default '1',
-  g_search <xsl:value-of select="$integer"/> NOT NULL default '1',
-  g_search_users <xsl:value-of select="$integer"/> NOT NULL default '1',
-  g_edit_subjects_interval <xsl:value-of select="$integer"/> NOT NULL default '300',
-  g_post_flood <xsl:value-of select="$integer"/> NOT NULL default '30',
-  g_search_flood <xsl:value-of select="$integer"/> NOT NULL default '30',
-  PRIMARY KEY  (g_id)
-) <xsl:value-of select="$myisam_engine"/>  <xsl:value-of select="$engine_increment_start"/> ;
 
 
-
-CREATE TABLE <xsl:value-of select="f_not_exists"/> <xsl:value-of select="//table_prefix"/>posts (
+CREATE TABLE <xsl:value-of select="f_not_exists"/> <xsl:value-of select="//_get/table_prefix"/>posts (
   id <xsl:value-of select="$engine_auto_increment"/>,
   poster varchar(200) NOT NULL default '',
   poster_id int(10) NOT NULL default '1',
@@ -174,19 +154,19 @@ CREATE TABLE <xsl:value-of select="f_not_exists"/> <xsl:value-of select="//table
   edited_by varchar(200) default NULL,
   topic_id int(10) NOT NULL default '0',
   PRIMARY KEY  (id),
-  KEY <xsl:value-of select="//table_prefix"/>posts_topic_id_idx (topic_id),
-  KEY <xsl:value-of select="//table_prefix"/>posts_multi_idx (poster_id,topic_id)
+  KEY <xsl:value-of select="//_get/table_prefix"/>posts_topic_id_idx (topic_id),
+  KEY <xsl:value-of select="//_get/table_prefix"/>posts_multi_idx (poster_id,topic_id)
 ) <xsl:value-of select="$innodb_engine"/> <xsl:value-of select="$engine_increment_start"/> ;
 
 
-CREATE TABLE <xsl:value-of select="f_not_exists"/> <xsl:value-of select="//table_prefix"/>subscriptions (
+CREATE TABLE <xsl:value-of select="f_not_exists"/> <xsl:value-of select="//_get/table_prefix"/>subscriptions (
   user_id int(10) NOT NULL default '0',
   topic_id int(10) NOT NULL default '0',
   PRIMARY KEY  (user_id,topic_id)
 ) <xsl:value-of select="$innodb_engine"/>;
 
 
-CREATE TABLE <xsl:value-of select="f_not_exists"/> <xsl:value-of select="//table_prefix"/>topics (
+CREATE TABLE <xsl:value-of select="f_not_exists"/> <xsl:value-of select="//_get/table_prefix"/>topics (
   id <xsl:value-of select="$engine_auto_increment"/>,
   poster varchar(200) NOT NULL default '',
   subject varchar(255) NOT NULL default '',
@@ -202,12 +182,12 @@ CREATE TABLE <xsl:value-of select="f_not_exists"/> <xsl:value-of select="//table
   moved_to int(10) default NULL,
   forum_id int(10) NOT NULL default '0',
   PRIMARY KEY  (id),
-  KEY <xsl:value-of select="//table_prefix"/>topics_forum_id_idx (forum_id),
-  KEY <xsl:value-of select="//table_prefix"/>topics_moved_to_idx (moved_to)
+  KEY <xsl:value-of select="//_get/table_prefix"/>topics_forum_id_idx (forum_id),
+  KEY <xsl:value-of select="//_get/table_prefix"/>topics_moved_to_idx (moved_to)
 ) <xsl:value-of select="$innodb_engine"/> <xsl:value-of select="$engine_increment_start"/> ;
 
 
-CREATE TABLE <xsl:value-of select="f_not_exists"/> <xsl:value-of select="//table_prefix"/>users (
+CREATE TABLE <xsl:value-of select="f_not_exists"/> <xsl:value-of select="//_get/table_prefix"/>users (
   id <xsl:value-of select="$engine_auto_increment"/>,
   group_id int(10) NOT NULL default '4',
   username varchar(200) NOT NULL default '',
@@ -227,29 +207,22 @@ CREATE TABLE <xsl:value-of select="f_not_exists"/> <xsl:value-of select="//table
   activate_string varchar(50) default NULL,
   activate_key varchar(8) default NULL,
   PRIMARY KEY  (id),
-  KEY <xsl:value-of select="//table_prefix"/>users_registered_idx (registered),
-  KEY <xsl:value-of select="//table_prefix"/>users_username_idx (username(8))
+  KEY <xsl:value-of select="//_get/table_prefix"/>users_registered_idx (registered),
+  KEY <xsl:value-of select="//_get/table_prefix"/>users_username_idx (username(8))
 ) <xsl:value-of select="$innodb_engine"/> <xsl:value-of select="$engine_increment_start"/> ;
 
 
-ALTER TABLE <xsl:value-of select="//table_prefix"/>forums
-  ADD CONSTRAINT <xsl:value-of select="//table_prefix"/>forums_ibfk_1 FOREIGN KEY (cat_id) REFERENCES <xsl:value-of select="//table_prefix"/>categories (id);
+ALTER TABLE <xsl:value-of select="//_get/table_prefix"/>forums
+  ADD CONSTRAINT <xsl:value-of select="//_get/table_prefix"/>forums_ibfk_1 FOREIGN KEY (cat_id) REFERENCES <xsl:value-of select="//_get/table_prefix"/>categories (id);
 
-ALTER TABLE <xsl:value-of select="//table_prefix"/>posts
-  ADD CONSTRAINT <xsl:value-of select="//table_prefix"/>posts_ibfk_1 FOREIGN KEY (topic_id) REFERENCES <xsl:value-of select="//table_prefix"/>topics (id) ON DELETE CASCADE;
+ALTER TABLE <xsl:value-of select="//_get/table_prefix"/>posts
+  ADD CONSTRAINT <xsl:value-of select="//_get/table_prefix"/>posts_ibfk_1 FOREIGN KEY (topic_id) REFERENCES <xsl:value-of select="//_get/table_prefix"/>topics (id) ON DELETE CASCADE;
 
-ALTER TABLE <xsl:value-of select="//table_prefix"/>topics
-  ADD CONSTRAINT <xsl:value-of select="//table_prefix"/>topics_ibfk_1 FOREIGN KEY (forum_id) REFERENCES <xsl:value-of select="//table_prefix"/>forums (id);
-
-INSERT INTO <xsl:value-of select="//table_prefix"/>groups (g_id, g_title, g_user_title, g_read_board, g_post_replies, g_post_topics, g_post_polls, g_edit_posts, g_delete_posts, g_delete_topics, g_set_title, g_search, g_search_users, g_edit_subjects_interval, g_post_flood, g_search_flood) VALUES
-(1, 'Administrators', 'Administrator', 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0),
-(2, 'Moderators', 'Moderator', 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0),
-(3, 'Guest', NULL, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0),
-(4, 'Members', NULL, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 300, 60, 30);
+ALTER TABLE <xsl:value-of select="//_get/table_prefix"/>topics
+  ADD CONSTRAINT <xsl:value-of select="//_get/table_prefix"/>topics_ibfk_1 FOREIGN KEY (forum_id) REFERENCES <xsl:value-of select="//_get/table_prefix"/>forums (id);
 
 
-
-INSERT INTO <xsl:value-of select="//table_prefix"/>users (id, group_id, username, password, email,activate_key) VALUES
+INSERT INTO <xsl:value-of select="//_get/table_prefix"/>users (id, group_id, username, password, email,activate_key) VALUES
 (2, 1, '<xsl:value-of select="//admin"/>', '<xsl:value-of select="//password"/>', '<xsl:value-of select="//email"/>',"active");
 
 
