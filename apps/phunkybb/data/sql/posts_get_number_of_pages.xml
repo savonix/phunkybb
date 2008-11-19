@@ -33,6 +33,6 @@ Fifth Floor, Boston, MA 02110-1301  USA
     count(id) as count,
     count(id) / 10 + 1 as pages
     FROM &prefix;posts
-    WHERE (t.id=? OR t.basename=?)
+    WHERE (id=? OR basename=?)
     </sql>
 </query>
