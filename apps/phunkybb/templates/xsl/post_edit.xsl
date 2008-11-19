@@ -35,7 +35,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
         <form id="post" method="post">
           <input type="hidden" name="post_id" value="{/_R_/_get/post_id}"/>
           <input type="hidden" name="fid" value="{/_R_/_get/fid}"/>
-          <input type="hidden" name="tid" value="{/_R_/_get/tid}"/>
+          <input type="hidden" name="tid" value="{/_R_/_get/topic_id}"/>
           <div class="inform">
             <fieldset>
               <legend>
