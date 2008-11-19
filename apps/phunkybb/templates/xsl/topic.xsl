@@ -35,7 +35,7 @@ function delete_post(post_id) {
     {
         'post_id': post_id,
         'num_replies': <xsl:value-of select="count(/_R_/posts_get_by_topic_id/posts_get_by_topic_id)-1"/>,
-        'topic_id': <xsl:value-of select="/_R_/_get/id"/>
+        'topic_id': <xsl:value-of select="/_R_/topic_get_by_id/topic_get_by_id/id"/>
     },
     function (data){
     });
