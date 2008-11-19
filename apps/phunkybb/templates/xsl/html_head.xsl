@@ -40,10 +40,12 @@ Fifth Floor, Boston, MA 02110-1301 USA
 		  <title>
         <xsl:value-of select="/_R_/board_config/o_board_title"/>
         <xsl:if test="/_R_/forum_get_by_id/forum_get_by_id/forum_name">
-            : <xsl:value-of select="/_R_/forum_get_by_id/forum_get_by_id/forum_name"/>
+					<xsl:text>: </xsl:text>
+					<xsl:value-of select="/_R_/forum_get_by_id/forum_get_by_id/forum_name"/>
         </xsl:if>
         <xsl:if test="/_R_/topic_get_by_id/topic_get_by_id/subject">
-            : <xsl:value-of select="/_R_/topic_get_by_id/topic_get_by_id/subject"/>
+					<xsl:text>: </xsl:text>
+					<xsl:value-of select="/_R_/topic_get_by_id/topic_get_by_id/subject"/>
         </xsl:if>
       </title>
       <link rel="stylesheet" type="text/css" href="{$path_prefix}/s/style/Oxygen.css"/>
