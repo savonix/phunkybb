@@ -156,6 +156,7 @@
         <map:query src="data/sql/topic_get_by_id.xml"/>
         <map:query src="data/sql/posts_get_by_topic_id.xml"/>
         <map:query src="data/sql/posts_get_number_of_pages.xml"/>
+				<map:action type="newline" params="/_R_/posts_get_by_topic_id/posts_get_by_topic_id/message"/>
         <map:action type="datetime" params="/_R_/posts_get_by_topic_id/posts_get_by_topic_id/posted,unix_epoch,{//runtime/user_time_format},{//runtime/user_timezone_offset}"/>
         <map:xsl src="templates/xsl/topic.xsl"/>
     </map:gate>
@@ -196,7 +197,6 @@
                     params="{//_post/rcpt_email},{//board_config/o_webmaster_email},{//_post/subject},{//new_text},{//board_config/o_smtp_host}"/>
 										-->
                 <map:plugin type="safehtml" params="//_post/message"/>
-								<map:action type="newline" params="//clean_message"/>
                 <map:query src="data/sql/post_create.xml"/>
                 <map:query src="data/sql/topic_last_post_update.xml"/>
                 <map:query src="data/sql/forum_last_post_update.xml"/>
@@ -216,7 +216,6 @@
         <map:if name="//_post">
             <map:true>
                 <map:plugin type="safehtml" params="//_post/message,clean_message"/>
-                <map:action type="newline" params="//clean_message"/>
                 <map:query src="data/sql/post_update.xml"/>
                 <map:action type="redirect"
                     params="{//link_prefix}topic&amp;fid={//_post/fid}&amp;id={//_post/tid}#post{//_post/post_id}"/>
