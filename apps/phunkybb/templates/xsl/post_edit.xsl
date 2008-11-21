@@ -73,7 +73,6 @@ Fifth Floor, Boston, MA 02110-1301  USA
           </div>
           <p>
             <input type="submit" name="submit" value="Submit"/>
-            <input type="submit" name="preview" value="Preview"/>
             <a href="{$link_prefix}" onclick="history.go(-1);">
               <xsl:value-of select="$my18n/go_back"/>
             </a>

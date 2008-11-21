@@ -29,32 +29,32 @@ Fifth Floor, Boston, MA 02110-1301 USA
 		<xsl:param name="my18n"/>
 
 		<script type="text/javascript">
-function delete_post(post_id) {
-    if(confirm('Are you sure?')){
-    $.post("<xsl:value-of select="$link_prefix"/>x-post-delete&amp;post_id="+post_id,
-    {
-        'post_id': post_id,
-        'num_replies': <xsl:value-of select="count(/_R_/posts_get_by_topic_id/posts_get_by_topic_id)-1"/>,
-        'topic_id': <xsl:value-of select="/_R_/topic_get_by_id/topic_get_by_id/id"/>
-    },
-    function (data){
-    });
-    myDiv = document.getElementById("p"+post_id);
-    myDiv.innerHTML = "";
-    }
-}
-function delete_topic(topic_id) {
-    if(confirm('Are you sure?')){
-    $.post("<xsl:value-of select="$link_prefix"/>x-topic-delete&amp;topic_id="+topic_id,
-    {
-        'topic_id': topic_id
-    },
-    function (data){
-        window.location ='<xsl:value-of select="$link_prefix"/>welcome';
-    });
-    }
-}
-</script>
+		function delete_post(post_id) {
+				if(confirm('Are you sure?')){
+				$.post("<xsl:value-of select="$link_prefix"/>x-post-delete&amp;post_id="+post_id,
+				{
+						'post_id': post_id,
+						'num_replies': <xsl:value-of select="count(/_R_/posts_get_by_topic_id/posts_get_by_topic_id)-1"/>,
+						'topic_id': <xsl:value-of select="/_R_/topic_get_by_id/topic_get_by_id/id"/>
+				},
+				function (data){
+				});
+				myDiv = document.getElementById("p"+post_id);
+				myDiv.innerHTML = "";
+				}
+		}
+		function delete_topic(topic_id) {
+				if(confirm('Are you sure?')){
+				$.post("<xsl:value-of select="$link_prefix"/>x-topic-delete&amp;topic_id="+topic_id,
+				{
+						'topic_id': topic_id
+				},
+				function (data){
+						window.location ='<xsl:value-of select="$link_prefix"/>welcome';
+				});
+				}
+		}
+		</script>
 		<xsl:variable name="this_forum"
 			select="/_R_/forum_get_by_id/forum_get_by_id"/>
 		<xsl:variable name="page_num"

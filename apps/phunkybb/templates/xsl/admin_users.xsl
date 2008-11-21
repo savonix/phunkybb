@@ -31,11 +31,11 @@ Fifth Floor, Boston, MA 02110-1301 USA
     <xsl:call-template name="jquery-setup">
       <xsl:with-param name="my-table">users_table</xsl:with-param>
       <xsl:with-param name="no-sort-column">,
-    headers: {
-      1: {sorter: false},
-      2: {sorter: false}
-    }
-  </xsl:with-param>
+				headers: {
+					1: {sorter: false},
+					2: {sorter: false}
+				}
+			</xsl:with-param>
     </xsl:call-template>
     <script type="text/javascript">
     function delete_user(user_id,row) {

@@ -27,21 +27,19 @@ Fifth Floor, Boston, MA 02110-1301  USA
   <xsl:template name="content">
     <xsl:param name="link_prefix"/>
     <xsl:param name="my18n"/>
-
-
-<script type="text/javascript">
-function category_delete(category_id) {
-    if (confirm('Are you sure?')){
-    $.post("<xsl:value-of select="$link_prefix"/>categories&amp;cat_to_delete="+category_id,
-    {
-        'cat_to_delete': category_id,
-        'action': 'del_cat'
-    },
-    function (data){
-    });
-    }
-}
-</script>
+		<script type="text/javascript">
+		function category_delete(category_id) {
+				if (confirm('Are you sure?')){
+				$.post("<xsl:value-of select="$link_prefix"/>categories&amp;cat_to_delete="+category_id,
+				{
+						'cat_to_delete': category_id,
+						'action': 'del_cat'
+				},
+				function (data){
+				});
+				}
+		}
+		</script>
     <div id="adminconsole" class="block2col">
       <xsl:call-template name="admin-menu">
         <xsl:with-param name="link_prefix">

@@ -18,28 +18,31 @@ GNU Affero General Public License for more details.
 
 You should have received a copy of the GNU Affero General Public License
 along with this program; if not, see http://www.gnu.org/licenses
-or write to the Free Software Foundation,Inc., 51 Franklin Street,
-Fifth Floor, Boston, MA 02110-1301  USA
+or write to the Free Software Foundation, Inc., 51 Franklin Street,
+Fifth Floor, Boston, MA 02110-1301 USA
 -->
-<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" >
-<xsl:include href="html_main.xsl"/>
-<xsl:include href="prev_next.xsl"/>
-<xsl:template name="content">
-<xsl:param name="link_prefix"/>
-<xsl:param name="my18n"/>
-<form method="post">
-<input type="hidden" name="topic_id" value="{//_get/topic_id}"/>
-Move topic to:
-<br/><br/>
-<select name="forum_id">
-<xsl:for-each select="/_R_/forums_get_all/forums_get_all">
-	<option value="{fid}"><xsl:value-of select="forum_name"/></option>
-</xsl:for-each>
-</select>
-<input type="submit"/>
-</form>
-<br/><br/>
-Make topic sticky:
-
-</xsl:template>
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+	<xsl:include href="html_main.xsl"/>
+	<xsl:include href="prev_next.xsl"/>
+	<xsl:template name="content">
+		<xsl:param name="link_prefix"/>
+		<xsl:param name="my18n"/>
+		<form method="post">
+			<input type="hidden" name="topic_id" value="{//_get/topic_id}"/>
+			Move topic to:
+			<br/>
+			<br/>
+			<select name="forum_id">
+				<xsl:for-each select="/_R_/forums_get_all/forums_get_all">
+					<option value="{fid}">
+						<xsl:value-of select="forum_name"/>
+					</option>
+				</xsl:for-each>
+			</select>
+			<input type="submit"/>
+		</form>
+		<br/>
+		<br/>
+		Make topic sticky:
+	</xsl:template>
 </xsl:stylesheet>

@@ -18,37 +18,36 @@ GNU Affero General Public License for more details.
 
 You should have received a copy of the GNU Affero General Public License
 along with this program; if not, see http://www.gnu.org/licenses
-or write to the Free Software Foundation,Inc., 51 Franklin Street,
-Fifth Floor, Boston, MA 02110-1301  USA
+or write to the Free Software Foundation, Inc., 51 Franklin Street,
+Fifth Floor, Boston, MA 02110-1301 USA
 -->
-<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" >
-<xsl:template name="admin-menu">
-<xsl:param name="link_prefix"/>
-<xsl:param name="my18n"/>
-  <div id="adminmenu" class="blockmenu">
-    <h2>
-      <xsl:value-of select="$my18n/admin_menu"/>
-    </h2>
-    <div class="box">
-      <div class="inbox">
-      <ul>
-        <xsl:variable name="mymenu"
-          select="document('../../data/xml/menu.xml')/navigation/admin_menu/button"/>
-        <xsl:for-each select="$mymenu">
-          <xsl:variable name="mykey">
-            <xsl:value-of select="."/>
-          </xsl:variable>
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+	<xsl:template name="admin-menu">
+		<xsl:param name="link_prefix"/>
+		<xsl:param name="my18n"/>
+		<div id="adminmenu" class="blockmenu">
+			<h2>
+				<xsl:value-of select="$my18n/admin_menu"/>
+			</h2>
+			<div class="box">
+				<div class="inbox">
+					<ul>
+						<xsl:variable name="mymenu"
+								select="document('../../data/xml/menu.xml')/navigation/admin_menu/button"/>
+						<xsl:for-each select="$mymenu">
+							<xsl:variable name="mykey">
+								<xsl:value-of select="."/>
+							</xsl:variable>
 
-
-          <li>
-            <a href="{$link_prefix}{$mykey}">
-              <xsl:value-of select="$my18n/*[local-name()=$mykey]"/>
-            </a>
-          </li>
-        </xsl:for-each>
-      </ul>
-      </div>
-    </div>
-  </div>
-</xsl:template>
+							<li>
+								<a href="{$link_prefix}{$mykey}">
+									<xsl:value-of select="$my18n/*[local-name()=$mykey]"/>
+								</a>
+							</li>
+						</xsl:for-each>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</xsl:template>
 </xsl:stylesheet>
