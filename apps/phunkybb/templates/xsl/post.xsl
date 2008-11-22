@@ -45,12 +45,12 @@ Fifth Floor, Boston, MA 02110-1301  USA
                     <xsl:value-of select="$my18n/subject"/>
                   </strong>
                   <br/>
-<script type="text/javascript">
-function copyValue(field1,field2)
-{
-  document.getElementById(field2).value=document.getElementById(field1).value.replace(/[ ]+/g,'_').replace(/[\W]+/g,'').toLowerCase();
-}
-</script>
+									<script type="text/javascript">
+									function copyValue(field1,field2)
+									{
+										document.getElementById(field2).value=document.getElementById(field1).value.replace(/[ ]+/g,'_').replace(/[\W]+/g,'').toLowerCase();
+									}
+									</script>
                   <input class="longinput" type="text" name="subject" id="subject" onkeyup="copyValue('subject','basename')"/>
 									<br/>
 
@@ -86,7 +86,6 @@ function copyValue(field1,field2)
           </div>
           <p>
             <input type="submit" name="submit" value="Submit"/>
-            <input type="submit" name="preview" value="Preview"/>
             <a href="{$link_prefix}welcome" onclick="history.go(-1);">
               <xsl:value-of select="$my18n/go_back"/>
             </a>
