@@ -1,10 +1,10 @@
-<!-- 
+<!--
 Program: PhunkyBB
 Component: post_create.xml
 Copyright: Savonix Corporation
 Author: Albert L. Lash, IV
 License: Gnu Affero Public License version 3
-http://www.gnu.org/licenses 
+http://www.gnu.org/licenses
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU Affero General Public License as published by
@@ -18,25 +18,25 @@ GNU Affero General Public License for more details.
 
 You should have received a copy of the GNU Affero General Public License
 along with this program; if not, see http://www.gnu.org/licenses
-or write to the Free Software Foundation,Inc., 51 Franklin Street,
-Fifth Floor, Boston, MA 02110-1301  USA
+or write to the Free Software Foundation, Inc., 51 Franklin Street,
+Fifth Floor, Boston, MA 02110-1301 USA
 -->
 <!DOCTYPE query SYSTEM "__default_table_names__.txt">
 <query name="post_create_first">
-    <connection>&connection;</connection>
-    <params>
-        <param name="//runtime/username" type="text" default="0"/>
-        <param name="//runtime/user_id" type="integer" default="0"/>
-        <param name="//runtime/user_ip" type="text" default="0"/>
-        <param name="//_post/message" type="text" default="10"/>
-        <param name="//_post/hide_smilies" type="integer" default="0"/>
-        <param name="//runtime/timestamp" type="integer" default="0"/>
-        <param name="//topic_get_id_by_detail/id" type="integer" default="0"/>
+	<connection>&connection;</connection>
+	<params>
+		<param name="//runtime/username" type="text" default="0"/>
+		<param name="//runtime/user_id" type="integer" default="0"/>
+		<param name="//runtime/user_ip" type="text" default="0"/>
+		<param name="//_post/message" type="text" default="10"/>
+		<param name="//_post/hide_smilies" type="integer" default="0"/>
+		<param name="//runtime/timestamp" type="integer" default="0"/>
+		<param name="//topic_get_id_by_detail/id" type="integer" default="0"/>
 	</params>
-    <sql>
-    INSERT INTO &prefix;posts 
+	<sql>
+    INSERT INTO &prefix;posts
     (poster, poster_id, poster_ip, message, hide_smilies, posted, topic_id)
     VALUES
     (?,?,?,?,?,?,?)
-    </sql>
+	</sql>
 </query>

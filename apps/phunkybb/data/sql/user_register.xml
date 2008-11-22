@@ -18,25 +18,24 @@ GNU Affero General Public License for more details.
 
 You should have received a copy of the GNU Affero General Public License
 along with this program; if not, see http://www.gnu.org/licenses
-or write to the Free Software Foundation,Inc., 51 Franklin Street,
-Fifth Floor, Boston, MA 02110-1301  USA
+or write to the Free Software Foundation, Inc., 51 Franklin Street,
+Fifth Floor, Boston, MA 02110-1301 USA
 -->
 <!DOCTYPE query SYSTEM "__default_table_names__.txt">
 <query name="user_register">
-    <connection>&connection;</connection>
-    <params>
-        <param name="//_post/username" type="text" default="0"/>
-        <param name="//hash" type="text" default="0"/>
-        <param name="//_post/email" type="text" default="0"/>
-        <param name="//runtime/remote_ip" type="text" default="0"/>
-        <param name="//random" type="text" default="0"/>
-        <param name="//runtime/timestamp" type="integer" default="0"/>
+	<connection>&connection;</connection>
+	<params>
+		<param name="//_post/username" type="text" default="0"/>
+		<param name="//hash" type="text" default="0"/>
+		<param name="//_post/email" type="text" default="0"/>
+		<param name="//runtime/remote_ip" type="text" default="0"/>
+		<param name="//random" type="text" default="0"/>
+		<param name="//runtime/timestamp" type="integer" default="0"/>
 	</params>
-    <sql>
-        INSERT INTO &prefix;users 
-        (username, password, email,registration_ip,activate_key,registered) 
-        VALUES
-        (?,?,?,?,?,?)
-	
-    </sql>
+	<sql>
+		INSERT INTO &prefix;users
+		(username, password, email,registration_ip,activate_key,registered)
+		VALUES
+		(?,?,?,?,?,?)
+	</sql>
 </query>

@@ -18,17 +18,17 @@ GNU Affero General Public License for more details.
 
 You should have received a copy of the GNU Affero General Public License
 along with this program; if not, see http://www.gnu.org/licenses
-or write to the Free Software Foundation,Inc., 51 Franklin Street,
-Fifth Floor, Boston, MA 02110-1301  USA
+or write to the Free Software Foundation, Inc., 51 Franklin Street,
+Fifth Floor, Boston, MA 02110-1301 USA
 -->
 <!DOCTYPE query SYSTEM "__default_table_names__.txt">
 <query name="posts_delete_by_topic_id">
-    <connection>&connection;</connection>
-    <params>
-        <param name="//_get/topic_id" type="integer" default="0"/>
+	<connection>&connection;</connection>
+	<params>
+		<param name="//_get/topic_id" type="integer" default="0"/>
 	</params>
-    <sql>
-        DELETE FROM &prefix;posts
-        WHERE topic_id = ?
-    </sql>
+	<sql>
+		DELETE FROM &prefix;posts
+		WHERE topic_id = ?
+	</sql>
 </query>

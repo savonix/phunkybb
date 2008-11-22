@@ -18,23 +18,22 @@ GNU Affero General Public License for more details.
 
 You should have received a copy of the GNU Affero General Public License
 along with this program; if not, see http://www.gnu.org/licenses
-or write to the Free Software Foundation,Inc., 51 Franklin Street,
-Fifth Floor, Boston, MA 02110-1301  USA
+or write to the Free Software Foundation, Inc., 51 Franklin Street,
+Fifth Floor, Boston, MA 02110-1301 USA
 -->
-<!DOCTYPE query SYSTEM "__default_table_names__.txt">
-<!-- 
+<!DOCTYPE query SYSTEM "__default_table_names__.txt"><!--
 This is a little more complex so that admin and regular users
-both use the same profile query. 
+both use the same profile query.
 -->
 <query name="user_get_profile">
-    <connection>phunkybb</connection>
-    <params>
-        <param name="//_post/email" type="text" default="0"/>
-        <param name="//runtime/username" type="text" default="0"/>
+	<connection>&connection;</connection>
+	<params>
+		<param name="//_post/email" type="text" default="0"/>
+		<param name="//runtime/username" type="text" default="0"/>
 	</params>
-    <sql>
-        UPDATE &prefix;users SET email=?
-        WHERE
-        username=?
-    </sql>
+	<sql>
+		UPDATE &prefix;users SET email=?
+		WHERE
+		username=?
+	</sql>
 </query>

@@ -18,22 +18,22 @@ GNU Affero General Public License for more details.
 
 You should have received a copy of the GNU Affero General Public License
 along with this program; if not, see http://www.gnu.org/licenses
-or write to the Free Software Foundation,Inc., 51 Franklin Street,
-Fifth Floor, Boston, MA 02110-1301  USA
+or write to the Free Software Foundation, Inc., 51 Franklin Street,
+Fifth Floor, Boston, MA 02110-1301 USA
 -->
 <!DOCTYPE query SYSTEM "__default_table_names__.txt">
 <query name="topic_get_by_id">
-    <connection>&connection_read;</connection>
-    <params>
-        <param name="//runtime/user_id" type="text" default="0"/>
-        <param name="//_get/id" type="integer"/>
-        <param name="//_get/basename" type="text"/>
+	<connection>&connection_read;</connection>
+	<params>
+		<param name="//runtime/user_id" type="text" default="0"/>
+		<param name="//_get/id" type="integer"/>
+		<param name="//_get/basename" type="text"/>
 	</params>
-    <sql>
-        SELECT t.*, f.id AS forum_id,
-        f.forum_name, s.user_id AS is_subscribed
-        FROM &prefix;topics AS t INNER JOIN &prefix;forums AS f ON f.id=t.forum_id
-        LEFT JOIN &prefix;subscriptions AS s ON (t.id=s.topic_id AND s.user_id=?)
-        WHERE (t.id=? OR t.basename=?)
-    </sql>
+	<sql>
+		SELECT t.*, f.id AS forum_id,
+		f.forum_name, s.user_id AS is_subscribed
+		FROM &prefix;topics AS t INNER JOIN &prefix;forums AS f ON f.id=t.forum_id
+		LEFT JOIN &prefix;subscriptions AS s ON (t.id=s.topic_id AND s.user_id=?)
+		WHERE (t.id=? OR t.basename=?)
+	</sql>
 </query>

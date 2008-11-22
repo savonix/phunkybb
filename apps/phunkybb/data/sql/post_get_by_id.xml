@@ -18,24 +18,23 @@ GNU Affero General Public License for more details.
 
 You should have received a copy of the GNU Affero General Public License
 along with this program; if not, see http://www.gnu.org/licenses
-or write to the Free Software Foundation,Inc., 51 Franklin Street,
-Fifth Floor, Boston, MA 02110-1301  USA
+or write to the Free Software Foundation, Inc., 51 Franklin Street,
+Fifth Floor, Boston, MA 02110-1301 USA
 -->
 <!DOCTYPE query SYSTEM "__default_table_names__.txt">
 <query name="post_get_by_id">
-    <connection>&connection_read;</connection>
-    <params>
-        <param name="//_get/post_id" type="text" default="0"/>
+	<connection>&connection_read;</connection>
+	<params>
+		<param name="//_get/post_id" type="text" default="0"/>
 	</params>
-    <sql>
+	<sql>
     SELECT u.email, u.signature,
-        u.num_posts, u.registered, u.admin_note, p.id, p.poster AS username,
-        p.poster_id, p.poster_ip, p.poster_email, p.message,
-        p.posted, p.edited,
-        p.edited_by
+		u.num_posts, u.registered, u.admin_note, p.id, p.poster AS username,
+		p.poster_id, p.poster_ip, p.poster_email, p.message,
+		p.posted, p.edited, p.edited_by
 
-    FROM &prefix;posts AS p INNER JOIN &prefix;users AS u ON u.id=p.poster_id
+		FROM &prefix;posts AS p INNER JOIN &prefix;users AS u ON u.id=p.poster_id
 
-    WHERE p.id=?
-    </sql>
+		WHERE p.id=?
+	</sql>
 </query>

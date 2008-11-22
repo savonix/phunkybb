@@ -18,23 +18,23 @@ GNU Affero General Public License for more details.
 
 You should have received a copy of the GNU Affero General Public License
 along with this program; if not, see http://www.gnu.org/licenses
-or write to the Free Software Foundation,Inc., 51 Franklin Street,
-Fifth Floor, Boston, MA 02110-1301  USA
+or write to the Free Software Foundation, Inc., 51 Franklin Street,
+Fifth Floor, Boston, MA 02110-1301 USA
 -->
 <!DOCTYPE query SYSTEM "__default_table_names__.txt">
 <query name="topic_get_id_by_detail">
-    <connection>&connection_read;</connection>
-    <params>
-        <param name="//runtime/username" type="text" default="0"/>
-        <param name="//_post/subject" type="text" default="0"/>
-        <param name="//runtime/timestamp" type="integer" default="0"/>
-        <param name="//_post/fid" type="integer" default="0"/>
+	<connection>&connection_read;</connection>
+	<params>
+		<param name="//runtime/username" type="text" default="0"/>
+		<param name="//_post/subject" type="text" default="0"/>
+		<param name="//runtime/timestamp" type="integer" default="0"/>
+		<param name="//_post/fid" type="integer" default="0"/>
 	</params>
-    <sql>
-        SELECT id FROM &prefix;topics 
-        WHERE poster=?
-        AND subject=?
-        AND posted=?
-        AND forum_id=?
-    </sql>
+	<sql>
+		SELECT id FROM &prefix;topics
+		WHERE poster=?
+		AND subject=?
+		AND posted=?
+		AND forum_id=?
+	</sql>
 </query>

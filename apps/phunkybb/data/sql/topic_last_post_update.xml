@@ -18,22 +18,22 @@ GNU Affero General Public License for more details.
 
 You should have received a copy of the GNU Affero General Public License
 along with this program; if not, see http://www.gnu.org/licenses
-or write to the Free Software Foundation,Inc., 51 Franklin Street,
-Fifth Floor, Boston, MA 02110-1301  USA
+or write to the Free Software Foundation, Inc., 51 Franklin Street,
+Fifth Floor, Boston, MA 02110-1301 USA
 -->
 <!DOCTYPE query SYSTEM "__default_table_names__.txt">
 <query name="topic_last_post_update">
-    <connection>&connection;</connection>
-    <params>
-        <param name="//runtime/timestamp" type="integer" default="0"/>
-        <param name="//runtime/username" type="text" default="0"/>
-        <param name="//_post/topic_id" type="integer"/>
+	<connection>&connection;</connection>
+	<params>
+		<param name="//runtime/timestamp" type="integer" default="0"/>
+		<param name="//runtime/username" type="text" default="0"/>
+		<param name="//_post/topic_id" type="integer"/>
 	</params>
-    <sql>
+	<sql>
     UPDATE &prefix;topics
     SET
     last_post = ?,
     last_poster = ?
     WHERE id=?
-    </sql>
+	</sql>
 </query>
