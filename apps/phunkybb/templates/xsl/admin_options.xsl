@@ -170,7 +170,24 @@ Fifth Floor, Boston, MA 02110-1301  USA
                       </th>
                       <td>
                         <input type="text" name="form[o_board_theme]" value="{//board_config/o_board_theme}"/>
-                        <xsl:value-of select="$my18n/title_of_buletine_board"/>
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+              </fieldset>
+            </div><div class="inform">
+              <fieldset>
+                <legend>
+                  Miscellaneous
+                </legend>
+                <div class="infldset">
+                  <table class="aligntop" cellspacing="0">
+                    <tr>
+                      <th scope="row">
+                        Google Analytics Code:
+                      </th>
+                      <td>
+                        <input type="text" name="form[o_google_analytics_code]" value="{//board_config/o_google_analytics_code}"/>
                       </td>
                     </tr>
                   </table>

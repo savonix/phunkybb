@@ -22,32 +22,31 @@ or write to the Free Software Foundation,Inc., 51 Franklin Street,
 Fifth Floor, Boston, MA 02110-1301 USA
 -->
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-<xsl:template name="footer">
-<xsl:param name="link_prefix"/>
-<xsl:param name="path_prefix"/>
-<xsl:param name="my18n"/>
+	<xsl:template name="footer">
+		<xsl:param name="link_prefix"/>
+		<xsl:param name="path_prefix"/>
+		<xsl:param name="my18n"/>
 
-<xsl:call-template name="source_spacer">
-    <xsl:with-param name="section_start">footer</xsl:with-param>
-</xsl:call-template>
-<footer>
-<div id="brdfooter" class="block">
-	<h2>Board footer</h2>
-	<div class="box">
-		<div class="inbox">
-			<dl id="searchlinks" class="conl">
-			</dl>
-			<p class="conr">Powered by <a href="http://www.phunkybb.com/blog/" title="Open Source Forums XSL Software">PhunkyBB</a>, a fork of punbb.
+		<xsl:call-template name="source_spacer">
+			<xsl:with-param name="section_start">footer</xsl:with-param>
+		</xsl:call-template>
+		<footer>
+			<div id="brdfooter" class="block">
+				<h2>Board footer</h2>
+				<div class="box">
+					<div class="inbox">
+						<dl id="searchlinks" class="conl"></dl>
+						<p class="conr">Powered by <a href="http://www.phunkybb.com/blog/" title="Open Source Forums XSL Software">PhunkyBB</a>, a fork of punbb.
             <xsl:if test="/_R_/runtime/svn_revision">
                 Revision <xsl:value-of select="/_R_/runtime/svn_revision"/>
-            </xsl:if>
-            </p>
-		</div>
-	</div>
-</div>
-</footer>
-<xsl:call-template name="source_spacer">
-    <xsl:with-param name="section_end">footer</xsl:with-param>
-</xsl:call-template>
-</xsl:template>
+							</xsl:if>
+						</p>
+					</div>
+				</div>
+			</div>
+		</footer>
+		<xsl:call-template name="source_spacer">
+			<xsl:with-param name="section_end">footer</xsl:with-param>
+		</xsl:call-template>
+	</xsl:template>
 </xsl:stylesheet>

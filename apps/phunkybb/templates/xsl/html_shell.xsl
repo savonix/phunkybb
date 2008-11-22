@@ -67,6 +67,19 @@ Fifth Floor, Boston, MA 02110-1301 USA
         <xsl:sort select="priority"/>
         <xsl:value-of select="string" disable-output-escaping="yes"/>
       </xsl:for-each>
+			<xsl:if test="//o_google_analytics_code">
+			<script type="text/javascript">
+			<![CDATA[
+			var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+			document.write("\<script src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'>\<\/script>" );
+			]]>
+			</script>
+			<script type="text/javascript">
+			var pageTracker = _gat._getTracker("<xsl:value-of select="//o_google_analytics_code"/>");
+			pageTracker._initData();
+			pageTracker._trackPageview();
+			</script>
+			</xsl:if>
     </body>
   </html>
 </xsl:template>
