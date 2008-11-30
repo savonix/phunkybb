@@ -34,7 +34,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
     <xsl:call-template name="jquery-links"/>
     <script type="text/javascript">
 		$(document).ready(function()
-				{ 
+				{
 						$("#<xsl:value-of select="$my-table"/>")
 						.tablesorter(
 								{

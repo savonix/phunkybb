@@ -18,44 +18,41 @@ GNU Affero General Public License for more details.
 
 You should have received a copy of the GNU Affero General Public License
 along with this program; if not, see http://www.gnu.org/licenses
-or write to the Free Software Foundation,Inc., 51 Franklin Street,
-Fifth Floor, Boston, MA 02110-1301  USA
+or write to the Free Software Foundation, Inc., 51 Franklin Street,
+Fifth Floor, Boston, MA 02110-1301 USA
 -->
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-<xsl:include href="html_main.xsl"/>
-<xsl:template name="content">
-<xsl:param name="link_prefix"/>
-<xsl:param name="my18n"/>
-<div id="install" class="blockform">
-	<div class="block">
-		<h2 class="block2">
-      <xsl:value-of select="$my18n/install"/>
-    </h2>
-    <div class="box">
-      <form id="profile1" method="post">
-        <div class="inform">
-          <fieldset>
-            <legend>
-              <xsl:value-of select="$my18n/install"/>
-            </legend>
-            <div class="infldset">
-              <label>
-                <strong>
-                  <xsl:value-of select="$my18n/username"/>
-                </strong>
-                <br/>
-                <input type="text" name="req_username"
-                  value="{//user_get_profile/username}"/>
-                <br/>
-              </label>
+  <xsl:include href="html_main.xsl"/>
+  <xsl:template name="content">
+    <xsl:param name="link_prefix"/>
+    <xsl:param name="my18n"/>
+    <div id="install" class="blockform">
+      <div class="block">
+        <h2 class="block2">
+          <xsl:value-of select="$my18n/install"/>
+        </h2>
+        <div class="box">
+          <form id="profile1" method="post">
+            <div class="inform">
+              <fieldset>
+                <legend>
+                  <xsl:value-of select="$my18n/install"/>
+                </legend>
+                <div class="infldset">
+                  <label>
+                    <strong>
+                      <xsl:value-of select="$my18n/username"/>
+                    </strong>
+                    <br/>
+                    <input type="text" name="req_username" value="{//user_get_profile/username}"/>
+                    <br/>
+                  </label>
+                </div>
+              </fieldset>
             </div>
-          </fieldset>
+          </form>
         </div>
-      </form>
-    </div>
-	</div>
-    If you have already installed PhunkyBB, 
-    remove the file "config/delete_this_after_install".
+      </div>
 </div>
-</xsl:template>
+  </xsl:template>
 </xsl:stylesheet>
