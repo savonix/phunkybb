@@ -1,6 +1,6 @@
 <!--
 Program: PhunkyBB
-Component: menu.xml
+Component: evening_in_spring.xml
 Copyright: Savonix Corporation
 Author: Albert L. Lash, IV
 License: Gnu Affero Public License version 3
@@ -18,17 +18,17 @@ GNU Affero General Public License for more details.
 
 You should have received a copy of the GNU Affero General Public License
 along with this program; if not, see http://www.gnu.org/licenses
-or write to the Free Software Foundation,Inc., 51 Franklin Street,
-Fifth Floor, Boston, MA 02110-1301  USA
+or write to the Free Software Foundation, Inc., 51 Franklin Street,
+Fifth Floor, Boston, MA 02110-1301 USA
 -->
 <css>
-    <colors>
-        <background>#ffffff</background>
-        <light-background>#1F0333</light-background>
-        <light-background-alt>#1F0333</light-background-alt>
-        <med-background>#1F0333</med-background>
-        <med-background-alt>#1F0333</med-background-alt>
-        <dark-background>#000000</dark-background>
-        <header-hover>#ffffff</header-hover>
-    </colors>
+  <colors>
+    <background>#ffffff</background>
+    <light-background>#1F0333</light-background>
+    <light-background-alt>#1F0333</light-background-alt>
+    <med-background>#1F0333</med-background>
+    <med-background-alt>#1F0333</med-background-alt>
+    <dark-background>#000000</dark-background>
+    <header-hover>#ffffff</header-hover>
+  </colors>
 </css>

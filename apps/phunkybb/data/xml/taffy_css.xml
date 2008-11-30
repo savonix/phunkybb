@@ -1,6 +1,6 @@
 <!--
 Program: PhunkyBB
-Component: menu.xml
+Component: taffy_css.xml
 Copyright: Savonix Corporation
 Author: Albert L. Lash, IV
 License: Gnu Affero Public License version 3
@@ -18,19 +18,19 @@ GNU Affero General Public License for more details.
 
 You should have received a copy of the GNU Affero General Public License
 along with this program; if not, see http://www.gnu.org/licenses
-or write to the Free Software Foundation,Inc., 51 Franklin Street,
-Fifth Floor, Boston, MA 02110-1301  USA
+or write to the Free Software Foundation, Inc., 51 Franklin Street,
+Fifth Floor, Boston, MA 02110-1301 USA
 
 http://www.colourlovers.com/palette/394860/maybe_im_colorblind Thanks for the great colors DarkStar
 -->
 <css>
-    <colors>
-        <background>#357567</background><!-- base background -->
-        <light-background>#1F394D</light-background>
-        <light-background-alt>#F0E0F5</light-background-alt> <!-- replies column -->
-        <med-background>#F17AA6</med-background> <!-- topic-replies-post header -->
-        <med-background-alt>#D1FFDB</med-background-alt> <!-- text-background -->
-        <dark-background>#ABCC78</dark-background> <!-- index - register - login header -->
-        <header-hover>#000000</header-hover>
-    </colors>
+  <colors>
+    <background>#357567</background><!-- base background -->
+    <light-background>#1F394D</light-background>
+    <light-background-alt>#F0E0F5</light-background-alt> <!-- replies column -->
+    <med-background>#F17AA6</med-background> <!-- topic-replies-post header -->
+    <med-background-alt>#D1FFDB</med-background-alt> <!-- text-background -->
+    <dark-background>#ABCC78</dark-background> <!-- index - register - login header -->
+    <header-hover>#000000</header-hover>
+  </colors>
 </css>

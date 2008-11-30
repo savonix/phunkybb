@@ -1,6 +1,6 @@
 <!--
 Program: PhunkyBB
-Component: menu.xml
+Component: beach_ball.xml
 Copyright: Savonix Corporation
 Author: Albert L. Lash, IV
 License: Gnu Affero Public License version 3
@@ -18,17 +18,17 @@ GNU Affero General Public License for more details.
 
 You should have received a copy of the GNU Affero General Public License
 along with this program; if not, see http://www.gnu.org/licenses
-or write to the Free Software Foundation,Inc., 51 Franklin Street,
-Fifth Floor, Boston, MA 02110-1301  USA
+or write to the Free Software Foundation, Inc., 51 Franklin Street,
+Fifth Floor, Boston, MA 02110-1301 USA
 -->
 <css>
-    <colors>
-        <background>#4B7567</background>
-        <light-background>#D6DE68</light-background>
-        <light-background-alt>#FFEE7D</light-background-alt>
-        <med-background>#E6DFC8</med-background>
-        <med-background-alt>#A4D17D</med-background-alt>
-        <dark-background>#B495BD</dark-background>
-        <header-hover>#ffffff</header-hover>
-    </colors>
+  <colors>
+    <background>#4B7567</background>
+    <light-background>#D6DE68</light-background>
+    <light-background-alt>#FFEE7D</light-background-alt>
+    <med-background>#E6DFC8</med-background>
+    <med-background-alt>#A4D17D</med-background-alt>
+    <dark-background>#B495BD</dark-background>
+    <header-hover>#ffffff</header-hover>
+  </colors>
 </css>

@@ -1,6 +1,6 @@
 <!--
 Program: PhunkyBB
-Component: menu.xml
+Component: neutral_css.xml
 Copyright: Savonix Corporation
 Author: Albert L. Lash, IV
 License: Gnu Affero Public License version 3
@@ -18,18 +18,18 @@ GNU Affero General Public License for more details.
 
 You should have received a copy of the GNU Affero General Public License
 along with this program; if not, see http://www.gnu.org/licenses
-or write to the Free Software Foundation,Inc., 51 Franklin Street,
-Fifth Floor, Boston, MA 02110-1301  USA
+or write to the Free Software Foundation, Inc., 51 Franklin Street,
+Fifth Floor, Boston, MA 02110-1301 USA
 
 -->
 <css>
-    <colors>
-        <background>#706B55</background><!-- base background -->
-        <light-background>#A3987C</light-background>
-        <light-background-alt>#A3987C</light-background-alt> <!-- replies column -->
-        <med-background>#C9C08A</med-background> <!-- topic-replies-post header -->
-        <med-background-alt>#A4B3A5</med-background-alt> <!-- text-background -->
-        <dark-background>#696155</dark-background> <!-- index - register - login header -->
-        <header-hover>#000000</header-hover>
-    </colors>
+  <colors>
+    <background>#706B55</background><!-- base background -->
+    <light-background>#A3987C</light-background>
+    <light-background-alt>#A3987C</light-background-alt> <!-- replies column -->
+    <med-background>#C9C08A</med-background> <!-- topic-replies-post header -->
+    <med-background-alt>#A4B3A5</med-background-alt> <!-- text-background -->
+    <dark-background>#696155</dark-background> <!-- index - register - login header -->
+    <header-hover>#000000</header-hover>
+  </colors>
 </css>

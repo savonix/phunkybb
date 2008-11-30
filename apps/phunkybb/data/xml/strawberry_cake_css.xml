@@ -1,6 +1,6 @@
 <!--
 Program: PhunkyBB
-Component: menu.xml
+Component: strawberry_cake_css.xml
 Copyright: Savonix Corporation
 Author: Albert L. Lash, IV
 License: Gnu Affero Public License version 3
@@ -18,18 +18,18 @@ GNU Affero General Public License for more details.
 
 You should have received a copy of the GNU Affero General Public License
 along with this program; if not, see http://www.gnu.org/licenses
-or write to the Free Software Foundation,Inc., 51 Franklin Street,
-Fifth Floor, Boston, MA 02110-1301  USA
+or write to the Free Software Foundation, Inc., 51 Franklin Street,
+Fifth Floor, Boston, MA 02110-1301 USA
 
 -->
 <css>
-    <colors>
-        <background>#E6DBCA</background><!-- base background -->
-        <light-background>#1F394D</light-background>
-        <light-background-alt>#2D6106</light-background-alt> <!-- replies column -->
-        <med-background>#942828</med-background> <!-- topic-replies-post header -->
-        <med-background-alt>#FC9797</med-background-alt> <!-- text-background -->
-        <dark-background>#2D6106</dark-background> <!-- index - register - login header -->
-        <header-hover>#000000</header-hover>
-    </colors>
+  <colors>
+    <background>#E6DBCA</background><!-- base background -->
+    <light-background>#1F394D</light-background>
+    <light-background-alt>#2D6106</light-background-alt> <!-- replies column -->
+    <med-background>#942828</med-background> <!-- topic-replies-post header -->
+    <med-background-alt>#FC9797</med-background-alt> <!-- text-background -->
+    <dark-background>#2D6106</dark-background> <!-- index - register - login header -->
+    <header-hover>#000000</header-hover>
+  </colors>
 </css>
