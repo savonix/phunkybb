@@ -5,15 +5,23 @@
 // This is the only thing you may need to edit:
 define('NX_PATH_BASE', "/var/www/dev/nexista/");
 
+/*
+RewriteCond %{REQUEST_URI} ^/a/dev/phunkybb/
+RewriteCond %{REQUEST_URI} !/a/dev/phunkybb/index.php|.css
+RewriteRule ^/a/dev/phunkybb/(\w+)/$ /a/dev/phunkybb/index.php?nxrw_path=/a/dev/phunkybb/index.php&nid=forum&forum_basename=$1 [L]
 
+RewriteCond %{REQUEST_URI} ^/a/dev/phunkybb/
+RewriteCond %{REQUEST_URI} !/a/dev/phunkybb/index.php|.css
+RewriteRule ^/a/dev/phunkybb/(\w+)/(\w+)/ /a/dev/phunkybb/index.php?nxrw_path=/a/dev/phunkybb/index.php&nid=topic&forum_basename=$1&basename=$2 [L]
+*/
 
 /* Probably don't need to edit anything under this line. */
 
 // Bad hack
-if(!strpos($_SERVER['REQUEST_URI'],'.php')) {
-    header("Location: ".$_SERVER['REQUEST_URI']."index.php");
-    exit;
-}
+//if(!strpos($_SERVER['REQUEST_URI'],'.php')) {
+//    header("Location: ".$_SERVER['REQUEST_URI']."index.php");
+//    exit;
+//}
 
 $server_name = $_SERVER['SERVER_NAME'];
 define('SERVER_NAME', $server_name);
