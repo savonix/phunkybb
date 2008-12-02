@@ -23,11 +23,11 @@ Fifth Floor, Boston, MA 02110-1301 USA
 -->
 <!DOCTYPE query SYSTEM "__default_table_names__.txt">
 <query name="category_create">
-    <connection>&connection;</connection>
-    <params>
-        <param name="//_post/new_cat_name" type="text" default="0"/>
-	</params>
-    <sql>
-        INSERT INTO &prefix;categories (cat_name) VALUES(?)
-    </sql>
+  <connection>&connection;</connection>
+  <params>
+    <param name="//_post/new_cat_name" type="text" default="0"/>
+  </params>
+  <sql>
+  INSERT INTO &prefix;categories (cat_name) VALUES(?)
+  </sql>
 </query>

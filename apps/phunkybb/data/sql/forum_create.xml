@@ -23,13 +23,13 @@ Fifth Floor, Boston, MA 02110-1301 USA
 -->
 <!DOCTYPE query SYSTEM "__default_table_names__.txt">
 <query name="forum_create">
-    <connection>&connection;</connection>
-    <params>
-        <param name="//_post/add_to_cat" type="text" default="0"/>
-        <param name="//_post/forum_name" type="text" default="0"/>
-        <param name="//_post/forum_basename" type="text" default="0"/>
-	</params>
-    <sql>
-        INSERT INTO &prefix;forums (cat_id,forum_name,forum_basename) VALUES(?,?,?)
-    </sql>
+  <connection>&connection;</connection>
+  <params>
+    <param name="//_post/add_to_cat" type="text" default="0"/>
+    <param name="//_post/forum_name" type="text" default="0"/>
+    <param name="//_post/forum_basename" type="text" default="0"/>
+  </params>
+  <sql>
+  INSERT INTO &prefix;forums (cat_id,forum_name,forum_basename) VALUES(?,?,?)
+  </sql>
 </query>

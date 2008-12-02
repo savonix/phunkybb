@@ -23,16 +23,12 @@ Fifth Floor, Boston, MA 02110-1301 USA
 -->
 <!DOCTYPE query SYSTEM "__default_table_names__.txt">
 <query name="user_get_by_email_or_username">
-    <connection>&connection_read;</connection>
-    <params>
-        <param name="//username" type="text" default="0"/>
-        <param name="//email" type="text" default="0"/>
-	</params>
-    <sql>
-        SELECT *
-        FROM &prefix;users
-        WHERE
-        username = ?
-        OR email = ?
-    </sql>
+  <connection>&connection_read;</connection>
+  <params>
+    <param name="//username" type="text" default="0"/>
+    <param name="//email" type="text" default="0"/>
+  </params>
+  <sql>
+  SELECT * FROM &prefix;users WHERE username=? OR email=?
+  </sql>
 </query>

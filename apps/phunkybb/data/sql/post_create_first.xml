@@ -34,9 +34,9 @@ Fifth Floor, Boston, MA 02110-1301 USA
 		<param name="//topic_get_id_by_detail/id" type="integer" default="0"/>
 	</params>
 	<sql>
-    INSERT INTO &prefix;posts
-    (poster, poster_id, poster_ip, message, hide_smilies, posted, topic_id)
-    VALUES
-    (?,?,?,?,?,?,?)
+  INSERT INTO &prefix;posts
+  (poster, poster_id, poster_ip, message, hide_smilies, posted, topic_id)
+  VALUES
+  (?,?,?,?,?,?,?)
 	</sql>
 </query>

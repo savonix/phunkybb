@@ -31,17 +31,10 @@ Fifth Floor, Boston, MA 02110-1301 USA
 		<param name="/_R_/runtime/group_id" type="text" default="0"/>
 	</params>
 	<sql>
-		SELECT *,
-		last_visit,
-		registered,
-		last_post
-		FROM &prefix;users
-		WHERE
-		(username=?
-		AND ? = -1)
-		OR
-		(id=?
-		AND 
-		?=1)
+  SELECT * FROM &prefix;users WHERE (username=? AND ? = -1)
+  OR
+  (id=?
+  AND 
+  ?=1)
 	</sql>
 </query>

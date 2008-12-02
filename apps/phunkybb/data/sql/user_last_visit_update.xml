@@ -23,14 +23,12 @@ Fifth Floor, Boston, MA 02110-1301 USA
 -->
 <!DOCTYPE query SYSTEM "__default_table_names__.txt">
 <query name="user_last_visit_update">
-    <connection>&connection;</connection>
-    <params>
-        <param name="//runtime/timestamp" type="integer" default="99"/>
-        <param name="//runtime/user_id" type="integer" default="0"/>
-	</params>
-    <sql>
-    UPDATE &prefix;users
-    SET last_visit = ?
-    WHERE id = ?
-    </sql>
+  <connection>&connection;</connection>
+  <params>
+    <param name="//runtime/timestamp" type="integer" default="99"/>
+    <param name="//runtime/user_id" type="integer" default="0"/>
+  </params>
+  <sql>
+  UPDATE &prefix;users SET last_visit = ? WHERE id = ?
+  </sql>
 </query>

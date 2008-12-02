@@ -122,7 +122,7 @@ CREATE TABLE <xsl:value-of select="f_not_exists"/> <xsl:value-of select="//_get/
 CREATE TABLE <xsl:value-of select="f_not_exists"/> <xsl:value-of select="//_get/table_prefix"/>forums (
   id <xsl:value-of select="$engine_auto_increment"/>,
   forum_name varchar(80) NOT NULL default 'New forum',
-  forum_basename varchar(80) NOT NULL default 'New forum',
+  forum_basename varchar(80) NOT NULL default 'new_forum',
   forum_desc text,
   redirect_url varchar(100) default NULL,
   moderators text,

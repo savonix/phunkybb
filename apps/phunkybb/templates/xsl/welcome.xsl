@@ -69,9 +69,21 @@ Fifth Floor, Boston, MA 02110-1301 USA
                       </xsl:if>
                       <div class="tclcon">
                         <h3>
+												<xsl:if test="//mod_rewrite='true' and not(forum_basename='')">
+													<a>
+														<xsl:attribute name="href">
+															<xsl:value-of select="//path_prefix"/>
+															<xsl:value-of select="forum_basename"/>
+															<xsl:text>/</xsl:text>
+														</xsl:attribute>
+														<xsl:value-of select="forum_name"/>
+													</a>
+												</xsl:if>
+												<xsl:if test="not(//mod_rewrite='true') or forum_basename=''">
                           <a href="{$link_prefix}forum&amp;forum_basename={forum_basename}&amp;fid={fid}">
                             <xsl:value-of select="forum_name"/>
                           </a>
+                          </xsl:if>
                         </h3>
                       </div>
                     </div>
