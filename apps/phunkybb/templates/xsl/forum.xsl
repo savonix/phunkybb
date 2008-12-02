@@ -53,7 +53,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
       </li>
 					<li>
         &gt; &#160;
-        <a href="{$link_prefix}forum&amp;fid={/_R_/_get/fid}">
+        <a href="{$link_prefix}forum&amp;fid={/_R_/forum_get_by_id/forum_get_by_id/id}">
           <xsl:value-of select="/_R_/forum_get_by_id/forum_get_by_id/forum_name"/>
 						</a>
 					</li>
