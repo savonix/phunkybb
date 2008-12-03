@@ -23,24 +23,26 @@ Fifth Floor, Boston, MA 02110-1301 USA
 -->
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 	<xsl:include href="html_main.xsl"/>
-
 	<xsl:template name="content">
 		<xsl:param name="link_prefix"/>
 		<xsl:param name="my18n"/>
 
+		<xsl:variable name="forum_get_by_id"
+			select="/_R_/forum_get_by_id/forum_get_by_id"/>
+
 		<div class="linkst">
 			<div class="inbox">
-		<!--
-    <p class="pagelink conl">
-      <xsl:value-of select="$my18n/pages"/>:
-      <strong>
-        <xsl:value-of select="/_R_/forum_get_number_of_pages/forum_get_number_of_pages/pages"/>
-      </strong>
-    </p>
-		-->
+			<!--
+			<p class="pagelink conl">
+				<xsl:value-of select="$my18n/pages"/>:
+				<strong>
+					<xsl:value-of select="/_R_/forum_get_number_of_pages/forum_get_number_of_pages/pages"/>
+				</strong>
+			</p>
+			-->
 				<xsl:if test="/_R_/runtime/username">
 					<p class="postlink conr">
-						<a href="{$link_prefix}post&amp;fid={/_R_/_get/fid}">
+						<a href="{$link_prefix}post&amp;fid={$forum_get_by_id/id}">
 							<xsl:value-of select="$my18n/post_topic"/>
 						</a>
 					</p>
@@ -53,8 +55,8 @@ Fifth Floor, Boston, MA 02110-1301 USA
       </li>
 					<li>
         &gt; &#160;
-        <a href="{$link_prefix}forum&amp;fid={/_R_/forum_get_by_id/forum_get_by_id/id}">
-          <xsl:value-of select="/_R_/forum_get_by_id/forum_get_by_id/forum_name"/>
+        <a href="{$link_prefix}forum&amp;fid={$forum_get_by_id/id}">
+          <xsl:value-of select="$forum_get_by_id/forum_name"/>
 						</a>
 					</li>
 				</ul>
@@ -63,7 +65,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 		<div id="vf" class="blocktable">
 			<h2>
 				<span>
-					<xsl:value-of select="/_R_/forum_get_by_id/forum_get_by_id/forum_name"/>
+					<xsl:value-of select="$forum_get_by_id/forum_name"/>
 				</span>
 			</h2>
 			<div class="box">
@@ -112,7 +114,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 													</a>
 												</xsl:if>
 												<xsl:if test="not(//mod_rewrite='true') or basename=''">
-													<a href="{$link_prefix}topic&amp;basename={basename}&amp;fid={/_R_/_get/fid}&amp;id={id}">
+													<a href="{$link_prefix}topic&amp;basename={basename}&amp;fid={$forum_get_by_id/id}&amp;id={id}">
 														<xsl:value-of select="subject"/>
 													</a>
 												</xsl:if>
@@ -128,8 +130,8 @@ Fifth Floor, Boston, MA 02110-1301 USA
 												<xsl:value-of select="last_post"/>
 											</xsl:if>
 											<xsl:if test="not(/_R_/runtime/user_id &gt; 0)">
-                UTC
-              </xsl:if>
+												UTC
+											</xsl:if>
 										</span>
 									</td>
 								</tr>
@@ -138,7 +140,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 								<tr>
 									<td class="tcl" colspan="3">
 										<xsl:value-of select="$my18n/forum_is_empty"/>.
-              </td>
+									</td>
 								</tr>
 							</xsl:if>
 						</tbody>
@@ -148,15 +150,15 @@ Fifth Floor, Boston, MA 02110-1301 USA
 		</div>
 		<div class="linkst">
 			<div class="inbox">
-		<!--
-    <p class="pagelink conl">
-      <xsl:value-of select="$my18n/pages"/>:
-      <strong></strong>
-    </p>
-		-->
+			<!--
+			<p class="pagelink conl">
+				<xsl:value-of select="$my18n/pages"/>:
+				<strong></strong>
+			</p>
+			-->
 				<xsl:if test="/_R_/runtime/username">
 					<p class="postlink conr">
-						<a href="{$link_prefix}post&amp;fid={/_R_/_get/fid}">
+						<a href="{$link_prefix}post&amp;fid={$forum_get_by_id/id}">
 							<xsl:value-of select="$my18n/post_new_topic"/>
 						</a>
 					</p>
@@ -166,11 +168,11 @@ Fifth Floor, Boston, MA 02110-1301 USA
 						<a href="{$link_prefix}index">
 							<xsl:value-of select="$my18n/index"/>
 						</a>&#160;
-      </li>
+					</li>
 					<li>
-        &gt; &#160;
-        <a href="{$link_prefix}forum&amp;fid={/_R_/_get/fid}">
-          <xsl:value-of select="/_R_/forum_get_by_id/forum_get_by_id/forum_name"/>
+						&gt; &#160;
+						<a href="{$link_prefix}forum&amp;fid={$forum_get_by_id/id}">
+							<xsl:value-of select="/_R_/forum_get_by_id/forum_get_by_id/forum_name"/>
 						</a>
 					</li>
 				</ul>
