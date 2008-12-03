@@ -106,8 +106,8 @@ Fifth Floor, Boston, MA 02110-1301 USA
                     <xsl:for-each select="/_R_/categories_get_all/categories_get_all">
                       <tr>
                         <td>
-                          <input type="text" name="cat_name[0]" 
-                          value="{cat_name}" size="35" maxlength="80"/>
+                          <input type="text" name="cat_name[0]"
+	                          value="{cat_name}" size="35" maxlength="80"/>
                         </td>
                         <td>
                           <input type="text" name="cat_order[0]"

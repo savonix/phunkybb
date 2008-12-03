@@ -44,7 +44,8 @@ Fifth Floor, Boston, MA 02110-1301 USA
                       <xsl:value-of select="$my18n/username"/>
                     </strong>
                     <br/>
-                    <input type="text" name="req_username" value="{//user_get_profile/username}"/>
+                    <input type="text" name="req_username"
+											value="{//user_get_profile/user_get_profile/username}"/>
                     <br/>
                   </label>
                 </div>
@@ -53,6 +54,6 @@ Fifth Floor, Boston, MA 02110-1301 USA
           </form>
         </div>
       </div>
-</div>
+		</div>
   </xsl:template>
 </xsl:stylesheet>

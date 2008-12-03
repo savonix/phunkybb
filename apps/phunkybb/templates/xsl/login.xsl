@@ -33,45 +33,45 @@ Fifth Floor, Boston, MA 02110-1301 USA
     <script type="text/javascript" src="{$path_prefix}/s/js/rsa/rng.js"></script>
     <script type="text/javascript" src="{$path_prefix}/s/js/rsa/base64.js"></script>
     <script type="text/javascript">
-$(document).ready(function()
-{
-    var myform = document.forms["mlogin"];
-    myform.id_rsa_pub.value = "<xsl:value-of select="/_R_/defaults/modulus"/>";
-    myform.e.value = "10001";
-    var d = new Date();
-    myform.my_tz_offset.value = 0 - d.getTimezoneOffset()/60;
-    //myform.my_tz_offset_debug.value = 0 - d.getTimezoneOffset()/60;
-    //$(function() {
-    //   $('#login_button').disableTextSelect();
-    //});
-});
+		$(document).ready(function()
+		{
+				var myform = document.forms["mlogin"];
+				myform.id_rsa_pub.value = "<xsl:value-of select="/_R_/defaults/modulus"/>";
+				myform.e.value = "10001";
+				var d = new Date();
+				myform.my_tz_offset.value = 0 - d.getTimezoneOffset()/60;
+				//myform.my_tz_offset_debug.value = 0 - d.getTimezoneOffset()/60;
+				//$(function() {
+				//   $('#login_button').disableTextSelect();
+				//});
+		});
 
-function do_encrypt() {
-    $('span#login_button').removeClass("button-basic-blue");
-    $('span#login_button').addClass("button-basic-green");
-    $('span#replace').css("visibility","visible");
-    $('span#replace').html("<xsl:value-of select="$my18n/working"/>...");
+		function do_encrypt() {
+				$('span#login_button').removeClass("button-basic-blue");
+				$('span#login_button').addClass("button-basic-green");
+				$('span#replace').css("visibility","visible");
+				$('span#replace').html("<xsl:value-of select="$my18n/working"/>...");
 
-    var myform = document.forms["mlogin"];
-    var rsa = new RSAKey();
-    rsa.setPublic(linebrk(myform.id_rsa_pub.value,64), myform.e.value);
-    var res = linebrk(hex2b64(rsa.encrypt(myform.password.value)),64);
+				var myform = document.forms["mlogin"];
+				var rsa = new RSAKey();
+				rsa.setPublic(linebrk(myform.id_rsa_pub.value,64), myform.e.value);
+				var res = linebrk(hex2b64(rsa.encrypt(myform.password.value)),64);
 
-    $.post("<xsl:value-of select="$link_prefix"/>x-login",
-    {
-        'username': myform.username.value,
-        'password': res,
-        'my_tz_offset': myform.my_tz_offset.value
-    },
-    function (data){
-        var myResult = $("result",data).text();
-        $('span#replace').html(myResult);
-        if(myResult=='Success') {
-            window.location = '<xsl:value-of select="$link_prefix"/>index';
-        }
-    });
-}
-</script>
+				$.post("<xsl:value-of select="$link_prefix"/>x-login",
+				{
+						'username': myform.username.value,
+						'password': res,
+						'my_tz_offset': myform.my_tz_offset.value
+				},
+				function (data){
+						var myResult = $("result",data).text();
+						$('span#replace').html(myResult);
+						if(myResult=='Success') {
+								window.location = '<xsl:value-of select="$link_prefix"/>index';
+						}
+				});
+		}
+		</script>
     <div class="blockform">
       <h2>
         <xsl:value-of select="$my18n/login"/>
@@ -136,7 +136,7 @@ function do_encrypt() {
       </div>
     </div>
     <script type="text/javascript">
-rng_seed_time();
-</script>
+		rng_seed_time();
+		</script>
   </xsl:template>
 </xsl:stylesheet>

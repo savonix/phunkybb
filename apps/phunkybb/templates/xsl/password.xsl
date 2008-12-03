@@ -33,46 +33,44 @@ Fifth Floor, Boston, MA 02110-1301 USA
     <script type="text/javascript" src="{/_R_/runtime/path_prefix}/s/js/rsa/base64.js"></script>
 
     <script type="text/javascript">
-$(document).ready(function()
-{
-    var myform = document.forms["password"];
-    myform.id_rsa_pub.value="<xsl:value-of select="//defaults/modulus"/>";
-    myform.e.value="10001";
-    $(function() {
-        $('#register_button').disableTextSelect();
-    });
-});
+		$(document).ready(function()
+		{
+				var myform = document.forms["password"];
+				myform.id_rsa_pub.value="<xsl:value-of select="//defaults/modulus"/>";
+				myform.e.value="10001";
+				$(function() {
+						$('#register_button').disableTextSelect();
+				});
+		});
 
-function do_encrypt() {
+		function do_encrypt() {
+				$('span#login_button').removeClass("button-basic-blue");
+				$('span#login_button').addClass("button-basic-green");
+				$('span#replace').css("visibility","visible");
+				$('span#replace').html("<xsl:value-of select="$my18n/working"/>...");
+				if(validateStandard(this))
+				{
+						var myform = document.forms["password"];
+						var rsa = new RSAKey();
+						rsa.setPublic(linebrk(myform.id_rsa_pub.value,64), myform.e.value);
+						var res = linebrk(hex2b64(rsa.encrypt(myform.password.value)),64);
 
-    $('span#login_button').removeClass("button-basic-blue");
-    $('span#login_button').addClass("button-basic-green");
-    $('span#replace').css("visibility","visible");
-    $('span#replace').html("<xsl:value-of select="$my18n/working"/>...");
-    
-    if(validateStandard(this))
-    {
-        var myform = document.forms["password"];
-        var rsa = new RSAKey();
-        rsa.setPublic(linebrk(myform.id_rsa_pub.value,64), myform.e.value);
-        var res = linebrk(hex2b64(rsa.encrypt(myform.password.value)),64);
-
-        $.post("<xsl:value-of select="$link_prefix"/>password",
-        {
-            'password': res
-        },
-        function (data){
-            var myResult = $("result",data).text();
-            $('span#replace').html(myResult);
-            if(myResult=='Success') {
-                window.location = '<xsl:value-of select="$link_prefix"/>profile';
-            }
-        });
-    } else {
-        $('span#replace').html("<xsl:value-of select="$my18n/invalid_registration"/>");
-    }
-}
-</script>
+						$.post("<xsl:value-of select="$link_prefix"/>password",
+						{
+								'password': res
+						},
+						function (data){
+								var myResult = $("result",data).text();
+								$('span#replace').html(myResult);
+								if(myResult=='Success') {
+										window.location = '<xsl:value-of select="$link_prefix"/>profile';
+								}
+						});
+				} else {
+						$('span#replace').html("<xsl:value-of select="$my18n/invalid_registration"/>");
+				}
+		}
+		</script>
 
     <div id="install" class="blockform">
       <div class="block">
@@ -112,7 +110,8 @@ function do_encrypt() {
               </fieldset>
             </div>
             <br/>
-            <span id="submit" class="button-basic-blue disableSelection" onClick="do_encrypt(); return false;">Submit</span>
+            <span id="submit" class="button-basic-blue disableSelection"
+							onClick="do_encrypt(); return false;">Submit</span>
             <span id="replace" class="interstatus"></span>
             <input type="submit" style="visibility: hidden;"/>
           </form>

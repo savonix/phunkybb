@@ -30,10 +30,10 @@ Fifth Floor, Boston, MA 02110-1301 USA
 		<param name="//_get/basename" type="text"/>
 	</params>
 	<sql>
-		SELECT t.*, f.id AS forum_id,
-		f.forum_name, s.user_id AS is_subscribed
-		FROM &prefix;topics AS t INNER JOIN &prefix;forums AS f ON f.id=t.forum_id
-		LEFT JOIN &prefix;subscriptions AS s ON (t.id=s.topic_id AND s.user_id=?)
-		WHERE (t.id=? OR t.basename=?)
+	SELECT t.*, f.id AS forum_id,
+	f.forum_name, s.user_id AS is_subscribed
+	FROM &prefix;topics AS t INNER JOIN &prefix;forums AS f ON f.id=t.forum_id
+	LEFT JOIN &prefix;subscriptions AS s ON (t.id=s.topic_id AND s.user_id=?)
+	WHERE (t.id=? OR t.basename=?)
 	</sql>
 </query>

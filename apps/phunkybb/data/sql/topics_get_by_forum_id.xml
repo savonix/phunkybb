@@ -32,8 +32,8 @@ Fifth Floor, Boston, MA 02110-1301 USA
   <sql>
   SELECT &prefix;topics.* FROM &prefix;topics, &prefix;forums
 
-  WHERE &prefix;topics.forum_id=?
-  AND &prefix;forums.id=&prefix;topics.forum_id OR
+  WHERE (&prefix;topics.forum_id=? AND &prefix;forums.id=&prefix;topics.forum_id)
+	OR
   (?=0 AND &prefix;forums.forum_basename=?)
 
   ORDER BY &prefix;topics.sticky DESC, &prefix;topics.last_post DESC

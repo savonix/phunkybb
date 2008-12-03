@@ -93,15 +93,15 @@ Fifth Floor, Boston, MA 02110-1301 USA
 									<xsl:if test="/_R_/runtime/group_id=1">
 										<p>
 											<xsl:value-of select="$my18n/registration_ip"/>:
-                  <a href="http://www.arin.net/?queryinput={$my_user/r/registration_ip}"
-													target="_blank">
-                    <xsl:value-of select="$my_user/r/registration_ip"/>
+											<a href="http://www.arin.net/?queryinput={$my_user/r/registration_ip}"
+												target="_blank">
+												<xsl:value-of select="$my_user/r/registration_ip"/>
 											</a>
 										</p>
 									</xsl:if>
 									<p>
 										<xsl:value-of select="$my18n/registered"/>:
-                <xsl:value-of select="$my_user/registered"/>
+										<xsl:value-of select="$my_user/registered"/>
 									</p>
 									<p>
 										<xsl:value-of select="$my18n/last_visit"/>:
@@ -109,23 +109,20 @@ Fifth Floor, Boston, MA 02110-1301 USA
 									</p>
 									<p>
 										<xsl:value-of select="$my18n/last_post"/>:
-                <xsl:value-of select="$my_user/last_post"/>
+										<xsl:value-of select="$my_user/last_post"/>
 									</p>
 									<label>
 										<xsl:value-of select="$my18n/posts"/>
 										<br/>
 										<input type="text" name="num_posts"
-												value="{$my_user/num_posts}"/>
+											value="{$my_user/num_posts}"/>
 										<br/>
 									</label>
 									<label>
 										<xsl:value-of select="$my18n/admin_note"/>
 										<br/>
-										<input
-												id="admin_note"
-												type="text"
-												name="admin_note"
-												value="{$my_user/admin_note}"/>
+										<input id="admin_note" type="text" name="admin_note"
+											value="{$my_user/admin_note}"/>
 										<br/>
 									</label>
 								</div>

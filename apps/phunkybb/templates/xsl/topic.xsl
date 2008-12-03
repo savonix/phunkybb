@@ -28,6 +28,9 @@ Fifth Floor, Boston, MA 02110-1301 USA
 		<xsl:param name="link_prefix"/>
 		<xsl:param name="my18n"/>
 
+		<xsl:variable name="topic_get_by_id"
+			select="/_R_/topic_get_by_id/topic_get_by_id"/>
+
 		<script type="text/javascript">
 		function delete_post(post_id) {
 				if(confirm('Are you sure?')){
@@ -35,7 +38,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 				{
 						'post_id': post_id,
 						'num_replies': <xsl:value-of select="count(/_R_/posts_get_by_topic_id/posts_get_by_topic_id)-1"/>,
-						'topic_id': <xsl:value-of select="/_R_/topic_get_by_id/topic_get_by_id/id"/>
+						'topic_id': <xsl:value-of select="$topic_get_by_id/id"/>
 				},
 				function (data){
 				});
@@ -74,14 +77,14 @@ Fifth Floor, Boston, MA 02110-1301 USA
 			</strong>
 			</p>
 			<p class="postlink conr">
-				<xsl:value-of select="/_R_/topic_get_by_id/topic_get_by_id/subject"/>
+				<xsl:value-of select="$topic_get_by_id/subject"/>
       &#160;
       <xsl:if test="/_R_/runtime/group_id=1">
-        <a href="{$link_prefix}topic-delete&amp;topic_id={/_R_/topic_get_by_id/topic_get_by_id/id}&amp;fid={/_R_/forum_get_by_id/forum_get_by_id/id}"
-					onclick="delete_topic({/_R_/topic_get_by_id/topic_get_by_id/id}); return false;">
+        <a href="{$link_prefix}topic-delete&amp;topic_id={$topic_get_by_id/id}&amp;fid={/_R_/forum_get_by_id/forum_get_by_id/id}"
+					onclick="delete_topic({$topic_get_by_id/id}); return false;">
           Delete
         </a>
-						<a href="{$link_prefix}topic-edit&amp;topic_id={/_R_/topic_get_by_id/topic_get_by_id/id}&amp;fid={/_R_/forum_get_by_id/forum_get_by_id/id}">
+						<a href="{$link_prefix}topic-edit&amp;topic_id={$topic_get_by_id/id}&amp;fid={/_R_/forum_get_by_id/forum_get_by_id/id}">
           Move
         </a>
 					</xsl:if>
@@ -100,8 +103,8 @@ Fifth Floor, Boston, MA 02110-1301 USA
 				</li>
 				<li>
         &#160; &gt; &#160;
-        <a href="{$link_prefix}topic&amp;forum_basename={$this_forum/forum_basename}&amp;fid={$this_forum/id}&amp;id={/_R_/topic_get_by_id/topic_get_by_id/id}">
-          <xsl:value-of select="/_R_/topic_get_by_id/topic_get_by_id/subject"/>
+        <a href="{$link_prefix}topic&amp;forum_basename={$this_forum/forum_basename}&amp;fid={$this_forum/id}&amp;id={$topic_get_by_id/id}">
+          <xsl:value-of select="$topic_get_by_id/subject"/>
 				</a>
 				</li>
 				</ul>
@@ -115,7 +118,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 								<xsl:text>&amp;fid=</xsl:text>
 								<xsl:value-of select="/_R_/forum_get_by_id/forum_get_by_id/id"/>
 								<xsl:text>&amp;id=</xsl:text>
-								<xsl:value-of select="/_R_/topic_get_by_id/topic_get_by_id/id"/>
+								<xsl:value-of select="$topic_get_by_id/id"/>
 							</xsl:with-param>
 							<xsl:with-param name="max">
 								<xsl:value-of select="$page_num/count"/>
@@ -130,7 +133,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 		<xsl:for-each select="/_R_/posts_get_by_topic_id/posts_get_by_topic_id">
 			<div id="p{id}" class="blockpost roweven">
 				<h2>
-					<span class="conr">#<xsl:value-of select="id"/></span>
+					<a href="#post{id}" name="post{id}"><span class="conr">#<xsl:value-of select="id"/></span></a>
 						<a href="#post{id}" name="post{id}">
 							<span class="date">
 								<xsl:value-of select="posted"/>
@@ -143,7 +146,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 							<dl>
 								<dt>
 									<strong>
-										<a href="{$link_prefix}profile&amp;id={poster_id}">
+										<a href="{$link_prefix}profile&amp;id={id}">
 											<xsl:value-of select="username"/>
 										</a>
 									</strong>
@@ -164,7 +167,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 						<div class="postfootright">
 							<div>
 								<xsl:if test="//runtime/group_id=1 or poster=/_R_/runtime/username">
-									<a href="{$link_prefix}post-edit&amp;post_id={id}&amp;topic_id={/_R_/topic_get_by_id/topic_get_by_id/id}&amp;fid={/_R_/forum_get_by_id/forum_get_by_id/id}">
+									<a href="{$link_prefix}post-edit&amp;post_id={id}&amp;topic_id={$topic_get_by_id/id}&amp;fid={/_R_/forum_get_by_id/forum_get_by_id/id}">
 										<xsl:value-of select="$my18n/edit"/>
 									</a>&#160;
 									<a href="{$link_prefix}x-post-delete&amp;post_id={id}"
@@ -191,7 +194,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 							<xsl:text>&amp;fid=</xsl:text>
 							<xsl:value-of select="/_R_/forum_get_by_id/forum_get_by_id/id"/>
 							<xsl:text>&amp;id=</xsl:text>
-							<xsl:value-of select="/_R_/topic_get_by_id/topic_get_by_id/id"/>
+							<xsl:value-of select="$topic_get_by_id/id"/>
 						</xsl:with-param>
 						<xsl:with-param name="max">
 							<xsl:value-of select="$page_num/count"/>
@@ -208,14 +211,14 @@ Fifth Floor, Boston, MA 02110-1301 USA
 					<xsl:value-of select="$my18n/quick_post"/>
 				</h2>
 				<div class="box">
-					<form method="post" action="{$link_prefix}post&amp;tid={/_R_/topic_get_by_id/topic_get_by_id/id}">
+					<form method="post" action="{$link_prefix}post&amp;tid={$topic_get_by_id/id}">
 						<div class="inform">
 							<fieldset>
 								<legend>
 									<xsl:value-of select="$my18n/write_your_message"/>
 								</legend>
 								<div class="infldset txtarea">
-									<input type="hidden" name="topic_id" value="{/_R_/topic_get_by_id/topic_get_by_id/id}"/>
+									<input type="hidden" name="topic_id" value="{$topic_get_by_id/id}"/>
 									<input type="hidden" name="num_replies" value="{count(//posts_get_by_topic_id)}"/>
 									<input type="hidden" name="forum_id" value="{/_R_/forum_get_by_id/forum_get_by_id/id}"/>
 									<label>
