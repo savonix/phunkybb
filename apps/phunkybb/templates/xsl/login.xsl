@@ -111,8 +111,8 @@ Fifth Floor, Boston, MA 02110-1301 USA
                 <p>
                   <a href="{$link_prefix}register">
                     <xsl:value-of select="$my18n/not_registered_yet"/>?</a>
-                  <div style="visibility: hidden;" id="failure">
-                    <a href="">Forgotten your password?</a>
+                  <div id="failure">
+                    <a href="{$link_prefix}password-forgot">Forgotten your password?</a>
                   </div>
                 </p>
               </div>
