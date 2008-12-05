@@ -98,6 +98,14 @@
     <map:if name="//user_get_by_email_or_username">
       <map:true>
         <!-- Send email -->
+        <map:xml src="i18n/en_US/emails.xml"/>
+        <map:xml src="data/xml/emails.xml"/>
+        <map:set name="forgot_password" value="Password Reset Information"/>
+        <map:plugin type="detokenize"
+          params="{/_R_/i18n/password_reset},//emails/welcome/token"/>
+        <map:action type="email"
+          params="{//_post/email},{//board_config/o_webmaster_email},{//forgot_password},//new_text,{//board_config/o_smtp_host}"/>
+
         <map:xsl src="templates/xsl/password_forgot.xsl"/>
       </map:true>
       <map:false>
