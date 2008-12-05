@@ -91,15 +91,20 @@
     <map:xsl src="templates/xsl/activate.xsl"/>
 </map:gate>
 <map:gate name="password-forgot">
-  <map:if name="//_post/email">
-    <map:true>
-		  <map:query src="data/sql/user_get_by_email_or_username.xml"/>
-      <map:xsl src="templates/xsl/password_forgot.xsl"/>
-    </map:true>
-    <map:false>
-      <map:xsl src="templates/xsl/password_forgot.xsl"/>
-    </map:false>
-  </map:if>
+    <map:xsl src="templates/xsl/password_forgot.xsl"/>
+</map:gate>
+<map:gate name="password-forgot-submit">
+    <map:query src="data/sql/user_get_by_email_or_username.xml"/>
+    <map:if name="//user_get_by_email_or_username">
+      <map:true>
+        <!-- Send email -->
+        <map:xsl src="templates/xsl/password_forgot.xsl"/>
+      </map:true>
+      <map:false>
+        <!-- No email found -->
+        <map:xsl src="templates/xsl/password_forgot.xsl"/>
+      </map:false>
+    </map:if>
 </map:gate>
 <map:gate name="password-reset">
     <map:xsl src="templates/xsl/password_forgot_reset.xsl"/>

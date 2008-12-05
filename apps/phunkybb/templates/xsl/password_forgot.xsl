@@ -28,11 +28,21 @@ Fifth Floor, Boston, MA 02110-1301 USA
     <xsl:param name="my18n"/>
     <div class="box">
       <div class="inform">
-          <form method="post">
+        <xsl:if test="not(//_post/email)">
+          <form method="post" action="{$link_prefix}password-forgot-submit">
           Email address: <input type="text" name="email"/>
           <br/>
           <input type="submit"/>
           </form>
+        </xsl:if>
+        <xsl:if test="//_post/email">
+          <xsl:if test="//user_get_by_email_or_username/user_get_by_email_or_username/email">
+            Email sent to <xsl:value-of select="//user_get_by_email_or_username/user_get_by_email_or_username/email"/> .
+          </xsl:if>
+          <xsl:if test="not(//user_get_by_email_or_username)">
+            Can't find a user with that email.
+          </xsl:if>
+        </xsl:if>
       </div>
     </div>
   </xsl:template>
