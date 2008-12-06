@@ -81,7 +81,7 @@ $runtime = array(
                 'timestamp' => time()
                 );
 
-if($_GET['nid']=="user_read_all") {
+if($_GET['nid']=="user-read-all") {
     $auth = &new Nexista_Auth();
     $last_visit = time();
     $auth->setSessionData("last_visit", $last_visit);
