@@ -35,6 +35,7 @@ RewriteCond %{REQUEST_URI} !/a/dev/phunkybb/index.php|.css
 RewriteRule ^/a/dev/phunkybb/(\w+)/(\w+)/ /a/dev/phunkybb/index.php?nxrw_path=/a/dev/phunkybb/index.php&nid=topic&forum_basename=$1&basename=$2 [L]
 */
 
+
 $defaults = Nexista_Config::getSection("./defaults");
 Nexista_Flow::add("defaults",$defaults);
 
@@ -59,6 +60,8 @@ if(is_file('../revision')) {
     $svn_revision = file_get_contents('../revision');
 }
 
+
+
 $runtime = array(
                 'path_prefix' => $path_prefix,
                 'link_prefix' => $link_prefix,
@@ -77,6 +80,13 @@ $runtime = array(
                 'remote_ip' => $_SERVER['REMOTE_ADDR'],
                 'timestamp' => time()
                 );
+
+if($_GET['nid']=="user_read_all") {
+    $auth = &new Nexista_Auth();
+    $last_visit = time();
+    $auth->setSessionData("last_visit", $last_visit);
+    $auth->setSessionData("last_visit_timestamp", $last_visit);
+}
 
 Nexista_Flow::add("runtime",$runtime,false);
 
