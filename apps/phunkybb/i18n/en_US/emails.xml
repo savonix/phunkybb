@@ -17,7 +17,7 @@ Username: @@username@@
 
 To activate your account, please visit:
 
-@@base_url@@/index.php?nid=activate&amp;activate_key=@@activate_key@@
+@@base_url@@/index.php?nid=activate&amp;activate_string=@@activate_string@@
 
 --
 (Do not reply to this message)
@@ -32,43 +32,45 @@ To activate your account, please visit:
 
 
 
-  <change_email>
-Subject: Change e-mail address requested
-
-Hello ,
-
-You have requested to have a new e-mail address assigned to your account in the discussion forum at . 
-If you didn't request this or if you don't want to change your e-mail address you should just ignore this message. 
-Only if you visit the activation page below will your e-mail address be changed. 
-In order for the activation page to work, you must be logged in to the forum.
-
-To change your e-mail address, please visit the following page:
-
---
-(Do not reply to this message)
-  </change_email>
-
-
 
 
 
   <password_reset>
-Subject: Change password requested
+Subject: Change password requested at @@board_title@@.
 
-Hello ,
+Hello @@username@@,
 
-You have requested to have a new e-mail address assigned to your account in the discussion forum at . 
-If you didn't request this or if you don't want to change your e-mail address you should just ignore this message. 
-Only if you visit the activation page below will your e-mail address be changed. 
-In order for the activation page to work, you must be logged in to the forum.
+Someone has requested to reset the password assigned to your account in the discussion forum. 
+If you didn't request this you should just ignore this message. 
 
-To change your e-mail address, please visit the following page:
+To change your password, please visit the following page:
+
+@@base_url@@/index.php?nid=password-reset&amp;activate_string=@@activate_string@@
 
 --
 (Do not reply to this message)
   </password_reset>
 
 
+
+
+  <change_email>
+Subject: Change e-mail address requested at @@board_title@@.
+
+Hello @@username@@,
+
+You have requested to have a new e-mail address assigned to your account in the discussion forum at . 
+If you didn't request this or if you don't want to change your e-mail address you should just ignore this message. 
+Only if you visit the activation page below will your e-mail address be changed. 
+In order for the activation page to work, you must be logged in to the forum.
+
+To change your e-mail address, please visit the following page:
+
+@@base_url@@/index.php?nid=activate&amp;activate_key=@@activate_key@@
+
+--
+(Do not reply to this message)
+  </change_email>
 
 
 

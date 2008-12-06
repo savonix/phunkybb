@@ -32,6 +32,25 @@ Fifth Floor, Boston, MA 02110-1301 USA
       <value>//_post/username</value>
     </token>
     <token>
+      <key>@@activate_string@@</key>
+      <value>//activate_string</value>
+    </token>
+    <token>
+      <key>@@base_url@@</key>
+      <value>//board_config/o_base_url</value>
+    </token>
+  </welcome>
+
+  <reset_password>
+    <token>
+      <key>@@board_title@@</key>
+      <value>//board_config/o_board_title</value>
+    </token>
+    <token>
+      <key>@@username@@</key>
+      <value>//user_get_by_email_or_username/user_get_by_email_or_username/username</value>
+    </token>
+    <token>
       <key>@@activate_key@@</key>
       <value>//activation_key</value>
     </token>
@@ -39,13 +58,26 @@ Fifth Floor, Boston, MA 02110-1301 USA
       <key>@@base_url@@</key>
       <value>//board_config/o_base_url</value>
     </token>
-  </welcome>
-  <reset_password>
+  </reset_password>
+
+  <email_change>
     <token>
       <key>@@board_title@@</key>
       <value>//board_config/o_board_title</value>
     </token>
-  </reset_password>
+    <token>
+      <key>@@username@@</key>
+      <value>//user_get_by_email_or_username/user_get_by_email_or_username/username</value>
+    </token>
+    <token>
+      <key>@@activate_key@@</key>
+      <value>//activation_key</value>
+    </token>
+    <token>
+      <key>@@base_url@@</key>
+      <value>//board_config/o_base_url</value>
+    </token>
+  </email_change>
 
   <test>
     <token>

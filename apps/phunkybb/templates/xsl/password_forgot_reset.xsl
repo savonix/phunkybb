@@ -55,15 +55,16 @@ Fifth Floor, Boston, MA 02110-1301 USA
 						rsa.setPublic(linebrk(myform.id_rsa_pub.value,64), myform.e.value);
 						var res = linebrk(hex2b64(rsa.encrypt(myform.password.value)),64);
 
-						$.post("<xsl:value-of select="$link_prefix"/>password",
+						$.post("<xsl:value-of select="$link_prefix"/>password-reset",
 						{
-								'password': res
+								'password': res,
+                'activate_string': myform.activate_string.value
 						},
 						function (data){
 								var myResult = $("result",data).text();
 								$('span#replace').html(myResult);
 								if(myResult=='Success') {
-										window.location = '<xsl:value-of select="$link_prefix"/>profile';
+										window.location = '<xsl:value-of select="$link_prefix"/>login';
 								}
 						});
 				} else {
@@ -81,6 +82,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
           <form id="password" name="password" method="post" onSubmit="do_encrypt(); return false;">
             <input type="hidden" name="id_rsa_pub" value=""/>
             <input type="hidden" name="e" value=""/>
+            <input type="hidden" name="activate_string" value="{//_get/activate_string}"/>
             <div class="inform">
               <fieldset>
                 <legend>

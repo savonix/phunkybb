@@ -37,7 +37,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
         </xsl:if>
         <xsl:if test="//_post/email">
           <xsl:if test="//user_get_by_email_or_username/user_get_by_email_or_username/email">
-            Email sent to <xsl:value-of select="//user_get_by_email_or_username/user_get_by_email_or_username/email"/> .
+            Email sent to <xsl:value-of select="//user_get_by_email_or_username/user_get_by_email_or_username/username"/> .
           </xsl:if>
           <xsl:if test="not(//user_get_by_email_or_username)">
             Can't find a user with that email.

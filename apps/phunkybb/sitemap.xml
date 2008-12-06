@@ -52,7 +52,7 @@
           </map:if>
 
 
-          <map:plugin type="random" params="activation_key,4"/>
+          <map:plugin type="random" params="activate_string,4"/>
           <map:set name="my_registration_info" value="Registration Info"/>
           <map:plugin type="detokenize"
 						params="{/_R_/i18n/welcome_email},//emails/welcome/token"/>
@@ -98,11 +98,13 @@
     <map:if name="//user_get_by_email_or_username">
       <map:true>
         <!-- Send email -->
+        <map:plugin type="random" params="activate_string,4"/>
+        <map:query src="data/sql/user_update_activate_string.xml"/>
         <map:xml src="i18n/en_US/emails.xml"/>
         <map:xml src="data/xml/emails.xml"/>
         <map:set name="forgot_password" value="Password Reset Information"/>
         <map:plugin type="detokenize"
-          params="{/_R_/i18n/password_reset},//emails/welcome/token"/>
+          params="{/_R_/i18n/password_reset},//emails/reset_password/token"/>
         <map:action type="email"
           params="{//_post/email},{//board_config/o_webmaster_email},{//forgot_password},//new_text,{//board_config/o_smtp_host}"/>
 
@@ -115,7 +117,17 @@
     </map:if>
 </map:gate>
 <map:gate name="password-reset">
-    <map:xsl src="templates/xsl/password_forgot_reset.xsl"/>
+  <map:if name="//_post">
+      <map:true>
+        <map:plugin type="decrypt_rsa" params="{//defaults/private_key},//_post/password"/>
+          <map:plugin type="hash" params="sha1,//_post/password"/>
+          <map:query src="data/sql/user_update_password_by_string.xml"/>
+          <map:xsl src="templates/xml/success.xml.xsl"/>
+      </map:true>
+      <map:false>
+        <map:xsl src="templates/xsl/password_forgot_reset.xsl"/>
+      </map:false>
+    </map:if>
 </map:gate>
 
     <map:gate name="login">
@@ -278,7 +290,7 @@
     <map:gate name="password" role="phunky_user">
         <map:if name="//_post">
             <map:true>
-        <map:plugin type="decrypt_rsa" params="{//defaults/private_key},//_post/password"/>
+              <map:plugin type="decrypt_rsa" params="{//defaults/private_key},//_post/password"/>
                 <map:plugin type="hash" params="sha1,//_post/password"/>
                 <map:query src="data/sql/user_update_password.xml"/>
                 <map:action type="redirect" params="{//link_prefix}profile"/>

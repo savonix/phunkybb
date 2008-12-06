@@ -1,6 +1,6 @@
 <!--
 Program: PhunkyBB
-Component: user_update_password.xml
+Component: user_update_activate_string.xml
 Copyright: Savonix Corporation
 Author: Albert L. Lash, IV
 License: Gnu Affero Public License version 3
@@ -22,13 +22,13 @@ or write to the Free Software Foundation, Inc., 51 Franklin Street,
 Fifth Floor, Boston, MA 02110-1301 USA
 -->
 <!DOCTYPE query SYSTEM "__default_table_names__.txt">
-<query name="user_update_password">
+<query name="user_update_activate_string">
 	<connection>&connection;</connection>
 	<params>
-		<param name="//hash" type="text" default="0"/>
-		<param name="//runtime/username" type="text" default="0"/>
+		<param name="//activation_string" type="text"/>
+		<param name="//_post/email" type="text"/>
 	</params>
 	<sql>
-  UPDATE &prefix;users SET password=? WHERE username=?
-	</sql>
+  UPDATE &prefix;users SET activate_string=? WHERE email=?
+  </sql>
 </query>

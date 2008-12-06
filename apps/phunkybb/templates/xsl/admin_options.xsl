@@ -63,7 +63,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
                           <xsl:value-of select="$my18n/not"/>
                         </strong>
                         <xsl:value-of select="$my18n/contain_html"/>.
-										</td>
+                      </td>
                     </tr>
                     <tr>
                       <th scope="row">
@@ -72,6 +72,14 @@ Fifth Floor, Boston, MA 02110-1301 USA
                       <td>
                         <input type="text" name="form[o_board_desc]" value="{//board_config/o_board_desc}"/>
                         <xsl:value-of select="$my18n/short_description_of_this"/>.
+											</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">
+                        <xsl:value-of select="$my18n/base_url"/>
+                      </th>
+                      <td>
+                        <input type="text" name="form[o_base_url]" value="{//board_config/o_base_url}"/>
 											</td>
                     </tr>
                   </table>
