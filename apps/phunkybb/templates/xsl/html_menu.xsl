@@ -47,7 +47,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
               </a>
             </xsl:if>
             <a href="{$link_prefix}profile">Profile</a>
-            <xsl:if test="/_R_/runtime/last_visit_timestamp &lt; last_post_timestamp">
+            <xsl:if test="/_R_/runtime/last_visit_timestamp &lt; //last_post_timestamp">
               <a href="{$link_prefix}user-real-all">Mark All Messages Read</a>
             </xsl:if>
             <a href="{$link_prefix}logout"><xsl:value-of select="$my18n/logout"/></a>
