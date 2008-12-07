@@ -48,6 +48,7 @@ $link_prefix = $path."?nid=";
 
 /* Time stuff */
 $tz_offset = $_SESSION['timezone'];
+$tz_offset = 0;
 
 /* Expired session */
 if($_SESSION['NX_AUTH']['username']==1016)

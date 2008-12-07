@@ -67,7 +67,26 @@ Fifth Floor, Boston, MA 02110-1301 USA
         <xsl:sort select="priority"/>
         <xsl:value-of select="string" disable-output-escaping="yes"/>
       </xsl:for-each>
+<div style="height: 60px; width: 468px; position: absolute; top: 28px; right: 30px;">
+
+<script type="text/javascript">
+<![CDATA[
+<!--
+ google_ad_client = "pub-9657495873329253";
+ //468x60, created 12/4/07
+ google_ad_slot = "3998548064";
+ google_ad_width = 468;
+ google_ad_height = 60;
+-->
+]]>
+</script>
+ <script type="text/javascript"
+ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+ </script>
+</div>
 			<xsl:if test="//o_google_analytics_code">
+
+
 			<script type="text/javascript">
 			<![CDATA[
 			var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
