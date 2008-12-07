@@ -95,12 +95,14 @@ Fifth Floor, Boston, MA 02110-1301 USA
                     <xsl:value-of select="num_posts"/>
                   </td>
                   <td class="tcr">
+					<span class="date">
                     <xsl:if test="not(last_post='1969-12-31 20:00:00') and not(last_post='1970-01-01 00:00:00')">
                       <xsl:value-of select="last_post"/>
                       <xsl:if test="not(/_R_/runtime/user_id &gt; 0)">
                             UTC
                         </xsl:if>
                     </xsl:if>
+					</span>
                   </td>
                 </tr>
               </xsl:for-each>
