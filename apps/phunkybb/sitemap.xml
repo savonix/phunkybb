@@ -463,7 +463,8 @@
             </map:false>
         </map:if>
         <map:set name="table_prefix" value="wwwneofilmzcom_"/>
-        <map:set name="engine" value="postgres"/>
+        <map:set name="engine" value="mysql"/>
+        <map:xml src="data/model/db_engines.mysql.xml"/>
         <map:action type="header" params="Content-type,text/plain"/>
         <map:xsl src="data/model/phunkybb_database.sql.xsl"/>
     </map:gate>
