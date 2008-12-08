@@ -78,16 +78,16 @@ Fifth Floor, Boston, MA 02110-1301 USA
 			</p>
 			<p class="postlink conr">
 				<xsl:value-of select="$topic_get_by_id/subject"/>
-      &#160;
-      <xsl:if test="/_R_/runtime/group_id=1">
-        <a href="{$link_prefix}topic-delete&amp;topic_id={$topic_get_by_id/id}&amp;fid={/_R_/forum_get_by_id/forum_get_by_id/id}"
-					onclick="delete_topic({$topic_get_by_id/id}); return false;">
-          Delete
-        </a>
-						<a href="{$link_prefix}topic-edit&amp;topic_id={$topic_get_by_id/id}&amp;fid={/_R_/forum_get_by_id/forum_get_by_id/id}">
-          Move
-        </a>
-					</xsl:if>
+        &#160;
+        <xsl:if test="/_R_/runtime/group_id=1">
+          <a href="{$link_prefix}topic-delete&amp;topic_id={$topic_get_by_id/id}&amp;fid={/_R_/forum_get_by_id/forum_get_by_id/id}"
+            onclick="delete_topic({$topic_get_by_id/id}); return false;">
+            Delete
+          </a>
+          <a href="{$link_prefix}topic-edit&amp;topic_id={$topic_get_by_id/id}&amp;fid={/_R_/forum_get_by_id/forum_get_by_id/id}">
+            Move
+          </a>
+        </xsl:if>
 				</p>
 				<ul class="breadcrumbs">
 					<li>
@@ -227,6 +227,26 @@ Fifth Floor, Boston, MA 02110-1301 USA
 								</div>
 							</fieldset>
 						</div>
+            <div class="inform">
+              <fieldset>
+                <legend>
+                  <xsl:value-of select="$my18n/options"/>
+                </legend>
+                <div class="infldset">
+                  <div class="rbox">
+                    <label>
+                      <input type="checkbox" name="subscribe" value="1">
+                        <xsl:if test="/_R_/topic_get_subscriptions/topic_get_subscriptions/user_id=/_R_/runtime/user_id">
+                          <xsl:attribute name="checked" value="checked"/>
+                        </xsl:if>
+                      </input>
+                      <xsl:value-of select="$my18n/subscribe"/>
+                      <br/>
+                    </label>
+                  </div>
+                </div>
+              </fieldset>
+            </div>
 						<p>
 							<input type="submit" name="submit" value="Submit"/>
 						</p>

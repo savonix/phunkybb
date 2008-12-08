@@ -1,6 +1,6 @@
 <!--
 Program: PhunkyBB
-Component: topic_get_num_replies.xml
+Component: topic_delete_subscription.xml
 Copyright: Savonix Corporation
 Author: Albert L. Lash, IV
 License: Gnu Affero Public License version 3
@@ -22,12 +22,13 @@ or write to the Free Software Foundation, Inc., 51 Franklin Street,
 Fifth Floor, Boston, MA 02110-1301 USA
 -->
 <!DOCTYPE query SYSTEM "__default_table_names__.txt">
-<query name="topic_get_num_replies">
-	<connection>&connection;</connection>
+<query name="topic_delete_subscription">
+	<connection>&connection_read;</connection>
 	<params>
+		<param name="/_R_/runtime/user_id" type="integer"/>
 		<param name="/_R_/_post/topic_id" type="integer"/>
 	</params>
 	<sql>
-  SELECT count(id) - 1 as num_replies FROM &prefix;posts WHERE topic_id=?
+  DELETE FROM &prefix;subscriptions WHERE user_id=? AND topic_id=?
 	</sql>
 </query>
