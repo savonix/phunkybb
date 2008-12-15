@@ -28,8 +28,8 @@ Fifth Floor, Boston, MA 02110-1301 USA
 	</link>
 	<link id="topic">
 		<param name="fid"/>
-		<param name="forum_basename"/>
+		<param name="forum_basename" locator="//_get/forum_basename"/>
 		<param name="id"/>
-		<param name="basename"/>
+		<param name="basename" locator="basename"/>
 	</link>
 </link>
