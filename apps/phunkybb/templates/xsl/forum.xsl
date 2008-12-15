@@ -25,6 +25,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 	<xsl:include href="html_main.xsl"/>
 	<xsl:template name="content">
 		<xsl:param name="link_prefix"/>
+		<xsl:param name="path_prefix"/>
 		<xsl:param name="my18n"/>
 
 		<xsl:variable name="forum_get_by_id"
@@ -100,11 +101,11 @@ Fifth Floor, Boston, MA 02110-1301 USA
 												</div>
 											</xsl:if>
 											<div class="tclcon">
-										<!-- Need to use the link_builder here! -->
+											<!-- Need to use the link_builder here! -->
 												<xsl:if test="//mod_rewrite='true' and not(basename='')">
-													<a>
+													<a title="{subject}">
 														<xsl:attribute name="href">
-															<xsl:value-of select="//path_prefix"/>
+															<xsl:value-of select="$path_prefix"/>
 															<xsl:value-of select="//_get/forum_basename"/>
 															<xsl:text>/</xsl:text>
 															<xsl:value-of select="basename"/>
@@ -133,6 +134,9 @@ Fifth Floor, Boston, MA 02110-1301 USA
 												UTC
 											</xsl:if>
 										</span>
+										<xsl:if test="not(last_poster=0)">
+											by <xsl:value-of select="last_poster"/>
+										</xsl:if>
 									</td>
 								</tr>
 							</xsl:for-each>

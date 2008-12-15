@@ -25,17 +25,17 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <query name="post_create">
 	<connection>&connection;</connection>
 	<params>
-		<param name="//runtime/username" type="text" default="0"/>
-		<param name="//runtime/user_id" type="integer" default="0"/>
-		<param name="//runtime/user_ip" type="text" default="0"/>
-		<param name="//_post/message" type="text" default=""/>
-		<param name="//runtime/timestamp" type="integer" default="0"/>
-		<param name="//_post/topic_id" type="integer" default="0"/>
+		<param name="//runtime/username" type="text"/>
+		<param name="//runtime/user_id" type="integer"/>
+		<param name="//runtime/remote_ip" type="text"/>
+		<param name="//_post/message" type="text"/>
+		<param name="//runtime/timestamp" type="integer"/>
+		<param name="//_post/topic_id" type="integer"/>
 	</params>
 	<sql>
-		INSERT INTO &prefix;posts
-		(poster, poster_id, poster_ip, message, posted, topic_id)
-		VALUES
-		(?,?,?,?,?,?)
+	INSERT INTO &prefix;posts
+	(poster, poster_id, poster_ip, message, posted, topic_id)
+	VALUES
+	(?,?,?,?,?,?)
 	</sql>
 </query>

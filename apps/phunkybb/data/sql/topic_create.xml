@@ -30,13 +30,13 @@ Fifth Floor, Boston, MA 02110-1301 USA
 		<param name="//_post/basename" type="text" default="0"/>
 		<param name="//runtime/timestamp" type="integer" default="0"/>
 		<param name="//runtime/timestamp" type="integer" default="0"/>
-		<param name="//_post/username" type="text" default="0"/>
+		<param name="//runtime/username" type="text" default="0"/>
 		<param name="//_post/fid" type="integer" default="0"/>
 	</params>
 	<sql>
-    INSERT INTO &prefix;topics
-    (poster, subject, basename, posted, last_post, last_poster, forum_id)
-    VALUES
-    (?,?,?,?,?,?,?)
+	INSERT INTO &prefix;topics
+	(poster, subject, basename, posted, last_post, last_poster, forum_id)
+	VALUES
+	(?,?,?,?,?,?,?)
 	</sql>
 </query>
