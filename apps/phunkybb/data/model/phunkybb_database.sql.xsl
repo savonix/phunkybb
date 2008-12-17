@@ -31,12 +31,14 @@ CREATE TABLE <xsl:value-of select="//db_engines/if_not_exists/text"/> <xsl:value
   id <xsl:value-of select="//db_engines/engine_auto_increment/text"/>,
   cat_name varchar(80) NOT NULL default 'New Category',
   disp_position <xsl:value-of select="//db_engines/integer/text"/> NOT NULL default '0',
+	site_id int(10) default NULL,
   PRIMARY KEY  (id)
 ) <xsl:value-of select="//db_engines/innodb_engine/text"/> <xsl:value-of select="//db_engines/engine_increment_start/text"/> ;
 
 CREATE TABLE <xsl:value-of select="f_not_exists"/> <xsl:value-of select="//_get/table_prefix"/>config (
   conf_name varchar(255) NOT NULL default '',
   conf_value text,
+	site_id int(10) default NULL,
   PRIMARY KEY  (conf_name)
 ) <xsl:value-of select="//db_engines/myisam_engine/text"/>;
 
@@ -46,6 +48,7 @@ CREATE TABLE <xsl:value-of select="f_not_exists"/> <xsl:value-of select="//_get/
   forum_name varchar(80) NOT NULL default 'New forum',
   forum_basename varchar(80) NOT NULL default 'new_forum',
   forum_desc text,
+	site_id int(10) default NULL,
   redirect_url varchar(100) default NULL,
   moderators text,
   num_topics <xsl:value-of select="//db_engines/integer/text"/> NOT NULL default '0',
@@ -69,6 +72,7 @@ CREATE TABLE <xsl:value-of select="f_not_exists"/> <xsl:value-of select="//_get/
   poster_id int(10) NOT NULL default '1',
   poster_ip varchar(15) default NULL,
   poster_email varchar(50) default NULL,
+	site_id int(10) default NULL,
   message text,
   hide_smilies <xsl:value-of select="//db_engines/integer/text"/> NOT NULL default '0',
   posted int(10) NOT NULL default '0',
@@ -85,6 +89,7 @@ CREATE TABLE <xsl:value-of select="f_not_exists"/> <xsl:value-of select="//_get/
   user_id int(10) NOT NULL default '0',
   topic_id int(10) NOT NULL default '0',
   sent int(10) NOT NULL default '0',
+	site_id int(10) default NULL,
   PRIMARY KEY  (user_id,topic_id)
 ) <xsl:value-of select="//db_engines/innodb_engine/text"/>;
 
@@ -104,6 +109,7 @@ CREATE TABLE <xsl:value-of select="f_not_exists"/> <xsl:value-of select="//_get/
   sticky <xsl:value-of select="//db_engines/integer/text"/> NOT NULL default '0',
   moved_to int(10) default NULL,
   forum_id int(10) NOT NULL default '0',
+	site_id int(10) default NULL,
   PRIMARY KEY  (id),
   KEY <xsl:value-of select="//_get/table_prefix"/>topics_forum_id_idx (forum_id),
   KEY <xsl:value-of select="//_get/table_prefix"/>topics_moved_to_idx (moved_to)
@@ -129,6 +135,7 @@ CREATE TABLE <xsl:value-of select="//db_engines/if_not_exists/text"/> <xsl:value
   admin_note varchar(30) default NULL,
   activate_string varchar(50) default NULL,
   activate_key varchar(8) default NULL,
+	site_id int(10) default NULL,
   PRIMARY KEY  (id),
   KEY <xsl:value-of select="//_get/table_prefix"/>users_registered_idx (registered),
   KEY <xsl:value-of select="//_get/table_prefix"/>users_username_idx (username(8))

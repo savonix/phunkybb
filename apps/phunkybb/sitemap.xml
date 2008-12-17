@@ -494,6 +494,10 @@
         <map:raw src="LICENSE"/>
     </map:gate>
 
+    <map:gate name="x-sitemap-xml" content_type="text/xml">
+        <map:xml src="sitemap.xml"/>
+        <map:xsl src="templates/xml/sitemap.xml.xsl"/>
+    </map:gate>
 
     <map:gate name="ml-test">
         <map:xml src="templates/xsl/login.xsl"/>
