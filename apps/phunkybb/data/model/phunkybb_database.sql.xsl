@@ -84,6 +84,7 @@ CREATE TABLE <xsl:value-of select="f_not_exists"/> <xsl:value-of select="//_get/
 CREATE TABLE <xsl:value-of select="f_not_exists"/> <xsl:value-of select="//_get/table_prefix"/>subscriptions (
   user_id int(10) NOT NULL default '0',
   topic_id int(10) NOT NULL default '0',
+  sent int(10) NOT NULL default '0',
   PRIMARY KEY  (user_id,topic_id)
 ) <xsl:value-of select="//db_engines/innodb_engine/text"/>;
 
