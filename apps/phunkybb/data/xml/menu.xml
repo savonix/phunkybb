@@ -31,19 +31,19 @@ Fifth Floor, Boston, MA 02110-1301 USA
   </public_menu>
 
   <admin_menu>
-      <button status="active">categories</button>
-      <button status="active">forums</button>
-      <button status="active">users</button>
-      <button status="active">options</button>
-      <!--
-      <button status="active">groups</button>
-      <button status="active">permissions</button>
-      <button status="active">censoring</button>
-      <button status="active">ranks</button>
-      <button status="active">bans</button>
-      <button status="active">prune</button>
-      <button status="active">maintenance</button>
-      <button status="active">report</button>  -->
+		<button status="active">categories</button>
+		<button status="active">forums</button>
+		<button status="active">users</button>
+		<button status="active">options</button>
+		<!--
+		<button status="active">groups</button>
+		<button status="active">permissions</button>
+		<button status="active">censoring</button>
+		<button status="active">ranks</button>
+		<button status="active">bans</button>
+		<button status="active">prune</button>
+		<button status="active">maintenance</button>
+		<button status="active">report</button>  -->
   </admin_menu>
   <activities>
   </activities>

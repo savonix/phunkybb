@@ -1,252 +1,246 @@
 <?xml version="1.0"?>
 <map:sitemap xmlns:map="http://www.nexista.org/sitemap">
-    <map:prepend>
-      <map:if name="/_R_/_post">
-        <map:true>
-          <map:query src="data/sql/forums_get_all.xml"/>
-          <map:query src="data/sql/forums_get_totals.xml"/>
-          <map:query src="data/sql/forums_update_totals.xml"/>
-        </map:true>
-      </map:if>
-        <map:perl src="lib/perl/runtime.pl"/>
-        <map:script src="lib/php/config_check.php"/>
-        <map:perl src="lib/perl/config_build.pl"/>
-        <map:python src="lib/python/config_build.py"/>
-        <map:if name="/_R_/config_cache">
-            <map:false>
-                <map:query src="data/sql/config_get.xml"/>
-                <map:script src="lib/php/config_build.php"/>
-                <map:script src="lib/php/config_check.php"/>
-                <map:perl src="lib/perl/config_build.pl"/>
-            </map:false>
-        </map:if>
-        <map:script src="lib/php/runtime.php"/>
-				<map:xml src="data/xml/extra_menu_items.xml"/>
-    </map:prepend>
+	<map:prepend>
+		<map:if name="/_R_/_post">
+			<map:true>
+				<map:query src="data/sql/forums_get_all.xml"/>
+				<map:query src="data/sql/forums_get_totals.xml"/>
+				<map:query src="data/sql/forums_update_totals.xml"/>
+			</map:true>
+		</map:if>
+		<map:perl src="lib/perl/runtime.pl"/>
+		<map:script src="lib/php/config_check.php"/>
+		<map:perl src="lib/perl/config_build.pl"/>
+		<map:python src="lib/python/config_build.py"/>
+		<map:if name="/_R_/config_cache">
+			<map:false>
+				<map:query src="data/sql/config_get.xml"/>
+				<map:script src="lib/php/config_build.php"/>
+				<map:script src="lib/php/config_check.php"/>
+				<map:perl src="lib/perl/config_build.pl"/>
+			</map:false>
+		</map:if>
+		<map:script src="lib/php/runtime.php"/>
+		<map:xml src="data/xml/extra_menu_items.xml"/>
+	</map:prepend>
 
 <!-- SESSIONS -->
-<map:gate name="register">
-    <map:xsl src="templates/xsl/register.xsl"/>
-</map:gate>
+	<map:gate name="register">
+		<map:xsl src="templates/xsl/register.xsl"/>
+	</map:gate>
 
-<map:gate name="x-register">
+	<map:gate name="x-register">
 		<map:query src="data/sql/user_get_by_email_or_username.xml"/>
 		<map:if name="//user_get_by_email_or_username">
-				<map:true>
-					<map:action type="header" params="Content-type,text/xml"/>
-					<map:set name="error_message" value="Username or email already registered."/>
-					<map:xsl src="templates/xml/error.xml.xsl"/>
-				</map:true>
-				<map:false>
-          <map:xml src="i18n/en_US/emails.xml"/>
-          <map:xml src="data/xml/emails.xml"/>
-          <map:if name="//use_random_pass">
-						<map:true>
-							<map:plugin type="random" params="random_password,8"/>
-							<map:plugin type="hash" params="sha1,//random_password"/>
-						</map:true>
-						<map:false>
-							<map:plugin type="decrypt_rsa" params="{//defaults/private_key},//_post/password"/>
-							<map:plugin type="hash" params="sha1,//_post/password"/>
-						</map:false>
-          </map:if>
+			<map:true>
+				<map:action type="header" params="Content-type,text/xml"/>
+				<map:set name="error_message" value="Username or email already registered."/>
+				<map:xsl src="templates/xml/error.xml.xsl"/>
+			</map:true>
+			<map:false>
+				<map:xml src="i18n/en_US/emails.xml"/>
+				<map:xml src="data/xml/emails.xml"/>
+				<map:if name="//use_random_pass">
+					<map:true>
+						<map:plugin type="random" params="random_password,8"/>
+						<map:plugin type="hash" params="sha1,//random_password"/>
+					</map:true>
+					<map:false>
+						<map:plugin type="decrypt_rsa" params="{//defaults/private_key},//_post/password"/>
+						<map:plugin type="hash" params="sha1,//_post/password"/>
+					</map:false>
+				</map:if>
 
 
-          <map:plugin type="random" params="activate_string,4"/>
-          <map:set name="my_registration_info" value="Registration Info"/>
-          <map:plugin type="detokenize"
-						params="{/_R_/i18n/welcome_email},//emails/welcome/token"/>
+				<map:plugin type="random" params="activate_string,4"/>
+				<map:set name="my_registration_info" value="Registration Info"/>
+				<map:plugin type="detokenize" params="{/_R_/i18n/welcome_email},//emails/welcome/token"/>
 
 
-
-					<map:query src="data/sql/user_register.xml"/>
-
-					<map:action type="email"
-						params="{//_post/email},{//board_config/o_webmaster_email},{//my_registration_info},//new_text,{//board_config/o_smtp_host}"/>
-
-					<map:action type="header" params="Content-type,text/xml"/>
-					<map:set name="result_message" value=" Registration successful, please check your email."/>
-					<map:xsl src="templates/xml/success.xml.xsl"/>
-
-				</map:false>
+					
+				<map:query src="data/sql/user_register.xml"/>
+					
+				<map:action type="email" params="{//_post/email},{//board_config/o_webmaster_email},{//my_registration_info},//new_text,{//board_config/o_smtp_host}"/>
+					
+				<map:action type="header" params="Content-type,text/xml"/>
+				<map:set name="result_message" value=" Registration successful, please check your email."/>
+				<map:xsl src="templates/xml/success.xml.xsl"/>
+				
+			</map:false>
 		</map:if>
-    <map:if name="/_R_/_post">
-        <map:true>
+		<map:if name="/_R_/_post">
+			<map:true>
 
-        </map:true>
-        <map:false>
+			</map:true>
+			<map:false>
 				<!--
 					<map:action type="header" params="Content-type,text/xml"/>
 					<map:set name="error_message" value="No post."/>
 					<map:xsl src="templates/xml/error.xml.xsl"/>
-					-->
-        </map:false>
-    </map:if>
-</map:gate>
-<map:gate name="registered">
-    <map:xsl src="templates/xsl/registered.xsl"/>
-</map:gate>
-<map:gate name="activate">
-    <map:query src="data/sql/user_activate.xml"/>
-    <map:xsl src="templates/xsl/activate.xsl"/>
-</map:gate>
-<map:gate name="password-forgot">
-    <map:xsl src="templates/xsl/password_forgot.xsl"/>
-</map:gate>
-<map:gate name="password-forgot-submit">
-    <map:query src="data/sql/user_get_by_email_or_username.xml"/>
-    <map:if name="//user_get_by_email_or_username">
-      <map:true>
+					--></map:false>
+		</map:if>
+	</map:gate>
+	<map:gate name="registered">
+		<map:xsl src="templates/xsl/registered.xsl"/>
+	</map:gate>
+	<map:gate name="activate">
+		<map:query src="data/sql/user_activate.xml"/>
+		<map:xsl src="templates/xsl/activate.xsl"/>
+	</map:gate>
+	<map:gate name="password-forgot">
+		<map:xsl src="templates/xsl/password_forgot.xsl"/>
+	</map:gate>
+	<map:gate name="password-forgot-submit">
+		<map:query src="data/sql/user_get_by_email_or_username.xml"/>
+		<map:if name="//user_get_by_email_or_username">
+			<map:true>
         <!-- Send email -->
-        <map:plugin type="random" params="activate_string,4"/>
-        <map:query src="data/sql/user_update_activate_string.xml"/>
-        <map:xml src="i18n/en_US/emails.xml"/>
-        <map:xml src="data/xml/emails.xml"/>
-        <map:set name="forgot_password" value="Password Reset Information"/>
-        <map:plugin type="detokenize"
-          params="{/_R_/i18n/password_reset},//emails/reset_password/token"/>
-        <map:action type="email"
-          params="{//_post/email},{//board_config/o_webmaster_email},{//forgot_password},//new_text,{//board_config/o_smtp_host}"/>
+				<map:plugin type="random" params="activate_string,4"/>
+				<map:query src="data/sql/user_update_activate_string.xml"/>
+				<map:xml src="i18n/en_US/emails.xml"/>
+				<map:xml src="data/xml/emails.xml"/>
+				<map:set name="forgot_password" value="Password Reset Information"/>
+				<map:plugin type="detokenize" params="{/_R_/i18n/password_reset},//emails/reset_password/token"/>
+				<map:action type="email" params="{//_post/email},{//board_config/o_webmaster_email},{//forgot_password},//new_text,{//board_config/o_smtp_host}"/>
 
-        <map:xsl src="templates/xsl/password_forgot.xsl"/>
-      </map:true>
-      <map:false>
+				<map:xsl src="templates/xsl/password_forgot.xsl"/>
+			</map:true>
+			<map:false>
         <!-- No email found -->
-        <map:xsl src="templates/xsl/password_forgot.xsl"/>
-      </map:false>
-    </map:if>
-</map:gate>
-<map:gate name="password-reset">
-  <map:if name="//_post">
-      <map:true>
-        <map:plugin type="decrypt_rsa" params="{//defaults/private_key},//_post/password"/>
-          <map:plugin type="hash" params="sha1,//_post/password"/>
-          <map:query src="data/sql/user_update_password_by_string.xml"/>
-          <map:xsl src="templates/xml/success.xml.xsl"/>
-      </map:true>
-      <map:false>
-        <map:xsl src="templates/xsl/password_forgot_reset.xsl"/>
-      </map:false>
-    </map:if>
-</map:gate>
+				<map:xsl src="templates/xsl/password_forgot.xsl"/>
+			</map:false>
+		</map:if>
+	</map:gate>
+	<map:gate name="password-reset">
+		<map:if name="//_post">
+			<map:true>
+				<map:plugin type="decrypt_rsa" params="{//defaults/private_key},//_post/password"/>
+				<map:plugin type="hash" params="sha1,//_post/password"/>
+				<map:query src="data/sql/user_update_password_by_string.xml"/>
+				<map:xsl src="templates/xml/success.xml.xsl"/>
+			</map:true>
+			<map:false>
+				<map:xsl src="templates/xsl/password_forgot_reset.xsl"/>
+			</map:false>
+		</map:if>
+	</map:gate>
 
-    <map:gate name="login">
-        <map:if name="//_post">
-            <map:true>
-                <map:plugin type="hash" params="sha1,//_post/password"/>
-                <map:query src="data/sql/user_login.xml"/>
-            </map:true>
-        </map:if>
+	<map:gate name="login">
+		<map:if name="//_post">
+			<map:true>
+				<map:plugin type="hash" params="sha1,//_post/password"/>
+				<map:query src="data/sql/user_login.xml"/>
+			</map:true>
+		</map:if>
         <!-- this should be used if the user doesn't have javascript? -->
-        <map:if name="//user_login/user_login">
-            <map:true>
-                <map:script src="lib/php/sessions.php"/>
-                <map:action type="redirect" params="{//link_prefix}index"/>
-            </map:true>
-        </map:if>
-        <map:xsl src="templates/xsl/login.xsl"/>
-    </map:gate>
-    <map:gate name="x-login" cache="0" content_type="text/xml">
-        <map:action type="header" params="Content-Type,text/xml"/>
-        <map:perl src="lib/perl/decrypt_rsa.pl"/>
-        <map:plugin type="decrypt_rsa" params="{//defaults/private_key},//_post/password"/>
-        <map:plugin type="hash" params="sha1,//_post/password"/>
-        <map:query src="data/sql/user_login.xml"/>
-        <map:if name="/_R_/user_login/user_login">
+		<map:if name="//user_login/user_login">
+			<map:true>
+				<map:script src="lib/php/sessions.php"/>
+				<map:action type="redirect" params="{//link_prefix}index"/>
+			</map:true>
+		</map:if>
+		<map:xsl src="templates/xsl/login.xsl"/>
+	</map:gate>
+	<map:gate name="x-login" cache="0" content_type="text/xml">
+		<map:action type="header" params="Content-Type,text/xml"/>
+		<map:perl src="lib/perl/decrypt_rsa.pl"/>
+		<map:plugin type="decrypt_rsa" params="{//defaults/private_key},//_post/password"/>
+		<map:plugin type="hash" params="sha1,//_post/password"/>
+		<map:query src="data/sql/user_login.xml"/>
+		<map:if name="/_R_/user_login/user_login">
+			<map:true>
+				<map:script src="lib/php/sessions.php"/>
+				<map:perl src="lib/perl/login.pl"/>
+				<map:xsl src="templates/xml/success.xml.xsl"/>
+			</map:true>
+			<map:false>
+				<map:xsl src="templates/xml/error.xml.xsl"/>
+			</map:false>
+		</map:if>
+	</map:gate>
+	<map:gate name="logout">
+		<map:query src="data/sql/user_last_visit_update.xml"/>
+		<map:perl src="lib/perl/logout.pl"/>
+		<map:script src="lib/php/logout.php"/>
+		<map:action type="redirect" params="{//link_prefix}index"/>
+	</map:gate>
+
+	<map:gate name="user-read-all">
+		<map:query src="data/sql/user_last_visit_update.xml"/>
+		<map:action type="redirect" params="{//link_prefix}index"/>
+	</map:gate>
+
+	<map:gate name="redirect2">
+		<map:action type="redirect" params="/aortica?nid=index"/>
+	</map:gate>
+	<map:gate name="index" cache="300" content_type="text/html" cache_control="no-cache, max-age=20, must-revalidate">
+		<map:query src="data/sql/categories_get_all.xml"/>
+		<map:query src="data/sql/forums_get_all.xml"/>
+		<map:action type="datetime" params="/_R_/forums_get_all/forums_get_all/last_post,unix_epoch,{/_R_/runtime/user_time_format},{/_R_/runtime/user_timezone_offset}"/>
+		<map:xsl src="templates/xsl/welcome.xsl"/>
+	</map:gate>
+
+	<map:gate name="forum">
+		<map:xml src="data/xml/link_parameters.xml"/>
+		<map:query src="data/sql/forum_get_by_id.xml"/>
+		<map:query src="data/sql/topics_get_by_forum_id.xml"/>
+		<map:action type="datetime" params="/_R_/topics_get_by_forum_id/topics_get_by_forum_id/last_post,unix_epoch,{/_R_/runtime/user_time_format},{//runtime/user_timezone_offset}"/>
+		<map:action type="linkbuilder" params="/_R_/topics_get_by_forum_id/topics_get_by_forum_id/link,//link/topic/param"/>
+		<map:xsl src="templates/xsl/forum.xsl"/>
+	</map:gate>
+
+	<map:gate name="topic">
+		<map:query src="data/sql/forum_get_by_id.xml"/>
+		<map:query src="data/sql/topic_get_by_id.xml"/>
+		<map:query src="data/sql/topic_get_subscriptions.xml"/>
+		<map:query src="data/sql/posts_get_by_topic_id.xml"/>
+		<map:query src="data/sql/posts_get_number_of_pages.xml"/>
+		<map:action type="newline" params="/_R_/posts_get_by_topic_id/posts_get_by_topic_id/message"/>
+		<map:action type="datetime" params="/_R_/posts_get_by_topic_id/posts_get_by_topic_id/posted,unix_epoch,{//runtime/user_time_format},{//runtime/user_timezone_offset}"/>
+		<map:xsl src="templates/xsl/topic.xsl"/>
+	</map:gate>
+	<map:gate name="topic-edit">
+		<map:if name="//_post">
+			<map:true>
+				<map:if name="//_post/subscribe">
 					<map:true>
-						<map:script src="lib/php/sessions.php"/>
-						<map:perl src="lib/perl/login.pl"/>
-						<map:xsl src="templates/xml/success.xml.xsl"/>
-					</map:true>
-					<map:false>
-						<map:xsl src="templates/xml/error.xml.xsl"/>
-					</map:false>
-        </map:if>
-    </map:gate>
-    <map:gate name="logout">
-        <map:query src="data/sql/user_last_visit_update.xml"/>
-        <map:perl src="lib/perl/logout.pl"/>
-        <map:script src="lib/php/logout.php"/>
-        <map:action type="redirect" params="{//link_prefix}index"/>
-    </map:gate>
-
-    <map:gate name="user-read-all">
-        <map:query src="data/sql/user_last_visit_update.xml"/>
-        <map:action type="redirect" params="{//link_prefix}index"/>
-    </map:gate>
-
-    <map:gate name="redirect2">
-      <map:action type="redirect" params="/aortica?nid=index"/>
-    </map:gate>
-    <map:gate name="index"
-      cache="300"
-      content_type="text/html"
-      cache_control="no-cache, max-age=20, must-revalidate">
-        <map:query src="data/sql/categories_get_all.xml"/>
-        <map:query src="data/sql/forums_get_all.xml"/>
-        <map:action type="datetime" params="/_R_/forums_get_all/forums_get_all/last_post,unix_epoch,{/_R_/runtime/user_time_format},{/_R_/runtime/user_timezone_offset}"/>
-        <map:xsl src="templates/xsl/welcome.xsl"/>
-    </map:gate>
-
-    <map:gate name="forum">
-        <map:query src="data/sql/forum_get_by_id.xml"/>
-        <map:query src="data/sql/topics_get_by_forum_id.xml"/>
-        <map:action type="datetime" params="/_R_/topics_get_by_forum_id/topics_get_by_forum_id/last_post,unix_epoch,{/_R_/runtime/user_time_format},{//runtime/user_timezone_offset}"/>
-        <map:xsl src="templates/xsl/forum.xsl"/>
-    </map:gate>
-
-    <map:gate name="topic">
-        <map:query src="data/sql/forum_get_by_id.xml"/>
-        <map:query src="data/sql/topic_get_by_id.xml"/>
-        <map:query src="data/sql/topic_get_subscriptions.xml"/>
-        <map:query src="data/sql/posts_get_by_topic_id.xml"/>
-        <map:query src="data/sql/posts_get_number_of_pages.xml"/>
-				<map:action type="newline" params="/_R_/posts_get_by_topic_id/posts_get_by_topic_id/message"/>
-        <map:action type="datetime" params="/_R_/posts_get_by_topic_id/posts_get_by_topic_id/posted,unix_epoch,{//runtime/user_time_format},{//runtime/user_timezone_offset}"/>
-        <map:xsl src="templates/xsl/topic.xsl"/>
-    </map:gate>
-    <map:gate name="topic-edit">
-				<map:if name="//_post">
-					<map:true>
-            <map:if name="//_post/subscribe">
-              <map:true>
-                <map:query src="data/sql/topic_create_subscription.xml"/>
-              </map:true>
-            </map:if>
-						<map:query src="data/sql/topic_update.xml"/>
-						<map:action type="redirect" params="{//link_prefix}topic&amp;fid={//_post/forum_id}&amp;id={//_post/topic_id}"/>
+						<map:query src="data/sql/topic_create_subscription.xml"/>
 					</map:true>
 				</map:if>
-        <map:query src="data/sql/forums_get_all.xml"/>
-        <map:query src="data/sql/forum_get_by_id.xml"/>
-        <map:query src="data/sql/topic_get_by_id.xml"/>
-        <map:query src="data/sql/posts_get_by_topic_id.xml"/>
-        <map:query src="data/sql/posts_get_number_of_pages.xml"/>
-        <map:xsl src="templates/xsl/topic_edit.xsl"/>
-    </map:gate>
-    <map:gate name="x-topic-delete" role="phunky_admin">
-        <map:query src="data/sql/topic_delete.xml"/>
-    </map:gate>
-    <map:gate name="topic-submit">
-        <map:query src="data/sql/topic_create.xml"/>
-        <map:query src="data/sql/topic_get_id_by_detail.xml"/>
-        <map:query src="data/sql/post_create_first.xml"/>
-        <map:query src="data/sql/forum_last_post_update.xml"/>
+				<map:query src="data/sql/topic_update.xml"/>
+				<map:action type="redirect" params="{//link_prefix}topic&amp;fid={//_post/forum_id}&amp;id={//_post/topic_id}"/>
+			</map:true>
+		</map:if>
+		<map:query src="data/sql/forums_get_all.xml"/>
+		<map:query src="data/sql/forum_get_by_id.xml"/>
+		<map:query src="data/sql/topic_get_by_id.xml"/>
+		<map:query src="data/sql/posts_get_by_topic_id.xml"/>
+		<map:query src="data/sql/posts_get_number_of_pages.xml"/>
+		<map:xsl src="templates/xsl/topic_edit.xsl"/>
+	</map:gate>
+	<map:gate name="x-topic-delete" role="phunky_admin">
+		<map:query src="data/sql/topic_delete.xml"/>
+	</map:gate>
+	<map:gate name="topic-submit">
+		<map:query src="data/sql/topic_create.xml"/>
+		<map:query src="data/sql/topic_get_id_by_detail.xml"/>
+		<map:query src="data/sql/post_create_first.xml"/>
+		<map:query src="data/sql/forum_last_post_update.xml"/>
         <!-- TODO - process subscription signups -->
-        <map:action type="redirect" params="{//link_prefix}topic&amp;fid={//_post/forum_id}&amp;id={//topic_get_id_by_detail/id}"/>
-    </map:gate>
-    <map:gate name="post">
-        <map:if name="//_post">
-            <map:true>
-              <map:if name="//_post/subscribe">
-                <map:true>
-                  <map:query src="data/sql/topic_delete_subscription.xml"/>
-                  <map:query src="data/sql/topic_create_subscription.xml"/>
-                </map:true>
-                <map:false>
-                  <map:query src="data/sql/topic_delete_subscription.xml"/>
-                </map:false>
-              </map:if>
+		<map:action type="redirect" params="{//link_prefix}topic&amp;fid={//_post/forum_id}&amp;id={//topic_get_id_by_detail/id}"/>
+	</map:gate>
+	<map:gate name="post">
+		<map:if name="//_post">
+			<map:true>
+				<map:if name="//_post/subscribe">
+					<map:true>
+						<map:query src="data/sql/topic_delete_subscription.xml"/>
+						<map:query src="data/sql/topic_create_subscription.xml"/>
+					</map:true>
+					<map:false>
+						<map:query src="data/sql/topic_delete_subscription.xml"/>
+					</map:false>
+				</map:if>
 						<!--
 								<map:xml src="data/xml/emails.xml"/>
                 <map:xml src="i18n/en_US/emails.xml"/>
@@ -255,253 +249,240 @@
                 <map:action type="email"
                     params="{//_post/rcpt_email},{//board_config/o_webmaster_email},{//_post/subject},{//new_text},{//board_config/o_smtp_host}"/>
 										-->
-                <map:plugin type="safehtml" params="//_post/message"/>
-                <map:query src="data/sql/post_create.xml"/>
-                <map:query src="data/sql/topic_last_post_update.xml"/>
-                <map:query src="data/sql/forum_last_post_update.xml"/>
-                <map:query src="data/sql/user_last_post_update.xml"/>
-								<map:query src="data/sql/topic_get_num_replies.xml"/>
-								<map:query src="data/sql/topic_set_num_replies.xml"/>
+				<map:plugin type="safehtml" params="//_post/message"/>
+				<map:query src="data/sql/post_create.xml"/>
+				<map:query src="data/sql/topic_last_post_update.xml"/>
+				<map:query src="data/sql/forum_last_post_update.xml"/>
+				<map:query src="data/sql/user_last_post_update.xml"/>
+				<map:query src="data/sql/topic_get_num_replies.xml"/>
+				<map:query src="data/sql/topic_set_num_replies.xml"/>
                 <!-- TODO - process subscription mailing -->
-								<map:query src="data/sql/topic_get_subscriptions.xml"/>
-								<map:if name="//topic_get_subscriptions/topic_get_subscriptions">
-									<map:true>
-									</map:true>
-								</map:if>
-                <map:action type="redirect"
-                    params="{//link_prefix}topic&amp;fid={//_post/forum_id}&amp;id={//_post/topic_id}"/>
-            </map:true>
-            <map:false>
-                <map:xsl src="templates/xsl/post.xsl"/>
-            </map:false>
-        </map:if>
-    </map:gate>
-    <map:gate name="post-edit">
-        <map:if name="//_post">
-            <map:true>
-                <map:plugin type="safehtml" params="//_post/message,clean_message"/>
-                <map:query src="data/sql/post_update.xml"/>
-                <map:action type="redirect"
-                    params="{//link_prefix}topic&amp;fid={//_post/fid}&amp;id={//_post/tid}#post{//_post/post_id}"/>
-            </map:true>
-            <map:false>
-                <map:query src="data/sql/post_get_by_id.xml"/>
-                <map:xsl src="templates/xsl/post_edit.xsl"/>
-            </map:false>
-        </map:if>
-    </map:gate>
-    <map:gate name="x-post-delete" role="phunky_admin">
-        <map:query src="data/sql/post_delete.xml"/>
-        <map:query src="data/sql/topic_get_num_replies.xml"/>
-        <map:query src="data/sql/topic_set_num_replies.xml"/>
-    </map:gate>
+				<map:query src="data/sql/topic_get_subscriptions.xml"/>
+				<map:if name="//topic_get_subscriptions/topic_get_subscriptions">
+					<map:true></map:true>
+				</map:if>
+				<map:action type="redirect" params="{//link_prefix}topic&amp;fid={//_post/forum_id}&amp;id={//_post/topic_id}"/>
+			</map:true>
+			<map:false>
+				<map:xsl src="templates/xsl/post.xsl"/>
+			</map:false>
+		</map:if>
+	</map:gate>
+	<map:gate name="post-edit">
+		<map:if name="//_post">
+			<map:true>
+				<map:plugin type="safehtml" params="//_post/message,clean_message"/>
+				<map:query src="data/sql/post_update.xml"/>
+				<map:action type="redirect" params="{//link_prefix}topic&amp;fid={//_post/fid}&amp;id={//_post/tid}#post{//_post/post_id}"/>
+			</map:true>
+			<map:false>
+				<map:query src="data/sql/post_get_by_id.xml"/>
+				<map:xsl src="templates/xsl/post_edit.xsl"/>
+			</map:false>
+		</map:if>
+	</map:gate>
+	<map:gate name="x-post-delete" role="phunky_admin">
+		<map:query src="data/sql/post_delete.xml"/>
+		<map:query src="data/sql/topic_get_num_replies.xml"/>
+		<map:query src="data/sql/topic_set_num_replies.xml"/>
+	</map:gate>
 
     <!-- Profile -->
-    <map:gate name="profile" role="phunky_user">
-        <map:if name="//_post">
-            <map:true>
-                <map:query src="data/sql/user_update_essentials.xml"/>
-                <map:action type="redirect" params="{//link_prefix}profile"/>
-            </map:true>
-            <map:false>
-              <map:query src="data/sql/user_get_profile.xml"/>
-              <map:action type="datetime" params="/_R_/user_get_profile/user_get_profile/last_visit,unix_epoch,{/_R_/runtime/user_time_format},{/_R_/runtime/user_timezone_offset}"/>
-              <map:action type="datetime" params="/_R_/user_get_profile/user_get_profile/last_post,unix_epoch,{/_R_/runtime/user_time_format},{/_R_/runtime/user_timezone_offset}"/>
-              <map:action type="datetime" params="/_R_/user_get_profile/user_get_profile/registered,unix_epoch,{/_R_/runtime/user_time_format},{/_R_/runtime/user_timezone_offset}"/>
-              <map:xsl src="templates/xsl/profile.xsl"/>
-            </map:false>
-        </map:if>
-    </map:gate>
-    <map:gate name="password" role="phunky_user">
-        <map:if name="//_post">
-            <map:true>
-              <map:plugin type="decrypt_rsa" params="{//defaults/private_key},//_post/password"/>
-                <map:plugin type="hash" params="sha1,//_post/password"/>
-                <map:query src="data/sql/user_update_password.xml"/>
-                <map:action type="redirect" params="{//link_prefix}profile"/>
-            </map:true>
-            <map:false>
-            <map:xsl src="templates/xsl/password.xsl"/>
-            </map:false>
-        </map:if>
-    </map:gate>
-    <map:gate name="personality" role="phunky_user">
-    <map:if name="//_post">
-        <map:true>
+	<map:gate name="profile" role="phunky_user">
+		<map:if name="//_post">
+			<map:true>
+				<map:query src="data/sql/user_update_essentials.xml"/>
+				<map:action type="redirect" params="{//link_prefix}profile"/>
+			</map:true>
+			<map:false>
+				<map:query src="data/sql/user_get_profile.xml"/>
+				<map:action type="datetime" params="/_R_/user_get_profile/user_get_profile/last_visit,unix_epoch,{/_R_/runtime/user_time_format},{/_R_/runtime/user_timezone_offset}"/>
+				<map:action type="datetime" params="/_R_/user_get_profile/user_get_profile/last_post,unix_epoch,{/_R_/runtime/user_time_format},{/_R_/runtime/user_timezone_offset}"/>
+				<map:action type="datetime" params="/_R_/user_get_profile/user_get_profile/registered,unix_epoch,{/_R_/runtime/user_time_format},{/_R_/runtime/user_timezone_offset}"/>
+				<map:xsl src="templates/xsl/profile.xsl"/>
+			</map:false>
+		</map:if>
+	</map:gate>
+	<map:gate name="password" role="phunky_user">
+		<map:if name="//_post">
+			<map:true>
+				<map:plugin type="decrypt_rsa" params="{//defaults/private_key},//_post/password"/>
+				<map:plugin type="hash" params="sha1,//_post/password"/>
+				<map:query src="data/sql/user_update_password.xml"/>
+				<map:action type="redirect" params="{//link_prefix}profile"/>
+			</map:true>
+			<map:false>
+				<map:xsl src="templates/xsl/password.xsl"/>
+			</map:false>
+		</map:if>
+	</map:gate>
+	<map:gate name="personality" role="phunky_user">
+		<map:if name="//_post">
+			<map:true>
             <!--
             <map:plugin type="striptags" params="{//_post/signature}"/>
             -->
-            <map:plugin type="bbcode" params="//_post/signature,unbb_text"/>
-            <map:plugin type="safehtml" params="//unbb_text,html_text"/>
-            <map:query src="data/sql/user_update_profile.xml"/>
-            <map:action type="redirect" params="{//link_prefix}personality"/>
-        </map:true>
-        <map:false>
-            <map:query src="data/sql/user_get_profile.xml"/>
-            <map:xsl src="templates/xsl/personality.xsl"/>
-        </map:false>
-    </map:if>
-    </map:gate>
-    <map:gate name="user-admin" role="phunky_user">
-        <map:query src="data/sql/user_get_profile.xml"/>
-        <map:action type="datetime" params="//user_get_profile/last_visit,unix_epoch,{//runtime/user_time_format},{//runtime/user_timezone_offset}"/>
-        <map:action type="datetime" params="//user_get_profile/registered,unix_epoch,{//runtime/user_time_format},{//runtime/user_timezone_offset}"/>
-        <map:xsl src="templates/xsl/user_admin.xsl"/>
-    </map:gate>
+				<map:plugin type="bbcode" params="//_post/signature,unbb_text"/>
+				<map:plugin type="safehtml" params="//unbb_text,html_text"/>
+				<map:query src="data/sql/user_update_profile.xml"/>
+				<map:action type="redirect" params="{//link_prefix}personality"/>
+			</map:true>
+			<map:false>
+				<map:query src="data/sql/user_get_profile.xml"/>
+				<map:xsl src="templates/xsl/personality.xsl"/>
+			</map:false>
+		</map:if>
+	</map:gate>
+	<map:gate name="user-admin" role="phunky_user">
+		<map:query src="data/sql/user_get_profile.xml"/>
+		<map:action type="datetime" params="//user_get_profile/last_visit,unix_epoch,{//runtime/user_time_format},{//runtime/user_timezone_offset}"/>
+		<map:action type="datetime" params="//user_get_profile/registered,unix_epoch,{//runtime/user_time_format},{//runtime/user_timezone_offset}"/>
+		<map:xsl src="templates/xsl/user_admin.xsl"/>
+	</map:gate>
 
     <!-- REAL ADMIN -->
-    <map:gate name="admin" role="phunky_admin">
-        <map:xsl src="templates/xsl/admin.xsl"/>
-    </map:gate>
-    <map:gate name="options" role="phunky_admin">
-        <map:xsl src="templates/xsl/admin_options.xsl"/>
-    </map:gate>
-    <map:gate name="options-submit" role="phunky_admin">
-        <map:if name="//_post">
-            <map:true>
-                <map:query src="data/sql/config_delete.xml"/>
-                <map:query src="data/sql/config_update.xml"/>
-                <map:query src="data/sql/config_get.xml"/>
-                <map:script src="lib/php/config_build.php"/>
-                <map:action type="redirect" params="{//link_prefix}options"/>
-            </map:true>
-            <map:false>
-            </map:false>
-        </map:if>
-    </map:gate>
-    <map:gate name="categories" role="phunky_admin">
-      <map:if name="/_R_/_post">
-        <map:true>
-        <map:switch name="/_R_/_post/action">
-            <map:case value="add_cat">
-                <map:query src="data/sql/category_create.xml"/>
-                <map:action type="redirect" params="{//link_prefix}categories"/>
-            </map:case>
-            <map:case value="del_cat">
-                <map:query src="data/sql/category_delete.xml"/>
-                <map:action type="redirect" params="{//link_prefix}categories"/>
-            </map:case>
-            <map:default>
-            </map:default>
-        </map:switch>
-        </map:true>
-        <map:false>
-        </map:false>
-      </map:if>
-      <map:query src="data/sql/categories_get_all.xml"/>
-      <map:xsl src="templates/xsl/admin_categories.xsl"/>
-    </map:gate>
-    <map:gate name="forums" role="phunky_admin">
-        <map:if name="//_post/update_forum">
-            <map:true>
-                <map:query src="data/sql/forum_update.xml"/>
-                <map:action type="redirect" params="{//link_prefix}forums"/>
-            </map:true>
-        </map:if>
-        <map:if name="//_post/add_forum">
-            <map:true>
-                <map:query src="data/sql/forum_create.xml"/>
-                <map:action type="redirect" params="{//link_prefix}forums"/>
-            </map:true>
-        </map:if>
-        <map:query src="data/sql/categories_get_all.xml"/>
-        <map:query src="data/sql/forums_get_all.xml"/>
-        <map:xsl src="templates/xsl/admin_forum.xsl"/>
-    </map:gate>
-    <map:gate name="forum-edit" role="phunky_admin">
-        <map:if name="//_post">
-            <map:true>
-                <map:query src="data/sql/forum_update.xml"/>
-                <map:action type="redirect" params="{//link_prefix}forums"/>
-            </map:true>
-            <map:false>
-            </map:false>
-        </map:if>
-        <map:query src="data/sql/categories_get_all.xml"/>
-        <map:query src="data/sql/forum_get_by_id.xml"/>
-        <map:xsl src="templates/xsl/admin_forum_edit.xsl"/>
-    </map:gate>
-    <map:gate name="x-forum-delete" role="phunky_admin">
-        <map:query src="data/sql/forum_delete.xml"/>
-    </map:gate>
-    <map:gate name="users" role="phunky_admin">
-        <map:query src="data/sql/users_get_all.xml"/>
-        <map:xsl src="templates/xsl/admin_users.xsl"/>
-    </map:gate>
-    <map:gate name="x-user-delete" role="phunky_admin">
-        <map:query src="data/sql/user_delete.xml"/>
-    </map:gate>
-    <map:gate name="user-email" role="phunky_admin">
-        <map:if name="//_post">
-            <map:true>
-                <map:xml src="data/xml/emails.xml"/>
-                <map:xml src="i18n/en_US/emails.xml"/>
-                <map:plugin type="detokenize"
-                    params="{/_R_/i18n/test_email},//emails/test/token"/>
-                <map:action type="email"
-                    params="{//_post/rcpt_email},{//board_config/o_webmaster_email},{//_post/subject},{//new_text},{//board_config/o_smtp_host}"/>
-                <map:action type="redirect" params="{//link_prefix}user-email&amp;user_id={//_post/user_id}"/>
-            </map:true>
-            <map:false>
-                <map:query src="data/sql/user_get_profile.xml"/>
-                <map:xsl src="templates/xsl/user_email.xsl"/>
-            </map:false>
-        </map:if>
-    </map:gate>
+	<map:gate name="admin" role="phunky_admin">
+		<map:xsl src="templates/xsl/admin.xsl"/>
+	</map:gate>
+	<map:gate name="options" role="phunky_admin">
+		<map:xsl src="templates/xsl/admin_options.xsl"/>
+	</map:gate>
+	<map:gate name="options-submit" role="phunky_admin">
+		<map:if name="//_post">
+			<map:true>
+				<map:query src="data/sql/config_delete.xml"/>
+				<map:query src="data/sql/config_update.xml"/>
+				<map:query src="data/sql/config_get.xml"/>
+				<map:script src="lib/php/config_build.php"/>
+				<map:action type="redirect" params="{//link_prefix}options"/>
+			</map:true>
+			<map:false></map:false>
+		</map:if>
+	</map:gate>
+	<map:gate name="categories" role="phunky_admin">
+		<map:if name="/_R_/_post">
+			<map:true>
+				<map:switch name="/_R_/_post/action">
+					<map:case value="add_cat">
+						<map:query src="data/sql/category_create.xml"/>
+						<map:action type="redirect" params="{//link_prefix}categories"/>
+					</map:case>
+					<map:case value="del_cat">
+						<map:query src="data/sql/category_delete.xml"/>
+						<map:action type="redirect" params="{//link_prefix}categories"/>
+					</map:case>
+					<map:default></map:default>
+				</map:switch>
+			</map:true>
+			<map:false></map:false>
+		</map:if>
+		<map:query src="data/sql/categories_get_all.xml"/>
+		<map:xsl src="templates/xsl/admin_categories.xsl"/>
+	</map:gate>
+	<map:gate name="forums" role="phunky_admin">
+		<map:if name="//_post/update_forum">
+			<map:true>
+				<map:query src="data/sql/forum_update.xml"/>
+				<map:action type="redirect" params="{//link_prefix}forums"/>
+			</map:true>
+		</map:if>
+		<map:if name="//_post/add_forum">
+			<map:true>
+				<map:query src="data/sql/forum_create.xml"/>
+				<map:action type="redirect" params="{//link_prefix}forums"/>
+			</map:true>
+		</map:if>
+		<map:query src="data/sql/categories_get_all.xml"/>
+		<map:query src="data/sql/forums_get_all.xml"/>
+		<map:xsl src="templates/xsl/admin_forum.xsl"/>
+	</map:gate>
+	<map:gate name="forum-edit" role="phunky_admin">
+		<map:if name="//_post">
+			<map:true>
+				<map:query src="data/sql/forum_update.xml"/>
+				<map:action type="redirect" params="{//link_prefix}forums"/>
+			</map:true>
+			<map:false></map:false>
+		</map:if>
+		<map:query src="data/sql/categories_get_all.xml"/>
+		<map:query src="data/sql/forum_get_by_id.xml"/>
+		<map:xsl src="templates/xsl/admin_forum_edit.xsl"/>
+	</map:gate>
+	<map:gate name="x-forum-delete" role="phunky_admin">
+		<map:query src="data/sql/forum_delete.xml"/>
+	</map:gate>
+	<map:gate name="users" role="phunky_admin">
+		<map:query src="data/sql/users_get_all.xml"/>
+		<map:xsl src="templates/xsl/admin_users.xsl"/>
+	</map:gate>
+	<map:gate name="x-user-delete" role="phunky_admin">
+		<map:query src="data/sql/user_delete.xml"/>
+	</map:gate>
+	<map:gate name="user-email" role="phunky_admin">
+		<map:if name="//_post">
+			<map:true>
+				<map:xml src="data/xml/emails.xml"/>
+				<map:xml src="i18n/en_US/emails.xml"/>
+				<map:plugin type="detokenize" params="{/_R_/i18n/test_email},//emails/test/token"/>
+				<map:action type="email" params="{//_post/rcpt_email},{//board_config/o_webmaster_email},{//_post/subject},{//new_text},{//board_config/o_smtp_host}"/>
+				<map:action type="redirect" params="{//link_prefix}user-email&amp;user_id={//_post/user_id}"/>
+			</map:true>
+			<map:false>
+				<map:query src="data/sql/user_get_profile.xml"/>
+				<map:xsl src="templates/xsl/user_email.xsl"/>
+			</map:false>
+		</map:if>
+	</map:gate>
 
 
-    <map:gate name="dynamic-css"
-      cache="600"
-      nosession="true"
-      content_type="text/css"
-      cache_control="public, max-age=600, must-revalidate">
+	<map:gate name="dynamic-css" cache="600" nosession="true" content_type="text/css" cache_control="public, max-age=600, must-revalidate">
 
-        <map:if name="//board_config/o_board_theme">
-            <map:true>
-              <map:xml src="{//board_config/o_board_theme}"/>
-            </map:true>
-            <map:false>
-              <map:xml src="data/xml/phunkybb_default_css.xml"/>
-            </map:false>
-        </map:if>
-        <map:xsl src="templates/css/dynamic.css.xsl"/>
-    </map:gate>
+		<map:if name="//board_config/o_board_theme">
+			<map:true>
+				<map:xml src="{//board_config/o_board_theme}"/>
+			</map:true>
+			<map:false>
+				<map:xml src="data/xml/phunkybb_default_css.xml"/>
+			</map:false>
+		</map:if>
+		<map:xsl src="templates/css/dynamic.css.xsl"/>
+	</map:gate>
 
 
-    <map:gate name="install">
-        <map:xsl src="templates/xsl/install.xsl"/>
-    </map:gate>
-    <map:gate name="dynamic-database-model">
-        <map:if name="//defaults/install_settings">
-            <map:true>
-            </map:true>
-            <map:false>
-                <map:set name="admin" value="admin"/>
+	<map:gate name="install">
+		<map:xsl src="templates/xsl/install.xsl"/>
+	</map:gate>
+	<map:gate name="dynamic-database-model">
+		<map:if name="//defaults/install_settings">
+			<map:true></map:true>
+			<map:false>
+				<map:set name="admin" value="admin"/>
                 <!-- default password is phunkybb -->
-                <map:set name="password" value="f20f7f3c358148d57be1a241e9d7d7199642afbb"/>
-                <map:set name="email" value="email@example.com"/>
-            </map:false>
-        </map:if>
-        <map:set name="table_prefix" value="wwwneofilmzcom_"/>
-        <map:set name="engine" value="mysql"/>
-        <map:xml src="data/model/db_engines.mysql.xml"/>
-        <map:action type="header" params="Content-type,text/plain"/>
-        <map:xsl src="data/model/phunkybb_database.sql.xsl"/>
-    </map:gate>
+				<map:set name="password" value="f20f7f3c358148d57be1a241e9d7d7199642afbb"/>
+				<map:set name="email" value="email@example.com"/>
+			</map:false>
+		</map:if>
+		<map:set name="table_prefix" value="wwwneofilmzcom_"/>
+		<map:set name="engine" value="mysql"/>
+		<map:xml src="data/model/db_engines.mysql.xml"/>
+		<map:action type="header" params="Content-type,text/plain"/>
+		<map:xsl src="data/model/phunkybb_database.sql.xsl"/>
+	</map:gate>
 
 
-    <map:gate name="license" content_type="text/plain">
-        <map:raw src="LICENSE"/>
-    </map:gate>
+	<map:gate name="license" content_type="text/plain">
+		<map:raw src="LICENSE"/>
+	</map:gate>
 
-    <map:gate name="x-sitemap-xml" content_type="text/xml">
-        <map:xml src="sitemap.xml"/>
-        <map:xsl src="templates/xml/sitemap.xml.xsl"/>
-    </map:gate>
+	<map:gate name="x-sitemap-xml" content_type="text/xml">
+		<map:query src="data/sql/forums_get_all.xml"/>
+		<map:xml src="sitemap.xml"/>
+		<map:xsl src="templates/xml/sitemap.xml.xsl"/>
+	</map:gate>
 
-    <map:gate name="ml-test">
-        <map:xml src="templates/xsl/login.xsl"/>
-        <map:xsl src="templates/tests/test_runner.xsl"/>
-    </map:gate>
+	<map:gate name="ml-test">
+		<map:xml src="templates/xsl/login.xsl"/>
+		<map:xsl src="templates/tests/test_runner.xsl"/>
+	</map:gate>
 
 </map:sitemap>

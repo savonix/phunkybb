@@ -71,6 +71,13 @@ Fifth Floor, Boston, MA 02110-1301 USA
 														<br/>
 													</td>
 												</tr>
+												<tr>
+													<td>
+														<textarea name="forum_desc">
+															<xsl:value-of select="//forum_get_by_id/forum_get_by_id/forum_desc"/>
+														</textarea>
+													</td>
+												</tr>
 										</table>
 
 									</div>

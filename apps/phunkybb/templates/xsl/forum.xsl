@@ -103,14 +103,16 @@ Fifth Floor, Boston, MA 02110-1301 USA
 											<div class="tclcon">
 											<!-- Need to use the link_builder here! -->
 												<xsl:if test="//mod_rewrite='true' and not(basename='')">
-													<a title="{subject}">
+													<a title="{subject}" id="topic-{id}" href="{$path_prefix}{link}">
+													<!--
 														<xsl:attribute name="href">
 															<xsl:value-of select="$path_prefix"/>
-															<xsl:value-of select="//_get/forum_basename"/>
+															<xsl:value-of select="$forum_get_by_id/forum_basename"/>
 															<xsl:text>/</xsl:text>
 															<xsl:value-of select="basename"/>
 															<xsl:text>/</xsl:text>
 														</xsl:attribute>
+														-->
 														<xsl:value-of select="subject"/>
 													</a>
 												</xsl:if>

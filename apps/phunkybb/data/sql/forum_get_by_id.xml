@@ -29,7 +29,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 		<param name="/_R_/_get/forum_basename" type="text"/>
 	</params>
 	<sql>
-		SELECT id, forum_name, forum_basename, cat_id
+		SELECT id, forum_name, forum_basename, cat_id, forum_desc
 		FROM &prefix;forums
 		WHERE id=?
 		OR forum_basename=?
