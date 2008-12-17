@@ -240,6 +240,7 @@
             <map:true>
               <map:if name="//_post/subscribe">
                 <map:true>
+                  <map:query src="data/sql/topic_delete_subscription.xml"/>
                   <map:query src="data/sql/topic_create_subscription.xml"/>
                 </map:true>
                 <map:false>
@@ -262,6 +263,11 @@
 								<map:query src="data/sql/topic_get_num_replies.xml"/>
 								<map:query src="data/sql/topic_set_num_replies.xml"/>
                 <!-- TODO - process subscription mailing -->
+								<map:query src="data/sql/topic_get_subscriptions.xml"/>
+								<map:if name="//topic_get_subscriptions/topic_get_subscriptions">
+									<map:true>
+									</map:true>
+								</map:if>
                 <map:action type="redirect"
                     params="{//link_prefix}topic&amp;fid={//_post/forum_id}&amp;id={//_post/topic_id}"/>
             </map:true>
