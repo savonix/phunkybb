@@ -36,6 +36,12 @@ div.inew {border-color: #0080D7 #0065C0 #0058B3 #0072CA}
 .pun {
   color: #333
 }
+.pun H2 A:hover, #brdmenu A:hover {
+	color: #FFF;
+}
+.pun H2 A:link, .pun H2 A:visited, #brdmenu A:link, #brdmenu A:visited {
+    color: #FFF;
+}
 
 div.box, .pun blockquote, div.codebox, #adminconsole fieldset th, .rowodd, .roweven {
 background-color: <xsl:value-of select="//css/colors/med-background-alt"/>;

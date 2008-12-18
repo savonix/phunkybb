@@ -33,10 +33,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 }
 
 
-iframe {
-  overflow-x: hidden;
-  overflow-y: hidden;
-}
+
 
 .interstatus
 {
@@ -44,6 +41,12 @@ iframe {
     border-style: solid;
     border-width: 1px;
     border-color: red;
+}
+
+#brdheader div.box {border-top-width: 4px}
+
+.pun H2 A:link, .pun H2 A:visited, #brdmenu A:link, #brdmenu A:visited {
+    padding: 4px;
 }
 
 h3, .tclcon {
