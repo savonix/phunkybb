@@ -142,6 +142,13 @@ CREATE TABLE <xsl:value-of select="//db_engines/if_not_exists/text"/> <xsl:value
   KEY <xsl:value-of select="//_get/table_prefix"/>users_username_idx (username(8))
 ) <xsl:value-of select="//db_engines/innodb_engine/text"/> <xsl:value-of select="//db_engines/engine_increment_start/text"/> ;
 
+CREATE TABLE <xsl:value-of select="//db_engines/if_not_exists/text"/> <xsl:value-of select="//_get/table_prefix"/>user_meta (
+  `user_id` <xsl:value-of select="//db_engines/integer/text"/> NOT NULL default '0',
+  `meta_key` varchar(255) NOT NULL,
+  `meta_value` varchar(255) NOT NULL,
+  PRIMARY KEY  (`user_id`)
+) <xsl:value-of select="//db_engines/innodb_engine/text"/> <xsl:value-of select="//db_engines/engine_increment_start/text"/> ;
+
 
 ALTER TABLE <xsl:value-of select="//_get/table_prefix"/>forums
   ADD CONSTRAINT <xsl:value-of select="//_get/table_prefix"/>forums_ibfk_1 FOREIGN KEY (cat_id) REFERENCES <xsl:value-of select="//_get/table_prefix"/>categories (id);
