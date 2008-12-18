@@ -29,6 +29,9 @@ html, body {
   color: #333;
 }
 
+div.icon {border-color: #E6E6E6 #DEDEDE #DADADA #E2E2E2}
+tr.iredirect div.icon {border-color: #F1F1F1 #F1F1F1 #F1F1F1 #F1F1F1}
+div.inew {border-color: #0080D7 #0065C0 #0058B3 #0072CA}
 
 .pun {
   color: #333

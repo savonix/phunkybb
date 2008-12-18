@@ -46,5 +46,8 @@ iframe {
     border-color: red;
 }
 
+h3, .tclcon {
+	text-indent: 4px;
+}
 </xsl:template>
 </xsl:stylesheet>
