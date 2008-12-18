@@ -256,14 +256,14 @@
 				<map:query src="data/sql/user_last_post_update.xml"/>
 				<map:query src="data/sql/topic_get_num_replies.xml"/>
 				<map:query src="data/sql/topic_set_num_replies.xml"/>
-                <!-- TODO - process subscription mailing -->
 				<map:query src="data/sql/topic_get_subscriptions.xml"/>
 				<map:if name="//topic_get_subscriptions/topic_get_subscriptions">
 					<map:true>
 						<map:xml src="data/xml/emails.xml"/>
 						<map:xml src="i18n/en_US/emails.xml"/>
+						<map:set name="email_subject" value="A new forum post"/>
 						<map:plugin type="detokenize" params="{/_R_/i18n/new_reply},//emails/new_reply/token"/>
-						<map:action type="email" params="{//topic_get_subscriptions/topic_get_subscriptions/email},{//board_config/o_webmaster_email},OPK,//new_text,{//board_config/o_smtp_host}"/>
+						<map:action type="email" params="{//topic_get_subscriptions/topic_get_subscriptions/email},{//board_config/o_webmaster_email},{//email_subject},//new_text,{//board_config/o_smtp_host}"/>
 					</map:true>
 				</map:if>
 				<map:action type="redirect" params="{//link_prefix}topic&amp;fid={//_post/forum_id}&amp;id={//_post/topic_id}"/>

@@ -79,16 +79,16 @@ To change your e-mail address, please visit the following page:
   <new_reply>
 	@@board_title@@.
 
-Hello @@username@@
+Hello:
 
-Subject: Reply to topic:
-
- has replied to the topic  to which you are subscribed. 
+ @@username@@ has replied to the topic  to which you are subscribed. 
  There may be more new replies but this is the only notification you will receive until you visit the board again.
 
-The post is located at
+The post is located at @@base_url@@index.php?nid=topic&amp;fid=@@forum_id@@&amp;id=@@topic_id@@
 
-You can unsubscribe by going to
+You can unsubscribe by logging in and going to profile, subscriptions:
+
+@@base_url@@index.php?nid=login
 
 --
 (Do not reply to this message)
