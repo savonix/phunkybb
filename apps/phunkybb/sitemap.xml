@@ -456,7 +456,7 @@
 				<map:xml src="{//board_config/o_board_theme}"/>
 			</map:true>
 			<map:false>
-				<map:xml src="data/xml/phunkybb_default_css.xml"/>
+				<map:xml src="data/css/phunkybb_default_css.xml"/>
 			</map:false>
 		</map:if>
 		<map:xsl src="templates/css/dynamic.css.xsl"/>
