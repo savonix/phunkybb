@@ -1,6 +1,6 @@
 <!--
 Program: PhunkyBB
-Component: posts_get_by_topic_id.xml
+Component: user_update_picture.xml
 Copyright: Savonix Corporation
 Author: Albert L. Lash, IV
 License: Gnu Affero Public License version 3
@@ -22,26 +22,13 @@ or write to the Free Software Foundation, Inc., 51 Franklin Street,
 Fifth Floor, Boston, MA 02110-1301 USA
 -->
 <!DOCTYPE query SYSTEM "__default_table_names__.txt">
-<query name="posts_get_by_topic_id">
-	<connection>&connection_read;</connection>
+<query name="user_update_picture">
+	<connection>&connection;</connection>
 	<params>
-		<param name="//_get/id" type="text" default="-100"/>
-		<param name="//topic_get_by_id/topic_get_by_id/id" type="text" default="0"/>
-		<param name="//_get/start" type="integer" default="0"/>
-		<param name="//_get/iterative" type="integer" default="10"/>
+		<param name="//_post/picture" type="text" default="0"/>
+		<param name="//runtime/username" type="text" default="0"/>
 	</params>
 	<sql>
-    SELECT DISTINCT u.email,u.picture, u.signature,
-        p.id, p.poster AS username,
-        p.message,
-        p.posted
-
-    FROM &prefix;posts AS p INNER JOIN &prefix;users AS u ON u.id=p.poster_id
-
-    WHERE (p.topic_id=? OR p.topic_id=?)
-
-    ORDER BY p.id
-
-    LIMIT ?,?
+  UPDATE &prefix;users SET picture=? WHERE username=?
 	</sql>
 </query>

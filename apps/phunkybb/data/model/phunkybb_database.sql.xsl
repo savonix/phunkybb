@@ -124,6 +124,7 @@ CREATE TABLE <xsl:value-of select="//db_engines/if_not_exists/text"/> <xsl:value
   email varchar(50) NOT NULL default '',
   url varchar(100) default NULL,
   location varchar(30) default NULL,
+	picture varchar(255) default NULL,
   use_avatar <xsl:value-of select="//db_engines/integer/text"/> NOT NULL default '0',
   signature text,
   email_setting <xsl:value-of select="//db_engines/integer/text"/> NOT NULL default '1',

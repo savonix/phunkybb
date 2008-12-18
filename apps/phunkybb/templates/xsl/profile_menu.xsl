@@ -45,6 +45,11 @@ Fifth Floor, Boston, MA 02110-1301 USA
                 </a>
 								</li>
 								<li>
+									<a href="{$link_prefix}pictures">
+                  Picture
+                </a>
+								</li>
+								<li>
 									<a href="{$link_prefix}personality&amp;user_id={$my_user_id}">
                   Personality
                 </a>
@@ -59,6 +64,11 @@ Fifth Floor, Boston, MA 02110-1301 USA
 								<li>
 									<a href="{$link_prefix}profile">
                   Essentials
+                </a>
+								</li>
+								<li>
+									<a href="{$link_prefix}pictures">
+                  Picture
                 </a>
 								</li>
 								<li>

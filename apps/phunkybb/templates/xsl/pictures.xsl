@@ -40,24 +40,15 @@ Fifth Floor, Boston, MA 02110-1301 USA
           <form id="profile4" method="post">
             <div class="inform">
               <fieldset>
-                <legend>Compose your signature</legend>
+                <legend>Specify your picture</legend>
                 <div class="infldset">
-                  <p>A signature is a small piece of text that is attached to your posts.</p>
-                  <div class="txtarea">
-                    <label>Max length: 400 / Max lines: 4<br/>
-                      <textarea name="signature" rows="4" cols="65">
-                        <xsl:value-of select="//user_get_profile/user_get_profile/signature"/>
-                      </textarea>
-                      <br/>
-                    </label>
-                  </div>
-                  <p>
-                    <xsl:value-of
-                        select="/_R_/user_get_profile/user_get_profile/signature"
-                        disable-output-escaping="yes"/>
-                  </p>
+									<input type="text" name="picture" value="{/_R_/user_get_profile/user_get_profile/picture}"/>
                 </div>
               </fieldset>
+							<br/>
+							<xsl:if test="/_R_/user_get_profile/user_get_profile/picture">
+								<img src="{/_R_/user_get_profile/user_get_profile/picture}"/>
+							</xsl:if>
             </div>
             <p>
               <input type="submit" name="update" value="Submit"/>

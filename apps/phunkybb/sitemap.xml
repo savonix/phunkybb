@@ -324,9 +324,6 @@
 	<map:gate name="personality" role="phunky_user">
 		<map:if name="//_post">
 			<map:true>
-            <!--
-            <map:plugin type="striptags" params="{//_post/signature}"/>
-            -->
 				<map:plugin type="bbcode" params="//_post/signature,unbb_text"/>
 				<map:plugin type="safehtml" params="//unbb_text,html_text"/>
 				<map:query src="data/sql/user_update_profile.xml"/>
@@ -335,6 +332,18 @@
 			<map:false>
 				<map:query src="data/sql/user_get_profile.xml"/>
 				<map:xsl src="templates/xsl/personality.xsl"/>
+			</map:false>
+		</map:if>
+	</map:gate>
+	<map:gate name="pictures" role="phunky_user">
+		<map:if name="//_post">
+			<map:true>
+				<map:query src="data/sql/user_update_picture.xml"/>
+				<map:action type="redirect" params="{//link_prefix}pictures"/>
+			</map:true>
+			<map:false>
+				<map:query src="data/sql/user_get_profile.xml"/>
+				<map:xsl src="templates/xsl/pictures.xsl"/>
 			</map:false>
 		</map:if>
 	</map:gate>
