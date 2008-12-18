@@ -24,7 +24,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 -->
 <css>
   <colors>
-    <background>#706B55</background><!-- base background -->
+    <background>#FFFFFF</background><!-- base background -->
     <light-background>#A3987C</light-background>
     <light-background-alt>#A3987C</light-background-alt> <!-- replies column -->
     <med-background>#C9C08A</med-background> <!-- topic-replies-post header -->
