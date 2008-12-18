@@ -146,6 +146,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 							<!-- This is where the avatar would go. -->
 							<xsl:if test="picture">
 								<img src="{picture}" alt="{username}'s avatar"/>
+								<br/>
 							</xsl:if>
 							<strong>
 								<a href="{$link_prefix}profile&amp;id={id}">
