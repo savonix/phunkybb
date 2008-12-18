@@ -159,6 +159,8 @@ ALTER TABLE <xsl:value-of select="//_get/table_prefix"/>posts
 ALTER TABLE <xsl:value-of select="//_get/table_prefix"/>topics
   ADD CONSTRAINT <xsl:value-of select="//_get/table_prefix"/>topics_ibfk_1 FOREIGN KEY (forum_id) REFERENCES <xsl:value-of select="//_get/table_prefix"/>forums (id);
 
+ALTER TABLE <xsl:value-of select="//_get/table_prefix"/>user_meta
+  ADD CONSTRAINT <xsl:value-of select="//_get/table_prefix"/>users_ibfk_1 FOREIGN KEY (user_id) REFERENCES <xsl:value-of select="//_get/table_prefix"/>users (id);
 
 INSERT INTO <xsl:value-of select="//_get/table_prefix"/>users (id, group_id, username, password, email,activate_key) VALUES
 (2, 1, '<xsl:value-of select="//admin"/>', '<xsl:value-of select="//password"/>', '<xsl:value-of select="//email"/>',"active");
