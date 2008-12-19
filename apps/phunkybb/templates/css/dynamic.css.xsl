@@ -291,7 +291,6 @@ div.postmsg H4 {margin-bottom: 10px}
 .pun blockquote, div.codebox {margin: 5px 15px 15px 15px; padding: 8px}
 
 
-div.postfootleft P, div.postfootright UL, div.postfootright div {padding: 10px 6px 5px 6px}
 
 
 div.blockpost INPUT, div.blockpost label {

@@ -41,14 +41,12 @@ Fifth Floor, Boston, MA 02110-1301 USA
 				</strong>
 			</p>
 			-->
-				<xsl:if test="/_R_/runtime/username">
-					<p class="postlink conr">
-						<a href="{$link_prefix}post&amp;fid={$forum_get_by_id/id}">
-							<img src="{$path_prefix}s/img/icons/famfamfam/add.png"/>
-							<xsl:value-of select="$my18n/post_topic"/>
-						</a>
-					</p>
-				</xsl:if>
+				<xsl:call-template name="post_new_topic">
+					<xsl:with-param name="link_prefix" select="$link_prefix"/>
+					<xsl:with-param name="path_prefix" select="$path_prefix"/>
+					<xsl:with-param name="my18n" select="$my18n"/>
+				</xsl:call-template>
+					
 				<ul class="breadcrumbs">
 					<li>
 						<a href="{$link_prefix}index">
@@ -163,13 +161,12 @@ Fifth Floor, Boston, MA 02110-1301 USA
 				<strong></strong>
 			</p>
 			-->
-				<xsl:if test="/_R_/runtime/username">
-					<p class="postlink conr">
-						<a href="{$link_prefix}post&amp;fid={$forum_get_by_id/id}">
-							<xsl:value-of select="$my18n/post_new_topic"/>
-						</a>
-					</p>
-				</xsl:if>
+
+				<xsl:call-template name="post_new_topic">
+					<xsl:with-param name="link_prefix" select="$link_prefix"/>
+					<xsl:with-param name="path_prefix" select="$path_prefix"/>
+					<xsl:with-param name="my18n" select="$my18n"/>
+				</xsl:call-template>
 				<ul class="breadcrumbs">
 					<li>
 						<a href="{$link_prefix}index">
@@ -185,5 +182,19 @@ Fifth Floor, Boston, MA 02110-1301 USA
 				</ul>
 			</div>
 		</div>
+	</xsl:template>
+
+	<xsl:template name="post_new_topic">
+		<xsl:param name="link_prefix"/>
+		<xsl:param name="path_prefix"/>
+		<xsl:param name="my18n"/>
+			<xsl:if test="/_R_/runtime/username">
+			<p class="postlink conr">
+				<a href="{$link_prefix}post&amp;fid={/_R_/forum_get_by_id/forum_get_by_id/id}">
+					<img src="{$path_prefix}s/img/icons/famfamfam/add.png"/>
+					<xsl:value-of select="$my18n/post_topic"/>
+				</a>
+			</p>
+		</xsl:if>
 	</xsl:template>
 </xsl:stylesheet>
