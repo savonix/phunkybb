@@ -239,47 +239,11 @@ div.inbox:after {
 
 
 
-#brdmenu li, div.rbox input, div.blockform p input {
-	margin-right: 12px;
-}
-
-
-.pun th, .pun td {
-	padding: 4px 6px;
-}
-.pun td p {
-	padding: 5px 0 0 0;
-}
-
-
-div.postleft dl, div.postright {
-	padding: 6px;
-}
-
-
-
-
-div.postsignature, div.postmsg P.postedit {
-	padding-top: 15px;
-}
-
-
-
-.pun blockquote, div.codebox {
-	margin: 5px 15px 15px 15px;
-	padding: 8px;
-}
 
 
 
 
 
-
-
-
-div.blockform p input {
-	margin-left: 12px;
-}
 
 
 
