@@ -130,37 +130,24 @@ div.blockmenu, #viewprofile dt {
 
 #punsearch #vf .tc2 {width: 18%; text-align: left}
 
-.tcl, .tcr {overflow: HIDDEN}
+.tcl, .tcr {
+	overflow: hidden;
+}
 
 
-#users1 .tcl {width: 40%}
 
-#users1 .tcr {width: 25%}
-
-#users1 .tc2 {width: 25%; text-align: left}
-
-#users1 .tc3 {width: 10%; text-align: center}
-
-#debug .tcr {width: 85%; white-space: normal}
-
-#punindex TD.tcr SPAN.byuser {display: block}
+#punindex td.tcr span.byuser {display: block}
 
 
-#adminconsole .block2 {margin-top: 12px}
-
-* HTML #adstats DD {HEIGHT: 1%}
-#adstats DD {margin-left: 14em; padding: 3px; margin-bottom: 5px; line-height: 1.5em}
-#adstats dt {float:left; width: 13em; padding: 3px; line-height: 1.5em}
-#adstats {padding: 15px 15px 5px 10px}
-#adintro {padding: 5px}
-#adintro P {padding: 10px}
-#adstats DL {padding: 5px 0 10px 5px}
+#adminconsole .block2 {
+	margin-top: 12px;
+}
 
 #adminconsole fieldset TD {text-align: left; padding: 4px; white-space: normal}
 #adminconsole fieldset TH {text-align: left; padding: 4px; white-space: normal}
-#adminconsole fieldset TD SPAN, #adminconsole fieldset TH SPAN {display: block; font-size: 1em; font-WEIGHT: normal}
-#adminconsole TH {width: 15em; font-WEIGHT: bold}
-#adminconsole input, #adminconsole select, #adminconsole textarea {margin-bottom: 0; margin-top: 0; font-WEIGHT: normal}
+#adminconsole fieldset TD span, #adminconsole fieldset TH span {display: block; font-size: 1em; font-weight: normal}
+#adminconsole TH {width: 15em; font-weight: bold}
+#adminconsole input, #adminconsole select, #adminconsole textarea {margin-bottom: 0; margin-top: 0; font-weight: normal}
 #adminconsole table.aligntop TH, #adminconsole table.aligntop TD {VERTICAL-align: top}
 #adminconsole table.aligntop TH {padding-top: 0.7em}
 #adminconsole TD, #adminconsole TH {border-style: solid; border-width: 3px 0px 3px 0px}
@@ -169,7 +156,7 @@ div.blockmenu, #viewprofile dt {
 #adminconsole P.submittop, #adminconsole P.submitend {text-align: center}
 #adminconsole TH.hidehead {color: #f1f1f1}
 #adminconsole THEAD TH {padding-bottom: 0px}
-#adminconsole P.linkactions {font-WEIGHT: bold; padding-left: 5px}
+#adminconsole P.linkactions {font-weight: bold; padding-left: 5px}
 #adminconsole TH input, #adminconsole div.fsetsubmit {margin-top: 6px}
 
 
@@ -191,7 +178,9 @@ div.blockmenu, #viewprofile dt {
 
 
 div.postleft dt, div.postmsg H4, TD.tcl h3, div.forminfo h3, P.postlink, div.linkst li,
-div.linksb li, div.postlinksb li, .blockmenu li, #brdtitle H1, .pun SPAN.warntext, .pun P.warntext {font-WEIGHT: bold}
+div.linksb li, div.postlinksb li, .blockmenu li, #brdtitle H1, .pun span.warntext, .pun P.warntext {
+	font-weight: bold;
+}
 
 
 
@@ -221,7 +210,9 @@ div.box, .pun TD, .pun TH, .pun blockquote, div.codebox, div.forminfo, div.block
 	border-right: none
 }
 
-.pun .tcl {border-left: none}
+.pun .tcl {
+	border-left: none;
+}
 
 
 div>fieldset {
@@ -230,7 +221,9 @@ div>fieldset {
 }
 
 
-#punwrap {margin:12px 20px}
+#punwrap {
+	margin: 12px 20px;
+}
 
 
 
@@ -264,7 +257,9 @@ div.inbox:after {
 }
 
 
-div.postleft DL, div.postright {padding: 6px}
+div.postleft dl, div.postright {
+	padding: 6px;
+}
 
 
 
@@ -294,7 +289,9 @@ P.multidelete {
 }
 
 
-div.postmsg P {padding: 0}
+div.postmsg p {
+	padding: 0;
+}
 
 
 div.blockform form, div.fakeform {
@@ -306,9 +303,15 @@ div.inform {
 }
 
 
-.pun fieldset {padding: 0px 12px 0px 12px}
-div.infldset {padding: 9px 0px 12px 0}
-.pun legend {padding: 0px 6px}
+.pun fieldset {
+	padding: 0px 12px 0px 12px;
+}
+div.infldset {
+	padding: 9px 0px 12px 0;
+}
+.pun legend {
+	padding: 0px 6px;
+}
 
 div.forminfo {
 	margin-bottom: 12px;
