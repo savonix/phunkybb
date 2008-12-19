@@ -80,6 +80,47 @@ div.linksb, div.postlinksb {
 	margin-bottom: 6px;
 }
 
+div.blockpost input, div.blockpost label {
+	padding: 3px;
+	display: inline
+}
+
+p.multidelete {
+	padding-top: 15px;
+	padding-bottom: 5px
+}
+
+
+div.postmsg p {
+	padding: 0;
+}
+
+
+div.blockform form, div.fakeform {
+	padding: 20px 20px 15px 20px;
+}
+
+div.inform {
+	padding-bottom: 12px;
+}
+
+
+.pun fieldset {
+	padding: 0px 12px 0px 12px;
+}
+div.infldset {
+	padding: 9px 0px 12px 0;
+}
+.pun legend {
+	padding: 0px 6px;
+}
+
+div.forminfo {
+	margin-bottom: 12px;
+	padding: 9px 10px
+}
+
+
 div.icon {
 	float: left;
 	margin: .1em;

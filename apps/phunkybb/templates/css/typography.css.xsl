@@ -47,5 +47,8 @@ div.postleft dt {
 	font-size: 1.1em;
 }
 
+#brdmenu a:hover, .blockpost h2 a:hover {
+	text-decoration: underline;
+}
 </xsl:template>
 </xsl:stylesheet>

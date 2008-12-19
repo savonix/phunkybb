@@ -12,7 +12,7 @@ the Free Software Foundation; either version 3 of the License, or
 (at your option) any later version.
 
 This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
+but WIthOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABIliTY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 GNU Affero General Public License for more details.
 
@@ -143,21 +143,21 @@ div.blockmenu, #viewprofile dt {
 	margin-top: 12px;
 }
 
-#adminconsole fieldset TD {text-align: left; padding: 4px; white-space: normal}
-#adminconsole fieldset TH {text-align: left; padding: 4px; white-space: normal}
-#adminconsole fieldset TD span, #adminconsole fieldset TH span {display: block; font-size: 1em; font-weight: normal}
-#adminconsole TH {width: 15em; font-weight: bold}
+#adminconsole fieldset td {text-align: left; padding: 4px; white-space: normal}
+#adminconsole fieldset th {text-align: left; padding: 4px; white-space: normal}
+#adminconsole fieldset td span, #adminconsole fieldset th span {display: block; font-size: 1em; font-weight: normal}
+#adminconsole th {width: 15em; font-weight: bold}
 #adminconsole input, #adminconsole select, #adminconsole textarea {margin-bottom: 0; margin-top: 0; font-weight: normal}
-#adminconsole table.aligntop TH, #adminconsole table.aligntop TD {VERTICAL-align: top}
-#adminconsole table.aligntop TH {padding-top: 0.7em}
-#adminconsole TD, #adminconsole TH {border-style: solid; border-width: 3px 0px 3px 0px}
-#adminconsole P {padding-bottom: 6px}
+#adminconsole table.aligntop th, #adminconsole table.aligntop td {VERTICAL-align: top}
+#adminconsole table.aligntop th {padding-top: 0.7em}
+#adminconsole td, #adminconsole th {border-style: solid; border-width: 3px 0px 3px 0px}
+#adminconsole p {padding-bottom: 6px}
 #adminconsole .topspace {padding-top: 6px}
-#adminconsole P.submittop, #adminconsole P.submitend {text-align: center}
-#adminconsole TH.hidehead {color: #f1f1f1}
-#adminconsole THEAD TH {padding-bottom: 0px}
-#adminconsole P.linkactions {font-weight: bold; padding-left: 5px}
-#adminconsole TH input, #adminconsole div.fsetsubmit {margin-top: 6px}
+#adminconsole p.submittop, #adminconsole P.submitend {text-align: center}
+#adminconsole th.hidehead {color: #f1f1f1}
+#adminconsole thEAD th {padding-bottom: 0px}
+#adminconsole p.linkactions {font-weight: bold; padding-left: 5px}
+#adminconsole th input, #adminconsole div.fsetsubmit {margin-top: 6px}
 
 
 
@@ -177,8 +177,8 @@ div.blockmenu, #viewprofile dt {
 
 
 
-div.postleft dt, div.postmsg H4, TD.tcl h3, div.forminfo h3, P.postlink, div.linkst li,
-div.linksb li, div.postlinksb li, .blockmenu li, #brdtitle H1, .pun span.warntext, .pun P.warntext {
+div.postleft dt, div.postmsg H4, td.tcl h3, div.forminfo h3, p.postlink, div.linkst li,
+div.linksb li, div.postlinksb li, .blockmenu li, #brdtitle H1, .pun span.warntext, .pun p.warntext {
 	font-weight: bold;
 }
 
@@ -191,12 +191,7 @@ div.linksb li, div.postlinksb li, .blockmenu li, #brdtitle H1, .pun span.warntex
 }
 
 
-#brdmenu a:hover, .blockpost h2 a:hover {
-	text-decoration: underline;
-}
-
-
-div.box, .pun TD, .pun TH, .pun blockquote, div.codebox, div.forminfo, div.blockpost label {
+div.box, .pun td, .pun th, .pun blockquote, div.codebox, div.forminfo, div.blockpost label {
 	border-style: solid;
 	border-width: 1px
 }
@@ -278,45 +273,7 @@ div.postsignature, div.postmsg P.postedit {
 
 
 
-div.blockpost input, div.blockpost label {
-	padding: 3px;
-	display: inline
-}
 
-P.multidelete {
-	padding-top: 15px;
-	padding-bottom: 5px
-}
-
-
-div.postmsg p {
-	padding: 0;
-}
-
-
-div.blockform form, div.fakeform {
-	padding: 20px 20px 15px 20px;
-}
-
-div.inform {
-	padding-bottom: 12px;
-}
-
-
-.pun fieldset {
-	padding: 0px 12px 0px 12px;
-}
-div.infldset {
-	padding: 9px 0px 12px 0;
-}
-.pun legend {
-	padding: 0px 6px;
-}
-
-div.forminfo {
-	margin-bottom: 12px;
-	padding: 9px 10px
-}
 
 
 
