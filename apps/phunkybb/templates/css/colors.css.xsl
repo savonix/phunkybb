@@ -29,17 +29,25 @@ html, body {
   color: #333;
 }
 
-div.icon {border-color: #E6E6E6 #DEDEDE #DADADA #E2E2E2}
-tr.iredirect div.icon {border-color: #F1F1F1 #F1F1F1 #F1F1F1 #F1F1F1}
-div.inew {border-color: #0080D7 #0065C0 #0058B3 #0072CA}
+div.icon {
+	border-color: #E6E6E6 #DEDEDE #DADADA #E2E2E2
+}
+tr.iredirect div.icon {
+	border-color: #F1F1F1 #F1F1F1 #F1F1F1 #F1F1F1
+}
+div.inew {
+	border-color: #0080D7 #0065C0 #0058B3 #0072CA
+}
 
 .pun {
   color: #333
 }
-.pun H2 A:hover, #brdmenu A:hover {
+
+.pun h2 A:hover, #brdmenu A:hover {
 	color: #FFF;
 }
-.pun H2 A:link, .pun H2 A:visited, #brdmenu A:link, #brdmenu A:visited {
+
+.pun h2 A:link, .pun h2 A:visited, #brdmenu A:link, #brdmenu A:visited {
     color: #FFF;
 }
 
@@ -85,6 +93,9 @@ div.blockpost h2 {
 
 .pun div.blockmenu li.isactive a, #posterror li strong {
   color: #333
+}
+.blocktable h2 {
+	border-color: black;
 }
 
 

@@ -37,9 +37,67 @@ Fifth Floor, Boston, MA 02110-1301 USA
 	float: left;
 }
 
+.pun p, .pun ul, .pun dl, div.blockmenu li, .pun label, #announce div.inbox div {
+	padding: 3px 0;
+}
+
+div.block div.inbox, div.blockmenu div.inbox {
+	padding: 3px 6px;
+}
+
+
+.pun h1 {
+	padding: 3px 0px 0px 0;
+}
+
+.pun h2 {
+	padding: 4px 6px;
+}
+
+div.blocktable, div.block, div.blockform, div.block2col, #postreview {
+	margin-bottom: 12px;
+}
+
+#brdtitle p {
+	padding-top: 0px;
+}
+
+div.linkst {
+	padding: 8px 6px 3px 6px;
+}
+div.linksb, div.postlinksb {
+	padding: 3px 6px 8px 6px;
+}
+#brdwelcome, #brdfooter DL A, div.blockmenu li, div.rbox input  {
+	line-height: 1.4em;
+}
+#viewprofile dt, #viewprofile dd {
+	padding: 0 3px;
+	line-height: 2em;
+}
+
+#punindex div.blocktable, div.blockpost {
+	margin-bottom: 6px;
+}
+
+div.icon {
+	float: left;
+	margin: .1em;
+	margin-right: .5em;
+	display: block;
+	border-width: 0.6em 0.6em 0.6em 0.6em;
+	border-style: solid;
+}
 
 div.postfootleft p, div.postfootright ul, div.postfootright div {
 	padding: 10px;
+}
+
+.blocktable h2 {
+	border-width: 1px;
+	border-bottom-width: 0;
+	border-style: solid;
+	margin-top: .8em;
 }
 
 

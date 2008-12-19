@@ -118,7 +118,9 @@ div.blockmenu, #viewprofile dt {
 
 #punindex table, #vf table {table-LAYOUT: fixed}
 
-.tcl {text-align: left; width: 50%}
+.tcl {
+	width: 50%
+}
 
 .tc2, .tc3, .tcmod {width: 9%; text-align: center}
 
@@ -147,7 +149,7 @@ div.blockmenu, #viewprofile dt {
 #adminconsole .block2 {margin-top: 12px}
 
 * HTML #adstats DD {HEIGHT: 1%}
-#adstats DD {margin-left: 14em; padding: 3px; margin-bottom: 5px; liNE-HEIGHT: 1.5em}
+#adstats DD {margin-left: 14em; padding: 3px; margin-bottom: 5px; line-height: 1.5em}
 #adstats dt {float:left; width: 13em; padding: 3px; line-height: 1.5em}
 #adstats {padding: 15px 15px 5px 10px}
 #adintro {padding: 5px}
@@ -156,9 +158,9 @@ div.blockmenu, #viewprofile dt {
 
 #adminconsole fieldset TD {text-align: left; padding: 4px; white-space: normal}
 #adminconsole fieldset TH {text-align: left; padding: 4px; white-space: normal}
-#adminconsole fieldset TD SPAN, #adminconsole fieldset TH SPAN {display: block; FONT-SIZE: 1em; FONT-WEIGHT: normal}
-#adminconsole TH {width: 15em; FONT-WEIGHT: bold}
-#adminconsole INPUT, #adminconsole SELECT, #adminconsole textAREA {margin-bottom: 0; margin-top: 0; FONT-WEIGHT: normal}
+#adminconsole fieldset TD SPAN, #adminconsole fieldset TH SPAN {display: block; font-size: 1em; font-WEIGHT: normal}
+#adminconsole TH {width: 15em; font-WEIGHT: bold}
+#adminconsole input, #adminconsole select, #adminconsole textarea {margin-bottom: 0; margin-top: 0; font-WEIGHT: normal}
 #adminconsole table.aligntop TH, #adminconsole table.aligntop TD {VERTICAL-align: top}
 #adminconsole table.aligntop TH {padding-top: 0.7em}
 #adminconsole TD, #adminconsole TH {border-style: solid; border-width: 3px 0px 3px 0px}
@@ -167,35 +169,29 @@ div.blockmenu, #viewprofile dt {
 #adminconsole P.submittop, #adminconsole P.submitend {text-align: center}
 #adminconsole TH.hidehead {color: #f1f1f1}
 #adminconsole THEAD TH {padding-bottom: 0px}
-#adminconsole P.linkactions {FONT-WEIGHT: bold; padding-left: 5px}
-#adminconsole TH INPUT, #adminconsole div.fsetsubmit {margin-top: 6px}
+#adminconsole P.linkactions {font-WEIGHT: bold; padding-left: 5px}
+#adminconsole TH input, #adminconsole div.fsetsubmit {margin-top: 6px}
 
 
 
-.pun, .pun INPUT, .pun SELECT, .pun textAREA, .pun OPTGROUP {
-	FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif
+.pun, .pun input, .pun select, .pun textarea, .pun OPTGROUP {
+	font-family: Verdana, Arial, Helvetica, sans-serif
 }
 
-.pun {FONT-SIZE: 11px; liNE-HEIGHT: normal}
+.pun {
+	font-size: 11px;
+	line-height: normal;
+}
 
-.pun table, .pun INPUT, .pun SELECT, .pun OPTGROUP, .pun textAREA, div.postmsg P.postedit {FONT-SIZE: 1em}
-
-
-.pun PRE {FONT-FAMILY: monaco, "Bitstream Vera Sans Mono", "Courier New", courier, monospace}
-
-
-.pun h2, .pun H4 {FONT-SIZE: 1em}
-.pun h3 {FONT-SIZE: 1.1em}
-#brdtitle H1 {FONT-SIZE: 1.4em}
+.pun table, .pun input, .pun select, .pun textarea, div.postmsg P.postedit {
+	font-size: 1em;
+}
 
 
-div.postmsg P {liNE-HEIGHT: 1.4}
-div.postleft dt {FONT-SIZE: 1.1em}
-.pun PRE {FONT-SIZE: 1.2em}
 
 
 div.postleft dt, div.postmsg H4, TD.tcl h3, div.forminfo h3, P.postlink, div.linkst li,
-div.linksb li, div.postlinksb li, .blockmenu li, #brdtitle H1, .pun SPAN.warntext, .pun P.warntext {FONT-WEIGHT: bold}
+div.linksb li, div.postlinksb li, .blockmenu li, #brdtitle H1, .pun SPAN.warntext, .pun P.warntext {font-WEIGHT: bold}
 
 
 
@@ -206,7 +202,9 @@ div.linksb li, div.postlinksb li, .blockmenu li, #brdtitle H1, .pun SPAN.warntex
 }
 
 
-#brdmenu A:hover, .blockpost h2 A:hover {text-decoration: underline}
+#brdmenu a:hover, .blockpost h2 a:hover {
+	text-decoration: underline;
+}
 
 
 div.box, .pun TD, .pun TH, .pun blockquote, div.codebox, div.forminfo, div.blockpost label {
@@ -218,7 +216,7 @@ div.box, .pun TD, .pun TH, .pun blockquote, div.codebox, div.forminfo, div.block
 
 
 
-.pun TD, .pun TH {
+.pun td, .pun th {
 	border-bottom: none;
 	border-right: none
 }
@@ -235,21 +233,8 @@ div>fieldset {
 #punwrap {margin:12px 20px}
 
 
-div.blocktable, div.block, div.blockform, div.block2col, #postreview {margin-bottom: 12px}
-#punindex div.blocktable, div.blockpost {margin-bottom: 6px}
-div.block2col div.blockform, div.block2col div.block {margin-bottom: 0px}
 
 
-div.linkst, div.linksb {margin-top: -12px}
-div.postlinksb {margin-top: -6px}
-
-
-#brdstats {margin-top: 12px}
-
-
-div.block div.inbox, div.blockmenu div.inbox {padding: 3px 6px}
-.pun P, .pun UL, .pun DL, div.blockmenu li, .pun label, #announce div.inbox div {padding: 3px 0}
-.pun h2 {padding: 4px 6px}
 
 div.inbox:after {
   clear: both;
@@ -262,38 +247,43 @@ div.inbox:after {
   visibility: hidden;
 }
 
-.pun H1 {padding: 3px 0px 0px 0}
-#brdtitle P {padding-top: 0px}
-div.linkst {padding: 8px 6px 3px 6px}
-div.linksb, div.postlinksb {padding: 3px 6px 8px 6px}
-#brdwelcome, #brdfooter DL A, div.blockmenu li, div.rbox INPUT  {liNE-HEIGHT: 1.4em}
-#viewprofile dt, #viewprofile DD {padding: 0 3px; liNE-HEIGHT: 2em}
 
 
-#brdmenu li, div.rbox INPUT, div.blockform P INPUT  {margin-right: 12px}
 
 
-.pun TH, .pun TD {padding: 4px 6px}
-.pun TD P {padding: 5px 0 0 0}
+#brdmenu li, div.rbox input, div.blockform p input {
+	margin-right: 12px;
+}
+
+
+.pun th, .pun td {
+	padding: 4px 6px;
+}
+.pun td p {
+	padding: 5px 0 0 0;
+}
 
 
 div.postleft DL, div.postright {padding: 6px}
 
 
-DD.usercontacts, DD.postavatar {margin-top: 5px}
-DD.postavatar {margin-bottom: 5px}
 
 
-div.postsignature, div.postmsg P.postedit {padding-top: 15px}
-
-
-div.postmsg H4 {margin-bottom: 10px}
-.pun blockquote, div.codebox {margin: 5px 15px 15px 15px; padding: 8px}
+div.postsignature, div.postmsg P.postedit {
+	padding-top: 15px;
+}
 
 
 
+.pun blockquote, div.codebox {
+	margin: 5px 15px 15px 15px;
+	padding: 8px;
+}
 
-div.blockpost INPUT, div.blockpost label {
+
+
+
+div.blockpost input, div.blockpost label {
 	padding: 3px;
 	display: inline
 }
@@ -307,8 +297,13 @@ P.multidelete {
 div.postmsg P {padding: 0}
 
 
-div.blockform form, div.fakeform {padding: 20px 20px 15px 20px}
-div.inform {padding-bottom: 12px}
+div.blockform form, div.fakeform {
+	padding: 20px 20px 15px 20px;
+}
+
+div.inform {
+	padding-bottom: 12px;
+}
 
 
 .pun fieldset {padding: 0px 12px 0px 12px}
@@ -322,16 +317,8 @@ div.forminfo {
 
 
 
-div.blockform P INPUT {margin-left: 12px}
-
-
-div.icon {
-	float: left;
-	margin-top: 0.1em;
-	margin-left: 0.2em;
-	display: block;
-	border-width: 0.6em 0.6em 0.6em 0.6em;
-	border-style: solid
+div.blockform p input {
+	margin-left: 12px;
 }
 
 
@@ -378,8 +365,18 @@ div.icon {
     border-style: solid;
     border-width: 1px;
     border-color: <xsl:value-of select="$color"/>;
-    margin: .5em;
     cursor: pointer;
 }
+.button-<xsl:value-of select="$button-name"/> a
+{
+    font-weight: bold;
+		text-decoration: none;
+}
+.button-<xsl:value-of select="$button-name"/> a img
+{
+	margin-bottom: -3px;
+	margin-right: 3px;
+}
+
 </xsl:template>
 </xsl:stylesheet>

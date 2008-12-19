@@ -84,7 +84,6 @@ Fifth Floor, Boston, MA 02110-1301 USA
 							<xsl:for-each select="/_R_/topics_get_by_forum_id/topics_get_by_forum_id">
 								<tr>
 									<td class="tcl">
-										<div class="intd">
 											<xsl:if test="not(/_R_/runtime/last_visit_timestamp &lt; last_post_timestamp)">
 												<div class="icon">
 													<div class="nosize"></div>
@@ -95,7 +94,6 @@ Fifth Floor, Boston, MA 02110-1301 USA
 													<div class="nosize"></div>
 												</div>
 											</xsl:if>
-											<div class="tclcon">
 											<!-- Need to use the link_builder here! -->
 												<xsl:if test="//mod_rewrite='true' and not(basename='')">
 													<a title="{subject}" id="topic-{id}" href="{$path_prefix}{link}">
@@ -116,13 +114,11 @@ Fifth Floor, Boston, MA 02110-1301 USA
 														<xsl:value-of select="subject"/>
 													</a>
 												</xsl:if>
-											</div>
-										</div>
 									</td>
 									<td class="tc2">
 										<xsl:value-of select="num_replies"/>
 									</td>
-									<td class="tcr">
+									<td>
 										<span class="date">
 											<xsl:if test="not(last_post='1969-12-31 20:00:00')">
 												<xsl:value-of select="last_post"/>
@@ -183,12 +179,13 @@ Fifth Floor, Boston, MA 02110-1301 USA
 		<xsl:param name="path_prefix"/>
 		<xsl:param name="my18n"/>
 			<xsl:if test="/_R_/runtime/username">
-			<p class="postlink conr">
-				<a href="{$link_prefix}post&amp;fid={/_R_/forum_get_by_id/forum_get_by_id/id}">
-					<img src="{$path_prefix}s/img/icons/famfamfam/add.png" style="margin-bottom: -3px; margin-right: 3px;"/>
-					<xsl:value-of select="$my18n/post_topic"/>
-				</a>
-			</p>
+			<div class="button-basic-blue" style="float: right;"
+				onclick="location.href='{$link_prefix}post&amp;fid={/_R_/forum_get_by_id/forum_get_by_id/id}';">
+					<a href="{$link_prefix}post&amp;fid={/_R_/forum_get_by_id/forum_get_by_id/id}">
+						<img src="{$path_prefix}s/img/icons/famfamfam/add.png"/>
+						<xsl:value-of select="$my18n/post_topic"/>
+					</a>
+			</div>
 		</xsl:if>
 	</xsl:template>
 </xsl:stylesheet>
