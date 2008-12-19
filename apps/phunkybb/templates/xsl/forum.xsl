@@ -32,7 +32,6 @@ Fifth Floor, Boston, MA 02110-1301 USA
 			select="/_R_/forum_get_by_id/forum_get_by_id"/>
 
 		<div class="linkst">
-			<div class="inbox">
 			<!--
 			<p class="pagelink conl">
 				<xsl:value-of select="$my18n/pages"/>:
@@ -52,21 +51,18 @@ Fifth Floor, Boston, MA 02110-1301 USA
 						<a href="{$link_prefix}index">
 							<xsl:value-of select="$my18n/index"/>
 						</a>&#160;
-      </li>
+					</li>
 					<li>
-        &gt; &#160;
-        <a href="{$link_prefix}forum&amp;fid={$forum_get_by_id/id}">
-          <xsl:value-of select="$forum_get_by_id/forum_name"/>
+						&gt; &#160;
+						<a href="{$link_prefix}forum&amp;fid={$forum_get_by_id/id}">
+							<xsl:value-of select="$forum_get_by_id/forum_name"/>
 						</a>
 					</li>
 				</ul>
-			</div>
 		</div>
 		<div id="vf" class="blocktable">
 			<h2>
-				<span>
-					<xsl:value-of select="$forum_get_by_id/forum_name"/>
-				</span>
+				<xsl:value-of select="$forum_get_by_id/forum_name"/>
 			</h2>
 			<div class="box">
 				<div class="inbox">
@@ -154,7 +150,6 @@ Fifth Floor, Boston, MA 02110-1301 USA
 			</div>
 		</div>
 		<div class="linkst">
-			<div class="inbox">
 			<!--
 			<p class="pagelink conl">
 				<xsl:value-of select="$my18n/pages"/>:
@@ -180,7 +175,6 @@ Fifth Floor, Boston, MA 02110-1301 USA
 						</a>
 					</li>
 				</ul>
-			</div>
 		</div>
 	</xsl:template>
 
@@ -191,7 +185,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 			<xsl:if test="/_R_/runtime/username">
 			<p class="postlink conr">
 				<a href="{$link_prefix}post&amp;fid={/_R_/forum_get_by_id/forum_get_by_id/id}">
-					<img src="{$path_prefix}s/img/icons/famfamfam/add.png"/>
+					<img src="{$path_prefix}s/img/icons/famfamfam/add.png" style="margin-bottom: -3px; margin-right: 3px;"/>
 					<xsl:value-of select="$my18n/post_topic"/>
 				</a>
 			</p>
