@@ -44,6 +44,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 				<xsl:if test="/_R_/runtime/username">
 					<p class="postlink conr">
 						<a href="{$link_prefix}post&amp;fid={$forum_get_by_id/id}">
+							<img src="{$path_prefix}s/img/icons/famfamfam/add.png"/>
 							<xsl:value-of select="$my18n/post_topic"/>
 						</a>
 					</p>
