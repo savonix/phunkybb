@@ -22,10 +22,10 @@ or write to the Free Software Foundation, Inc., 51 Franklin Street,
 Fifth Floor, Boston, MA 02110-1301 USA
 -->
 <!DOCTYPE query SYSTEM "__default_table_names__.txt">
-<query name="topic_update_subscription">
+<query name="topic_update_subscription" loop="/_R_/topic_get_subscriptions/topic_get_subscriptions/user_id">
 	<connection>&connection;</connection>
 	<params>
-		<param name="/_R_/runtime/user_id" type="integer"/>
+		<param array="/_R_/topic_get_subscriptions/topic_get_subscriptions/user_id" type="integer"/>
 		<param name="/_R_/_post/topic_id" type="integer"/>
 	</params>
 	<sql>

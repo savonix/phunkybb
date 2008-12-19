@@ -256,7 +256,7 @@
 				<map:query src="data/sql/user_last_post_update.xml"/>
 				<map:query src="data/sql/topic_get_num_replies.xml"/>
 				<map:query src="data/sql/topic_set_num_replies.xml"/>
-				<map:query src="data/sql/topic_get_subscriptions.xml"/>
+				<map:query src="data/sql/topic_get_unsent_subscriptions.xml"/>
 				<map:if name="//topic_get_subscriptions/topic_get_subscriptions">
 					<map:true>
 						<map:xml src="data/xml/emails.xml"/>

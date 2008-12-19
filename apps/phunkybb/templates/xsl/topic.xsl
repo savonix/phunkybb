@@ -236,7 +236,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
                 <div class="infldset">
                   <div class="rbox">
                     <label>
-                      <input type="checkbox" name="subscribe" value="1">
+                      <input type="checkbox" name="subscribe">
                         <xsl:if test="/_R_/topic_get_subscriptions/topic_get_subscriptions/user_id=/_R_/runtime/user_id">
                           <xsl:attribute name="checked" value="checked"/>
                         </xsl:if>

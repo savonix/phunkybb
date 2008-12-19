@@ -1,6 +1,6 @@
 <!--
 Program: PhunkyBB
-Component: topic_create_subscription.xml
+Component: topic_get_unsent_subscriptions.xml
 Copyright: Savonix Corporation
 Author: Albert L. Lash, IV
 License: Gnu Affero Public License version 3
@@ -22,13 +22,16 @@ or write to the Free Software Foundation, Inc., 51 Franklin Street,
 Fifth Floor, Boston, MA 02110-1301 USA
 -->
 <!DOCTYPE query SYSTEM "__default_table_names__.txt">
-<query name="topic_create_subscription">
-	<connection>&connection;</connection>
+<query name="topic_get_subscriptions">
+	<connection>&connection_read;</connection>
 	<params>
-		<param name="/_R_/runtime/user_id" type="integer"/>
+    <param name="/_R_/topic_get_by_id/topic_get_by_id/id" type="integer"/>
 		<param name="/_R_/_post/topic_id" type="integer"/>
 	</params>
 	<sql>
-  INSERT INTO &prefix;subscriptions (user_id,topic_id,sent) VALUES (?,?,0)
+  SELECT &prefix;subscriptions.*, &prefix;users.email FROM &prefix;subscriptions, &prefix;users
+	WHERE (&prefix;subscriptions.topic_id=? OR &prefix;subscriptions.topic_id=?)
+	AND &prefix;users.id = &prefix;subscriptions.user_id
+	AND &prefix;subscriptions.sent = 0
 	</sql>
 </query>
