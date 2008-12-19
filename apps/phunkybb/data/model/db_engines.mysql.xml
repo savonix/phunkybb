@@ -34,24 +34,32 @@ Fifth Floor, Boston, MA 02110-1301 USA
     <text> AUTO_INCREMENT=1</text>
   </engine_increment_start>
 
-  <engine_auto_increment_b>
-      <text>, PRIMARY KEY (category_id)</text>
-  </engine_auto_increment_b>
+	<engine_auto_increment_b>
+		<text>, PRIMARY KEY (category_id)</text>
+	</engine_auto_increment_b>
 
-  <innodb_engine>
-			<text>ENGINE=InnoDB</text>
-    </innodb_engine>
+	<innodb_engine>
+		<text>ENGINE=InnoDB</text>
+	</innodb_engine>
 
-  <myisam_engine>
-        <text>ENGINE=MyISAM</text>
-  </myisam_engine>
+	<myisam_engine>
+		<text>ENGINE=MyISAM</text>
+	</myisam_engine>
 
-  <if_not_exists>
-			<text>IF NOT EXISTS </text>
-  </if_not_exists>
+	<if_not_exists>
+		<text> IF NOT EXISTS </text>
+	</if_not_exists>
 
-  <integer>
-      <text>int(10)</text>
-  </integer>
+	<integer>
+		<text>int(11)</text>
+	</integer>
+
+	<not_null>
+		<text> NOT NULL DEFAULT 0</text>
+	</not_null>
+
+	<default_null>
+		<text> DEFAULT NULL</text>
+	</default_null>
 
 </db_engines>
