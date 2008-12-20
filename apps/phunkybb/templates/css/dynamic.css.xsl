@@ -191,10 +191,7 @@ div.linksb li, div.postlinksb li, .blockmenu li, #brdtitle H1, .pun span.warntex
 }
 
 
-div.box, .pun td, .pun th, .pun blockquote, div.codebox, div.forminfo, div.blockpost label {
-	border-style: solid;
-	border-width: 1px
-}
+
 
 
 
