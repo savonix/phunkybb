@@ -199,6 +199,12 @@
 		<map:action type="datetime" params="/_R_/posts_get_by_topic_id/posts_get_by_topic_id/posted,unix_epoch,{//runtime/user_time_format},{//runtime/user_timezone_offset}"/>
 		<map:xsl src="templates/xsl/topic.xsl"/>
 	</map:gate>
+	<map:gate name="x-topic-rss" content_type="text/xml">
+		<map:query src="data/sql/forum_get_by_id.xml"/>
+		<map:query src="data/sql/topic_get_by_id.xml"/>
+		<map:query src="data/sql/posts_get_by_topic_id.xml"/>
+		<map:xsl src="templates/xml/topic_rss.xml.xsl"/>
+	</map:gate>
 	<map:gate name="topic-edit">
 		<map:if name="//_post">
 			<map:true>

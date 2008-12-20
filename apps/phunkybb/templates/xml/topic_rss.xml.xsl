@@ -26,23 +26,40 @@ Fifth Floor, Boston, MA 02110-1301 USA
 	<xsl:template match="/">
 		<rss version="2.0">
 			<channel>
-				<title></title>
-				<link></link>
+				<title><xsl:value-of select="//o_base_title"/></title>
+				<link><xsl:value-of select="//o_base_url"/></link>
 				<description>
+					<xsl:value-of select="//o_base_desc"/>
 				</description>
 				<language>en-us</language>
 				<lastBuildDate></lastBuildDate>
 				<docs>http://backend.userland.com/rss2</docs>
 				<generator></generator>
 				<category>Topics</category>
-				<xsl:for-each select="//topics_get_all">
+				
+				<xsl:variable name="topic_get_by_id"
+					select="/_R_/topic_get_by_id/topic_get_by_id"/>
+
+				<xsl:variable name="this_forum"
+					select="/_R_/forum_get_by_id/forum_get_by_id"/>
+
+				<xsl:for-each select="/_R_/posts_get_by_topic_id/posts_get_by_topic_id">
 					<item>
 						<title></title>
-						<link></link>
+						<link>
+							<xsl:value-of select="//o_base_url"/>
+							<xsl:text>index.php?topic&amp;forum_basename=</xsl:text>
+							<xsl:value-of select="$this_forum/forum_basename"/>
+							<xsl:text>&amp;fid=</xsl:text>
+							<xsl:value-of select="$this_forum/id"/>
+							<xsl:text>&amp;id=</xsl:text>
+							<xsl:value-of select="$topic_get_by_id/id"/>
+							</link>
 						<description>
-						 </description>
-						<pubDate></pubDate>
-						<author></author>
+						<xsl:value-of select="message" disable-output-escaping="yes"/>
+						</description>
+						<pubDate><xsl:value-of select="posted"/></pubDate>
+						<author><xsl:value-of select="username"/></author>
 					</item>
 				</xsl:for-each>
 			</channel>

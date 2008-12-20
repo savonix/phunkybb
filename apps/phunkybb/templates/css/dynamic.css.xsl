@@ -200,26 +200,6 @@ div.box, .pun td, .pun th, .pun blockquote, div.codebox, div.forminfo, div.block
 
 
 
-.pun td, .pun th {
-	border-bottom: none;
-	border-right: none
-}
-
-.pun .tcl {
-	border-left: none;
-}
-
-
-div>fieldset {
-	border-style: solid;
-	border-width: 1px
-}
-
-
-#punwrap {
-	margin: 12px 20px;
-}
-
 
 
 

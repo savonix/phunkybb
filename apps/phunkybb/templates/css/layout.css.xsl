@@ -149,6 +149,26 @@ div.postsignature, div.postmsg P.postedit {
 }
 
 
+.pun td, .pun th {
+	border-bottom: none;
+	border-right: none
+}
+
+.pun .tcl {
+	border-left: none;
+}
+
+
+div>fieldset {
+	border-style: solid;
+	border-width: 1px
+}
+
+
+#punwrap {
+	margin: 12px 20px;
+}
+
 div.icon {
 	float: left;
 	margin: .1em;
