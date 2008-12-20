@@ -24,12 +24,13 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 	<xsl:output method="xml" indent="yes" encoding="UTF-8" omit-xml-declaration="no" />
 	<xsl:template match="/">
-		
 		<rss version="2.0">
 			<channel>
-				<title></title>
-				<link></link>
-				<description></description>
+				<title><xsl:value-of select="//o_base_title"/></title>
+				<link><xsl:value-of select="//o_base_url"/></link>
+				<description>
+					<xsl:value-of select="//o_base_desc"/>
+				</description>
 				<language>en-us</language>
 				<lastBuildDate></lastBuildDate>
 				<docs>http://backend.userland.com/rss2</docs>

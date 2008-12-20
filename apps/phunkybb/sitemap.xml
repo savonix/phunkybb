@@ -189,6 +189,12 @@
 		<map:xsl src="templates/xsl/forum.xsl"/>
 	</map:gate>
 
+	<map:gate name="x-forum-rss" content_type="text/xml">
+		<map:query src="data/sql/forum_get_by_id.xml"/>
+		<map:query src="data/sql/topics_get_by_forum_id.xml"/>
+		<map:xsl src="templates/xml/forum_rss.xml.xsl"/>
+	</map:gate>
+
 	<map:gate name="topic">
 		<map:query src="data/sql/forum_get_by_id.xml"/>
 		<map:query src="data/sql/topic_get_by_id.xml"/>
