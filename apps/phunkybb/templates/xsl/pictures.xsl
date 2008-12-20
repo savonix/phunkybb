@@ -40,15 +40,19 @@ Fifth Floor, Boston, MA 02110-1301 USA
           <form id="profile4" method="post">
             <div class="inform">
               <fieldset>
-                <legend>Specify your picture</legend>
+                <legend>Specify your picture URL</legend>
                 <div class="infldset">
 									<input type="text" name="picture" value="{/_R_/user_get_profile/user_get_profile/picture}"/>
                 </div>
               </fieldset>
 							<br/>
 							<xsl:if test="/_R_/user_get_profile/user_get_profile/picture">
-								<img src="{/_R_/user_get_profile/user_get_profile/picture}"/>
+								<img width="50" height="50" src="{/_R_/user_get_profile/user_get_profile/picture}"/>
 							</xsl:if>
+							<br/>
+							<p>
+							You can use a site like <a href="http://en.gravatar.com/">Gravatar.com</a> to host your picture.
+							</p>
             </div>
             <p>
               <input type="submit" name="update" value="Submit"/>
