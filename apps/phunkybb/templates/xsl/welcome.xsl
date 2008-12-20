@@ -27,9 +27,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
     <xsl:param name="link_prefix"/>
     <xsl:param name="my18n"/>
     <xsl:for-each select="/_R_/categories_get_all/categories_get_all[cid=/_R_/forums_get_all/forums_get_all/cid]">
-      <xsl:variable name="my_cid">
-        <xsl:value-of select="cid"/>
-      </xsl:variable>
+      <xsl:variable name="my_cid" select="cid"/>
       <h2>
         <xsl:value-of select="cat_name"/>
       </h2>

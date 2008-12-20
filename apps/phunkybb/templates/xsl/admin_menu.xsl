@@ -35,9 +35,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 						<xsl:variable name="mymenu"
 								select="document('../../data/xml/menu.xml')/navigation/admin_menu/button"/>
 						<xsl:for-each select="$mymenu">
-							<xsl:variable name="mykey">
-								<xsl:value-of select="."/>
-							</xsl:variable>
+							<xsl:variable name="mykey" select="."/>
 
 							<li>
 								<a href="{$link_prefix}{$mykey}">
