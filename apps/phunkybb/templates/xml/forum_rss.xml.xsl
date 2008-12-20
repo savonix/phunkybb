@@ -36,11 +36,23 @@ Fifth Floor, Boston, MA 02110-1301 USA
 				<docs>http://backend.userland.com/rss2</docs>
 				<generator></generator>
 				<category>Forums</category>
-				<xsl:for-each select="//forums_get_all">
+
+				<xsl:variable name="forum_get_by_id"
+					select="/_R_/forum_get_by_id/forum_get_by_id"/>
+					
+				<xsl:for-each select="/_R_/topics_get_by_forum_id/topics_get_by_forum_id">
 					<item>
-						<title></title>
-						<link></link>
-						<description></description>
+						<title><xsl:value-of select="subject"/></title>
+						<link>
+						<xsl:value-of select="//o_base_url"/>
+						<xsl:text>index.php?topic&amp;basename=</xsl:text>
+						<xsl:value-of select="basename"/>
+						<xsl:text>&amp;fid=</xsl:text>
+						<xsl:value-of select="$forum_get_by_id/id"/>
+						<xsl:text>&amp;id=</xsl:text>
+						<xsl:value-of select="id"/>
+						</link>
+						<description><xsl:value-of select="subject"/></description>
 						<pubDate></pubDate>
 						<author></author>
 					</item>
