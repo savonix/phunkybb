@@ -181,7 +181,8 @@ Fifth Floor, Boston, MA 02110-1301 USA
                   </table>
                 </div>
               </fieldset>
-            </div><div class="inform">
+            </div>
+						<div class="inform">
               <fieldset>
                 <legend>
                   Miscellaneous
@@ -194,6 +195,22 @@ Fifth Floor, Boston, MA 02110-1301 USA
                       </th>
                       <td>
                         <input type="text" name="form[o_google_analytics_code]" value="{//board_config/o_google_analytics_code}"/>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">
+                        File Upload Directory:
+                      </th>
+                      <td>
+                        <input type="text" name="form[o_upload_directory]" value="{//board_config/o_upload_directory}"/>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">
+                        Upload Access Directory:
+                      </th>
+                      <td>
+                        <input type="text" name="form[o_access_directory]" value="{//board_config/o_access_directory}"/>
                       </td>
                     </tr>
                   </table>
