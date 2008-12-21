@@ -32,13 +32,9 @@ Fifth Floor, Boston, MA 02110-1301 USA
 
 <xsl:template match="/">
 
-  <xsl:variable name="link_prefix">
-    <xsl:value-of select="/_R_/runtime/link_prefix"/>
-  </xsl:variable>
+  <xsl:variable name="link_prefix" select="/_R_/runtime/link_prefix"/>
 
-  <xsl:variable name="path_prefix">
-    <xsl:value-of select="/_R_/runtime/path_prefix"/>
-  </xsl:variable>
+  <xsl:variable name="path_prefix" select="/_R_/runtime/path_prefix"/>
 
   <xsl:variable name="my18n" select="document('../../i18n/en_US/phunkybb.xml')/i18n"/>
 

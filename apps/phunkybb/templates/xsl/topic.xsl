@@ -111,18 +111,14 @@ Fifth Floor, Boston, MA 02110-1301 USA
 				<p class="postlink conl">
 					<xsl:if test="($page_num/count * 0.1) &gt; 1">
 						<xsl:call-template name="previous_next">
-							<xsl:with-param name="link_prefix">
-								<xsl:value-of select="$link_prefix"/>
-							</xsl:with-param>
+							<xsl:with-param name="link_prefix" select="$link_prefix"/>
 							<xsl:with-param name="qsa">
 								<xsl:text>&amp;fid=</xsl:text>
 								<xsl:value-of select="/_R_/forum_get_by_id/forum_get_by_id/id"/>
 								<xsl:text>&amp;id=</xsl:text>
 								<xsl:value-of select="$topic_get_by_id/id"/>
 							</xsl:with-param>
-							<xsl:with-param name="max">
-								<xsl:value-of select="$page_num/count"/>
-							</xsl:with-param>
+							<xsl:with-param name="max" select="$page_num/count"/>
 						</xsl:call-template>
 					</xsl:if>
 				</p>
@@ -188,9 +184,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 			<p class="postlink conl">
 				<xsl:if test="($page_num/count * 0.1) &gt; 1">
 					<xsl:call-template name="previous_next">
-						<xsl:with-param name="link_prefix">
-							<xsl:value-of select="$link_prefix"/>
-						</xsl:with-param>
+						<xsl:with-param name="link_prefix" select="$link_prefix"/>
 						<xsl:with-param name="qsa">
 							<xsl:text>&amp;fid=</xsl:text>
 							<xsl:value-of select="/_R_/forum_get_by_id/forum_get_by_id/id"/>
