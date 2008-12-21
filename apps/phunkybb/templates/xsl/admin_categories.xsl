@@ -54,11 +54,8 @@ Fifth Floor, Boston, MA 02110-1301 USA
         </h2>
         <div class="box">
         <form method="post" class="inform">
-            <fieldset>
-              <legend>
                 <xsl:value-of select="$my18n/add"/>/
                 <xsl:value-of select="$my18n/delete_categories"/>
-              </legend>
               <div class="infldset">
                 <table class="aligntop" cellspacing="0">
                   <input type="hidden" name="action" value="add_cat"/>
@@ -71,22 +68,16 @@ Fifth Floor, Boston, MA 02110-1301 USA
                     </th>
                     <td>
                       <input type="text" name="new_cat_name" size="35"/>
-                      <span>
                         <xsl:value-of select="$my18n/name_of_new_category"/>
                         <a href="{$link_prefix}forums">
                           <xsl:value-of select="$my18n/forums"/>
                         </a>
                         <xsl:value-of select="$my18n/to_add_forums"/>.
-                      </span>
                     </td>
                   </tr>
                 </table>
               </div>
-            </fieldset>
-            <fieldset>
-              <legend>
                 <xsl:value-of select="$my18n/edit_categories"/>
-              </legend>
               <div class="infldset">
                 <table id="categoryedit" cellspacing="0">
                   <thead>
@@ -109,13 +100,13 @@ Fifth Floor, Boston, MA 02110-1301 USA
                         </td>
                         <td>
                           <input type="text" name="cat_order[0]"
-                          value="0" size="3" maxlength="3"/>
+                          	value="0" size="3" maxlength="3"/>
                         </td>
                         <td>
                           <a href="{$link_prefix}categories&amp;action=del_cat&amp;category_id={cid}"
-                              onclick="category_delete({cid}); return false;">
-                                  Delete
-                              </a>
+														onclick="category_delete({cid}); return false;">
+														Delete
+													</a>
                         </td>
                       </tr>
                     </xsl:for-each>
@@ -125,7 +116,6 @@ Fifth Floor, Boston, MA 02110-1301 USA
                   <input type="submit" name="update" value="Update"/>
                 </div>
               </div>
-            </fieldset>
         </form>
       </div>
     </div>

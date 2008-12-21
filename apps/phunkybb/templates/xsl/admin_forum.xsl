@@ -43,9 +43,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 
     <div id="adminconsole" class="block2col">
       <xsl:call-template name="admin-menu">
-        <xsl:with-param name="link_prefix">
-          <xsl:value-of select="$link_prefix"/>
-        </xsl:with-param>
+        <xsl:with-param name="link_prefix" select="$link_prefix"/>
         <xsl:with-param name="my18n" select="$my18n"/>
       </xsl:call-template>
 
@@ -107,9 +105,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
               <input type="submit" name="update_positions" value="Update positions"/>
             </p>
             <xsl:for-each select="/_R_/categories_get_all/categories_get_all[cid=/_R_/forums_get_all/forums_get_all/cid]">
-              <xsl:variable name="my_cid">
-                <xsl:value-of select="cid"/>
-              </xsl:variable>
+              <xsl:variable name="my_cid" select="cid"/>
               <div class="inform">
                 <fieldset>
                   <legend>

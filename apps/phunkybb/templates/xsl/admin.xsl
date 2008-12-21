@@ -36,12 +36,12 @@ Fifth Floor, Boston, MA 02110-1301 USA
 				<h2 class="block2">
 					<xsl:value-of select="$my18n/statistics"/>
 				</h2>
-				<div id="adstats" class="box">
+				<div class="box">
 					<div class="inbox">
 						<dl>
-							<dt>PhunkyBB <xsl:value-of select="$my18n/version"/>
+							<dt style="padding: 4px;">PhunkyBB <xsl:value-of select="$my18n/version"/>
 							</dt>
-							<dd>
+							<dd style="padding: 4px;">
 								PhunkyBB 0.2<br/>
 								<xsl:value-of select="$my18n/copyright"/>
 							</dd>
