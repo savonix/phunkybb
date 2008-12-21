@@ -75,6 +75,12 @@ div.linksb, div.postlinksb {
 #brdwelcome, #brdfooter DL A, div.blockmenu li, div.rbox input  {
 	line-height: 1.4em;
 }
+
+#brdfooter {
+	border-style: solid;
+	border-width: 1px;
+	padding: .4em;
+}
 #viewprofile dt, #viewprofile dd {
 	padding: 0 3px;
 	line-height: 2em;

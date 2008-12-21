@@ -51,13 +51,13 @@ div.inew {
     color: #FFF;
 }
 
-div.box, .pun blockquote, div.codebox, #adminconsole fieldset th, .rowodd, .roweven {
+div.box, .pun blockquote, div.codebox, fieldset th, .rowodd, .roweven {
+background-color: <xsl:value-of select="//css/colors/med-background-alt"/>;
+}
+#brdfooter {
 background-color: <xsl:value-of select="//css/colors/med-background-alt"/>;
 }
 
-#adminconsole tq, #adminconsole th {
-  border-color: <xsl:value-of select="//css/colors/dark-background"/>
-}
 
 td.tc2, td.tc3, td.tcmod, #postpreview, #viewprofile dd, div.forminfo,
 #adminconsole fieldset td, div.blockmenu div.box, #adstats dd {

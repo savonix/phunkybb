@@ -31,18 +31,12 @@ Fifth Floor, Boston, MA 02110-1301 USA
 			<xsl:with-param name="section_start">footer</xsl:with-param>
 		</xsl:call-template>
 		<footer>
-			<div id="brdfooter" class="block">
-				<h2>Board footer</h2>
-				<div class="box">
-					<div class="inbox">
-						<dl id="searchlinks" class="conl"></dl>
-						<p class="conr">Powered by <a href="http://www.phunkybb.com/blog/" title="Open Source Forums XSL Software">PhunkyBB</a>, a fork of punbb.
-            <xsl:if test="/_R_/runtime/svn_revision">
-                Revision <xsl:value-of select="/_R_/runtime/svn_revision"/>
-							</xsl:if>
-						</p>
-					</div>
-				</div>
+			<div id="brdfooter">
+				<p style="text-align: right;">Powered by <a href="http://www.phunkybb.com/blog/" title="Open Source Forums XSL Software">PhunkyBB</a>, a fork of punbb.
+				<xsl:if test="/_R_/runtime/svn_revision">
+						Revision <xsl:value-of select="/_R_/runtime/svn_revision"/>
+					</xsl:if>
+				</p>
 			</div>
 		</footer>
 		<xsl:call-template name="source_spacer">
