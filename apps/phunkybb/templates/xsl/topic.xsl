@@ -140,7 +140,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 					<div class="inbox">
 						<div class="postleft">
 							<!-- This is where the avatar would go. -->
-							<xsl:if test="picture">
+							<xsl:if test="not(picture='')">
 								<img width="50" height="50" src="{picture}" alt="{username}'s avatar"/>
 								<br/>
 							</xsl:if>
