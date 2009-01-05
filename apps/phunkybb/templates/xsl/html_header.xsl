@@ -32,32 +32,40 @@ Fifth Floor, Boston, MA 02110-1301 USA
     </xsl:call-template>
 
 		<div class="block">
+			<div style="height: 60px; width: 468px; float:right; padding:10px;">
+			<script type="text/javascript">
+			<![CDATA[
+			<!--
+			 google_ad_client = "pub-9657495873329253";
+			 //468x60, created 12/4/07
+			 google_ad_slot = "3998548064";
+			 google_ad_width = 468;
+			 google_ad_height = 60;
+			-->
+			]]>
+			</script>
+			 <script type="text/javascript"
+			 src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+			 </script>
+			</div>
+
 			<div class="box">
-				<div id="brdtitle" class="inbox">
+				<div id="brdtitle" class="inbox" style="min-height:6em;padding:10px;">
 					<h1>
 						<a href="{$link_prefix}index">
 							<xsl:value-of select="/_R_/board_config/o_board_title"/>
 						</a>
 					</h1>
-					<p>
-						<span>
-							<xsl:value-of select="/_R_/board_config/o_board_desc"/>
-						</span>
-					</p>
+					<span style="line-height:1.9em;">
+						<xsl:value-of select="/_R_/board_config/o_board_desc"/>
+					</span>
 				</div>
 				<xsl:call-template name="menu">
 					<xsl:with-param name="link_prefix" select="$link_prefix"/>
 					<xsl:with-param name="my18n" select="$my18n"/>
 				</xsl:call-template>
-				<div id="brdwelcome" class="inbox">
-					<xsl:if test="not(/_R_/runtime/username)">
-						<p>You are not logged in.</p>
-					</xsl:if>
-					<xsl:if test="/_R_/runtime/username">
-						Logged in as <b><xsl:value-of select="/_R_/runtime/username"/></b>
-					</xsl:if>
-				</div>
 			</div>
+
 		</div>
     <xsl:call-template name="source_spacer">
       <xsl:with-param name="section_end">header</xsl:with-param>

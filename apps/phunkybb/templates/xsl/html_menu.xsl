@@ -34,6 +34,14 @@ Fifth Floor, Boston, MA 02110-1301 USA
 
     <div id="main_menu">
       <div id="brdmenu" class="inbox">
+				<div style="float:right">
+					<xsl:if test="not(/_R_/runtime/username)">
+						<p>You are not logged in.</p>
+					</xsl:if>
+					<xsl:if test="/_R_/runtime/username">
+						Logged in as <b><xsl:value-of select="/_R_/runtime/username"/></b>
+					</xsl:if>
+				</div>
 				<xsl:copy-of select="//extra_menu_items" disable-output-escaping="no"/>
         <a href="{$link_prefix}index">
               <xsl:value-of select="$my18n/index"/>
@@ -61,7 +69,6 @@ Fifth Floor, Boston, MA 02110-1301 USA
             </a>
           </xsl:otherwise>
         </xsl:choose>
-
       </div>
     </div>
 
