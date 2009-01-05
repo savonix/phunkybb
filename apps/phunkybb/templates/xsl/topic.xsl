@@ -122,6 +122,22 @@ Fifth Floor, Boston, MA 02110-1301 USA
 						</xsl:call-template>
 					</xsl:if>
 				</p>
+				<p class="conr">
+					<xsl:if test="($page_num/count * 0.1) &gt; 1">
+						Pages:
+						<xsl:call-template name="pages">
+							<xsl:with-param name="link_prefix" select="$link_prefix"/>
+							<xsl:with-param name="qsa">
+								<xsl:text>&amp;fid=</xsl:text>
+								<xsl:value-of select="/_R_/forum_get_by_id/forum_get_by_id/id"/>
+								<xsl:text>&amp;id=</xsl:text>
+								<xsl:value-of select="$topic_get_by_id/id"/>
+							</xsl:with-param>
+							<xsl:with-param name="max" select="$page_num/count"/>
+							<xsl:with-param name="number_of_pages" select="format-number($page_num/pages,'##') - 1"/>
+						</xsl:call-template>
+					</xsl:if>
+				</p>
 			</div>
 		</div>
 

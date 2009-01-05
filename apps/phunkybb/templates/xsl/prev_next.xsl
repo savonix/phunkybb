@@ -52,4 +52,31 @@ Fifth Floor, Boston, MA 02110-1301 USA
 			<a href="{$link_prefix}{/_R_/_get/nid}{$qsa}&amp;start={//incr}">Next</a>
 		</xsl:if>
 	</xsl:template>
+
+	<xsl:template name="pages">
+		<xsl:param name="qsa"/>
+		<xsl:param name="max"/>
+		<xsl:param name="link_prefix"/>
+		<xsl:param name="number_of_pages"/>
+		<xsl:param name="page_number">1</xsl:param>
+		<xsl:if test="not((//incr * ($page_number - 1))=//_get/start)">
+		<a href="{$link_prefix}{/_R_/_get/nid}{$qsa}&amp;start={//incr * ($page_number - 1)}">
+			<xsl:value-of select="$page_number"/>
+		</a>&#160;
+		</xsl:if>
+		<xsl:if test="(//incr * ($page_number - 1))=//_get/start">
+		<b>
+			<xsl:value-of select="$page_number"/>
+		</b>&#160;
+		</xsl:if>
+		<xsl:if test="$number_of_pages">
+			<xsl:call-template name="pages">
+				<xsl:with-param name="qsa" select="$qsa"/>
+				<xsl:with-param name="max"/>
+				<xsl:with-param name="link_prefix" select="$link_prefix"/>
+				<xsl:with-param name="number_of_pages" select="$number_of_pages - 1"/>
+				<xsl:with-param name="page_number" select="$page_number + 1"/>
+			</xsl:call-template>
+		</xsl:if>
+	</xsl:template>
 </xsl:stylesheet>
