@@ -87,6 +87,8 @@ Fifth Floor, Boston, MA 02110-1301 USA
           <div class="inform">
             <fieldset>
               <legend>
+								<img style="padding-right: 2px; margin-bottom: -3px;"
+									src="{$path_prefix}/s/img/icons/famfamfam/lock_go.png"/>
                 <xsl:value-of select="$my18n/login"/>
               </legend>
               <div class="infldset">

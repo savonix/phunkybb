@@ -77,6 +77,10 @@ Fifth Floor, Boston, MA 02110-1301 USA
 			</strong>
 			</p>
 			<p class="postlink conr">
+				<a href="{$link_prefix}x-topic-rss&amp;forum_basename={$this_forum/forum_basename}&amp;fid={$this_forum/id}&amp;id={$topic_get_by_id/id}">
+					<img src="{//path_prefix}/s/img/icons/famfamfam/feed.png"
+						style="float:right;padding-left:7px;margin-top:-2px;"/>
+				</a>
 				<xsl:value-of select="$topic_get_by_id/subject"/>
         &#160;
         <xsl:if test="/_R_/runtime/group_id=1">
@@ -140,7 +144,6 @@ Fifth Floor, Boston, MA 02110-1301 USA
 				</p>
 			</div>
 		</div>
-
 		<!-- Post loop -->
 		<xsl:for-each select="/_R_/posts_get_by_topic_id/posts_get_by_topic_id">
 			<div id="p{id}" class="blockpost roweven">
