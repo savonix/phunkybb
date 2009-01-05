@@ -165,8 +165,9 @@ Fifth Floor, Boston, MA 02110-1301 USA
             </fieldset>
           </div>
           <p>
-            <span id="register_button" class="button-basic-blue disableSelection" onclick="do_encrypt();">
-              Submit
+            <span id="register_button" class="button-basic-blue disableSelection"
+							onclick="do_encrypt();">
+              <xsl:value-of select="$my18n/submit"/>
             </span>
             <span id="replace" class="interstatus"></span>
             <noscript>

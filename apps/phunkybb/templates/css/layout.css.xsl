@@ -80,6 +80,7 @@ div.linksb, div.postlinksb {
 	border-style: solid;
 	border-width: 1px;
 	padding: .4em;
+	margin-top: 1em;
 }
 #viewprofile dt, #viewprofile dd {
 	padding: 0 3px;

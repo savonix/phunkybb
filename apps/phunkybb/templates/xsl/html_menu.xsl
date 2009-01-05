@@ -32,45 +32,44 @@ Fifth Floor, Boston, MA 02110-1301 USA
         <xsl:with-param name="section_start">main_menu</xsl:with-param>
     </xsl:call-template>
 
-    <div id="main_menu">
-      <div id="brdmenu" class="inbox">
-				<div style="float:right">
-					<xsl:if test="not(/_R_/runtime/username)">
-						<p>You are not logged in.</p>
-					</xsl:if>
-					<xsl:if test="/_R_/runtime/username">
-						Logged in as <b><xsl:value-of select="/_R_/runtime/username"/></b>
-					</xsl:if>
-				</div>
-				<xsl:copy-of select="//extra_menu_items" disable-output-escaping="no"/>
-        <a href="{$link_prefix}index">
-              <xsl:value-of select="$my18n/index"/>
-        </a>
+		<div id="brdmenu" class="inbox">
+			<div style="float:right">
+				<xsl:if test="not(/_R_/runtime/username)">
+					You are not logged in.
+				</xsl:if>
+				<xsl:if test="/_R_/runtime/username">
+					Logged in as <b><xsl:value-of select="/_R_/runtime/username"/></b>
+				</xsl:if>
+			</div>
 
-        <xsl:choose>
-          <xsl:when test="/_R_/runtime/username">
-            <xsl:if test="/_R_/runtime/group_id='1'">
-              <a href="{$link_prefix}admin">
-                <xsl:value-of select="$my18n/administration"/>
-              </a>
-            </xsl:if>
-            <a href="{$link_prefix}profile">Profile</a>
-            <xsl:if test="/_R_/runtime/last_visit_timestamp &lt; //last_post_timestamp">
-              <a href="{$link_prefix}user-read-all">Mark All Messages Read</a>
-            </xsl:if>
-            <a href="{$link_prefix}logout"><xsl:value-of select="$my18n/logout"/></a>
-          </xsl:when>
-          <xsl:otherwise>
-            <a href="{$link_prefix}register">
-              <xsl:value-of select="$my18n/register"/>
-            </a>
-            <a href="{$link_prefix}login">
-              <xsl:value-of select="$my18n/login"/>
-            </a>
-          </xsl:otherwise>
-        </xsl:choose>
-      </div>
-    </div>
+			<xsl:copy-of select="//extra_menu_items" disable-output-escaping="no"/>
+			<a href="{$link_prefix}index">
+					<xsl:value-of select="$my18n/index"/>
+			</a>
+
+			<xsl:choose>
+				<xsl:when test="/_R_/runtime/username">
+					<xsl:if test="/_R_/runtime/group_id='1'">
+						<a href="{$link_prefix}admin">
+							<xsl:value-of select="$my18n/administration"/>
+						</a>
+					</xsl:if>
+					<a href="{$link_prefix}profile">Profile</a>
+					<xsl:if test="/_R_/runtime/last_visit_timestamp &lt; //last_post_timestamp">
+						<a href="{$link_prefix}user-read-all">Mark All Messages Read</a>
+					</xsl:if>
+					<a href="{$link_prefix}logout"><xsl:value-of select="$my18n/logout"/></a>
+				</xsl:when>
+				<xsl:otherwise>
+					<a href="{$link_prefix}register">
+						<xsl:value-of select="$my18n/register"/>
+					</a>
+					<a href="{$link_prefix}login">
+						<xsl:value-of select="$my18n/login"/>
+					</a>
+				</xsl:otherwise>
+			</xsl:choose>
+		</div>
 
     <xsl:call-template name="source_spacer">
         <xsl:with-param name="section_end">main_menu</xsl:with-param>
