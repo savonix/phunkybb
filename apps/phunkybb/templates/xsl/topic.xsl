@@ -147,7 +147,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 		<!-- Post loop -->
 		<xsl:for-each select="/_R_/posts_get_by_topic_id/posts_get_by_topic_id">
 			<div id="p{id}" class="blockpost roweven">
-				<h2>
+				<h2 style="font-size:.8em;">
 					<a href="#post{id}" name="post{id}"><span class="conr">#<xsl:value-of select="id"/></span></a>
 						<a href="#post{id}" name="post{id}">
 							<span class="date">

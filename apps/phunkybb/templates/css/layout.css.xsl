@@ -46,7 +46,7 @@ div.box, .pun td, .pun th, .pun blockquote, div.codebox, div.forminfo, div.block
 }
 
 div.block div.inbox, div.blockmenu div.inbox {
-	padding: 3px 6px;
+	padding: 3px;
 }
 
 
@@ -59,7 +59,7 @@ div.block div.inbox, div.blockmenu div.inbox {
 }
 
 div.blocktable, div.block, div.blockform, div.block2col, #postreview {
-	margin-bottom: 12px;
+	margin-bottom: 2px;
 }
 
 #brdtitle p {
@@ -67,7 +67,7 @@ div.blocktable, div.block, div.blockform, div.block2col, #postreview {
 }
 
 div.linkst {
-	padding: 8px 6px 3px 6px;
+	padding: 6px 4px 1px 4px;
 }
 div.linksb, div.postlinksb {
 	padding: 3px 6px 8px 6px;
@@ -208,9 +208,6 @@ div.postfootleft p, div.postfootright ul, div.postfootright div {
     border-color: red;
 }
 
-#brdheader div.box {
-	border-top-width: 4px
-}
 
 .pun H2 A:link, .pun H2 A:visited, #brdmenu A:link, #brdmenu A:visited {
     padding: 4px;
