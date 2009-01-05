@@ -156,43 +156,37 @@ Fifth Floor, Boston, MA 02110-1301 USA
 						</a>
 				</h2>
 				<div class="box">
-					<div class="inbox">
-						<div class="postleft">
-							<!-- This is where the avatar would go. -->
-							<xsl:if test="not(picture='')">
-								<img width="50" height="50" src="{picture}" alt="{username}'s avatar"/>
-								<br/>
-							</xsl:if>
-							<strong>
-								<a href="{$link_prefix}profile&amp;id={id}">
-									<xsl:value-of select="username"/>
-								</a>
-							</strong>
+					<div class="postleft" style="padding:10px;text-align:center;">
+						<!-- This is where the avatar would go. -->
+						<xsl:if test="not(picture='')">
+							<img width="50" height="50" src="{picture}" alt="{username}'s avatar"/>
+							<br/>
+						</xsl:if>
+						<strong>
+							<a href="{$link_prefix}profile&amp;id={id}">
+								<xsl:value-of select="username"/>
+							</a>
+						</strong>
+					</div>
+					<div class="postmsg" style="min-height: 10em;padding:10px;">
+						<p>
+							<xsl:value-of select="message" disable-output-escaping="yes"/>
+						</p>
+					</div>
+					<hr/>
+					<xsl:if test="//runtime/group_id=1 or poster=/_R_/runtime/username">
+						<div class="postfootright" style="float:right;padding:4px;">
+							<a href="{$link_prefix}post-edit&amp;post_id={id}&amp;topic_id={$topic_get_by_id/id}&amp;fid={/_R_/forum_get_by_id/forum_get_by_id/id}">
+								<xsl:value-of select="$my18n/edit"/>
+							</a>&#160;
+							<a href="{$link_prefix}x-post-delete&amp;post_id={id}"
+								onclick="delete_post({id}); return false;">
+								<xsl:value-of select="$my18n/delete"/>
+							</a>
 						</div>
-						<div class="postright">
-							<div class="postmsg">
-								<p>
-									<xsl:value-of select="message" disable-output-escaping="yes"/>
-								</p>
-								<hr/>
-								<p>
-									<xsl:value-of select="signature" disable-output-escaping="yes"/>
-								</p>
-							</div>
-						</div>
-						<div class="postfootright">
-							<div>
-								<xsl:if test="//runtime/group_id=1 or poster=/_R_/runtime/username">
-									<a href="{$link_prefix}post-edit&amp;post_id={id}&amp;topic_id={$topic_get_by_id/id}&amp;fid={/_R_/forum_get_by_id/forum_get_by_id/id}">
-										<xsl:value-of select="$my18n/edit"/>
-									</a>&#160;
-									<a href="{$link_prefix}x-post-delete&amp;post_id={id}"
-										onclick="delete_post({id}); return false;">
-										<xsl:value-of select="$my18n/delete"/>
-									</a>
-								</xsl:if>
-							</div>
-						</div>
+					</xsl:if>
+					<div class="postfootright" style="padding:4px;">
+						<xsl:value-of select="signature" disable-output-escaping="yes"/>
 					</div>
 				</div>
 			</div>
