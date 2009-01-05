@@ -25,7 +25,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 	<xsl:template name="admin-menu">
 		<xsl:param name="link_prefix"/>
 		<xsl:param name="my18n"/>
-		<div id="adminmenu" class="blockmenu">
+		<div class="blockmenu">
 			<h2>
 				<xsl:value-of select="$my18n/admin_menu"/>
 			</h2>

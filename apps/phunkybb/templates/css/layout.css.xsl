@@ -137,6 +137,9 @@ div.blockform p input {
 #brdmenu li, div.rbox input, div.blockform p input {
 	margin-right: 12px;
 }
+#brdmenu{
+	line-height: 1.8em;
+}
 
 .pun th, .pun td {
 	padding: 4px 6px;
@@ -200,6 +203,9 @@ div.postfootleft p, div.postfootright ul, div.postfootright div {
 	margin-top: .8em;
 }
 
+.blockmenu h2 {
+	margin-top: 0;
+}
 
 .interstatus
 {

@@ -93,9 +93,11 @@ form div.linksb .conr {width: 32em}
 .linkst UL, linksb UL, .postlinksb UL {margin-left: 18em}
 
 
-div.block2col {padding-bottom: 1px}
+div.block2col {
+	padding-bottom: 1px;
+}
 
-div.block2col div.blockform, div.block2col div.block, #viewprofile DD {margin-left: 14em}
+div.block2col div.blockform, div.block2col div.block, #viewprofile dd {margin-left: 14em}
 
 div.blockmenu, #viewprofile dt {
 	float:left;
@@ -103,7 +105,7 @@ div.blockmenu, #viewprofile dt {
 }
 
 
-#viewprofile DL {float: left; width: 100%; overflow: hidden}
+#viewprofile dl {float: left; width: 100%; overflow: hidden}
 
 .pun table {width: 100%}
 
@@ -131,9 +133,6 @@ div.blockmenu, #viewprofile dt {
 #punindex td.tcr span.byuser {display: block}
 
 
-#adminconsole .block2 {
-	margin-top: 12px;
-}
 
 #adminconsole fieldset td {text-align: left; padding: 4px; white-space: normal}
 #adminconsole fieldset th {text-align: left; padding: 4px; white-space: normal}
@@ -141,15 +140,12 @@ div.blockmenu, #viewprofile dt {
 #adminconsole th {width: 15em; font-weight: bold}
 #adminconsole input, #adminconsole select, #adminconsole textarea {margin-bottom: 0; margin-top: 0; font-weight: normal}
 #adminconsole table.aligntop th, #adminconsole table.aligntop td {VERTICAL-align: top}
-#adminconsole table.aligntop th {padding-top: 0.7em}
 #adminconsole td, #adminconsole th {border-style: solid; border-width: 3px 0px 3px 0px}
 #adminconsole p {padding-bottom: 6px}
-#adminconsole .topspace {padding-top: 6px}
 #adminconsole p.submittop, #adminconsole P.submitend {text-align: center}
 #adminconsole th.hidehead {color: #f1f1f1}
 #adminconsole thEAD th {padding-bottom: 0px}
 #adminconsole p.linkactions {font-weight: bold; padding-left: 5px}
-#adminconsole th input, #adminconsole div.fsetsubmit {margin-top: 6px}
 
 
 
