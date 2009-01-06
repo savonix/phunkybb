@@ -218,7 +218,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
                         <xsl:value-of select="$my18n/extra_menu_items"/>
                       </th>
                       <td>
-                        <input type="text" name="form[o_extra_menu_items]" 
+                        <input type="text" name="form[o_extra_menu_items]"
 													value="{//board_config/o_extra_menu_items}" size="45"/>
                       </td>
                     </tr>

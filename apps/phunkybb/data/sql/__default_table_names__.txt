@@ -6,6 +6,7 @@
 <!ELEMENT param      (#PCDATA)>
 <!ATTLIST param array CDATA #IMPLIED>
 <!ATTLIST param name CDATA #IMPLIED>
+<!ATTLIST param node-name-array CDATA #IMPLIED>
 <!ATTLIST param type CDATA #IMPLIED>
 <!ATTLIST param default CDATA #IMPLIED>
 <!ELEMENT sql      (#PCDATA)>
