@@ -108,7 +108,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
                         <input type="text" name="form[o_webmaster_email]" value="{//board_config/o_webmaster_email}"/>
                         <br/>
                         <xsl:value-of select="$my18n/address_all_email_sent_from"/>.
-                                </td>
+											</td>
                     </tr>
                     <tr>
                       <th scope="row">
@@ -211,6 +211,15 @@ Fifth Floor, Boston, MA 02110-1301 USA
                       </th>
                       <td>
                         <input type="text" name="form[o_access_directory]" value="{//board_config/o_access_directory}"/>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">
+                        <xsl:value-of select="$my18n/extra_menu_items"/>
+                      </th>
+                      <td>
+                        <input type="text" name="form[o_extra_menu_items]" 
+													value="{//board_config/o_extra_menu_items}" size="45"/>
                       </td>
                     </tr>
                   </table>

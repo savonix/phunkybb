@@ -25,7 +25,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <query name="topic_delete">
 	<connection>&connection;</connection>
 	<params>
-		<param name="//_post/topic_id" type="text" default="-1"/>
+		<param name="//_post/topic_id" type="integer" default="-1"/>
 	</params>
 	<sql>
   DELETE FROM &prefix;topics WHERE id=?

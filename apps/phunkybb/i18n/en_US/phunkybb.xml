@@ -38,6 +38,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <all_users>All</all_users>
 <author>Author</author>
 <avatar>Avatar</avatar>
+<base_url>Base URL</base_url>
 <board_title>Board title</board_title>
 <by>by</by>
 <cancel>Cancel</cancel>
@@ -65,6 +66,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <email>E-mail</email>
 <environment>Environment</environment>
 <essentials>Essentials</essentials>
+<extra_menu_items>Extra Menu Items</extra_menu_items>
 <features>Features</features>
 <file>File</file>
 <forum>Forum</forum>
