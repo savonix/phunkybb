@@ -45,15 +45,20 @@ Fifth Floor, Boston, MA 02110-1301 USA
 
 				<xsl:for-each select="/_R_/posts_get_by_topic_id/posts_get_by_topic_id">
 					<item>
-						<title></title>
+						<title>
+							<xsl:value-of select="substring(message,0,12)" disable-output-escaping="yes"/>
+						</title>
 						<link>
 							<xsl:value-of select="//o_base_url"/>
-							<xsl:text>index.php?topic&amp;forum_basename=</xsl:text>
+							<xsl:text>index.php?nid=topic&amp;forum_basename=</xsl:text>
 							<xsl:value-of select="$this_forum/forum_basename"/>
 							<xsl:text>&amp;fid=</xsl:text>
 							<xsl:value-of select="$this_forum/id"/>
 							<xsl:text>&amp;id=</xsl:text>
 							<xsl:value-of select="$topic_get_by_id/id"/>
+							<xsl:text>&amp;iterative=100</xsl:text>
+							<xsl:text>#post</xsl:text>
+							<xsl:value-of select="id"/>
 							</link>
 						<description>
 						<xsl:value-of select="message" disable-output-escaping="yes"/>

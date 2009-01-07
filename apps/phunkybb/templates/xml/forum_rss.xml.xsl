@@ -35,11 +35,11 @@ Fifth Floor, Boston, MA 02110-1301 USA
 				<lastBuildDate></lastBuildDate>
 				<docs>http://backend.userland.com/rss2</docs>
 				<generator></generator>
-				<category>Forums</category>
+				<category>Forum</category>
 
 				<xsl:variable name="forum_get_by_id"
 					select="/_R_/forum_get_by_id/forum_get_by_id"/>
-					
+
 				<xsl:for-each select="/_R_/topics_get_by_forum_id/topics_get_by_forum_id">
 					<item>
 						<title><xsl:value-of select="subject"/></title>

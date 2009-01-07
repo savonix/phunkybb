@@ -30,8 +30,11 @@ Fifth Floor, Boston, MA 02110-1301 USA
 
 		<xsl:variable name="forum_get_by_id"
 			select="/_R_/forum_get_by_id/forum_get_by_id"/>
-
 		<div class="linkst">
+			<a href="{$link_prefix}x-forum-rss&amp;fid={$forum_get_by_id/id}">
+				<img src="{//path_prefix}/s/img/icons/famfamfam/feed.png"
+					style="float:right;padding-left:7px;"/>
+			</a>
 			<!--
 			<p class="pagelink conl">
 				<xsl:value-of select="$my18n/pages"/>:
@@ -45,7 +48,6 @@ Fifth Floor, Boston, MA 02110-1301 USA
 					<xsl:with-param name="path_prefix" select="$path_prefix"/>
 					<xsl:with-param name="my18n" select="$my18n"/>
 				</xsl:call-template>
-					
 				<ul class="breadcrumbs">
 					<li>
 						<a href="{$link_prefix}index">
