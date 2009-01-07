@@ -39,22 +39,25 @@ Fifth Floor, Boston, MA 02110-1301 USA
 
 				<xsl:variable name="forum_get_by_id"
 					select="/_R_/forum_get_by_id/forum_get_by_id"/>
-					
+
 				<xsl:for-each select="/_R_/posts_get_all/posts_get_all">
 					<item>
-						<title><xsl:value-of select="substring(message,0,12)"/></title>
+						<title><xsl:value-of select="subject"/></title>
 						<link>
 						<xsl:value-of select="//o_base_url"/>
-						<xsl:text>index.php?topic&amp;basename=</xsl:text>
+						<xsl:text>index.php?nid=topic&amp;forum_basename=</xsl:text>
 						<xsl:value-of select="basename"/>
 						<xsl:text>&amp;fid=</xsl:text>
-						<xsl:value-of select="$forum_get_by_id/id"/>
+						<xsl:value-of select="forum_id"/>
 						<xsl:text>&amp;id=</xsl:text>
-						<xsl:value-of select="id"/>
+						<xsl:value-of select="topic_id"/>
+						<xsl:text>&amp;iterative=100</xsl:text>
+						<xsl:text>#post</xsl:text>
+						<xsl:value-of select="post_id"/>
 						</link>
 						<description><xsl:value-of select="message"/></description>
-						<pubDate></pubDate>
-						<author></author>
+						<pubDate><xsl:value-of select="posted"/></pubDate>
+						<author><xsl:value-of select="username"/></author>
 					</item>
 				</xsl:for-each>
 				</channel>
