@@ -495,12 +495,6 @@
 		<map:xsl src="data/model/phunkybb_database.sql.xsl"/>
 	</map:gate>
 
-
-	<map:gate name="x-forums-rss" content_type="text/xml">
-		<map:query src="data/sql/forums_get_all.xml"/>
-		<map:xsl src="templates/xml/forums_all_rss.xml.xsl"/>
-	</map:gate>
-
 	<map:gate name="x-posts-rss" content_type="text/xml">
 		<map:query src="data/sql/posts_get_all.xml"/>
 		<map:xsl src="templates/xml/posts_all_rss.xml.xsl"/>
