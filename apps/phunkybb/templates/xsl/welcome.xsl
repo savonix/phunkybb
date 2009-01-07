@@ -26,6 +26,13 @@ Fifth Floor, Boston, MA 02110-1301 USA
   <xsl:template name="content">
     <xsl:param name="link_prefix"/>
     <xsl:param name="my18n"/>
+
+		<p class="box" style="padding:10px;">
+			<a href="{$link_prefix}x-posts-rss">
+				<img src="{//path_prefix}/s/img/icons/famfamfam/feed.png"
+					style="float:right;padding-left:7px;margin-top:-2px;"/>
+			</a>
+		</p>
     <xsl:for-each select="/_R_/categories_get_all/categories_get_all[cid=/_R_/forums_get_all/forums_get_all/cid]">
       <xsl:variable name="my_cid" select="cid"/>
       <h2>
