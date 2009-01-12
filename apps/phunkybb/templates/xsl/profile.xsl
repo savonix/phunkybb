@@ -42,6 +42,12 @@ Fifth Floor, Boston, MA 02110-1301 USA
 				</h2>
 				<div class="box">
 					<form id="profile1" method="post">
+						<xsl:if test="//_get/user_id and /_R_/runtime/group_id=1">
+							<input type="hidden" name="user_id" value="{//_get/user_id}"/>
+						</xsl:if>
+						<xsl:if test="not(//_get/user_id) or not(/_R_/runtime/group_id=1)">
+							<input type="hidden" name="user_id" value="{//runtime/user_id}"/>
+						</xsl:if>
 						<div class="inform">
 							<fieldset>
 								<legend>Enter your username and password</legend>
@@ -52,7 +58,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 											<xsl:value-of select="$my18n/username"/>
 										</strong>
 										<br/>
-										<input type="text" name="req_username"
+										<input type="text" name="username"
 												value="{$my_user/username}"/>
 										<br/>
 									</label>

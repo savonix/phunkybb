@@ -304,12 +304,12 @@
 		<map:query src="data/sql/topic_set_num_replies.xml"/>
 	</map:gate>
 
-    <!-- Profile -->
+	<!-- Profile -->
 	<map:gate name="profile" role="phunky_user">
-		<map:if name="//_post">
+		<map:if name="//_post/user_id">
 			<map:true>
 				<map:query src="data/sql/user_update_essentials.xml"/>
-				<map:action type="redirect" params="{//link_prefix}profile"/>
+				<map:action type="redirect" params="{//link_prefix}profile&amp;user_id={//_get/user_id}"/>
 			</map:true>
 			<map:false>
 				<map:query src="data/sql/user_get_profile.xml"/>
