@@ -165,7 +165,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 							<br/>
 						</xsl:if>
 						<strong>
-							<a href="{$link_prefix}profile&amp;id={id}">
+							<a href="{$link_prefix}profile&amp;user_id={user_id}">
 								<xsl:value-of select="username"/>
 							</a>
 						</strong>

@@ -31,7 +31,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 		<param name="//_get/iterative" type="integer" default="10"/>
 	</params>
 	<sql>
-    SELECT DISTINCT u.email,u.picture, u.signature,
+    SELECT DISTINCT u.email,u.picture, u.signature, u.id as user_id,
         p.id, p.poster AS username,
         p.message,
         p.posted
