@@ -37,7 +37,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 
 			<div class="blockform">
 				<h2>
-					<xsl:value-of select="/_R_/runtime/username"/> -
+					<xsl:value-of select="$my_user/username"/> -
 					<xsl:value-of select="$my18n/essentials"/>
 				</h2>
 				<div class="box">
