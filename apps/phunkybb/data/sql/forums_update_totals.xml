@@ -30,6 +30,6 @@ Fifth Floor, Boston, MA 02110-1301 USA
 		<param array="/_R_/forums_get_totals/forums_get_totals/forum_id" type="integer" default="0"/>
 	</params>
 	<sql>
-		UPDATE &prefix;forums SET num_posts = ?, num_topics = ? WHERE id = ?
+	UPDATE &prefix;forums SET num_posts = ?, num_topics = ? WHERE id = ?
 	</sql>
 </query>
