@@ -368,6 +368,7 @@
 
     <!-- REAL ADMIN -->
 	<map:gate name="admin" role="phunky_admin">
+		<map:query src="data/sql/posts_get_number.xml"/>
 		<map:xsl src="templates/xsl/admin.xsl"/>
 	</map:gate>
 	<map:gate name="options" role="phunky_admin">

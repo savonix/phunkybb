@@ -46,6 +46,16 @@ Fifth Floor, Boston, MA 02110-1301 USA
 								<xsl:value-of select="$my18n/copyright"/>
 							</dd>
 						</dl>
+						<table>
+							<tr>
+								<td>
+									<xsl:value-of select="$my18n/no_of_posts"/>
+								</td>
+								<td>
+									<xsl:value-of select="//posts_get_number/no_of_posts"/>
+								</td>
+							</tr>
+						</table>
 					</div>
 				</div>
 			</div>
