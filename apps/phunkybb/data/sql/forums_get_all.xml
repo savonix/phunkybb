@@ -24,7 +24,9 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <!DOCTYPE query SYSTEM "__default_table_names__.txt">
 <query name="forums_get_all">
   <connection>&connection_read;</connection>
-  <params></params>
+  <params>
+    <param name="//runtime/site_id" type="integer" default="0"/>
+	</params>
   <sql>
   SELECT c.id AS cid,
   f.id AS fid, f.forum_name, f.forum_desc, f.forum_basename,
@@ -34,6 +36,8 @@ Fifth Floor, Boston, MA 02110-1301 USA
 
   INNER JOIN &prefix;forums AS f ON c.id=f.cat_id
 
+	WHERE c.site_id=?
+
   ORDER BY c.disp_position, c.id, f.disp_position
-    </sql>
+	</sql>
 </query>

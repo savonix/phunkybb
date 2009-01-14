@@ -26,8 +26,9 @@ Fifth Floor, Boston, MA 02110-1301 USA
   <connection>&connection;</connection>
   <params>
     <param name="//_post/id" type="integer" default="0"/>
+    <param name="//runtime/site_id" type="integer" default="0"/>
   </params>
   <sql>
-  DELETE FROM &prefix;forums WHERE id=?
+  DELETE FROM &prefix;forums WHERE id=? AND site_id=?
   </sql>
 </query>

@@ -27,8 +27,9 @@ Fifth Floor, Boston, MA 02110-1301 USA
   <params>
     <param node-name-array="//form/*" type="text"/>
     <param array="//form/*" type="text" default=""/>
+    <param name="//runtime/site_id" type="integer" default="0"/>
   </params>
   <sql>
-  INSERT INTO &prefix;config (conf_name,conf_value) VALUES (?,?)
+  INSERT INTO &prefix;config (conf_name,conf_value,site_id) VALUES (?,?,?)
   </sql>
 </query>

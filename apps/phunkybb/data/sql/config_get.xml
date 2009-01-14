@@ -24,8 +24,10 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <!DOCTYPE query SYSTEM "__default_table_names__.txt">
 <query name="config_get">
   <connection>&connection_read;</connection>
-  <params></params>
+  <params>
+    <param name="//runtime/site_id" type="integer" default="0"/>
+	</params>
   <sql>
-  SELECT * FROM &prefix;config
+  SELECT * FROM &prefix;config WHERE site_id=?
   </sql>
 </query>

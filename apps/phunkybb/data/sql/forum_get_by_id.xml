@@ -27,11 +27,9 @@ Fifth Floor, Boston, MA 02110-1301 USA
 	<params>
 		<param name="/_R_/_get/fid" type="integer" default="0"/>
 		<param name="/_R_/_get/forum_basename" type="text"/>
+    <param name="//runtime/site_id" type="integer" default="0"/>
 	</params>
 	<sql>
-		SELECT id, forum_name, forum_basename, cat_id, forum_desc
-		FROM &prefix;forums
-		WHERE id=?
-		OR forum_basename=?
+	SELECT * FROM &prefix;forums WHERE (id=? OR forum_basename=?) AND site_id=?
 	</sql>
 </query>

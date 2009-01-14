@@ -61,8 +61,11 @@ if(is_file('../revision')) {
     $svn_revision = file_get_contents('../revision');
 }
 
-
-
+if($_SERVER['HTTP_HOST']=='192.168.8.91') {
+    $site_id=1;
+} elseif($_SERVER['HTTP_HOST']=='dev-891.savonix.com') {
+    $site_id=2;
+}
 $runtime = array(
                 'path_prefix' => $path_prefix,
                 'link_prefix' => $link_prefix,
@@ -79,7 +82,8 @@ $runtime = array(
                 'user_id' => $_SESSION['NX_AUTH']['user_id'],
                 'group_id' => $_SESSION['NX_AUTH']['group_id'],
                 'remote_ip' => $_SERVER['REMOTE_ADDR'],
-                'timestamp' => time()
+                'timestamp' => time(),
+                'site_id' => $site_id
                 );
 
 if($_GET['nid']=="user-read-all") {

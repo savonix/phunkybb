@@ -29,10 +29,11 @@ Fifth Floor, Boston, MA 02110-1301 USA
     <param name="//runtime/username" type="text" default="0"/>
     <param name="//get_last_post_id/id" type="text" default="0"/>
     <param name="//_post/forum_id" type="integer"/>
+    <param name="//runtime/site_id" type="integer" default="0"/>
   </params>
   <sql>
   UPDATE &prefix;forums
-  SET last_post = ?, last_poster = ?, last_post_id = ?
-  WHERE id = ?
+  SET last_post=?, last_poster=?, last_post_id=?
+  WHERE id=? AND site_id=?
   </sql>
 </query>

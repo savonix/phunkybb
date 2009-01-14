@@ -118,6 +118,12 @@ CREATE TABLE <xsl:value-of select="//db_engines/if_not_exists/text"/> <xsl:value
   PRIMARY KEY (tag_id)
 ) <xsl:value-of select="//db_engines/innodb_engine/text"/> <xsl:value-of select="//db_engines/engine_increment_start/text"/> ;
 
+CREATE TABLE <xsl:value-of select="//db_engines/if_not_exists/text"/> <xsl:value-of select="//_get/table_prefix"/>sites (
+  site_id <xsl:value-of select="//db_engines/engine_auto_increment/text"/>,
+  http_host varchar(200) NOT NULL default '',
+  PRIMARY KEY (site_id)
+) <xsl:value-of select="//db_engines/innodb_engine/text"/> <xsl:value-of select="//db_engines/engine_increment_start/text"/> ;
+
 CREATE TABLE <xsl:value-of select="//db_engines/if_not_exists/text"/> <xsl:value-of select="//_get/table_prefix"/>users (
   id <xsl:value-of select="//db_engines/engine_auto_increment/text"/>,
   group_id int(10) NOT NULL default '4',

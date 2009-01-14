@@ -26,8 +26,9 @@ Fifth Floor, Boston, MA 02110-1301 USA
   <connection>&connection;</connection>
   <params>
     <param name="//_post/cat_to_delete" type="integer" default="0"/>
+    <param name="//runtime/site_id" type="integer" default="0"/>
   </params>
   <sql>
-  DELETE FROM &prefix;categories WHERE id=?
+  DELETE FROM &prefix;categories WHERE id=? AND site_id=?
   </sql>
 </query>

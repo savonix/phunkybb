@@ -24,11 +24,10 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <!DOCTYPE query SYSTEM "__default_table_names__.txt">
 <query name="categories_get_all">
   <connection>&connection_read;</connection>
-  <params></params>
+  <params>
+    <param name="//runtime/site_id" type="integer" default="0"/>
+	</params>
   <sql>
-  SELECT c.id AS cid,
-  c.cat_name
-  FROM &prefix;categories AS c
-  ORDER BY c.disp_position, c.id
+  SELECT id AS cid,cat_name FROM &prefix;categories WHERE site_id=? ORDER BY disp_position, id
   </sql>
 </query>
