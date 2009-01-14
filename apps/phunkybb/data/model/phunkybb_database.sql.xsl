@@ -68,7 +68,6 @@ CREATE TABLE <xsl:value-of select="f_not_exists"/> <xsl:value-of select="//_get/
   poster varchar(200) NOT NULL default '',
   poster_id int(10) NOT NULL default '1',
   poster_ip varchar(15) default NULL,
-  poster_email varchar(50) default NULL,
   site_id <xsl:value-of select="//db_engines/integer/text"/> <xsl:value-of select="//db_engines/default_null/text"/>,
   message text,
   hide_smilies <xsl:value-of select="//db_engines/integer/text"/> NOT NULL default '0',
