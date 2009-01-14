@@ -27,6 +27,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 	<params>
 		<param name="//_get/id" type="text" default="-100"/>
 		<param name="//topic_get_by_id/topic_get_by_id/id" type="text" default="0"/>
+    <param name="//runtime/site_id" type="integer" default="0"/>
 		<param name="//_get/start" type="integer" default="0"/>
 		<param name="//_get/iterative" type="integer" default="10"/>
 	</params>
@@ -38,7 +39,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 
     FROM &prefix;posts AS p INNER JOIN &prefix;users AS u ON u.id=p.poster_id
 
-    WHERE (p.topic_id=? OR p.topic_id=?)
+    WHERE (p.topic_id=? OR p.topic_id=?) AND p.site_id=?
 
     ORDER BY p.id
 
