@@ -27,8 +27,9 @@ Fifth Floor, Boston, MA 02110-1301 USA
 	<params>
 		<param name="/_R_/runtime/user_id" type="integer"/>
 		<param name="/_R_/_post/topic_id" type="integer"/>
+    <param name="//runtime/site_id" type="integer" default="0"/>
 	</params>
 	<sql>
-  DELETE FROM &prefix;subscriptions WHERE user_id=? AND topic_id=?
+  DELETE FROM &prefix;subscriptions WHERE user_id=? AND topic_id=? AND site_id=?
 	</sql>
 </query>

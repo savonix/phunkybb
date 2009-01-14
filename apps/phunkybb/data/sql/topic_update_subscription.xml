@@ -27,8 +27,9 @@ Fifth Floor, Boston, MA 02110-1301 USA
 	<params>
 		<param array="/_R_/topic_get_subscriptions/topic_get_subscriptions/user_id" type="integer"/>
 		<param name="/_R_/_post/topic_id" type="integer"/>
+    <param name="//runtime/site_id" type="integer" default="0"/>
 	</params>
 	<sql>
-  UPDATE &prefix;subscriptions SET sent=1 WHERE user_id=? AND topic_id=?
+  UPDATE &prefix;subscriptions SET sent=1 WHERE user_id=? AND topic_id=? AND site_id=?
 	</sql>
 </query>

@@ -27,10 +27,12 @@ Fifth Floor, Boston, MA 02110-1301 USA
 	<params>
     <param name="/_R_/topic_get_by_id/topic_get_by_id/id" type="integer"/>
 		<param name="/_R_/_post/topic_id" type="integer"/>
+    <param name="//runtime/site_id" type="integer" default="0"/>
 	</params>
 	<sql>
   SELECT &prefix;subscriptions.*, &prefix;users.email FROM &prefix;subscriptions, &prefix;users
 	WHERE (&prefix;subscriptions.topic_id=? OR &prefix;subscriptions.topic_id=?)
 	AND &prefix;users.id = &prefix;subscriptions.user_id
+	AND site_id=?
 	</sql>
 </query>
