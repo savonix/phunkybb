@@ -24,8 +24,10 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <!DOCTYPE query SYSTEM "__default_table_names__.txt">
 <query name="posts_get_number">
 	<connection>&connection_read;</connection>
-	<params/>
+	<params>
+    <param name="//runtime/site_id" type="integer" default="0"/>
+	</params>
 	<sql>
-	SELECT COUNT(&prefix;posts.id) AS no_of_posts FROM &prefix;posts
+	SELECT COUNT(&prefix;posts.id) AS no_of_posts FROM &prefix;posts WHERE site_id=?
 	</sql>
 </query>

@@ -27,8 +27,9 @@ Fifth Floor, Boston, MA 02110-1301 USA
 	<params>
 		<param name="clean_message" type="text" default=""/>
 		<param name="//_post/post_id" type="integer" default="0"/>
+    <param name="//runtime/site_id" type="integer" default="0"/>
 	</params>
   <sql>
-  UPDATE &prefix;posts SET message = ? WHERE id = ?
+  UPDATE &prefix;posts SET message=? WHERE id=? AND site_id=?
 	</sql>
 </query>
