@@ -52,12 +52,11 @@ class Nexista_Decrypt_RsaAction extends Nexista_Action
         // openssl rsa -in key.pem -noout -modulus
         // str_replace('Modulus=','',$modulus);
         // put modulus in config.xml defaults
-        
+
         $mpk = Nexista_Path::get($this->params['private_key']);
-        
         $pk = file_get_contents($mpk);
         $my_private_key = openssl_pkey_get_private($pk);
-        
+
         $cipher_text = Nexista_Flow::find($this->params['ciphered_text']);
         if($cipher_text->length === 1)
         {

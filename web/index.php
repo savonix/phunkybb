@@ -4,7 +4,11 @@
 // Where is nexista? This path should be to a folder containing nexista
 // This is the only thing you may need to edit:
 define('NX_PATH_BASE', "/var/www/dev/nexista/");
-
+if($_SERVER['HTTP_HOST']=='192.168.8.91') {
+    $site_id=2;
+} elseif($_SERVER['HTTP_HOST']=='dev-91-gl.savonix.com') {
+    $site_id=1;
+}
 /*
 RewriteCond %{REQUEST_URI} ^/a/dev/phunkybb/
 RewriteCond %{REQUEST_URI} !/a/dev/phunkybb/index.php|.css

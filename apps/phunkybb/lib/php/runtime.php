@@ -61,11 +61,7 @@ if(is_file('../revision')) {
     $svn_revision = file_get_contents('../revision');
 }
 
-if($_SERVER['HTTP_HOST']=='192.168.8.91') {
-    $site_id=1;
-} elseif($_SERVER['HTTP_HOST']=='dev-891.savonix.com') {
-    $site_id=2;
-}
+
 $runtime = array(
                 'path_prefix' => $path_prefix,
                 'link_prefix' => $link_prefix,
