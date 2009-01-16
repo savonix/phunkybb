@@ -24,7 +24,7 @@
 		<map:xml src="data/xml/extra_menu_items.xml"/>
 	</map:prepend>
 
-<!-- SESSIONS -->
+	<!-- SESSIONS -->
 	<map:gate name="register">
 		<map:xsl src="templates/xsl/register.xsl"/>
 	</map:gate>
@@ -366,7 +366,12 @@
 		<map:xsl src="templates/xsl/user_admin.xsl"/>
 	</map:gate>
 
-    <!-- REAL ADMIN -->
+
+	<map:gate name="sites" role="phunky_admin">
+		<map:xsl src="templates/xsl/admin_sites.xsl"/>
+	</map:gate>
+
+	<!-- REAL ADMIN -->
 	<map:gate name="admin" role="phunky_admin">
 		<map:query src="data/sql/posts_get_number.xml"/>
 		<map:xsl src="templates/xsl/admin.xsl"/>
@@ -474,7 +479,6 @@
 		</map:if>
 		<map:xsl src="templates/css/dynamic.css.xsl"/>
 	</map:gate>
-
 
 	<map:gate name="install">
 		<map:xsl src="templates/xsl/install.xsl"/>

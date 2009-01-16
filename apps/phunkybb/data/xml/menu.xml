@@ -31,6 +31,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
   </public_menu>
 
   <admin_menu>
+		<button status="active">sites</button>
 		<button status="active">categories</button>
 		<button status="active">forums</button>
 		<button status="active">users</button>

@@ -152,6 +152,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <show_posts>Show all posts</show_posts>
 <short_description_of_this>A short description of this bulletin board (shown at the top of every page).</short_description_of_this>
 <signature>Signature</signature>
+<sites>Sites</sites>
 <smtp_password>SMTP password</smtp_password>
 <smtp_username>SMTP username</smtp_username>
 <statistics>Statistics</statistics>
