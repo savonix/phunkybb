@@ -33,7 +33,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 		<div class="linkst">
 			<a href="{$link_prefix}x-forum-rss&amp;fid={$forum_get_by_id/id}">
 				<img src="{//path_prefix}/s/img/icons/famfamfam/feed.png"
-					style="float:right;padding-left:7px;"/>
+					style="float:right;padding-left:7px;margin-top:3px;"/>
 			</a>
 			<!--
 			<p class="pagelink conl">
@@ -155,6 +155,10 @@ Fifth Floor, Boston, MA 02110-1301 USA
 			</p>
 			-->
 
+			<a href="{$link_prefix}x-forum-rss&amp;fid={$forum_get_by_id/id}">
+				<img src="{//path_prefix}/s/img/icons/famfamfam/feed.png"
+					style="float:right;padding-left:7px;margin-top:3px;"/>
+			</a>
 				<xsl:call-template name="post_new_topic">
 					<xsl:with-param name="link_prefix" select="$link_prefix"/>
 					<xsl:with-param name="path_prefix" select="$path_prefix"/>
