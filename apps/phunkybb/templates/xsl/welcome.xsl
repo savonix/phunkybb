@@ -108,6 +108,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 												</xsl:if>
 										</xsl:if>
 									</span>
+									by <xsl:value-of select="last_poster"/>
 								</td>
 							</tr>
 						</xsl:for-each>
