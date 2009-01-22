@@ -1,6 +1,6 @@
 <!--
 Program: PhunkyBB
-Component: forums_update.xml
+Component: forums_update_positions.xml
 Copyright: Savonix Corporation
 Author: Albert L. Lash, IV
 License: Gnu Affero Public License version 3
@@ -29,8 +29,6 @@ Fifth Floor, Boston, MA 02110-1301 USA
 		<param array="//_post/fid" type="integer"/>
 	</params>
 	<sql>
-  UPDATE &prefix;forums
-	SET disp_position=?
-	WHERE id=?
+  UPDATE &prefix;forums SET disp_position=? WHERE id=?
 	</sql>
 </query>
