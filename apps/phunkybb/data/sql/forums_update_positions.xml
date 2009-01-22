@@ -22,20 +22,15 @@ or write to the Free Software Foundation, Inc., 51 Franklin Street,
 Fifth Floor, Boston, MA 02110-1301 USA
 -->
 <!DOCTYPE query SYSTEM "__default_table_names__.txt">
-<query name="forum_update">
+<query name="forums_update_positions" loop="//_post/disp_position">
 	<connection>&connection;</connection>
 	<params>
-		<param name="//_post/cat_id" type="integer"/>
-		<param name="//_post/forum_name" type="text"/>
-		<param name="//_post/forum_basename" type="text"/>
-		<param name="//_post/forum_desc" type="text"/>
-		<param name="//_post/disp_position" type="integer"/>
-		<param name="//_post/fid" type="integer"/>
-    <param name="//runtime/site_id" type="integer" default="0"/>
+		<param array="//_post/disp_position" type="integer"/>
+		<param array="//_post/fid" type="integer"/>
 	</params>
 	<sql>
   UPDATE &prefix;forums
-	SET cat_id=?, forum_name=?, forum_basename=?, forum_desc=?, disp_position=?
-	WHERE id=? AND site_id=?
+	SET disp_position=?
+	WHERE id=?
 	</sql>
 </query>

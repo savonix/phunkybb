@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
 <map:sitemap xmlns:map="http://www.nexista.org/sitemap">
 	<map:prepend>
+		<map:script src="lib/php/runtime.php"/>
 		<map:if name="/_R_/_post">
 			<map:true>
 				<map:query src="data/sql/forums_get_all.xml"/>
@@ -20,7 +21,6 @@
 				<map:perl src="lib/perl/config_build.pl"/>
 			</map:false>
 		</map:if>
-		<map:script src="lib/php/runtime.php"/>
 		<map:xml src="data/xml/extra_menu_items.xml"/>
 	</map:prepend>
 
@@ -144,7 +144,7 @@
 	<map:gate name="x-login" cache="0" content_type="text/xml">
 		<map:action type="header" params="Content-Type,text/xml"/>
 		<map:perl src="lib/perl/decrypt_rsa.pl"/>
-		<map:plugin type="decrypt_rsa" params="{//defaults/my_private_key},//_post/password"/>
+		<map:plugin type="decrypt_rsa" params="{//defaults/private_key},//_post/password"/>
 		<map:plugin type="hash" params="sha1,//_post/password"/>
 		<map:query src="data/sql/user_login.xml"/>
 		<map:if name="/_R_/user_login/user_login">
@@ -403,6 +403,10 @@
 						<map:query src="data/sql/category_delete.xml"/>
 						<map:action type="redirect" params="{//link_prefix}categories"/>
 					</map:case>
+					<map:case value="update_cats">
+						<map:query src="data/sql/categories_update.xml"/>
+						<map:action type="redirect" params="{//link_prefix}categories"/>
+					</map:case>
 					<map:default></map:default>
 				</map:switch>
 			</map:true>
@@ -421,6 +425,12 @@
 		<map:if name="//_post/add_forum">
 			<map:true>
 				<map:query src="data/sql/forum_create.xml"/>
+				<map:action type="redirect" params="{//link_prefix}forums"/>
+			</map:true>
+		</map:if>
+		<map:if name="//_post">
+			<map:true>
+				<map:query src="data/sql/forums_update_positions.xml"/>
 				<map:action type="redirect" params="{//link_prefix}forums"/>
 			</map:true>
 		</map:if>

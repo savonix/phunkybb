@@ -77,7 +77,10 @@ Fifth Floor, Boston, MA 02110-1301 USA
                   </tr>
                 </table>
               </div>
-                <xsl:value-of select="$my18n/edit_categories"/>
+							</form>
+							<form method="post" class="inform">
+							<input type="hidden" name="action" value="update_cats"/>
+							<xsl:value-of select="$my18n/edit_categories"/>
               <div class="infldset">
                 <table id="categoryedit" cellspacing="0">
                   <thead>
@@ -93,14 +96,16 @@ Fifth Floor, Boston, MA 02110-1301 USA
                   </thead>
                   <tbody>
                     <xsl:for-each select="/_R_/categories_get_all/categories_get_all">
+											<input type="hidden" name="cid[]"
+												value="{cid}" size="3" maxlength="3"/>
                       <tr>
                         <td>
-                          <input type="text" name="cat_name[0]"
+                          <input type="text" name="cat_name[]"
 	                          value="{cat_name}" size="35" maxlength="80"/>
                         </td>
                         <td>
-                          <input type="text" name="cat_order[0]"
-                          	value="0" size="3" maxlength="3"/>
+                          <input type="text" name="disp_position[]"
+                          	value="{disp_position}" size="3" maxlength="3"/>
                         </td>
                         <td>
                           <a href="{$link_prefix}categories&amp;action=del_cat&amp;category_id={cid}"

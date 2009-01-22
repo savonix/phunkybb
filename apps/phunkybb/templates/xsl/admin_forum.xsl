@@ -127,7 +127,8 @@ Fifth Floor, Boston, MA 02110-1301 USA
                           </th>
                           <td>
                             <xsl:value-of select="$my18n/position"/>
-                            <input type="text" name="position[3]" size="3" value="0"/>
+                            <input type="hidden" name="fid[]" size="3" value="{fid}"/>
+                            <input type="text" name="disp_position[]" size="3" value="{disp_position}"/>
                             &#160;<strong><xsl:value-of select="forum_name"/>
                             </strong>
                           </td>

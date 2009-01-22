@@ -38,7 +38,7 @@ RewriteRule ^/a/dev/phunkybb/(\w+)/(\w+)/ /a/dev/phunkybb/index.php?nxrw_path=/a
 
 $defaults = Nexista_Config::getSection("./defaults");
 Nexista_Flow::add("defaults",$defaults);
-
+//print_r($defaults);
 $path = $_SERVER['SCRIPT_NAME'];
 if ($_GET['nxrw_path']) {
     $path = $_GET['nxrw_path'];
@@ -61,7 +61,7 @@ if(is_file('../revision')) {
     $svn_revision = file_get_contents('../revision');
 }
 
-
+$site_id = 1;
 $runtime = array(
                 'path_prefix' => $path_prefix,
                 'link_prefix' => $link_prefix,
