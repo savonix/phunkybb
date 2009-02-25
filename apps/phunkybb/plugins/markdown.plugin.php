@@ -43,10 +43,13 @@ class Nexista_MarkdownAction extends Nexista_Action
     protected  function main()
     {
         include_once "markdown.php";
-		$mytext   = Nexista_Flow::getByPath($this->params['text']);
-        $new_text = Markdown($my_text);
-		$name     = $this->params['name'];
-        Nexista_Flow::add($name, $new_text);
+        $xpath = $this->params['text'];
+        $node = Nexista_Flow::find($xpath);
+
+        foreach($node as $item) {
+            $item->nodeValue = Markdown($item->nodeValue);
+        }
+        
         return true;
 
     }
