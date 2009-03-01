@@ -23,12 +23,13 @@ Fifth Floor, Boston, MA 02110-1301 USA
 -->
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 <xsl:output
-  method="html"
+  method="xml"
   indent="yes"
   encoding="UTF-8"
   omit-xml-declaration="yes"
-  doctype-public="-//W3C//DTD HTML 4.01 Transitional//EN"
-  doctype-system="http://www.w3.org/TR/html4/loose.dtd"/>
+	doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"
+	doctype-public="-//W3C//DTD XHTML 1.0 Transitional//EN" />
+
 
 <xsl:template match="/">
 
@@ -67,12 +68,8 @@ Fifth Floor, Boston, MA 02110-1301 USA
 			<xsl:if test="//o_google_analytics_code">
 
 
-			<script type="text/javascript">
-			<![CDATA[
-			var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-			document.write("\<script src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'>\<\/script>" );
-			]]>
-			</script>
+
+			<script src="http://www.google-analytics.com/ga.js" type="text/javascript"></script>
 			<script type="text/javascript">
 			var pageTracker = _gat._getTracker("<xsl:value-of select="//o_google_analytics_code"/>");
 			pageTracker._initData();
