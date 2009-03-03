@@ -43,11 +43,11 @@ div.inew {
   color: #333
 }
 
-.pun h2 A:hover, #brdmenu A:hover {
+.pun h2 a:hover, #brdmenu a:hover {
 	color: #FFF;
 }
 
-.pun h2 A:link, .pun h2 A:visited, #brdmenu A:link, #brdmenu A:visited {
+.pun h2 a:link, .pun h2 a:visited, #brdmenu a:link, #brdmenu a:visited {
     color: #FFF;
 }
 

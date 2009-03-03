@@ -72,7 +72,7 @@ div.linkst {
 div.linksb, div.postlinksb {
 	padding: 3px 6px 8px 6px;
 }
-#brdwelcome, #brdfooter DL A, div.blockmenu li, div.rbox input  {
+#brdwelcome, #brdfooter dl a, div.blockmenu li, div.rbox input  {
 	line-height: 1.4em;
 }
 
@@ -216,7 +216,7 @@ div.postfootleft p, div.postfootright ul, div.postfootright div {
 }
 
 
-.pun H2 A:link, .pun H2 A:visited, #brdmenu A:link, #brdmenu A:visited {
+.pun h2 a:link, .pun h2 a:visited, #brdmenu a:link, #brdmenu a:visited {
     padding: 4px;
 }
 
