@@ -81,16 +81,18 @@ Fifth Floor, Boston, MA 02110-1301 USA
       </h2>
 
       <div class="box">
-        <form id="mlogin" name="mlogin" method="post" action="{$link_prefix}login"
-            onSubmit="do_encrypt(); return false;">
-          <input type="hidden" name="id_rsa_pub" value=""/>
-          <input type="hidden" name="e" value=""/>
-          <input type="hidden" name="my_tz_offset" value=""/>
+        <form id="mlogin" method="post" action="{$link_prefix}login"
+            onsubmit="do_encrypt(); return false;">
+					<fieldset>
+						<input type="hidden" name="id_rsa_pub" value=""/>
+						<input type="hidden" name="e" value=""/>
+						<input type="hidden" name="my_tz_offset" value=""/>
+					</fieldset>
           <div class="inform">
             <fieldset>
               <legend>
 								<img style="padding-right: 2px; margin-bottom: -3px;"
-									src="{$path_prefix}/s/img/icons/famfamfam/lock_go.png"/>
+									src="{$path_prefix}/s/img/icons/famfamfam/lock_go.png" alt="Lock"/>
                 <xsl:value-of select="$my18n/login"/>
               </legend>
               <div class="infldset">
@@ -115,10 +117,10 @@ Fifth Floor, Boston, MA 02110-1301 USA
                 <p>
                   <a href="{$link_prefix}register">
                     <xsl:value-of select="$my18n/not_registered_yet"/>?</a>
-                  <div id="failure">
-                    <a href="{$link_prefix}password-forgot">Forgotten your password?</a>
-                  </div>
                 </p>
+								<div id="failure">
+									<a href="{$link_prefix}password-forgot">Forgotten your password?</a>
+								</div>
               </div>
             </fieldset>
           </div>
@@ -129,9 +131,9 @@ Fifth Floor, Boston, MA 02110-1301 USA
             </span>
             <span id="replace" class="interstatus"></span>
             <noscript>
-              <span id="replace" class="interstatus">
+              <p><span class="interstatus">
                 Javascript must be enabled to log in.
-              </span>
+              </span></p>
             </noscript>
             <input type="submit" style="visibility: hidden;"/>
           </p>

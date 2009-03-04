@@ -34,7 +34,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
     <script type="text/javascript" src="{$path_prefix}/s/js/rsa/prng4.js"></script>
     <script type="text/javascript" src="{$path_prefix}/s/js/rsa/rng.js"></script>
     <script type="text/javascript" src="{$path_prefix}/s/js/rsa/base64.js"></script>
-    <script language="javascript">
+    <script type="text/javascript">
     function initValidation()
     {
         var objForm = document.forms["register"];
@@ -90,9 +90,12 @@ Fifth Floor, Boston, MA 02110-1301 USA
         <xsl:value-of select="$my18n/register"/>
       </h2>
       <div class="box">
-        <form id="register" name="register" method="post" onSubmit="do_encrypt(); return false;">
+        <form id="register" method="post" onsubmit="do_encrypt(); return false;"
+					action="{$link_prefix}nid=register">
+					<fieldset>
           <input type="hidden" name="id_rsa_pub" value=""/>
           <input type="hidden" name="e" value=""/>
+					</fieldset>
           <div class="inform">
             <div class="forminfo">
               <h3>
@@ -173,15 +176,15 @@ Fifth Floor, Boston, MA 02110-1301 USA
             </span>
             <span id="replace" class="interstatus"></span>
             <noscript>
-              <span id="replace" class="interstatus">
+              <p><span class="interstatus">
                 Javascript must be enabled to register.
-              </span>
+              </span></p>
             </noscript>
           </p>
         </form>
       </div>
     </div>
-    <script language="javascript">
+    <script type="text/javascript">
     rng_seed_time();
 		</script>
   </xsl:template>
