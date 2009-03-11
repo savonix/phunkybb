@@ -31,7 +31,9 @@ Fifth Floor, Boston, MA 02110-1301 USA
     <param name="//runtime/site_id" type="integer" default="0"/>
   </params>
   <sql>
-  SELECT &prefix;topics.*, &prefix;topics.basename as link FROM &prefix;topics, &prefix;forums
+  SELECT &prefix;topics.*, &prefix;topics.basename as link, REPLACE(LOWER(subject),' ','_') as link_test
+
+  FROM &prefix;topics, &prefix;forums
 
   WHERE ((&prefix;topics.forum_id=? AND &prefix;forums.id=&prefix;topics.forum_id)
 	OR
