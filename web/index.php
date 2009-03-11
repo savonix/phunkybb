@@ -3,11 +3,20 @@
 ini_set('display_errors',true);
 error_reporting(E_ALL ^ E_NOTICE);
 
+// MSIE won't work with application/xhtml+xml
 ini_set('default_mimetype','application/xhtml+xml');
+//ini_set('default_mimetype','text/html');
+
 
 // Where is nexista? This path should be to a folder containing nexista
 // This is the only thing you may need to edit:
-define('NX_PATH_BASE', "/var/www/dev/nexista/");
+if(file_exists("../nexista/")) {
+    define('NX_PATH_BASE', "../nexista/");
+}
+if (file_exists("../../nexista/")) {
+    define('NX_PATH_BASE', "../../nexista/");
+}
+// Very bad hack
 if($_SERVER['HTTP_HOST']=='192.168.8.91') {
     $site_id=2;
 } elseif($_SERVER['HTTP_HOST']=='dev-91-gl.savonix.com') {
