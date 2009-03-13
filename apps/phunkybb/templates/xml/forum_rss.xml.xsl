@@ -45,7 +45,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 						<title><xsl:value-of select="subject"/></title>
 						<link>
 						<xsl:value-of select="//o_base_url"/>
-						<xsl:text>index.php?nid=topic&amp;basename=</xsl:text>
+						<xsl:text>/index.php?nid=topic&amp;basename=</xsl:text>
 						<xsl:value-of select="basename"/>
 						<xsl:text>&amp;fid=</xsl:text>
 						<xsl:value-of select="forum_id"/>
