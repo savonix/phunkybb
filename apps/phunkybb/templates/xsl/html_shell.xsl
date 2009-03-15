@@ -21,7 +21,7 @@ along with this program; if not, see http://www.gnu.org/licenses
 or write to the Free Software Foundation, Inc., 51 Franklin Street,
 Fifth Floor, Boston, MA 02110-1301 USA
 -->
-<xsl:stylesheet version="1.0" 
+<xsl:stylesheet version="1.0"
 	xmlns="http://www.w3.org/1999/xhtml"
   xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 	<xsl:output method="xml"
@@ -43,7 +43,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
       <xsl:with-param name="link_prefix" select="$link_prefix"/>
       <xsl:with-param name="path_prefix" select="$path_prefix"/>
     </xsl:call-template>
-    <body>
+    <body onload="sh_highlightDocument(); getDates();">
 
       <xsl:for-each select="/_R_/pre_body_content">
         <xsl:sort select="priority"/>
