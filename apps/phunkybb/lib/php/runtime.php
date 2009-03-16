@@ -1,5 +1,5 @@
 <?php
-/*
+/* <!--
 Program: PhunkyBB
 Component: runtime.php
 Copyright: Savonix Corporation
@@ -20,7 +20,7 @@ GNU Affero General Public License for more details.
 You should have received a copy of the GNU Affero General Public License
 along with this program; if not, see http://www.gnu.org/licenses
 or write to the Free Software Foundation, Inc., 51 Franklin Street,
-Fifth Floor, Boston, MA 02110-1301 USA
+Fifth Floor, Boston, MA 02110-1301 USA -->
 */
 
 /*
@@ -63,24 +63,24 @@ if(is_file('../revision')) {
 
 $site_id = 1;
 $runtime = array(
-                'path_prefix' => $path_prefix,
-                'link_prefix' => $link_prefix,
-                'mod_rewrite' => 'true',
-                'svn_revision' => $svn_revision,
-                'utcdate' => gmdate('Y-m-d H:i:s'),
-                'debug' => 1,
-                'incr' => 10,
-                'user_timezone_offset'=> $tz_offset,
-                'user_time_format' => "r",
-                'username' => $_SESSION['NX_AUTH']['username'],
-                'last_visit' => $_SESSION['NX_AUTH']['last_visit'],
-                'last_visit_timestamp' => $_SESSION['NX_AUTH']['last_visit_timestamp'],
-                'user_id' => $_SESSION['NX_AUTH']['user_id'],
-                'group_id' => $_SESSION['NX_AUTH']['group_id'],
-                'remote_ip' => $_SERVER['REMOTE_ADDR'],
-                'timestamp' => time(),
-                'site_id' => $site_id
-                );
+    'path_prefix' => $path_prefix,
+    'link_prefix' => $link_prefix,
+    'mod_rewrite' => 'true',
+    'svn_revision' => $svn_revision,
+    'utcdate' => gmdate('Y-m-d H:i:s'),
+    'debug' => 1,
+    'incr' => 10,
+    'user_timezone_offset'=> $tz_offset,
+    'user_time_format' => "r",
+    'username' => $_SESSION['NX_AUTH']['username'],
+    'last_visit' => $_SESSION['NX_AUTH']['last_visit'],
+    'last_visit_timestamp' => $_SESSION['NX_AUTH']['last_visit_timestamp'],
+    'user_id' => $_SESSION['NX_AUTH']['user_id'],
+    'group_id' => $_SESSION['NX_AUTH']['group_id'],
+    'remote_ip' => $_SERVER['REMOTE_ADDR'],
+    'timestamp' => time(),
+    'site_id' => $site_id
+    );
 
 if($_GET['nid']=="user-read-all") {
     $auth = &new Nexista_Auth();
