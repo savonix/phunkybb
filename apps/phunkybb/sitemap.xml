@@ -369,6 +369,7 @@
 
 
 	<map:gate name="sites" role="phunky_admin">
+		<map:query src="data/sql/sites_get_all.xml"/>
 		<map:xsl src="templates/xsl/admin_sites.xsl"/>
 	</map:gate>
 
