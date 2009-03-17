@@ -103,9 +103,13 @@ p.multidelete {
 
 
 div.postmsg p {
+	margin:10px; min-height:8em;
 	padding: 0;
 }
 
+div.postmsgsignature {
+	padding:10px;
+}
 
 div.blockform form, div.fakeform {
 	padding: 20px 20px 15px 20px;
@@ -153,7 +157,7 @@ div.postleft dl, div.postright {
 	padding: 6px;
 }
 
-div.postsignature, div.postmsg P.postedit {
+div.postmsg p.postedit {
 	padding-top: 15px;
 }
 

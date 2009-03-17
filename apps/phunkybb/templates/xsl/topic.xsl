@@ -44,19 +44,23 @@ Fifth Floor, Boston, MA 02110-1301 USA
 				},
 				function (data){
 				});
-				myDiv = document.getElementById("p"+post_id);
-				myDiv.innerHTML = "";
+				$("#p"+post_id).hide("normal",function() {$("#p"+post_id).remove();});
+
 				}
 		}
 		function delete_topic(topic_id) {
 				if(confirm('Are you sure?')){
-				$.post("<xsl:value-of select="$link_prefix"/>x-topic-delete&amp;topic_id="+topic_id,
-				{
+					$.ajax(
+					{
+					type: "POST",
+					url: "<xsl:value-of select="$link_prefix"/>x-topic-delete&amp;topic_id="+topic_id,
+					data: {
 						'topic_id': topic_id
-				},
-				function (data){
-						window.location ='<xsl:value-of select="$link_prefix"/>welcome';
-				});
+						},
+						complete: function () {
+							location.href="<xsl:value-of select="$link_prefix"/>index";
+						}
+					});
 				}
 		}
 		</script>
@@ -86,7 +90,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 				<xsl:value-of select="$topic_get_by_id/subject"/>
         &#160;
         <xsl:if test="/_R_/runtime/group_id=1">
-          <a href="{$link_prefix}topic-delete&amp;topic_id={$topic_get_by_id/id}&amp;fid={/_R_/forum_get_by_id/forum_get_by_id/id}"
+          <a href="{$link_prefix}x-topic-delete&amp;topic_id={$topic_get_by_id/id}&amp;fid={/_R_/forum_get_by_id/forum_get_by_id/id}"
             onclick="delete_topic({$topic_get_by_id/id}); return false;">
             Delete
           </a>
@@ -172,7 +176,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 							</a>
 						</strong>
 					</div>
-					<div class="postmsg" style="margin:10px; min-height:10em;">
+					<div class="postmsg">
 						<p>
 							<xsl:value-of select="message" disable-output-escaping="yes"/>
 						</p>
@@ -189,7 +193,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 							</a>
 						</xsl:if>
 						</div>
-						<div class="postmsg" style="padding:10px;">
+						<div class="postmsgsignature">
 						<xsl:value-of select="signature" disable-output-escaping="yes"/>
 						</div>
 						<div style="clear:both;"></div>
