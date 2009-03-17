@@ -35,10 +35,12 @@ Fifth Floor, Boston, MA 02110-1301 USA
 				<xsl:with-param name="my18n" select="$my18n"/>
 			</xsl:call-template>
 
-
-			<div class="block">
-        <div class="box">
-				slkdjflkj
+			<div class="blockform">
+				<h2>Sites</h2>
+				<div class="box">
+					<form method="post" class="inform">
+					This page is for the new capability to host multiple sites in a single database.
+					</form>
 				</div>
 			</div>
 		</div>
