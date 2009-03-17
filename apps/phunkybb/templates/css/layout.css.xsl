@@ -72,7 +72,7 @@ div.linkst {
 div.linksb, div.postlinksb {
 	padding: 3px 6px 8px 6px;
 }
-#brdwelcome, #brdfooter dl a, div.blockmenu li, div.rbox input  {
+#brdwelcome, div.blockmenu li, div.rbox input  {
 	line-height: 1.4em;
 }
 
@@ -80,7 +80,7 @@ div.linksb, div.postlinksb {
 	border-style: solid;
 	border-width: 1px;
 	padding: .4em;
-	margin-top: 1em;
+	margin-top: 10px;
 }
 #viewprofile dt, #viewprofile dd {
 	padding: 0 3px;
