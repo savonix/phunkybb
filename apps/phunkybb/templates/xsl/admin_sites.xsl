@@ -40,6 +40,9 @@ Fifth Floor, Boston, MA 02110-1301 USA
 				<div class="box">
 					<form method="post" class="inform">
 					This page is for the new capability to host multiple sites in a single database.
+					<xsl:for-each select="//sites_get_all">
+					<xsl:value-of select="http_host"/>
+					</xsl:for-each>
 					</form>
 				</div>
 			</div>
