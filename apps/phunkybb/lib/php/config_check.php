@@ -1,5 +1,5 @@
 <?php
-/*
+/* <!--
 Program: PhunkyBB
 Component: config_check.php
 Copyright: Savonix Corporation
@@ -19,11 +19,11 @@ GNU Affero General Public License for more details.
 
 You should have received a copy of the GNU Affero General Public License
 along with this program; if not, see http://www.gnu.org/licenses
-or write to the Free Software Foundation,Inc., 51 Franklin Street,
-Fifth Floor, Boston, MA 02110-1301  USA
-*/
+or write to the Free Software Foundation, Inc., 51 Franklin Street,
+Fifth Floor, Boston, MA 02110-1301 USA
+--> */
 
-/* This isn't working too well. */
+/* This install feature isn't working too well. */
 //$pre_install_check = PROJECT_ROOT."/config/delete_this_after_install";
 //if(is_file($pre_install_check) && $_GET['nid']!='install') {
 //   header("Location: index.php?nid=install");
