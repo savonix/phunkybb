@@ -22,8 +22,7 @@ or write to the Free Software Foundation, Inc., 51 Franklin Street,
 Fifth Floor, Boston, MA 02110-1301 USA
 -->
 <xsl:stylesheet version="1.0"
-	xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-	xmlns="http://www.w3.org/1999/xhtml">
+	xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
   <xsl:template name="head">
     <xsl:param name="link_prefix"/>
     <xsl:param name="path_prefix"/>
@@ -62,6 +61,10 @@ Fifth Floor, Boston, MA 02110-1301 USA
 					getDates();
 				});
 			</script>
+			<xsl:if test="//_get/nid='users'">
+      <script type="text/javascript" src="{$path_prefix}s/pkgs/tablesorter/jquery.tablesorter.js"></script>
+      <script type="text/javascript" src="{$path_prefix}s/pkgs/tablesorter/addons/pager/jquery.tablesorter.pager.js"></script>
+			</xsl:if>
 			<xsl:if test="//_get/nid='topic'">
 				<link rel="stylesheet" type="text/css" href="{$path_prefix}/s/pkgs/shjs-0.6/sh_style.css"/>
 				<script type="text/javascript" src="{$path_prefix}s/pkgs/shjs-0.6/sh_main.js"></script>

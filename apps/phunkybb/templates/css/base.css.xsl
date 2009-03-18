@@ -24,22 +24,16 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" >
 <xsl:output method="text" indent="yes" encoding="UTF-8" omit-xml-declaration="yes"/>
 <xsl:template name="base">
-body {
-    font-family: sans-serif;
-    text-align: center;
-}
-
-iframe {
-overflow-x: hidden;
-overflow-y: hidden;
-}
 
 
 body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, p, blockquote, th, td {
     margin: 0;
     padding: 0;
 }
-
+iframe {
+overflow-x: hidden;
+overflow-y: hidden;
+}
 ul,ol {
     list-style:none;
 }

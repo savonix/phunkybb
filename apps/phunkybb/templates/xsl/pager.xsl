@@ -22,8 +22,7 @@ or write to the Free Software Foundation, Inc., 51 Franklin Street,
 Fifth Floor, Boston, MA 02110-1301 USA
 -->
 <xsl:stylesheet version="1.0"
-	xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-	xmlns="http://www.w3.org/1999/xhtml">
+	xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 <!-- This template is used by pages which use the tablesorter and the table paginator -->
   <xsl:template name="jquery-setup">
     <xsl:param name="link_prefix"/>
@@ -51,8 +50,6 @@ Fifth Floor, Boston, MA 02110-1301 USA
 										size: 16
 								}
 						);
-
-						document.getElementById('<xsl:value-of select="$my-table-div"/>').style.visibility = 'visible';
 				}
 		);
 		</script>

@@ -173,7 +173,7 @@
 	<map:gate name="redirect2">
 		<map:action type="redirect" params="/aortica?nid=index"/>
 	</map:gate>
-	<map:gate name="index" cache="300" content_type="application/xhtml+xml" cache_control="no-cache, max-age=20, must-revalidate">
+	<map:gate name="index" cache="300" cache_control="no-cache, max-age=20, must-revalidate">
 		<map:query src="data/sql/categories_get_all.xml"/>
 		<map:query src="data/sql/forums_get_all.xml"/>
 		<map:action type="datetime" params="/_R_/forums_get_all/forums_get_all/last_post,unix_epoch,{/_R_/runtime/user_time_format},{/_R_/runtime/user_timezone_offset}"/>
