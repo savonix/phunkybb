@@ -51,20 +51,30 @@ Fifth Floor, Boston, MA 02110-1301 USA
         </xsl:if>
       </title>
 			<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/combo?2.7.0/build/reset/reset-min.css"/>
-			<link rel="stylesheet" type="text/css" href="{$path_prefix}/s/pkgs/shjs-0.6/sh_style.css"/>
+
       <link rel="stylesheet" type="text/css" href="{$link_prefix}dynamic-css"/>
-      <script type="text/javascript" src="{$path_prefix}s/js/jquery/jquery.js"></script>
-      <script type="text/javascript" src="{$path_prefix}s/js/jquery/plugins/jquery.disabletextselect.js"></script>
-      <script type="text/javascript" src="{$path_prefix}s/js/jquery/plugins/jquery.tablesorter.min.js"></script>
-      <script type="text/javascript" src="{$path_prefix}s/js/jquery/plugins/jquery.tablesorter.pager.js"></script>
+      <script type="text/javascript" src="{$path_prefix}s/js/jquery/jquery-1.3.2.min.js"></script>
+			<script type="text/javascript" src="{$link_prefix}x--dynamic-js"></script>
       <script type="text/javascript" src="{$path_prefix}s/js/jsval.js"></script>
       <script type="text/javascript" src="{$path_prefix}s/js/time/relative_time.js"></script>
-			<script type="text/javascript" src="{$path_prefix}s/pkgs/shjs-0.6/sh_main.js"></script>
-			<script type="text/javascript" src="{$path_prefix}s/pkgs/shjs-0.6/lang/sh_xml.js"></script>
-			<script type="text/javascript" src="{$path_prefix}s/pkgs/shjs-0.6/lang/sh_c.js"></script>
-			<script type="text/javascript" src="{$path_prefix}s/pkgs/shjs-0.6/lang/sh_sh.js"></script>
-			<script type="text/javascript" src="{$path_prefix}s/pkgs/shjs-0.6/lang/sh_php.js"></script>
-
+			<script type="text/javascript">
+				$(document).ready(function() {
+					getDates();
+				});
+			</script>
+			<xsl:if test="//_get/nid='topic'">
+				<link rel="stylesheet" type="text/css" href="{$path_prefix}/s/pkgs/shjs-0.6/sh_style.css"/>
+				<script type="text/javascript" src="{$path_prefix}s/pkgs/shjs-0.6/sh_main.js"></script>
+				<script type="text/javascript" src="{$path_prefix}s/pkgs/shjs-0.6/lang/sh_xml.js"></script>
+				<script type="text/javascript" src="{$path_prefix}s/pkgs/shjs-0.6/lang/sh_c.js"></script>
+				<script type="text/javascript" src="{$path_prefix}s/pkgs/shjs-0.6/lang/sh_sh.js"></script>
+				<script type="text/javascript" src="{$path_prefix}s/pkgs/shjs-0.6/lang/sh_php.js"></script>
+				<script type="text/javascript">
+				$(document).ready(function() {
+					sh_highlightDocument(); 
+				});
+				</script>
+			</xsl:if>
       <xsl:for-each select="/_R_/in_head">
         <xsl:sort select="priority"/>
         <xsl:value-of select="string" disable-output-escaping="yes"/>

@@ -24,24 +24,25 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <xsl:stylesheet version="1.0"
 	xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
 	xmlns="http://www.w3.org/1999/xhtml">
-	<xsl:template name="footer">
-		<xsl:param name="link_prefix"/>
-		<xsl:param name="path_prefix"/>
-		<xsl:param name="my18n"/>
+	<xsl:output method="text" indent="yes" encoding="UTF-8" omit-xml-declaration="yes"/>
+	<xsl:template match="/">
+			<![CDATA[
+			var myfooter = '\
+				<div id="brdfooter"> \
+					<p style="text-align: right;"> \
+						Powered by <a href="http://www.phunkybb.com/blog/" title="Open Source Forums XSL Software">PhunkyBB</a>. \
+					</p> \
+				</div>';
 
-		<xsl:call-template name="source_spacer">
-			<xsl:with-param name="section_start">footer</xsl:with-param>
-		</xsl:call-template>
-			<div id="nofooter"/>
-			<!--
-			<div id="brdfooter">
-				<p style="text-align: right;">
-					Powered by <a href="http://www.phunkybb.com/blog/" title="Open Source Forums XSL Software">PhunkyBB</a>.
-				</p>
-			</div>
-			-->
-		<xsl:call-template name="source_spacer">
-			<xsl:with-param name="section_end">footer</xsl:with-param>
-		</xsl:call-template>
+			var mytitle = '<div id="brdtitle" class="inbox" style="min-height:6em;padding:10px;"><h1><a href="/a/dev/phunkybb/index.php?nid=index">Another Forums</a></h1><span style="line-height:1.9em;">Nothing exciting.</span></div>';
+
+			var mypostbutton = '<div class="button-basic-blue" style="float: right;" onclick="location.href=\'/a/dev/phunkybb/index.php?nid=post&amp;fid=4\';"><a href="/a/dev/phunkybb/index.php?nid=post&amp;fid=4"><img src="/a/dev/phunkybb/s/img/icons/famfamfam/add.png"/>Post new topic</a></div>';
+
+			$(document).ready(function() {
+					$("#notitle").replaceWith(mytitle);
+					$("#nofooter").replaceWith(myfooter);
+					$(".nobutton").replaceWith(mypostbutton);
+			});
+				]]>
 	</xsl:template>
 </xsl:stylesheet>

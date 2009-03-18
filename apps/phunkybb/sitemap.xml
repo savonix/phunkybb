@@ -492,6 +492,10 @@
 		<map:xsl src="templates/css/dynamic.css.xsl"/>
 	</map:gate>
 
+	<map:gate name="x--dynamic-js" cache="0" nosession="true" content_type="application/javascript" cache_control="public, max-age=1, must-revalidate">
+		<map:xsl src="templates/js/html_blocks.js.xsl"/>
+	</map:gate>
+
 	<map:gate name="install">
 		<map:xsl src="templates/xsl/install.xsl"/>
 	</map:gate>
@@ -500,7 +504,7 @@
 			<map:true></map:true>
 			<map:false>
 				<map:set name="admin" value="admin"/>
-                <!-- default password is phunkybb -->
+        <!-- default password is phunkybb -->
 				<map:set name="password" value="f20f7f3c358148d57be1a241e9d7d7199642afbb"/>
 				<map:set name="email" value="email@example.com"/>
 			</map:false>

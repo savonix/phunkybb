@@ -27,6 +27,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
   <xsl:template name="source_spacer">
     <xsl:param name="section_start"></xsl:param>
     <xsl:param name="section_end"></xsl:param>
+		<!--
     <xsl:text>
 </xsl:text>
     <xsl:if test="not($section_end='')">
@@ -42,5 +43,6 @@ Fifth Floor, Boston, MA 02110-1301 USA
     </xsl:if>
     <xsl:text>
 </xsl:text>
+-->
   </xsl:template>
 </xsl:stylesheet>

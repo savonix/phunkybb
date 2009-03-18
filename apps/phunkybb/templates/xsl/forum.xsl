@@ -45,11 +45,8 @@ Fifth Floor, Boston, MA 02110-1301 USA
 				</strong>
 			</p>
 			-->
-				<xsl:call-template name="post_new_topic">
-					<xsl:with-param name="link_prefix" select="$link_prefix"/>
-					<xsl:with-param name="path_prefix" select="$path_prefix"/>
-					<xsl:with-param name="my18n" select="$my18n"/>
-				</xsl:call-template>
+
+				<div class="nobutton"/>
 				<ul class="breadcrumbs">
 					<li>
 						<a href="{$link_prefix}index">
@@ -161,11 +158,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 				<img src="{//path_prefix}/s/img/icons/famfamfam/feed.png"
 					style="float:right;padding-left:7px;margin-top:3px;" alt="RSS"/>
 			</a>
-				<xsl:call-template name="post_new_topic">
-					<xsl:with-param name="link_prefix" select="$link_prefix"/>
-					<xsl:with-param name="path_prefix" select="$path_prefix"/>
-					<xsl:with-param name="my18n" select="$my18n"/>
-				</xsl:call-template>
+				<div class="nobutton"/>
 				<ul class="breadcrumbs">
 					<li>
 						<a href="{$link_prefix}index">

@@ -43,7 +43,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
       <xsl:with-param name="link_prefix" select="$link_prefix"/>
       <xsl:with-param name="path_prefix" select="$path_prefix"/>
     </xsl:call-template>
-    <body onload="sh_highlightDocument(); getDates();">
+    <body>
 
       <xsl:for-each select="/_R_/pre_body_content">
         <xsl:sort select="priority"/>
