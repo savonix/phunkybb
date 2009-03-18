@@ -4,8 +4,8 @@ ini_set('display_errors',true);
 error_reporting(E_ALL ^ E_NOTICE);
 
 // MSIE won't work with application/xhtml+xml
-ini_set('default_mimetype','application/xhtml+xml');
-//ini_set('default_mimetype','text/html');
+//ini_set('default_mimetype','application/xhtml+xml');
+ini_set('default_mimetype','text/html');
 
 
 // Where is nexista? This path should be to a folder containing nexista
