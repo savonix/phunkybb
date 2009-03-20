@@ -56,7 +56,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 						<xsl:value-of select="post_id"/>
 						</link>
 						<description><xsl:value-of select="message"/></description>
-						<pubDate><xsl:value-of select="posted"/></pubDate>
+						<pubDate><xsl:value-of select="posted_datetime"/></pubDate>
 						<author><xsl:value-of select="username"/></author>
 					</item>
 				</xsl:for-each>
