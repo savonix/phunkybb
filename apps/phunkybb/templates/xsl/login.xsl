@@ -28,23 +28,19 @@ Fifth Floor, Boston, MA 02110-1301 USA
     <xsl:param name="link_prefix"/>
     <xsl:param name="path_prefix"/>
     <xsl:param name="my18n"/>
-    <script type="text/javascript" src="{$path_prefix}/s/js/rsa/jsbn.js"></script>
-    <script type="text/javascript" src="{$path_prefix}/s/js/rsa/rsa.js"></script>
-    <script type="text/javascript" src="{$path_prefix}/s/js/rsa/prng4.js"></script>
-    <script type="text/javascript" src="{$path_prefix}/s/js/rsa/rng.js"></script>
-    <script type="text/javascript" src="{$path_prefix}/s/js/rsa/base64.js"></script>
+    <script type="text/javascript" src="{$path_prefix}s/js/rsa/jsbn.js"></script>
+    <script type="text/javascript" src="{$path_prefix}s/js/rsa/rsa.js"></script>
+    <script type="text/javascript" src="{$path_prefix}s/js/rsa/prng4.js"></script>
+    <script type="text/javascript" src="{$path_prefix}s/js/rsa/rng.js"></script>
+		<!--
+		<script type="text/javascript" src="{$path_prefix}/s/js/rsa/base64.js"></script>
+		-->
     <script type="text/javascript">
 		$(document).ready(function()
 		{
 				var myform = document.forms["mlogin"];
 				myform.id_rsa_pub.value = "<xsl:value-of select="/_R_/defaults/modulus"/>";
 				myform.e.value = "10001";
-				var d = new Date();
-				myform.my_tz_offset.value = 0 - d.getTimezoneOffset()/60;
-				//myform.my_tz_offset_debug.value = 0 - d.getTimezoneOffset()/60;
-				//$(function() {
-				//   $('#login_button').disableTextSelect();
-				//});
 		});
 
 		function do_encrypt() {
@@ -56,13 +52,14 @@ Fifth Floor, Boston, MA 02110-1301 USA
 				var myform = document.forms["mlogin"];
 				var rsa = new RSAKey();
 				rsa.setPublic(linebrk(myform.id_rsa_pub.value,64), myform.e.value);
-				var res = linebrk(hex2b64(rsa.encrypt(myform.password.value)),64);
+				//var res = linebrk(hex2b64(rsa.encrypt(myform.password.value)),64);
+				var res = rsa.encrypt(myform.password.value);
 
 				$.post("<xsl:value-of select="$link_prefix"/>x-login",
 				{
 						'username': myform.username.value,
-						'password': res,
-						'my_tz_offset': myform.my_tz_offset.value
+						'encrypted': 'yes',
+						'password': res
 				},
 				function (data){
 						var myResult = $("result",data).text();
@@ -85,7 +82,6 @@ Fifth Floor, Boston, MA 02110-1301 USA
 					<fieldset>
 						<input type="hidden" name="id_rsa_pub" value=""/>
 						<input type="hidden" name="e" value=""/>
-						<input type="hidden" name="my_tz_offset" value=""/>
 					</fieldset>
           <div class="inform">
             <fieldset>
@@ -112,7 +108,6 @@ Fifth Floor, Boston, MA 02110-1301 USA
                   <input type="password" name="password"/>
                   <br/>
                 </label>
-
                 <p>
                   <a href="{$link_prefix}register">
                     <xsl:value-of select="$my18n/not_registered_yet"/>?</a>
