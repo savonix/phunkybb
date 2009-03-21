@@ -63,7 +63,8 @@ class Nexista_Decrypt_RsaAction extends Nexista_Action
             $my_cipher_text = $cipher_text->item(0)->nodeValue;
         }
 
-        $my_cipher_text_bin = base64_decode($my_cipher_text);
+        $my_cipher_text_bin = pack("H*",$my_cipher_text);
+        //$my_cipher_text_bin = base64_decode($my_cipher_text);
 
         if(openssl_private_decrypt($my_cipher_text_bin,&$my_clear_text,$my_private_key))
         {
