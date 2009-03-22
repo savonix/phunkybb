@@ -1,6 +1,6 @@
 <!--
 Program: PhunkyBB
-Component: admin_sites.xsl
+Component: admin_site_edit.xsl
 Copyright: Savonix Corporation
 Author: Albert L. Lash, IV
 License: Gnu Affero Public License version 3
@@ -38,40 +38,8 @@ Fifth Floor, Boston, MA 02110-1301 USA
 				<h2>Sites</h2>
 				<div class="box">
 					<form method="post" class="inform">
-					This page is for the new capability to host multiple sites in a single database.
-          <div style="min-height: 400px; padding: 1em;">
-            <table class="tablesorter" id="users_table">
-              <thead>
-                <tr>
-                  <th>
-                    <xsl:value-of select="$my18n/sites"/>
-                  </th>
-                  <th></th>
-                  <th></th>
-                </tr>
-              </thead>
-              <tbody>
-                <xsl:for-each select="/_R_/sites_get_all/sites_get_all">
-                  <tr>
-                    <td>
-                      <a href="{$link_prefix}site-edit&amp;site_id={site_id}">
-                        <xsl:value-of select="http_host"/>
-                      </a>
-                    </td>
-                    <td>
-                      <a href="{$link_prefix}site-edit&amp;site_id={site_id}">Edit</a>
-                    </td>
-                    <td>
-                      <a href="{$link_prefix}x-site-edit&amp;site_id={site_id}"
-                          onclick="delete_site({site_id}); return false;">Delete</a>
-                    </td>
-                  </tr>
-                </xsl:for-each>
-						</tbody>
-						</table>
-						</div>
+					This page is for editing a site.
 					</form>
-				</div>
 			</div>
 		</div>
 
