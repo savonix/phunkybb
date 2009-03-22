@@ -22,7 +22,7 @@ or write to the Free Software Foundation, Inc., 51 Franklin Street,
 Fifth Floor, Boston, MA 02110-1301 USA
 -->
 <xsl:stylesheet version="1.0"
-	xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+	xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns="http://www.w3.org/1999/xhtml">
   <xsl:template name="head">
     <xsl:param name="link_prefix"/>
     <xsl:param name="path_prefix"/>
@@ -52,39 +52,52 @@ Fifth Floor, Boston, MA 02110-1301 USA
 			<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/combo?2.7.0/build/reset/reset-min.css"/>
 
       <link rel="stylesheet" type="text/css" href="{$link_prefix}dynamic-css"/>
-      <script type="text/javascript" src="{$path_prefix}s/js/jquery/jquery-1.3.2.min.js"></script>
-			<script type="text/javascript" src="{$link_prefix}x--dynamic-js"></script>
-      <script type="text/javascript" src="{$path_prefix}s/js/jsval.js"></script>
-      <script type="text/javascript" src="{$path_prefix}s/js/time/relative_time.js"></script>
+      <script type="text/javascript" src="{$path_prefix}s/js/jquery/jquery-1.3.2.min.js">&#160;</script>
+			<script type="text/javascript" src="{$link_prefix}x--dynamic-js">&#160;</script>
+      <script type="text/javascript" src="{$path_prefix}s/js/jsval.js">&#160;</script>
+      <script type="text/javascript" src="{$path_prefix}s/js/time/relative_time.js">&#160;</script>
 			<script type="text/javascript">
+			<xsl:text>
 				$(document).ready(function() {
 					getDates();
 				});
+			</xsl:text>
 			</script>
 			<xsl:if test="//_get/nid='users'">
-      <script type="text/javascript" src="{$path_prefix}s/pkgs/tablesorter/jquery.tablesorter.js"></script>
-      <script type="text/javascript" src="{$path_prefix}s/pkgs/tablesorter/addons/pager/jquery.tablesorter.pager.js"></script>
+      <script type="text/javascript" src="{$path_prefix}s/pkgs/tablesorter/jquery.tablesorter.js">&#160;</script>
+      <script type="text/javascript" src="{$path_prefix}s/pkgs/tablesorter/addons/pager/jquery.tablesorter.pager.js">&#160;</script>
 			</xsl:if>
 			<xsl:if test="//_get/nid='topic'">
 				<link rel="stylesheet" type="text/css" href="{$path_prefix}/s/pkgs/shjs-0.6/sh_style.css"/>
-				<script type="text/javascript" src="{$path_prefix}s/pkgs/shjs-0.6/sh_main.js"></script>
-				<script type="text/javascript" src="{$path_prefix}s/pkgs/shjs-0.6/lang/sh_xml.js"></script>
-				<script type="text/javascript" src="{$path_prefix}s/pkgs/shjs-0.6/lang/sh_c.js"></script>
-				<script type="text/javascript" src="{$path_prefix}s/pkgs/shjs-0.6/lang/sh_sh.js"></script>
-				<script type="text/javascript" src="{$path_prefix}s/pkgs/shjs-0.6/lang/sh_php.js"></script>
+				<script type="text/javascript" src="{$path_prefix}s/pkgs/shjs-0.6/sh_main.js">&#160;</script>
+				<script type="text/javascript" src="{$path_prefix}s/pkgs/shjs-0.6/lang/sh_xml.js">&#160;</script>
+				<script type="text/javascript" src="{$path_prefix}s/pkgs/shjs-0.6/lang/sh_c.js">&#160;</script>
+				<script type="text/javascript" src="{$path_prefix}s/pkgs/shjs-0.6/lang/sh_sh.js">&#160;</script>
+				<script type="text/javascript" src="{$path_prefix}s/pkgs/shjs-0.6/lang/sh_php.js">&#160;</script>
 				<script type="text/javascript">
 				$(document).ready(function() {
-					sh_highlightDocument(); 
+					sh_highlightDocument();
 				});
 				</script>
-			</xsl:if>
+			</xsl:if><!--
       <xsl:for-each select="/_R_/in_head">
         <xsl:sort select="priority"/>
         <xsl:value-of select="string" disable-output-escaping="yes"/>
       </xsl:for-each>
+			-->
+      <xsl:for-each select="//head_nodes">
+				<xsl:sort select="priority" order="ascending"/>
+				<xsl:apply-templates select="nodes/*"/>
+			</xsl:for-each>
     </head>
     <xsl:call-template name="source_spacer">
       <xsl:with-param name="section_end">head</xsl:with-param>
     </xsl:call-template>
+  </xsl:template>
+   <xsl:template match="script">
+	 	<script type="{@type}" src="{@src}"/>
+  </xsl:template>
+   <xsl:template match="link">
+	 	<link rel="{@rel}" type="{@type}" href="{@href}"/>
   </xsl:template>
 </xsl:stylesheet>

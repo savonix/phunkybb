@@ -22,7 +22,7 @@ or write to the Free Software Foundation, Inc., 51 Franklin Street,
 Fifth Floor, Boston, MA 02110-1301 USA
 -->
 <xsl:stylesheet version="1.0"
-	xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+	xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns="http://www.w3.org/1999/xhtml">
   <xsl:template name="header">
     <xsl:param name="link_prefix"/>
     <xsl:param name="path_prefix"/>
@@ -34,15 +34,6 @@ Fifth Floor, Boston, MA 02110-1301 USA
 
 		<div class="block">
 			<div style="height: 60px; width: 468px; float:right; padding:10px;">
-			<script type="text/javascript">
-			 google_ad_client = "pub-9657495873329253";
-			 //468x60, created 12/4/07
-			 google_ad_slot = "3998548064";
-			 google_ad_width = 468;
-			 google_ad_height = 60;
-			</script>
-			 <script type="text/javascript"
-			 src="http://pagead2.googlesyndication.com/pagead/show_ads.js"/>
 			</div>
 
 			<div class="box">
