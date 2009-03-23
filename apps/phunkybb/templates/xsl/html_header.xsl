@@ -33,8 +33,6 @@ Fifth Floor, Boston, MA 02110-1301 USA
     </xsl:call-template>
 
 		<div class="block">
-			<div style="height: 60px; width: 468px; float:right; padding:10px;">
-			</div>
 
 			<div class="box">
 				<div id="notitle"/>

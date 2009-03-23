@@ -480,7 +480,7 @@
 
 
 	<map:gate name="dynamic-css" cache="600" nosession="true" content_type="text/css" cache_control="public, max-age=600, must-revalidate">
-
+    <map:action type="header" params="content-type,text/css"/>
 		<map:if name="//board_config/o_board_theme">
 			<map:true>
 				<map:xml src="{//board_config/o_board_theme}"/>

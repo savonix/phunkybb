@@ -79,12 +79,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 					sh_highlightDocument();
 				});
 				</script>
-			</xsl:if><!--
-      <xsl:for-each select="/_R_/in_head">
-        <xsl:sort select="priority"/>
-        <xsl:value-of select="string" disable-output-escaping="yes"/>
-      </xsl:for-each>
-			-->
+			</xsl:if>
       <xsl:for-each select="//head_nodes">
 				<xsl:sort select="priority" order="ascending"/>
 				<xsl:apply-templates select="nodes/*"/>
@@ -93,11 +88,5 @@ Fifth Floor, Boston, MA 02110-1301 USA
     <xsl:call-template name="source_spacer">
       <xsl:with-param name="section_end">head</xsl:with-param>
     </xsl:call-template>
-  </xsl:template>
-   <xsl:template match="script">
-	 	<script type="{@type}" src="{@src}"/>
-  </xsl:template>
-   <xsl:template match="link">
-	 	<link rel="{@rel}" type="{@type}" href="{@href}"/>
   </xsl:template>
 </xsl:stylesheet>
