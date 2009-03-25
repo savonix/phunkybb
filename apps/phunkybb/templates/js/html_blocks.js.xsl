@@ -38,11 +38,22 @@ Fifth Floor, Boston, MA 02110-1301 USA
 
 			var mypostbutton = '<div class="button-basic-blue" style="float: right;" onclick="location.href=\'/a/dev/phunkybb/index.php?nid=post&amp;fid=4\';"><a href="/a/dev/phunkybb/index.php?nid=post&amp;fid=4"><img src="/a/dev/phunkybb/s/img/icons/famfamfam/add.png"/>Post new topic</a></div>';
 
+
+// e4x
+var x = new XML();
+x=<note>
+<date>2002-08-01</date>
+</note>;
+
+
 			$(document).ready(function() {
 					$("#notitle").replaceWith(mytitle);
-					$("#nofooter").replaceWith(myfooter);
-					$(".nobutton").replaceWith(mypostbutton);
+					//$("#nofooter").replaceWith("<span>"+x.date+"</span>");
+					//$("#nofooter").replaceWith(myfooter);
+					//$(".nobutton").appendChild(mypostbutton);
 			});
+
+
 			]]>
 	</xsl:template>
 </xsl:stylesheet>

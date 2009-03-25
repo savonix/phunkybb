@@ -30,14 +30,13 @@ Fifth Floor, Boston, MA 02110-1301 USA
     <xsl:param name="my18n"/>
 
     <script type="text/javascript">
-    function delete_forum(fid,cid) {
+    function delete_forum(fid) {
         var question = '<xsl:value-of select="$my18n/delete_confirm"/>';
         if(confirm(question)) {
             $.post("<xsl:value-of select="$link_prefix"/>x-forum-delete&amp;id="+fid, {'id': fid},
             function (data){
+	            $("#f_"+fid).remove();
             });
-            myTable = document.getElementById("cat_table_"+cid);
-            myTable.deleteRow("row_"+fid);
         }
     }
     </script>
@@ -116,7 +115,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
                   <div class="infldset">
                     <table cellspacing="0" id="cat_table_{cid}">
                       <xsl:for-each select="/_R_/forums_get_all/forums_get_all[cid=$my_cid]">
-                        <tr id="row_{fid}">
+                        <tr id="f_{fid}">
                           <th>
                             <a href="{$link_prefix}forum-edit&amp;fid={fid}">
                               <xsl:value-of select="$my18n/edit"/>

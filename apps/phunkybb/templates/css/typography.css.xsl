@@ -53,5 +53,9 @@ div.postleft dt {
 #brdmenu a:hover, .blockpost h2 a:hover {
 	text-decoration: underline;
 }
+
+#brdfooter p {
+  text-align: right;
+}
 </xsl:template>
 </xsl:stylesheet>
