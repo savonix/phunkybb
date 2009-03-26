@@ -62,8 +62,15 @@ div.blocktable, div.block, div.blockform, div.block2col, #postreview {
 	margin-bottom: 2px;
 }
 
+#brdtitle {
+  min-height:6em;
+  padding:10px;
+}
 #brdtitle p {
 	padding-top: 0px;
+}
+#brdtitle span {
+  line-height:1.9em;
 }
 
 div.linkst {

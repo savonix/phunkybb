@@ -33,9 +33,22 @@ Fifth Floor, Boston, MA 02110-1301 USA
 		<xsl:with-param name="myparent">html2dom_root</xsl:with-param>
 		<xsl:with-param name="id" select="position()"/>
 	</xsl:apply-templates>
+<xsl:text>
+
+
+</xsl:text>
+
+<xsl:text>var myheader_1 = document.createElement("div");
+</xsl:text>
+<xsl:apply-templates select="//header/*">
+		<xsl:with-param name="myparent">myheader</xsl:with-param>
+		<xsl:with-param name="id" select="position()"/>
+	</xsl:apply-templates>
 <xsl:text>$(document).ready(function() {
+  $("#notitle").replaceWith(myheader_1);
   $("#nofooter").replaceWith(html2dom_root_1);
 });</xsl:text>
+
 </xsl:template>
 
 
@@ -43,10 +56,10 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <xsl:template match="node()">
 	<xsl:param name="myparent"/>
 	<xsl:param name="id"/>
-<xsl:text>var </xsl:text><xsl:value-of select="name()"/>_<xsl:value-of select="position()"/> = document.createElement("<xsl:value-of select="name()"/>");
-<xsl:value-of select="$myparent"/>_<xsl:value-of select="$id"/>.appendChild(<xsl:value-of select="name()"/>_<xsl:value-of select="position()"/>);
+<xsl:text>var </xsl:text><xsl:value-of select="$myparent"/>_<xsl:value-of select="name()"/>_<xsl:value-of select="position()"/> = document.createElement("<xsl:value-of select="name()"/>");
+<xsl:value-of select="$myparent"/>_<xsl:value-of select="$id"/>.appendChild(<xsl:value-of select="$myparent"/>_<xsl:value-of select="name()"/>_<xsl:value-of select="position()"/>);
 <xsl:apply-templates select="@*">
-		<xsl:with-param name="mynode"><xsl:value-of select="name()"/></xsl:with-param>
+		<xsl:with-param name="mynode"><xsl:value-of select="$myparent"/>_<xsl:value-of select="name()"/></xsl:with-param>
 		<xsl:with-param name="id" select="position()"/>
 	</xsl:apply-templates>
 
@@ -55,7 +68,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 
 
 <xsl:apply-templates select="node()">
-		<xsl:with-param name="myparent"><xsl:value-of select="name()"/></xsl:with-param>
+		<xsl:with-param name="myparent"><xsl:value-of select="$myparent"/>_<xsl:value-of select="name()"/></xsl:with-param>
     <xsl:with-param name="id" select="$id"/>
     <xsl:with-param name="position" select="position()"/>
 	</xsl:apply-templates>
