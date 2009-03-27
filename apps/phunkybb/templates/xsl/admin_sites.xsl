@@ -52,7 +52,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
               </thead>
               <tbody>
                 <xsl:for-each select="/_R_/sites_get_all/sites_get_all">
-                  <tr>
+                  <tr id="s_{site_id}">
                     <td>
                       <a href="{$link_prefix}site-edit&amp;site_id={site_id}">
                         <xsl:value-of select="http_host"/>
@@ -63,7 +63,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
                     </td>
                     <td>
                       <a href="{$link_prefix}x-site-edit&amp;site_id={site_id}"
-                        onclick="delete_site({site_id}); return false;">Delete</a>
+                        onclick="site_delete({site_id}); return false;">Delete</a>
                     </td>
                   </tr>
                 </xsl:for-each>

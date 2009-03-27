@@ -378,7 +378,8 @@
         <map:query src="data/sql/site_create.xml"/>
       </map:case>
       <map:case value="edit">
-        <map:query src="data/sql/sites_get_all.xml"/>
+        <map:query src="data/sql/site_edit.xml"/>
+				<map:action type="redirect" params="{//link_prefix}sites"/>
       </map:case>
       <map:default>
       </map:default>
