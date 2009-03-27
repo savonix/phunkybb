@@ -1,6 +1,6 @@
 <!--
 Program: PhunkyBB
-Component: sites_get_all.xml
+Component: site_edit.xml
 Copyright: Savonix Corporation
 Author: Albert L. Lash, IV
 License: Gnu Affero Public License version 3
@@ -22,12 +22,13 @@ or write to the Free Software Foundation, Inc., 51 Franklin Street,
 Fifth Floor, Boston, MA 02110-1301 USA
 -->
 <!DOCTYPE query SYSTEM "__default_table_names__.txt">
-<query name="sites_get_all">
+<query name="site_edit">
 	<connection>&connection_read;</connection>
 	<params>
-		<param name="//_get/site_id" type="text" default="%"/>
+		<param name="//_post/http_host" type="text" default="0"/>
+		<param name="//_post/site_id" type="integer" default="0"/>
 	</params>
 	<sql>
-	SELECT * FROM &prefix;sites WHERE site_id LIKE ?
+	UPDATE &prefix;sites SET http_host=? WHERE site_id=?
 	</sql>
 </query>

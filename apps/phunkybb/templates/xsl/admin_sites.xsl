@@ -63,7 +63,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
                     </td>
                     <td>
                       <a href="{$link_prefix}x-site-edit&amp;site_id={site_id}"
-                          onclick="delete_site({site_id}); return false;">Delete</a>
+                        onclick="delete_site({site_id}); return false;">Delete</a>
                     </td>
                   </tr>
                 </xsl:for-each>
@@ -71,6 +71,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 						</table>
 						</div>
 					</form>
+          <a href="{$link_prefix}site-edit">New</a>
 				</div>
 			</div>
 		</div>

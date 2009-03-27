@@ -38,12 +38,22 @@ Fifth Floor, Boston, MA 02110-1301 USA
 				<h2>Sites</h2>
 				<div class="box">
 					<form method="post" class="inform">
+          <xsl:if test="//_get/site_id">
+            <input type="hidden" name="type" value="edit"/>
+            <input type="hidden" name="site_id" value="{//_get/site_id}"/>
+          </xsl:if>
+          <xsl:if test="not(//_get/site_id)">
+            <input type="hidden" name="type" value="create"/>
+          </xsl:if>
 					This page is for editing a site.
+          <input type="text" name="http_host" value="{//sites_get_all/sites_get_all/http_host}"/>
+          <input type="submit"/>
 					</form>
-			</div>
-		</div>
+        </div>
+      </div>
 
 		<div class="block" style="clear: both;">
 		</div>
+    </div>
 	</xsl:template>
 </xsl:stylesheet>

@@ -372,6 +372,26 @@
 		<map:query src="data/sql/sites_get_all.xml"/>
 		<map:xsl src="templates/xsl/admin_sites.xsl"/>
 	</map:gate>
+	<map:gate name="site-edit" role="phunky_admin">
+    <map:switch name="//_post/type">
+      <map:case value="create">
+        <map:query src="data/sql/site_create.xml"/>
+      </map:case>
+      <map:case value="edit">
+        <map:query src="data/sql/sites_get_all.xml"/>
+      </map:case>
+      <map:default>
+      </map:default>
+    </map:switch>
+    <map:if name="//_get/site_id">
+      <map:true>
+        <map:query src="data/sql/sites_get_all.xml"/>
+      </map:true>
+      <map:false>
+      </map:false>
+    </map:if>
+		<map:xsl src="templates/xsl/admin_site_edit.xsl"/>
+	</map:gate>
 
 	<!-- REAL ADMIN -->
 	<map:gate name="admin" role="phunky_admin">
