@@ -26,28 +26,13 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <xsl:template name="base">
 
 
-body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, p, blockquote, th, td {
-    margin: 0;
-    padding: 0;
-}
 iframe {
 overflow-x: hidden;
 overflow-y: hidden;
 }
-ul,ol {
-    list-style:none;
-}
-
-h1, h2, h3, h4, h5, h6, pre, code {
-    font-size: 1em;
-}
 
 img {
     border: 0;
-}
-
-a {
-    outline: none;
 }
 
 table

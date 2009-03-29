@@ -25,11 +25,11 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <xsl:output method="text" indent="yes" encoding="UTF-8" omit-xml-declaration="yes"/>
 <xsl:template name="typography">
 body {
-    font-family: sans-serif;
-    text-align: center;
+  font-family: sans-serif;
+  text-align: center;
 }
 .pun pre {
-	font-family: monaco, "Bitstream Vera Sans Mono", "Courier New", courier, monospace;
+	font-family: courier, monospace;
 	font-size: 1.2em;
 }
 
