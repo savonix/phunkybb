@@ -39,14 +39,13 @@ Fifth Floor, Boston, MA 02110-1301 USA
 			</xsl:with-param>
     </xsl:call-template>
     <script type="text/javascript">
-    function delete_user(user_id,row) {
+    function delete_user(user_id) {
       if (confirm('Are you sure?')){
         $.post("<xsl:value-of select="$link_prefix"/>x-user-delete&amp;user_id="+user_id,
           {'user_id': user_id},
           function (data){
+            $("#u_"+user_id).remove();
         });
-      myTable = document.getElementById("users_table");
-        myTable.deleteRow(row);
       }
     }
     </script>
@@ -74,7 +73,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
               </thead>
               <tbody>
                 <xsl:for-each select="/_R_/users_get_all/users_get_all">
-                  <tr>
+                  <tr id="u_{id}">
                     <td>
                       <a href="{$link_prefix}profile&amp;user_id={id}">
                         <xsl:value-of select="username"/>
@@ -85,7 +84,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
                     </td>
                     <td>
                       <a href="{$link_prefix}x-user-delete&amp;user_id={id}"
-                          onclick="delete_user({id},this.parentNode.parentNode.rowIndex); return false;">Delete</a>
+                          onclick="delete_user({id}); return false;">Delete</a>
                     </td>
                   </tr>
                 </xsl:for-each>

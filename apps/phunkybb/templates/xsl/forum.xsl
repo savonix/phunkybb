@@ -29,12 +29,15 @@ Fifth Floor, Boston, MA 02110-1301 USA
 		<xsl:param name="path_prefix"/>
 		<xsl:param name="my18n"/>
 
-		<xsl:variable name="forum_get_by_id"
-			select="/_R_/forum_get_by_id/forum_get_by_id"/>
+		<xsl:variable
+      name   = "forum_get_by_id"
+			select = "/_R_/forum_get_by_id/forum_get_by_id"
+    />
+
 		<div class="linkst">
 			<a href="{$link_prefix}x-forum-rss&amp;fid={$forum_get_by_id/id}">
 				<img src="{//path_prefix}/s/img/icons/famfamfam/feed.png"
-					style="float:right;padding-left:7px;margin-top:3px;" alt="RSS"/>
+					class="rssicon" alt="RSS"/>
 			</a>
 			<!--
 			<p class="pagelink conl">
@@ -155,7 +158,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 
 			<a href="{$link_prefix}x-forum-rss&amp;fid={$forum_get_by_id/id}">
 				<img src="{//path_prefix}/s/img/icons/famfamfam/feed.png"
-					style="float:right;padding-left:7px;margin-top:3px;" alt="RSS"/>
+					class="rssicon" alt="RSS"/>
 			</a>
 				<div class="nobutton"/>
 				<ul class="breadcrumbs">

@@ -41,7 +41,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 								{
 										widgets:['zebra']
 										<xsl:value-of select="$my-sort-column"/>
-					<xsl:value-of select="$no-sort-column"/>
+                    <xsl:value-of select="$no-sort-column"/>
 								}
 						)
 						.tablesorterPager(
@@ -79,7 +79,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 
 	<!-- load the javascript -->
   <xsl:template name="jquery-links">
-    <link rel="stylesheet" href="{_R_/runtime/path_prefix}/s/js/blue/style.css"
+    <link rel="stylesheet" href="{_R_/runtime/path_prefix}s/js/blue/style.css"
         type="text/css" media="print, projection, screen"/>
   </xsl:template>
 
@@ -90,15 +90,15 @@ Fifth Floor, Boston, MA 02110-1301 USA
       <table>
         <tr>
           <td>
-            <img src="{/_R_/runtime/path_prefix}/s/js/blue/first.png" class="first"/>
-            <img src="{/_R_/runtime/path_prefix}/s/js/blue/prev.png" class="prev"/>
+            <img src="{/_R_/runtime/path_prefix}s/js/blue/first.png" class="first"/>
+            <img src="{/_R_/runtime/path_prefix}s/js/blue/prev.png" class="prev"/>
           </td>
           <td>
             <input type="text" class="pagedisplay" size="10" readonly="readonly"/>
           </td>
           <td>
-            <img src="{/_R_/runtime/path_prefix}/s/js/blue/next.png" class="next"/>
-            <img src="{/_R_/runtime/path_prefix}/s/js/blue/last.png" class="last"/>
+            <img src="{/_R_/runtime/path_prefix}s/js/blue/next.png" class="next"/>
+            <img src="{/_R_/runtime/path_prefix}s/js/blue/last.png" class="last"/>
           </td>
         </tr>
       </table>

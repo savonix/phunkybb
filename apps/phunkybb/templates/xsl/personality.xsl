@@ -54,8 +54,8 @@ Fifth Floor, Boston, MA 02110-1301 USA
                   </div>
                   <p>
                     <xsl:value-of
-                        select="/_R_/user_get_profile/user_get_profile/signature"
-                        disable-output-escaping="yes"/>
+                      select="/_R_/user_get_profile/user_get_profile/signature"
+                      disable-output-escaping="yes"/>
                   </p>
                 </div>
               </fieldset>

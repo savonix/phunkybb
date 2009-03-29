@@ -28,11 +28,11 @@ Fifth Floor, Boston, MA 02110-1301 USA
     <xsl:param name="link_prefix"/>
     <xsl:param name="path_prefix"/>
     <xsl:param name="my18n"/>
-    <script type="text/javascript" src="{$path_prefix}/s/js/rsa/jsbn.js"></script>
-    <script type="text/javascript" src="{$path_prefix}/s/js/rsa/rsa.js"></script>
-    <script type="text/javascript" src="{$path_prefix}/s/js/rsa/prng4.js"></script>
-    <script type="text/javascript" src="{$path_prefix}/s/js/rsa/rng.js"></script>
-    <script type="text/javascript" src="{$path_prefix}/s/js/rsa/base64.js"></script>
+    <script type="text/javascript" src="{$path_prefix}s/js/rsa/jsbn.js"></script>
+    <script type="text/javascript" src="{$path_prefix}s/js/rsa/rsa.js"></script>
+    <script type="text/javascript" src="{$path_prefix}s/js/rsa/prng4.js"></script>
+    <script type="text/javascript" src="{$path_prefix}s/js/rsa/rng.js"></script>
+    <script type="text/javascript" src="{$path_prefix}s/js/rsa/base64.js"></script>
 
     <script type="text/javascript">
 		$(document).ready(function()
@@ -55,7 +55,10 @@ Fifth Floor, Boston, MA 02110-1301 USA
 						var myform = document.forms["password"];
 						var rsa = new RSAKey();
 						rsa.setPublic(linebrk(myform.id_rsa_pub.value,64), myform.e.value);
-						var res = linebrk(hex2b64(rsa.encrypt(myform.password.value)),64);
+            // Removed base64 encoding in Mar 2009, not necessary
+            // Needs extensive testing.
+            //var res = linebrk(hex2b64(rsa.encrypt(myform.password.value)),64);
+            var res = rsa.encrypt(myform.password.value);
 
 						$.post("<xsl:value-of select="$link_prefix"/>password",
 						{

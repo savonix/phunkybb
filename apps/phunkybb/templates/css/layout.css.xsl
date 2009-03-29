@@ -219,10 +219,10 @@ div.postfootleft p, div.postfootright ul, div.postfootright div {
 
 .interstatus
 {
-    padding: .2em .4em;
-    border-style: solid;
-    border-width: 1px;
-    border-color: red;
+  padding: .2em .4em;
+  border-style: solid;
+  border-width: 1px;
+  border-color: red;
 }
 
 
@@ -232,6 +232,11 @@ div.postfootleft p, div.postfootright ul, div.postfootright div {
 
 h3, .tclcon {
 	text-indent: 4px;
+}
+.rssicon {
+  float:right;
+  padding-left:7px;
+  margin-top:3px;
 }
 </xsl:template>
 </xsl:stylesheet>
