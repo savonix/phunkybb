@@ -513,9 +513,6 @@
 		<map:xsl src="templates/css/dynamic.css.xsl"/>
 	</map:gate>
 
-	<map:gate name="x--dynamic-js" cache="0" nosession="true" content_type="application/javascript" cache_control="public, max-age=30, must-revalidate">
-		<map:xsl src="templates/js/html_blocks.js.xsl"/>
-	</map:gate>
 	<map:gate name="x-xhtml2dom-js" cache="0" nosession="true" content_type="application/javascript" cache_control="public, max-age=30, must-revalidate">
     <map:xml src="data/xhtml/footer.xhtml"/>
     <map:xml src="data/xhtml/header.xhtml"/>

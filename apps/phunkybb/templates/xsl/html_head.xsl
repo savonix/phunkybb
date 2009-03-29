@@ -49,8 +49,10 @@ Fifth Floor, Boston, MA 02110-1301 USA
 					<xsl:value-of select="/_R_/topic_get_by_id/topic_get_by_id/subject"/>
         </xsl:if>
       </title>
-			<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/combo?2.7.0/build/reset/reset-min.css"/>
 
+
+
+			<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/combo?2.7.0/build/reset/reset-min.css"/>
       <link rel="stylesheet" type="text/css" href="{$link_prefix}dynamic-css"/>
       <script type="text/javascript" src="{$path_prefix}s/js/jquery/jquery-1.3.2.min.js">&#160;</script>
 			<script type="text/javascript" src="{$link_prefix}x-xhtml2dom-js">&#160;</script>
