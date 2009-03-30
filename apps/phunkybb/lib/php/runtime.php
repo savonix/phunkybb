@@ -56,17 +56,25 @@ if($_SESSION['NX_AUTH']['username']==1016)
     $_SESSION['NX_AUTH']['username']=0;
 }
 
-/* Subversion revision */
-if(is_file('../revision')) { 
-    $svn_revision = file_get_contents('../revision');
+
+
+/* only allow if admin
+if(isset($_GET['site_id'])) {
+    $_SESSION['site_id'] = $_GET['site_id'];
+} elseif (!$_SESSION['site_id']) {
+    $_SESSION['site_id'] = '%';
 }
+*/
+
+$site_id = $_SESSION['site_id'];
+
+
 
 $site_id = 1;
 $runtime = array(
     'path_prefix' => $path_prefix,
     'link_prefix' => $link_prefix,
     'mod_rewrite' => 'true',
-    'svn_revision' => $svn_revision,
     'utcdate' => gmdate('Y-m-d H:i:s'),
     'debug' => 1,
     'incr' => 10,
