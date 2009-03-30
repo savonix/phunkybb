@@ -58,19 +58,21 @@ if($_SESSION['NX_AUTH']['username']==1016)
 
 
 
-/* only allow if admin
-if(isset($_GET['site_id'])) {
-    $_SESSION['site_id'] = $_GET['site_id'];
-} elseif (!$_SESSION['site_id']) {
-    $_SESSION['site_id'] = '%';
+/* Allow the admin to select site_id, everyone
+ else must use the domain assigned id */
+if ( $_SESSION['NX_AUTH']['group_id'] === 1 ) {
+    if(isset($_GET['site_id'])) {
+        $_SESSION['site_id'] = $_GET['site_id'];
+    } elseif (!$_SESSION['site_id']) {
+        $_SESSION['site_id'] = '%';
+    }
+    $site_id = $_SESSION['site_id'];
+} else {
+    $site_id = 1;
 }
-*/
-
-$site_id = $_SESSION['site_id'];
 
 
 
-$site_id = 1;
 $runtime = array(
     'path_prefix' => $path_prefix,
     'link_prefix' => $link_prefix,
@@ -78,7 +80,6 @@ $runtime = array(
     'utcdate' => gmdate('Y-m-d H:i:s'),
     'debug' => 1,
     'incr' => 10,
-    'user_timezone_offset'=> $tz_offset,
     'user_time_format' => "r",
     'username' => $_SESSION['NX_AUTH']['username'],
     'last_visit' => $_SESSION['NX_AUTH']['last_visit'],
