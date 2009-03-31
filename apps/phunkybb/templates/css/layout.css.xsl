@@ -238,5 +238,9 @@ h3, .tclcon {
   padding-left:7px;
   margin-top:3px;
 }
+
+.float_right {
+  float: right;
+}
 </xsl:template>
 </xsl:stylesheet>

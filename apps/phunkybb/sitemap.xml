@@ -51,21 +51,18 @@
 					</map:false>
 				</map:if>
 
-
 				<map:plugin type="random" params="activate_string,4"/>
 				<map:set name="my_registration_info" value="Registration Info"/>
 				<map:plugin type="detokenize" params="{/_R_/i18n/welcome_email},//emails/welcome/token"/>
 
-
-					
 				<map:query src="data/sql/user_register.xml"/>
-					
+
 				<map:action type="email" params="{//_post/email},{//board_config/o_webmaster_email},{//my_registration_info},//new_text,{//board_config/o_smtp_host}"/>
-					
+
 				<map:action type="header" params="Content-type,text/xml"/>
 				<map:set name="result_message" value=" Registration successful, please check your email."/>
 				<map:xsl src="templates/xml/success.xml.xsl"/>
-				
+
 			</map:false>
 		</map:if>
 		<map:if name="/_R_/_post">
@@ -516,6 +513,7 @@
 	<map:gate name="x-xhtml2dom-js" cache="0" nosession="true" content_type="application/javascript" cache_control="public, max-age=30, must-revalidate">
     <map:xml src="templates/xhtml/footer.xhtml"/>
     <map:xml src="templates/xhtml/header.xhtml"/>
+    <map:xml src="templates/xhtml/post_button.xhtml"/>
     <map:xsl src="templates/js/xhtml2dom.js.xsl"/>
 	</map:gate>
 

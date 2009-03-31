@@ -41,12 +41,30 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <xsl:text>var myheader_1 = document.createElement("div");
 </xsl:text>
 <xsl:apply-templates select="//header/*">
-		<xsl:with-param name="myparent">myheader</xsl:with-param>
-		<xsl:with-param name="id" select="position()"/>
-	</xsl:apply-templates>
+  <xsl:with-param name="myparent">myheader</xsl:with-param>
+  <xsl:with-param name="id" select="position()"/>
+</xsl:apply-templates>
+<xsl:text>
+
+
+</xsl:text>
+
+<xsl:text>var my_button_1 = document.createElement("div");
+</xsl:text>
+<xsl:apply-templates select="//post_button/*">
+  <xsl:with-param name="myparent">my_button</xsl:with-param>
+  <xsl:with-param name="id" select="position()"/>
+</xsl:apply-templates>
+<xsl:text>
+
+
+</xsl:text>
+
+
 <xsl:text>$(document).ready(function() {
   $("#notitle").replaceWith(myheader_1);
   $("#nofooter").replaceWith(html2dom_root_1);
+  $(".nobutton").replaceWith(my_button_1);
 });</xsl:text>
 
 </xsl:template>
@@ -77,7 +95,12 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <xsl:template match="@*">
 	<xsl:param name="mynode"/>
 	<xsl:param name="id"/>
+  <xsl:if test="name()='id' or name()='href' or name()='src'">
 <xsl:value-of select="$mynode"/>_<xsl:value-of select="$id"/>.<xsl:value-of select="name()"/> = "<xsl:value-of select="."/>";
+</xsl:if>
+  <xsl:if test="not(name()='id' or name()='href' or name()='src')">
+<xsl:value-of select="$mynode"/>_<xsl:value-of select="$id"/>.setAttribute("<xsl:value-of select="name()"/>", "<xsl:value-of select="."/>");
+</xsl:if>
 </xsl:template>
 
 
