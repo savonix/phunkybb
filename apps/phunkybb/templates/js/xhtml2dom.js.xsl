@@ -95,6 +95,11 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <xsl:template match="@*">
 	<xsl:param name="mynode"/>
 	<xsl:param name="id"/>
+  <xsl:variable name="my_link_prefix">
+    <xsl:if test="not(contains(.,'http://'))">
+      <xsl:value-of select="//link_prefix"/>
+    </xsl:if>
+  </xsl:variable>
   <xsl:if test="name()='id' or name()='src'">
 <xsl:value-of select="$mynode"/>_<xsl:value-of select="$id"/>.<xsl:value-of select="name()"/> = "<xsl:value-of select="."/>";
 </xsl:if>
@@ -102,7 +107,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <xsl:value-of select="$mynode"/>_<xsl:value-of select="$id"/>.setAttribute("<xsl:value-of select="name()"/>", "<xsl:value-of select="."/>");
 </xsl:if>
   <xsl:if test="name()='href'">
-<xsl:value-of select="$mynode"/>_<xsl:value-of select="$id"/>.<xsl:value-of select="name()"/> = "<xsl:value-of select="//link_prefix"/><xsl:value-of select="."/>";
+<xsl:value-of select="$mynode"/>_<xsl:value-of select="$id"/>.<xsl:value-of select="name()"/> = "<xsl:value-of select="$my_link_prefix"/><xsl:value-of select="."/>";
 </xsl:if>
 </xsl:template>
 
