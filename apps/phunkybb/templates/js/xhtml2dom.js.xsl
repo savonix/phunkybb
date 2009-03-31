@@ -95,11 +95,14 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <xsl:template match="@*">
 	<xsl:param name="mynode"/>
 	<xsl:param name="id"/>
-  <xsl:if test="name()='id' or name()='href' or name()='src'">
+  <xsl:if test="name()='id' or name()='src'">
 <xsl:value-of select="$mynode"/>_<xsl:value-of select="$id"/>.<xsl:value-of select="name()"/> = "<xsl:value-of select="."/>";
 </xsl:if>
   <xsl:if test="not(name()='id' or name()='href' or name()='src')">
 <xsl:value-of select="$mynode"/>_<xsl:value-of select="$id"/>.setAttribute("<xsl:value-of select="name()"/>", "<xsl:value-of select="."/>");
+</xsl:if>
+  <xsl:if test="name()='href'">
+<xsl:value-of select="$mynode"/>_<xsl:value-of select="$id"/>.<xsl:value-of select="name()"/> = "<xsl:value-of select="//link_prefix"/><xsl:value-of select="."/>";
 </xsl:if>
 </xsl:template>
 
