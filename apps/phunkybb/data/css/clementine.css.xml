@@ -24,13 +24,13 @@ Fifth Floor, Boston, MA 02110-1301 USA
 http://www.colourlovers.com/palette/420527/tumble Thanks for the great colors clememtimey
 -->
 <css>
-    <colors>
-        <background>#789CBE</background><!-- base background -->
-        <light-background>#1F394D</light-background>
-        <light-background-alt>#FF8F43</light-background-alt> <!-- replies column -->
-        <med-background>#85E6FF</med-background> <!-- topic-replies-post header -->
-        <med-background-alt>#DEE7F0</med-background-alt> <!-- text-background -->
-        <dark-background>#FF8F43</dark-background> <!-- index - register - login header -->
-        <header-hover>#000000</header-hover>
-    </colors>
+  <colors>
+    <background>#789CBE</background><!-- base background -->
+    <light-background>#1F394D</light-background>
+    <light-background-alt>#FF8F43</light-background-alt> <!-- replies column -->
+    <med-background>#85E6FF</med-background> <!-- topic-replies-post header -->
+    <med-background-alt>#DEE7F0</med-background-alt> <!-- text-background -->
+    <dark-background>#FF8F43</dark-background> <!-- index - register - login header -->
+    <header-hover>#000000</header-hover>
+  </colors>
 </css>

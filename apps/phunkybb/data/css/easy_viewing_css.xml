@@ -23,13 +23,13 @@ Fifth Floor, Boston, MA 02110-1301 USA
 
 -->
 <css>
-    <colors>
-        <background>#539C50</background><!-- base background -->
-        <light-background>#1F394D</light-background>
-        <light-background-alt>#9F4868</light-background-alt> <!-- replies column -->
-        <med-background>#C29309</med-background> <!-- topic-replies-post header -->
-        <med-background-alt>#BAB4A6</med-background-alt> <!-- text-background -->
-        <dark-background>#151410</dark-background> <!-- index - register - login header -->
-        <header-hover>#000000</header-hover>
-    </colors>
+  <colors>
+    <background>#539C50</background><!-- base background -->
+    <light-background>#1F394D</light-background>
+    <light-background-alt>#9F4868</light-background-alt> <!-- replies column -->
+    <med-background>#C29309</med-background> <!-- topic-replies-post header -->
+    <med-background-alt>#BAB4A6</med-background-alt> <!-- text-background -->
+    <dark-background>#151410</dark-background> <!-- index - register - login header -->
+    <header-hover>#000000</header-hover>
+  </colors>
 </css>
