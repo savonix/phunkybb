@@ -21,7 +21,6 @@
 				<map:perl src="lib/perl/config_build.pl"/>
 			</map:false>
 		</map:if>
-		<map:xml src="data/xml/extra_menu_items.xml"/>
 	</map:prepend>
 
 	<!-- SESSIONS -->

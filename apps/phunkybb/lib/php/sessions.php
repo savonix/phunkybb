@@ -32,7 +32,7 @@ $user_last_visit = Nexista_Path::get('//user_login/user_login/last_visit', 'flow
 $last_visit = gmdate('Y-m-d H:i:s',$user_last_visit);
 
 // Remove duplicate roles
-if(is_array($roles)) { 
+if(is_array($roles)) {
 	$tmparr = array_unique($roles);
 
 	$i=0;
