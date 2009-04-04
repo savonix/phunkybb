@@ -357,6 +357,7 @@
 		</map:if>
 	</map:gate>
 	<map:gate name="user-admin" role="phunky_user">
+		<map:query src="data/sql/sites_get_all.xml"/>
 		<map:query src="data/sql/user_get_profile.xml"/>
 		<map:action type="datetime" params="//user_get_profile/last_visit,unix_epoch,{//runtime/user_time_format},{//runtime/user_timezone_offset}"/>
 		<map:action type="datetime" params="//user_get_profile/registered,unix_epoch,{//runtime/user_time_format},{//runtime/user_timezone_offset}"/>
@@ -392,10 +393,12 @@
 
 	<!-- REAL ADMIN -->
 	<map:gate name="admin" role="phunky_admin">
+		<map:query src="data/sql/sites_get_all.xml"/>
 		<map:query src="data/sql/posts_get_number.xml"/>
 		<map:xsl src="templates/xsl/admin.xsl"/>
 	</map:gate>
 	<map:gate name="options" role="phunky_admin">
+		<map:query src="data/sql/sites_get_all.xml"/>
 		<map:xsl src="templates/xsl/admin_options.xsl"/>
 	</map:gate>
 	<map:gate name="options-submit" role="phunky_admin">
@@ -407,10 +410,11 @@
 				<map:script src="lib/php/config_build.php"/>
 				<map:action type="redirect" params="{//link_prefix}options"/>
 			</map:true>
-			<map:false></map:false>
+			<map:false/>
 		</map:if>
 	</map:gate>
 	<map:gate name="categories" role="phunky_admin">
+		<map:query src="data/sql/sites_get_all.xml"/>
 		<map:if name="/_R_/_post">
 			<map:true>
 				<map:switch name="/_R_/_post/action">
@@ -435,6 +439,7 @@
 		<map:xsl src="templates/xsl/admin_categories.xsl"/>
 	</map:gate>
 	<map:gate name="forums" role="phunky_admin">
+		<map:query src="data/sql/sites_get_all.xml"/>
 		<map:if name="//_post/update_forum">
 			<map:true>
 				<map:query src="data/sql/forum_update.xml"/>
@@ -458,12 +463,13 @@
 		<map:xsl src="templates/xsl/admin_forum.xsl"/>
 	</map:gate>
 	<map:gate name="forum-edit" role="phunky_admin">
+		<map:query src="data/sql/sites_get_all.xml"/>
 		<map:if name="//_post">
 			<map:true>
 				<map:query src="data/sql/forum_update.xml"/>
 				<map:action type="redirect" params="{//link_prefix}forums"/>
 			</map:true>
-			<map:false></map:false>
+			<map:false/>
 		</map:if>
 		<map:query src="data/sql/categories_get_all.xml"/>
 		<map:query src="data/sql/forum_get_by_id.xml"/>
@@ -473,6 +479,7 @@
 		<map:query src="data/sql/forum_delete.xml"/>
 	</map:gate>
 	<map:gate name="users" role="phunky_admin">
+		<map:query src="data/sql/sites_get_all.xml"/>
 		<map:query src="data/sql/users_get_all.xml"/>
 		<map:xsl src="templates/xsl/admin_users.xsl"/>
 	</map:gate>
@@ -480,6 +487,7 @@
 		<map:query src="data/sql/user_delete.xml"/>
 	</map:gate>
 	<map:gate name="user-email" role="phunky_admin">
+		<map:query src="data/sql/sites_get_all.xml"/>
 		<map:if name="//_post">
 			<map:true>
 				<map:xml src="data/xml/emails.xml"/>

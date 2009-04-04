@@ -28,7 +28,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 		<xsl:param name="my18n"/>
 		<div class="blockmenu">
 			<h2 style="background: #009966; border:0;">
-				<div style="width: 10px; height: 10px; margin-left: -6px; margin-top: -4px; position: absolute; 
+				<div style="width: 10px; height: 10px; margin-left: -6px; margin-top: -4px; position: absolute;
 				background: url(http://dev-91-gl.savonix.com:8080/circles/F1F7C2/009966/10.gif) no-repeat top left;"></div>
 				<span style="margin-left: 4px;"><xsl:value-of select="$my18n/admin_menu"/></span>
 			</h2>
@@ -48,6 +48,16 @@ Fifth Floor, Boston, MA 02110-1301 USA
 						</xsl:for-each>
 					</ul>
 				</div>
+        <select name="site_id" onchange="document.location='{$link_prefix}{//_get/nid}&amp;site_id='+options[selectedIndex].value;">
+        <xsl:for-each select="//sites_get_all/sites_get_all">
+          <option value="{site_id}">
+					<xsl:if test="//runtime/site_id=site_id">
+						<xsl:attribute name="selected">selected</xsl:attribute>
+					</xsl:if>
+          <xsl:value-of select="http_host"/>
+          </option>
+        </xsl:for-each>
+        </select>
 			</div>
 		</div>
 	</xsl:template>
