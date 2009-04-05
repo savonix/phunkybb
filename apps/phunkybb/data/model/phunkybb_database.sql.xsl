@@ -33,11 +33,12 @@ CREATE TABLE <xsl:value-of select="//db_engines/if_not_exists/text"/> <xsl:value
 ) <xsl:value-of select="//db_engines/innodb_engine/text"/> <xsl:value-of select="//db_engines/engine_increment_start/text"/> ;
 
 CREATE TABLE <xsl:value-of select="f_not_exists"/> <xsl:value-of select="//_get/table_prefix"/>config (
+  conf_id <xsl:value-of select="//db_engines/engine_auto_increment/text"/>,
   conf_name varchar(255) NOT NULL default '',
   conf_value text,
   site_id <xsl:value-of select="//db_engines/integer/text"/> <xsl:value-of select="//db_engines/default_null/text"/>,
-  PRIMARY KEY  (conf_name)
-) <xsl:value-of select="//db_engines/myisam_engine/text"/>;
+  PRIMARY KEY  (conf_id)
+) <xsl:value-of select="//db_engines/myisam_engine/text"/> <xsl:value-of select="//db_engines/engine_increment_start/text"/> ;
 
 
 CREATE TABLE <xsl:value-of select="f_not_exists"/> <xsl:value-of select="//_get/table_prefix"/>forums (

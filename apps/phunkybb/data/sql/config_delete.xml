@@ -26,7 +26,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
   <connection>&connection;</connection>
   <params>
     <param node-name-array="//form/*" type="text" default="none"/>
-    <param name="//runtime/site_id" type="integer" default="0"/>
+    <param name="//runtime/site_id" type="integer"/>
   </params>
   <sql>
   DELETE FROM &prefix;config WHERE conf_name=? AND site_id=?

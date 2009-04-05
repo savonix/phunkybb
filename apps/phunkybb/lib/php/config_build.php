@@ -34,7 +34,11 @@ foreach($config as $conf_item) {
 }
 $code .= "); ?>";
 
-$config_cache = NX_PATH_COMPILE."config_cache.php";
+if(!$_SESSION['site_id'] || $_SESSION['site_id']=='%') {
+    $config_cache = NX_PATH_COMPILE.'config_cache.php';
+} else {
+    $config_cache = NX_PATH_COMPILE.$_SESSION['site_id'].'_config_cache.php';
+}
 
 file_put_contents($config_cache,$code);
 ?>

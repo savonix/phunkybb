@@ -22,12 +22,12 @@ or write to the Free Software Foundation, Inc., 51 Franklin Street,
 Fifth Floor, Boston, MA 02110-1301 USA
 -->
 <!DOCTYPE query SYSTEM "__default_table_names__.txt">
-<query name="topics_get_by_forum_id" loop="//form">
+<query name="config_update" loop="//form">
   <connection>&connection;</connection>
   <params>
     <param node-name-array="//form/*" type="text"/>
     <param array="//form/*" type="text" default=""/>
-    <param name="//runtime/site_id" type="integer" default="0"/>
+    <param name="//runtime/site_id" type="integer"/>
   </params>
   <sql>
   INSERT INTO &prefix;config (conf_name,conf_value,site_id) VALUES (?,?,?)
