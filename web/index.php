@@ -28,11 +28,11 @@ if($_SERVER['HTTP_HOST']=='192.168.8.91') {
 }
 /*
 RewriteCond %{REQUEST_URI} ^/a/dev/phunkybb/
-RewriteCond %{REQUEST_URI} !/a/dev/phunkybb/index.php|.css
+RewriteCond %{REQUEST_URI} !/a/dev/phunkybb/index.php|.css|.jpg|.png|.js
 RewriteRule ^/a/dev/phunkybb/(\w+)/$ /a/dev/phunkybb/index.php?nxrw_path=/a/dev/phunkybb/index.php&nid=forum&forum_basename=$1 [L]
 
 RewriteCond %{REQUEST_URI} ^/a/dev/phunkybb/
-RewriteCond %{REQUEST_URI} !/a/dev/phunkybb/index.php|.css
+RewriteCond %{REQUEST_URI} !/a/dev/phunkybb/index.php|.css|.jpg|.png|.js
 RewriteRule ^/a/dev/phunkybb/(\w+)/(\w+)/ /a/dev/phunkybb/index.php?nxrw_path=/a/dev/phunkybb/index.php&nid=topic&forum_basename=$1&basename=$2 [L]
 */
 
