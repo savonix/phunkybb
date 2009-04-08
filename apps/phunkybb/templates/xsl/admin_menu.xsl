@@ -28,8 +28,10 @@ Fifth Floor, Boston, MA 02110-1301 USA
 		<xsl:param name="my18n"/>
 		<div class="blockmenu">
 			<h2 style="background: #009966; border:0;">
+      <!-- this is a test of the nginx rounded gif module.
 				<div style="width: 10px; height: 10px; margin-left: -6px; margin-top: -4px; position: absolute;
 				background: url(http://dev-91-gl.savonix.com:8080/circles/F1F7C2/009966/10.gif) no-repeat top left;"></div>
+        -->
 				<span style="margin-left: 4px;"><xsl:value-of select="$my18n/admin_menu"/></span>
 			</h2>
 			<div class="box">
