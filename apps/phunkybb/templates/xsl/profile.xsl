@@ -53,7 +53,6 @@ Fifth Floor, Boston, MA 02110-1301 USA
 							<fieldset>
 								<legend>Enter your username and password</legend>
 								<div class="infldset">
-									<input type="hidden" name="old_username" value="demo"/>
 									<label>
 										<strong>
 											<xsl:value-of select="$my18n/username"/>

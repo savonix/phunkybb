@@ -67,8 +67,8 @@ Fifth Floor, Boston, MA 02110-1301 USA
                   <th>
                     <xsl:value-of select="$my18n/users"/>
                   </th>
-                  <th></th>
-                  <th></th>
+                  <th/>
+                  <th/>
                 </tr>
               </thead>
               <tbody>

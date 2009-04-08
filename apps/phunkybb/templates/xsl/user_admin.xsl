@@ -42,7 +42,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
             <div class="inform">
               <input type="hidden" name="form_sent" value="1"/>
               <fieldset>
-                <legend>Delete (administrators only)</legend>
+                <legend>Delete</legend>
                 <div class="infldset">
                   <input type="submit" name="delete_user" value="Delete user"/>
                 </div>

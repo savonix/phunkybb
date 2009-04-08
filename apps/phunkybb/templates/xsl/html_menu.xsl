@@ -43,7 +43,6 @@ Fifth Floor, Boston, MA 02110-1301 USA
 				</xsl:if>
 			</div>
 
-			<xsl:value-of select="//extra_menu_items/*" disable-output-escaping="yes"/>
 			<xsl:value-of select="//o_extra_menu_items/*" disable-output-escaping="yes"/>
 			<a href="{$link_prefix}index">
 				<xsl:value-of select="$my18n/index"/>

@@ -123,7 +123,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 							<xsl:with-param name="link_prefix" select="$link_prefix"/>
 							<xsl:with-param name="qsa">
 								<xsl:text>&amp;fid=</xsl:text>
-								<xsl:value-of select="/_R_/forum_get_by_id/forum_get_by_id/id"/>
+								<xsl:value-of select="$this_forum/id"/>
 								<xsl:text>&amp;id=</xsl:text>
 								<xsl:value-of select="$topic_get_by_id/id"/>
 							</xsl:with-param>
@@ -138,7 +138,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 							<xsl:with-param name="link_prefix" select="$link_prefix"/>
 							<xsl:with-param name="qsa">
 								<xsl:text>&amp;fid=</xsl:text>
-								<xsl:value-of select="/_R_/forum_get_by_id/forum_get_by_id/id"/>
+								<xsl:value-of select="$this_forum/id"/>
 								<xsl:text>&amp;id=</xsl:text>
 								<xsl:value-of select="$topic_get_by_id/id"/>
 							</xsl:with-param>
@@ -196,7 +196,6 @@ Fifth Floor, Boston, MA 02110-1301 USA
 						<xsl:value-of select="signature" disable-output-escaping="yes"/>
 						</div>
 						<div style="clear:both;"></div>
-						
 					</div>
 				</div>
 			</div>
@@ -210,7 +209,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 						<xsl:with-param name="link_prefix" select="$link_prefix"/>
 						<xsl:with-param name="qsa">
 							<xsl:text>&amp;fid=</xsl:text>
-							<xsl:value-of select="/_R_/forum_get_by_id/forum_get_by_id/id"/>
+							<xsl:value-of select="$this_forum/id"/>
 							<xsl:text>&amp;id=</xsl:text>
 							<xsl:value-of select="$topic_get_by_id/id"/>
 						</xsl:with-param>
