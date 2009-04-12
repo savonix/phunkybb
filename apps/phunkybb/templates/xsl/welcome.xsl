@@ -64,12 +64,10 @@ Fifth Floor, Boston, MA 02110-1301 USA
 									<div class="intd">
 										<xsl:if test="not(/_R_/runtime/last_visit_timestamp &lt; last_post_timestamp)">
 											<div class="icon">
-												<div class="nosize"></div>
 											</div>
 										</xsl:if>
 										<xsl:if test="/_R_/runtime/last_visit_timestamp &lt; last_post_timestamp">
 											<div class="icon inew">
-												<div class="nosize"></div>
 											</div>
 										</xsl:if>
 										<div class="tclcon">

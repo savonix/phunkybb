@@ -52,9 +52,6 @@ Fifth Floor, Boston, MA 02110-1301 USA
 				var myform = document.forms["mlogin"];
 				var rsa = new RSAKey();
 				rsa.setPublic(linebrk(myform.id_rsa_pub.value,64), myform.e.value);
-        // Removed base64 encoding in Mar 2009, not necessary
-        // Needs extensive testing.
-        //var res = linebrk(hex2b64(rsa.encrypt(myform.password.value)),64);
         var res = rsa.encrypt(myform.password.value);
 
 				$.post("<xsl:value-of select="$link_prefix"/>x-login",
@@ -89,7 +86,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
             <fieldset>
               <legend>
 								<img style="padding-right: 2px; margin-bottom: -3px;"
-									src="{$path_prefix}/s/img/icons/famfamfam/lock_go.png" alt="Lock"/>
+									src="{$path_prefix}s/img/icons/famfamfam/lock_go.png" alt="Lock"/>
                 <xsl:value-of select="$my18n/login"/>
               </legend>
               <div class="infldset">
@@ -127,9 +124,9 @@ Fifth Floor, Boston, MA 02110-1301 USA
             </span>
             <span id="replace" class="interstatus"></span>
             <noscript>
-              <p><span class="interstatus">
+              <span class="interstatus">
                 Javascript must be enabled to log in.
-              </span></p>
+              </span>
             </noscript>
             <input type="submit" style="visibility: hidden;"/>
           </p>

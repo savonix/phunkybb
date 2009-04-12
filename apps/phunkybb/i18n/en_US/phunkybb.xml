@@ -42,7 +42,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <board_title>Board title</board_title>
 <by>by</by>
 <cancel>Cancel</cancel>
-<categories>Categories</categories>
+<admin-categories>Categories</admin-categories>
 <category>Category</category>
 <censoring>Censoring</censoring>
 <change_email>Change e-mail address</change_email>
@@ -73,6 +73,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <forum_is_empty>Forum is empty.</forum_is_empty>
 <forum_rules>Forum rules</forum_rules>
 <forums>Forums</forums>
+<admin-forums>Forums</admin-forums>
 <from>From</from>
 <go_back>Go back</go_back>
 <go> Go </go>
@@ -118,6 +119,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <open_topic>Open topic</open_topic>
 <operating_system>Operating system</operating_system>
 <options>Options</options>
+<admin-options>Options</admin-options>
 <pages>Pages</pages>
 <password>Password</password>
 <permissions>Permissions</permissions>
@@ -152,7 +154,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <show_posts>Show all posts</show_posts>
 <short_description_of_this>A short description of this bulletin board (shown at the top of every page).</short_description_of_this>
 <signature>Signature</signature>
-<sites>Sites</sites>
+<admin-sites>Sites</admin-sites>
 <smtp_password>SMTP password</smtp_password>
 <smtp_username>SMTP username</smtp_username>
 <statistics>Statistics</statistics>
@@ -170,6 +172,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <user_group>User group</user_group>
 <user_list>User list</user_list>
 <username>Username</username>
+<admin-users>Users</admin-users>
 <users>Users</users>
 <views>Views</views>
 <website>Website</website>

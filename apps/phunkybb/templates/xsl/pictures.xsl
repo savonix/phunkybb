@@ -52,7 +52,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 							</xsl:if>
 							<br/>
 							<p>
-							You can use a site like <a href="http://en.gravatar.com/">Gravatar.com</a> to host your picture.
+							You can use a site like <a rel="nofollow" href="http://en.gravatar.com/">Gravatar.com</a> to host your picture.
 							</p>
             </div>
             <p>

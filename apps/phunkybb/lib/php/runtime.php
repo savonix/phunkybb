@@ -36,15 +36,15 @@ RewriteRule ^/a/dev/phunkybb/(\w+)/(\w+)/ /a/dev/phunkybb/index.php?nxrw_path=/a
 */
 
 
-$defaults = Nexista_Config::getSection("./defaults");
-Nexista_Flow::add("defaults",$defaults);
+$defaults = Nexista_Config::getSection('./defaults');
+Nexista_Flow::add('defaults',$defaults);
 //print_r($defaults);
 $path = $_SERVER['SCRIPT_NAME'];
 if ($_GET['nxrw_path']) {
     $path = $_GET['nxrw_path'];
 }
-$path_prefix = dirname($path)."/";
-$link_prefix = $path."?nid=";
+$path_prefix = dirname($path).'/';
+$link_prefix = $path.'?nid=';
 
 /* Time stuff */
 $tz_offset = $_SESSION['timezone'];
@@ -60,16 +60,16 @@ if($_SESSION['NX_AUTH']['username']==1016)
 
 /* Allow the admin to select site_id, everyone
  else must use the domain assigned id */
-if ( $_SESSION['NX_AUTH']['group_id'] == 1 ) {
+if ( $_SESSION['NX_AUTH']['group_id'] == 1 && strpos($_GET['nid'],'admin')) {
     if(isset($_GET['site_id'])) {
         $_SESSION['site_id'] = $_GET['site_id'];
-    } elseif (!$_SESSION['site_id']) {
+    } elseif (!$_SESSION['site_id'] && strpos($_GET['nid'],'admin')) {
         $_SESSION['site_id'] = '%';
     }
     $site_id = $_SESSION['site_id'];
 } else {
     // This needs to be set by $_SERVER
-    $site_id = 1;
+    $site_id = 4;
 }
 
 

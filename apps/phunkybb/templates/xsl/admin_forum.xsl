@@ -52,7 +52,8 @@ Fifth Floor, Boston, MA 02110-1301 USA
           <xsl:value-of select="$my18n/add_forum"/>
         </h2>
         <div class="box">
-          <form method="post" action="{$link_prefix}forums">
+          <form method="post" action="{$link_prefix}admin-forums">
+					<input type="hidden" name="site_id" value="{//runtime/site_id}"/>
             <div class="inform">
               <fieldset>
                 <legend>

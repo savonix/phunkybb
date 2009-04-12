@@ -40,9 +40,9 @@ Fifth Floor, Boston, MA 02110-1301 USA
 					<xsl:value-of select="$my18n/edit_forum"/>
 				</h2>
 				<div class="box">
-					<form id="edforum" method="post" action="{$link_prefix}forum-edit">
+					<form id="edforum" method="post" action="{$link_prefix}admin-forum-edit">
 					<input type="hidden" name="fid" value="{//_get/fid}"/>
-					<input type="hidden" name="cat_id" value="{//forum_get_by_id/cat_id}"/>
+					<input type="hidden" name="cat_id" value="{//forum_get_by_id/forum_get_by_id/cat_id}"/>
 						<p class="submittop">
 							<input type="submit" name="update" value="Update"/>
 						</p>

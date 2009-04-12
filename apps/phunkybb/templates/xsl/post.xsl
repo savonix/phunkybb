@@ -54,7 +54,8 @@ Fifth Floor, Boston, MA 02110-1301 USA
 									}
 									]]>
 									</script>
-                  <input class="longinput" type="text" name="subject" id="subject" onkeyup="copyValue('subject','basename')"/>
+                  <input class="longinput" type="text" name="subject"
+                    id="subject" onkeyup="copyValue('subject','basename')"/>
 									<br/>
 
                   <input type="hidden" name="basename" id="basename" />
@@ -65,7 +66,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
                     <xsl:value-of select="$my18n/message"/>
                   </strong>
                   <br/>
-                  <textarea name="message" rows="20" cols="95"></textarea>
+                  <textarea name="message" rows="20" cols="95"/>
                   <br/>
                 </label>
               </div>

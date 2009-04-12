@@ -23,6 +23,10 @@ Fifth Floor, Boston, MA 02110-1301 USA
 -->
 <navigation>
   <public_menu>
+    <item>
+        <key>sites</key>
+        <url>admin-sites</url>
+    </item>
     <button status="active">index</button>
     <button status="active">register</button>
     <button status="active">forums</button>
@@ -31,11 +35,16 @@ Fifth Floor, Boston, MA 02110-1301 USA
   </public_menu>
 
   <admin_menu>
-		<button status="active">sites</button>
-		<button status="active">categories</button>
-		<button status="active">forums</button>
-		<button status="active">users</button>
-		<button status="active">options</button>
+    <!-- Switch to this format -->
+    <item>
+        <key>sites</key>
+        <url>admin-sites</url>
+    </item>
+		<button status="active">admin-sites</button>
+		<button status="active">admin-categories</button>
+		<button status="active">admin-forums</button>
+		<button status="active">admin-users</button>
+		<button status="active">admin-options</button>
 		<!--
 		<button status="active">groups</button>
 		<button status="active">permissions</button>
@@ -48,7 +57,4 @@ Fifth Floor, Boston, MA 02110-1301 USA
   </admin_menu>
   <activities>
   </activities>
-	<extra_menu_items>
-		<a href="/blog/">Blog</a>
-	</extra_menu_items>
 </navigation>

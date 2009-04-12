@@ -98,7 +98,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 										<p>
 											<xsl:value-of select="$my18n/registration_ip"/>:
 											<a href="http://www.arin.net/?queryinput={$my_user/r/registration_ip}"
-												target="_blank">
+												target="_blank" rel="nofollow">
 												<xsl:value-of select="$my_user/r/registration_ip"/>
 											</a>
 										</p>

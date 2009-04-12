@@ -66,9 +66,6 @@ Fifth Floor, Boston, MA 02110-1301 USA
             var myform = document.forms["register"];
             var rsa = new RSAKey();
             rsa.setPublic(linebrk(myform.id_rsa_pub.value,64), myform.e.value);
-            // Removed base64 encoding in Mar 2009, not necessary
-            // Needs extensive testing.
-            //var res = linebrk(hex2b64(rsa.encrypt(myform.password.value)),64);
             var res = rsa.encrypt(myform.password.value);
 
             $.post("<xsl:value-of select="$link_prefix"/>x-register",
