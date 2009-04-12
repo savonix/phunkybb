@@ -69,9 +69,12 @@ Fifth Floor, Boston, MA 02110-1301 USA
                 </xsl:for-each>
 						</tbody>
 						</table>
+            <br/>
+            <span class="button-basic-blue" style="float:right;">
+              <a href="{$link_prefix}site-edit">New</a>
+            </span>
 						</div>
 					</form>
-          <a href="{$link_prefix}site-edit">New</a>
 				</div>
 			</div>
 		</div>

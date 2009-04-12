@@ -537,7 +537,6 @@
 				<map:set name="email" value="email@example.com"/>
 			</map:false>
 		</map:if>
-		<map:set name="table_prefix" value="wwwneofilmzcom_"/>
 		<map:set name="engine" value="mysql"/>
 		<map:xml src="data/model/db_engines.mysql.xml"/>
 		<map:action type="header" params="Content-type,text/plain"/>
