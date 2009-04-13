@@ -42,8 +42,5 @@ Fifth Floor, Boston, MA 02110-1301 USA
 			</select>
 			<input type="submit"/>
 		</form>
-		<br/>
-		<br/>
-		Make topic sticky:
 	</xsl:template>
 </xsl:stylesheet>

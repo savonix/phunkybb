@@ -84,7 +84,9 @@ Fifth Floor, Boston, MA 02110-1301 USA
                     </td>
                     <td>
                       <a href="{$link_prefix}x-user-delete&amp;user_id={id}"
-                          onclick="delete_user({id}); return false;">Delete</a>
+                          onclick="delete_user({id}); return false;">
+                          <xsl:value-of select="$my18n/delete"/>
+                          </a>
                     </td>
                   </tr>
                 </xsl:for-each>

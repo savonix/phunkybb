@@ -65,7 +65,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
         getDates();
       });
 			</script>
-			<xsl:if test="//_get/nid='users'">
+			<xsl:if test="//_get/nid='admin-users'">
       <script type="text/javascript" src="{$path_prefix}s/pkgs/tablesorter/jquery.tablesorter.js">&#160;</script>
       <script type="text/javascript" src="{$path_prefix}s/pkgs/tablesorter/addons/pager/jquery.tablesorter.pager.js">&#160;</script>
 			</xsl:if>

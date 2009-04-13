@@ -40,9 +40,6 @@ Fifth Floor, Boston, MA 02110-1301 USA
 				var myform = document.forms["password"];
 				myform.id_rsa_pub.value="<xsl:value-of select="//defaults/modulus"/>";
 				myform.e.value="10001";
-				$(function() {
-						$('#register_button').disableTextSelect();
-				});
 		});
 
 		function do_encrypt() {

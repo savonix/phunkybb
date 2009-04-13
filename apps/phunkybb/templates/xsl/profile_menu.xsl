@@ -54,7 +54,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
                 </a>
 								</li>
 								<li>
-									<a href="{$link_prefix}user-admin&amp;user_id={$my_user_id}">
+									<a href="{$link_prefix}admin-user-admin&amp;user_id={$my_user_id}">
                   Administration
                 </a>
 								</li>
@@ -77,7 +77,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 								</li>
 								<xsl:if test="/_R_/runtime/group_id=1">
 									<li>
-										<a href="{$link_prefix}user-admin">
+										<a href="{$link_prefix}admin-user-admin">
                     Administration
                   </a>
 									</li>
