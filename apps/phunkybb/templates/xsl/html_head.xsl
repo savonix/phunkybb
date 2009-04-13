@@ -36,7 +36,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 					<meta name="description" content="{/_R_/forum_get_by_id/forum_get_by_id/forum_name}: {/_R_/topic_get_by_id/topic_get_by_id/subject}"/>
 			</xsl:if>
 			<xsl:if test="not(/_R_/forum_get_by_id/forum_get_by_id/forum_name)">
-					<meta name="description" content="{/_R_/board_config/o_board_title}"/>
+					<meta name="description" content="{/_R_/board_config/o_board_title}" />
 			</xsl:if>
 		  <title>
         <xsl:value-of select="/_R_/board_config/o_board_title"/>
@@ -55,15 +55,15 @@ Fifth Floor, Boston, MA 02110-1301 USA
 			<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/combo?2.7.0/build/reset/reset-min.css"/>
       <link rel="stylesheet" type="text/css" href="{$link_prefix}x-dynamic-css"/>
       <script type="text/javascript" src="{$path_prefix}s/js/jquery/jquery-1.3.2.min.js">&#160;</script>
+      <xsl:if test="not(//runtime/user_agent='bot')">
 			<script type="text/javascript" src="{$link_prefix}x-xhtml2dom-js">&#160;</script>
+      </xsl:if>
       <script type="text/javascript" src="{$path_prefix}s/js/jsval.js">&#160;</script>
       <script type="text/javascript" src="{$path_prefix}s/js/time/relative_time.js">&#160;</script>
 			<script type="text/javascript">
-			<xsl:text>
-				$(document).ready(function() {
-					getDates();
-				});
-			</xsl:text>
+      $(document).ready(function() {
+        getDates();
+      });
 			</script>
 			<xsl:if test="//_get/nid='users'">
       <script type="text/javascript" src="{$path_prefix}s/pkgs/tablesorter/jquery.tablesorter.js">&#160;</script>
