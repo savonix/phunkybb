@@ -32,7 +32,6 @@ Fifth Floor, Boston, MA 02110-1301 USA
     <script type="text/javascript" src="{$path_prefix}s/js/rsa/rsa.js"></script>
     <script type="text/javascript" src="{$path_prefix}s/js/rsa/prng4.js"></script>
     <script type="text/javascript" src="{$path_prefix}s/js/rsa/rng.js"></script>
-    <script type="text/javascript" src="{$path_prefix}s/js/rsa/base64.js"></script>
 
     <script type="text/javascript">
 		$(document).ready(function()
