@@ -38,7 +38,8 @@ Fifth Floor, Boston, MA 02110-1301 USA
           <xsl:value-of select="/_R_/runtime/username"/>
         </h2>
         <div class="box">
-          <form id="profile7" method="post">
+          <form id="delete_user" method="post">
+						<input type="hidden" name="user_id" value="{/_R_/_get/user_id}"/>
             <div class="inform">
               <xsl:value-of select="$my18n/delete"/>
               <div class="infldset">
@@ -46,7 +47,31 @@ Fifth Floor, Boston, MA 02110-1301 USA
               </div>
             </div>
           </form>
-        </div>
+
+					<form id="email_user" method="post">
+						<input type="hidden" name="user_id" value="{/_R_/_get/user_id}"/>
+						<div class="inform">
+							<fieldset>
+								<legend>Enter a valid e-mail address</legend>
+								<div class="infldset">
+									<label>
+										<strong>
+											<xsl:value-of select="$my18n/email"/>
+										</strong>
+										<br/>
+										<input type="text" name="rcpt_email" value="{//user_get_profile/email}" readonly="readonly"/>
+										<br/>
+									</label>
+								</div>
+								<input type="text" name="subject"/>
+								<br/>
+								<textarea name="message"/>
+								<br/>
+								<input type="submit" name="email_user" value="Email user"/>
+							</fieldset>
+						</div>
+					</form>
+				</div>
       </div>
     </div>
   </xsl:template>

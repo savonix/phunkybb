@@ -357,6 +357,16 @@
 		</map:if>
 	</map:gate>
 	<map:gate name="admin-user-admin" role="phunky_user">
+		<map:if name="//_post/email_user">
+			<map:true>
+				<map:xml src="data/xml/emails.xml"/>
+				<map:xml src="i18n/en_US/emails.xml"/>
+				<map:plugin type="detokenize" params="{/_R_/i18n/test_email},//emails/test/token"/>
+				<map:action type="email" params="{//_post/rcpt_email},{//board_config/o_webmaster_email},{//_post/subject},{//new_text},{//board_config/o_smtp_host}"/>
+				<map:action type="redirect" params="{//link_prefix}admin-user-admin&amp;user_id={//_post/user_id}"/>
+			</map:true>
+      <map:false/>
+    </map:if>
 		<map:query src="data/sql/sites_get_all.xml"/>
 		<map:query src="data/sql/user_get_profile.xml"/>
 		<map:action type="datetime" params="//user_get_profile/last_visit,unix_epoch,{//runtime/user_time_format},{//runtime/user_timezone_offset}"/>
@@ -408,7 +418,7 @@
 				<map:query src="data/sql/config_update.xml"/>
 				<map:query src="data/sql/config_get.xml"/>
 				<map:script src="lib/php/config_build.php"/>
-				<map:action type="redirect" params="{//link_prefix}options"/>
+				<map:action type="redirect" params="{//link_prefix}admin-options"/>
 			</map:true>
 			<map:false/>
 		</map:if>
@@ -485,22 +495,6 @@
 	</map:gate>
 	<map:gate name="x-user-delete" role="phunky_admin">
 		<map:query src="data/sql/user_delete.xml"/>
-	</map:gate>
-	<map:gate name="user-email" role="phunky_admin">
-		<map:query src="data/sql/sites_get_all.xml"/>
-		<map:if name="//_post">
-			<map:true>
-				<map:xml src="data/xml/emails.xml"/>
-				<map:xml src="i18n/en_US/emails.xml"/>
-				<map:plugin type="detokenize" params="{/_R_/i18n/test_email},//emails/test/token"/>
-				<map:action type="email" params="{//_post/rcpt_email},{//board_config/o_webmaster_email},{//_post/subject},{//new_text},{//board_config/o_smtp_host}"/>
-				<map:action type="redirect" params="{//link_prefix}user-email&amp;user_id={//_post/user_id}"/>
-			</map:true>
-			<map:false>
-				<map:query src="data/sql/user_get_profile.xml"/>
-				<map:xsl src="templates/xsl/user_email.xsl"/>
-			</map:false>
-		</map:if>
 	</map:gate>
 
 	<map:gate name="x-dynamic-css" cache="600" nosession="true" content_type="text/css" cache_control="public, max-age=600, must-revalidate">

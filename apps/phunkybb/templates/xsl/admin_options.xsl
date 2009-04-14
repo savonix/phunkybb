@@ -40,7 +40,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
           <xsl:value-of select="$my18n/options"/>
         </h2>
         <div class="box">
-          <form method="post" action="{$link_prefix}options-submit">
+          <form method="post" action="{$link_prefix}admin-options-submit">
             <p class="submittop">
               <input type="submit" name="save" value="Save Changes"/>
             </p>

@@ -33,36 +33,6 @@ Fifth Floor, Boston, MA 02110-1301 USA
 				<xsl:with-param name="link_prefix" select="$link_prefix"/>
 				<xsl:with-param name="my18n" select="$my18n"/>
 			</xsl:call-template>
-			<div class="blockform">
-				<h2>
-					<xsl:value-of select="//runtime/username"/>
-				</h2>
-				<div class="box">
-					<form id="profile7" method="post">
-						<input type="hidden" name="user_id" value="{/_R_/_get/user_id}"/>
-						<div class="inform">
-							<fieldset>
-								<legend>Enter a valid e-mail address</legend>
-								<div class="infldset">
-									<label>
-										<strong>
-											<xsl:value-of select="$my18n/email"/>
-										</strong>
-										<br/>
-										<input type="text" name="rcpt_email" value="{//user_get_profile/email}" readonly="readonly"/>
-										<br/>
-									</label>
-								</div>
-								<input type="text" name="subject"/>
-								<br/>
-								<textarea name="message"/>
-								<br/>
-								<input type="submit"/>
-							</fieldset>
-						</div>
-					</form>
-				</div>
-			</div>
 		</div>
 	</xsl:template>
 </xsl:stylesheet>
