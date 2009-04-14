@@ -49,7 +49,6 @@ Fifth Floor, Boston, MA 02110-1301 USA
                       <textarea name="signature" rows="4" cols="65">
                         <xsl:value-of select="//user_get_profile/user_get_profile/signature"/>
                       </textarea>
-                      <br/>
                     </label>
                   </div>
                   <p>

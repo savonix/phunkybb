@@ -44,7 +44,6 @@ Fifth Floor, Boston, MA 02110-1301 USA
 				function (data){
 				});
 				$("#p"+post_id).hide("normal",function() {$("#p"+post_id).remove();});
-
 				}
 		}
 		function delete_topic(topic_id) {
@@ -83,7 +82,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 			</p>
 			<p class="postlink conr">
 				<a href="{$link_prefix}x-topic-rss&amp;forum_basename={$this_forum/forum_basename}&amp;fid={$this_forum/id}&amp;id={$topic_get_by_id/id}">
-					<img src="{//path_prefix}/s/img/icons/famfamfam/feed.png"
+					<img src="{$path_prefix}s/img/icons/famfamfam/feed.png"
 						style="float:right;padding-left:7px;margin-top:-2px;"/>
 				</a>
 				<xsl:value-of select="$topic_get_by_id/subject"/>

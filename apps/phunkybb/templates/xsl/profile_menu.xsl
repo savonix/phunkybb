@@ -40,8 +40,8 @@ Fifth Floor, Boston, MA 02110-1301 USA
 							<xsl:when test="$my_user_id and /_R_/runtime/group_id=1">
 								<li>
 									<a href="{$link_prefix}profile&amp;user_id={$my_user_id}">
-                  Essentials
-                </a>
+                    Essentials
+                  </a>
 								</li>
 								<li>
 									<a href="{$link_prefix}pictures">
@@ -50,36 +50,36 @@ Fifth Floor, Boston, MA 02110-1301 USA
 								</li>
 								<li>
 									<a href="{$link_prefix}personality&amp;user_id={$my_user_id}">
-                  Personality
-                </a>
+                    Personality
+                  </a>
 								</li>
 								<li>
 									<a href="{$link_prefix}admin-user-admin&amp;user_id={$my_user_id}">
-                  Administration
-                </a>
+                    Administration
+                  </a>
 								</li>
 							</xsl:when>
 							<xsl:otherwise>
 								<li>
 									<a href="{$link_prefix}profile">
-                  Essentials
-                </a>
+                    Essentials
+                  </a>
 								</li>
 								<li>
 									<a href="{$link_prefix}pictures">
-                  Picture
-                </a>
+                    Picture
+                  </a>
 								</li>
 								<li>
 									<a href="{$link_prefix}personality">
-                  Personality
-                </a>
+                    Personality
+                  </a>
 								</li>
 								<xsl:if test="/_R_/runtime/group_id=1">
 									<li>
 										<a href="{$link_prefix}admin-user-admin">
-                    Administration
-                  </a>
+                      Administration
+                    </a>
 									</li>
 								</xsl:if>
 							</xsl:otherwise>

@@ -127,7 +127,6 @@ Fifth Floor, Boston, MA 02110-1301 USA
 										<br/>
 										<input id="admin_note" type="text" name="admin_note"
 											value="{$my_user/admin_note}"/>
-										<br/>
 									</label>
 								</div>
 							</fieldset>
