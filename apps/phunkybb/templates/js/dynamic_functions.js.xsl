@@ -27,20 +27,40 @@ Fifth Floor, Boston, MA 02110-1301 USA
 	<xsl:output method="text" indent="no" encoding="UTF-8" omit-xml-declaration="yes"/>
 	<xsl:template match="/">
 
+  <xsl:variable
+    name   = "link_prefix"
+    select = "/_R_/runtime/link_prefix"
+  />
+
   function site_delete(site_id) {
     if(confirm('Are you sure?')){
       $.ajax(
       {
       type: "POST",
-      url: "<xsl:value-of select="//link_prefix"/>x-site-delete&amp;site_id="+site_id,
+      url: "<xsl:value-of select="$link_prefix"/>x-site-delete&amp;site_id="+site_id,
       data: {
         'site_id': site_id
         },
         complete: function () {
-          location.href="<xsl:value-of select="//link_prefix"/>sites";
+          location.href="<xsl:value-of select="$link_prefix"/>sites";
         }
       });
     }
+  }
+  function topic_delete(topic_id) {
+      if(confirm('Are you sure?')){
+        $.ajax(
+        {
+        type: "POST",
+        url: "<xsl:value-of select="$link_prefix"/>x-topic-delete&amp;topic_id="+topic_id,
+        data: {
+          'topic_id': topic_id
+          },
+          complete: function () {
+            location.href="<xsl:value-of select="$link_prefix"/>index";
+          }
+        });
+      }
   }
 	</xsl:template>
 </xsl:stylesheet>

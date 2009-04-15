@@ -58,6 +58,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
       <xsl:if test="not(//runtime/user_agent='bot')">
 			<script type="text/javascript" src="{$link_prefix}x-xhtml2dom-js">&#160;</script>
       </xsl:if>
+			<script type="text/javascript" src="{$link_prefix}x-dynamic-js">&#160;</script>
       <script type="text/javascript" src="{$path_prefix}s/js/jsval.js">&#160;</script>
       <script type="text/javascript" src="{$path_prefix}s/js/time/relative_time.js">&#160;</script>
 			<script type="text/javascript">

@@ -46,21 +46,6 @@ Fifth Floor, Boston, MA 02110-1301 USA
 				$("#p"+post_id).hide("normal",function() {$("#p"+post_id).remove();});
 				}
 		}
-		function delete_topic(topic_id) {
-				if(confirm('Are you sure?')){
-					$.ajax(
-					{
-					type: "POST",
-					url: "<xsl:value-of select="$link_prefix"/>x-topic-delete&amp;topic_id="+topic_id,
-					data: {
-						'topic_id': topic_id
-						},
-						complete: function () {
-							location.href="<xsl:value-of select="$link_prefix"/>index";
-						}
-					});
-				}
-		}
 		</script>
 		<xsl:variable name="this_forum"
 			select="/_R_/forum_get_by_id/forum_get_by_id"/>
@@ -88,8 +73,8 @@ Fifth Floor, Boston, MA 02110-1301 USA
 				<xsl:value-of select="$topic_get_by_id/subject"/>
         &#160;
         <xsl:if test="/_R_/runtime/group_id=1">
-          <a href="{$link_prefix}x-topic-delete&amp;topic_id={$topic_get_by_id/id}&amp;fid={/_R_/forum_get_by_id/forum_get_by_id/id}"
-            onclick="delete_topic({$topic_get_by_id/id}); return false;">
+          <a href="#x-topic-delete&amp;topic_id={$topic_get_by_id/id}&amp;fid={/_R_/forum_get_by_id/forum_get_by_id/id}"
+            onclick="topic_delete({$topic_get_by_id/id}); return false;">
             Delete
           </a>
           <a href="{$link_prefix}topic-edit&amp;topic_id={$topic_get_by_id/id}&amp;fid={/_R_/forum_get_by_id/forum_get_by_id/id}">

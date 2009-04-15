@@ -91,34 +91,42 @@ Fifth Floor, Boston, MA 02110-1301 USA
 							<xsl:for-each select="/_R_/topics_get_by_forum_id/topics_get_by_forum_id">
 								<tr>
 									<td class="tcl">
-											<xsl:if test="not(/_R_/runtime/last_visit_timestamp &lt; last_post_timestamp)">
-												<div class="icon">
-												</div>
-											</xsl:if>
-											<xsl:if test="/_R_/runtime/last_visit_timestamp &lt; last_post_timestamp">
-												<div class="icon inew">
-												</div>
-											</xsl:if>
-											<!-- Need to use the link_builder here! -->
-												<xsl:if test="//mod_rewrite='true' and not(basename='')">
-													<a title="{subject}" id="topic-{id}" href="{$path_prefix}{link}">
-													<!--
-														<xsl:attribute name="href">
-															<xsl:value-of select="$path_prefix"/>
-															<xsl:value-of select="$forum_get_by_id/forum_basename"/>
-															<xsl:text>/</xsl:text>
-															<xsl:value-of select="basename"/>
-															<xsl:text>/</xsl:text>
-														</xsl:attribute>
-														-->
-														<xsl:value-of select="subject"/>
-													</a>
-												</xsl:if>
-												<xsl:if test="not(//mod_rewrite='true') or basename=''">
-													<a href="{$link_prefix}topic&amp;basename={basename}&amp;fid={$forum_get_by_id/id}&amp;id={id}">
-														<xsl:value-of select="subject"/>
-													</a>
-												</xsl:if>
+                    <xsl:if test="//runtime/group_id=1">
+                      <span style="float: right;">
+                      <a href="#x-topic-delete&amp;topic_id={id}"
+                        onclick="topic_delete({id}); return false;">
+                        x
+                      </a>
+                      </span>
+                    </xsl:if>
+                    <xsl:if test="not(/_R_/runtime/last_visit_timestamp &lt; last_post_timestamp)">
+                      <div class="icon">
+                      </div>
+                    </xsl:if>
+                    <xsl:if test="/_R_/runtime/last_visit_timestamp &lt; last_post_timestamp">
+                      <div class="icon inew">
+                      </div>
+                    </xsl:if>
+                    <!-- Need to use the link_builder here! -->
+                    <xsl:if test="//mod_rewrite='true' and not(basename='')">
+                      <a title="{subject}" id="topic-{id}" href="{$path_prefix}{link}">
+                      <!--
+                        <xsl:attribute name="href">
+                          <xsl:value-of select="$path_prefix"/>
+                          <xsl:value-of select="$forum_get_by_id/forum_basename"/>
+                          <xsl:text>/</xsl:text>
+                          <xsl:value-of select="basename"/>
+                          <xsl:text>/</xsl:text>
+                        </xsl:attribute>
+                        -->
+                        <xsl:value-of select="subject"/>
+                      </a>
+                    </xsl:if>
+                    <xsl:if test="not(//mod_rewrite='true') or basename=''">
+                      <a href="{$link_prefix}topic&amp;basename={basename}&amp;fid={$forum_get_by_id/id}&amp;id={id}">
+                        <xsl:value-of select="subject"/>
+                      </a>
+                    </xsl:if>
 									</td>
 									<td class="tc2">
 										<xsl:value-of select="num_replies"/>
