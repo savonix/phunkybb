@@ -65,7 +65,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
                     <th scope="row">
                       <xsl:value-of select="$my18n/add_a_new_category"/>
                       <div>
-                        <input type="submit" name="add_cat" value="Add New"/>
+                        <input type="submit" name="add_cat" value="{$my18n/add}"/>
                       </div>
                     </th>
                     <td>
@@ -93,7 +93,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
                       <th scope="col">
                         <xsl:value-of select="$my18n/position"/>
                       </th>
-                      <th>&#160;</th>
+                      <th/>
                     </tr>
                   </thead>
                   <tbody>

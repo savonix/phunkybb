@@ -259,6 +259,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
   <login>Login</login>
   <not_logged_in>You are not logged in.</not_logged_in>
   <profile>Profile</profile>
+  <picture>Picture</picture>
   <logout>Logout</logout>
   <logged_in_as>Logged in as</logged_in_as>
   <admin>Administration</admin>
@@ -306,7 +307,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
   <profile_menu>Profile menu</profile_menu>
   <section_essentials>Essentials</section_essentials>
   <section_personal>Personal</section_personal>
-  <section_personality>Personality</section_personality>
+  <personality>Personality</personality>
   <section_display>Display</section_display>
   <section_admin>Administration</section_admin>
   <username_and_pass_legend>Enter your username and password</username_and_pass_legend>

@@ -40,45 +40,45 @@ Fifth Floor, Boston, MA 02110-1301 USA
 							<xsl:when test="$my_user_id and /_R_/runtime/group_id=1">
 								<li>
 									<a href="{$link_prefix}profile&amp;user_id={$my_user_id}">
-                    Essentials
+                    <xsl:value-of select="$my18n/essentials"/>
                   </a>
 								</li>
 								<li>
 									<a href="{$link_prefix}pictures">
-                  Picture
+                  <xsl:value-of select="$my18n/picture"/>
                 </a>
 								</li>
 								<li>
 									<a href="{$link_prefix}personality&amp;user_id={$my_user_id}">
-                    Personality
+                    <xsl:value-of select="$my18n/personality"/>
                   </a>
 								</li>
 								<li>
 									<a href="{$link_prefix}admin-user-admin&amp;user_id={$my_user_id}">
-                    Administration
+                    <xsl:value-of select="$my18n/administration"/>
                   </a>
 								</li>
 							</xsl:when>
 							<xsl:otherwise>
 								<li>
 									<a href="{$link_prefix}profile">
-                    Essentials
+                    <xsl:value-of select="$my18n/essentials"/>
                   </a>
 								</li>
 								<li>
 									<a href="{$link_prefix}pictures">
-                    Picture
+                    <xsl:value-of select="$my18n/picture"/>
                   </a>
 								</li>
 								<li>
 									<a href="{$link_prefix}personality">
-                    Personality
+                    <xsl:value-of select="$my18n/personality"/>
                   </a>
 								</li>
 								<xsl:if test="/_R_/runtime/group_id=1">
 									<li>
 										<a href="{$link_prefix}admin-user-admin">
-                      Administration
+                      <xsl:value-of select="$my18n/administration"/>
                     </a>
 									</li>
 								</xsl:if>
