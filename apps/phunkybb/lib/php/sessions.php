@@ -56,11 +56,11 @@ if(!$auth->registerUser($newarr))
 }
 
 
-$auth->setSessionData("user_id", $user_id);
-$auth->setSessionData("group_id", $group_id);
-$auth->setSessionData("username", $username);
-$auth->setSessionData("last_visit", $last_visit);
-$auth->setSessionData("last_visit_timestamp", $user_last_visit);
+$auth->setSessionData('user_id', $user_id);
+$auth->setSessionData('group_id', $group_id);
+$auth->setSessionData('username', $username);
+$auth->setSessionData('last_visit', $last_visit);
+$auth->setSessionData('last_visit_timestamp', $user_last_visit);
 
 
 //go back where we were called from
@@ -71,13 +71,13 @@ if(isset($_SESSION['NX_AUTH']['requestedUrl']) && (!$_SESSION['NX_AUTH']['reques
     $redirect = Nexista_Config::get("//build/default");
 }
 
-if($_GET['nid']=="x-login")
+if($_GET['nid']=='x-login')
 {
     echo '<result>Success</result>';
     exit;
 }
 else
 {
-    header("Location: $redirect");
+    header('Location: ' . $redirect);
 }
 ?>

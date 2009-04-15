@@ -24,14 +24,14 @@ Fifth Floor, Boston, MA 02110-1301 USA
 --> */
 
 
-if($_GET['nid']=="logout") {
+if($_GET['nid']=='logout') {
     $auth = &new Nexista_Auth();
     $auth->removeUser();
     $auth->removeUser();
 
     unset($_SESSION['NX_AUTH']);
-    Nexista_Flow::delete("logged_in");
-    Nexista_Flow::add("logged_in", "false");
+    Nexista_Flow::delete('logged_in');
+    Nexista_Flow::add('logged_in', 'false');
     session_start();
 
     // Unset all of the session variables.

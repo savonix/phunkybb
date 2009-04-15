@@ -32,7 +32,7 @@ foreach($config as $conf_item) {
     // Basically we want to escape single quotes for the array only.
     $code .= "'".$conf_item['conf_name']."' => '".htmlspecialchars_decode(addslashes(htmlspecialchars($conf_item['conf_value'], ENT_COMPAT)), ENT_COMPAT)."',\n";
 }
-$code .= "); ?>";
+$code .= '); ?>';
 
 if(!$_SESSION['site_id'] || $_SESSION['site_id']=='%') {
     $config_cache = NX_PATH_COMPILE.'config_cache.php';

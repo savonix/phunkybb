@@ -35,8 +35,8 @@ if(!$_SESSION['site_id'] || $_SESSION['site_id']=='%') {
     $config_cache = NX_PATH_COMPILE.$_SESSION['site_id'].'_config_cache.php';
 }
 if(is_file($config_cache)) {
-    Nexista_Flow::add("config_cache","true");
+    Nexista_Flow::add('config_cache','true');
     include($config_cache);
-    Nexista_Flow::add("board_config",$config);
+    Nexista_Flow::add('board_config',$config);
 }
 ?>

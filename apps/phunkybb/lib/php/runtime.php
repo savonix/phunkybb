@@ -37,7 +37,7 @@ RewriteRule ^/a/dev/phunkybb/(\w+)/(\w+)/ /a/dev/phunkybb/index.php?nxrw_path=/a
 
 
 $defaults = Nexista_Config::getSection('./defaults');
-Nexista_Flow::add('defaults',$defaults);
+Nexista_Flow::add('defaults', $defaults);
 //print_r($defaults);
 $path = $_SERVER['SCRIPT_NAME'];
 if ($_GET['nxrw_path']) {
@@ -93,7 +93,7 @@ $runtime = array(
     'user_agent' => $user_agent,
     'debug' => 1,
     'incr' => 10,
-    'user_time_format' => "r",
+    'user_time_format' => 'r',
     'username' => $_SESSION['NX_AUTH']['username'],
     'last_visit' => $_SESSION['NX_AUTH']['last_visit'],
     'last_visit_timestamp' => $_SESSION['NX_AUTH']['last_visit_timestamp'],
@@ -104,13 +104,13 @@ $runtime = array(
     'site_id' => $site_id
     );
 
-if($_GET['nid']=="user-read-all") {
+if($_GET['nid']=='user-read-all') {
     $auth = &new Nexista_Auth();
     $last_visit = time();
-    $auth->setSessionData("last_visit", $last_visit);
-    $auth->setSessionData("last_visit_timestamp", $last_visit);
+    $auth->setSessionData('last_visit', $last_visit);
+    $auth->setSessionData('last_visit_timestamp', $last_visit);
 }
 
-Nexista_Flow::add("runtime",$runtime,false);
+Nexista_Flow::add('runtime',$runtime,false);
 
 ?>
