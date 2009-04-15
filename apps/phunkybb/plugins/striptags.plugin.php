@@ -43,7 +43,7 @@ class Nexista_StriptagsAction extends Nexista_Action
     {
 		$mytext = Nexista_Path::get($this->params['text']);
         $new_text = strip_tags($mytext);
-        Nexista_Flow::add("no_html_text", $new_text);
+        Nexista_Flow::add('no_html_text', $new_text);
         return true;
 
     }
