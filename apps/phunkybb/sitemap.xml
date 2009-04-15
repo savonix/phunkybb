@@ -517,7 +517,6 @@
 
 	<map:gate name="x-xhtml2dom-js" cache="0" nosession="true" content_type="application/javascript" cache_control="public, max-age=30, must-revalidate">
     <map:xml src="templates/xhtml/footer.xhtml"/>
-    <map:xml src="templates/xhtml/header.xhtml"/>
     <map:xml src="templates/xhtml/post_button.xhtml"/>
     <map:xsl src="templates/js/xhtml2dom.js.xsl"/>
 	</map:gate>
