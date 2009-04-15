@@ -63,7 +63,6 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <edit_forums>Edit forums</edit_forums>
 <edit_post>Edit post</edit_post>
 <email>E-mail</email>
-<email>E-mail</email>
 <environment>Environment</environment>
 <essentials>Essentials</essentials>
 <extra_menu_items>Extra Menu Items</extra_menu_items>
@@ -327,6 +326,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
   <email_legend>Enter your new e-mail address</email_legend>
   <email_instructions>An e-mail will be sent to your new address with an activation link. You must click the link in the e-mail you receive to activate the new address.</email_instructions>
   <change_email>Change e-mail address</change_email>
+  <email_user>Email User</email_user>
   <new_email>New e-mail</new_email>
   <unknown_failure>An unknown error occurred. Please try again.</unknown_failure>
   <file>File</file>

@@ -51,7 +51,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 						</xsl:if>
 						<div class="inform">
 							<fieldset>
-								<legend>Enter your username and password</legend>
+								<legend><xsl:value-of select="$my18n/enter_username"/></legend>
 								<div class="infldset">
 									<label>
 										<strong>
@@ -63,14 +63,14 @@ Fifth Floor, Boston, MA 02110-1301 USA
 										<br/>
 									</label>
 									<p>
-										<a href="{$link_prefix}password">Change password</a>
+										<a href="{$link_prefix}password"><xsl:value-of select="$my18n/change_password"/></a>
 									</p>
 								</div>
 							</fieldset>
 						</div>
 						<div class="inform">
 							<fieldset>
-								<legend>Enter a valid e-mail address</legend>
+								<legend><xsl:value-of select="$my18n/change_email"/></legend>
 								<div class="infldset">
 									<label>
 										<strong>
@@ -82,8 +82,8 @@ Fifth Floor, Boston, MA 02110-1301 USA
 									</label>
 									<xsl:if test="/_R_/runtime/group_id=1">
 										<a href="{$link_prefix}user-email&amp;user_id={//_get/user_id}">
-                  Email user
-                </a>
+                      <xsl:value-of select="$my18n/email_user"/>
+                    </a>
 									</xsl:if>
 								</div>
 							</fieldset>
