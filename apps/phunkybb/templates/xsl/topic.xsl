@@ -30,8 +30,10 @@ Fifth Floor, Boston, MA 02110-1301 USA
 		<xsl:param name="path_prefix"/>
 		<xsl:param name="my18n"/>
 
-		<xsl:variable name="topic_get_by_id"
-			select="/_R_/topic_get_by_id/topic_get_by_id"/>
+		<xsl:variable
+      name   = "topic_get_by_id"
+			select = "/_R_/topic_get_by_id/topic_get_by_id"
+    />
 
 		<script type="text/javascript">
 		function delete_post(post_id) {

@@ -28,8 +28,14 @@ Fifth Floor, Boston, MA 02110-1301 USA
 	<xsl:template name="content">
 		<xsl:param name="link_prefix"/>
 		<xsl:param name="my18n"/>
+
+		<xsl:variable
+      name   = "topic_get_by_id"
+			select = "/_R_/topic_get_by_id/topic_get_by_id"
+    />
+
 		<form method="post">
-			<input type="hidden" name="topic_id" value="{//_get/topic_id}"/>
+			<input type="hidden" name="topic_id" value="{$topic_get_by_id/topic_id}"/>
 			Move topic to:
 			<br/>
 			<br/>

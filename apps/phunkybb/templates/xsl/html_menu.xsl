@@ -56,7 +56,9 @@ Fifth Floor, Boston, MA 02110-1301 USA
 							<xsl:value-of select="$my18n/administration"/>
 						</a>
 					</xsl:if>
-					<a href="{$link_prefix}profile">Profile</a>
+					<a href="{$link_prefix}profile">
+            <xsl:value-of select="$my18n/profile"/>
+          </a>
 					<xsl:if test="/_R_/runtime/last_visit_timestamp &lt; //last_post_timestamp">
 						<a href="{$link_prefix}user-read-all">Mark All Messages Read</a>
 					</xsl:if>
