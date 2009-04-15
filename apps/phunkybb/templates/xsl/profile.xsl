@@ -94,15 +94,6 @@ Fifth Floor, Boston, MA 02110-1301 USA
 									<xsl:value-of select="$my18n/user_activity"/>
 								</legend>
 								<div class="infldset">
-									<xsl:if test="/_R_/runtime/group_id=1">
-										<p>
-											<xsl:value-of select="$my18n/registration_ip"/>:
-											<a href="http://www.arin.net/?queryinput={$my_user/r/registration_ip}"
-												target="_blank" rel="nofollow">
-												<xsl:value-of select="$my_user/r/registration_ip"/>
-											</a>
-										</p>
-									</xsl:if>
 									<p>
 										<xsl:value-of select="$my18n/registered"/>:
 										<xsl:value-of select="$my_user/registered"/>

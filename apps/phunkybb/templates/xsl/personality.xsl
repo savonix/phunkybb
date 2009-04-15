@@ -33,6 +33,10 @@ Fifth Floor, Boston, MA 02110-1301 USA
         <xsl:with-param name="link_prefix" select="$link_prefix"/>
         <xsl:with-param name="my18n" select="$my18n"/>
       </xsl:call-template>
+      <xsl:variable
+        name   = "u_profile"
+        select = "/_R_/user_get_profile/user_get_profile"
+      />
       <div class="blockform">
         <h2>
           <xsl:value-of select="/_R_/runtime/username"/>
@@ -41,20 +45,19 @@ Fifth Floor, Boston, MA 02110-1301 USA
           <form id="profile4" method="post">
             <div class="inform">
               <fieldset>
-                <legend>Compose your signature</legend>
+                <legend><xsl:value-of select="$my18n/signature"/></legend>
                 <div class="infldset">
-                  <p>A signature is a small piece of text that is attached to your posts.</p>
+                  <p><xsl:value-of select="$my18n/signature_legend"/>:</p>
                   <div class="txtarea">
-                    <label>Max length: 400 / Max lines: 4<br/>
-                      <textarea name="signature" rows="4" cols="65">
-                        <xsl:value-of select="//user_get_profile/user_get_profile/signature"/>
-                      </textarea>
-                    </label>
+                    <textarea name="signature" rows="4" cols="65">
+                      <xsl:value-of select="$u_profile/signature"/>
+                    </textarea>
                   </div>
                   <p>
                     <xsl:value-of
-                      select="/_R_/user_get_profile/user_get_profile/signature"
-                      disable-output-escaping="yes"/>
+                      select="$u_profile/signature"
+                      disable-output-escaping="yes"
+                    />
                   </p>
                 </div>
               </fieldset>

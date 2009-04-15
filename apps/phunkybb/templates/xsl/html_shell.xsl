@@ -60,13 +60,10 @@ Fifth Floor, Boston, MA 02110-1301 USA
         <xsl:with-param name="my18n" select="$my18n"/>
       </xsl:call-template>
 
-      <xsl:for-each select="/_R_/footer">
-        <xsl:sort select="priority"/>
-        <xsl:value-of select="string" disable-output-escaping="yes"/>
-      </xsl:for-each>
-
-
-
+      <xsl:for-each select="//post_body_content">
+				<xsl:sort select="priority" order="ascending"/>
+				<xsl:apply-templates select="nodes/*"/>
+			</xsl:for-each>
 
 		</body>
   </html>
