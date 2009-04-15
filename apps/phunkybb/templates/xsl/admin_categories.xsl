@@ -37,6 +37,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 						'action': 'del_cat'
 				},
 				function (data){
+          $("#c_"+category_id).remove();
 				});
 				}
 		}
@@ -97,10 +98,10 @@ Fifth Floor, Boston, MA 02110-1301 USA
                   </thead>
                   <tbody>
                     <xsl:for-each select="/_R_/categories_get_all/categories_get_all">
-											<input type="hidden" name="cid[]"
-												value="{cid}" size="3" maxlength="3"/>
-                      <tr>
+                      <tr id="c_{cid}">
                         <td>
+                          <input type="hidden" name="cid[]"
+                            value="{cid}" size="3" maxlength="3"/>
                           <input type="text" name="cat_name[]"
 	                          value="{cat_name}" size="35" maxlength="80"/>
                         </td>
@@ -109,9 +110,9 @@ Fifth Floor, Boston, MA 02110-1301 USA
                           	value="{disp_position}" size="3" maxlength="3"/>
                         </td>
                         <td>
-                          <a href="{$link_prefix}categories&amp;action=del_cat&amp;category_id={cid}"
+                          <a href="#categories&amp;action=del_cat&amp;category_id={cid}"
 														onclick="category_delete({cid}); return false;">
-														Delete
+														<xsl:value-of select="$my18n/delete"/>
 													</a>
                         </td>
                       </tr>

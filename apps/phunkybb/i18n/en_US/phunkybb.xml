@@ -53,8 +53,6 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <database>Database</database>
 <delete_a_category>Delete a category</delete_a_category>
 <delete_categories>delete categories</delete_categories>
-<delete>Delete</delete>
-<delete>Delete</delete>
 <delete_post>Delete post</delete_post>
 <delete_posts>Delete multiple posts</delete_posts>
 <edit_categories>Edit Categories</edit_categories>
@@ -382,7 +380,6 @@ Fifth Floor, Boston, MA 02110-1301 USA
   <offline>Offline</offline>
   <last_edit>Last edited by</last_edit>
   <report>Report</report>
-  <delete>Delete</delete>
   <edit>Edit</edit>
   <quote>Quote</quote>
   <is_subscribed>You are currently subscribed to this topic</is_subscribed>

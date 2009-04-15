@@ -28,8 +28,12 @@ Fifth Floor, Boston, MA 02110-1301 USA
   <xsl:include href="pager.xsl"/>
   <xsl:template name="content">
     <xsl:param name="link_prefix"/>
+    <xsl:param name="path_prefix"/>
     <xsl:param name="my18n"/>
     <xsl:call-template name="jquery-setup">
+      <xsl:with-param name="link_prefix" select="$link_prefix"/>
+      <xsl:with-param name="path_prefix" select="$path_prefix"/>
+      <xsl:with-param name="my18n" select="$my18n"/>
       <xsl:with-param name="my-table">users_table</xsl:with-param>
       <xsl:with-param name="no-sort-column">,
 				headers: {
