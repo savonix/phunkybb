@@ -35,11 +35,6 @@ Fifth Floor, Boston, MA 02110-1301 USA
 		<div class="block">
 
 			<div class="box">
-        <xsl:if test="not(//runtime/user_agent='bot')">
-				<div id="notitle"/>
-        </xsl:if>
-
-        <xsl:if test="//runtime/user_agent='bot'">
 				<div id="brdtitle" class="inbox"
 					style="min-height:6em;padding:10px;">
 					<h1>
@@ -51,7 +46,6 @@ Fifth Floor, Boston, MA 02110-1301 USA
 						<xsl:value-of select="/_R_/board_config/o_board_desc"/>
 					</span>
 				</div>
-        </xsl:if>
 				<xsl:call-template name="menu">
 					<xsl:with-param name="link_prefix" select="$link_prefix"/>
 					<xsl:with-param name="my18n" select="$my18n"/>
