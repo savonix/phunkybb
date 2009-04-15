@@ -56,7 +56,18 @@ if($_SESSION['NX_AUTH']['username']==1016)
     $_SESSION['NX_AUTH']['username']=0;
 }
 
+// Prefix is needed for Mozilla as its the 0 position.
+$ua = '_' . $_SERVER['HTTP_USER_AGENT'];
 
+if(strpos($ua,'Google') || strpos($ua,'Yahoo') || strpos($ua,'bot')) {
+    $user_agent = 'bot';
+} elseif(strpos($ua,'Mozilla') || strpos($ua,'Opera')) {
+    $user_agent = 'gui_browser';
+} elseif (strpos($ua,'Elinks') || strpos($ua,'w3m') || strpos($ua,'Lynx')) {
+    $user_agent = 'text_browser';
+} else {
+    $user_agent = 'bot';
+}
 
 /* Allow the admin to select site_id, everyone
  else must use the domain assigned id */
@@ -79,6 +90,7 @@ $runtime = array(
     'link_prefix' => $link_prefix,
     'mod_rewrite' => 'true',
     'utcdate' => gmdate('Y-m-d H:i:s'),
+    'user_agent' => $user_agent,
     'debug' => 1,
     'incr' => 10,
     'user_time_format' => "r",
