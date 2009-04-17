@@ -116,6 +116,10 @@ div.postmsgsignature {
 	padding:10px;
 }
 
+div.postmsgfooter {
+  background-color:#DDD; border-style:solid; border-color: #BBB; border-width: 0; border-top-width:1px;
+}
+
 div.blockform form, div.fakeform {
 	padding: 20px 20px 15px 20px;
 }

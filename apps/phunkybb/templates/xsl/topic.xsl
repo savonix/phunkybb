@@ -34,6 +34,14 @@ Fifth Floor, Boston, MA 02110-1301 USA
       name   = "topic_get_by_id"
 			select = "/_R_/topic_get_by_id/topic_get_by_id"
     />
+		<xsl:variable
+      name   = "this_forum"
+			select = "/_R_/forum_get_by_id/forum_get_by_id"
+    />
+		<xsl:variable
+      name   = "page_num"
+			select = "/_R_/posts_get_number_of_pages/posts_get_number_of_pages"
+    />
 
 		<script type="text/javascript">
 		function delete_post(post_id) {
@@ -50,10 +58,6 @@ Fifth Floor, Boston, MA 02110-1301 USA
 				}
 		}
 		</script>
-		<xsl:variable name="this_forum"
-			select="/_R_/forum_get_by_id/forum_get_by_id"/>
-		<xsl:variable name="page_num"
-			select="/_R_/posts_get_number_of_pages/posts_get_number_of_pages"/>
 
 		<div class="linkst">
 			<div class="inbox">
@@ -76,11 +80,11 @@ Fifth Floor, Boston, MA 02110-1301 USA
 				<xsl:value-of select="$topic_get_by_id/subject"/>
         &#160;
         <xsl:if test="/_R_/runtime/group_id=1">
-          <a href="#x-topic-delete&amp;topic_id={$topic_get_by_id/id}&amp;fid={/_R_/forum_get_by_id/forum_get_by_id/id}"
+          <a href="#x-topic-delete&amp;topic_id={$topic_get_by_id/id}&amp;fid={$this_forum/id}"
             onclick="topic_delete({$topic_get_by_id/id}); return false;">
             Delete
           </a>
-          <a href="{$link_prefix}topic-edit&amp;topic_id={$topic_get_by_id/id}&amp;fid={/_R_/forum_get_by_id/forum_get_by_id/id}">
+          <a href="{$link_prefix}topic-edit&amp;topic_id={$topic_get_by_id/id}&amp;fid={$this_forum/id}">
             Move
           </a>
         </xsl:if>
@@ -156,18 +160,25 @@ Fifth Floor, Boston, MA 02110-1301 USA
 							<img width="50" height="50" src="{picture}" alt="{username}'s avatar"/>
 							<br/>
 						</xsl:if>
+            <xsl:if test="/_R_/runtime/username">
 						<strong>
 							<a href="{$link_prefix}profile&amp;user_id={user_id}">
 								<xsl:value-of select="username"/>
 							</a>
 						</strong>
+            </xsl:if>
+            <xsl:if test="not(/_R_/runtime/username)">
+						<strong>
+              <xsl:value-of select="username"/>
+						</strong>
+            </xsl:if>
 					</div>
 					<div class="postmsg">
 						<p>
 							<xsl:value-of select="message" disable-output-escaping="yes"/>
 						</p>
 					</div>
-					<div style="background-color:#DDD; border-style:solid; border-color: #BBB; border-width: 0; border-top-width:1px;">
+					<div class="postmsgfooter">
 						<div class="postmsg" style="padding:10px;float:right;">
 						<xsl:if test="//runtime/group_id=1 or poster=/_R_/runtime/username">
 							<a href="{$link_prefix}post-edit&amp;post_id={id}&amp;topic_id={$topic_get_by_id/id}&amp;fid={/_R_/forum_get_by_id/forum_get_by_id/id}">
@@ -182,7 +193,6 @@ Fifth Floor, Boston, MA 02110-1301 USA
 						<div class="postmsgsignature">
 						<xsl:value-of select="signature" disable-output-escaping="yes"/>
 						</div>
-						<div style="clear:both;"></div>
 					</div>
 				</div>
 			</div>

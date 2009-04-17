@@ -497,7 +497,8 @@
 		<map:query src="data/sql/user_delete.xml"/>
 	</map:gate>
 
-	<map:gate name="x-dynamic-css" cache="600" nosession="true" content_type="text/css" cache_control="public, max-age=600, must-revalidate">
+	<map:gate name="x-dynamic-css" cache="0" nosession="true" content_type="text/css"
+    cache_control="public, max-age=0, must-revalidate">
     <map:action type="header" params="content-type,text/css"/>
 		<map:if name="//board_config/o_board_theme">
 			<map:true>
