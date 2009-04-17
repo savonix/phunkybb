@@ -63,7 +63,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 						<description>
 						<xsl:value-of select="message" disable-output-escaping="yes"/>
 						</description>
-						<pubDate><xsl:value-of select="posted"/></pubDate>
+						<pubDate><xsl:value-of select="posted_datetime"/></pubDate>
 						<author><xsl:value-of select="username"/></author>
 					</item>
 				</xsl:for-each>
