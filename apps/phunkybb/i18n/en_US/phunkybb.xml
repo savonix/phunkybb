@@ -80,8 +80,6 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <important_information>Important information</important_information>
 <index>Index</index>
 <info>Info</info>
-<install>Install PhunkyBB</install>
-<jabber>Jabber</jabber>
 <last_edit>Last edited by</last_edit>
 <last_post>Last Post</last_post>
 <last_visit>Last visit</last_visit>
@@ -179,9 +177,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 
 
 
-  <install>Install PhunkyBB</install>
   <forums>Forums</forums>
-  <topics>Topics</topics>
   <posts>Posts</posts>
   <pages>Pages</pages>
   <last_post>Last Post</last_post>
