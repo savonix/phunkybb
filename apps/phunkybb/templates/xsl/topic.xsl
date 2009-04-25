@@ -148,7 +148,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 						<span class="conr">#<xsl:value-of select="id"/></span>
 					</a>
 					<a href="#post{id}" name="post{id}">
-						<span class="date">
+						<span class="reldate">
 							<xsl:value-of select="posted"/>
 						</span>
 					</a>
@@ -179,9 +179,9 @@ Fifth Floor, Boston, MA 02110-1301 USA
 						</p>
 					</div>
 					<div class="postmsgfooter">
-						<div class="postmsg" style="padding:10px;float:right;">
+						<div class="postmsgctrl">
 						<xsl:if test="//runtime/group_id=1 or username=/_R_/runtime/username">
-							<a href="{$link_prefix}post-edit&amp;post_id={id}&amp;topic_id={$topic_get_by_id/id}&amp;fid={/_R_/forum_get_by_id/forum_get_by_id/id}">
+							<a href="{$link_prefix}post-edit&amp;post_id={id}&amp;topic_id={$topic_get_by_id/id}&amp;fid={$this_forum/id}">
 								<xsl:value-of select="$my18n/edit"/>
 							</a>&#160;
 							<a href="{$link_prefix}x-post-delete&amp;post_id={id}"
