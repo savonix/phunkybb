@@ -138,13 +138,13 @@ Fifth Floor, Boston, MA 02110-1301 USA
           </a>
           </xsl:if>
         </span>
-        <div style="float:left; margin-right: 10px;">
+        <div class="user_avatar" onclick="location.href='{$link_prefix}public-profile&amp;username={username}'" title="{username}'s profile">
           <!-- This is where the avatar would go. -->
           <xsl:if test="not(picture='')">
-            <img width="50" height="50" src="{picture}" alt="{username}'s avatar"/>
+            <img style="height:50px;width:50px;" src="{picture}" alt="{username}'s avatar"/>
           </xsl:if>
           <xsl:if test="picture=''">
-            <div style="background-color:#aaa; height:50px;width:50px;text-align:center;" title="{username}'s avatar">
+            <div>
             <br/>?
             </div>
           </xsl:if>

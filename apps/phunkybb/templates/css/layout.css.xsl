@@ -155,6 +155,13 @@ div.inform {
 	padding: 12px;
 }
 
+.user_avatar {
+float:left; margin-right: 10px;
+background-color:#aaa;
+height:50px;width:50px;
+text-align:center;
+cursor: pointer;
+}
 
 .pun fieldset {
 	padding: 0px 12px 0px 12px;

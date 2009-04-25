@@ -323,6 +323,13 @@ Fifth Floor, Boston, MA 02110-1301 USA
 			</map:false>
 		</map:if>
 	</map:gate>
+	<map:gate name="public-profile" role="phunky_user">
+    <map:query src="data/sql/user_get_profile.xml"/>
+    <map:action type="datetime" params="/_R_/user_get_profile/user_get_profile/last_visit,unix_epoch,{/_R_/runtime/user_time_format},{/_R_/runtime/user_timezone_offset}"/>
+    <map:action type="datetime" params="/_R_/user_get_profile/user_get_profile/last_post,unix_epoch,{/_R_/runtime/user_time_format},{/_R_/runtime/user_timezone_offset}"/>
+    <map:action type="datetime" params="/_R_/user_get_profile/user_get_profile/registered,unix_epoch,{/_R_/runtime/user_time_format},{/_R_/runtime/user_timezone_offset}"/>
+    <map:xsl src="templates/xsl/public_profile.xsl"/>
+	</map:gate>
 	<map:gate name="password" role="phunky_user">
 		<map:if name="//_post">
 			<map:true>
