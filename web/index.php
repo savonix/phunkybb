@@ -4,7 +4,7 @@ ini_set('display_errors',true);
 error_reporting(E_ALL ^ E_NOTICE);
 
 // MSIE won't work with application/xhtml+xml
-if(strstr($_SERVER['HTTP_USER_AGENT'],"MSIE")) {
+if(strstr($_SERVER['HTTP_USER_AGENT'],'MSIE')) {
     ini_set('default_mimetype','text/html');
 } else {
     ini_set('default_mimetype','application/xhtml+xml');
@@ -14,11 +14,11 @@ if(strstr($_SERVER['HTTP_USER_AGENT'],"MSIE")) {
 
 // Where is nexista? This path should be to a folder containing nexista
 // This is the only thing you may need to edit:
-if(file_exists("../nexista/")) {
-    define('NX_PATH_BASE', "../nexista/");
+if(file_exists('../nexista/')) {
+    define('NX_PATH_BASE', '../nexista/');
 }
-if (file_exists("../../nexista/")) {
-    define('NX_PATH_BASE', "../../nexista/");
+if (file_exists('../../nexista/')) {
+    define('NX_PATH_BASE', '../../nexista/');
 }
 // Very bad hack
 if($_SERVER['HTTP_HOST']=='192.168.8.91') {
@@ -48,15 +48,15 @@ $server_name = $_SERVER['SERVER_NAME'];
 define('SERVER_NAME', $server_name);
 $project_root = dirname(dirname(__FILE__));
 $project_root = str_replace('\\', '/', $project_root);
-define('NX_PATH_CORE', NX_PATH_BASE."kernel/");
+define('NX_PATH_CORE', NX_PATH_BASE.'kernel/');
 define('PROJECT_ROOT', $project_root);
 define('PROJECT_NAME', 'phunkybb');
 define('APP_NAME', 'phunkybb');
 
-$server_init = PROJECT_ROOT."/cache/".SERVER_NAME."/".APP_NAME."/".APP_NAME.".php";
+$server_init = PROJECT_ROOT.'/cache/'.SERVER_NAME.'/'.APP_NAME.'/'.APP_NAME.'.php';
 
 if(!include(NX_PATH_BASE.'extensions/nexista_builder.php')) {
-    echo "Error: Unable to load server loader or builder.";
+    echo 'Error: Unable to load server loader or builder.';
     exit;
 }
 

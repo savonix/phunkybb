@@ -34,110 +34,99 @@ Fifth Floor, Boston, MA 02110-1301 USA
 			select = "/_R_/forum_get_by_id/forum_get_by_id"
     />
 
-
 		<div id="vf" class="blocktable">
-			<h2>
-        <p style="float:right;">
-        <a href="{$link_prefix}x-forum-rss&amp;fid={$forum_get_by_id/id}">
-          <img src="{//path_prefix}s/img/icons/famfamfam/feed.png"
-            class="rssicon" alt="RSS"/>
-        </a>
-        </p>
-        <p style="float:right;margin-top:-4px;">
-        <xsl:call-template name="post_new_topic">
-          <xsl:with-param name="link_prefix" select="$link_prefix"/>
-          <xsl:with-param name="path_prefix" select="$path_prefix"/>
-          <xsl:with-param name="my18n" select="$my18n"/>
-          <xsl:with-param name="forum_get_by_id" select="$forum_get_by_id"/>
-        </xsl:call-template>
-        </p>
-        <xsl:call-template name="breadcrumbs">
-          <xsl:with-param name="link_prefix" select="$link_prefix"/>
-          <xsl:with-param name="path_prefix" select="$path_prefix"/>
-          <xsl:with-param name="my18n" select="$my18n"/>
-          <xsl:with-param name="forum_get_by_id" select="$forum_get_by_id"/>
-        </xsl:call-template>
-			</h2>
-			<div class="box">
-				<div class="tableframe">
-					<table cellspacing="0" >
-						<thead>
-							<tr>
-								<th class="tcl" scope="col">
-									<xsl:value-of select="$my18n/topic"/>
-								</th>
-								<th class="tc2" scope="col">
-									<xsl:value-of select="$my18n/replies"/>
-								</th>
-								<th class="tcr" scope="col">
-									<xsl:value-of select="$my18n/last_post"/>
-								</th>
-							</tr>
-						</thead>
-						<tbody>
-							<xsl:for-each select="/_R_/topics_get_by_forum_id/topics_get_by_forum_id">
-								<tr>
-									<td class="tcl">
-                    <xsl:if test="//runtime/group_id=1">
-                      <a style="float: right;" href="#x-topic-delete&amp;topic_id={id}"
-                        onclick="topic_delete({id}); return false;">
-                        x
-                      </a>
+      <div >
+        <table cellspacing="0" >
+          <thead>
+            <tr>
+              <th class="tcl" scope="col">
+                <xsl:value-of select="$my18n/topic"/>
+              </th>
+              <th class="tc2" scope="col">
+                <xsl:value-of select="$my18n/replies"/>
+              </th>
+              <th class="tcr" scope="col">
+                <p style="float:right;">
+                <a href="{$link_prefix}x-forum-rss&amp;fid={$forum_get_by_id/id}">
+                  <img src="{//path_prefix}s/img/icons/famfamfam/feed.png"
+                    class="rssicon" alt="RSS"/>
+                </a>
+                </p>
+                <p style="float:right;margin-top:-4px;">
+                <xsl:call-template name="post_new_topic">
+                  <xsl:with-param name="link_prefix" select="$link_prefix"/>
+                  <xsl:with-param name="path_prefix" select="$path_prefix"/>
+                  <xsl:with-param name="my18n" select="$my18n"/>
+                  <xsl:with-param name="forum_get_by_id" select="$forum_get_by_id"/>
+                </xsl:call-template>
+                </p>
+                <xsl:value-of select="$my18n/last_post"/>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <xsl:for-each select="/_R_/topics_get_by_forum_id/topics_get_by_forum_id">
+              <tr>
+                <td class="tcl">
+                  <xsl:if test="//runtime/group_id=1">
+                    <a style="float: right;" href="#x-topic-delete&amp;topic_id={id}"
+                      onclick="topic_delete({id}); return false;">
+                      x
+                    </a>
+                  </xsl:if>
+                  <xsl:if test="not(/_R_/runtime/last_visit_timestamp &lt; last_post_timestamp)">
+                    <div class="icon"/>
+                  </xsl:if>
+                  <xsl:if test="/_R_/runtime/last_visit_timestamp &lt; last_post_timestamp">
+                    <div class="icon inew"/>
+                  </xsl:if>
+                  <!-- Need to use the link_builder here! -->
+                  <xsl:if test="//mod_rewrite='true' and not(basename='')">
+                    <a title="{subject}" id="topic-{id}" href="{$path_prefix}{link}">
+                    <!--
+                      <xsl:attribute name="href">
+                        <xsl:value-of select="$path_prefix"/>
+                        <xsl:value-of select="$forum_get_by_id/forum_basename"/>
+                        <xsl:text>/</xsl:text>
+                        <xsl:value-of select="basename"/>
+                        <xsl:text>/</xsl:text>
+                      </xsl:attribute>
+                      -->
+                      <xsl:value-of select="subject"/>
+                    </a>
+                  </xsl:if>
+                  <xsl:if test="not(//mod_rewrite='true') or basename=''">
+                    <a href="{$link_prefix}topic&amp;basename={basename}&amp;fid={$forum_get_by_id/id}&amp;id={id}">
+                      <xsl:value-of select="subject"/>
+                    </a>
+                  </xsl:if>
+                </td>
+                <td class="tc2">
+                  <xsl:value-of select="num_replies"/>
+                </td>
+                <td>
+                  <span class="reldate">
+                    <xsl:if test="not(last_post='1969-12-31 20:00:00')">
+                      <xsl:value-of select="last_post"/>
                     </xsl:if>
-                    <xsl:if test="not(/_R_/runtime/last_visit_timestamp &lt; last_post_timestamp)">
-                      <div class="icon"/>
-                    </xsl:if>
-                    <xsl:if test="/_R_/runtime/last_visit_timestamp &lt; last_post_timestamp">
-                      <div class="icon inew"/>
-                    </xsl:if>
-                    <!-- Need to use the link_builder here! -->
-                    <xsl:if test="//mod_rewrite='true' and not(basename='')">
-                      <a title="{subject}" id="topic-{id}" href="{$path_prefix}{link}">
-                      <!--
-                        <xsl:attribute name="href">
-                          <xsl:value-of select="$path_prefix"/>
-                          <xsl:value-of select="$forum_get_by_id/forum_basename"/>
-                          <xsl:text>/</xsl:text>
-                          <xsl:value-of select="basename"/>
-                          <xsl:text>/</xsl:text>
-                        </xsl:attribute>
-                        -->
-                        <xsl:value-of select="subject"/>
-                      </a>
-                    </xsl:if>
-                    <xsl:if test="not(//mod_rewrite='true') or basename=''">
-                      <a href="{$link_prefix}topic&amp;basename={basename}&amp;fid={$forum_get_by_id/id}&amp;id={id}">
-                        <xsl:value-of select="subject"/>
-                      </a>
-                    </xsl:if>
-									</td>
-									<td class="tc2">
-										<xsl:value-of select="num_replies"/>
-									</td>
-									<td>
-										<span class="reldate">
-											<xsl:if test="not(last_post='1969-12-31 20:00:00')">
-												<xsl:value-of select="last_post"/>
-											</xsl:if>
-										</span>
-										<xsl:if test="not(last_poster=0)">
-											by <xsl:value-of select="last_poster"/>
-										</xsl:if>
-									</td>
-								</tr>
-							</xsl:for-each>
-							<xsl:if test="not(/_R_/topics_get_by_forum_id)">
-								<tr>
-									<td class="tcl" colspan="3">
-										<xsl:value-of select="$my18n/forum_is_empty"/>.
-									</td>
-								</tr>
-							</xsl:if>
-						</tbody>
-					</table>
-				</div>
-			</div>
-		</div>
+                  </span>
+                  <xsl:if test="not(last_poster=0)">
+                    by <xsl:value-of select="last_poster"/>
+                  </xsl:if>
+                </td>
+              </tr>
+            </xsl:for-each>
+            <xsl:if test="not(/_R_/topics_get_by_forum_id)">
+              <tr>
+                <td class="tcl" colspan="3">
+                  <xsl:value-of select="$my18n/forum_is_empty"/>.
+                </td>
+              </tr>
+            </xsl:if>
+          </tbody>
+        </table>
+      </div>
+    </div>
 	</xsl:template>
 
 	<xsl:template name="post_new_topic">
@@ -155,27 +144,5 @@ Fifth Floor, Boston, MA 02110-1301 USA
 			</div>
 		</xsl:if>
 	</xsl:template>
-	<xsl:template name="breadcrumbs">
-		<xsl:param name="link_prefix"/>
-		<xsl:param name="path_prefix"/>
-		<xsl:param name="my18n"/>
-		<xsl:param name="forum_get_by_id"/>
-      <ul class="breadcrumbs">
-        <li>
-          <a href="{$link_prefix}index">
-            <xsl:value-of select="$my18n/index"/>
-          </a>&#160;
-        </li>
-        <li>
-          &#187;&#160;
-          <a href="{$link_prefix}forum&amp;fid={$forum_get_by_id/id}">
-            <xsl:value-of select="$forum_get_by_id/forum_name"/>
-          </a>
-        </li>
-        <li>
-          &#187;&#160;
-          <xsl:value-of select="$forum_get_by_id/forum_name"/>
-        </li>
-      </ul>
-	</xsl:template>
+
 </xsl:stylesheet>

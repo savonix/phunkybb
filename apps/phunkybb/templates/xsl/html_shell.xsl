@@ -32,6 +32,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 		doctype-system       = "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd"
 		doctype-public       = "-//W3C//DTD XHTML 1.1//EN"
   />
+  <xsl:strip-space elements="*"/>
 
 
 <xsl:template match="/">

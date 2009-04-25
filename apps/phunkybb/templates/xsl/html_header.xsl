@@ -34,9 +34,21 @@ Fifth Floor, Boston, MA 02110-1301 USA
 
 		<div class="block">
 
+				<xsl:call-template name="menu">
+					<xsl:with-param name="link_prefix" select="$link_prefix"/>
+					<xsl:with-param name="my18n" select="$my18n"/>
+				</xsl:call-template>
+
 			<div class="box" style="border:0;">
 				<div id="brdtitle" class="inbox"
 					style="min-height:6em;padding:10px;">
+
+          <p style="float:right;">
+            <a href="{$link_prefix}x-posts-rss">
+              <img src="{//path_prefix}/s/img/icons/famfamfam/feed.png"
+                class="rssicon" alt="RSS"/>
+            </a>
+          </p>
 					<h1>
 						<a href="{$link_prefix}index">
 							<xsl:value-of select="/_R_/board_config/o_board_title"/>
@@ -46,10 +58,6 @@ Fifth Floor, Boston, MA 02110-1301 USA
 						<xsl:value-of select="/_R_/board_config/o_board_desc"/>
 					</span>
 				</div>
-				<xsl:call-template name="menu">
-					<xsl:with-param name="link_prefix" select="$link_prefix"/>
-					<xsl:with-param name="my18n" select="$my18n"/>
-				</xsl:call-template>
 			</div>
 
 		</div>

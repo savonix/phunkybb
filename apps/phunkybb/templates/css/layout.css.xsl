@@ -173,7 +173,7 @@ div.forminfo {
 div.blockform p input {
 	margin-left: 12px;
 }
-#brdmenu li, div.rbox input, div.blockform p input {
+div.rbox input, div.blockform p input {
 	margin-right: 12px;
 }
 #brdmenu{

@@ -32,12 +32,6 @@ Fifth Floor, Boston, MA 02110-1301 USA
     <xsl:for-each select="/_R_/categories_get_all/categories_get_all[cid=/_R_/forums_get_all/forums_get_all/cid]">
       <xsl:variable name="my_cid" select="cid"/>
       <h2>
-        <p style="float:right;">
-          <a href="{$link_prefix}x-posts-rss">
-            <img src="{//path_prefix}/s/img/icons/famfamfam/feed.png"
-              class="rssicon" alt="RSS"/>
-          </a>
-        </p>
         <xsl:value-of select="cat_name"/>
       </h2>
       <div class="box">

@@ -25,9 +25,13 @@ Fifth Floor, Boston, MA 02110-1301 USA
 	xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns="http://www.w3.org/1999/xhtml">
 <xsl:template name="menu">
   <xsl:param name="link_prefix"/>
+  <xsl:param name="path_prefix"/>
     <xsl:param name="my18n"/>
+		<xsl:variable
+      name   = "forum_get_by_id"
+			select = "/_R_/forum_get_by_id/forum_get_by_id"
+    />
 
-  <!-- i18n prefix -->
 
     <xsl:call-template name="source_spacer">
         <xsl:with-param name="section_start">main_menu</xsl:with-param>
@@ -35,45 +39,72 @@ Fifth Floor, Boston, MA 02110-1301 USA
 
 		<div id="brdmenu" class="inbox">
 
-      <xsl:value-of select="//o_extra_menu_items/*" disable-output-escaping="yes"/>
-
-			<a href="{$link_prefix}index">
-				<xsl:value-of select="$my18n/index"/>
-			</a>
-      &#8226;
-
-			<xsl:choose>
+			<span style="float:right">
+      <xsl:choose>
 				<xsl:when test="/_R_/runtime/username">
 					<xsl:if test="/_R_/runtime/group_id='1'">
 						<a href="{$link_prefix}admin">
 							<xsl:value-of select="$my18n/administration"/>
 						</a>
-            &#8226;
 					</xsl:if>
+          &#8226;
 					<a href="{$link_prefix}profile">
             <xsl:value-of select="$my18n/profile"/>
           </a>
-          &#8226;
 					<xsl:if test="/_R_/runtime/last_visit_timestamp &lt; //last_post_timestamp">
-						<a href="{$link_prefix}user-read-all">Mark All Messages Read</a>
             &#8226;
+						<a href="{$link_prefix}user-read-all">Mark All Messages Read</a>
 					</xsl:if>
-					<a href="{$link_prefix}logout"><xsl:value-of select="$my18n/logout"/></a>
+          &#8226;
+          <a href="{$link_prefix}logout"><xsl:value-of select="$my18n/logout"/></a>
 				</xsl:when>
 				<xsl:otherwise>
-					<a href="{$link_prefix}register">
+          &#8226;
+          <a href="{$link_prefix}register">
 						<xsl:value-of select="$my18n/register"/>
 					</a>
           &#8226;
-					<a href="{$link_prefix}login">
+          <a href="{$link_prefix}login">
 						<xsl:value-of select="$my18n/login"/>
 					</a>
 				</xsl:otherwise>
 			</xsl:choose>
+      </span>
+
+      <xsl:value-of select="//o_extra_menu_items/*" disable-output-escaping="yes"/>
+
+        <xsl:call-template name="breadcrumbs">
+          <xsl:with-param name="link_prefix" select="$link_prefix"/>
+          <xsl:with-param name="path_prefix" select="$path_prefix"/>
+          <xsl:with-param name="my18n" select="$my18n"/>
+          <xsl:with-param name="forum_get_by_id" select="$forum_get_by_id"/>
+        </xsl:call-template>
 		</div>
 
     <xsl:call-template name="source_spacer">
         <xsl:with-param name="section_end">main_menu</xsl:with-param>
     </xsl:call-template>
   </xsl:template>
+
+	<xsl:template name="breadcrumbs">
+		<xsl:param name="link_prefix"/>
+		<xsl:param name="path_prefix"/>
+		<xsl:param name="my18n"/>
+		<xsl:param name="forum_get_by_id"/>
+      <ul class="breadcrumbs">
+        <li>
+          <a href="{$link_prefix}index">
+            <xsl:value-of select="$my18n/index"/>
+          </a>
+        </li>
+        <xsl:if test="$forum_get_by_id/forum_name">
+        <li>&#187;</li>
+        <li>
+          <a href="{$link_prefix}forum&amp;fid={$forum_get_by_id/id}">
+            <xsl:value-of select="$forum_get_by_id/forum_name"/>
+          </a>
+        </li>
+        </xsl:if>
+      </ul>
+	</xsl:template>
 </xsl:stylesheet>
