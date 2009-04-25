@@ -62,12 +62,11 @@ background-color: <xsl:value-of select="//css/colors/med-background-alt"/>;
 td.tcl,td.tcr {
   background-color: #fff;
 }
-td.tc2, td.tc3, td.tcmod, #postpreview, #viewprofile dd, div.forminfo,
-#adminconsole fieldset td, div.blockmenu div.box {
+td.tc2, td.tc3, td.tcmod, #adminconsole fieldset td, div.blockmenu div.box {
   background-color: <xsl:value-of select="//css/colors/light-background-alt"/>;
 }
 
-.pun h2, #brdmenu, h2.breadcrumbs {
+#brdmenu, h2.breadcrumbs {
   background-color: <xsl:value-of select="//css/colors/dark-background"/>;
   color: #FFF
 }
@@ -75,6 +74,9 @@ div.blockpost h2 {
   background-color: <xsl:value-of select="//css/colors/dark-background"/>;
 }
 
+div.blockpost {
+  background-color: #eee;
+}
 .pun a:link, .pun a:visited {
   color: #005CB1
 }

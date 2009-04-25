@@ -70,7 +70,7 @@ div.blocktable, div.block, div.blockform, div.block2col {
 #brdtitle p {
 	padding-top: 0px;
 }
-#brdtitle span {
+#brdtitle h2 {
   line-height:1.9em;
 }
 .tableframe {
@@ -84,7 +84,7 @@ div.blocktable, div.block, div.blockform, div.block2col {
   overflow: auto;
   border: 1px;
   border-style: solid;
-  border-color: #bbb;
+  border-color: #aaa;
   <xsl:if test="//browser='msie'">
   /* css hack for IE */
   width: expression((parseInt(document.documentElement.clientWidth)-230)+'px');
@@ -127,46 +127,28 @@ div.linksb, div.postlinksb {
 	border-width: 1px;
   border-bottom:0;
 }
-#viewprofile dt, #viewprofile dd {
-	padding: 0 3px;
-	line-height: 2em;
-}
 
-#punindex div.blocktable, div.blockpost {
+
+#punindex div.blocktable{
 	margin-bottom: 6px;
 }
 
 div.blockpost input, div.blockpost label {
 	padding: 3px;
-	display: inline
+	display: block;
 }
 
-p.multidelete {
-	padding-top: 15px;
-	padding-bottom: 5px
+div.blockpost {
+  padding: 6px;
+	margin-bottom: 1em;
 }
-
-
-div.postmsg p {
-	margin:10px; min-height:8em;
-	padding: 0;
+div.postmsg {
+  min-height: 120px;
+	display: block;
 }
-
-div.postmsgsignature {
-	padding:10px;
-}
-
-div.postmsgctrl {
-  padding:8px;
-  float:right;
-}
-div.postmsgfooter {
-  background-color: #ddd;
-  min-height: 28px;
-  border-style: solid;
-  border-color: #bbb;
-  border-width: 0;
-  border-top-width:1px;
+div.postmsgsig {
+text-align: right;
+  line-height: 2em;
 }
 
 div.inform {
@@ -211,9 +193,6 @@ div.postleft dl, div.postright {
 	padding: 6px;
 }
 
-div.postmsg p.postedit {
-	padding-top: 15px;
-}
 
 .pun blockquote{
 	margin: 5px 15px 15px 15px;
@@ -249,19 +228,6 @@ div.icon {
 	border-style: solid;
 }
 
-div.postfootleft p, div.postfootright ul, div.postfootright div {
-	padding: 10px;
-}
-
-.blocktable h2 {
-	border-width: 1px;
-	border-bottom-width: 0;
-	border-style: solid;
-}
-
-.blockmenu h2 {
-	margin-top: 0;
-}
 
 .interstatus
 {
@@ -276,6 +242,9 @@ div.postfootleft p, div.postfootright ul, div.postfootright div {
     padding: 3px;
 }
 
+h2.topic_h2 {
+	font-size: .8em;
+}
 h3, .tclcon {
 	text-indent: 4px;
 }
