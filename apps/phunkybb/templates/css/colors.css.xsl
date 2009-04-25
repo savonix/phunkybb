@@ -63,14 +63,13 @@ td.tc2, td.tc3, td.tcmod, #postpreview, #viewprofile dd, div.forminfo,
   background-color: <xsl:value-of select="//css/colors/light-background-alt"/>;
 }
 
-.pun h2, #brdmenu {
+.pun h2, #brdmenu, h2.breadcrumbs {
   background-color: <xsl:value-of select="//css/colors/dark-background"/>;
   color: #FFF
 }
 div.blockpost h2 {
   background-color: <xsl:value-of select="//css/colors/dark-background"/>;
 }
-
 
 .pun a:link, .pun a:visited {
   color: #005CB1

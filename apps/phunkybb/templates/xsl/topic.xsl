@@ -75,7 +75,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 			<p class="postlink conr">
 				<a href="{$link_prefix}x-topic-rss&amp;forum_basename={$this_forum/forum_basename}&amp;fid={$this_forum/id}&amp;id={$topic_get_by_id/id}">
 					<img src="{$path_prefix}s/img/icons/famfamfam/feed.png"
-						style="float:right;padding-left:7px;margin-top:-2px;"/>
+						class="rssicon" />
 				</a>
 				<xsl:value-of select="$topic_get_by_id/subject"/>
         &#160;
@@ -95,14 +95,14 @@ Fifth Floor, Boston, MA 02110-1301 USA
 							<xsl:value-of select="$my18n/index"/>
 						</a>
 					</li>
-				<li>&#160; &gt; &#160;
+				<li>&#160;&#187;&#160;
         <a href="{$link_prefix}forum&amp;forum_basename={$this_forum/forum_basename}&amp;fid={$this_forum/id}"
 					title="{$this_forum/forum_name}">
           <xsl:value-of select="$this_forum/forum_name"/>
 				</a>
 				</li>
 				<li>
-        &#160; &gt; &#160;
+        &#160;&#187;&#160;
         <a href="{$link_prefix}topic&amp;forum_basename={$this_forum/forum_basename}&amp;fid={$this_forum/id}&amp;id={$topic_get_by_id/id}">
           <xsl:value-of select="$topic_get_by_id/subject"/>
 				</a>

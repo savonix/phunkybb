@@ -27,7 +27,6 @@ Fifth Floor, Boston, MA 02110-1301 USA
   <xsl:include href="html_menu.xsl"/>
   <xsl:include href="html_head.xsl"/>
   <xsl:include href="html_header.xsl"/>
-  <xsl:include href="html_footer.xsl"/>
   <xsl:include href="source_spacer.xsl"/>
   <xsl:include href="link_builder.xsl"/>
 
@@ -65,9 +64,9 @@ Fifth Floor, Boston, MA 02110-1301 USA
             <xsl:with-param name="section_end">content</xsl:with-param>
           </xsl:call-template>
 
+
+
           <xsl:call-template name="footer"/>
-
-
         </div>
       </div>
     </div>
@@ -75,4 +74,35 @@ Fifth Floor, Boston, MA 02110-1301 USA
       <xsl:with-param name="section_end">main</xsl:with-param>
     </xsl:call-template>
   </xsl:template>
+
+
+
+	<xsl:template name="footer">
+		<xsl:param name="link_prefix"/>
+		<xsl:param name="path_prefix"/>
+		<xsl:param name="my18n"/>
+
+		<xsl:call-template name="source_spacer">
+			<xsl:with-param name="section_start">footer</xsl:with-param>
+		</xsl:call-template>
+
+      <!-- Standard div to be replaced by a DOM object -->
+			<xsl:if test="//runtime/user_agent='gui_browser'">
+			<div id="nofooter"/>
+      </xsl:if>
+
+      <!-- Raw HTML for bots -->
+			<xsl:if test="not(//runtime/user_agent='gui_browser')">
+			<div id="brdfooter">
+				<p style="text-align: right;">
+					Powered by&#160;<a href="http://www.phunkybb.com/blog/" title="Open Source Forums XSL Software">PhunkyBB</a>
+          &#160;and&#160;<a href="http://www.nexista.com/blog/" title="Web Application Framework Software">Nexista</a>.
+				</p>
+			</div>
+      </xsl:if>
+
+		<xsl:call-template name="source_spacer">
+			<xsl:with-param name="section_end">footer</xsl:with-param>
+		</xsl:call-template>
+	</xsl:template>
 </xsl:stylesheet>

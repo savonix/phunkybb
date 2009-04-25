@@ -25,11 +25,6 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <xsl:template name="base">
 
 
-iframe {
-overflow-x: hidden;
-overflow-y: hidden;
-}
-
 img {
     border: 0;
 }

@@ -34,46 +34,33 @@ Fifth Floor, Boston, MA 02110-1301 USA
 			select = "/_R_/forum_get_by_id/forum_get_by_id"
     />
 
-		<div class="linkst">
-			<a href="{$link_prefix}x-forum-rss&amp;fid={$forum_get_by_id/id}">
-				<img src="{$path_prefix}s/img/icons/famfamfam/feed.png"
-					class="rssicon" alt="RSS"/>
-			</a>
-			<!--
-			<p class="pagelink conl">
-				<xsl:value-of select="$my18n/pages"/>:
-				<strong>
-					<xsl:value-of select="/_R_/forum_get_number_of_pages/forum_get_number_of_pages/pages"/>
-				</strong>
-			</p>
-			-->
 
-      <xsl:call-template name="post_new_topic">
-        <xsl:with-param name="link_prefix" select="$link_prefix"/>
-        <xsl:with-param name="path_prefix" select="$path_prefix"/>
-        <xsl:with-param name="my18n" select="$my18n"/>
-      </xsl:call-template>
-				<ul class="breadcrumbs">
-					<li>
-						<a href="{$link_prefix}index">
-							<xsl:value-of select="$my18n/index"/>
-						</a>&#160;
-					</li>
-					<li>
-						&gt; &#160;
-						<a href="{$link_prefix}forum&amp;fid={$forum_get_by_id/id}">
-							<xsl:value-of select="$forum_get_by_id/forum_name"/>
-						</a>
-					</li>
-				</ul>
-		</div>
 		<div id="vf" class="blocktable">
 			<h2>
-				<xsl:value-of select="$forum_get_by_id/forum_name"/>
+        <p style="float:right;">
+        <a href="{$link_prefix}x-forum-rss&amp;fid={$forum_get_by_id/id}">
+          <img src="{//path_prefix}s/img/icons/famfamfam/feed.png"
+            class="rssicon" alt="RSS"/>
+        </a>
+        </p>
+        <p style="float:right;margin-top:-4px;">
+        <xsl:call-template name="post_new_topic">
+          <xsl:with-param name="link_prefix" select="$link_prefix"/>
+          <xsl:with-param name="path_prefix" select="$path_prefix"/>
+          <xsl:with-param name="my18n" select="$my18n"/>
+          <xsl:with-param name="forum_get_by_id" select="$forum_get_by_id"/>
+        </xsl:call-template>
+        </p>
+        <xsl:call-template name="breadcrumbs">
+          <xsl:with-param name="link_prefix" select="$link_prefix"/>
+          <xsl:with-param name="path_prefix" select="$path_prefix"/>
+          <xsl:with-param name="my18n" select="$my18n"/>
+          <xsl:with-param name="forum_get_by_id" select="$forum_get_by_id"/>
+        </xsl:call-template>
 			</h2>
 			<div class="box">
-				<div class="inbox">
-					<table cellspacing="0">
+				<div class="tableframe">
+					<table cellspacing="0" >
 						<thead>
 							<tr>
 								<th class="tcl" scope="col">
@@ -92,20 +79,16 @@ Fifth Floor, Boston, MA 02110-1301 USA
 								<tr>
 									<td class="tcl">
                     <xsl:if test="//runtime/group_id=1">
-                      <span style="float: right;">
-                      <a href="#x-topic-delete&amp;topic_id={id}"
+                      <a style="float: right;" href="#x-topic-delete&amp;topic_id={id}"
                         onclick="topic_delete({id}); return false;">
                         x
                       </a>
-                      </span>
                     </xsl:if>
                     <xsl:if test="not(/_R_/runtime/last_visit_timestamp &lt; last_post_timestamp)">
-                      <div class="icon">
-                      </div>
+                      <div class="icon"/>
                     </xsl:if>
                     <xsl:if test="/_R_/runtime/last_visit_timestamp &lt; last_post_timestamp">
-                      <div class="icon inew">
-                      </div>
+                      <div class="icon inew"/>
                     </xsl:if>
                     <!-- Need to use the link_builder here! -->
                     <xsl:if test="//mod_rewrite='true' and not(basename='')">
@@ -155,51 +138,44 @@ Fifth Floor, Boston, MA 02110-1301 USA
 				</div>
 			</div>
 		</div>
-		<div class="linkst">
-			<!--
-			<p class="pagelink conl">
-				<xsl:value-of select="$my18n/pages"/>:
-				<strong></strong>
-			</p>
-			-->
-
-			<a href="{$link_prefix}x-forum-rss&amp;fid={$forum_get_by_id/id}">
-				<img src="{//path_prefix}/s/img/icons/famfamfam/feed.png"
-					class="rssicon" alt="RSS"/>
-			</a>
-      <xsl:call-template name="post_new_topic">
-        <xsl:with-param name="link_prefix" select="$link_prefix"/>
-        <xsl:with-param name="path_prefix" select="$path_prefix"/>
-        <xsl:with-param name="my18n" select="$my18n"/>
-      </xsl:call-template>
-				<ul class="breadcrumbs">
-					<li>
-						<a href="{$link_prefix}index">
-							<xsl:value-of select="$my18n/index"/>
-						</a>&#160;
-					</li>
-					<li>
-						&gt; &#160;
-						<a href="{$link_prefix}forum&amp;fid={$forum_get_by_id/id}">
-							<xsl:value-of select="/_R_/forum_get_by_id/forum_get_by_id/forum_name"/>
-						</a>
-					</li>
-				</ul>
-		</div>
 	</xsl:template>
 
 	<xsl:template name="post_new_topic">
 		<xsl:param name="link_prefix"/>
 		<xsl:param name="path_prefix"/>
 		<xsl:param name="my18n"/>
+		<xsl:param name="forum_get_by_id"/>
 			<xsl:if test="/_R_/runtime/username">
 			<div class="button-basic-blue" style="float: right;"
-				onclick="location.href='{$link_prefix}post&amp;fid={/_R_/forum_get_by_id/forum_get_by_id/id}';">
-					<a href="{$link_prefix}post&amp;fid={/_R_/forum_get_by_id/forum_get_by_id/id}">
+				onclick="location.href='{$link_prefix}post&amp;fid={$forum_get_by_id/id}';">
+					<a style="color: blue" href="{$link_prefix}post&amp;fid={$forum_get_by_id/id}">
 						<img src="{$path_prefix}s/img/icons/famfamfam/add.png"/>
 						<xsl:value-of select="$my18n/post_topic"/>
 					</a>
 			</div>
 		</xsl:if>
+	</xsl:template>
+	<xsl:template name="breadcrumbs">
+		<xsl:param name="link_prefix"/>
+		<xsl:param name="path_prefix"/>
+		<xsl:param name="my18n"/>
+		<xsl:param name="forum_get_by_id"/>
+      <ul class="breadcrumbs">
+        <li>
+          <a href="{$link_prefix}index">
+            <xsl:value-of select="$my18n/index"/>
+          </a>&#160;
+        </li>
+        <li>
+          &#187;&#160;
+          <a href="{$link_prefix}forum&amp;fid={$forum_get_by_id/id}">
+            <xsl:value-of select="$forum_get_by_id/forum_name"/>
+          </a>
+        </li>
+        <li>
+          &#187;&#160;
+          <xsl:value-of select="$forum_get_by_id/forum_name"/>
+        </li>
+      </ul>
 	</xsl:template>
 </xsl:stylesheet>

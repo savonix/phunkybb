@@ -34,7 +34,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 
 		<div class="block">
 
-			<div class="box">
+			<div class="box" style="border:0;">
 				<div id="brdtitle" class="inbox"
 					style="min-height:6em;padding:10px;">
 					<h1>

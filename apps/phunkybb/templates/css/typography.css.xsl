@@ -25,6 +25,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <xsl:template name="typography">
 body {
   font-family: sans-serif;
+	font-size: 11px;
 }
 .pun pre {
 	font-family: courier, monospace;

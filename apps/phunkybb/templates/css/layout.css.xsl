@@ -38,7 +38,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 .pun p, .pun ul, .pun dl, div.blockmenu li, .pun label, #announce div.inbox div {
 	padding: 3px 0;
 }
-div.box, .pun td, .pun th, .pun blockquote, div.codebox, div.forminfo, div.blockpost label {
+div.box, .pun td, .pun th, div.forminfo, div.blockpost label {
 	border-style: solid;
 	border-width: 1px;
 }
@@ -47,6 +47,9 @@ div.block div.inbox, div.blockmenu div.inbox {
 	padding: 3px;
 }
 
+.breadcrumbs li {
+    display: inline;
+}
 
 .pun h1 {
 	padding: 3px 0px 0px 0;
@@ -70,7 +73,20 @@ div.blocktable, div.block, div.blockform, div.block2col, #postreview {
 #brdtitle span {
   line-height:1.9em;
 }
-
+.tableframe {
+  position: absolute;
+  top: 150px;
+  left: 10px;
+  right: 10px;
+  bottom: 60px;
+  background-color: #F9F9F9;
+  overflow: auto;
+  <xsl:if test="//browser='msie'">
+  /* css hack for IE */
+  width: expression((parseInt(document.documentElement.clientWidth)-230)+'px');
+  height: expression((parseInt(document.documentElement.clientHeight)-125)+'px');
+  </xsl:if>
+}
 div.linkst {
 	padding: 6px 4px 1px 4px;
 }
@@ -82,10 +98,15 @@ div.linksb, div.postlinksb {
 }
 
 #brdfooter {
+  position: absolute;
+  bottom: 0;
+  left: 10px;
+  right: 10px;
+  padding: 0 10px;
+  margin-left: auto;
+  margin-right: auto;
 	border-style: solid;
 	border-width: 1px;
-	padding: .4em;
-	margin-top: 10px;
 }
 #viewprofile dt, #viewprofile dd {
 	padding: 0 3px;
@@ -127,10 +148,6 @@ div.postmsgfooter {
   border-color: #bbb;
   border-width: 0;
   border-top-width:1px;
-}
-
-div.blockform form, div.fakeform {
-	padding: 20px 20px 15px 20px;
 }
 
 div.inform {
@@ -179,14 +196,13 @@ div.postmsg p.postedit {
 	padding-top: 15px;
 }
 
-.pun blockquote, div.codebox {
+.pun blockquote{
 	margin: 5px 15px 15px 15px;
 	padding: 8px;
 }
 
 
 .pun td, .pun th {
-	border-bottom: none;
 	border-right: none
 }
 
@@ -202,7 +218,7 @@ div>fieldset {
 
 
 #punwrap {
-	margin: 12px 20px;
+	margin: 0 10px;
 }
 
 div.icon {
@@ -222,7 +238,6 @@ div.postfootleft p, div.postfootright ul, div.postfootright div {
 	border-width: 1px;
 	border-bottom-width: 0;
 	border-style: solid;
-	margin-top: .8em;
 }
 
 .blockmenu h2 {
@@ -248,7 +263,7 @@ h3, .tclcon {
 .rssicon {
   float:right;
   padding-left:7px;
-  margin-top:3px;
+  margin-top:-\3px;
 }
 
 .float_right {

@@ -50,9 +50,6 @@ Fifth Floor, Boston, MA 02110-1301 USA
     border-style: solid;
 }
 
-.breadcrumbs li {
-    display: inline;
-}
 
 
 
@@ -119,9 +116,6 @@ div.blockmenu, #viewprofile dt {
 
 .tcr {width: 32%; text-align: left}
 
-#punsearch #vf .tcl, #punmoderate #vf .tcl {width: 41%}
-
-#punsearch #vf .tc2 {width: 18%; text-align: left}
 
 .tcl, .tcr {
 	overflow: hidden;
@@ -143,61 +137,11 @@ div.blockmenu, #viewprofile dt {
 #adminconsole p {padding-bottom: 6px}
 #adminconsole p.submittop, #adminconsole P.submitend {text-align: center}
 #adminconsole th.hidehead {color: #f1f1f1}
-#adminconsole thEAD th {padding-bottom: 0px}
+#adminconsole thead th {padding-bottom: 0px}
 #adminconsole p.linkactions {font-weight: bold; padding-left: 5px}
 
 
 
-.pun, .pun input, .pun select, .pun textarea, .pun OPTGROUP {
-	font-family: Verdana, Arial, Helvetica, sans-serif
-}
-
-.pun {
-	font-size: 11px;
-	line-height: normal;
-}
-
-.pun table, .pun input, .pun select, .pun textarea, div.postmsg P.postedit {
-	font-size: 1em;
-}
-
-
-
-
-div.postleft dt, div.postmsg H4, td.tcl h3, div.forminfo h3, p.postlink, div.linkst li,
-div.linksb li, div.postlinksb li, .blockmenu li, #brdtitle H1, .pun span.warntext, .pun p.warntext {
-	font-weight: bold;
-}
-
-
-
-#brdmenu A:link, #brdmenu A:visited, .blockpost dt A:link, .blockpost dt A:visited, .blockpost h2 A:link,
-.blockpost h2 A:visited, .postlink A:link, .postlink A:visited, .postfootright A:link, .postfootright A:visited,
-.blockmenu A:link, .blockmenu A:visited {
-	text-decoration: none
-}
-
-
-
-
-
-
-
-
-
-
-
-
-div.inbox:after {
-  clear: both;
-  content: ".";
-  display: block;
-  font-size: 0;
-  height: 0;
-  line-height: 0.0;
-  overflow:hidden;
-  visibility: hidden;
-}
 
 
 
@@ -213,12 +157,13 @@ div.inbox:after {
 
 
 
-<xsl:if test="//path_prefix='/demo/'">
-.webads iframe {
-    overflow-x: hidden;
-    overflow-y: hidden;
-}
-</xsl:if>
+
+
+
+
+
+
+
 
 <xsl:call-template name="thematic-button">
     <xsl:with-param name="button-name">basic-blue</xsl:with-param>
