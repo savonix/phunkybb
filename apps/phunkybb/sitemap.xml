@@ -113,7 +113,7 @@
 				<map:xsl src="templates/xml/success.xml.xsl"/>
 			</map:true>
 			<map:false>
-				<map:xsl src="templates/xsl/password_forgot_reset.xsl"/>
+				<map:xsl src="templates/xsl/password_forgot.xsl"/>
 			</map:false>
 		</map:if>
 	</map:gate>

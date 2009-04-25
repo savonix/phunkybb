@@ -28,6 +28,20 @@ Fifth Floor, Boston, MA 02110-1301 USA
     <xsl:param name="link_prefix"/>
     <xsl:param name="path_prefix"/>
     <xsl:param name="my18n"/>
+    <xsl:if test="/_R_/_get/nid='password-forgot'">
+      <xsl:call-template name="password_forgot">
+      </xsl:call-template>
+    </xsl:if>
+    <xsl:if test="/_R_/_get/nid='password-forgot-reset'">
+      <xsl:call-template name="password_forgot_reset">
+      </xsl:call-template>
+    </xsl:if>
+  </xsl:template>
+
+  <xsl:template name="password_forgot_reset">
+    <xsl:param name="link_prefix"/>
+    <xsl:param name="path_prefix"/>
+    <xsl:param name="my18n"/>
     <script type="text/javascript" src="{$path_prefix}s/js/rsa/jsbn.js"></script>
     <script type="text/javascript" src="{$path_prefix}s/js/rsa/rsa.js"></script>
     <script type="text/javascript" src="{$path_prefix}s/js/rsa/prng4.js"></script>
@@ -116,6 +130,33 @@ Fifth Floor, Boston, MA 02110-1301 USA
             <input type="submit" style="visibility: hidden;"/>
           </form>
         </div>
+      </div>
+    </div>
+  </xsl:template>
+
+
+
+
+  <xsl:template name="password_forgot">
+    <xsl:param name="link_prefix"/>
+    <xsl:param name="my18n"/>
+    <div class="box">
+      <div class="inform">
+        <xsl:if test="not(//_post/email)">
+          <form method="post" action="{$link_prefix}password-forgot-submit">
+          Email address: <input type="text" name="email"/>
+          <br/>
+          <input type="submit"/>
+          </form>
+        </xsl:if>
+        <xsl:if test="//_post/email">
+          <xsl:if test="//user_get_by_email_or_username/user_get_by_email_or_username/email">
+            Email sent to <xsl:value-of select="//user_get_by_email_or_username/user_get_by_email_or_username/username"/> .
+          </xsl:if>
+          <xsl:if test="not(//user_get_by_email_or_username)">
+            Can't find a user with that email.
+          </xsl:if>
+        </xsl:if>
       </div>
     </div>
   </xsl:template>
