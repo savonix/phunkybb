@@ -35,7 +35,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 			select = "/_R_/topic_get_by_id/topic_get_by_id"
     />
 		<xsl:variable
-      name   = "this_forum"
+      name   = "forum_get_by_id"
 			select = "/_R_/forum_get_by_id/forum_get_by_id"
     />
 		<xsl:variable
@@ -60,15 +60,80 @@ Fifth Floor, Boston, MA 02110-1301 USA
 		</script>
 
 
+    <table cellspacing="0">
+      <thead>
+        <tr>
+          <th class="tcl" style="border-bottom: 0;">
+
+			<span class="postlink conr">
+        <span style="float:right;padding-left:6px;margin-top:-1px;">
+        <a href="{$link_prefix}x-topic-rss&amp;id={$topic_get_by_id/id}&amp;fid={$forum_get_by_id/id}">
+          <img src="{$path_prefix}s/img/icons/famfamfam/rss.png" alt="RSS"/>
+        </a>
+        </span>
+        <xsl:if test="($page_num/count * 0.1) &gt; 1">
+          <xsl:call-template name="previous_next">
+            <xsl:with-param name="link_prefix" select="$link_prefix"/>
+            <xsl:with-param name="qsa">
+              <xsl:text>&amp;fid=</xsl:text>
+              <xsl:value-of select="$forum_get_by_id/id"/>
+              <xsl:text>&amp;id=</xsl:text>
+              <xsl:value-of select="$topic_get_by_id/id"/>
+            </xsl:with-param>
+            <xsl:with-param name="max" select="$page_num/count"/>
+          </xsl:call-template>
+          Pages:
+          <xsl:call-template name="pages">
+            <xsl:with-param name="link_prefix" select="$link_prefix"/>
+            <xsl:with-param name="qsa">
+              <xsl:text>&amp;fid=</xsl:text>
+              <xsl:value-of select="$forum_get_by_id/id"/>
+              <xsl:text>&amp;id=</xsl:text>
+              <xsl:value-of select="$topic_get_by_id/id"/>
+            </xsl:with-param>
+            <xsl:with-param name="max" select="$page_num/count"/>
+            <xsl:with-param name="number_of_pages" select="format-number($page_num/pages,'##') - 1"/>
+          </xsl:call-template>
+        </xsl:if>
+        <xsl:if test="/_R_/runtime/username">
+          <a href="#" onclick="show_quickpost();">
+            Reply</a>&#160;
+        </xsl:if>
+        <xsl:if test="/_R_/runtime/group_id=1">
+          <a href="#x-topic-delete&amp;topic_id={$topic_get_by_id/id}&amp;fid={$forum_get_by_id/id}"
+            onclick="topic_delete({$topic_get_by_id/id}); return false;">
+            Delete</a>&#160;
+          <a href="{$link_prefix}topic-edit&amp;topic_id={$topic_get_by_id/id}&amp;fid={$forum_get_by_id/id}">
+            Move
+          </a>
+        </xsl:if>
+				</span>
+            <b><xsl:value-of select="$topic_get_by_id/subject"/></b>
+            has <xsl:value-of select="format-number($page_num/pages,'##')"/>&#160;<xsl:value-of select="$my18n/pages"/>
+            and
+           <xsl:value-of select="$page_num/count"/>&#160;<xsl:value-of select="$my18n/posts"/>
+          </th>
+        </tr>
+      </thead>
+    </table>
 		<!-- Post loop -->
     <div class="tableframe">
 		<xsl:for-each select="/_R_/posts_get_by_topic_id/posts_get_by_topic_id">
 			<div id="p{id}" class="blockpost" >
-				<h2 style="font-size:.8em;">
-					<a href="#post{id}" name="post{id}">
-						<span class="conr">#<xsl:value-of select="id"/></span>
-					</a>
-					<a href="#post{id}" name="post{id}">
+				<h2 class="topic_h2">
+          <span class="conr noul">
+            <a href="{$link_prefix}post-edit&amp;post_id={id}&amp;topic_id={$topic_get_by_id/id}&amp;fid={$forum_get_by_id/id}">
+              <xsl:value-of select="$my18n/edit"/>
+            </a>&#160;
+            <a href="{$link_prefix}x-post-delete&amp;post_id={id}"
+              onclick="delete_post({id}); return false;">
+              <xsl:value-of select="$my18n/delete"/>
+            </a>
+            <a href="#post{id}" name="post{id}">
+              #<xsl:value-of select="id"/>
+            </a>
+          </span>
+					<a href="#post{id}" name="post{id}" class="noul">
 						<span class="reldate">
 							<xsl:value-of select="posted"/>
 						</span>
@@ -100,17 +165,6 @@ Fifth Floor, Boston, MA 02110-1301 USA
 						</p>
 					</div>
 					<div class="postmsgfooter">
-						<div class="postmsgctrl">
-						<xsl:if test="//runtime/group_id=1 or username=/_R_/runtime/username">
-							<a href="{$link_prefix}post-edit&amp;post_id={id}&amp;topic_id={$topic_get_by_id/id}&amp;fid={$this_forum/id}">
-								<xsl:value-of select="$my18n/edit"/>
-							</a>&#160;
-							<a href="{$link_prefix}x-post-delete&amp;post_id={id}"
-								onclick="delete_post({id}); return false;">
-								<xsl:value-of select="$my18n/delete"/>
-							</a>
-						</xsl:if>
-						</div>
 						<div class="postmsgsignature">
 						<xsl:value-of select="signature" disable-output-escaping="yes"/>
 						</div>
@@ -127,7 +181,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 						<xsl:with-param name="link_prefix" select="$link_prefix"/>
 						<xsl:with-param name="qsa">
 							<xsl:text>&amp;fid=</xsl:text>
-							<xsl:value-of select="$this_forum/id"/>
+							<xsl:value-of select="$forum_get_by_id/id"/>
 							<xsl:text>&amp;id=</xsl:text>
 							<xsl:value-of select="$topic_get_by_id/id"/>
 						</xsl:with-param>
@@ -142,6 +196,9 @@ Fifth Floor, Boston, MA 02110-1301 USA
 		<xsl:if test="/_R_/runtime/username">
 			<div class="blockform" id="quickpost">
 				<h2>
+          <span style="float:right;cursor:pointer;" onclick="hide_quickpost();">
+          X
+          </span>
 					<xsl:value-of select="$my18n/quick_post"/>
 				</h2>
 				<div class="box">
@@ -192,65 +249,8 @@ Fifth Floor, Boston, MA 02110-1301 USA
     <!--
     This needs to be put back into topic.xsl
     
-    		<div class="linkst">
+    <div class="linkst">
 			<div class="inbox">
-				<p class="pagelink conl">
-					<xsl:value-of select="$my18n/pages"/>:
-					<strong>
-						<xsl:value-of select="format-number($page_num/pages,'##')"/>
-					</strong>&#160;
-
-      <xsl:value-of select="$my18n/posts"/>:
-      <strong>
-        <xsl:value-of select="$page_num/count"/>
-			</strong>
-			</p>
-			<p class="postlink conr">
-				<a href="{$link_prefix}x-topic-rss&amp;forum_basename={$this_forum/forum_basename}&amp;fid={$this_forum/id}&amp;id={$topic_get_by_id/id}">
-					<img src="{$path_prefix}s/img/icons/famfamfam/feed.png"
-						class="rssicon" />
-				</a>
-        <xsl:if test="/_R_/runtime/group_id=1">
-          <a href="#x-topic-delete&amp;topic_id={$topic_get_by_id/id}&amp;fid={$this_forum/id}"
-            onclick="topic_delete({$topic_get_by_id/id}); return false;">
-            Delete
-          </a>
-          <a href="{$link_prefix}topic-edit&amp;topic_id={$topic_get_by_id/id}&amp;fid={$this_forum/id}">
-            Move
-          </a>
-        </xsl:if>
-				</p>
-
-				<p class="postlink conl">
-					<xsl:if test="($page_num/count * 0.1) &gt; 1">
-						<xsl:call-template name="previous_next">
-							<xsl:with-param name="link_prefix" select="$link_prefix"/>
-							<xsl:with-param name="qsa">
-								<xsl:text>&amp;fid=</xsl:text>
-								<xsl:value-of select="$this_forum/id"/>
-								<xsl:text>&amp;id=</xsl:text>
-								<xsl:value-of select="$topic_get_by_id/id"/>
-							</xsl:with-param>
-							<xsl:with-param name="max" select="$page_num/count"/>
-						</xsl:call-template>
-					</xsl:if>
-				</p>
-				<p class="conr">
-					<xsl:if test="($page_num/count * 0.1) &gt; 1">
-						Pages:
-						<xsl:call-template name="pages">
-							<xsl:with-param name="link_prefix" select="$link_prefix"/>
-							<xsl:with-param name="qsa">
-								<xsl:text>&amp;fid=</xsl:text>
-								<xsl:value-of select="$this_forum/id"/>
-								<xsl:text>&amp;id=</xsl:text>
-								<xsl:value-of select="$topic_get_by_id/id"/>
-							</xsl:with-param>
-							<xsl:with-param name="max" select="$page_num/count"/>
-							<xsl:with-param name="number_of_pages" select="format-number($page_num/pages,'##') - 1"/>
-						</xsl:call-template>
-					</xsl:if>
-				</p>
 			</div>
 		</div>
     -->

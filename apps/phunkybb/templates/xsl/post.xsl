@@ -42,10 +42,12 @@ Fifth Floor, Boston, MA 02110-1301 USA
               </legend>
               <div class="infldset txtarea">
                 <label>
-                  <strong>
-                    <xsl:value-of select="$my18n/subject"/>
-                  </strong>
+                  <xsl:value-of select="$my18n/subject"/>
                   <br/>
+                  <input class="longinput" type="text" name="subject"
+                    size="75"
+                    id="subject" onkeyup="copyValue('subject','basename')"/>
+
 									<script type="text/javascript">
 									<![CDATA[
 									function copyValue(field1,field2)
@@ -54,10 +56,6 @@ Fifth Floor, Boston, MA 02110-1301 USA
 									}
 									]]>
 									</script>
-                  <input class="longinput" type="text" name="subject"
-                    id="subject" onkeyup="copyValue('subject','basename')"/>
-									<br/>
-
                   <input type="hidden" name="basename" id="basename" />
                   <br/>
                 </label>
@@ -66,7 +64,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
                     <xsl:value-of select="$my18n/message"/>
                   </strong>
                   <br/>
-                  <textarea name="message" rows="20" cols="95"/>
+                  <textarea name="message" rows="10" cols="75"/>
                   <br/>
                 </label>
               </div>
@@ -88,12 +86,11 @@ Fifth Floor, Boston, MA 02110-1301 USA
               </div>
             </fieldset>
           </div>
-          <p>
+          <p style="text-align:center">
             <input type="submit" name="submit" value="Submit"/>
-            <a href="{$link_prefix}welcome" onclick="history.go(-1);">
-              <xsl:value-of select="$my18n/go_back"/>
-            </a>
+            <input type="button" href="#welcome" value="{$my18n/go_back}" onclick="history.go(-1);"/>
           </p>
+          <br/>
         </form>
       </div>
     </div>

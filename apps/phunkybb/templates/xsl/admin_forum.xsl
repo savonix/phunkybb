@@ -118,10 +118,10 @@ Fifth Floor, Boston, MA 02110-1301 USA
                       <xsl:for-each select="/_R_/forums_get_all/forums_get_all[cid=$my_cid]">
                         <tr id="f_{fid}">
                           <th>
-                            <a href="{$link_prefix}forum-edit&amp;fid={fid}">
+                            <a href="{$link_prefix}admin-forum-edit&amp;fid={fid}">
                               <xsl:value-of select="$my18n/edit"/>
                             </a> - 
-                            <a href="{$link_prefix}forum-delete&amp;id={fid}"
+                            <a href="#forum-delete&amp;id={fid}"
                               onclick="delete_forum({fid},{cid}); return false;">
                               <xsl:value-of select="$my18n/delete"/>
                             </a>

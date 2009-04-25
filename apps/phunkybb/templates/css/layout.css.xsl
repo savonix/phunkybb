@@ -48,7 +48,7 @@ div.block div.inbox, div.blockmenu div.inbox {
 }
 
 .breadcrumbs li {
-    display: inline;
+  display: inline;
 }
 
 .pun h1 {
@@ -59,7 +59,7 @@ div.block div.inbox, div.blockmenu div.inbox {
 	padding: 4px 6px;
 }
 
-div.blocktable, div.block, div.blockform, div.block2col, #postreview {
+div.blocktable, div.block, div.blockform, div.block2col {
 	margin-bottom: 2px;
 }
 
@@ -74,13 +74,17 @@ div.blocktable, div.block, div.blockform, div.block2col, #postreview {
   line-height:1.9em;
 }
 .tableframe {
+  padding: 6px;
   position: absolute;
-  top: 100px;
+  top: 142px;
   left: 10px;
   right: 10px;
   bottom: 60px;
-  background-color: #F9F9F9;
+  background-color: #fff;
   overflow: auto;
+  border: 1px;
+  border-style: solid;
+  border-color: #bbb;
   <xsl:if test="//browser='msie'">
   /* css hack for IE */
   width: expression((parseInt(document.documentElement.clientWidth)-230)+'px');
@@ -121,6 +125,7 @@ div.linksb, div.postlinksb {
   margin-right: auto;
 	border-style: solid;
 	border-width: 1px;
+  border-bottom:0;
 }
 #viewprofile dt, #viewprofile dd {
 	padding: 0 3px;
@@ -267,8 +272,8 @@ div.postfootleft p, div.postfootright ul, div.postfootright div {
 }
 
 
-.pun h2 a:link, .pun h2 a:visited, #brdmenu a:link, #brdmenu a:visited {
-    padding: 4px;
+.pun h2 a:link, #brdmenu a {
+    padding: 3px;
 }
 
 h3, .tclcon {

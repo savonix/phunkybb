@@ -56,5 +56,11 @@ div.postleft dt {
 #brdfooter p {
   text-align: right;
 }
+h2.topic_h2 {
+	font-size: .8em;
+}
+span.noul a, a.noul {
+  text-decoration: none !important;
+}
 </xsl:template>
 </xsl:stylesheet>

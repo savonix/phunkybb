@@ -35,31 +35,25 @@ Fifth Floor, Boston, MA 02110-1301 USA
     />
 
 		<div id="vf" class="blocktable">
-      <div >
         <table cellspacing="0" >
           <thead>
             <tr>
               <th class="tcl" scope="col">
-                <xsl:value-of select="$my18n/topic"/>
+                <b><xsl:value-of select="$forum_get_by_id/forum_name"/></b>
+                &#160;<xsl:value-of select="$my18n/topics"/>
               </th>
               <th class="tc2" scope="col">
                 <xsl:value-of select="$my18n/replies"/>
               </th>
-              <th class="tcr" scope="col">
-                <p style="float:right;">
-                <a href="{$link_prefix}x-forum-rss&amp;fid={$forum_get_by_id/id}">
-                  <img src="{//path_prefix}s/img/icons/famfamfam/feed.png"
-                    class="rssicon" alt="RSS"/>
-                </a>
-                </p>
-                <p style="float:right;margin-top:-4px;">
-                <xsl:call-template name="post_new_topic">
-                  <xsl:with-param name="link_prefix" select="$link_prefix"/>
-                  <xsl:with-param name="path_prefix" select="$path_prefix"/>
-                  <xsl:with-param name="my18n" select="$my18n"/>
-                  <xsl:with-param name="forum_get_by_id" select="$forum_get_by_id"/>
-                </xsl:call-template>
-                </p>
+              <th class="tcr">
+                <span style="float:right;">
+                  <a href="{$link_prefix}post&amp;fid={$forum_get_by_id/id}">
+                    <xsl:value-of select="$my18n/post_topic"/>
+                  </a>&#160;
+                  <a href="{$link_prefix}x-forum-rss&amp;fid={$forum_get_by_id/id}">
+                    <img style="margin:-3px 0;" src="{$path_prefix}s/img/icons/famfamfam/rss.png" alt="RSS"/>
+                  </a>
+                </span>
                 <xsl:value-of select="$my18n/last_post"/>
               </th>
             </tr>
@@ -104,7 +98,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
                 <td class="tc2">
                   <xsl:value-of select="num_replies"/>
                 </td>
-                <td>
+                <td class="tcr">
                   <span class="reldate">
                     <xsl:if test="not(last_post='1969-12-31 20:00:00')">
                       <xsl:value-of select="last_post"/>
@@ -125,7 +119,6 @@ Fifth Floor, Boston, MA 02110-1301 USA
             </xsl:if>
           </tbody>
         </table>
-      </div>
     </div>
 	</xsl:template>
 
