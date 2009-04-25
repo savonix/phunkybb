@@ -1,4 +1,4 @@
-// Courtesy of Joey 
+// Courtesy of Joey
 // Public Domain Code
 // http://joey.kitenet.net/blog/entry/relative_dates_in_html/
 
