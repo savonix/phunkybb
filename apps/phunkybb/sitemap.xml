@@ -539,9 +539,5 @@
 		<map:xsl src="templates/xml/sitemap.xml.xsl"/>
 	</map:gate>
 
-	<map:gate name="x-selenium-test">
-		<map:xml src="templates/xsl/login.xsl"/>
-		<map:xsl src="templates/tests/test_runner.xsl"/>
-	</map:gate>
 
 </map:sitemap>
