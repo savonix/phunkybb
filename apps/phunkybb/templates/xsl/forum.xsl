@@ -47,9 +47,11 @@ Fifth Floor, Boston, MA 02110-1301 USA
               </th>
               <th class="tcr">
                 <span style="float:right;">
+                  <xsl:if test="/_R_/runtime/username">
                   <a href="{$link_prefix}post&amp;fid={$forum_get_by_id/id}">
                     <xsl:value-of select="$my18n/post_topic"/>
                   </a>&#160;
+                  </xsl:if>
                   <a href="{$link_prefix}x-forum-rss&amp;fid={$forum_get_by_id/id}">
                     <img style="margin:-3px 0;" src="{$path_prefix}s/img/icons/famfamfam/rss.png" alt="RSS"/>
                   </a>

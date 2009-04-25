@@ -110,7 +110,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
             <xsl:value-of select="$forum_get_by_id/forum_name"/>
           </a>
         </li>
-          <xsl:if test="not($topic_get_by_id/subject)">
+          <xsl:if test="not($topic_get_by_id/subject) and /_R_/runtime/username">
           <li>
             &#187;
             <a href="{$link_prefix}post&amp;fid={$forum_get_by_id/id}">

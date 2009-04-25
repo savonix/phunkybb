@@ -122,6 +122,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 			<div id="p{id}" class="blockpost" >
 				<h2 class="topic_h2">
           <span class="conr noul">
+            <xsl:if test="/_R_/runtime/username=username or /_R_/runtime/group_id=1">
             <a href="{$link_prefix}post-edit&amp;post_id={id}&amp;topic_id={$topic_get_by_id/id}&amp;fid={$forum_get_by_id/id}">
               <xsl:value-of select="$my18n/edit"/>
             </a>&#160;
@@ -129,6 +130,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
               onclick="delete_post({id}); return false;">
               <xsl:value-of select="$my18n/delete"/>
             </a>
+            </xsl:if>
             <a href="#post{id}" name="post{id}">
               #<xsl:value-of select="id"/>
             </a>
@@ -246,14 +248,6 @@ Fifth Floor, Boston, MA 02110-1301 USA
 		</xsl:if>
     
     
-    <!--
-    This needs to be put back into topic.xsl
-    
-    <div class="linkst">
-			<div class="inbox">
-			</div>
-		</div>
-    -->
 
 	</xsl:template>
 </xsl:stylesheet>
