@@ -31,15 +31,13 @@ Fifth Floor, Boston, MA 02110-1301 USA
 
     <xsl:for-each select="/_R_/categories_get_all/categories_get_all[cid=/_R_/forums_get_all/forums_get_all/cid]">
       <xsl:variable name="my_cid" select="cid"/>
-      <h2>
-        <xsl:value-of select="cat_name"/>
-      </h2>
       <div class="box">
 				<table cellspacing="0">
 					<thead>
 						<tr>
 							<th class="tcl" scope="col">
-								<xsl:value-of select="$my18n/forums"/>
+                <xsl:value-of select="cat_name"/>&#160;
+                <xsl:value-of select="$my18n/forums"/>
 							</th>
 							<th class="tc2" scope="col">
 								<xsl:value-of select="$my18n/topics"/>
