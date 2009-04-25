@@ -32,6 +32,10 @@ Fifth Floor, Boston, MA 02110-1301 USA
 			select = "/_R_/forum_get_by_id/forum_get_by_id"
     />
 
+		<xsl:variable
+      name   = "topic_get_by_id"
+			select = "/_R_/topic_get_by_id/topic_get_by_id"
+    />
 
     <xsl:call-template name="source_spacer">
         <xsl:with-param name="section_start">main_menu</xsl:with-param>
@@ -78,6 +82,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
           <xsl:with-param name="path_prefix" select="$path_prefix"/>
           <xsl:with-param name="my18n" select="$my18n"/>
           <xsl:with-param name="forum_get_by_id" select="$forum_get_by_id"/>
+          <xsl:with-param name="topic_get_by_id" select="$topic_get_by_id"/>
         </xsl:call-template>
 		</div>
 
@@ -91,6 +96,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 		<xsl:param name="path_prefix"/>
 		<xsl:param name="my18n"/>
 		<xsl:param name="forum_get_by_id"/>
+		<xsl:param name="topic_get_by_id"/>
       <ul class="breadcrumbs">
         <li>
           <a href="{$link_prefix}index">
@@ -98,12 +104,33 @@ Fifth Floor, Boston, MA 02110-1301 USA
           </a>
         </li>
         <xsl:if test="$forum_get_by_id/forum_name">
-        <li>&#187;</li>
         <li>
+          &#187;
           <a href="{$link_prefix}forum&amp;fid={$forum_get_by_id/id}">
             <xsl:value-of select="$forum_get_by_id/forum_name"/>
           </a>
         </li>
+        </xsl:if>
+        <xsl:if test="$topic_get_by_id/subject">
+        <li>
+          &#187;
+          <a href="{$link_prefix}topic&amp;forum_basename={$forum_get_by_id/forum_basename}&amp;fid={$forum_get_by_id/id}&amp;id={$topic_get_by_id/id}">
+            <xsl:value-of select="$topic_get_by_id/subject"/>
+          </a>
+        </li>
+        <xsl:if test="/_R_/runtime/username">
+        <script type="text/javascript">
+        function show_quickpost() {
+          $("#quickpost").css("display","block");
+        }
+        </script>
+        <li>
+          &#187;
+          <a href="#" onclick="show_quickpost();">
+            Reply
+          </a>
+        </li>
+        </xsl:if>
         </xsl:if>
       </ul>
 	</xsl:template>

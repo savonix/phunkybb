@@ -75,10 +75,24 @@ div.blocktable, div.block, div.blockform, div.block2col, #postreview {
 }
 .tableframe {
   position: absolute;
-  top: 150px;
+  top: 100px;
   left: 10px;
   right: 10px;
   bottom: 60px;
+  background-color: #F9F9F9;
+  overflow: auto;
+  <xsl:if test="//browser='msie'">
+  /* css hack for IE */
+  width: expression((parseInt(document.documentElement.clientWidth)-230)+'px');
+  height: expression((parseInt(document.documentElement.clientHeight)-125)+'px');
+  </xsl:if>
+}
+
+#quickpost {
+  display: none;
+  position: absolute;
+  top: 80px;
+  left: 240px;
   background-color: #F9F9F9;
   overflow: auto;
   <xsl:if test="//browser='msie'">
