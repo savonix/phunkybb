@@ -76,7 +76,11 @@ if ( $_SESSION['NX_AUTH']['group_id'] == 1 && strpos($_GET['nid'],'admin')) {
     $site_id = $_SESSION['site_id'];
 } else {
     // This needs to be set by $_SERVER
-    $site_id = 4;
+    if($_SERVER['HTTP_HOST'] == 'www.sb-info.com') {
+        $site_id = 100;
+    } else {
+        $site_id = 4;
+    }
 }
 
 

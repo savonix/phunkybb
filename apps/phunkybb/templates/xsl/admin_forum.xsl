@@ -101,7 +101,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
           </span>
         </h2>
         <div class="box">
-          <form id="edforum" method="post" action="{$link_prefix}forums">
+          <form id="edforum" method="post" action="{$link_prefix}admin-forums">
             <p class="submittop">
               <input type="submit" name="update_positions" value="Update positions"/>
             </p>
