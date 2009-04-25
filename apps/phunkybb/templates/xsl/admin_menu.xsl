@@ -56,7 +56,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 					<xsl:if test="//runtime/site_id=site_id">
 						<xsl:attribute name="selected">selected</xsl:attribute>
 					</xsl:if>
-          <xsl:value-of select="http_host"/>
+          <xsl:value-of select="substring(http_host,0,18)"/>
           </option>
         </xsl:for-each>
         </select>

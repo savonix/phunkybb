@@ -25,33 +25,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <xsl:template name="base">
 
 
-img {
-    border: 0;
-}
 
-table
-{
-    border-spacing: 0;
-    border-collapse: collapse;
-}
-
-td
-{
-    text-align: left;
-    font-weight: normal;
-}
-
-input.text
-{
-    padding: 2px;
-    border: 1px solid #999999;
-}
-
-input.textarea
-{
-    padding: 2px;
-    border: 1px solid #999999;
-}
 
 </xsl:template>
 </xsl:stylesheet>

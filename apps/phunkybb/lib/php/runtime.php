@@ -23,7 +23,7 @@ or write to the Free Software Foundation, Inc., 51 Franklin Street,
 Fifth Floor, Boston, MA 02110-1301 USA -->
 */
 
-/*
+/* <!--
 For use with Apache's mod_rewrite
 
 RewriteCond %{REQUEST_URI} ^/a/dev/phunkybb/
@@ -33,7 +33,7 @@ RewriteRule ^/a/dev/phunkybb/(\w+)/$ /a/dev/phunkybb/index.php?nxrw_path=/a/dev/
 RewriteCond %{REQUEST_URI} ^/a/dev/phunkybb/
 RewriteCond %{REQUEST_URI} !/a/dev/phunkybb/index.php|.css
 RewriteRule ^/a/dev/phunkybb/(\w+)/(\w+)/ /a/dev/phunkybb/index.php?nxrw_path=/a/dev/phunkybb/index.php&nid=topic&forum_basename=$1&basename=$2 [L]
-*/
+ --> */
 
 
 $defaults = Nexista_Config::getSection('./defaults');
@@ -85,7 +85,6 @@ $runtime = array(
     'path_prefix' => $path_prefix,
     'link_prefix' => $link_prefix,
     'mod_rewrite' => 'true',
-    'utcdate' => gmdate('Y-m-d H:i:s'),
     'user_agent' => $user_agent,
     'debug' => 1,
     'incr' => 10,
