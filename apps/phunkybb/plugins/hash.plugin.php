@@ -54,7 +54,7 @@ class Nexista_HashAction extends Nexista_Action
         }
         // If a cryptmd5 is selected, a hash is either provided or is generated.
         // The code used here to generate 
-        if($hash_type == "cryptmd5" || (!empty($this->params['salt']))) {
+        if($hash_type == 'cryptmd5' || (!empty($this->params['salt']))) {
             // Got salt?
             if($this->params['salt']=='') {
                 $mysalt = '';
@@ -66,7 +66,7 @@ class Nexista_HashAction extends Nexista_Action
                     $mysalt = $mysalt . mt_rand(100000,2000000);
                     $mysalt = substr($mysalt, 0, $count);
                 }
-                $mysalt = "$1$".$mysalt."$";
+                $mysalt = '$1$'.$mysalt.'$';
             } else {
                 $salt = Nexista_Flow::find($this->params['salt']);
                 $mysalt = $salt->item(0)->nodeValue;
@@ -84,7 +84,7 @@ class Nexista_HashAction extends Nexista_Action
             return false;
 
         }
-        Nexista_Flow::add("hash", $hash);
+        Nexista_Flow::add('hash', $hash);
         return true;
 
     }

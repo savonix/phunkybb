@@ -54,7 +54,7 @@ class Nexista_DetokenizeAction extends Nexista_Action
         {
             $text = str_replace($token['key'],Nexista_Flow::getbypath($token['value']),$text);
         }
-        Nexista_Flow::add("new_text", $text);
+        Nexista_Flow::add('new_text', $text);
         return true;
 
     }

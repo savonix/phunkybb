@@ -44,7 +44,7 @@ class Nexista_HtmlentitiesAction extends Nexista_Action
     {
 		$mytext = Nexista_Flow::getByPath($this->params['text']);
 		$name = $this->params['name'];
-        
+
         Nexista_Flow::add($name, $new_text);
         return true;
 

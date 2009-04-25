@@ -42,7 +42,7 @@ class Nexista_MarkdownAction extends Nexista_Action
 
     protected  function main()
     {
-        include_once "markdown.php";
+        include_once 'markdown.php';
         $xpath = $this->params['text'];
         $node = Nexista_Flow::find($xpath);
 
