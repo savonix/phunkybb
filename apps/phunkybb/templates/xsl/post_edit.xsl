@@ -48,7 +48,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
                     <xsl:value-of select="$my18n/message"/>
                   </strong>
                   <br/>
-                  <textarea name="message" rows="20" cols="95">
+                  <textarea name="message" rows="10" cols="85">
                     <xsl:value-of select="/_R_/post_get_by_id/post_get_by_id/message"/>
                   </textarea>
                   <br/>
