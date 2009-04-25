@@ -64,17 +64,6 @@
 
 			</map:false>
 		</map:if>
-		<map:if name="/_R_/_post">
-			<map:true>
-
-			</map:true>
-			<map:false>
-				<!--
-					<map:action type="header" params="Content-type,text/xml"/>
-					<map:set name="error_message" value="No post."/>
-					<map:xsl src="templates/xml/error.xml.xsl"/>
-					--></map:false>
-		</map:if>
 	</map:gate>
 	<map:gate name="activate">
 		<map:query src="data/sql/user_activate.xml"/>
@@ -125,7 +114,6 @@
 				<map:query src="data/sql/user_login.xml"/>
 			</map:true>
 		</map:if>
-        <!-- this should be used if the user doesn't have javascript? -->
 		<map:if name="//user_login/user_login">
 			<map:true>
 				<map:script src="lib/php/sessions.php"/>
@@ -163,9 +151,7 @@
 		<map:action type="redirect" params="{//link_prefix}index"/>
 	</map:gate>
 
-	<map:gate name="redirect2">
-		<map:action type="redirect" params="/aortica?nid=index"/>
-	</map:gate>
+
 	<map:gate name="index" cache="0" cache_control="no-store, max-age=0, must-revalidate">
 		<map:query src="data/sql/categories_get_all.xml"/>
 		<map:query src="data/sql/forums_get_all.xml"/>
@@ -553,7 +539,7 @@
 		<map:xsl src="templates/xml/sitemap.xml.xsl"/>
 	</map:gate>
 
-	<map:gate name="ml-test">
+	<map:gate name="x-selenium-test">
 		<map:xml src="templates/xsl/login.xsl"/>
 		<map:xsl src="templates/tests/test_runner.xsl"/>
 	</map:gate>
