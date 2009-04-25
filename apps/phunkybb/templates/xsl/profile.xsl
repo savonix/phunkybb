@@ -96,15 +96,21 @@ Fifth Floor, Boston, MA 02110-1301 USA
 								<div class="infldset">
 									<p>
 										<xsl:value-of select="$my18n/registered"/>:
-										<xsl:value-of select="$my_user/registered"/>
+                    <span class="reldate">
+										  <xsl:value-of select="$my_user/registered"/>
+                    </span>
 									</p>
 									<p>
 										<xsl:value-of select="$my18n/last_visit"/>:
-                <xsl:value-of select="$my_user/last_visit"/>
+                    <span class="reldate">
+                      <xsl:value-of select="$my_user/last_visit"/>
+                    </span>
 									</p>
 									<p>
 										<xsl:value-of select="$my18n/last_post"/>:
-										<xsl:value-of select="$my_user/last_post"/>
+										<span class="reldate">
+                      <xsl:value-of select="$my_user/last_post"/>
+                    </span>
 									</p>
 									<label>
 										<xsl:value-of select="$my18n/posts"/>
