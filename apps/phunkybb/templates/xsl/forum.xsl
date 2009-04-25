@@ -34,18 +34,11 @@ Fifth Floor, Boston, MA 02110-1301 USA
 			select = "/_R_/forum_get_by_id/forum_get_by_id"
     />
 
-		<div id="vf" class="blocktable">
+		<div class="blocktable">
         <table cellspacing="0" >
           <thead>
             <tr>
               <th class="tcl" scope="col">
-                <b><xsl:value-of select="$forum_get_by_id/forum_name"/></b>
-                &#160;<xsl:value-of select="$my18n/topics"/>
-              </th>
-              <th class="tc2" scope="col">
-                <xsl:value-of select="$my18n/replies"/>
-              </th>
-              <th class="tcr">
                 <span style="float:right;">
                   <xsl:if test="/_R_/runtime/username">
                   <a href="{$link_prefix}post&amp;fid={$forum_get_by_id/id}">
@@ -56,6 +49,23 @@ Fifth Floor, Boston, MA 02110-1301 USA
                     <img style="margin:-3px 0;" src="{$path_prefix}s/img/icons/famfamfam/rss.png" alt="RSS"/>
                   </a>
                 </span>
+                <b><xsl:value-of select="$forum_get_by_id/forum_name"/></b>
+              </th>
+            </tr>
+          </thead>
+        </table>
+    </div>
+		<div class="tableframe">
+      <table>
+          <thead>
+            <tr>
+              <th class="tcl" scope="col">
+                <xsl:value-of select="$my18n/topics"/>
+              </th>
+              <th class="tc2" scope="col">
+                <xsl:value-of select="$my18n/replies"/>
+              </th>
+              <th class="tcr">
                 <xsl:value-of select="$my18n/last_post"/>
               </th>
             </tr>

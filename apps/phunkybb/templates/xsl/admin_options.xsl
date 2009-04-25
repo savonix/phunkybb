@@ -35,7 +35,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
       </xsl:call-template>
 
 
-      <div class="blockform">
+      <div class="tableframe2">
         <h2>
           <xsl:value-of select="$my18n/options"/>
         </h2>
@@ -118,7 +118,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
                       <td>
                         <input type="text" name="form[o_smtp_host]" value="{//board_config/o_smtp_host}"/>
                         <xsl:value-of select="$my18n/address_of_external_smtp"/>.
-                                </td>
+                      </td>
                     </tr>
                     <tr>
                       <th scope="row">
@@ -154,7 +154,14 @@ Fifth Floor, Boston, MA 02110-1301 USA
                         Theme file:
                       </th>
                       <td>
-                        <input type="text" name="form[o_board_theme]" value="{//board_config/o_board_theme}"/>
+                        <select name="form[o_board_theme]">
+                          <xsl:for-each select="//css_files/css_files/filename">
+                          <option value="{.}">
+                            <xsl:value-of select="@nicename"/>
+                          </option>
+                          </xsl:for-each>
+                        </select>
+                        <xsl:value-of select="/_R_/board_config/o_board_theme"/>
                       </td>
                     </tr>
                   </table>
@@ -212,6 +219,9 @@ Fifth Floor, Boston, MA 02110-1301 USA
         </div>
       </div>
     </div>
+    <script type="text/javascript">
+      $("option[value='<xsl:value-of select="/_R_/board_config/o_board_theme"/>']").attr("selected","selected");
+    </script>
 
   </xsl:template>
 </xsl:stylesheet>

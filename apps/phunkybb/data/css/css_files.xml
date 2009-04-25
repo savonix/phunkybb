@@ -1,0 +1,40 @@
+<!--
+Program: PhunkyBB
+Component: css_files.xml
+Copyright: Savonix Corporation
+Author: Albert L. Lash, IV
+License: Gnu Affero Public License version 3
+http://www.gnu.org/licenses
+
+This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation; either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with this program; if not, see http://www.gnu.org/licenses
+or write to the Free Software Foundation, Inc., 51 Franklin Street,
+Fifth Floor, Boston, MA 02110-1301 USA
+-->
+<css_files>
+  <css_files>
+    <filename id="1" nicename="Beach Ball">beach_ball.css.xml</filename>
+    <filename id="2" nicename="Earth Tones">earth_tones.css.xml</filename>
+    <filename id="3" nicename="Evening in Spring">evening_in_spring.xml</filename>
+    <filename id="4" nicename="Neutral CSS">neutral_css.xml</filename>
+    <filename id="5" nicename="Default">phunkybb_default_css.xml</filename>
+    <filename id="6" nicename="Strawberry Cake">strawberry_cake_css.xml</filename>
+    <filename id="7" nicename="Taffy">taffy_css.xml</filename>
+    <filename id="8" nicename="Clementime">clementine.css.xml</filename>
+    <filename id="9" nicename="Easy Viewing">easy_viewing_css.xml</filename>
+    <filename id="10" nicename="Jungle Fever">jungle_fever_css.xml</filename>
+    <filename id="11" nicename="Pastel">pastel_css.xml</filename>
+    <filename id="12" nicename="Stormy">stormy_css.xml</filename>
+    <filename id="13" nicename="Summertime">summertime_color_scheme.xml</filename>
+  </css_files>
+</css_files>

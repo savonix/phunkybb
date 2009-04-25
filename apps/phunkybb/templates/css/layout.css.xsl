@@ -73,7 +73,7 @@ div.blocktable, div.block, div.blockform, div.block2col {
 #brdtitle h2 {
   line-height:1.9em;
 }
-.tableframe {
+.tableframe, .tableframe2 {
   padding: 6px;
   position: absolute;
   top: 142px;
@@ -90,6 +90,11 @@ div.blocktable, div.block, div.blockform, div.block2col {
   width: expression((parseInt(document.documentElement.clientWidth)-230)+'px');
   height: expression((parseInt(document.documentElement.clientHeight)-125)+'px');
   </xsl:if>
+}
+.tableframe2 {
+  top: 120px;
+  left: 160px;
+  bottom: 50px;
 }
 
 #quickpost {

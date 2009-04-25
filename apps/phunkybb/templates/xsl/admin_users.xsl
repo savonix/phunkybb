@@ -64,7 +64,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
           <xsl:value-of select="$my18n/users"/>
         </h2>
         <div class="box">
-          <div style="min-height: 400px; padding: 1em;">
+          <div style="min-height: 300px; padding: 1em;">
             <table class="tablesorter" id="users_table">
               <thead>
                 <tr>
