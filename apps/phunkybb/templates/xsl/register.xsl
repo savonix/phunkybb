@@ -28,6 +28,26 @@ Fifth Floor, Boston, MA 02110-1301 USA
     <xsl:param name="link_prefix"/>
     <xsl:param name="path_prefix"/>
     <xsl:param name="my18n"/>
+    <xsl:if test="/_R_/_get/nid='register'">
+      <xsl:call-template name="registration_form">
+        <xsl:with-param name="link_prefix" select="$link_prefix"/>
+        <xsl:with-param name="path_prefix" select="$path_prefix"/>
+        <xsl:with-param name="my18n" select="$my18n"/>
+      </xsl:call-template>
+    </xsl:if>
+    <xsl:if test="/_R_/_get/nid='activate'">
+      <xsl:call-template name="activated">
+        <xsl:with-param name="link_prefix" select="$link_prefix"/>
+        <xsl:with-param name="path_prefix" select="$path_prefix"/>
+        <xsl:with-param name="my18n" select="$my18n"/>
+      </xsl:call-template>
+    </xsl:if>
+  </xsl:template>
+
+  <xsl:template name="registration_form">
+    <xsl:param name="link_prefix"/>
+    <xsl:param name="path_prefix"/>
+    <xsl:param name="my18n"/>
     <script type="text/javascript" src="{$path_prefix}s/js/rsa/jsbn.js"></script>
     <script type="text/javascript" src="{$path_prefix}s/js/rsa/rsa.js"></script>
     <script type="text/javascript" src="{$path_prefix}s/js/rsa/prng4.js"></script>
@@ -182,5 +202,23 @@ Fifth Floor, Boston, MA 02110-1301 USA
     <script type="text/javascript">
     rng_seed_time();
 		</script>
+  </xsl:template>
+
+  <xsl:template name="activated">
+    <xsl:param name="link_prefix"/>
+    <xsl:param name="my18n"/>
+    <div class="blockform">
+      <h2>
+        <xsl:value-of select="$my18n/activate"/>
+      </h2>
+
+      <div class="box">
+        <div class="inform">
+            <xsl:value-of select="$my18n/activated"/>!
+						<br/><br/>
+						You may now <a href="{$link_prefix}login">login</a>.
+        </div>
+      </div>
+    </div>
   </xsl:template>
 </xsl:stylesheet>

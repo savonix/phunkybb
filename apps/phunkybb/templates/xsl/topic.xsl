@@ -180,7 +180,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 					</div>
 					<div class="postmsgfooter">
 						<div class="postmsg" style="padding:10px;float:right;">
-						<xsl:if test="//runtime/group_id=1 or poster=/_R_/runtime/username">
+						<xsl:if test="//runtime/group_id=1 or username=/_R_/runtime/username">
 							<a href="{$link_prefix}post-edit&amp;post_id={id}&amp;topic_id={$topic_get_by_id/id}&amp;fid={/_R_/forum_get_by_id/forum_get_by_id/id}">
 								<xsl:value-of select="$my18n/edit"/>
 							</a>&#160;

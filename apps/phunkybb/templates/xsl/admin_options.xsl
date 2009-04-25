@@ -113,28 +113,6 @@ Fifth Floor, Boston, MA 02110-1301 USA
                     </tr>
                     <tr>
                       <th scope="row">
-                        <xsl:value-of select="$my18n/subscriptions"/>
-                      </th>
-                      <td>
-                        <input type="radio" name="form[o_subscriptions]" value="yes">
-                          <xsl:if test="//board_config/o_subscriptions='yes'">
-                            <xsl:attribute name="checked">true</xsl:attribute>
-                          </xsl:if>
-                        </input>
-                        <strong>Yes</strong>
-                        <br/>
-                        <input type="radio" name="form[o_subscriptions]" value="no">
-                          <xsl:if test="not(//board_config/o_subscriptions='yes')">
-                            <xsl:attribute name="checked">true</xsl:attribute>
-                          </xsl:if>
-                        </input>
-                        <strong>No</strong>
-                        <br/>
-                        <xsl:value-of select="$my18n/enable_users_to_subscribe"/>.
-                                </td>
-                    </tr>
-                    <tr>
-                      <th scope="row">
                         <xsl:value-of select="$my18n/smtp_server_address"/>
                       </th>
                       <td>

@@ -125,7 +125,7 @@ div.blockform form, div.fakeform {
 }
 
 div.inform {
-	padding-bottom: 12px;
+	padding: 12px;
 }
 
 
