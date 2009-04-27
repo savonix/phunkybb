@@ -93,12 +93,10 @@ Fifth Floor, Boston, MA 02110-1301 USA
 
       <!-- Raw HTML for bots -->
 			<xsl:if test="not(contains(/_R_/runtime/user_agent,'gui_browser'))">
-			<div id="brdfooter">
 				<p style="text-align: right;">
 					Powered by&#160;<a href="http://www.phunkybb.com/blog/" title="Open Source Forums XSL Software">PhunkyBB</a>
           &#160;and&#160;<a href="http://www.nexista.com/blog/" title="Web Application Framework Software">Nexista</a>.
 				</p>
-			</div>
       </xsl:if>
 
 		<xsl:call-template name="source_spacer">

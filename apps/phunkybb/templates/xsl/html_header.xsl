@@ -41,13 +41,12 @@ Fifth Floor, Boston, MA 02110-1301 USA
 
 			<div class="box" style="border:0;">
 				<div id="brdtitle" class="inbox">
-
-          <div style="float:right;">
+          <xsl:if test="contains(//user_agent,'gui_browser')">
             <a href="{$link_prefix}x-posts-rss">
               <img src="{//path_prefix}/s/img/icons/famfamfam/feed.png"
                 class="rssicon" alt="RSS"/>
             </a>
-          </div>
+          </xsl:if>
 					<h1>
 						<a href="{$link_prefix}index">
 							<xsl:value-of select="/_R_/board_config/o_board_title"/>

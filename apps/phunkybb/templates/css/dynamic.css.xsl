@@ -71,40 +71,28 @@ Fifth Floor, Boston, MA 02110-1301 USA
 	white-space: nowrap
 }
 
-label.conl {
-	width: auto;
-	overflow: visible;
-	margin-right: 10px
-}
 
 
 div.linkst .conl, div.linksb .conl, div.postlinksb .conl {width:18em}
 
 div.linkst .conr, div.linksb .conr, div.postlinksb .conr {width:16em}
 
-form div.linksb .conr {width: 32em}
 
-.linkst UL, linksb UL, .postlinksb UL {margin-left: 18em}
 
 
 div.block2col {
 	padding-bottom: 1px;
 }
 
-div.block2col div.blockform, div.block2col div.block, #viewprofile dd {margin-left: 14em}
+div.block2col div.blockform, div.block2col div.block {margin-left: 14em}
 
-div.blockmenu, #viewprofile dt {
-	float:left;
-	width: 13em
+
+
+.pun table {
+  width: 100%
 }
 
 
-#viewprofile dl {float: left; width: 100%; overflow: hidden}
-
-.pun table {width: 100%}
-
-
-#punindex table, #vf table {table-LAYOUT: fixed}
 
 .tcl {
 	width: 50%

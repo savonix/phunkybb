@@ -24,8 +24,16 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" >
 <xsl:template name="layout">
 
+<xsl:if test="contains(//user_agent,'msie')">
+body {
+  text-align: center;
+}
+</xsl:if>
 #main {
   width: 100%;
+  <xsl:if test="contains(//user_agent,'msie')">
+  text-align: left;
+  </xsl:if>
   margin-left: auto;
   margin-right: auto;
 }
@@ -62,7 +70,9 @@ div.block div.inbox, div.blockmenu div.inbox {
 div.blocktable, div.block, div.blockform, div.block2col {
 	margin-bottom: 2px;
 }
-
+div.blocktable {
+  width: 100%;
+}
 #brdtitle {
   min-height:6em;
   padding:10px;
@@ -81,15 +91,14 @@ div.blocktable, div.block, div.blockform, div.block2col {
   right: 10px;
   bottom: 60px;
   background-color: #fff;
+  <xsl:if test="contains(//user_agent,'msie')">
+  overflow-x: hidden;
+  overflow-y: scroll;
+  </xsl:if>
   overflow: auto;
   border: 1px;
   border-style: solid;
   border-color: #aaa;
-  <xsl:if test="//browser='msie'">
-  /* css hack for IE */
-  width: expression((parseInt(document.documentElement.clientWidth)-230)+'px');
-  height: expression((parseInt(document.documentElement.clientHeight)-125)+'px');
-  </xsl:if>
 }
 .tableframe2 {
   top: 120px;
@@ -104,7 +113,7 @@ div.blocktable, div.block, div.blockform, div.block2col {
   left: 240px;
   background-color: #F9F9F9;
   overflow: auto;
-  <xsl:if test="//browser='msie'">
+  <xsl:if test="contains(//user_agent,'msie')">
   /* css hack for IE */
   width: expression((parseInt(document.documentElement.clientWidth)-230)+'px');
   height: expression((parseInt(document.documentElement.clientHeight)-125)+'px');
@@ -122,7 +131,7 @@ div.linksb, div.postlinksb {
 
 #brdfooter {
   position: absolute;
-  bottom: 0;
+  bottom: 0px;
   left: 10px;
   right: 10px;
   padding: 0 10px;
@@ -132,7 +141,10 @@ div.linksb, div.postlinksb {
 	border-width: 1px;
   border-bottom:0;
 }
-
+#brdfooter p {
+  width: 100%;
+  text-align: right;
+}
 
 #punindex div.blocktable{
 	margin-bottom: 6px;
@@ -186,9 +198,7 @@ div.forminfo {
 div.blockform p input {
 	margin-left: 12px;
 }
-div.rbox input, div.blockform p input {
-	margin-right: 12px;
-}
+
 #brdmenu{
 	line-height: 1.8em;
 }
@@ -231,6 +241,8 @@ div>fieldset {
 	margin: 0 10px;
 }
 
+
+<xsl:if test="contains(//user_agent,'_moz')">
 div.icon {
 	float: left;
 	margin: .1em;
@@ -239,7 +251,7 @@ div.icon {
 	border-width: 0.6em 0.6em 0.6em 0.6em;
 	border-style: solid;
 }
-
+</xsl:if>
 
 .interstatus
 {
@@ -263,7 +275,7 @@ h3, .tclcon {
 .rssicon {
   float:right;
   padding-left:7px;
-  margin-top:-\3px;
+  margin-top:-3px;
 }
 
 .float_right {

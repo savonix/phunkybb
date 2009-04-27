@@ -66,11 +66,13 @@ Fifth Floor, Boston, MA 02110-1301 USA
           <th class="tcl" style="border-bottom: 0;">
 
 			<span class="postlink conr">
+        <xsl:if test="contains(//user_agent,'gui_browser')">
         <span style="float:right;padding-left:6px;margin-top:-1px;">
         <a href="{$link_prefix}x-topic-rss&amp;id={$topic_get_by_id/id}&amp;fid={$forum_get_by_id/id}">
           <img src="{$path_prefix}s/img/icons/famfamfam/rss.png" alt="RSS"/>
         </a>
         </span>
+        </xsl:if>
         <xsl:if test="($page_num/count * 0.1) &gt; 1">
           <xsl:call-template name="previous_next">
             <xsl:with-param name="link_prefix" select="$link_prefix"/>
@@ -159,24 +161,6 @@ Fifth Floor, Boston, MA 02110-1301 USA
 		</xsl:for-each>
     </div>
 
-		<div class="inbox">
-			<p class="postlink conl">
-				<xsl:if test="($page_num/count * 0.1) &gt; 1">
-					<xsl:call-template name="previous_next">
-						<xsl:with-param name="link_prefix" select="$link_prefix"/>
-						<xsl:with-param name="qsa">
-							<xsl:text>&amp;fid=</xsl:text>
-							<xsl:value-of select="$forum_get_by_id/id"/>
-							<xsl:text>&amp;id=</xsl:text>
-							<xsl:value-of select="$topic_get_by_id/id"/>
-						</xsl:with-param>
-						<xsl:with-param name="max">
-							<xsl:value-of select="$page_num/count"/>
-						</xsl:with-param>
-					</xsl:call-template>
-				</xsl:if>
-			</p>
-		</div>
 		<!-- Reply -->
 		<xsl:if test="/_R_/runtime/username">
 			<div class="blockform" id="quickpost">

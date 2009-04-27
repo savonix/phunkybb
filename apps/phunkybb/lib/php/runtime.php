@@ -57,7 +57,6 @@ $ua = '_' . $_SERVER['HTTP_USER_AGENT'];
 
 if(stripos($ua,'Google') || stripos($ua,'Yahoo') || stripos($ua,'bot')) {
     $user_agent = 'bot';
-
 } elseif(stripos($ua,'MSIE')) {
     $user_agent = 'gui_browser_msie';
 } elseif(stripos($ua,'Mozilla') || stripos($ua,'Opera') || stripos($ua,'webkit')) {

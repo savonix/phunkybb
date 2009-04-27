@@ -29,10 +29,10 @@ Fifth Floor, Boston, MA 02110-1301 USA
     <xsl:param name="my18n"/>
 
 		<div class="blocktable">
-        <table cellspacing="0" >
+        <table cellspacing="0">
           <thead>
             <tr>
-              <th class="tcl" scope="col">
+              <th class="tcl">
 							<b><xsl:value-of select="/_R_/board_config/o_board_title"/></b>
               </th>
             </tr>
