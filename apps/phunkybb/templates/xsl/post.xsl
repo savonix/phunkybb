@@ -27,14 +27,18 @@ Fifth Floor, Boston, MA 02110-1301 USA
   <xsl:template name="content">
     <xsl:param name="link_prefix"/>
     <xsl:param name="my18n"/>
+		<xsl:variable
+      name   = "forum_get_by_id"
+			select = "/_R_/forum_get_by_id/forum_get_by_id"
+    />
     <div class="blockform">
       <h2>
         <xsl:value-of select="$my18n/post_new_topic"/>
       </h2>
       <div class="box">
         <form id="post" method="post" action="{$link_prefix}topic-submit">
-          <input type="hidden" name="fid" value="{/_R_/_get/fid}"/>
-          <input type="hidden" name="forum_id" value="{/_R_/_get/fid}"/>
+          <input type="hidden" name="fid" value="{$forum_get_by_id/id}"/>
+          <input type="hidden" name="forum_id" value="{$forum_get_by_id/id}"/>
           <div class="inform">
             <fieldset>
               <legend>

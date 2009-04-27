@@ -183,12 +183,12 @@ Fifth Floor, Boston, MA 02110-1301 USA
 	</map:gate>
 
 	<map:gate name="forum">
-		<map:xml src="data/xml/link_parameters.xml"/>
-		<map:query src="data/sql/forum_get_by_id.xml"/>
-		<map:query src="data/sql/topics_get_by_forum_id.xml"/>
-		<map:action type="datetime" params="/_R_/topics_get_by_forum_id/topics_get_by_forum_id/last_post,unix_epoch,{/_R_/runtime/user_time_format},{//runtime/user_timezone_offset}"/>
-		<map:action type="linkbuilder" params="/_R_/topics_get_by_forum_id/topics_get_by_forum_id/link,//link/topic/param"/>
-		<map:xsl src="templates/xsl/forum.xsl"/>
+    <map:xml src="data/xml/link_parameters.xml"/>
+    <map:query src="data/sql/forum_get_by_id.xml"/>
+    <map:query src="data/sql/topics_get_by_forum_id.xml"/>
+    <map:action type="datetime" params="/_R_/topics_get_by_forum_id/topics_get_by_forum_id/last_post,unix_epoch,{/_R_/runtime/user_time_format},{//runtime/user_timezone_offset}"/>
+    <map:action type="linkbuilder" params="/_R_/topics_get_by_forum_id/topics_get_by_forum_id/link,//link/topic/param"/>
+    <map:xsl src="templates/xsl/forum.xsl"/>
 	</map:gate>
 
 	<map:gate name="x-forum-rss" content_type="text/xml">
@@ -198,15 +198,25 @@ Fifth Floor, Boston, MA 02110-1301 USA
 	</map:gate>
 
 	<map:gate name="topic" cache="0">
-		<map:query src="data/sql/forum_get_by_id.xml"/>
-		<map:query src="data/sql/topic_get_by_id.xml"/>
-		<map:query src="data/sql/topic_get_subscriptions.xml"/>
-		<map:query src="data/sql/posts_get_by_topic_id.xml"/>
-		<map:query src="data/sql/posts_get_number_of_pages.xml"/>
-		<map:plugin type="markdown" params="/_R_/posts_get_by_topic_id/posts_get_by_topic_id/message"/>
-		<map:action type="newline" params="/_R_/posts_get_by_topic_id/posts_get_by_topic_id/message"/>
-		<map:action type="datetime" params="/_R_/posts_get_by_topic_id/posts_get_by_topic_id/posted,unix_epoch,{//runtime/user_time_format},{//runtime/user_timezone_offset}"/>
-		<map:xsl src="templates/xsl/topic.xsl"/>
+    <map:switch name="//_get/basename">
+      <!-- Post new topic -->
+      <map:case value="post">
+        <map:query src="data/sql/forum_get_by_id.xml"/>
+        <map:insert name="post" />
+      </map:case>
+      <!-- View topic -->
+      <map:default>
+        <map:query src="data/sql/forum_get_by_id.xml"/>
+        <map:query src="data/sql/topic_get_by_id.xml"/>
+        <map:query src="data/sql/topic_get_subscriptions.xml"/>
+        <map:query src="data/sql/posts_get_by_topic_id.xml"/>
+        <map:query src="data/sql/posts_get_number_of_pages.xml"/>
+        <map:plugin type="markdown" params="/_R_/posts_get_by_topic_id/posts_get_by_topic_id/message"/>
+        <map:action type="newline" params="/_R_/posts_get_by_topic_id/posts_get_by_topic_id/message"/>
+        <map:action type="datetime" params="/_R_/posts_get_by_topic_id/posts_get_by_topic_id/posted,unix_epoch,{//runtime/user_time_format},{//runtime/user_timezone_offset}"/>
+        <map:xsl src="templates/xsl/topic.xsl"/>
+      </map:default>
+    </map:switch>
 	</map:gate>
 	<map:gate name="x-topic-rss" content_type="text/xml">
 		<map:query src="data/sql/forum_get_by_id.xml"/>
@@ -245,6 +255,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 		<map:action type="redirect" params="{//link_prefix}topic&amp;fid={//_post/forum_id}&amp;id={//topic_get_id_by_detail/id}"/>
 	</map:gate>
 	<map:gate name="post">
+    <map:block name="post">
 		<map:if name="//_post">
 			<map:true>
 				<map:if name="//_post/subscribe">
@@ -287,6 +298,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 				<map:xsl src="templates/xsl/post.xsl"/>
 			</map:false>
 		</map:if>
+    </map:block>
 	</map:gate>
 	<map:gate name="post-edit">
 		<map:if name="//_post">

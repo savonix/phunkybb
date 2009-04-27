@@ -91,7 +91,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 													href="{$link_prefix}forum&amp;forum_basename={forum_basename}&amp;fid={fid}">
 													<xsl:value-of select="forum_name"/>
 												</a>
-												</xsl:if>
+                      </xsl:if>
 											</h3>
 										</div>
 									</div>

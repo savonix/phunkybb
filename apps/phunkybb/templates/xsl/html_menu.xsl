@@ -105,28 +105,51 @@ Fifth Floor, Boston, MA 02110-1301 USA
             <xsl:value-of select="$my18n/index"/>
           </a>
         </li>
+        <!-- Forum Link -->
         <xsl:if test="$forum_get_by_id/forum_name">
         <li>
           &#187;
-          <a href="{$link_prefix}forum&amp;fid={$forum_get_by_id/id}&amp;forum_basename={$forum_get_by_id/forum_basename}">
-            <xsl:value-of select="$forum_get_by_id/forum_name"/>
-          </a>
+          <xsl:if test="//mod_rewrite='true' and not($forum_get_by_id/forum_basename='')">
+            <a title="{$forum_get_by_id/forum_desc}">
+              <xsl:attribute name="href">
+                <xsl:value-of select="//path_prefix"/>
+                <xsl:value-of select="$forum_get_by_id/forum_basename"/>
+                <xsl:text>/</xsl:text>
+              </xsl:attribute>
+              <xsl:value-of select="$forum_get_by_id/forum_name"/>
+            </a>
+          </xsl:if>
+          <xsl:if test="not(//mod_rewrite='true') or $forum_get_by_id/forum_basename=''">
+            <a title="{$forum_get_by_id/forum_desc}"
+              href="{$link_prefix}forum&amp;forum_basename={$forum_get_by_id/forum_basename}&amp;fid={$forum_get_by_id/id}">
+              <xsl:value-of select="forum_name"/>
+            </a>
+          </xsl:if>
         </li>
           <xsl:if test="not($topic_get_by_id/subject) and /_R_/runtime/username">
           <li>
             &#187;
-            <a href="{$link_prefix}post&amp;fid={$forum_get_by_id/id}">
+            <a href="{$path_prefix}post/">
               <xsl:value-of select="$my18n/post_topic"/>
             </a>
           </li>
           </xsl:if>
         </xsl:if>
+
+        <!-- Topic Link -->
         <xsl:if test="$topic_get_by_id/subject">
           <li>
             &#187;
-            <a href="{$link_prefix}topic&amp;forum_basename={$forum_get_by_id/forum_basename}&amp;fid={$forum_get_by_id/id}&amp;id={$topic_get_by_id/id}">
-              <xsl:value-of select="$topic_get_by_id/subject"/>
-            </a>
+            <xsl:if test="//mod_rewrite='true' and not($forum_get_by_id/basename='')">
+              <a title="{$topic_get_by_id/subject}" id="topic-{id}" href="{$path_prefix}{$topic_get_by_id/link}">
+                <xsl:value-of select="$topic_get_by_id/subject"/>
+              </a>
+            </xsl:if>
+            <xsl:if test="not(//mod_rewrite='true') or $forum_get_by_id/basename=''">
+              <a href="{$link_prefix}topic&amp;basename={$topic_get_by_id/basename}&amp;fid={$forum_get_by_id/id}&amp;id={$topic_get_by_id/id}">
+                <xsl:value-of select="$topic_get_by_id/subject"/>
+              </a>
+            </xsl:if>
           </li>
           <xsl:if test="/_R_/runtime/username">
           <li>
