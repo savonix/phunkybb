@@ -33,7 +33,8 @@ Fifth Floor, Boston, MA 02110-1301 USA
 				<xsl:with-param name="link_prefix" select="$link_prefix"/>
 				<xsl:with-param name="my18n" select="$my18n"/>
 			</xsl:call-template>
-			<div class="block">
+
+      <div class="tableframe2">
 				<h2 class="block2">
 					<xsl:value-of select="$my18n/statistics"/>
 				</h2>

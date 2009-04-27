@@ -140,7 +140,11 @@ Fifth Floor, Boston, MA 02110-1301 USA
           </a>
           </xsl:if>
         </span>
-        <div class="user_avatar" onclick="location.href='{$link_prefix}public-profile&amp;username={username}'" title="{username}'s profile">
+        <div>
+          <xsl:if test="/_R_/runtime/username">
+            <xsl:attribute name="class">user_avatar</xsl:attribute>
+            <xsl:attribute name="onclick">location.href='<xsl:value-of select="$link_prefix"/>public-profile&amp;username=<xsl:value-of select="username"/>'</xsl:attribute>
+          </xsl:if>
           <!-- This is where the avatar would go. -->
           <xsl:if test="not(picture='')">
             <img style="height:50px;width:50px;" src="{picture}" alt="{username}'s avatar"/>

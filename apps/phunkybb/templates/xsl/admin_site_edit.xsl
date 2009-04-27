@@ -34,7 +34,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 				<xsl:with-param name="my18n" select="$my18n"/>
 			</xsl:call-template>
 
-			<div class="blockform">
+      <div class="tableframe2">
 				<h2>Sites</h2>
 				<div class="box">
 					<form method="post" class="inform">
