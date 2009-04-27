@@ -2,6 +2,18 @@
 // Public Domain Code
 // http://joey.kitenet.net/blog/entry/relative_dates_in_html/
 
+      $(document).ready(function() {
+        var mytime = "";
+        var rltime = "";
+        $(".reldate").each(function () {
+          mytime = new Date($(this).text() + "(UTC)");
+          rltime = relativeDate(mytime);
+          $(this).attr("title",mytime);
+          $(this).text(rltime);
+        });
+      });
+
+
 var timeUnits = new Array;
 timeUnits['minute'] = 60;
 timeUnits['hour'] = timeUnits['minute'] * 60;
