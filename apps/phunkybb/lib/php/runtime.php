@@ -55,14 +55,14 @@ if($_SESSION['NX_AUTH']['username']==1016)
 // Prefix is needed for Mozilla as its the 0 position.
 $ua = '_' . $_SERVER['HTTP_USER_AGENT'];
 
-if(strpos($ua,'Google') || strpos($ua,'Yahoo') || strpos($ua,'bot')) {
+if(stripos($ua,'Google') || stripos($ua,'Yahoo') || stripos($ua,'bot')) {
     $user_agent = 'bot';
 
-} elseif(strpos($ua,'MSIE')) {
+} elseif(stripos($ua,'MSIE')) {
     $user_agent = 'gui_browser_msie';
-} elseif(strpos($ua,'Mozilla') || strpos($ua,'Opera') || strpos($ua,'Webkit')) {
+} elseif(stripos($ua,'Mozilla') || stripos($ua,'Opera') || stripos($ua,'webkit')) {
     $user_agent = 'gui_browser_moz';
-} elseif (strpos($ua,'Elinks') || strpos($ua,'w3m') || strpos($ua,'Lynx')) {
+} elseif (stripos($ua,'Elinks') || stripos($ua,'w3m') || stripos($ua,'Lynx')) {
     $user_agent = 'text_browser';
 } else {
     $user_agent = 'bot';
