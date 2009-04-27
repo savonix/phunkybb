@@ -25,6 +25,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 	xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 	<xsl:output method="text" indent="yes" encoding="UTF-8" omit-xml-declaration="yes"/>
 	<xsl:strip-space elements="*"/>
+  <xsl:preserve-space elements="span"/>
 	<xsl:template match="/">
 <xsl:text>var html2dom_root_1 = document.createElement("div");
 </xsl:text>
@@ -121,7 +122,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <xsl:param name="myparent"/>
 <xsl:param name="position"/>
 <xsl:variable name="string" select="."/>
-<xsl:text>newtextnode</xsl:text> = document.createTextNode("<xsl:value-of select="normalize-space($string)"/>");
+<xsl:text>newtextnode</xsl:text> = document.createTextNode("<xsl:value-of select="$string"/>");
 <xsl:value-of select="$myparent"/>_<xsl:value-of select="$position"/>.appendChild(newtextnode);
 </xsl:template>
 
