@@ -57,8 +57,11 @@ $ua = '_' . $_SERVER['HTTP_USER_AGENT'];
 
 if(strpos($ua,'Google') || strpos($ua,'Yahoo') || strpos($ua,'bot')) {
     $user_agent = 'bot';
-} elseif(strpos($ua,'Mozilla') || strpos($ua,'Opera')) {
-    $user_agent = 'gui_browser';
+
+} elseif(strpos($ua,'MSIE')) {
+    $user_agent = 'gui_browser_msie';
+} elseif(strpos($ua,'Mozilla') || strpos($ua,'Opera') || strpos($ua,'Webkit')) {
+    $user_agent = 'gui_browser_moz';
 } elseif (strpos($ua,'Elinks') || strpos($ua,'w3m') || strpos($ua,'Lynx')) {
     $user_agent = 'text_browser';
 } else {

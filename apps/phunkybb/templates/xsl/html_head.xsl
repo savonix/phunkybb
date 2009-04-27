@@ -38,6 +38,10 @@ Fifth Floor, Boston, MA 02110-1301 USA
 			<xsl:if test="not(/_R_/forum_get_by_id/forum_get_by_id/forum_name)">
 					<meta name="description" content="{/_R_/board_config/o_board_title}" />
 			</xsl:if>
+
+			<xsl:if test="/_R_/_get/nid='login'">
+					<meta name="robots" content="noindex, follow"/>
+			</xsl:if>
 		  <title>
         <xsl:value-of select="/_R_/board_config/o_board_title"/>
         <xsl:if test="/_R_/forum_get_by_id/forum_get_by_id/forum_name">

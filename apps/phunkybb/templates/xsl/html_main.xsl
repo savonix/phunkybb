@@ -87,12 +87,12 @@ Fifth Floor, Boston, MA 02110-1301 USA
 		</xsl:call-template>
 
       <!-- Standard div to be replaced by a DOM object -->
-			<xsl:if test="//runtime/user_agent='gui_browser'">
+			<xsl:if test="contains(/_R_/runtime/user_agent,'gui_browser')">
 			<div id="nofooter"/>
       </xsl:if>
 
       <!-- Raw HTML for bots -->
-			<xsl:if test="not(//runtime/user_agent='gui_browser')">
+			<xsl:if test="not(contains(/_R_/runtime/user_agent,'gui_browser'))">
 			<div id="brdfooter">
 				<p style="text-align: right;">
 					Powered by&#160;<a href="http://www.phunkybb.com/blog/" title="Open Source Forums XSL Software">PhunkyBB</a>

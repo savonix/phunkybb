@@ -63,14 +63,16 @@ Fifth Floor, Boston, MA 02110-1301 USA
           <a href="{$link_prefix}logout"><xsl:value-of select="$my18n/logout"/></a>
 				</xsl:when>
 				<xsl:otherwise>
+          <xsl:if test="contains(/_R_/runtime/user_agent,'gui_browser')">
           &#8226;
-          <a href="{$link_prefix}register">
+          <a rel="nofollow" href="{$link_prefix}register">
 						<xsl:value-of select="$my18n/register"/>
 					</a>
           &#8226;
-          <a href="{$link_prefix}login">
+          <a rel="nofollow" href="{$link_prefix}login">
 						<xsl:value-of select="$my18n/login"/>
 					</a>
+          </xsl:if>
 				</xsl:otherwise>
 			</xsl:choose>
       </span>
