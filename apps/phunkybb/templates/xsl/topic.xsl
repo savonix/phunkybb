@@ -146,9 +146,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
             <img style="height:50px;width:50px;" src="{picture}" alt="{username}'s avatar"/>
           </xsl:if>
           <xsl:if test="picture=''">
-            <div>
-            <br/>?
-            </div>
+            <img style="height:50px;width:50px;" src="{$path_prefix}s/img/avatars/default-userpic-50.jpg" alt=""/>
           </xsl:if>
         </div>
         <div class="postmsg">
