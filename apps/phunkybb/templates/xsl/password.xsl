@@ -109,7 +109,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
             </div>
             <br/>
             <span id="submit" class="button-basic-blue disableSelection"
-							onClick="do_encrypt(); return false;">Submit</span>
+							onclick="do_encrypt(); return false;">Submit</span>
             <span id="replace" class="interstatus"></span>
             <input type="submit" style="visibility: hidden;"/>
           </form>

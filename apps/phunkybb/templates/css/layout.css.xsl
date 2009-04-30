@@ -106,6 +106,10 @@ div.blocktable {
   bottom: 50px;
 }
 
+.tcenter {
+  text-align:center;
+}
+
 #quickpost {
   display: none;
   position: absolute;

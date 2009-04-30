@@ -33,7 +33,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
         <xsl:with-param name="link_prefix" select="$link_prefix"/>
         <xsl:with-param name="my18n" select="$my18n"/>
       </xsl:call-template>
-      <div class="blockform">
+      <div class="tableframe2">
         <h2>
           <xsl:value-of select="/_R_/runtime/username"/>
         </h2>
@@ -55,7 +55,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 							You can use a site like <a rel="nofollow" href="http://en.gravatar.com/">Gravatar.com</a> to host your picture.
 							</p>
             </div>
-            <p>
+            <p class="tcenter">
               <input type="submit" name="update" value="Submit"/>
             </p>
           </form>

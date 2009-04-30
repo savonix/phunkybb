@@ -36,7 +36,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 			<!-- User Profile Nodeset -->
 			<xsl:variable name="my_user" select="/_R_/user_get_profile/user_get_profile"/>
 
-			<div class="blockform">
+			<div class="tableframe2">
 				<h2>
 					<xsl:value-of select="$my_user/username"/> -
 					<xsl:value-of select="$my18n/essentials"/>
@@ -128,7 +128,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 								</div>
 							</fieldset>
 						</div>
-						<p>
+						<p class="tcenter">
 							<input type="submit" name="update" value="Submit"/>
 						</p>
 					</form>
