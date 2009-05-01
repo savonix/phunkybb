@@ -82,14 +82,14 @@ Fifth Floor, Boston, MA 02110-1301 USA
 				});
 				</script>
 			</xsl:if>
+      <xsl:if test="contains(/_R_/runtime/user_agent,'msie')">
 				<script type="text/javascript">
 				$(document).ready(function() {
-          <xsl:if test="contains(/_R_/runtime/user_agent,'msie')">
           $(".tableframe").css("height","280px");
           $(".tableframe").css("width","100%");
-          </xsl:if>
 				});
 				</script>
+      </xsl:if>
       <xsl:for-each select="//head_nodes">
 				<xsl:sort select="priority" order="ascending"/>
 				<xsl:apply-templates select="nodes/*"/>
