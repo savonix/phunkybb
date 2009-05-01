@@ -109,6 +109,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
         <xsl:if test="$forum_get_by_id/forum_name">
         <li>
           &#187;
+          <h1>
           <xsl:if test="//mod_rewrite='true' and not($forum_get_by_id/forum_basename='')">
             <a title="{$forum_get_by_id/forum_desc}">
               <xsl:attribute name="href">
@@ -125,6 +126,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
               <xsl:value-of select="forum_name"/>
             </a>
           </xsl:if>
+          </h1>
         </li>
           <xsl:if test="not($topic_get_by_id/subject) and /_R_/runtime/username">
           <li>
@@ -140,6 +142,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
         <xsl:if test="$topic_get_by_id/subject">
           <li>
             &#187;
+            <h2>
             <xsl:if test="//mod_rewrite='true' and not($forum_get_by_id/basename='')">
               <a title="{$topic_get_by_id/subject}" id="topic-{id}" href="{$path_prefix}{$topic_get_by_id/link}">
                 <xsl:value-of select="$topic_get_by_id/subject"/>
@@ -150,6 +153,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
                 <xsl:value-of select="$topic_get_by_id/subject"/>
               </a>
             </xsl:if>
+            </h2>
           </li>
           <xsl:if test="/_R_/runtime/username">
           <li>

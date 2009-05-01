@@ -55,17 +55,10 @@ div.block div.inbox, div.blockmenu div.inbox {
 	padding: 3px;
 }
 
-.breadcrumbs li {
+.breadcrumbs li, .breadcrumbs li h1, .breadcrumbs li h2 {
   display: inline;
 }
 
-.pun h1 {
-	padding: 3px 0px 0px 0;
-}
-
-.pun h2 {
-	padding: 4px 6px;
-}
 
 div.blocktable, div.block, div.blockform, div.block2col {
 	margin-bottom: 2px;
@@ -80,9 +73,8 @@ div.blocktable {
 #brdtitle p {
 	padding-top: 0px;
 }
-#brdtitle h2 {
-  line-height:1.9em;
-}
+
+
 .tableframe, .tableframe2 {
   padding: 6px;
   position: absolute;

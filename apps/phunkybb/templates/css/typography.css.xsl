@@ -32,14 +32,15 @@ body {
 	font-size: 1.2em;
 }
 
-.pun h2 {
-	font-size: 1.3em;
-}
 .pun h3 {
 	font-size: 1.1em;
 }
-#brdtitle h1 {
+#header-name {
 	font-size: 1.4em;
+}
+#header-description {
+	font-size: 1.2em;
+  line-height: 2em;
 }
 
 div.postmsg p {
