@@ -295,6 +295,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 				<map:action type="redirect" params="{//link_prefix}topic&amp;fid={//_post/forum_id}&amp;id={//_post/topic_id}"/>
 			</map:true>
 			<map:false>
+        <map:query src="data/sql/forum_get_by_id.xml"/>
 				<map:xsl src="templates/xsl/post.xsl"/>
 			</map:false>
 		</map:if>
