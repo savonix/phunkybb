@@ -43,6 +43,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 			select = "/_R_/posts_get_number_of_pages/posts_get_number_of_pages"
     />
 
+    <xsl:if test="/_R_/runtime/group_id=1">
 		<script type="text/javascript">
 		function delete_post(post_id) {
 				if(confirm('Are you sure?')){
@@ -58,6 +59,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 				}
 		}
 		</script>
+    </xsl:if>
 
 
     <table cellspacing="0">
