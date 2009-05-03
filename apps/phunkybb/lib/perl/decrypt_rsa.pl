@@ -28,11 +28,11 @@ Fifth Floor, Boston, MA 02110-1301 USA
 
 
 use Crypt::OpenSSL::RSA;
-use Apache2::Aortica::Kernel::Flow;
+use Aortica::Kernel::Flow;
 use MIME::Base64;
 use Digest::SHA1  qw(sha1 sha1_hex sha1_base64);
 
-my $flow = Apache2::Aortica::Kernel::Flow->instance();
+my $flow = Aortica::Kernel::Flow->instance();
 
 my $mpk = '/var/www/dev/phunkybb/config/key.pem';
 

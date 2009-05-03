@@ -28,9 +28,9 @@ use XML::Simple;
 use Data::Dumper;
 
 my $parser = XML::LibXML->new();
-my $flow = Apache2::Aortica::Kernel::Flow->instance();
+my $flow = Aortica::Kernel::Flow->instance();
 
-my $config  = Apache2::Aortica::Kernel::Config->instance();
+my $config  = Aortica::Kernel::Config->instance();
 
 my $defaults = $config->{ CONFIG }->{ phunkybb }->{ defaults };
 
@@ -47,13 +47,14 @@ $flow->{ ROOT }->appendChild($node);
 
 
 
-my $auth = Apache2::Aortica::Kernel::Auth->new();
+my $auth = Aortica::Kernel::Auth->new();
 
 $auth_info = $auth->check_status();
 $username = $auth_info->{username};
 my $runtime;
-my $link_prefix = '/aortica?nid=';
+my $link_prefix = '/phunkybb?nid=';
 my $path_prefix = '/a/dev/phunkybb/';
+my $user_agent  = 'gui_browser_moz';
 
 #print(Dumper($auth_info));
 if ($username) {
@@ -63,6 +64,7 @@ if ($username) {
         <path_prefix>$path_prefix</path_prefix>
         <user_id>1</user_id>
         <group_id>1</group_id>
+        <site_id>4</site_id>
         <username>$username</username>
     </runtime>";
 } else {
@@ -70,6 +72,8 @@ if ($username) {
     <runtime>
         <link_prefix>$link_prefix</link_prefix>
         <path_prefix>$path_prefix</path_prefix>
+        <site_id>1</site_id>
+        <user_agent>$user_agent</user_agent>
     </runtime>";
 }
 

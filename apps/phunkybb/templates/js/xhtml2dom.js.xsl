@@ -62,9 +62,8 @@ Fifth Floor, Boston, MA 02110-1301 USA
 
 <xsl:text>$(document).ready(function() {
   $("#notitle").replaceWith(myheader_1);
-  $("#nofooter").replaceWith(html2dom_root_1);
-  $(".nobutton").replaceWith(my_button_1);
-});</xsl:text>
+  $("#nofooter").replaceWith(html2dom_root_1);});
+</xsl:text>
 
 </xsl:template>
 

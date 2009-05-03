@@ -28,7 +28,7 @@ use XML::LibXML;
 {
 my $xml_file = '/tmp/config_cache.xml';
 my $parser = XML::LibXML->new();
-my $flow = Apache2::Aortica::Kernel::Flow->instance();
+my $flow = Aortica::Kernel::Flow->instance();
 
 unless ( -e $xml_file ) {
     my $config_barf = $flow->get_value_by_path("/_R_/config_get/config_get")->{config_get}->{config_get};

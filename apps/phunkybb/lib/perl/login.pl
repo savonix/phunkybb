@@ -24,9 +24,9 @@ Fifth Floor, Boston, MA 02110-1301 USA
 -->
 =cut
 
-use Apache2::Aortica::Kernel::Auth;
+use Aortica::Kernel::Auth;
 
-my $auth =  Apache2::Aortica::Kernel::Auth->new();
+my $auth =  Aortica::Kernel::Auth->new();
 
 $roles = {
     'user' => 1,

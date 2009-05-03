@@ -1,5 +1,5 @@
 package phunkybb::apps::phunkybb::dispatchers::mod_perl::Phunkybb;
-use Apache2::Aortica::Aortica ();
+use Aortica::Aortica ();
 use strict;
 use Data::Dumper;
 use DateTime;
@@ -8,7 +8,7 @@ use Digest::MD5 qw(md5 md5_hex md5_base64);
 
 my $tree = Apache2::Directive::conftree();
 
-my $app_node = $tree->lookup('Location', '/aortica');
+my $app_node = $tree->lookup('Location', '/phunkybb');
 my $app_cfg = $app_node->{ AppConfigFile };
 my $srv_cfg = $app_node->{ AorticaServerConfigFile };
 our $doc;
@@ -17,18 +17,18 @@ our $doc;
 
 
 # Create config
-my $config = Apache2::Aortica::Kernel::Config->instance();
+my $config = Aortica::Kernel::Config->instance();
 $config->configure($srv_cfg, $app_cfg, 'phunkybb');
 
 # Create fence
 my $fence_file = $config->{ CONFIG }->{ phunkybb }->{build}->{sitemap};
-my $fence = Apache2::Aortica::Kernel::Fence->instance();
+my $fence = Aortica::Kernel::Fence->instance();
 $fence->set_fence($fence_file, 'phunkybb');
 
-Apache2::Aortica::Kernel::Init->instance('phunkybb');
-Apache2::Aortica::Modules::Handlers::QueryHandler->instance('phunkybb');
-Apache2::Aortica::Modules::Handlers::XmlHandler->instance('phunkybb');
-Apache2::Aortica::Modules::Handlers::XslHandler->instance('phunkybb');
+Aortica::Kernel::Init->instance('phunkybb');
+Aortica::Modules::Handlers::QueryHandler->instance('phunkybb');
+Aortica::Modules::Handlers::XmlHandler->instance('phunkybb');
+Aortica::Modules::Handlers::XslHandler->instance('phunkybb');
 
 
 
@@ -51,7 +51,7 @@ sub handler {
     my $gate_content_type = undef;
 
     # Create Gatekeeper
-    my $init = Apache2::Aortica::Kernel::Init->instance('phunkybb');
+    my $init = Aortica::Kernel::Init->instance('phunkybb');
     my $uri = md5_base64($ENV{'REQUEST_URI'});
     my $key = $nid.$uri;
     $init->start();
@@ -60,12 +60,12 @@ sub handler {
 
     if ( not defined $output ) {
 
-        my $dbh = Apache2::Aortica::Modules::DataSources::DBIDataSource->instance();
+        my $dbh = Aortica::Modules::DataSources::DBIDataSource->instance();
         $output = $init->process_gate($nid);
 
         if( $req->param('view_flow') eq "true") {
             # Maybe create flow dom document, but populate it and flush it for each request
-            my $flow = Apache2::Aortica::Kernel::Flow->instance();
+            my $flow = Aortica::Kernel::Flow->instance();
             $doc  = $flow->{ DOC };
             $output .= '<textarea rows="20" style="width: 100%">'.$flow->{ DOC }->toString.'</textarea>';
         }
@@ -80,7 +80,12 @@ sub handler {
     $duration = sprintf("%.3f", $duration);
     {
         if ( $gate_content_type = $init->{ phunkybb }->{ GATE }->{ $nid }->{ CONTENT_TYPE } ) {
+            # Memory leak???
+            #unless($gate_content_type eq 'text/html') {
             $r->content_type($gate_content_type);
+            #}
+        } else {
+            $r->content_type("application/xhtml+xml");
         }
     }
 
@@ -109,10 +114,8 @@ sub handler {
 
 
     unless ( $gate_content_type eq "text/xml") {
-        $output .= $duration.$memory;
+        #$output .= $duration.$memory;
     }
-    my $length = length($output);
-    $r->set_content_length($length);
     my $mtime = time();
     $r->set_last_modified($mtime);
     $r->print($output);

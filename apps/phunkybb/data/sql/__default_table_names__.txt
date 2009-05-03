@@ -10,5 +10,8 @@
 <!ATTLIST param type CDATA #IMPLIED>
 <!ATTLIST param default CDATA #IMPLIED>
 <!ELEMENT sql      (#PCDATA)>
+<!-- prefix should be commented out
+if using site specific prefixes -->
+<!ENTITY prefix "wwwneofilmzcom_">
 <!ENTITY connection "phunkybb">
 <!ENTITY connection_read "phunkybb_read">

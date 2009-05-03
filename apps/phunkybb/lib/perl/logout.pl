@@ -24,6 +24,6 @@ Fifth Floor, Boston, MA 02110-1301 USA
 -->
 =cut
 
-$auth =  Apache2::Aortica::Kernel::Auth->new();
+$auth =  Aortica::Kernel::Auth->new();
 
 $auth->remove_user();
