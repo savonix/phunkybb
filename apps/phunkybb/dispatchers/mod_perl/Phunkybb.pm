@@ -84,7 +84,7 @@ sub handler {
             #unless($gate_content_type eq 'text/html') {
             $r->content_type($gate_content_type);
             #}
-        } else {
+        } elsif ( !$r->content_type ) {
             $r->content_type("application/xhtml+xml");
         }
     }
@@ -114,7 +114,7 @@ sub handler {
 
 
     unless ( $gate_content_type eq "text/xml") {
-        #$output .= $duration.$memory;
+        $output =~ s/kwhfg4khgh587hg/"$duration.$memory"/g;
     }
     my $mtime = time();
     $r->set_last_modified($mtime);
