@@ -175,6 +175,9 @@ Fifth Floor, Boston, MA 02110-1301 USA
 	</map:gate>
 
 
+	<map:gate name="welcome">
+    <map:action type="redirect" params="{//link_prefix}index"/>
+  </map:gate>
 	<map:gate name="index" cache="0" cache_control="no-store, max-age=0, must-revalidate">
 		<map:query src="data/sql/categories_get_all.xml"/>
 		<map:query src="data/sql/forums_get_all.xml"/>
