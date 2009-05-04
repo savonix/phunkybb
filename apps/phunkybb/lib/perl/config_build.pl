@@ -32,18 +32,18 @@ my $flow = Aortica::Kernel::Flow->instance();
 
 unless ( -e $xml_file ) {
     my $config_barf = $flow->get_value_by_path("/_R_/config_get/config_get")->{config_get}->{config_get};
-    
+
     # dereference the array
     @config_array = @{$config_barf};
-    
+
     $config_cache = \@config_array;
     my $new_hash = {};
     foreach my $item (@config_array) {
         $new_hash->{$item->{conf_name}} = $item->{conf_value};
     }
-    
+
     my $xml_str = XMLout($new_hash, RootName => 'board_config', NoAttr => 1, OutputFile => $xml_file);
-} else { 
+} else {
     $flow->add("config_cache", "true");
 }
 
