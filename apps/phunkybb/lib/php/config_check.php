@@ -29,11 +29,9 @@ Fifth Floor, Boston, MA 02110-1301 USA
 //   header("Location: index.php?nid=install");
 //    exit;
 //}
-if(!$_SESSION['site_id'] || $_SESSION['site_id']=='%') {
-    $config_cache = NX_PATH_COMPILE.'config_cache.php';
-} else {
-    $config_cache = NX_PATH_COMPILE.$_SESSION['site_id'].'_config_cache.php';
-}
+
+$config_cache = NX_PATH_COMPILE.$_SERVER['HTTP_HOST'].'_config_cache.php';
+
 if(is_file($config_cache)) {
     Nexista_Flow::add('config_cache','true');
     include($config_cache);
