@@ -107,7 +107,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
           <a href="#x-topic-delete&amp;topic_id={$topic_get_by_id/id}&amp;fid={$forum_get_by_id/id}"
             onclick="topic_delete({$topic_get_by_id/id}); return false;">
             Delete</a>&#160;
-          <a href="{$link_prefix}topic-edit&amp;topic_id={$topic_get_by_id/id}&amp;fid={$forum_get_by_id/id}">
+          <a href="{$link_prefix}topic-edit&amp;id={$topic_get_by_id/id}&amp;fid={$forum_get_by_id/id}">
             Move
           </a>
         </xsl:if>

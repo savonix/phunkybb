@@ -35,7 +35,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
     />
 
 		<form method="post">
-			<input type="hidden" name="topic_id" value="{$topic_get_by_id/topic_id}"/>
+			<input type="hidden" name="topic_id" value="{$topic_get_by_id/id}"/>
 			Move topic to:
 			<br/>
 			<br/>
