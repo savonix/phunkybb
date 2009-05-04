@@ -53,7 +53,7 @@ define('PROJECT_ROOT', $project_root);
 define('PROJECT_NAME', 'phunkybb');
 define('APP_NAME', 'phunkybb');
 
-$server_init = PROJECT_ROOT.'/cache/'.SERVER_NAME.'/'.APP_NAME.'/'.APP_NAME.'.php';
+$server_init = PROJECT_ROOT.'/cache/'.APP_NAME.'/'.APP_NAME.'.php';
 
 if(!include(NX_PATH_BASE.'extensions/nexista_builder.php')) {
     echo 'Error: Unable to load server loader or builder.';
