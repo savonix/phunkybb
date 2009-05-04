@@ -40,7 +40,7 @@ sub handler {
     #$| = 1;
     my $r = shift;
     my $output;
-    
+
     # This is necessary so that new request objects aren't created, see:
     # http://perl.apache.org/docs/2.0/user/config/config.html#C_GlobalRequest_
     Apache2::RequestUtil->request($r);
@@ -65,9 +65,10 @@ sub handler {
 
         if( $req->param('view_flow') eq "true") {
             # Maybe create flow dom document, but populate it and flush it for each request
-            my $flow = Aortica::Kernel::Flow->instance();
-            $doc  = $flow->{ DOC };
-            $output .= '<textarea rows="20" style="width: 100%">'.$flow->{ DOC }->toString.'</textarea>';
+            my $flow   = Aortica::Kernel::Flow->instance();
+            $doc       = $flow->{ DOC };
+            my $flowvw = '<textarea rows="20" style="background-color: #e3b6ec; right: 0; font-size: 9px; top: 0; z-index: 900; position: absolute; opacity: .1;"><![CDATA['.$flow->{ DOC }->toString.']]></textarea></body>';
+            $output    =~ s/\<\/body\>/$flowvw/g;
         }
         $cache->set( $key, $output, "10 minutes" );
     } else {
