@@ -43,7 +43,16 @@ Fifth Floor, Boston, MA 02110-1301 USA
 
 		<div id="brdmenu" class="inbox">
 
-			<span style="float:right">
+      <xsl:call-template name="breadcrumbs">
+        <xsl:with-param name="link_prefix" select="$link_prefix"/>
+        <xsl:with-param name="path_prefix" select="$path_prefix"/>
+        <xsl:with-param name="my18n" select="$my18n"/>
+        <xsl:with-param name="forum_get_by_id" select="$forum_get_by_id"/>
+        <xsl:with-param name="topic_get_by_id" select="$topic_get_by_id"/>
+      </xsl:call-template>
+
+			<span style="position:absolute;right:20px;">
+        <xsl:value-of select="//o_extra_menu_items" disable-output-escaping="yes"/>
       <xsl:choose>
 				<xsl:when test="/_R_/runtime/username">
 					<xsl:if test="/_R_/runtime/group_id='1'">
@@ -77,15 +86,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 			</xsl:choose>
       </span>
 
-      <xsl:value-of select="//o_extra_menu_items/*" disable-output-escaping="yes"/>
 
-        <xsl:call-template name="breadcrumbs">
-          <xsl:with-param name="link_prefix" select="$link_prefix"/>
-          <xsl:with-param name="path_prefix" select="$path_prefix"/>
-          <xsl:with-param name="my18n" select="$my18n"/>
-          <xsl:with-param name="forum_get_by_id" select="$forum_get_by_id"/>
-          <xsl:with-param name="topic_get_by_id" select="$topic_get_by_id"/>
-        </xsl:call-template>
 		</div>
 
     <xsl:call-template name="source_spacer">
@@ -99,7 +100,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 		<xsl:param name="my18n"/>
 		<xsl:param name="forum_get_by_id"/>
 		<xsl:param name="topic_get_by_id"/>
-      <ul class="breadcrumbs">
+      <ul class="breadcrumbs" style="display:inline;">
         <li>
           <a href="{$link_prefix}index">
             <xsl:value-of select="$my18n/index"/>
