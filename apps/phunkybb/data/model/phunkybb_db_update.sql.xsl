@@ -67,6 +67,8 @@ RENAME TABLE `<xsl:value-of select="//_get/table_prefix"/>posts`  TO `forums_pos
 RENAME TABLE `<xsl:value-of select="//_get/table_prefix"/>topics`  TO `forums_topics` ;
 RENAME TABLE `<xsl:value-of select="//_get/table_prefix"/>config`  TO `forums_config` ;
 
-UPDATE `forums_topics` SET basename=id WHERE `basename` = ''
+UPDATE `forums_topics` SET basename=LOWER(REPLACE(`subject`,' ','_')) WHERE `basename` = '' OR `basename` is NULL;
+
+UPDATE `forums_forums` SET `forum_basename` = LOWER(REPLACE(`forum_name`,' ','_'))
 </xsl:template>
 </xsl:stylesheet>
