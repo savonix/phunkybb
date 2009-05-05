@@ -52,15 +52,15 @@ Fifth Floor, Boston, MA 02110-1301 USA
       </xsl:call-template>
 
 			<span style="position:absolute;right:20px;">
-        <xsl:value-of select="//o_extra_menu_items" disable-output-escaping="yes"/>
+      <xsl:value-of select="//o_extra_menu_items" disable-output-escaping="yes"/>
       <xsl:choose>
 				<xsl:when test="/_R_/runtime/username">
 					<xsl:if test="/_R_/runtime/group_id='1'">
 						<a href="{$link_prefix}admin">
 							<xsl:value-of select="$my18n/administration"/>
 						</a>
+            &#8226;
 					</xsl:if>
-          &#8226;
 					<a href="{$link_prefix}profile">
             <xsl:value-of select="$my18n/profile"/>
           </a>
