@@ -29,8 +29,8 @@ Fifth Floor, Boston, MA 02110-1301 USA
 		indent               = "yes"
     encoding             = "UTF-8"
     omit-xml-declaration = "yes"
-		doctype-system       = "http://www.w3.org/TR/html4/loose.dtd"
-		doctype-public       = "-//W3C//DTD HTML 4.01 Transitional//EN"
+		doctype-system       = "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"
+		doctype-public       = "-//W3C//DTD XHTML 1.0 Transitional//EN"
   />
 
 
