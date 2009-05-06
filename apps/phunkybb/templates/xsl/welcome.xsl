@@ -30,13 +30,11 @@ Fifth Floor, Boston, MA 02110-1301 USA
 
 		<div class="blocktable">
         <table cellspacing="0">
-          <thead>
-            <tr>
-              <th class="tcl">
-							<b><xsl:value-of select="/_R_/board_config/o_board_title"/></b>
-              </th>
-            </tr>
-          </thead>
+          <tr>
+            <th class="tcl">
+            <strong><xsl:value-of select="/_R_/board_config/o_board_title"/></strong>
+            </th>
+          </tr>
         </table>
     </div>
     <div class="tableframe">
