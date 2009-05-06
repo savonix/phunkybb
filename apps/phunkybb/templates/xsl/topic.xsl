@@ -63,10 +63,8 @@ Fifth Floor, Boston, MA 02110-1301 USA
 
 
     <table cellspacing="0">
-      <thead>
         <tr>
           <th class="tcl" style="border-bottom: 0;">
-
 			<span class="postlink conr">
         <xsl:if test="contains(//user_agent,'gui_browser')">
         <span style="float:right;padding-left:6px;margin-top:-1px;">
@@ -118,7 +116,6 @@ Fifth Floor, Boston, MA 02110-1301 USA
            <xsl:value-of select="$page_num/count"/>&#160;<xsl:value-of select="$my18n/posts"/>
           </th>
         </tr>
-      </thead>
     </table>
 		<!-- Post loop -->
     <div class="tableframe">

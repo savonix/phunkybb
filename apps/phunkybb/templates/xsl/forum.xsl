@@ -36,25 +36,23 @@ Fifth Floor, Boston, MA 02110-1301 USA
 
 		<div class="blocktable">
         <table cellspacing="0" >
-          <thead>
-            <tr>
-              <th class="tcl" scope="col">
-                <span style="float:right;">
-                  <xsl:if test="contains(//user_agent,'gui_browser')">
-                  <xsl:if test="/_R_/runtime/username">
-                  <a href="{$link_prefix}post&amp;fid={$forum_get_by_id/id}">
-                    <xsl:value-of select="$my18n/post_topic"/>
-                  </a>&#160;
-                  </xsl:if>
-                  <a href="{$link_prefix}x-forum-rss&amp;fid={$forum_get_by_id/id}">
-                    <img style="margin:-3px 0;" src="{$path_prefix}s/img/icons/famfamfam/rss.png" alt="RSS"/>
-                  </a>
-                  </xsl:if>
-                </span>
-                <b><xsl:value-of select="$forum_get_by_id/forum_name"/></b>
-              </th>
-            </tr>
-          </thead>
+          <tr>
+            <th class="tcl" scope="col">
+              <span style="float:right;">
+                <xsl:if test="contains(//user_agent,'gui_browser')">
+                <xsl:if test="/_R_/runtime/username">
+                <a href="{$link_prefix}post&amp;fid={$forum_get_by_id/id}">
+                  <xsl:value-of select="$my18n/post_topic"/>
+                </a>&#160;
+                </xsl:if>
+                <a href="{$link_prefix}x-forum-rss&amp;fid={$forum_get_by_id/id}">
+                  <img style="margin:-3px 0;" src="{$path_prefix}s/img/icons/famfamfam/rss.png" alt="RSS"/>
+                </a>
+                </xsl:if>
+              </span>
+              <b><xsl:value-of select="$forum_get_by_id/forum_name"/></b>
+            </th>
+          </tr>
         </table>
     </div>
 		<div class="tableframe">
