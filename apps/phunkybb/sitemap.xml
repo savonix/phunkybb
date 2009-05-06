@@ -226,6 +226,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
         <map:query src="data/sql/posts_get_number_of_pages.xml"/>
         <map:plugin type="markdown" params="/_R_/posts_get_by_topic_id/posts_get_by_topic_id/message"/>
         <map:action type="newline" params="/_R_/posts_get_by_topic_id/posts_get_by_topic_id/message"/>
+        <map:plugin type="tidy" params="/_R_/posts_get_by_topic_id/posts_get_by_topic_id/message"/>
         <map:action type="datetime" params="/_R_/posts_get_by_topic_id/posts_get_by_topic_id/posted,unix_epoch,{//runtime/user_time_format},{//runtime/user_timezone_offset}"/>
         <map:xsl src="templates/xsl/topic.xsl"/>
       </map:default>
