@@ -7,7 +7,8 @@ error_reporting(E_ALL ^ E_NOTICE);
 if(strstr($_SERVER['HTTP_USER_AGENT'],'MSIE')) {
     ini_set('default_mimetype','text/html');
 } else {
-    ini_set('default_mimetype','application/xhtml+xml');
+    //ini_set('default_mimetype','application/xhtml+xml');
+    ini_set('default_mimetype','text/html');
 }
 //
 

@@ -25,17 +25,17 @@ Fifth Floor, Boston, MA 02110-1301 USA
   xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns="http://www.w3.org/1999/xhtml"
 	>
 	<xsl:output
-    method               = "xml"
+    method               = "html"
 		indent               = "yes"
     encoding             = "UTF-8"
-    omit-xml-declaration = "no"
-		doctype-system       = "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd"
-		doctype-public       = "-//W3C//DTD XHTML 1.1//EN"
+    omit-xml-declaration = "yes"
+		doctype-system       = "http://www.w3.org/TR/html4/loose.dtd"
+		doctype-public       = "-//W3C//DTD HTML 4.01 Transitional//EN"
   />
 
 
-<xsl:template match="/">
 
+<xsl:template match="/">
   <xsl:variable name="link_prefix" select="/_R_/runtime/link_prefix"/>
 
   <xsl:variable name="path_prefix" select="/_R_/runtime/path_prefix"/>
