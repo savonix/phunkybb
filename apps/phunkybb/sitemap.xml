@@ -598,7 +598,9 @@ Fifth Floor, Boston, MA 02110-1301 USA
 
 	<map:gate name="x-sitemap-xml" content_type="text/xml">
 		<map:query src="data/sql/forums_get_all.xml"/>
-		<map:xml src="sitemap.xml"/>
+    <map:action type="datetime" params="/_R_/forums_get_all/forums_get_all/last_post,unix_epoch,Y-m-d,"/>
+		<map:query src="data/sql/topics_get_all.xml"/>
+    <map:action type="datetime" params="/_R_/topics_get_all/topics_get_all/last_post,unix_epoch,Y-m-d,"/>
 		<map:xsl src="templates/xml/sitemap.xml.xsl"/>
 	</map:gate>
 

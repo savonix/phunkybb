@@ -22,16 +22,52 @@ or write to the Free Software Foundation, Inc., 51 Franklin Street,
 Fifth Floor, Boston, MA 02110-1301 USA
 -->
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-<xsl:output method="xml" indent="yes" encoding="UTF-8" omit-xml-declaration="no" />
-<xsl:template match="/">
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-    <xsl:for-each select="//map:gate">
+  <xsl:output method="xml" indent="yes" encoding="UTF-8" omit-xml-declaration="no" />
+  <xsl:template match="/">
+    <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+      <xsl:variable name="base_url" select="substring-before(//o_base_url,'index.php')" />
+
+      <url>
+        <loc>
+          <xsl:value-of select="$base_url"/>
+        </loc>
+        <lastmod>
+          <xsl:value-of select="posted_datetime"/>
+        </lastmod>
+        <changefreq>daily</changefreq>
+      </url>
+      <!-- Forums -->
+      <xsl:for-each select="/_R_/forums_get_all/forums_get_all">
         <url>
-            <loc>http://<xsl:value-of select="//runtime/host_name"/><xsl:value-of select="//runtime/link_prefix"/><xsl:value-of select="@name"/></loc>
-            <lastmod><xsl:value-of select="substring(//right_now,0,11)"/></lastmod>
-            <changefreq>daily</changefreq>
+          <loc>
+            <xsl:value-of select="$base_url"/>
+            <xsl:value-of select="forum_basename"/>
+            <xsl:text>/</xsl:text>
+          </loc>
+          <lastmod>
+            <xsl:value-of select="last_post"/>
+          </lastmod>
+          <changefreq>weekly</changefreq>
         </url>
-    </xsl:for-each>
-</urlset>
-</xsl:template>
+      </xsl:for-each>
+      <!-- Topics -->
+      <xsl:for-each select="/_R_/topics_get_all/topics_get_all">
+        <url>
+          <loc>
+            <xsl:value-of select="$base_url"/>
+            <xsl:value-of select="forum_basename"/>
+            <xsl:text>/</xsl:text>
+            <xsl:value-of select="basename"/>
+            <xsl:text>/</xsl:text>
+          </loc>
+          <lastmod>
+            <xsl:value-of select="last_post"/>
+          </lastmod>
+          <changefreq>daily</changefreq>
+        </url>
+      </xsl:for-each>
+
+    </urlset>
+  </xsl:template>
 </xsl:stylesheet>
