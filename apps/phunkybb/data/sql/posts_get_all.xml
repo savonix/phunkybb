@@ -30,13 +30,11 @@ Fifth Floor, Boston, MA 02110-1301 USA
 		<param name="//_get/iterative" type="integer" default="10"/>
 	</params>
 	<sql>
-	SELECT DISTINCT u.email,u.picture, u.signature,
-	p.id AS post_id, p.topic_id, p.poster AS username,
-	p.message,
-	p.posted,FROM_UNIXTIME(p.posted) as posted_datetime, t.subject, t.forum_id
+	SELECT DISTINCT u.email,u.picture, u.signature, u.username,
+	p.id AS post_id, p.topic_id, p.message, p.posted,
+  FROM_UNIXTIME(p.posted) as posted_datetime, t.subject, t.forum_id
 
 	FROM (&prefix;topics AS t), (&prefix;posts AS p)
-
 
 	INNER JOIN &prefix;users AS u ON u.id=p.poster_id
 

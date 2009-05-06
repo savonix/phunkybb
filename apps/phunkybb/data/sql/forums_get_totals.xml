@@ -29,15 +29,14 @@ Fifth Floor, Boston, MA 02110-1301 USA
         <param array="/_R_/forums_get_all/forums_get_all/fid" type="integer" default="0"/>
         <param array="/_R_/forums_get_all/forums_get_all/fid" type="integer" default="0"/>
 	</params>
-    <sql>
-        <!--THIS QUERY NEEDS TO BE CACHED INTO FORUMS TABLE -->
-        SELECT 
-        (SELECT ?) as forum_id,
+  <sql>
+  <!--THIS QUERY NEEDS TO BE CACHED INTO FORUMS TABLE -->
+  SELECT
+  (SELECT ?) as forum_id,
 
-        (SELECT count(id) FROM  &prefix;topics WHERE forum_id=?) as total_topics,
+  (SELECT count(id) FROM  &prefix;topics WHERE forum_id=?) as total_topics,
 
-        (SELECT count(p.id) FROM  &prefix;posts as p, &prefix;topics as t
-            WHERE t.forum_id=? AND p.topic_id=t.id) as total_posts
-
-    </sql>
+  (SELECT count(p.id) FROM  &prefix;posts as p, &prefix;topics as t
+      WHERE t.forum_id=? AND p.topic_id=t.id) as total_posts
+  </sql>
 </query>
