@@ -25,10 +25,9 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <query name="topic_get_num_replies">
 	<connection>&connection;</connection>
 	<params>
-		<param name="/_R_/_post/topic_id" type="integer"/>
-    <param name="//runtime/site_id" type="integer" default="0"/>
+		<param name="/_R_/_get/id" type="integer"/>
 	</params>
 	<sql>
-  SELECT count(id) - 1 as num_replies FROM &prefix;posts WHERE topic_id=? AND site_id=?
+  SELECT count(id) - 1 as num_replies FROM &prefix;posts WHERE topic_id=?
 	</sql>
 </query>

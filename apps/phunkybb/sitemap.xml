@@ -201,6 +201,12 @@ Fifth Floor, Boston, MA 02110-1301 USA
 	</map:gate>
 
 	<map:gate name="topic" cache="0">
+    <map:if name="//_get/recount">
+      <map:true>
+        <map:query src="data/sql/topic_get_num_replies.xml"/>
+        <map:query src="data/sql/topic_set_num_replies.xml"/>
+      </map:true>
+    </map:if>
     <map:switch name="//_get/basename">
       <!-- Post new topic -->
       <map:case value="post">
@@ -283,8 +289,6 @@ Fifth Floor, Boston, MA 02110-1301 USA
 				<map:query src="data/sql/topic_last_post_update.xml"/>
 				<map:query src="data/sql/forum_last_post_update.xml"/>
 				<map:query src="data/sql/user_last_post_update.xml"/>
-				<map:query src="data/sql/topic_get_num_replies.xml"/>
-				<map:query src="data/sql/topic_set_num_replies.xml"/>
 				<map:query src="data/sql/topic_get_unsent_subscriptions.xml"/>
 				<map:if name="//topic_get_subscriptions/topic_get_subscriptions">
 					<map:true>
@@ -295,7 +299,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 						<map:action type="email" params="{//topic_get_subscriptions/topic_get_subscriptions/email},{//board_config/o_webmaster_email},{//email_subject},//new_text,{//board_config/o_smtp_host}"/>
 					</map:true>
 				</map:if>
-				<map:action type="redirect" params="{//link_prefix}topic&amp;fid={//_post/forum_id}&amp;id={//_post/topic_id}"/>
+				<map:action type="redirect" params="{//link_prefix}topic&amp;fid={//_post/forum_id}&amp;id={//_post/topic_id}&amp;recount=true"/>
 			</map:true>
 			<map:false>
         <map:query src="data/sql/forum_get_by_id.xml"/>

@@ -183,7 +183,6 @@ Fifth Floor, Boston, MA 02110-1301 USA
 								</legend>
 								<div class="infldset txtarea">
 									<input type="hidden" name="topic_id" value="{$topic_get_by_id/id}"/>
-									<input type="hidden" name="num_replies" value="{count(//posts_get_by_topic_id)}"/>
 									<input type="hidden" name="forum_id" value="{/_R_/forum_get_by_id/forum_get_by_id/id}"/>
 									<input type="hidden" name="site_id" value="{/_R_/runtime/site_id}"/>
                   <textarea name="message" rows="7" cols="75"/>

@@ -26,10 +26,9 @@ Fifth Floor, Boston, MA 02110-1301 USA
 	<connection>&connection;</connection>
 	<params>
 		<param name="/_R_/topic_get_num_replies/topic_get_num_replies/num_replies" type="integer"/>
-		<param name="/_R_/_post/topic_id" type="integer"/>
-    <param name="//runtime/site_id" type="integer" default="0"/>
+		<param name="/_R_/_get/id" type="integer"/>
 	</params>
 	<sql>
-  UPDATE &prefix;topics SET num_replies=? WHERE id=? AND site_id=?
+  UPDATE &prefix;topics SET num_replies=? WHERE id=?
 	</sql>
 </query>
