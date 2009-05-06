@@ -123,7 +123,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
       <a href="#post{id}" name="post{id}" />
 			<div id="p{id}" class="blockpost" >
         <span class="conr noul">
-          <a href="#post{id}" name="post{id}" class="noul">
+          <a href="#post{id}" class="noul">
             <xsl:value-of select="username"/> Posted
             <span class="reldate">
               <xsl:value-of select="posted"/>
