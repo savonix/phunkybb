@@ -38,9 +38,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
         <loc>
           <xsl:value-of select="$base_url"/>
         </loc>
-        <lastmod>
-          <xsl:value-of select="posted_datetime"/>
-        </lastmod>
+        <priority>0.8</priority>
         <changefreq>daily</changefreq>
       </url>
       <!-- Forums -->
