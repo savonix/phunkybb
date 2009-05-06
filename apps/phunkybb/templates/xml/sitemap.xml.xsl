@@ -31,7 +31,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
           <xsl:value-of select="substring-before(//o_base_url,'index.php')" />
         </xsl:if>
         <xsl:if test="not(contains(//o_base_url,'index.php'))">
-          <xsl:value-of select="substring-before(//o_base_url,'index.php')" />
+          <xsl:value-of select="//o_base_url" />
         </xsl:if>
       </xsl:variable>
       <url>
