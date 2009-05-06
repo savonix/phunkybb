@@ -26,8 +26,14 @@ Fifth Floor, Boston, MA 02110-1301 USA
   <xsl:template match="/">
     <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
-      <xsl:variable name="base_url" select="substring-before(//o_base_url,'index.php')" />
-
+      <xsl:variable name="base_url">
+        <xsl:if test="contains(//o_base_url,'index.php')">
+          <xsl:value-of select="substring-before(//o_base_url,'index.php')" />
+        </xsl:if>
+        <xsl:if test="not(contains(//o_base_url,'index.php'))">
+          <xsl:value-of select="substring-before(//o_base_url,'index.php')" />
+        </xsl:if>
+      </xsl:variable>
       <url>
         <loc>
           <xsl:value-of select="$base_url"/>
