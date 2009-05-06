@@ -52,6 +52,43 @@ UPDATE `<xsl:value-of select="//_get/table_prefix"/>categories` SET `id` = `id` 
 UPDATE `<xsl:value-of select="//_get/table_prefix"/>forums`  SET `cat_id` = `cat_id` + <xsl:value-of select="//_get/site_id"/> + <xsl:value-of select="//_get/site_id"/>;
 UPDATE `<xsl:value-of select="//_get/table_prefix"/>forums`  SET `id` = `id` + <xsl:value-of select="//_get/site_id"/> + <xsl:value-of select="//_get/site_id"/>;
 
+UPDATE `<xsl:value-of select="//_get/table_prefix"/>users`  SET `id` = `id` + <xsl:value-of select="//_get/site_id"/> + <xsl:value-of select="//_get/site_id"/>;
+UPDATE `<xsl:value-of select="//_get/table_prefix"/>posts`  SET `poster_id` = `poster_id` + <xsl:value-of select="//_get/site_id"/> + <xsl:value-of select="//_get/site_id"/>;
+
+
+ALTER TABLE `<xsl:value-of select="//_get/table_prefix"/>users`
+  DROP `title`,
+  DROP `realname`,
+  DROP `email`,
+  DROP `jabber`,
+  DROP `icq`,
+  DROP `msn`,
+  DROP `aim`,
+  DROP `disp_topics`,
+  DROP `disp_posts`,
+  DROP `email_setting`,
+  DROP `save_pass`,
+  DROP `notify_with_post`,
+  DROP `show_smilies`,
+  DROP `show_img`,
+  DROP `show_img_sig`,
+  DROP `show_avatars`,
+  DROP `show_sig`,
+  DROP `timezone`,
+  DROP `language`,
+  DROP `num_posts`,
+  DROP `last_post`,
+  DROP `registered`,
+  DROP `registration_ip`,
+  DROP `last_visit`,
+  DROP `admin_note`,
+  DROP `activate_string`,
+  DROP `activate_key`,
+  DROP `style`,
+  DROP `yahoo`;
+
+
+  
 ALTER TABLE `<xsl:value-of select="//_get/table_prefix"/>posts`
   DROP `id`,
   DROP `poster_ip`,
@@ -66,6 +103,7 @@ RENAME TABLE `<xsl:value-of select="//_get/table_prefix"/>forums`  TO `forums_fo
 RENAME TABLE `<xsl:value-of select="//_get/table_prefix"/>posts`  TO `forums_posts` ;
 RENAME TABLE `<xsl:value-of select="//_get/table_prefix"/>topics`  TO `forums_topics` ;
 RENAME TABLE `<xsl:value-of select="//_get/table_prefix"/>config`  TO `forums_config` ;
+RENAME TABLE `<xsl:value-of select="//_get/table_prefix"/>users`  TO `forums_users` ;
 
 UPDATE `forums_topics` SET basename=LOWER(REPLACE(`subject`,' ','_')) WHERE `basename` = '' OR `basename` is NULL;
 
