@@ -67,6 +67,9 @@ Fifth Floor, Boston, MA 02110-1301 USA
               <th class="tc2" scope="col">
                 <xsl:value-of select="$my18n/replies"/>
               </th>
+              <th class="tc2" scope="col">
+                <xsl:value-of select="$my18n/views"/>
+              </th>
               <th class="tcr">
                 <xsl:value-of select="$my18n/last_post"/>
               </th>
@@ -111,6 +114,9 @@ Fifth Floor, Boston, MA 02110-1301 USA
                 </td>
                 <td class="tc2">
                   <xsl:value-of select="num_replies"/>
+                </td>
+                <td class="tc2">
+                  <xsl:value-of select="num_views"/>
                 </td>
                 <td class="tcr">
                   <span class="reldate">

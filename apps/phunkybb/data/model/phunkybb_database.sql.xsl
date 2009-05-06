@@ -24,13 +24,13 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 <xsl:output method="text" indent="yes" encoding="UTF-8" omit-xml-declaration="yes"/>
 <xsl:template match="/">
-CREATE TABLE <xsl:value-of select="//dbe/if_not_exists"/> <xsl:value-of select="//_get/table_prefix"/>categories (
-  id <xsl:value-of select="//dbe/engine_auto_increment"/>,
-  cat_name varchar(80) NOT NULL default 'New Category',
-  disp_position <xsl:value-of select="//dbe/integer"/> NOT NULL default '0',
-  site_id <xsl:value-of select="//dbe/integer"/> <xsl:value-of select="//dbe/default_null"/>,
-  PRIMARY KEY (id)
+
+CREATE TABLE <xsl:value-of select="//dbe/if_not_exists"/> <xsl:value-of select="//_get/table_prefix"/>sites (
+  site_id <xsl:value-of select="//dbe/engine_auto_increment"/>,
+  http_host varchar(200) NOT NULL default '',
+  PRIMARY KEY (site_id)
 ) <xsl:value-of select="//dbe/innodb_engine"/> <xsl:value-of select="//dbe/engine_increment_start"/> ;
+
 
 CREATE TABLE <xsl:value-of select="f_not_exists"/> <xsl:value-of select="//_get/table_prefix"/>config (
   conf_id <xsl:value-of select="//dbe/engine_auto_increment"/>,
@@ -39,6 +39,14 @@ CREATE TABLE <xsl:value-of select="f_not_exists"/> <xsl:value-of select="//_get/
   site_id <xsl:value-of select="//dbe/integer"/> <xsl:value-of select="//dbe/default_null"/>,
   PRIMARY KEY  (conf_id)
 ) <xsl:value-of select="//dbe/myisam_engine"/> <xsl:value-of select="//dbe/engine_increment_start"/> ;
+
+CREATE TABLE <xsl:value-of select="//dbe/if_not_exists"/> <xsl:value-of select="//_get/table_prefix"/>categories (
+  id <xsl:value-of select="//dbe/engine_auto_increment"/>,
+  cat_name varchar(80) NOT NULL default 'New Category',
+  disp_position <xsl:value-of select="//dbe/integer"/> NOT NULL default '0',
+  site_id <xsl:value-of select="//dbe/integer"/> <xsl:value-of select="//dbe/default_null"/>,
+  PRIMARY KEY (id)
+) <xsl:value-of select="//dbe/innodb_engine"/> <xsl:value-of select="//dbe/engine_increment_start"/> ;
 
 
 CREATE TABLE <xsl:value-of select="f_not_exists"/> <xsl:value-of select="//_get/table_prefix"/>forums (
@@ -52,13 +60,11 @@ CREATE TABLE <xsl:value-of select="f_not_exists"/> <xsl:value-of select="//_get/
   last_post <xsl:value-of select="//dbe/integer"/> default NULL,
   last_post_id <xsl:value-of select="//dbe/integer"/> default NULL,
   last_poster varchar(200) default NULL,
-  sort_by <xsl:value-of select="//dbe/integer"/> NOT NULL default '0',
   disp_position <xsl:value-of select="//dbe/integer"/> NOT NULL default '0',
   cat_id <xsl:value-of select="//dbe/integer"/> NOT NULL default '0',
   PRIMARY KEY  (id)<xsl:if test="//engine='mysqli'">,
   KEY <xsl:value-of select="//_get/table_prefix"/>forum_cat_id_idx (cat_id)</xsl:if>
 ) <xsl:value-of select="//dbe/innodb_engine"/> <xsl:value-of select="//dbe/engine_increment_start"/> ;
-
 
 
 CREATE TABLE <xsl:value-of select="f_not_exists"/> <xsl:value-of select="//_get/table_prefix"/>topics (
@@ -85,13 +91,12 @@ CREATE TABLE <xsl:value-of select="f_not_exists"/> <xsl:value-of select="//_get/
 
 CREATE TABLE <xsl:value-of select="f_not_exists"/> <xsl:value-of select="//_get/table_prefix"/>posts (
   id <xsl:value-of select="//dbe/engine_auto_increment"/>,
-  poster varchar(200) NOT NULL default '',
-  poster_id int(10) NOT NULL default '1',
+  poster_id <xsl:value-of select="//dbe/integer"/> <xsl:value-of select="//dbe/default_null"/>,
   site_id <xsl:value-of select="//dbe/integer"/> <xsl:value-of select="//dbe/default_null"/>,
   message text,
   posted <xsl:value-of select="//dbe/integer"/> <xsl:value-of select="//dbe/default_null"/>,
   edited <xsl:value-of select="//dbe/integer"/> <xsl:value-of select="//dbe/default_null"/>,
-  edited_by varchar(200) default NULL,
+  edited_by_user_id <xsl:value-of select="//dbe/integer"/> <xsl:value-of select="//dbe/default_null"/>,
   topic_id <xsl:value-of select="//dbe/integer"/> <xsl:value-of select="//dbe/default_null"/>,
   PRIMARY KEY  (id),
   KEY <xsl:value-of select="//_get/table_prefix"/>posts_topic_id_idx (topic_id),
@@ -108,18 +113,6 @@ CREATE TABLE <xsl:value-of select="f_not_exists"/> <xsl:value-of select="//_get/
 ) <xsl:value-of select="//dbe/innodb_engine"/>;
 
 
-
-CREATE TABLE <xsl:value-of select="//dbe/if_not_exists"/> <xsl:value-of select="//_get/table_prefix"/>tags (
-  tag_id <xsl:value-of select="//dbe/engine_auto_increment"/>,
-  tag varchar(200) NOT NULL default '',
-  PRIMARY KEY (tag_id)
-) <xsl:value-of select="//dbe/innodb_engine"/> <xsl:value-of select="//dbe/engine_increment_start"/> ;
-
-CREATE TABLE <xsl:value-of select="//dbe/if_not_exists"/> <xsl:value-of select="//_get/table_prefix"/>sites (
-  site_id <xsl:value-of select="//dbe/engine_auto_increment"/>,
-  http_host varchar(200) NOT NULL default '',
-  PRIMARY KEY (site_id)
-) <xsl:value-of select="//dbe/innodb_engine"/> <xsl:value-of select="//dbe/engine_increment_start"/> ;
 
 CREATE TABLE <xsl:value-of select="//dbe/if_not_exists"/> <xsl:value-of select="//_get/table_prefix"/>users (
   id <xsl:value-of select="//dbe/engine_auto_increment"/>,

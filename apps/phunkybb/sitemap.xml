@@ -206,6 +206,10 @@ Fifth Floor, Boston, MA 02110-1301 USA
         <map:query src="data/sql/topic_get_num_replies.xml"/>
         <map:query src="data/sql/topic_set_num_replies.xml"/>
       </map:true>
+      <map:false>
+        <map:query src="data/sql/topic_get_num_views.xml"/>
+        <map:query src="data/sql/topic_set_num_views.xml"/>
+      </map:false>
     </map:if>
     <map:switch name="//_get/basename">
       <!-- Post new topic -->
