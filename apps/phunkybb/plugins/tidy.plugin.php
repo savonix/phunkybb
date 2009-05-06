@@ -46,7 +46,7 @@ class Nexista_TidyAction extends Nexista_Action
         $tidy = new tidy;
         $xpath = $this->params['text'];
         $node = Nexista_Flow::find($xpath);
-        $config = array('output-xhtml'   => true);
+        $config = array('output-xhtml'   => true, 'numeric-entities' => true, 'preserve-entities' => true);
         foreach($node as $item) {
             $tidy->parseString($item->nodeValue, $config, 'utf8');
             $tidy->cleanRepair();
