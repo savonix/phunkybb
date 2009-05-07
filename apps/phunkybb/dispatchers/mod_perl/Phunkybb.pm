@@ -22,12 +22,11 @@ sub handler {
     Apache2::RequestUtil->request($r);
     my $req = Apache2::Request->new($r);
     my $nid = $req->param('nid');
-    my $duration = undef;
     my $output = undef;
     my $gate_content_type = undef;
 
     # Create Gatekeeper
-    my $init = Aortica::Kernel::Init->instance($srv_cfg, $app_cfg, $app_nam);
+    my $init = Aortica::Kernel::Init->instance($srv_cfg, $app_cfg, $app_name);
     $init->start();
 
     my $dbh = Aortica::Modules::DataSources::DBIDataSource->instance();
