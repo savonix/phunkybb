@@ -25,7 +25,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
   xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns="http://www.w3.org/1999/xhtml"
 	>
 	<xsl:output
-    method               = "html"
+    method               = "xml"
 		indent               = "yes"
     encoding             = "UTF-8"
     omit-xml-declaration = "yes"

@@ -6,34 +6,18 @@ use DateTime;
 use Cache::MemoryCache;
 use Digest::MD5 qw(md5 md5_hex md5_base64);
 
-my $tree = Apache2::Directive::conftree();
+#my $tree = Apache2::Directive::conftree();
 
-my $app_node = $tree->lookup('Location', '/phunkybb');
-my $app_cfg = $app_node->{ AppConfigFile };
-my $srv_cfg = $app_node->{ AorticaServerConfigFile };
-our $doc;
-
-
-
-
-# Create config
-my $config = Aortica::Kernel::Config->instance();
-$config->configure($srv_cfg, $app_cfg, 'phunkybb');
-
-# Create fence
-my $fence_file = $config->{ CONFIG }->{ phunkybb }->{build}->{sitemap};
-my $fence = Aortica::Kernel::Fence->instance();
-$fence->set_fence($fence_file, 'phunkybb');
-
-Aortica::Kernel::Init->instance('phunkybb');
-Aortica::Modules::Handlers::QueryHandler->instance('phunkybb');
-Aortica::Modules::Handlers::XmlHandler->instance('phunkybb');
-Aortica::Modules::Handlers::XslHandler->instance('phunkybb');
+#my $app_node = $tree->lookup('Location', '/phunkybb');
+my $app_name = $ENV{'app_name'};
+my $app_cfg  = $ENV{'app_conf'};
+my $srv_cfg  = $ENV{'loc_conf'};
+#my $app_cfg = $app_node->{ AppConfigFile };
+#my $srv_cfg = $app_node->{ AorticaServerConfigFile };
 
 
+Aortica::Kernel::Init->instance($srv_cfg, $app_cfg,'phunkybb');
 
-my $cache = new Cache::MemoryCache( { 'namespace' => 'MyNamespace',
-                                    'default_expires_in' => 600 } );
 
 sub handler {
 
@@ -52,71 +36,22 @@ sub handler {
 
     # Create Gatekeeper
     my $init = Aortica::Kernel::Init->instance('phunkybb');
-    my $uri = md5_base64($ENV{'REQUEST_URI'});
-    my $key = $nid.$uri;
     $init->start();
 
-    my $output = $cache->get( $key );
+    my $dbh = Aortica::Modules::DataSources::DBIDataSource->instance();
+    $output = $init->process_gate($nid);
 
-    if ( not defined $output ) {
 
-        my $dbh = Aortica::Modules::DataSources::DBIDataSource->instance();
-        $output = $init->process_gate($nid);
-
-        if( $req->param('view_flow') eq "true") {
-            # Maybe create flow dom document, but populate it and flush it for each request
-            my $flow   = Aortica::Kernel::Flow->instance();
-            $doc       = $flow->{ DOC };
-            my $flowvw = '<textarea rows="20" style="background-color: #e3b6ec; right: 0; font-size: 9px; top: 0; z-index: 900; position: absolute; opacity: .1;"><![CDATA['.$flow->{ DOC }->toString.']]></textarea></body>';
-            $output    =~ s/\<\/body\>/$flowvw/g;
-        }
-        $cache->set( $key, $output, "10 minutes" );
-    } else {
-        if($ENV{'REQUEST_METHOD'} eq 'POST') {
-            $cache->clear();
-        }
-    }
-
-    $duration = $init->stop();
-    $duration = sprintf("%.3f", $duration);
     {
         if ( $gate_content_type = $init->{ phunkybb }->{ GATE }->{ $nid }->{ CONTENT_TYPE } ) {
             # Memory leak???
-            #unless($gate_content_type eq 'text/html') {
             $r->content_type($gate_content_type);
-            #}
         } elsif ( !$r->content_type ) {
-            $r->content_type("application/xhtml+xml");
+            #$r->content_type("application/xhtml+xml");
+            $r->content_type("text/html");
         }
     }
 
-    my $mem = GTop->new->proc_mem($$)->share/1024;
-    my $proc_mem = GTop->new->proc_mem($$)->size/1024;
-    my $diff     = $proc_mem - $mem;
-    my $shared   = GTop->new->proc_mem($$)->vsize/1024;
-
-    my $memory = " Shared: ".$mem." Total: ".$proc_mem." PID: ".$$ ;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    unless ( $gate_content_type eq "text/xml") {
-        $output =~ s/kwhfg4khgh587hg/"$duration.$memory"/g;
-    }
     my $mtime = time();
     $r->set_last_modified($mtime);
     $r->print($output);
