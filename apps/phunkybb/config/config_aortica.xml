@@ -1,0 +1,16 @@
+<!-- This is a sub-config file. Additional information can be inserted here, 
+and overlapping information will override settings in the main configuration file -->
+<config>
+  <defaults>
+    <private_key>&project_root;/config/key.pem</private_key>
+    <modulus>B1421EBC6E1B380DFDAA9228D7DF10DBB6CE6B0E8F2E9372A0D61F93D8148A003BF7D76A88859A2CA4B46ACF9A74209D177EC3654D2B4448E0B06E42D687A9A5</modulus>
+  </defaults>
+  <extensions>
+    <dev_buffer>
+      <placement>prepend</placement>
+      <source>/var/www/dev/nexista/extensions/dev_buffer/dev_buffer.php</source>
+      <sitemap>/var/www/dev/aortica/Extensions/Development/sitemap.xml</sitemap>
+      <excludes>x-,themed-css,dynamic-css,xml-sitemap,license,readme,license</excludes>
+    </dev_buffer>
+  </extensions>
+</config>
