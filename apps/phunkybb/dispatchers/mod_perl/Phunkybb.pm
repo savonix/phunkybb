@@ -3,20 +3,12 @@ use Aortica::Aortica ();
 use strict;
 use Data::Dumper;
 use DateTime;
-use Cache::MemoryCache;
-use Digest::MD5 qw(md5 md5_hex md5_base64);
 
-#my $tree = Apache2::Directive::conftree();
-
-#my $app_node = $tree->lookup('Location', '/phunkybb');
 my $app_name = $ENV{'app_name'};
 my $app_cfg  = $ENV{'app_conf'};
 my $srv_cfg  = $ENV{'loc_conf'};
-#my $app_cfg = $app_node->{ AppConfigFile };
-#my $srv_cfg = $app_node->{ AorticaServerConfigFile };
 
-
-Aortica::Kernel::Init->instance($srv_cfg, $app_cfg,'phunkybb');
+Aortica::Kernel::Init->instance($srv_cfg, $app_cfg, $app_name);
 
 
 sub handler {
@@ -35,7 +27,7 @@ sub handler {
     my $gate_content_type = undef;
 
     # Create Gatekeeper
-    my $init = Aortica::Kernel::Init->instance('phunkybb');
+    my $init = Aortica::Kernel::Init->instance($srv_cfg, $app_cfg, $app_nam);
     $init->start();
 
     my $dbh = Aortica::Modules::DataSources::DBIDataSource->instance();
@@ -43,7 +35,7 @@ sub handler {
 
 
     {
-        if ( $gate_content_type = $init->{ phunkybb }->{ GATE }->{ $nid }->{ CONTENT_TYPE } ) {
+        if ( $gate_content_type = $init->{ $app_name }->{ GATE }->{ $nid }->{ CONTENT_TYPE } ) {
             # Memory leak???
             $r->content_type($gate_content_type);
         } elsif ( !$r->content_type ) {
