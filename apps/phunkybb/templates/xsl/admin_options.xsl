@@ -56,7 +56,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
                         <xsl:value-of select="$my18n/board_title"/>
                       </th>
                       <td>
-                        <input type="text" name="form[o_board_title]" value="{//board_config/o_board_title}"/>
+                        <input type="text" name="form[o_board_title]" value="{//site_config/o_board_title}"/>
                         <xsl:value-of select="$my18n/title_of_buletine_board"/>
                         <strong>
                           <xsl:value-of select="$my18n/not"/>
@@ -69,7 +69,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
                         <xsl:value-of select="$my18n/board_description"/>
                       </th>
                       <td>
-                        <input type="text" name="form[o_board_desc]" value="{//board_config/o_board_desc}"/>
+                        <input type="text" name="form[o_board_desc]" value="{//site_config/o_board_desc}"/>
                         <xsl:value-of select="$my18n/short_description_of_this"/>.
 											</td>
                     </tr>
@@ -78,7 +78,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
                         <xsl:value-of select="$my18n/base_url"/>
                       </th>
                       <td>
-                        <input type="text" name="form[o_base_url]" value="{//board_config/o_base_url}"/>
+                        <input type="text" name="form[o_base_url]" value="{//site_config/o_base_url}"/>
 											</td>
                     </tr>
                   </table>
@@ -97,7 +97,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
                         <xsl:value-of select="$my18n/admin_email"/>
                       </th>
                       <td>
-                        <input type="text" name="form[o_admin_email]" value="{//board_config/o_admin_email}"/>
+                        <input type="text" name="form[o_admin_email]" value="{//site_config/o_admin_email}"/>
                         <xsl:value-of select="$my18n/email_of_forum_admin"/>.
                                 </td>
                     </tr>
@@ -106,7 +106,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
                         <xsl:value-of select="$my18n/webmaster_email"/>
                       </th>
                       <td>
-                        <input type="text" name="form[o_webmaster_email]" value="{//board_config/o_webmaster_email}"/>
+                        <input type="text" name="form[o_webmaster_email]" value="{//site_config/o_webmaster_email}"/>
                         <br/>
                         <xsl:value-of select="$my18n/address_all_email_sent_from"/>.
 											</td>
@@ -116,7 +116,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
                         <xsl:value-of select="$my18n/smtp_server_address"/>
                       </th>
                       <td>
-                        <input type="text" name="form[o_smtp_host]" value="{//board_config/o_smtp_host}"/>
+                        <input type="text" name="form[o_smtp_host]" value="{//site_config/o_smtp_host}"/>
                         <xsl:value-of select="$my18n/address_of_external_smtp"/>.
                       </td>
                     </tr>
@@ -125,7 +125,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
                         <xsl:value-of select="$my18n/smtp_username"/>
                       </th>
                       <td>
-                        <input type="text" name="form[o_smtp_user]" value="{//board_config/o_smtp_user}"/>
+                        <input type="text" name="form[o_smtp_user]" value="{//site_config/o_smtp_user}"/>
                         <xsl:value-of select="$my18n/username_for_smtp_server"/>
                       </td>
                     </tr>
@@ -134,7 +134,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
                         <xsl:value-of select="$my18n/smtp_password"/>
                       </th>
                       <td>
-                        <input type="text" name="form[o_smtp_pass]" value="{//board_config/o_smtp_pass}"/>
+                        <input type="text" name="form[o_smtp_pass]" value="{//site_config/o_smtp_pass}"/>
                         <xsl:value-of select="$my18n/password_for_smtp_server"/>
                       </td>
                     </tr>
@@ -161,7 +161,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
                           </option>
                           </xsl:for-each>
                         </select>
-                        <xsl:value-of select="/_R_/board_config/o_board_theme"/>
+                        <xsl:value-of select="/_R_/site_config/o_board_theme"/>
                       </td>
                     </tr>
                   </table>
@@ -180,7 +180,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
                         Google Analytics Code:
                       </th>
                       <td>
-                        <input type="text" name="form[o_google_analytics_code]" value="{//board_config/o_google_analytics_code}"/>
+                        <input type="text" name="form[o_google_analytics_code]" value="{//site_config/o_google_analytics_code}"/>
                       </td>
                     </tr>
                     <tr>
@@ -188,7 +188,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
                         File Upload Directory:
                       </th>
                       <td>
-                        <input type="text" name="form[o_upload_directory]" value="{//board_config/o_upload_directory}"/>
+                        <input type="text" name="form[o_upload_directory]" value="{//site_config/o_upload_directory}"/>
                       </td>
                     </tr>
                     <tr>
@@ -196,7 +196,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
                         Upload Access Directory:
                       </th>
                       <td>
-                        <input type="text" name="form[o_access_directory]" value="{//board_config/o_access_directory}"/>
+                        <input type="text" name="form[o_access_directory]" value="{//site_config/o_access_directory}"/>
                       </td>
                     </tr>
                     <tr>
@@ -205,7 +205,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
                       </th>
                       <td>
                         <input type="text" name="form[o_extra_menu_items]"
-													value="{//board_config/o_extra_menu_items}" size="45"/>
+													value="{//site_config/o_extra_menu_items}" size="45"/>
                       </td>
                     </tr>
                   </table>
@@ -220,7 +220,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
       </div>
     </div>
     <script type="text/javascript">
-      $("option[value='<xsl:value-of select="/_R_/board_config/o_board_theme"/>']").attr("selected","selected");
+      $("option[value='<xsl:value-of select="/_R_/site_config/o_board_theme"/>']").attr("selected","selected");
     </script>
 
   </xsl:template>

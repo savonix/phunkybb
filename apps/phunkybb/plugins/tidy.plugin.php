@@ -11,7 +11,7 @@
  * @subpackage  Plugins
  * @author      Albert Lash
  */
- 
+
 /**
  * This action parses bbCode into HTML.
  *

@@ -33,7 +33,6 @@ Fifth Floor, Boston, MA 02110-1301 USA
 			</map:true>
 		</map:if>
 		<map:perl src="lib/perl/runtime.pl"/>
-		<map:script src="lib/php/config_check.php"/>
 		<map:perl src="lib/perl/config_build.pl"/>
 		<map:python src="lib/python/config_build.py"/>
 		<map:if name="/_R_/config_cache">
@@ -79,7 +78,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 
 				<map:query src="data/sql/user_register.xml"/>
 
-				<map:action type="email" params="{//_post/email},{//board_config/o_webmaster_email},{//my_registration_info},//new_text,{//board_config/o_smtp_host}"/>
+				<map:action type="email" params="{//_post/email},{//site_config/o_webmaster_email},{//my_registration_info},//new_text,{//site_config/o_smtp_host}"/>
 
 				<map:action type="header" params="Content-type,text/xml"/>
 				<map:set name="result_message" value=" Registration successful, please check your email."/>
@@ -106,7 +105,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 				<map:xml src="data/xml/emails.xml"/>
 				<map:set name="forgot_password" value="Password Reset Information"/>
 				<map:plugin type="detokenize" params="{/_R_/i18n/password_reset},//emails/reset_password/token"/>
-				<map:action type="email" params="{//_post/email},{//board_config/o_webmaster_email},{//forgot_password},//new_text,{//board_config/o_smtp_host}"/>
+				<map:action type="email" params="{//_post/email},{//site_config/o_webmaster_email},{//forgot_password},//new_text,{//site_config/o_smtp_host}"/>
 
 				<map:xsl src="templates/xsl/password_forgot.xsl"/>
 			</map:true>
@@ -287,7 +286,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
                 <map:plugin type="detokenize"
                     params="{/_R_/i18n/test_email},//emails/test/token"/>
                 <map:action type="email"
-                    params="{//_post/rcpt_email},{//board_config/o_webmaster_email},{//_post/subject},{//new_text},{//board_config/o_smtp_host}"/>
+                    params="{//_post/rcpt_email},{//site_config/o_webmaster_email},{//_post/subject},{//new_text},{//site_config/o_smtp_host}"/>
 										-->
 				<map:plugin type="safehtml" params="//_post/message"/>
 				<map:query src="data/sql/post_create.xml"/>
@@ -301,7 +300,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 						<map:xml src="i18n/en_US/emails.xml"/>
 						<map:set name="email_subject" value="A new forum post"/>
 						<map:plugin type="detokenize" params="{/_R_/i18n/new_reply},//emails/new_reply/token"/>
-						<map:action type="email" params="{//topic_get_subscriptions/topic_get_subscriptions/email},{//board_config/o_webmaster_email},{//email_subject},//new_text,{//board_config/o_smtp_host}"/>
+						<map:action type="email" params="{//topic_get_subscriptions/topic_get_subscriptions/email},{//site_config/o_webmaster_email},{//email_subject},//new_text,{//site_config/o_smtp_host}"/>
 					</map:true>
 				</map:if>
 				<map:action type="redirect" params="{//link_prefix}topic&amp;fid={//_post/forum_id}&amp;id={//_post/topic_id}&amp;recount=true"/>
@@ -400,7 +399,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 				<map:xml src="data/xml/emails.xml"/>
 				<map:xml src="i18n/en_US/emails.xml"/>
 				<map:plugin type="detokenize" params="{/_R_/i18n/test_email},//emails/test/token"/>
-				<map:action type="email" params="{//_post/rcpt_email},{//board_config/o_webmaster_email},{//_post/subject},{//new_text},{//board_config/o_smtp_host}"/>
+				<map:action type="email" params="{//_post/rcpt_email},{//site_config/o_webmaster_email},{//_post/subject},{//new_text},{//site_config/o_smtp_host}"/>
 				<map:action type="redirect" params="{//link_prefix}admin-user-admin&amp;user_id={//_post/user_id}"/>
 			</map:true>
       <map:false/>
@@ -540,9 +539,9 @@ Fifth Floor, Boston, MA 02110-1301 USA
     content_type="text/css; charset=utf-8"
     cache_control="public, max-age=30">
     <map:action type="header" params="content-type,text/css"/>
-		<map:if name="/_R_/board_config/o_board_theme">
+		<map:if name="/_R_/site_config/o_board_theme">
 			<map:true>
-				<map:xml src="data/css/{/_R_/board_config/o_board_theme}"/>
+				<map:xml src="data/css/{/_R_/site_config/o_board_theme}"/>
 			</map:true>
 			<map:false>
 				<map:xml src="data/css/phunkybb_default_css.xml"/>

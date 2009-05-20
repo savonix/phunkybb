@@ -30,7 +30,7 @@ $config_cache = NX_PATH_COMPILE.$_SERVER['HTTP_HOST'].'_config_cache.php';
 if(is_file($config_cache) && !NX_CONFIG_CACHE) {
     Nexista_Flow::add('config_cache','true');
     include($config_cache);
-    Nexista_Flow::add('board_config',$config);
+    Nexista_Flow::add('site_config',$config);
     define('NX_CONFIG_CACHE',1);
 }
 ?>

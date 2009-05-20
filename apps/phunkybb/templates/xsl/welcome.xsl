@@ -32,7 +32,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
       <table cellspacing="0">
         <tr>
           <th class="tcl">
-          <strong><xsl:value-of select="/_R_/board_config/o_board_title"/></strong>
+          <strong><xsl:value-of select="/_R_/site_config/o_board_title"/></strong>
           </th>
         </tr>
       </table>

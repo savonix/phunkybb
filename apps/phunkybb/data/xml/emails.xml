@@ -25,7 +25,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
   <welcome>
     <token>
       <key>@@board_title@@</key>
-      <value>//board_config/o_board_title</value>
+      <value>//site_config/o_board_title</value>
     </token>
     <token>
       <key>@@username@@</key>
@@ -37,14 +37,14 @@ Fifth Floor, Boston, MA 02110-1301 USA
     </token>
     <token>
       <key>@@base_url@@</key>
-      <value>//board_config/o_base_url</value>
+      <value>//site_config/o_base_url</value>
     </token>
   </welcome>
 
   <reset_password>
     <token>
       <key>@@board_title@@</key>
-      <value>//board_config/o_board_title</value>
+      <value>//site_config/o_board_title</value>
     </token>
     <token>
       <key>@@username@@</key>
@@ -56,14 +56,14 @@ Fifth Floor, Boston, MA 02110-1301 USA
     </token>
     <token>
       <key>@@base_url@@</key>
-      <value>//board_config/o_base_url</value>
+      <value>//site_config/o_base_url</value>
     </token>
   </reset_password>
 
   <new_reply>
     <token>
       <key>@@board_title@@</key>
-      <value>//board_config/o_board_title</value>
+      <value>//site_config/o_board_title</value>
     </token>
     <token>
       <key>@@username@@</key>
@@ -71,7 +71,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
     </token>
     <token>
       <key>@@base_url@@</key>
-      <value>//board_config/o_base_url</value>
+      <value>//site_config/o_base_url</value>
     </token>
     <token>
       <key>@@forum_id@@</key>
@@ -83,14 +83,14 @@ Fifth Floor, Boston, MA 02110-1301 USA
     </token>
     <token>
       <key>@@base_url@@</key>
-      <value>//board_config/o_base_url</value>
+      <value>//site_config/o_base_url</value>
     </token>
   </new_reply>
 
   <email_change>
     <token>
       <key>@@board_title@@</key>
-      <value>//board_config/o_board_title</value>
+      <value>//site_config/o_board_title</value>
     </token>
     <token>
       <key>@@username@@</key>
@@ -102,18 +102,18 @@ Fifth Floor, Boston, MA 02110-1301 USA
     </token>
     <token>
       <key>@@base_url@@</key>
-      <value>//board_config/o_base_url</value>
+      <value>//site_config/o_base_url</value>
     </token>
   </email_change>
 
   <test>
     <token>
       <key>@@board_title@@</key>
-      <value>//board_config/o_board_title</value>
+      <value>//site_config/o_board_title</value>
     </token>
     <token>
       <key>@@base_url@@</key>
-      <value>//board_config/o_base_url</value>
+      <value>//site_config/o_base_url</value>
     </token>
     <token>
       <key>@@username@@</key>

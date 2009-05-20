@@ -50,23 +50,23 @@ Fifth Floor, Boston, MA 02110-1301 USA
           <xsl:if test="/_R_/_get/nid='index'">
 					<h1 id="header-name">
 						<a href="{$link_prefix}index">
-							<xsl:value-of select="/_R_/board_config/o_board_title"/>
+							<xsl:value-of select="/_R_/site_config/o_board_title"/>
 						</a>
 					</h1>
 					<h2 id="header-description">
-						<xsl:value-of select="/_R_/board_config/o_board_desc"/>
+						<xsl:value-of select="/_R_/site_config/o_board_desc"/>
 					</h2>
           </xsl:if>
           <xsl:if test="not(/_R_/_get/nid='index')">
 					<div id="header-name">
 						<a href="{$link_prefix}index">
               <span id="header-name-text">
-							<xsl:value-of select="/_R_/board_config/o_board_title"/>
+							<xsl:value-of select="/_R_/site_config/o_board_title"/>
               </span>
 						</a>
 					</div>
 					<div id="header-description">
-						<xsl:value-of select="/_R_/board_config/o_board_desc"/>
+						<xsl:value-of select="/_R_/site_config/o_board_desc"/>
 					</div>
           </xsl:if>
           <xsl:if test="not(/_R_/runtime/output='xhtml')">
