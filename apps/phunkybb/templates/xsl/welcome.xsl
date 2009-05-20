@@ -29,13 +29,13 @@ Fifth Floor, Boston, MA 02110-1301 USA
     <xsl:param name="my18n"/>
 
 		<div class="blocktable">
-        <table cellspacing="0">
-          <tr>
-            <th class="tcl">
-            <strong><xsl:value-of select="/_R_/board_config/o_board_title"/></strong>
-            </th>
-          </tr>
-        </table>
+      <table cellspacing="0">
+        <tr>
+          <th class="tcl">
+          <strong><xsl:value-of select="/_R_/board_config/o_board_title"/></strong>
+          </th>
+        </tr>
+      </table>
     </div>
     <div class="tableframe">
     <xsl:for-each select="/_R_/categories_get_all/categories_get_all[cid=/_R_/forums_get_all/forums_get_all/cid]">

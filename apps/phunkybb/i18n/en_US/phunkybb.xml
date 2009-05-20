@@ -47,6 +47,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <censoring>Censoring</censoring>
 <change_email>Change e-mail address</change_email>
 <change_password>Change Password</change_password>
+<confirm_password>Confirm Password</confirm_password>
 <close_topic>Close topic</close_topic>
 <code>Code</code>
 <confirm_email>Confirm e-mail</confirm_email>
