@@ -74,6 +74,9 @@ div.blocktable {
 	padding-top: 0px;
 }
 
+#header-banner {
+position:absolute;right: 50px; top:40px;
+}
 
 .tableframe, .tableframe2 {
   padding: 6px;

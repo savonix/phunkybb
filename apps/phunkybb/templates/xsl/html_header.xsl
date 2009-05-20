@@ -60,7 +60,9 @@ Fifth Floor, Boston, MA 02110-1301 USA
           <xsl:if test="not(/_R_/_get/nid='index')">
 					<div id="header-name">
 						<a href="{$link_prefix}index">
+              <span id="header-name-text">
 							<xsl:value-of select="/_R_/board_config/o_board_title"/>
+              </span>
 						</a>
 					</div>
 					<div id="header-description">
@@ -68,7 +70,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 					</div>
           </xsl:if>
           <xsl:if test="not(/_R_/runtime/output='xhtml')">
-          <div id="header-banner" style="position:absolute;right: 50px; top:40px;">
+          <div id="header-banner">
             <script type="text/javascript">
             <xsl:comment>
             google_ad_client = "pub-9657495873329253";
@@ -79,8 +81,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
             //</xsl:comment>
             </script>
             <script type="text/javascript"
-            src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
-            &#160;
+              src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
             </script>
           </div>
           </xsl:if>

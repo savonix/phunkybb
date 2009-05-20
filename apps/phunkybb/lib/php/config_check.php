@@ -23,18 +23,14 @@ or write to the Free Software Foundation, Inc., 51 Franklin Street,
 Fifth Floor, Boston, MA 02110-1301 USA
 --> */
 
-/* This install feature isn't working too well. */
-//$pre_install_check = PROJECT_ROOT."/config/delete_this_after_install";
-//if(is_file($pre_install_check) && $_GET['nid']!='install') {
-//   header("Location: index.php?nid=install");
-//    exit;
-//}
+
 
 $config_cache = NX_PATH_COMPILE.$_SERVER['HTTP_HOST'].'_config_cache.php';
 
-if(is_file($config_cache)) {
+if(is_file($config_cache) && !NX_CONFIG_CACHE) {
     Nexista_Flow::add('config_cache','true');
     include($config_cache);
     Nexista_Flow::add('board_config',$config);
+    define('NX_CONFIG_CACHE',1);
 }
 ?>

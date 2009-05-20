@@ -27,6 +27,27 @@ Fifth Floor, Boston, MA 02110-1301 USA
 	<xsl:output method="text" indent="no" encoding="UTF-8" omit-xml-declaration="yes"/>
 	<xsl:template match="/">
 
+function zinit() {
+    $.pir.options.php="http://192.168.8.103:8080/p/gd.fcgi/";
+    $("#header-name-text").pir({size: 18, font: "imposs.ttf", color: "#44465B"});
+    $("#header-description").pir({size: 12, font: "imposs.ttf", color: "#44465B"});
+}
+function ztime() { return(new Date().getTime()); }
+function quick() {
+    if(!document.getElementById("header-name-text")) {
+        if(ztime()-loadTime&lt;=1000) {
+            setTimeout("quick()",10);
+        } else {
+            window.onload=zinit;
+        }
+    } else {
+        zinit();
+    }
+}
+var loadTime=ztime();
+quick();
+
+
   <xsl:variable
     name   = "link_prefix"
     select = "/_R_/runtime/link_prefix"
