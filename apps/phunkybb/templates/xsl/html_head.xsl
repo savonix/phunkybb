@@ -58,24 +58,24 @@ Fifth Floor, Boston, MA 02110-1301 USA
 
 			<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/combo?2.7.0/build/reset/reset-min.css"/>
       <link rel="stylesheet" type="text/css" href="{$link_prefix}x-dynamic-css"/>
-      <script type="text/javascript" src="{$path_prefix}s/js/jquery/jquery-1.3.2.min.js">&#160;</script>
+      <script type="text/javascript" src="{$path_prefix}s/js/jquery/jquery-1.3.2.min.js"></script>
       <xsl:if test="not(//runtime/user_agent='bot')">
-			<script type="text/javascript" src="{$link_prefix}x-xhtml2dom-js">&#160;</script>
+			<script type="text/javascript" src="{$link_prefix}x-xhtml2dom-js"></script>
       </xsl:if>
-			<script type="text/javascript" src="{$link_prefix}x-dynamic-js">&#160;</script>
-      <script type="text/javascript" src="{$path_prefix}s/js/jsval.js">&#160;</script>
-      <script type="text/javascript" src="{$path_prefix}s/js/time/relative_time.js">&#160;</script>
+			<script type="text/javascript" src="{$link_prefix}x-dynamic-js"></script>
+      <script type="text/javascript" src="{$path_prefix}s/js/jsval.js"></script>
+      <script type="text/javascript" src="{$path_prefix}s/js/time/relative_time.js"></script>
 			<xsl:if test="//_get/nid='admin-users'">
-      <script type="text/javascript" src="{$path_prefix}s/pkgs/tablesorter/jquery.tablesorter.js">&#160;</script>
-      <script type="text/javascript" src="{$path_prefix}s/pkgs/tablesorter/addons/pager/jquery.tablesorter.pager.js">&#160;</script>
+      <script type="text/javascript" src="{$path_prefix}s/pkgs/tablesorter/jquery.tablesorter.js"></script>
+      <script type="text/javascript" src="{$path_prefix}s/pkgs/tablesorter/addons/pager/jquery.tablesorter.pager.js"></script>
 			</xsl:if>
 			<xsl:if test="//_get/nid='topic'">
 				<link rel="stylesheet" type="text/css" href="{$path_prefix}/s/pkgs/shjs-0.6/sh_style.css"/>
-				<script type="text/javascript" src="{$path_prefix}s/pkgs/shjs-0.6/sh_main.js">&#160;</script>
-				<script type="text/javascript" src="{$path_prefix}s/pkgs/shjs-0.6/lang/sh_xml.js">&#160;</script>
-				<script type="text/javascript" src="{$path_prefix}s/pkgs/shjs-0.6/lang/sh_c.js">&#160;</script>
-				<script type="text/javascript" src="{$path_prefix}s/pkgs/shjs-0.6/lang/sh_sh.js">&#160;</script>
-				<script type="text/javascript" src="{$path_prefix}s/pkgs/shjs-0.6/lang/sh_php.js">&#160;</script>
+				<script type="text/javascript" src="{$path_prefix}s/pkgs/shjs-0.6/sh_main.js"></script>
+				<script type="text/javascript" src="{$path_prefix}s/pkgs/shjs-0.6/lang/sh_xml.js"></script>
+				<script type="text/javascript" src="{$path_prefix}s/pkgs/shjs-0.6/lang/sh_c.js"></script>
+				<script type="text/javascript" src="{$path_prefix}s/pkgs/shjs-0.6/lang/sh_sh.js"></script>
+				<script type="text/javascript" src="{$path_prefix}s/pkgs/shjs-0.6/lang/sh_php.js"></script>
 				<script type="text/javascript">
 				$(document).ready(function() {
 					sh_highlightDocument();

@@ -32,7 +32,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 		doctype-system       = "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"
 		doctype-public       = "-//W3C//DTD XHTML 1.0 Transitional//EN"
   />
-
+  <xsl:strip-space elements="*"/>
 
 
 <xsl:template match="/">
@@ -64,7 +64,6 @@ Fifth Floor, Boston, MA 02110-1301 USA
 				<xsl:sort select="priority" order="ascending"/>
 				<xsl:apply-templates select="nodes/*"/>
 			</xsl:for-each>
-      <div style="display:none">kwhfg4khgh587hg</div>
 		</body>
   </html>
 </xsl:template>
