@@ -64,6 +64,23 @@ Fifth Floor, Boston, MA 02110-1301 USA
 				<xsl:sort select="priority" order="ascending"/>
 				<xsl:apply-templates select="nodes/*"/>
 			</xsl:for-each>
+
+          <xsl:if test="not(/_R_/runtime/output='xhtml')">
+          <div id="header-banner">
+            <script type="text/javascript">
+            <xsl:comment>
+            google_ad_client = "pub-9657495873329253";
+            //468x60, created 12/4/07
+            google_ad_slot = "3998548064";
+            google_ad_width = 468;
+            google_ad_height = 60;
+            //</xsl:comment>
+            </script>
+            <script type="text/javascript"
+              src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+            </script>
+          </div>
+          </xsl:if>
 		</body>
   </html>
 </xsl:template>
