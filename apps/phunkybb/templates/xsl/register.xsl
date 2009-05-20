@@ -100,130 +100,129 @@ Fifth Floor, Boston, MA 02110-1301 USA
         }
     }
     </script>
-    <div class="blockform">
-      <h2>
-        <xsl:value-of select="$my18n/register"/>
-      </h2>
-      <div class="tableframe">
-        <form id="register" method="post" onsubmit="do_encrypt(); return false;"
-					action="{$link_prefix}nid=register">
-					<fieldset>
-          <input type="hidden" name="id_rsa_pub" value=""/>
-          <input type="hidden" name="e" value=""/>
-					</fieldset>
-          <div class="inform">
-            <div class="forminfo">
-              <h3>
-                <xsl:value-of select="$my18n/important_information"/>
-              </h3>
-              <p>
-                <xsl:value-of select="$my18n/reg_desc_1"/>
-              </p>
-              <p>
-                <xsl:value-of select="$my18n/reg_desc_2"/>
+    <h2>
+      <xsl:value-of select="$my18n/register"/>
+    </h2>
+    <div class="tableframe2">
+      <form id="register" method="post" onsubmit="do_encrypt(); return false;"
+        action="{$link_prefix}nid=register">
+        <fieldset>
+        <input type="hidden" name="id_rsa_pub" value=""/>
+        <input type="hidden" name="e" value=""/>
+        </fieldset>
+        <div>
+          <div class="forminfo">
+            <h3>
+              <xsl:value-of select="$my18n/important_information"/>
+            </h3>
+            <p>
+              <xsl:value-of select="$my18n/reg_desc_1"/>
+            </p>
+            <p>
+              <xsl:value-of select="$my18n/reg_desc_2"/>
+            </p>
+          </div>
+          <fieldset>
+            <legend>
+              <xsl:value-of select="$my18n/username_legend"/>
+            </legend>
+            <div class="infldset">
+              <table>
+                  <tr>
+                    <th style="width: 30em;">
+                      <label class="conl">
+                        <strong>
+                          <xsl:value-of select="$my18n/username"/>
+                        </strong>
+                      </label>
+                    </th>
+                    <td>
+                      <input type="text" name="username" value="{/_R_/_post/username}"/>
+                    </td>
+                  </tr>
+              </table>
+            </div>
+          </fieldset>
+          <br/>
+          <fieldset>
+            <legend>
+              <xsl:value-of select="$my18n/pass_legend_1"/>
+            </legend>
+            <div class="infldset">
+              <table>
+                <thead>
+                  <tr>
+                    <th style="width: 30em;">
+                      <label class="conl">
+                        <strong>
+                          <xsl:value-of select="$my18n/password"/>
+                        </strong>
+                      </label>
+                      </th>
+                      <th>
+                        <label class="conl">
+                          <strong>
+                            <xsl:value-of select="$my18n/confirm_password"/>
+                          </strong>
+                        </label>
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <input type="password" name="password" size="16" maxlength="16"/>
+                      </td>
+                      <td>
+                        <input type="password" name="password2" size="16" maxlength="16"/>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              <p class="clearb">
+                <xsl:value-of select="$my18n/pass_info"/>
               </p>
             </div>
-            <fieldset>
-              <legend>
-                <xsl:value-of select="$my18n/username_legend"/>
-              </legend>
-              <div class="infldset">
-                <table>
-                    <tr>
-                      <th style="width: 30em;">
-                        <label class="conl">
-                          <strong>
-                            <xsl:value-of select="$my18n/username"/>
-                          </strong>
-                        </label>
-                      </th>
-                      <td>
-                        <input type="text" name="username" value="{/_R_/_post/username}"/>
-                      </td>
-                    </tr>
-                </table>
-              </div>
-            </fieldset>
-            <br/>
-            <fieldset>
-              <legend>
-                <xsl:value-of select="$my18n/pass_legend_1"/>
-              </legend>
-              <div class="infldset">
-                <table>
-                  <thead>
-                    <tr>
-                      <th style="width: 30em;">
-                        <label class="conl">
-                          <strong>
-                            <xsl:value-of select="$my18n/password"/>
-                          </strong>
-                        </label>
-                        </th>
-                        <th>
-                          <label class="conl">
-                            <strong>
-                              <xsl:value-of select="$my18n/confirm_password"/>
-                            </strong>
-                          </label>
-                        </th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>
-                          <input type="password" name="password" size="16" maxlength="16"/>
-                        </td>
-                        <td>
-                          <input type="password" name="password2" size="16" maxlength="16"/>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                <p class="clearb">
-                  <xsl:value-of select="$my18n/pass_info"/>
-                </p>
-              </div>
-            </fieldset>
-            <br/>
-            <fieldset>
-              <legend>
-                <xsl:value-of select="$my18n/valid_email"/>
-              </legend>
-              <div class="infldset">
-                <table>
-                    <tr>
-                      <th style="width: 30em;">
-                        <label class="conl">
-                          <strong>
-                            <xsl:value-of select="$my18n/email"/>
-                          </strong>
-                        </label>
-                      </th>
-                      <td>
-                        <input type="text" name="email" value="{/_R_/_post/email}"/>
-                      </td>
-                    </tr>
-                </table>
-              </div>
-            </fieldset>
-          </div>
-          <p style="text-align: center;">
-            <span id="register_button" class="button-basic-blue disableSelection"
-							onclick="do_encrypt();">
-              <xsl:value-of select="$my18n/submit"/>
-            </span>
-            <span id="replace" class="interstatus"/>
-            <span id="resend" style="display:none"/>
-            <noscript>
-              <p><span class="interstatus">
-                Javascript must be enabled to register.
-              </span></p>
-            </noscript>
-          </p>
+          </fieldset>
           <br/>
-        </form>
-      </div>
+          <fieldset>
+            <legend>
+              <xsl:value-of select="$my18n/valid_email"/>
+            </legend>
+            <div class="infldset">
+              <table>
+                  <tr>
+                    <th style="width: 30em;">
+                      <label class="conl">
+                        <strong>
+                          <xsl:value-of select="$my18n/email"/>
+                        </strong>
+                      </label>
+                    </th>
+                    <td>
+                      <input type="text" name="email" value="{/_R_/_post/email}"/>
+                    </td>
+                  </tr>
+              </table>
+            </div>
+          </fieldset>
+        </div>
+        <br/>
+        <p style="text-align: center;">
+          <span id="register_button" class="button-basic-blue disableSelection"
+            onclick="do_encrypt();">
+            <xsl:value-of select="$my18n/submit"/>
+          </span>
+          <span id="replace" class="interstatus"/>
+          <span id="resend" style="display:none"/>
+          <noscript>
+            <p><span class="interstatus">
+              Javascript must be enabled to register.
+            </span></p>
+          </noscript>
+        </p>
+        <br/>
+      </form>
     </div>
     <script type="text/javascript">
     rng_seed_time();
