@@ -473,7 +473,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 					</map:case>
 					<map:case value="del_cat">
 						<map:query src="data/sql/category_delete.xml"/>
-						<map:action type="redirect" params="{//link_prefix}admin-categories"/>
+            <map:xsl src="templates/xml/success.xml.xsl"/>
 					</map:case>
 					<map:case value="update_cats">
 						<map:query src="data/sql/categories_update.xml"/>
