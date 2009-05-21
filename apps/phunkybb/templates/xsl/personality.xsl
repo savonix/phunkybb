@@ -33,16 +33,14 @@ Fifth Floor, Boston, MA 02110-1301 USA
         <xsl:with-param name="link_prefix" select="$link_prefix"/>
         <xsl:with-param name="my18n" select="$my18n"/>
       </xsl:call-template>
-      <xsl:variable
-        name   = "u_profile"
-        select = "/_R_/user_get_profile/user_get_profile"
-      />
+
       <div class="tableframe2">
         <h2>
           <xsl:value-of select="/_R_/runtime/username"/>
         </h2>
         <div class="box">
           <form id="profile4" method="post">
+            <input type="hidden" name="picture" value="{//user_meta_get[meta_key='picture']/meta_value}"/>
             <div class="inform">
               <fieldset>
                 <legend><xsl:value-of select="$my18n/signature"/></legend>
@@ -50,12 +48,12 @@ Fifth Floor, Boston, MA 02110-1301 USA
                   <p><xsl:value-of select="$my18n/signature_legend"/>:</p>
                   <div class="txtarea">
                     <textarea name="signature" rows="4" cols="65">
-                      <xsl:value-of select="$u_profile/signature"/>
+                      <xsl:value-of select="//user_meta_get[meta_key='signature']/meta_value"/>
                     </textarea>
                   </div>
                   <p>
                     <xsl:value-of
-                      select="$u_profile/signature"
+                      select="//user_meta_get[meta_key='signature']/meta_value"
                       disable-output-escaping="yes"
                     />
                   </p>

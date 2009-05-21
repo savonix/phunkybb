@@ -1,6 +1,6 @@
 <!--
 Program: PhunkyBB
-Component: user_meta_create.xml
+Component: user_meta_get.xml
 Copyright: Savonix Corporation
 Author: Albert L. Lash, IV
 License: Gnu Affero Public License version 3
@@ -22,15 +22,13 @@ or write to the Free Software Foundation, Inc., 51 Franklin Street,
 Fifth Floor, Boston, MA 02110-1301 USA
 -->
 <!DOCTYPE query SYSTEM "__default_table_names__.txt">
-<query name="user_meta_create" loop="//user_meta/user_meta/meta_key" default="1">
+<query name="user_meta_get">
 	<connection>&connection;</connection>
 	<params>
 		<param name="//_post/user_id" type="integer"/>
-		<param array="//user_meta/user_meta/meta_key" type="text"/>
-		<param array="//_post/*[name()=//user_meta/user_meta/meta_key]/." type="text" default=""/>
-		<param name="//runtime/site_id" type="integer"/>
+    <param name="//runtime/site_id" type="integer"/>
 	</params>
 	<sql>
-  INSERT INTO &prefix;user_meta (user_id,meta_key,meta_value,site_id) VALUES (?,?,?,?)
+  SELECT * FROM &prefix;user_meta WHERE user_id=? AND site_id=?
 	</sql>
 </query>
