@@ -141,11 +141,13 @@ CREATE TABLE <xsl:value-of select="//dbe/if_not_exists"/> <xsl:value-of select="
 ) <xsl:value-of select="//dbe/innodb_engine"/> <xsl:value-of select="//dbe/engine_increment_start"/> ;
 
 CREATE TABLE <xsl:value-of select="//dbe/if_not_exists"/> <xsl:value-of select="//_get/table_prefix"/>user_meta (
-  `user_id` <xsl:value-of select="//dbe/integer"/> NOT NULL default '0',
+  `user_id` <xsl:value-of select="//dbe/integer"/> <xsl:value-of select="//dbe/default_null"/>,
   `meta_key` varchar(255) NOT NULL,
   `meta_value` varchar(255) NOT NULL,
-  PRIMARY KEY  (`user_id`)
-) <xsl:value-of select="//dbe/innodb_engine"/> <xsl:value-of select="//dbe/engine_increment_start"/> ;
+  `site_id` <xsl:value-of select="//dbe/integer"/> <xsl:value-of select="//dbe/default_null"/>,
+  UNIQUE KEY  (user_id,meta_key,site_id),
+  KEY <xsl:value-of select="//_get/table_prefix"/>user_meta_idx (user_id)
+) <xsl:value-of select="//dbe/innodb_engine"/>;
 
 
 ALTER TABLE <xsl:value-of select="//_get/table_prefix"/>forums

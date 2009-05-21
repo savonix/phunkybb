@@ -26,4 +26,8 @@ Fifth Floor, Boston, MA 02110-1301 USA
 		<meta_key>picture</meta_key>
 		<meta_type>text</meta_type>
 	</user_meta>
+	<user_meta>
+		<meta_key>signature</meta_key>
+		<meta_type>text</meta_type>
+	</user_meta>
 </user_meta>

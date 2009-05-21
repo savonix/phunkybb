@@ -1,6 +1,6 @@
 <!--
 Program: PhunkyBB
-Component: user_get_profile.xml
+Component: user_meta_create.xml
 Copyright: Savonix Corporation
 Author: Albert L. Lash, IV
 License: Gnu Affero Public License version 3
@@ -22,19 +22,15 @@ or write to the Free Software Foundation, Inc., 51 Franklin Street,
 Fifth Floor, Boston, MA 02110-1301 USA
 -->
 <!DOCTYPE query SYSTEM "__default_table_names__.txt">
-<query name="user_get_profile">
-	<connection>&connection_read;</connection>
+<query name="user_meta_create" loop="//user_meta/user_meta" default="1">
+	<connection>&connection;</connection>
 	<params>
-		<param name="/_R_/runtime/user_id" type="text" default="0"/>
-		<param name="/_R_/_get/user_id" type="text" default="-1"/>
-		<param name="/_R_/_get/user_id" type="text" default="-1"/>
-		<param name="/_R_/runtime/group_id" type="text" default="0"/>
+		<param name="//_post/user_id" type="integer"/>
+		<param array="//user_meta/user_meta/meta_key" type="text"/>
+		<param array="//_post/*[name()=//user_meta/user_meta/meta_key]/." type="text" default=""/>
+		<param name="//runtime/site_id" type="integer"/>
 	</params>
 	<sql>
-  SELECT *, id AS user_id FROM &prefix;users WHERE (id=? AND ? = -1)
-  OR
-  (id=?
-  AND 
-  ?=1)
+  INSERT INTO &prefix;user_meta (user_id,meta_key,meta_value,site_id) VALUES (?,?,?,?)
 	</sql>
 </query>
