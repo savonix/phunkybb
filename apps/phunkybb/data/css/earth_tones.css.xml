@@ -31,6 +31,7 @@ http://www.colourlovers.com/palette/420499/Childish_Dreams Thanks
     <med-background>#485EA7</med-background> <!-- topic-replies-post header -->
     <med-background-alt>#ffffff</med-background-alt> <!-- text-background -->
     <dark-background>#B9E665</dark-background> <!-- index - register - login header -->
+    <bright-highlight>#FFF</bright-highlight>
     <header-hover>#000000</header-hover>
   </colors>
 </css>

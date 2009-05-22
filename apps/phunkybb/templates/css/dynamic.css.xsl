@@ -32,14 +32,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <xsl:call-template name="layout"/>
 <xsl:call-template name="colors"/>
 
-.infldset table tr td input[type="radio"]
-{
-    margin: 4px;
-}
-.infldset input[type="text"]
-{
-    display: block;
-}
+
 .interstatus
 {
     visibility: hidden;
@@ -73,30 +66,6 @@ Fifth Floor, Boston, MA 02110-1301 USA
 
 
 
-div.linkst .conl, div.linksb .conl, div.postlinksb .conl {width:18em}
-
-div.linkst .conr, div.linksb .conr, div.postlinksb .conr {width:16em}
-
-
-
-
-div.block2col {
-	padding-bottom: 1px;
-}
-
-div.block2col div.blockform, div.block2col div.block {margin-left: 14em}
-
-
-
-.pun table {
-  width: 100%
-}
-
-
-
-.tcl {
-	width: 50%
-}
 
 .tc2, .tc3, .tcmod {width: 9%; text-align: center}
 
@@ -106,28 +75,6 @@ div.block2col div.blockform, div.block2col div.block {margin-left: 14em}
 .tcl, .tcr {
 	overflow: hidden;
 }
-
-
-
-#punindex td.tcr span.byuser {display: block}
-
-
-
-#adminconsole fieldset td {text-align: left; padding: 4px; white-space: normal}
-#adminconsole fieldset th {text-align: left; padding: 4px; white-space: normal}
-#adminconsole fieldset td span, #adminconsole fieldset th span {display: block; font-size: 1em; font-weight: normal}
-#adminconsole th {width: 15em; font-weight: bold}
-#adminconsole input, #adminconsole select, #adminconsole textarea {margin-bottom: 0; margin-top: 0; font-weight: normal}
-#adminconsole table.aligntop th, #adminconsole table.aligntop td {VERTICAL-align: top}
-#adminconsole td, #adminconsole th {border-style: solid; border-width: 3px 0px 3px 0px}
-#adminconsole p {padding-bottom: 6px}
-#adminconsole p.submittop, #adminconsole P.submitend {text-align: center}
-#adminconsole th.hidehead {color: #f1f1f1}
-#adminconsole thead th {padding-bottom: 0px}
-#adminconsole p.linkactions {font-weight: bold; padding-left: 5px}
-
-
-
 
 
 

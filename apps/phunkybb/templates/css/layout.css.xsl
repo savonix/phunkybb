@@ -30,12 +30,12 @@ body {
 }
 </xsl:if>
 #main {
-  width: 100%;
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
   <xsl:if test="contains(//user_agent,'msie')">
   text-align: left;
   </xsl:if>
-  margin-left: auto;
-  margin-right: auto;
 }
 
 .postleft {
@@ -43,10 +43,7 @@ body {
 	float: left;
 }
 
-.pun p, .pun ul, .pun dl, div.blockmenu li, .pun label, #announce div.inbox div {
-	padding: 3px 0;
-}
-div.box, .pun td, .pun th, div.forminfo, div.blockpost label {
+div.box {
 	border-style: solid;
 	border-width: 1px;
 }
@@ -79,11 +76,12 @@ position:absolute;right: 50px; top:40px;
 }
 
 .tableframe, .tableframe2 {
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
   padding: 6px;
   position: absolute;
   top: 142px;
-  left: 10px;
-  right: 10px;
   bottom: 60px;
   background-color: #fff;
   <xsl:if test="contains(//user_agent,'msie')">
@@ -118,12 +116,7 @@ position:absolute;right: 50px; top:40px;
   height: expression((parseInt(document.documentElement.clientHeight)-125)+'px');
   </xsl:if>
 }
-div.linkst {
-	padding: 6px 4px 1px 4px;
-}
-div.linksb, div.postlinksb {
-	padding: 3px 6px 8px 6px;
-}
+
 #brdwelcome, div.blockmenu li, div.rbox input  {
 	line-height: 1.4em;
 }
@@ -198,7 +191,7 @@ div.blockform p input {
 	margin-left: 12px;
 }
 
-#brdmenu{
+#main-menu{
 	line-height: 1.8em;
 }
 
@@ -281,32 +274,5 @@ h3, .tclcon {
   float: right;
 }
 
-img {
-    border: 0;
-}
-
-table
-{
-    border-spacing: 0;
-    border-collapse: collapse;
-}
-
-td
-{
-    text-align: left;
-    font-weight: normal;
-}
-
-input.text
-{
-    padding: 2px;
-    border: 1px solid #999999;
-}
-
-input.textarea
-{
-    padding: 2px;
-    border: 1px solid #999999;
-}
 </xsl:template>
 </xsl:stylesheet>

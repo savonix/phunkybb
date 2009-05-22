@@ -31,6 +31,7 @@ http://www.colourlovers.com/palette/420527/tumble Thanks for the great colors cl
     <med-background>#85E6FF</med-background> <!-- topic-replies-post header -->
     <med-background-alt>#DEE7F0</med-background-alt> <!-- text-background -->
     <dark-background>#FF8F43</dark-background> <!-- index - register - login header -->
+    <bright-highlight>#FFF</bright-highlight>
     <header-hover>#000000</header-hover>
   </colors>
 </css>

@@ -31,6 +31,7 @@ http://www.colourlovers.com/palette/394860/maybe_im_colorblind Thanks for the gr
     <med-background>#F17AA6</med-background> <!-- topic-replies-post header -->
     <med-background-alt>#D1FFDB</med-background-alt> <!-- text-background -->
     <dark-background>#ABCC78</dark-background> <!-- index - register - login header -->
+    <bright-highlight>#FFF</bright-highlight>
     <header-hover>#000000</header-hover>
   </colors>
 </css>

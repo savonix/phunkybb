@@ -267,6 +267,9 @@ Fifth Floor, Boston, MA 02110-1301 USA
     <!-- TODO - process subscription signups -->
 		<map:action type="redirect" params="{//link_prefix}topic&amp;fid={//_post/forum_id}&amp;id={//topic_get_id_by_detail/id}"/>
 	</map:gate>
+  <map:gate name="post-anon">
+    <map:insert name="post"/>
+  </map:gate>
 	<map:gate name="post">
     <map:block name="post">
 		<map:if name="//_post">

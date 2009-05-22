@@ -38,16 +38,16 @@ div.inew {
 	border-color: #0080D7 #0065C0 #0058B3 #0072CA
 }
 
-.pun {
+.menu {
   color: #333
 }
 
-.pun h2 a:hover, #brdmenu a:hover {
-	color: #FFF;
+.menu h2 a:hover, #main-menu a:hover {
+	color: <xsl:value-of select="//css/colors/bright-highlight"/>;
 }
 
-.pun h2 a:link, .pun h2 a:visited, #brdmenu a:link, #brdmenu a:visited {
-    color: #FFF;
+.menu h2 a:link, .pun h2 a:visited {
+    color: <xsl:value-of select="//css/colors/bright-highlight"/>;
 }
 
 div.box, .pun blockquote, fieldset th, .rowodd, .roweven {
@@ -59,14 +59,11 @@ background-color: <xsl:value-of select="//css/colors/med-background-alt"/>;
 }
 
 
-td.tcl,td.tcr {
-  background-color: #fff;
-}
 td.tc2, td.tc3, td.tcmod, #adminconsole fieldset td, div.blockmenu div.box {
   background-color: <xsl:value-of select="//css/colors/light-background-alt"/>;
 }
 
-#brdmenu, h2.breadcrumbs {
+#main-menu, h2.breadcrumbs {
   background-color: <xsl:value-of select="//css/colors/dark-background"/>;
   color: #FFF
 }
@@ -76,30 +73,6 @@ div.blockpost h2 {
 
 div.blockpost {
   background-color: #eee;
-}
-.pun a:link, .pun a:visited {
-  color: #005CB1
-}
-
-.pun a:hover {
-  color: <xsl:value-of select="//css/colors/header-hover"/>;
-}
-
-.pun th {
-  background-color: <xsl:value-of select="//css/colors/med-background"/>;
-}
-
-
-.pun legend {
-  color: #005CB1
-}
-
-
-.pun div.blockmenu li.isactive a, #posterror li strong {
-  color: #333
-}
-.blocktable h2 {
-	border-color: black;
 }
 
 

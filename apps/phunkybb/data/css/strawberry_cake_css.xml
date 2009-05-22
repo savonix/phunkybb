@@ -30,6 +30,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
     <med-background>#942828</med-background> <!-- topic-replies-post header -->
     <med-background-alt>#FC9797</med-background-alt> <!-- text-background -->
     <dark-background>#2D6106</dark-background> <!-- index - register - login header -->
+    <bright-highlight>#FFF</bright-highlight>
     <header-hover>#000000</header-hover>
   </colors>
 </css>

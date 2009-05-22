@@ -41,7 +41,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
         <xsl:with-param name="section_start">main_menu</xsl:with-param>
     </xsl:call-template>
 
-		<div id="brdmenu" class="inbox">
+		<div id="main-menu" class="inbox">
 
       <xsl:call-template name="breadcrumbs">
         <xsl:with-param name="link_prefix" select="$link_prefix"/>
