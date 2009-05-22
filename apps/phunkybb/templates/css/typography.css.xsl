@@ -27,12 +27,12 @@ body {
   font-family: sans-serif;
 	font-size: 11px;
 }
-.pun pre {
+pre {
 	font-family: courier, monospace;
 	font-size: 1.2em;
 }
 
-.pun h3 {
+h3 {
 	font-size: 1.1em;
 }
 #header-name {
@@ -43,18 +43,12 @@ body {
   line-height: 2em;
 }
 
-div.postmsg p {
-	line-height: 1.4;
-}
-div.postleft dt {
-	font-size: 1.1em;
-}
 
-#brdmenu a:hover, .blockpost h2 a:hover {
+#menu-menu a:hover {
 	text-decoration: underline;
 }
 
-#brdfooter p {
+#footer p {
   text-align: right;
 }
 h2.topic_h2 {

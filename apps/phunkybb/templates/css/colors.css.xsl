@@ -31,49 +31,28 @@ html, body {
 div.icon {
 	border-color: #E6E6E6 #DEDEDE #DADADA #E2E2E2
 }
-tr.iredirect div.icon {
-	border-color: #F1F1F1 #F1F1F1 #F1F1F1 #F1F1F1
-}
+
 div.inew {
 	border-color: #0080D7 #0065C0 #0058B3 #0072CA
 }
 
-.menu {
-  color: #333
-}
 
-.menu h2 a:hover, #main-menu a:hover {
+#main-menu a:hover {
 	color: <xsl:value-of select="//css/colors/bright-highlight"/>;
 }
 
-.menu h2 a:link, .pun h2 a:visited {
-    color: <xsl:value-of select="//css/colors/bright-highlight"/>;
-}
 
-div.box, .pun blockquote, fieldset th, .rowodd, .roweven {
+
+#footer {
 background-color: <xsl:value-of select="//css/colors/med-background-alt"/>;
 }
 
-#brdfooter {
-background-color: <xsl:value-of select="//css/colors/med-background-alt"/>;
-}
-
-
-td.tc2, td.tc3, td.tcmod, #adminconsole fieldset td, div.blockmenu div.box {
-  background-color: <xsl:value-of select="//css/colors/light-background-alt"/>;
-}
 
 #main-menu, h2.breadcrumbs {
   background-color: <xsl:value-of select="//css/colors/dark-background"/>;
   color: #FFF
 }
-div.blockpost h2 {
-  background-color: <xsl:value-of select="//css/colors/dark-background"/>;
-}
 
-div.blockpost {
-  background-color: #eee;
-}
 
 
 </xsl:template>

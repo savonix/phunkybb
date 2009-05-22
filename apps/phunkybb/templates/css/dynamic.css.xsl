@@ -67,14 +67,6 @@ Fifth Floor, Boston, MA 02110-1301 USA
 
 
 
-.tc2, .tc3, .tcmod {width: 9%; text-align: center}
-
-.tcr {width: 32%; text-align: left}
-
-
-.tcl, .tcr {
-	overflow: hidden;
-}
 
 
 
@@ -96,53 +88,9 @@ Fifth Floor, Boston, MA 02110-1301 USA
 
 
 
-
-
-<xsl:call-template name="thematic-button">
-    <xsl:with-param name="button-name">basic-blue</xsl:with-param>
-    <xsl:with-param name="background-color">#F1F1F1</xsl:with-param>
-    <xsl:with-param name="color">#0066B9</xsl:with-param>
-</xsl:call-template>
-<xsl:call-template name="thematic-button">
-    <xsl:with-param name="button-name">basic-green</xsl:with-param>
-    <xsl:with-param name="background-color">#66FF99</xsl:with-param>
-    <xsl:with-param name="color">#009900</xsl:with-param>
-</xsl:call-template>
-<xsl:call-template name="thematic-button">
-    <xsl:with-param name="button-name">basic-black</xsl:with-param>
-    <xsl:with-param name="background-color">grey</xsl:with-param>
-    <xsl:with-param name="color">black</xsl:with-param>
-</xsl:call-template>
 
 </xsl:template>
 
 
 
-<xsl:template name="thematic-button">
-<xsl:param name="button-name"/>
-<xsl:param name="background-color"/>
-<xsl:param name="color"/>
-.button-<xsl:value-of select="$button-name"/>
-{
-    padding: .2em .4em;
-    background-color: <xsl:value-of select="$background-color"/>;
-    color: <xsl:value-of select="$color"/>;
-    font-weight: bold;
-    border-style: solid;
-    border-width: 1px;
-    border-color: <xsl:value-of select="$color"/>;
-    cursor: pointer;
-}
-.button-<xsl:value-of select="$button-name"/> a
-{
-    font-weight: bold;
-		text-decoration: none;
-}
-.button-<xsl:value-of select="$button-name"/> a img
-{
-	margin-bottom: -3px;
-	margin-right: 3px;
-}
-
-</xsl:template>
 </xsl:stylesheet>

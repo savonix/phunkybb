@@ -117,11 +117,8 @@ position:absolute;right: 50px; top:40px;
   </xsl:if>
 }
 
-#brdwelcome, div.blockmenu li, div.rbox input  {
-	line-height: 1.4em;
-}
 
-#brdfooter {
+#footer {
   position: absolute;
   bottom: 0px;
   left: 10px;
@@ -133,36 +130,11 @@ position:absolute;right: 50px; top:40px;
 	border-width: 1px;
   border-bottom:0;
 }
-#brdfooter p {
+#footer p {
   width: 100%;
   text-align: right;
 }
 
-#punindex div.blocktable{
-	margin-bottom: 6px;
-}
-
-div.blockpost input, div.blockpost label {
-	padding: 3px;
-	display: block;
-}
-
-div.blockpost {
-  padding: 6px;
-	margin-bottom: 1em;
-}
-div.postmsg {
-  min-height: 120px;
-	display: block;
-}
-div.postmsgsig {
-text-align: right;
-  line-height: 2em;
-}
-
-div.inform {
-	padding: 12px;
-}
 
 .user_avatar {
 float:left; margin-right: 10px;
@@ -171,68 +143,6 @@ height:50px;width:50px;
 text-align:center;
 cursor: pointer;
 }
-
-.pun fieldset {
-	padding: 0px 12px 0px 12px;
-}
-div.infldset {
-	padding: 9px 0px 12px 0;
-}
-.pun legend {
-	padding: 0px 6px;
-}
-
-div.forminfo {
-	margin-bottom: 12px;
-	padding: 9px 10px
-}
-
-div.blockform p input {
-	margin-left: 12px;
-}
-
-#main-menu{
-	line-height: 1.8em;
-}
-
-.pun th, .pun td {
-	padding: 4px 6px;
-}
-
-.pun td p {
-	padding: 5px 0 0 0;
-}
-
-div.postleft dl, div.postright {
-	padding: 6px;
-}
-
-
-.pun blockquote{
-	margin: 5px 15px 15px 15px;
-	padding: 8px;
-}
-
-
-.pun td, .pun th {
-	border-right: none
-}
-
-.pun .tcl {
-	border-left: none;
-}
-
-
-div>fieldset {
-	border-style: solid;
-	border-width: 1px
-}
-
-
-#punwrap {
-	margin: 0 10px;
-}
-
 
 <xsl:if test="contains(//user_agent,'_moz')">
 div.icon {
@@ -254,25 +164,11 @@ div.icon {
 }
 
 
-.pun h2 a:link, #brdmenu a {
-    padding: 3px;
+#main-menu a {
+	line-height: 2em;
+  padding: 3px;
 }
 
-h2.topic_h2 {
-	font-size: .8em;
-}
-h3, .tclcon {
-	text-indent: 4px;
-}
-.rssicon {
-  float:right;
-  padding-left:7px;
-  margin-top:-3px;
-}
-
-.float_right {
-  float: right;
-}
 
 </xsl:template>
 </xsl:stylesheet>

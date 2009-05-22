@@ -32,15 +32,15 @@ Fifth Floor, Boston, MA 02110-1301 USA
       <xsl:with-param name="section_start">header</xsl:with-param>
     </xsl:call-template>
 
-		<div class="block">
+		<div id="header">
 
       <xsl:call-template name="menu">
         <xsl:with-param name="link_prefix" select="$link_prefix"/>
         <xsl:with-param name="my18n" select="$my18n"/>
       </xsl:call-template>
 
-			<div class="box" style="border:0;">
-				<div id="brdtitle" class="inbox">
+			<div id="header-content">
+				<div id="header-inner">
           <xsl:if test="contains(//user_agent,'gui_browser')">
             <a href="{$link_prefix}x-posts-rss">
               <img src="{//path_prefix}/s/img/icons/famfamfam/feed.png"
