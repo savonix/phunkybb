@@ -50,47 +50,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 
 
 
-.conr {
-	float: right;
-	text-align: right;
-	clear: right;
-	width: 40%
-}
-
-.conl {
-	float: left;
-	width: 55%;
-	overflow: hidden;
-	white-space: nowrap
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 </xsl:template>
-
-
-
 </xsl:stylesheet>

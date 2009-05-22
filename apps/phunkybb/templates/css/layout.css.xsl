@@ -82,10 +82,6 @@ position:absolute;right: 50px; top:40px;
   bottom: 50px;
 }
 
-.tcenter {
-  text-align:center;
-}
-
 #quickpost {
   display: none;
   position: absolute;
@@ -127,16 +123,7 @@ text-align:center;
 cursor: pointer;
 }
 
-<xsl:if test="contains(//user_agent,'_moz')">
-div.icon {
-	float: left;
-	margin: .1em;
-	margin-right: .5em;
-	display: block;
-	border-width: 0.6em 0.6em 0.6em 0.6em;
-	border-style: solid;
-}
-</xsl:if>
+
 
 .interstatus
 {
