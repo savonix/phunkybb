@@ -38,36 +38,19 @@ body {
   </xsl:if>
 }
 
-.postleft {
-	padding: 4px;
-	float: left;
+.breadcrumbs {
+  float: left;
 }
-
-div.box {
-	border-style: solid;
-	border-width: 1px;
-}
-
-div.block div.inbox, div.blockmenu div.inbox {
-	padding: 3px;
-}
-
 .breadcrumbs li, .breadcrumbs li h1, .breadcrumbs li h2 {
   display: inline;
 }
 
 
-div.blocktable, div.block, div.blockform, div.block2col {
-	margin-bottom: 2px;
-}
-div.blocktable {
-  width: 100%;
-}
-#brdtitle {
+#header-title {
   min-height:6em;
   padding:10px;
 }
-#brdtitle p {
+#header-title p {
 	padding-top: 0px;
 }
 
@@ -163,12 +146,21 @@ div.icon {
   border-color: red;
 }
 
+#main-menu {
+  padding: 2px;
+}
 
 #main-menu a {
 	line-height: 2em;
   padding: 3px;
 }
 
+.col-left {
+  width: 20em;
+}
 
+.col-1, .col-2 {
+width: 4em;
+}
 </xsl:template>
 </xsl:stylesheet>

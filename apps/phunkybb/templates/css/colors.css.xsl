@@ -37,7 +37,7 @@ div.inew {
 }
 
 
-#main-menu a:hover {
+#main-menu a {
 	color: <xsl:value-of select="//css/colors/bright-highlight"/>;
 }
 

@@ -50,6 +50,7 @@ h3 {
 
 #footer p {
   text-align: right;
+  line-height: 2em;
 }
 h2.topic_h2 {
 	font-size: .8em;

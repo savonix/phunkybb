@@ -40,21 +40,20 @@ Fifth Floor, Boston, MA 02110-1301 USA
     <div class="tableframe">
     <xsl:for-each select="/_R_/categories_get_all/categories_get_all[cid=/_R_/forums_get_all/forums_get_all/cid]">
       <xsl:variable name="my_cid" select="cid"/>
-      <div>
 				<table cellspacing="0">
 					<thead>
 						<tr>
-							<th class="tcl" scope="col">
+							<th class="col-left" scope="col">
                 <xsl:value-of select="cat_name"/>&#160;
                 <xsl:value-of select="$my18n/forums"/>
 							</th>
-							<th class="tc2" scope="col">
+							<th class="col-2" scope="col">
 								<xsl:value-of select="$my18n/topics"/>
 							</th>
-							<th class="tc3" scope="col">
+							<th class="col-3" scope="col">
 								<xsl:value-of select="$my18n/posts"/>
 							</th>
-							<th class="tcr" scope="col">
+							<th class="c-right" scope="col">
 								<xsl:value-of select="$my18n/last_post"/>
 							</th>
 						</tr>
@@ -62,7 +61,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 					<tbody>
 						<xsl:for-each select="/_R_/forums_get_all/forums_get_all[cid=$my_cid]">
 							<tr>
-								<td class="tcl">
+								<td class="col-left">
 									<div class="intd">
 										<xsl:if test="not(/_R_/runtime/last_visit_timestamp &lt; last_post_timestamp)">
 											<div class="icon">
@@ -94,13 +93,13 @@ Fifth Floor, Boston, MA 02110-1301 USA
 										</div>
 									</div>
 								</td>
-								<td class="tc2">
+								<td class="col-2">
 									<xsl:value-of select="num_topics"/>
 								</td>
-								<td class="tc3">
+								<td class="col-3">
 									<xsl:value-of select="num_posts"/>
 								</td>
-								<td class="tcr">
+								<td class="col-right">
 									<span class="reldate">
 										<xsl:if test="not(last_post='1969-12-31 20:00:00') and not(last_post='1970-01-01 00:00:00')">
 											<xsl:value-of select="last_post"/>
@@ -112,7 +111,6 @@ Fifth Floor, Boston, MA 02110-1301 USA
 						</xsl:for-each>
 					</tbody>
 				</table>
-      </div>
       <br/>
     </xsl:for-each>
     </div>
