@@ -68,7 +68,7 @@ $redirect = Nexista_Path::get('//_post/redirect', 'flow');
 if(isset($_SESSION['NX_AUTH']['requestedUrl']) && (!$_SESSION['NX_AUTH']['requestedUrl']=="")) {
     $redirect = $_SESSION['NX_AUTH']['requestedUrl'];
 } else {
-    $redirect = Nexista_Config::get("//build/default");
+    $redirect = Nexista_Config::get('//build/default');
 }
 
 if($_GET['nid']=='x-login')
