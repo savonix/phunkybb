@@ -66,7 +66,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
       <script type="text/javascript" src="{$path_prefix}s/js/jsval.js"></script>
       <script type="text/javascript" src="{$path_prefix}s/js/time/relative_time.js"></script>
       <script type="text/javascript" src="http://www-b.evenserver.com/s/js/jquery/plugins/jquery.pir.min.js"></script>
-			<xsl:if test="//_get/nid='admin-users'">
+			<xsl:if test="//_get/nid='admin-users' or //_get/nid='index'">
       <script type="text/javascript" src="{$path_prefix}s/pkgs/tablesorter/jquery.tablesorter.js"></script>
       <script type="text/javascript" src="{$path_prefix}s/pkgs/tablesorter/addons/pager/jquery.tablesorter.pager.js"></script>
 			</xsl:if>

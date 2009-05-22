@@ -24,10 +24,11 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <xsl:stylesheet version="1.0"
 	xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns="http://www.w3.org/1999/xhtml">
   <xsl:include href="html_main.xsl"/>
+  <xsl:include href="pager.xsl"/>
   <xsl:template name="content">
     <xsl:param name="link_prefix"/>
+    <xsl:param name="path_prefix"/>
     <xsl:param name="my18n"/>
-
 		<div class="blocktable">
       <table cellspacing="0">
         <tr>
@@ -40,20 +41,32 @@ Fifth Floor, Boston, MA 02110-1301 USA
     <div class="tableframe">
     <xsl:for-each select="/_R_/categories_get_all/categories_get_all[cid=/_R_/forums_get_all/forums_get_all/cid]">
       <xsl:variable name="my_cid" select="cid"/>
-				<table cellspacing="0">
+        <xsl:call-template name="jquery-setup-simple">
+          <xsl:with-param name="link_prefix" select="$link_prefix"/>
+          <xsl:with-param name="path_prefix" select="$path_prefix"/>
+          <xsl:with-param name="my18n" select="$my18n"/>
+          <xsl:with-param name="my-table">forums_table<xsl:value-of select="$my_cid"/></xsl:with-param>
+          <xsl:with-param name="no-sort-column">,
+            headers: {
+              1: {sorter: false},
+              2: {sorter: false}
+            }
+          </xsl:with-param>
+        </xsl:call-template>
+        <table cellspacing="0" class="tablesorter" id="forums_table{$my_cid}">
 					<thead>
 						<tr>
-							<th class="col-left" scope="col">
+							<th>
                 <xsl:value-of select="cat_name"/>&#160;
                 <xsl:value-of select="$my18n/forums"/>
 							</th>
-							<th class="col-2" scope="col">
+							<th>
 								<xsl:value-of select="$my18n/topics"/>
 							</th>
-							<th class="col-3" scope="col">
+							<th>
 								<xsl:value-of select="$my18n/posts"/>
 							</th>
-							<th class="c-right" scope="col">
+							<th>
 								<xsl:value-of select="$my18n/last_post"/>
 							</th>
 						</tr>
@@ -93,13 +106,13 @@ Fifth Floor, Boston, MA 02110-1301 USA
 										</div>
 									</div>
 								</td>
-								<td class="col-2">
+								<td>
 									<xsl:value-of select="num_topics"/>
 								</td>
-								<td class="col-3">
+								<td>
 									<xsl:value-of select="num_posts"/>
 								</td>
-								<td class="col-right">
+								<td>
 									<span class="reldate">
 										<xsl:if test="not(last_post='1969-12-31 20:00:00') and not(last_post='1970-01-01 00:00:00')">
 											<xsl:value-of select="last_post"/>
@@ -109,10 +122,13 @@ Fifth Floor, Boston, MA 02110-1301 USA
 								</td>
 							</tr>
 						</xsl:for-each>
-					</tbody>
-				</table>
+            </tbody>
+          </table>
       <br/>
     </xsl:for-each>
     </div>
+  <xsl:call-template name="pager">
+    <xsl:with-param name="my-table">forums_table</xsl:with-param>
+  </xsl:call-template>
   </xsl:template>
 </xsl:stylesheet>
