@@ -24,10 +24,23 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <xsl:stylesheet version="1.0"
 	xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns="http://www.w3.org/1999/xhtml">
 	<xsl:include href="html_main.xsl"/>
+  <xsl:include href="pager.xsl"/>
 	<xsl:template name="content">
 		<xsl:param name="link_prefix"/>
 		<xsl:param name="path_prefix"/>
 		<xsl:param name="my18n"/>
+    <xsl:call-template name="jquery-setup-simple">
+      <xsl:with-param name="link_prefix" select="$link_prefix"/>
+      <xsl:with-param name="path_prefix" select="$path_prefix"/>
+      <xsl:with-param name="my18n" select="$my18n"/>
+      <xsl:with-param name="my-table">forum_table</xsl:with-param>
+      <xsl:with-param name="no-sort-column">,
+        headers: {
+          1: {sorter: false},
+          2: {sorter: false}
+        }
+      </xsl:with-param>
+    </xsl:call-template>
 
 		<xsl:variable
       name   = "forum_get_by_id"
@@ -35,7 +48,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
     />
 
 		<div class="blocktable">
-        <table cellspacing="0" >
+        <table cellspacing="0">
           <tr>
             <th class="tcl" scope="col">
               <span style="float:right;">
@@ -56,19 +69,19 @@ Fifth Floor, Boston, MA 02110-1301 USA
         </table>
     </div>
 		<div class="tableframe">
-      <table>
+      <table class="tablesorter" id="forum_table">
           <thead>
             <tr>
-              <th class="tcl" scope="col">
+              <th>
                 <xsl:value-of select="$my18n/topics"/>
               </th>
-              <th class="tc2" scope="col">
+              <th>
                 <xsl:value-of select="$my18n/replies"/>
               </th>
-              <th class="tc2" scope="col">
+              <th>
                 <xsl:value-of select="$my18n/views"/>
               </th>
-              <th class="tcr">
+              <th>
                 <xsl:value-of select="$my18n/last_post"/>
               </th>
             </tr>
@@ -76,7 +89,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
           <tbody>
             <xsl:for-each select="/_R_/topics_get_by_forum_id/topics_get_by_forum_id">
               <tr>
-                <td class="tcl">
+                <td>
                   <xsl:if test="//runtime/group_id=1">
                     <a style="float: right;" href="#x-topic-delete&amp;topic_id={id}"
                       onclick="topic_delete({id}); return false;">
@@ -110,13 +123,13 @@ Fifth Floor, Boston, MA 02110-1301 USA
                     </a>
                   </xsl:if>
                 </td>
-                <td class="tc2">
+                <td>
                   <xsl:value-of select="num_replies"/>
                 </td>
-                <td class="tc2">
+                <td>
                   <xsl:value-of select="num_views"/>
                 </td>
-                <td class="tcr">
+                <td>
                   <span class="reldate">
                     <xsl:if test="not(last_post='1969-12-31 20:00:00')">
                       <xsl:value-of select="last_post"/>
