@@ -121,8 +121,8 @@ Fifth Floor, Boston, MA 02110-1301 USA
     <div class="tableframe">
 		<xsl:for-each select="/_R_/posts_get_by_topic_id/posts_get_by_topic_id">
       <a href="#post{id}" name="post{id}" />
-			<div id="p{id}" class="blockpost" >
-        <span class="conr noul">
+			<div id="p{id}" class="post" >
+        <span class="postmeta noul">
           <a href="#post{id}" class="noul">
             <xsl:value-of select="username"/> Posted
             <span class="reldate">

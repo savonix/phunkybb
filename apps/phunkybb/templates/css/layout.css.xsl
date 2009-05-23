@@ -45,7 +45,12 @@ body {
   display: inline;
 }
 
-
+.post {
+  display: block;
+}
+.postmeta {
+  text-align: right;
+}
 #header-title {
   min-height:6em;
   padding:10px;
@@ -116,9 +121,10 @@ position:absolute;right: 50px; top:40px;
 
 
 .user_avatar {
-float:left; margin-right: 10px;
+margin-right: 10px;
 background-color:#aaa;
-height:50px;width:50px;
+height:50px;
+width:50px;
 text-align:center;
 cursor: pointer;
 }
