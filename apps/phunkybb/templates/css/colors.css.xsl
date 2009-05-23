@@ -28,6 +28,10 @@ html, body {
   color: #333;
 }
 
+
+.postmeta {
+  border-color: #ddd;
+}
 div.icon {
 	border-color: #E6E6E6 #DEDEDE #DADADA #E2E2E2
 }

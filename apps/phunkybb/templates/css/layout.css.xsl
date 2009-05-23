@@ -46,11 +46,33 @@ body {
 }
 
 .post {
+  margin: 0 10px 2em 10px;
   display: block;
+  clear: both;
 }
 .postmeta {
+  text-align: left;
+  margin-bottom: 3px;
+  margin-left: 60px;
+  border-bottom-style: dotted;
+  border-bottom-width: 1px;
+}
+.post-controls {
+  float: right;
+}
+.usermeta {
   text-align: right;
 }
+
+.user-avatar {
+float: left;
+margin-right: 10px;
+height:50px;
+width:50px;
+text-align:center;
+cursor: pointer;
+}
+
 #header-title {
   min-height:6em;
   padding:10px;
@@ -120,14 +142,6 @@ position:absolute;right: 50px; top:40px;
 }
 
 
-.user_avatar {
-margin-right: 10px;
-background-color:#aaa;
-height:50px;
-width:50px;
-text-align:center;
-cursor: pointer;
-}
 
 
 

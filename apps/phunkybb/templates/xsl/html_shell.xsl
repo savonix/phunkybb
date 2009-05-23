@@ -64,7 +64,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 				<xsl:sort select="priority" order="ascending"/>
 				<xsl:apply-templates select="nodes/*"/>
 			</xsl:for-each>
-
+<!--
           <xsl:if test="not(/_R_/runtime/output='xhtml')">
           <div id="header-banner">
             <script type="text/javascript">
@@ -81,6 +81,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
             </script>
           </div>
           </xsl:if>
+-->
 		</body>
   </html>
 </xsl:template>

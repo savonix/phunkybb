@@ -121,14 +121,22 @@ Fifth Floor, Boston, MA 02110-1301 USA
     <div class="tableframe">
 		<xsl:for-each select="/_R_/posts_get_by_topic_id/posts_get_by_topic_id">
       <a href="#post{id}" name="post{id}" />
-			<div id="p{id}" class="post" >
-        <span class="postmeta noul">
-          <a href="#post{id}" class="noul">
-            <xsl:value-of select="username"/> Posted
-            <span class="reldate">
-              <xsl:value-of select="posted"/>
-            </span>
-          </a>&#160;
+			<div id="p{id}" class="post">
+        <div>
+        <xsl:if test="/_R_/runtime/username">
+          <xsl:attribute name="class">user-avatar</xsl:attribute>
+          <xsl:attribute name="onclick">location.href='<xsl:value-of select="$link_prefix"/>public-profile&amp;username=<xsl:value-of select="username"/>'</xsl:attribute>
+        </xsl:if>
+        <!-- This is where the avatar would go. -->
+        <xsl:if test="not(picture='')">
+          <img style="height:50px;width:50px;" src="{picture}" alt="{username}'s avatar"/>
+        </xsl:if>
+        <xsl:if test="picture=''">
+          <img style="height:50px;width:50px;" src="{$path_prefix}s/img/avatars/default-userpic-50.jpg" alt=""/>
+        </xsl:if>
+      </div>
+        <div class="postmeta">
+        <span class="post-controls noul">
           <xsl:if test="/_R_/runtime/username=username or /_R_/runtime/group_id=1">
           <a href="{$link_prefix}post-edit&amp;post_id={id}&amp;topic_id={$topic_get_by_id/id}&amp;fid={$forum_get_by_id/id}">
             <xsl:value-of select="$my18n/edit"/>
@@ -139,25 +147,23 @@ Fifth Floor, Boston, MA 02110-1301 USA
           </a>
           </xsl:if>
         </span>
-        <div>
-          <xsl:if test="/_R_/runtime/username">
-            <xsl:attribute name="class">user_avatar</xsl:attribute>
-            <xsl:attribute name="onclick">location.href='<xsl:value-of select="$link_prefix"/>public-profile&amp;username=<xsl:value-of select="username"/>'</xsl:attribute>
-          </xsl:if>
-          <!-- This is where the avatar would go. -->
-          <xsl:if test="not(picture='')">
-            <img style="height:50px;width:50px;" src="{picture}" alt="{username}'s avatar"/>
-          </xsl:if>
-          <xsl:if test="picture=''">
-            <img style="height:50px;width:50px;" src="{$path_prefix}s/img/avatars/default-userpic-50.jpg" alt=""/>
-          </xsl:if>
-        </div>
-        <div class="postmsg">
-        <xsl:value-of select="message" disable-output-escaping="yes"/>
-        </div>
+        <span class="noul">
+          <a href="#post{id}" class="noul">
+             <xsl:value-of select="username"/> posted
+            <span class="reldate">
+              <xsl:value-of select="posted"/>
+            </span>
+          </a>&#160;
+        </span>
+      </div>
+      <div class="post-message">
+      <xsl:value-of select="message" disable-output-escaping="yes"/>
+      </div>
+        <!--
         <div class="postmsgsig">
           <xsl:value-of select="signature" disable-output-escaping="yes"/>
         </div>
+        -->
 			</div>
 		</xsl:for-each>
     </div>
