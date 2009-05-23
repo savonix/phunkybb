@@ -39,7 +39,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 
 	WHERE (p.topic_id=? OR p.topic_id=?)
 
-	ORDER BY p.id
+	ORDER BY p.id DESC
 
 	LIMIT ?,?
 	</sql>
