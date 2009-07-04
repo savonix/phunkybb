@@ -95,6 +95,7 @@ CREATE TABLE <xsl:value-of select="f_not_exists"/> <xsl:value-of select="//_get/
   site_id <xsl:value-of select="//dbe/integer"/> <xsl:value-of select="//dbe/default_null"/>,
   message text,
   posted <xsl:value-of select="//dbe/integer"/> <xsl:value-of select="//dbe/default_null"/>,
+  post_status <xsl:value-of select="//dbe/integer"/> <xsl:value-of select="//dbe/default_null"/>,
   edited <xsl:value-of select="//dbe/integer"/> <xsl:value-of select="//dbe/default_null"/>,
   edited_by_user_id <xsl:value-of select="//dbe/integer"/> <xsl:value-of select="//dbe/default_null"/>,
   topic_id <xsl:value-of select="//dbe/integer"/> <xsl:value-of select="//dbe/default_null"/>,
