@@ -105,7 +105,7 @@ position:absolute;right: 50px; top:40px;
 }
 .tableframe2 {
   top: 120px;
-  left: 160px;
+  left: 360px;
   bottom: 50px;
 }
 

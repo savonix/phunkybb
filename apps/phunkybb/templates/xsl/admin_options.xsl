@@ -81,6 +81,22 @@ Fifth Floor, Boston, MA 02110-1301 USA
                         <input type="text" name="form[o_base_url]" value="{//site_config/o_base_url}"/>
 											</td>
                     </tr>
+                    <tr>
+                      <th scope="row">
+                        <xsl:value-of select="$my18n/anonymous_posts"/>
+                      </th>
+                      <td>
+                        <input type="text" name="form[o_anonymous_posts]" value="{//site_config/o_anonymous_posts}"/>
+											</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">
+                        <xsl:value-of select="$my18n/anonymous_replies"/>
+                      </th>
+                      <td>
+                        <input type="text" name="form[o_anonymous_replies]" value="{//site_config/o_anonymous_replies}"/>
+											</td>
+                    </tr>
                   </table>
                 </div>
               </fieldset>

@@ -97,7 +97,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
             <xsl:with-param name="number_of_pages" select="format-number($page_num/pages,'##') - 1"/>
           </xsl:call-template>
         </xsl:if>
-        <xsl:if test="/_R_/runtime/username">
+        <xsl:if test="/_R_/runtime/username or /_R_/site_config/o_anonymous_replies='on'">
           <a href="#" onclick="show_quickpost();">
             Reply</a>&#160;
         </xsl:if>
@@ -169,7 +169,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
     </div>
 
 		<!-- Reply -->
-		<xsl:if test="/_R_/runtime/username">
+		<xsl:if test="/_R_/runtime/username or /_R_/site_config/o_anonymous_replies='on'">
 			<div class="blockform" id="quickpost">
 				<h2>
           <span style="float:right;cursor:pointer;" onclick="hide_quickpost();">
@@ -180,6 +180,9 @@ Fifth Floor, Boston, MA 02110-1301 USA
 				<div class="box">
 					<form method="post" action="{$link_prefix}post&amp;tid={$topic_get_by_id/id}">
 						<div class="inform">
+              <xsl:if test="not(/_R_/runtime/username)">
+              Email: <input type="text" name="anonymous_email"/><br/>
+              </xsl:if>
 							<fieldset>
 								<legend>
 									<xsl:value-of select="$my18n/write_your_message"/>

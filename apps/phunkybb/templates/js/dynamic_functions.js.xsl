@@ -28,7 +28,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 	<xsl:template match="/">
 
 function zinit() {
-    $.pir.options.php="http://192.168.8.103:8080/p/gd.fcgi/";
+    $.pir.options.php="http://192.168.8.103:88/p/gd.fcgi/";
     $("#header-name-text").pir({size: 18, font: "imposs.ttf", color: "#44465B"});
     $("#header-description").pir({size: 12, font: "imposs.ttf", color: "#44465B"});
 }
