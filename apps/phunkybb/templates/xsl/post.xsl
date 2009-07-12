@@ -92,7 +92,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
           </div>
           <p style="text-align:center">
             <input type="submit" name="submit" value="Submit"/>
-            <input type="button" href="#welcome" value="{$my18n/go_back}" onclick="history.go(-1);"/>
+            <input type="button" value="{$my18n/go_back}" onclick="history.go(-1);"/>
           </p>
           <br/>
         </form>
