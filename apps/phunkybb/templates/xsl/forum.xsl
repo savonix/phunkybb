@@ -48,19 +48,21 @@ Fifth Floor, Boston, MA 02110-1301 USA
     />
 
 		<div class="blocktable">
-        <table cellspacing="0">
+        <table width="100%">
           <tr>
             <th class="tcl" scope="col">
               <span style="float:right;">
                 <xsl:if test="contains(//user_agent,'gui_browser')">
-                <xsl:if test="/_R_/runtime/username">
+                <span style="float:right;padding-left:6px;margin-top:-1px;">
+                  <a href="{$link_prefix}x-forum-rss&amp;fid={$forum_get_by_id/id}">
+                    <img style="margin:-3px 0;" src="{$path_prefix}s/img/icons/famfamfam/rss.png" alt="RSS"/>
+                  </a>
+                </span>
+                <xsl:if test="/_R_/runtime/username or /_R_/site_config/o_anonymous_replies='on'">
                 <a href="{$link_prefix}post&amp;fid={$forum_get_by_id/id}">
                   <xsl:value-of select="$my18n/post_topic"/>
                 </a>&#160;
                 </xsl:if>
-                <a href="{$link_prefix}x-forum-rss&amp;fid={$forum_get_by_id/id}">
-                  <img style="margin:-3px 0;" src="{$path_prefix}s/img/icons/famfamfam/rss.png" alt="RSS"/>
-                </a>
                 </xsl:if>
               </span>
               <b><xsl:value-of select="$forum_get_by_id/forum_name"/></b>

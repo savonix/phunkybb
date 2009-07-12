@@ -67,7 +67,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
           <th class="tcl" style="border-bottom: 0;">
 			<span class="postlink conr">
         <xsl:if test="contains(//user_agent,'gui_browser')">
-        <span style="float:right;padding-left:6px;margin-top:-1px;">
+        <span style="float:right;padding:6px;margin-top:-1px;">
         <a href="{$link_prefix}x-topic-rss&amp;id={$topic_get_by_id/id}&amp;fid={$forum_get_by_id/id}">
           <img src="{$path_prefix}s/img/icons/famfamfam/rss.png" alt="RSS"/>
         </a>

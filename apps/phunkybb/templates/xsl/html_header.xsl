@@ -40,6 +40,14 @@ Fifth Floor, Boston, MA 02110-1301 USA
       </xsl:call-template>
 
 			<div id="header-content">
+        <xsl:if test="contains(//user_agent,'gui_browser')">
+          <span style="float:right;padding-left:6px;margin-top:-1px;">
+          <a href="{$link_prefix}x-posts-rss">
+            <img src="{//path_prefix}/s/img/icons/famfamfam/feed.png"
+              class="rssicon" alt="RSS"/>
+          </a>
+          </span>
+        </xsl:if>
 				<div id="header-inner">
           <xsl:if test="/_R_/_get/nid='index'">
 					<h1 id="header-name">
@@ -66,12 +74,6 @@ Fifth Floor, Boston, MA 02110-1301 USA
 					</div>
           </xsl:if>
 				</div>
-        <xsl:if test="contains(//user_agent,'gui_browser')">
-          <a href="{$link_prefix}x-posts-rss">
-            <img src="{//path_prefix}/s/img/icons/famfamfam/feed.png"
-              class="rssicon" alt="RSS"/>
-          </a>
-        </xsl:if>
 			</div>
 
 		</div>
