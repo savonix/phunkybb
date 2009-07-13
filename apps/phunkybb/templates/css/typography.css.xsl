@@ -31,7 +31,9 @@ pre {
 	font-family: courier, monospace;
 	font-size: 1.2em;
 }
-
+#header-name a {
+	text-decoration: none;
+}
 h3 {
 	font-size: 1.1em;
 }

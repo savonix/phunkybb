@@ -44,7 +44,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 							<dt style="padding: 4px;">PhunkyBB <xsl:value-of select="$my18n/version"/>
 							</dt>
 							<dd style="padding: 4px;">
-								PhunkyBB 0.3<br/>
+								PhunkyBB 0.4<br/>
 								<xsl:value-of select="$my18n/copyright"/>
 							</dd>
 						</dl>
