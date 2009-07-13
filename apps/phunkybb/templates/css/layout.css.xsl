@@ -50,15 +50,22 @@ body {
   display: block;
   clear: both;
 }
-.postmeta {
+.post-meta {
   text-align: left;
   margin-bottom: 3px;
   margin-left: 60px;
   border-bottom-style: dotted;
   border-bottom-width: 1px;
 }
+.post-message {
+  margin-left: 60px;
+}
 .post-controls {
   float: right;
+}
+.post-avatar {
+  width:50px;
+  height:50px;
 }
 .usermeta {
   text-align: right;
