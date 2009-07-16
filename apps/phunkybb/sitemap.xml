@@ -106,7 +106,6 @@ Fifth Floor, Boston, MA 02110-1301 USA
 				<map:set name="forgot_password" value="Password Reset Information"/>
 				<map:plugin type="detokenize" params="{/_R_/i18n/password_reset},//emails/reset_password/token"/>
 				<map:action type="email" params="{//_post/email},{//site_config/o_webmaster_email},{//forgot_password},//new_text,{//site_config/o_smtp_host}"/>
-
 				<map:xsl src="templates/xsl/password_forgot.xsl"/>
 			</map:true>
 			<map:false>
@@ -333,6 +332,16 @@ Fifth Floor, Boston, MA 02110-1301 USA
 		<map:query src="data/sql/topic_get_num_replies.xml"/>
 		<map:query src="data/sql/topic_set_num_replies.xml"/>
 	</map:gate>
+
+
+  <!-- Posts by user -->
+	<map:gate name="user-posts">
+		<map:query src="data/sql/posts_get_by_username.xml"/>
+    <map:xsl src="templates/xsl/user_posts.xsl"/>
+	</map:gate>
+
+
+
 
 	<!-- Profile -->
 	<map:gate name="profile" role="phunky_user">
