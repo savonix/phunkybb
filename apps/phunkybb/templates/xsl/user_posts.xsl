@@ -1,6 +1,6 @@
 <!--
 Program: PhunkyBB
-Component: topic.xsl
+Component: user_posts.xsl
 Copyright: Savonix Corporation
 Author: Albert L. Lash, IV
 License: Gnu Affero Public License version 3
