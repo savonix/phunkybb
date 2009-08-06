@@ -50,7 +50,10 @@ class Nexista_TidyAction extends Nexista_Action
         foreach($node as $item) {
             $tidy->parseString($item->nodeValue, $config, 'utf8');
             $tidy->cleanRepair();
-            $item->nodeValue = str_replace('</body>','',str_replace('<body>','',$tidy->Body()));
+            $temp = str_replace('</body>','',str_replace('<body>','',$tidy->Body()));
+            if(!strpos($temp,'&')) {
+            $item->nodeValue = $temp;
+            }
         }
 
         return true;
