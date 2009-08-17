@@ -168,6 +168,14 @@ Fifth Floor, Boston, MA 02110-1301 USA
 		</map:if>
 	</map:gate>
 	<map:gate name="x-openid-login-done" cache="0">
+		<map:query src="data/sql/user_get_openid.xml"/>
+		<map:if name="/_R_/user_login/user_login">
+		  <map:true/>
+			<map:false>
+        <map:query src="data/sql/user_create_openid.xml"/>
+        <map:query src="data/sql/user_get_openid.xml"/>
+			</map:false>
+    </map:if>
     <map:script src="lib/php/openid_sessions.php"/>
     <map:action type="redirect" params="{//link_prefix}index"/>
 	</map:gate>
@@ -359,7 +367,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 		<map:if name="//_post/user_id">
 			<map:true>
 				<map:query src="data/sql/user_update_essentials.xml"/>
-				<map:action type="redirect" params="{//link_prefix}profile&amp;user_id={//_post/user_id}"/>
+				<map:action type="redirect" params="{//link_prefix}profile"/>
 			</map:true>
 			<map:false>
 				<map:query src="data/sql/user_get_profile.xml"/>
@@ -370,7 +378,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 			</map:false>
 		</map:if>
 	</map:gate>
-	<map:gate name="public-profile" role="phunky_user">
+	<map:gate name="public-profile">
     <map:query src="data/sql/user_get_profile.xml"/>
     <map:action type="datetime" params="/_R_/user_get_profile/user_get_profile/last_visit,unix_epoch,{/_R_/runtime/user_time_format},{/_R_/runtime/user_timezone_offset}"/>
     <map:action type="datetime" params="/_R_/user_get_profile/user_get_profile/last_post,unix_epoch,{/_R_/runtime/user_time_format},{/_R_/runtime/user_timezone_offset}"/>

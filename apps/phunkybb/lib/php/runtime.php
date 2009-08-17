@@ -112,6 +112,20 @@ if($_GET['nid']=='user-read-all') {
     $auth->setSessionData('last_visit_timestamp', $last_visit);
 }
 
+if($_GET['nid']=='s') {
+if(1==0) {
+header("Content-type: text/plain");
+var_dump($_SESSION);
+var_dump($_GET);
+$blah = unserialize($_SESSION['_yadis_services__openid_consumer_']);
+var_dump($blah['yadis_url']);
+exit;
+} else {
+header("Content-type: text/plain");
+var_dump($_SESSION);
+exit;
+}
+}
 Nexista_Flow::add('runtime',$runtime,false);
 
 ?>

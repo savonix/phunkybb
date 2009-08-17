@@ -38,7 +38,7 @@ $store = new Auth_OpenID_FileStore('/var/tmp/oid_store');
 // read response from OpenID provider
 $consumer = new Auth_OpenID_Consumer($store);
 $httphost = $_SERVER['HTTP_HOST'];
-$response = $consumer->complete($httphost.$link_prefix.'index');
+$response = $consumer->complete($httphost.$link_prefix.'x-openid-login-done');
 
 // set session variable depending on authentication result
 if ($response->status == Auth_OpenID_SUCCESS) {
@@ -47,10 +47,11 @@ if ($response->status == Auth_OpenID_SUCCESS) {
   $_SESSION['OPENID_AUTH'] = false;
 }
 
+$_SESSION['OPENID_AUTH'] = true;
 
-$username = Nexista_Path::get('//_get/openid.claimed_id', 'flow');
+$username = Nexista_Path::get('//user_login/user_login/username', 'flow');
 
-$user_id = crc32($username);
+$user_id = Nexista_Path::get('//user_login/user_login/id', 'flow');
 $group_id = Nexista_Path::get('//user_login/user_login/group_id', 'flow');
 
 $user_last_visit = Nexista_Path::get('//user_login/user_login/last_visit', 'flow');
@@ -72,7 +73,7 @@ if(is_array($roles)) {
 	$newarr = $roles;
 }
 
-$newarr = array('phunky_user','phunky_admin');
+$newarr = array('phunky_user');
 
 $auth = &new Nexista_Auth();
 
@@ -81,28 +82,20 @@ if(!$auth->registerUser($newarr))
     trigger_error(Nexista_Error::getError(). ' in login.php', WARNING);
 }
 
+
 $auth->setSessionData('user_id', $user_id);
 $auth->setSessionData('group_id', $group_id);
 $auth->setSessionData('username', $username);
 $auth->setSessionData('last_visit', $last_visit);
 $auth->setSessionData('last_visit_timestamp', $user_last_visit);
 
-
-//go back where we were called from
-$redirect = Nexista_Path::get('//_post/redirect', 'flow');
-if(isset($_SESSION['NX_AUTH']['requestedUrl']) && (!$_SESSION['NX_AUTH']['requestedUrl']=="")) {
-    $redirect = $_SESSION['NX_AUTH']['requestedUrl'];
+if(1==0) {
+header("Content-type: text/plain");
+var_dump($_SESSION);
+var_dump($_GET);
+$blah = unserialize($_SESSION['_yadis_services__openid_consumer_']);
+var_dump($blah['yadis_url']);
+exit;
 } else {
-    $redirect = Nexista_Config::get('//build/default');
-}
-
-if($_GET['nid']=='x-login')
-{
-    echo '<result>Success</result>';
-    exit;
-}
-else
-{
-    header('Location: ' . $redirect);
 }
 ?>
