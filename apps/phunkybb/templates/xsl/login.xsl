@@ -130,6 +130,10 @@ Fifth Floor, Boston, MA 02110-1301 USA
         </form>
 
       </div>
+      <form id="openid" method="post" action="{$link_prefix}x-openid-login">
+        <input type="text" name="openid"/>
+        <input type="submit"/>
+      </form>
     </div>
     <script type="text/javascript">
 		rng_seed_time();

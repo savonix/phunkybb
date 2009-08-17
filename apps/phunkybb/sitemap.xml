@@ -160,6 +160,17 @@ Fifth Floor, Boston, MA 02110-1301 USA
 			</map:false>
 		</map:if>
 	</map:gate>
+	<map:gate name="x-openid-login" cache="0" content_type="text/xml">
+		<map:if name="//openid">
+			<map:true>
+				<map:script src="lib/php/openid.php"/>
+			</map:true>
+		</map:if>
+	</map:gate>
+	<map:gate name="x-openid-login-done" cache="0">
+    <map:script src="lib/php/openid_sessions.php"/>
+    <map:action type="redirect" params="{//link_prefix}index"/>
+	</map:gate>
 	<map:gate name="logout">
 		<map:query src="data/sql/user_last_visit_update.xml"/>
 		<map:perl src="lib/perl/logout.pl"/>
