@@ -23,25 +23,5 @@ Fifth Floor, Boston, MA 02110-1301 USA
 -->
 <xsl:stylesheet version="1.0"
 	xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns="http://www.w3.org/1999/xhtml">
-  <xsl:template name="sidebar">
-    <xsl:param name="link_prefix"/>
-    <xsl:param name="path_prefix"/>
-    <xsl:param name="my18n"/>
-		<xsl:variable
-      name   = "forum_get_by_id"
-			select = "/_R_/forum_get_by_id/forum_get_by_id"
-    />
 
-		<xsl:variable
-      name   = "topic_get_by_id"
-			select = "/_R_/topic_get_by_id/topic_get_by_id"
-    />
-
-    <xsl:call-template name="source_spacer">
-        <xsl:with-param name="section_start">main_menu</xsl:with-param>
-    </xsl:call-template>
-
-		<div id="sidebar">
-    </div>
-	</xsl:template>
 </xsl:stylesheet>
