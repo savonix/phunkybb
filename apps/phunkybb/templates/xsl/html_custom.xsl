@@ -85,6 +85,55 @@ Fifth Floor, Boston, MA 02110-1301 USA
 		</body>
   </html>
 </xsl:template>
+
+<xsl:template match="/">
+<xsl:variable name="link_prefix" select="/_R_/runtime/link_prefix"/>
+<xsl:variable name="path_prefix" select="/_R_/runtime/path_prefix"/>
+<xsl:variable name="my18n" select="document('../../i18n/en_US/phunkybb.xml')/i18n"/>
+
+<html>
+  <xsl:call-template name="head">
+    <xsl:with-param name="link_prefix" select="$link_prefix"/>
+    <xsl:with-param name="path_prefix" select="$path_prefix"/>
+  </xsl:call-template>
+  <body>
+
+    <xsl:for-each select="//pre_body_content">
+      <xsl:sort select="priority" order="ascending"/>
+      <xsl:apply-templates select="nodes/*"/>
+    </xsl:for-each>
+
+    <xsl:call-template name="main">
+      <xsl:with-param name="link_prefix" select="$link_prefix"/>
+      <xsl:with-param name="path_prefix" select="$path_prefix"/>
+      <xsl:with-param name="my18n" select="$my18n"/>
+    </xsl:call-template>
+
+    <xsl:for-each select="//post_body_content">
+      <xsl:sort select="priority" order="ascending"/>
+      <xsl:apply-templates select="nodes/*"/>
+    </xsl:for-each>
+<!--
+        <xsl:if test="not(/_R_/runtime/output='xhtml')">
+        <div id="header-banner">
+          <script type="text/javascript">
+          <xsl:comment>
+          google_ad_client = "pub-9657495873329253";
+          //468x60, created 12/4/07
+          google_ad_slot = "3998548064";
+          google_ad_width = 468;
+          google_ad_height = 60;
+          //</xsl:comment>
+          </script>
+          <script type="text/javascript"
+            src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+          </script>
+        </div>
+        </xsl:if>
+-->
+  </body>
+</html>
+</xsl:template>
 <xsl:template name="source_spacer">
   <xsl:param name="section_start"></xsl:param>
   <xsl:param name="section_end"></xsl:param>
@@ -478,16 +527,6 @@ Fifth Floor, Boston, MA 02110-1301 USA
     <xsl:call-template name="source_spacer">
       <xsl:with-param name="section_end">head</xsl:with-param>
     </xsl:call-template>
-  </xsl:template>
-
-  <xsl:template match="node()">
-    <xsl:element name="{name()}">
-      <xsl:apply-templates select="@*|node()"/>
-    </xsl:element>
-  </xsl:template>
-
-  <xsl:template match="@*|text()|comment()|processing-instruction()">
-    <xsl:copy/>
   </xsl:template>
 
 </xsl:stylesheet>
