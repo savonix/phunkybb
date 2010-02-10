@@ -25,73 +25,59 @@ Fifth Floor, Boston, MA 02110-1301 USA
 xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns="http://www.w3.org/1999/xhtml">
   <xsl:import href="http://github.com/docunext/1bb02b59/raw/master/output.xhtml10.xsl"/>
   <xsl:include href="./html_custom.xsl"/>
-  <xsl:include href="link_builder.xsl"/>
 
-  <xsl:template name="main">
-    <xsl:param name="link_prefix"/>
-    <xsl:param name="path_prefix"/>
-    <xsl:param name="my18n"/>
+<xsl:template match="/">
+<xsl:variable name="link_prefix" select="/_R_/runtime/link_prefix"/>
 
-    <xsl:call-template name="source_spacer">
-      <xsl:with-param name="section_start">main</xsl:with-param>
+<xsl:variable name="path_prefix" select="/_R_/runtime/path_prefix"/>
+
+<xsl:variable name="my18n" select="document('../../i18n/en_US/phunkybb.xml')/i18n"/>
+
+<html>
+  <xsl:call-template name="head">
+    <xsl:with-param name="link_prefix" select="$link_prefix"/>
+    <xsl:with-param name="path_prefix" select="$path_prefix"/>
+  </xsl:call-template>
+  <body>
+
+    <xsl:for-each select="//pre_body_content">
+      <xsl:sort select="priority" order="ascending"/>
+      <xsl:apply-templates select="nodes/*"/>
+    </xsl:for-each>
+
+    <xsl:call-template name="main">
+      <xsl:with-param name="link_prefix" select="$link_prefix"/>
+      <xsl:with-param name="path_prefix" select="$path_prefix"/>
+      <xsl:with-param name="my18n" select="$my18n"/>
     </xsl:call-template>
 
-
-
-    <div id="main">
-      <xsl:call-template name="header">
-        <xsl:with-param name="link_prefix" select="$link_prefix"/>
-        <xsl:with-param name="path_prefix" select="$path_prefix"/>
-        <xsl:with-param name="my18n" select="$my18n"/>
-      </xsl:call-template>
-
-      <xsl:call-template name="source_spacer">
-        <xsl:with-param name="section_start">content</xsl:with-param>
-      </xsl:call-template>
-      <div id="content" class="blocktable">
-        <xsl:call-template name="content">
-          <xsl:with-param name="link_prefix" select="$link_prefix"/>
-          <xsl:with-param name="path_prefix" select="$path_prefix"/>
-          <xsl:with-param name="my18n" select="$my18n"/>
-        </xsl:call-template>
-      </div>
-      <xsl:call-template name="source_spacer">
-        <xsl:with-param name="section_end">content</xsl:with-param>
-      </xsl:call-template>
-
-      <xsl:call-template name="footer"/>
-    </div>
-    <xsl:call-template name="source_spacer">
-      <xsl:with-param name="section_end">main</xsl:with-param>
-    </xsl:call-template>
-  </xsl:template>
+    <xsl:for-each select="//post_body_content">
+      <xsl:sort select="priority" order="ascending"/>
+      <xsl:apply-templates select="nodes/*"/>
+    </xsl:for-each>
+<!--
+        <xsl:if test="not(/_R_/runtime/output='xhtml')">
+        <div id="header-banner">
+          <script type="text/javascript">
+          <xsl:comment>
+          google_ad_client = "pub-9657495873329253";
+          //468x60, created 12/4/07
+          google_ad_slot = "3998548064";
+          google_ad_width = 468;
+          google_ad_height = 60;
+          //</xsl:comment>
+          </script>
+          <script type="text/javascript"
+            src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+          </script>
+        </div>
+        </xsl:if>
+-->
+  </body>
+</html>
+</xsl:template>
 
 
 
-	<xsl:template name="footer">
-		<xsl:param name="link_prefix"/>
-		<xsl:param name="path_prefix"/>
-		<xsl:param name="my18n"/>
 
-		<xsl:call-template name="source_spacer">
-			<xsl:with-param name="section_start">footer</xsl:with-param>
-		</xsl:call-template>
-
-      <!-- Standard div to be replaced by a DOM object -->
-			<xsl:if test="contains(/_R_/runtime/user_agent,'gui_browser')">
-			<div id="nofooter"/>
-      </xsl:if>
-
-      <!-- Raw HTML for bots -->
-			<xsl:if test="not(contains(/_R_/runtime/user_agent,'gui_browser'))">
-				<p style="text-align: right;">
-					Powered by&#160;<a href="http://www.phunkybb.com/blog/" title="Open Source Forums XSL Software">PhunkyBB</a>
-          &#160;and&#160;<a href="http://www.nexista.com/blog/" title="Web Application Framework Software">Nexista</a>.
-				</p>
-      </xsl:if>
-
-		<xsl:call-template name="source_spacer">
-			<xsl:with-param name="section_end">footer</xsl:with-param>
-		</xsl:call-template>
-	</xsl:template>
 </xsl:stylesheet>
