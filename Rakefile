@@ -14,17 +14,22 @@ rescue LoadError
 end
 
 namespace :vlad do
+  @application = 'notasinatraapp'
   remote_task :restart do
-    run "sudo svc -d /service/regdel"
-    run "sudo svc -u /service/regdel"
+    run "sudo svc -d /service/#{@application}"
+    run "sudo svc -u /service/#{@application}"
   end
   remote_task :fix do
-    run 'mkdir /var/www/dev/regdel/current/public/d/xhtml'
-    run 'chmod 0777 /var/www/dev/regdel/current/public/d/xhtml'
+    run "mkdir -p /var/www/dev/#{@application}/current/public/d/xhtml"
+    run "chmod 0777 /var/www/dev/#{@application}/current/public/d/xhtml"
   end
   task :deploy => [:update, :restart, :fix]
 end
 
+task :geturls do
+  command = %q~ echo "myurls = Array.new" && cat notapp.rb | grep -E "get|r301|rewrite " | sed -r "s/    get //g" | sed -r "s/ do//g" | sed -r "s/[^\+]*\+'([^']+').+/'\/\1/g" | sort | uniq | awk '{print "myurls << " $1}'r~
+  puts `#{command}`
+end
 
 Spec::Rake::SpecTask.new(:spec) do |t|
   t.spec_files = Dir.glob('spec/*_spec.rb')
