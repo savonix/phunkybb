@@ -27,7 +27,10 @@ describe "Notapp" do
   include Rack::Test::Methods
 
   def app
-    @app ||= Notapp.new('')
+    conf = Hash['uripfx', '/']
+    myapp = Notapp.new(conf)
+    myapp.set :environment, 'test'
+    @app ||=   myapp
   end
 
   it "should respond to /" do
