@@ -1,0 +1,1 @@
+This is a sinatra application template of sorts... also a testing ground.
