@@ -59,10 +59,10 @@ end
 
 ENV['RACK_MOUNT_PATH'] = mountpath
 
-require 'notapp'
+require '#{@application}'
 
 map mountpath do
-  conf = Hash['uripfx', mountpath.gsub(/^\/$/,'')]
+  conf = Hash['uripfx', mountpath.gsub(/^\\/$/,'')]
   myapp = #{@application.capitalize}.new(conf)
   myapp.set :environment, ENV['RACK_ENV']
   run myapp

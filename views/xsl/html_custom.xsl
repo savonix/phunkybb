@@ -58,7 +58,6 @@ xmlns="http://www.w3.org/1999/xhtml">
     <xsl:if test="$RACK_ENV='demo'">
       <!--<xsl:call-template name="analytics_code"/>-->
     </xsl:if>
-    <xsl:call-template name="footer" />
     </body>
   </html>
 </xsl:template>
