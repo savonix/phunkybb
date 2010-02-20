@@ -31,6 +31,7 @@ xmlns="http://www.w3.org/1999/xhtml">
     <body class="rounded">
     <div id="doc3" class="yui-t6">
       <div id="hd">
+        <img src="/s/img/docunext.png" alt="" style="float:right;"/>
         <h1>Not A Sinatra App</h1>
         <xsl:call-template name="nav-menu"/>
       </div>

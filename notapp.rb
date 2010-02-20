@@ -106,10 +106,7 @@ module Notapp
       content_type 'text/css', :charset => 'utf-8'
       sass 'css/notapp'.to_sym
     end
-    
   end
-
-
 
 end
 
