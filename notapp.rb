@@ -31,10 +31,10 @@ require 'xml/xslt'
 require 'rack-xslview'
 require 'sinatra/xslview'
 require 'rexml/document'
+require 'memcache'
 
 # The container for the Notapp application
 module Notapp
-
 
   class << self
     attr_accessor(:conf, :runtime)
@@ -74,6 +74,7 @@ module Notapp
       # Used in runtime/info
       Notapp.runtime['started_at'] = Time.now.to_i
     end
+
     configure :development do
       set :logging, true
     end
@@ -99,13 +100,22 @@ module Notapp
       end
     end
 
+    unless :agent.to_s =~ /(Slurp|msnbot|Googlebot)/
+      use Rack::Session::Memcache, :key => '1e6b43c6', :domain => 'dev-48-gl.savonix.com', :expire_after => 60 * 60 * 24 * 365, :memcache_server => '192.168.8.2:11211'
+    end
+
     get '/' do
+      #session[:message] = ''
       @uptime = (0 + Time.now.to_i - Notapp.runtime['started_at']).to_s
       runtime = builder :'xml/runtime'
       running = xslview runtime, 'runtime.xsl'
       readme  = markdown :'md/README'
       '<div>' + running + readme + '</div>'
     end
+
+    #get '/hello' do
+      #session[:message]
+    #end
 
     not_found do
       headers 'Last-Modified' => Time.now.httpdate, 'Cache-Control' => 'no-store'
@@ -117,7 +127,6 @@ module Notapp
       sass 'css/notapp'.to_sym
     end
   end
-
 end
 
 if __FILE__ == $0
