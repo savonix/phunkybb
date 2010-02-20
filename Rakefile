@@ -3,6 +3,7 @@ require 'rake'
 require 'spec/rake/spectask'
 
 
+@application = 'notasinatraapp'
 task :test => :spec
 task :default => :spec
 
@@ -14,7 +15,6 @@ rescue LoadError
 end
 
 namespace :vlad do
-  @application = 'notasinatraapp'
   remote_task :restart do
     run "sudo svc -d /service/#{@application}"
     run "sudo svc -u /service/#{@application}"
@@ -29,6 +29,16 @@ end
 task :geturls do
   command = %q~ echo "myurls = Array.new" && cat notapp.rb | grep -E "get|r301|rewrite " | sed -r "s/    get //g" | sed -r "s/ do//g" | sed -r "s/[^\+]*\+'([^']+').+/'\/\1/g" | sort | uniq | awk '{print "myurls << " $1}'r~
   puts `#{command}`
+end
+
+
+task :makedemosh do
+  puts %Q(
+#!/bin/sh
+cd /var/www/dev/#{@application}/current
+exec /var/lib/gems/1.9.1/gems/unicorn-0.95.3/bin/unicorn -c /var/www/dev/#{@application}/current/config/unicorn.conf --env demo -l 3010
+)
+
 end
 
 Spec::Rake::SpecTask.new(:spec) do |t|
