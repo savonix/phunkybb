@@ -10,10 +10,12 @@ else
   mountpath = '/'
 end
 
+ENV['RACK_MOUNT_PATH'] = mountpath
+
 require 'notapp'
 
 map mountpath do
-  conf = Hash['uripfx', mountpath.gsub(/^\/$/,''), "b", 201]
+  conf = Hash['uripfx', mountpath.gsub(/^\/$/,'')]
   myapp = Notapp.new(conf)
   myapp.set :environment, ENV['RACK_ENV']
   run myapp

@@ -57,6 +57,8 @@ else
   mountpath = '/'
 end
 
+ENV['RACK_MOUNT_PATH'] = mountpath
+
 require 'notapp'
 
 map mountpath do

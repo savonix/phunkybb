@@ -21,6 +21,7 @@
 # or write to the Free Software Foundation, Inc., 51 Franklin Street,
 # Fifth Floor, Boston, MA 02110-1301 USA
 ##
+xml.instruct!()
 xml.subsin( :environment => ENV['RACK_ENV'] ) {
   xml.runtime(
     :uptime => @uptime

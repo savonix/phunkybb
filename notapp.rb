@@ -58,6 +58,7 @@ module Notapp
       # Set request.env with application mount path
       use Rack::Config do |env|
         env['RACK_ENV'] = ENV['RACK_ENV'] ? ENV['RACK_ENV'] : 'development'
+        env['RACK_MOUNT_PATH'] = ENV['RACK_MOUNT_PATH']
       end
 
       Notapp.runtime = Hash.new
@@ -88,13 +89,22 @@ module Notapp
     helpers Sinatra::XSLView
 
     helpers do
-      #
+      # Just the usual Sinatra redirect with App prefix
+      def mredirect(uri)
+        redirect Notapp.conf['uripfx']+uri
+      end
+      def markdown(template, options={})
+        output = render :md, template, options
+        '<div>'+output+'</div>'
+      end
     end
 
     get '/' do
-      @uptime   = (0 + Time.now.to_i - Notapp.runtime['started_at']).to_s
-      runtime   = builder :'xml/runtime'
-      xslview runtime, 'runtime.xsl'
+      @uptime = (0 + Time.now.to_i - Notapp.runtime['started_at']).to_s
+      runtime = builder :'xml/runtime'
+      running = xslview runtime, 'runtime.xsl'
+      readme  = markdown :'md/README'
+      '<div>' + running + readme + '</div>'
     end
 
     not_found do
@@ -111,7 +121,7 @@ module Notapp
 end
 
 if __FILE__ == $0
-  conf = Hash["a", 100, "b", 200]
+  conf = Hash['uripfx','/']
   myapp = Notapp.new(conf)
   myapp.set :environment, 'development'
   myapp.run!

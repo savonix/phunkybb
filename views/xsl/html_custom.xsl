@@ -31,7 +31,7 @@ xmlns="http://www.w3.org/1999/xhtml">
     <body class="rounded">
     <div id="doc3" class="yui-t6">
       <div id="hd">
-        <img src="/s/img/docunext.png" alt="" style="float:right;"/>
+        <img src="{$RACK_MOUNT_PATH}s/img/docunext.png" alt="" style="float:right;"/>
         <h1>Not A Sinatra App</h1>
         <xsl:call-template name="nav-menu"/>
       </div>
@@ -58,6 +58,7 @@ xmlns="http://www.w3.org/1999/xhtml">
     <xsl:if test="$RACK_ENV='demo'">
       <!--<xsl:call-template name="analytics_code"/>-->
     </xsl:if>
+    <xsl:call-template name="footer" />
     </body>
   </html>
 </xsl:template>
@@ -66,11 +67,11 @@ xmlns="http://www.w3.org/1999/xhtml">
 <xsl:template name="nav-menu">
 <div id="navigation">
 <ul id="primary-navigation">
-  <li id="nav-home"><a href="/">Home</a></li>
+  <li id="nav-home"><a href="{$RACK_MOUNT_PATH}">Home</a></li>
 </ul>
 <ul id="user-navigation">
-  <li><a href="/runtime/info" class="regdel-link">Settings</a></li>
-  <li><a href="/runtime/info" class="regdel-link not-production">Development</a></li>
+  <li><a href="{$RACK_MOUNT_PATH}runtime/info" class="regdel-link">Settings</a></li>
+  <li><a href="{$RACK_MOUNT_PATH}runtime/info" class="regdel-link not-production">Development</a></li>
 </ul>
 <div class="clear"></div>
 </div>
@@ -89,7 +90,7 @@ xmlns="http://www.w3.org/1999/xhtml">
     </h3>
     <ul class="biglist">
       <li>
-        <a href="/" id="sb-new-entry" class="regdel-link">
+        <a href="{$RACK_MOUNT_PATH}" id="sb-new-entry" class="regdel-link">
           <span class="i18n-new_entry">Home</span>
         </a>
       </li>

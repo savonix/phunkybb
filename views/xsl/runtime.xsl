@@ -23,16 +23,16 @@ Fifth Floor, Boston, MA 02110-1301 USA
 -->
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
 xmlns="http://www.w3.org/1999/xhtml">
-
+<xsl:output format="xml"  omit-xml-declaration="yes"/>
 
 <xsl:template match="/">
-
+<div style="float:right">
 <dl>
 <dt>Environment</dt>
 <dd><xsl:value-of select="/subsin/@environment"/></dd>
 <dt>Uptime</dt>
 <dd><xsl:value-of select="/subsin/runtime/@uptime"/></dd>
 </dl>
-
+</div>
 </xsl:template>
 </xsl:stylesheet>
