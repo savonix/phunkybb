@@ -41,6 +41,35 @@ exec /var/lib/gems/1.9.1/gems/unicorn-0.95.3/bin/unicorn -c /var/www/dev/#{@appl
 
 end
 
+
+task :makerackup do
+
+  puts %Q{
+if ENV['RACK_ENV'] == "demo"
+  mountpath = '/demo/#{@application}/'
+  dirpfx = '/var/www/dev/#{@application}/current'
+  ENV['DATABASE_URL'] = 'sqlite3:///var/www/dev/#{@application}/#{@application}.sqlite3'
+elsif ENV['RACK_ENV'] == "development"
+  mountpath = '/dev/'
+  dirpfx = '/var/www/dev/#{@application}'
+  ENV['DATABASE_URL'] = 'sqlite3:///var/www/dev/#{@application}/#{@application}.sqlite3'
+else
+  mountpath = '/'
+end
+
+require 'notapp'
+
+map mountpath do
+  conf = Hash['uripfx', mountpath.gsub(/^\/$/,''), "b", 201]
+  myapp = #{@application.capitalize}.new(conf)
+  myapp.set :environment, ENV['RACK_ENV']
+  run myapp
+end
+}
+  
+end
+
+
 Spec::Rake::SpecTask.new(:spec) do |t|
   t.spec_files = Dir.glob('spec/*_spec.rb')
   t.spec_opts << '--format specdoc'
