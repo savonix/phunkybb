@@ -19,11 +19,7 @@ namespace :vlad do
     run "sudo svc -d /service/#{@application}"
     run "sudo svc -u /service/#{@application}"
   end
-  remote_task :fix do
-    run "mkdir -p /var/www/dev/#{@application}/current/public/d/xhtml"
-    run "chmod 0777 /var/www/dev/#{@application}/current/public/d/xhtml"
-  end
-  task :deploy => [:update, :restart, :fix]
+  task :deploy => [:update, :restart]
 end
 
 task :geturls do
@@ -33,19 +29,18 @@ end
 
 
 task :makedemosh do
-  puts %Q(
-#!/bin/sh
+  demosh = %Q(#!/bin/sh
 cd /var/www/dev/#{@application}/current
-exec /var/lib/gems/1.9.1/gems/unicorn-0.95.3/bin/unicorn -c /var/www/dev/#{@application}/current/config/unicorn.conf --env demo -l 3010
-)
+exec /var/lib/gems/1.9.1/gems/unicorn-0.95.3/bin/unicorn -c /var/www/dev/#{@application}/current/config/unicorn.conf --env demo -l 3010)
+
+puts demosh
 
 end
 
 
 task :makerackup do
 
-  puts %Q{
-if ENV['RACK_ENV'] == 'demo'
+rackup = %Q{if ENV['RACK_ENV'] == 'demo'
   mountpath = '/demo/#{@application}/'
   dirpfx = '/var/www/dev/#{@application}/current'
   ENV['DATABASE_URL'] = 'sqlite3:///var/www/dev/#{@application}/#{@application}.sqlite3'
@@ -68,7 +63,9 @@ map mountpath do
   run myapp
 end
 }
-  
+
+puts rackup
+
 end
 
 
