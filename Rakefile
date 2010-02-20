@@ -45,11 +45,11 @@ end
 task :makerackup do
 
   puts %Q{
-if ENV['RACK_ENV'] == "demo"
+if ENV['RACK_ENV'] == 'demo'
   mountpath = '/demo/#{@application}/'
   dirpfx = '/var/www/dev/#{@application}/current'
   ENV['DATABASE_URL'] = 'sqlite3:///var/www/dev/#{@application}/#{@application}.sqlite3'
-elsif ENV['RACK_ENV'] == "development"
+elsif ENV['RACK_ENV'] == 'development'
   mountpath = '/dev/'
   dirpfx = '/var/www/dev/#{@application}'
   ENV['DATABASE_URL'] = 'sqlite3:///var/www/dev/#{@application}/#{@application}.sqlite3'
@@ -60,7 +60,7 @@ end
 require 'notapp'
 
 map mountpath do
-  conf = Hash['uripfx', mountpath.gsub(/^\/$/,''), "b", 201]
+  conf = Hash['uripfx', mountpath.gsub(/^\/$/,'')]
   myapp = #{@application.capitalize}.new(conf)
   myapp.set :environment, ENV['RACK_ENV']
   run myapp
