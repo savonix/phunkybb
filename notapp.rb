@@ -100,8 +100,9 @@ module Notapp
       end
     end
 
+    #unless :agent.to_s =~ /(Slurp|msnbot|Googlebot)/ || request.env['REQUEST_URI'].gsub(/\/s\//)
     unless :agent.to_s =~ /(Slurp|msnbot|Googlebot)/
-      use Rack::Session::Memcache, :key => '1e6b43c6', :domain => 'dev-48-gl.savonix.com', :expire_after => 60 * 60 * 24 * 365, :memcache_server => '192.168.8.2:11211'
+      use Rack::Session::Memcache, :key => 'notapp', :domain => 'dev-48-gl.savonix.com', :expire_after => 60 * 60 * 24 * 365, :memcache_server => '192.168.8.2:11211'
     end
 
     get '/' do
