@@ -15,11 +15,26 @@ rescue LoadError
 end
 
 namespace :vlad do
+  remote_task :mkdaemon do
+    run "mkdir -p /tmp/#{@application}/log"
+    run "echo '#!/bin/sh' > /tmp/#{@application}/run"
+    run "echo 'exec /var/www/dev/#{@application}/current/demo.sh' >> /tmp/#{@application}/run"
+    run "echo '#!/bin/sh' > /tmp/#{@application}/log/run"
+    run "echo 'exec setuidgid daemon multilog t ./main' >> /tmp/#{@application}/log/run"
+    run "sudo chown -R root:root /tmp/#{@application}"
+    run "sudo chmod +x /tmp/#{@application}/run"
+    run "sudo chmod +x /tmp/#{@application}/log/run"
+    run "sudo mv /tmp/#{@application} /service/"
+  end
   remote_task :restart do
     run "sudo svc -d /service/#{@application}"
     run "sudo svc -u /service/#{@application}"
   end
-  task :deploy => [:update, :restart]
+  remote_task :fix do
+    run "mkdir -p /var/www/dev/#{@application}/current/public/d/xhtml"
+    run "chmod 0777 /var/www/dev/#{@application}/current/public/d/xhtml"
+  end
+  task :deploy => [:update, :restart, :fix]
 end
 
 task :geturls do
@@ -29,18 +44,31 @@ end
 
 
 task :makedemosh do
-  demosh = %Q(#!/bin/sh
+  puts %Q(
+#!/bin/sh
 cd /var/www/dev/#{@application}/current
-exec /var/lib/gems/1.9.1/gems/unicorn-0.95.3/bin/unicorn -c /var/www/dev/#{@application}/current/config/unicorn.conf --env demo -l 3010)
-
-puts demosh
-
+exec /var/lib/gems/1.9.1/bin/unicorn -c /var/www/dev/#{@application}/current/config/unicorn_demo.conf --env demo -l 3030
+)
 end
+task :makeuniconfdemo do
+  puts %Q{
+worker_processes 1
+
+stderr_path "/tmp/webapps/#{@application}.log"
+stdout_path "/tmp/webapps/#{@application}.log"
+
+preload_app true
+GC.respond_to?(:copy_on_write_friendly=) and
+GC.copy_on_write_friendly = true
+}
+end
+
 
 
 task :makerackup do
 
-rackup = %Q{if ENV['RACK_ENV'] == 'demo'
+  puts %Q{
+if ENV['RACK_ENV'] == 'demo'
   mountpath = '/demo/#{@application}/'
   dirpfx = '/var/www/dev/#{@application}/current'
   ENV['DATABASE_URL'] = 'sqlite3:///var/www/dev/#{@application}/#{@application}.sqlite3'
@@ -63,9 +91,7 @@ map mountpath do
   run myapp
 end
 }
-
-puts rackup
-
+  
 end
 
 
@@ -73,5 +99,5 @@ Spec::Rake::SpecTask.new(:spec) do |t|
   t.spec_files = Dir.glob('spec/*_spec.rb')
   t.spec_opts << '--format specdoc'
   t.rcov = true
-  t.rcov_opts = ['--exclude', '/var/lib/gems/1.8/gems,/usr/bin/spec,spec']
+  t.rcov_opts = ['--exclude', '/var/lib/gems,/usr/bin/spec,spec']
 end
