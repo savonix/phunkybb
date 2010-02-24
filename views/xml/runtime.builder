@@ -22,7 +22,7 @@
 # Fifth Floor, Boston, MA 02110-1301 USA
 ##
 xml.instruct!()
-xml.subsin( :environment => ENV['RACK_ENV'] ) {
+xml.subsin( :environment => @enviro ) {
   xml.runtime(
     :uptime => @uptime
   )
