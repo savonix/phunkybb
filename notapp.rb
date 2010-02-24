@@ -29,6 +29,7 @@ require 'builder'
 require 'sass'
 require 'xml/xslt'
 require 'rack-xslview'
+require 'rack/cache'
 require 'sinatra/xslview'
 require 'rexml/document'
 require 'memcache'
@@ -83,6 +84,11 @@ module Notapp
       #
     end
 
+    use Rack::Cache,
+      :verbose     => true,
+      :metastore   => 'file:/tmp/cache/rack/meta',
+      :entitystore => 'file:/tmp/cache/rack/body'
+
     # Use Rack-XSLView
     use Rack::XSLView, :myxsl => Notapp.runtime['xslt'], :noxsl => Notapp.runtime['omitxsl'], :passenv => Notapp.runtime['passenv']
 
@@ -102,10 +108,11 @@ module Notapp
 
     #unless :agent.to_s =~ /(Slurp|msnbot|Googlebot)/ || request.env['REQUEST_URI'].gsub(/\/s\//)
     unless :agent.to_s =~ /(Slurp|msnbot|Googlebot)/
-      use Rack::Session::Memcache, :key => 'notapp', :domain => 'dev-48-gl.savonix.com', :expire_after => 60 * 60 * 24 * 365, :memcache_server => '192.168.8.2:11211'
+      #use Rack::Session::Memcache, :key => 'notapp', :domain => 'dev-48-gl.savonix.com', :expire_after => 60 * 60 * 24 * 365, :memcache_server => '192.168.8.2:11211'
     end
 
     get '/' do
+      cache_control :public, :max_age => 30
       #session[:message] = ''
       @uptime = (0 + Time.now.to_i - Notapp.runtime['started_at']).to_s
       @enviro = settings.environment
@@ -116,6 +123,7 @@ module Notapp
     end
 
     get '/raw/runtime/info' do
+      cache_control :public, :max_age => 30
       content_type :xml
       #session[:message] = ''
       @uptime = (0 + Time.now.to_i - Notapp.runtime['started_at']).to_s
