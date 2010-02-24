@@ -58,7 +58,7 @@ module Notapp
       # Set request.env with application mount path
       use Rack::Config do |env|
         env['RACK_ENV'] = ENV['RACK_ENV'] ? ENV['RACK_ENV'] : 'development'
-        env['RACK_MOUNT_PATH'] = ENV['RACK_MOUNT_PATH']
+        env['RACK_MOUNT_PATH'] = Notapp.conf['uripfx']
       end
 
       Notapp.runtime = Hash.new
