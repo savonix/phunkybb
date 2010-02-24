@@ -1,1 +1,83 @@
 
+I, [2010-02-20T17:01:38.114890 #32397]  INFO -- : listening on addr=0.0.0.0:3000 fd=3
+I, [2010-02-20T17:01:38.224695 #32397]  INFO -- : Refreshing Gem list
+I, [2010-02-20T17:01:40.325042 #32397]  INFO -- : worker=0 spawning...
+I, [2010-02-20T17:01:40.329577 #32398]  INFO -- : worker=0 spawned pid=32398
+I, [2010-02-20T17:01:40.753536 #32398]  INFO -- : worker=0 ready
+I, [2010-02-20T17:01:40.755811 #32397]  INFO -- : master process ready
+192.168.1.240 - - [20/Feb/2010 17:01:44] "GET / HTTP/1.1" 200 3440 0.2380
+192.168.1.240 - - [20/Feb/2010 17:01:44] "GET /dev/ HTTP/1.1" 200 3440 0.2729
+192.168.1.240 - - [20/Feb/2010 17:01:44] "GET /s/img/docunext.png HTTP/1.1" 304 - 0.0098
+192.168.1.240 - - [20/Feb/2010 17:01:44] "GET /dev/s/img/docunext.png HTTP/1.1" 304 - 0.0182
+I, [2010-02-20T17:03:03.152427 #32397]  INFO -- : reaped #<Process::Status: pid=32398,exited(0)> worker=0
+I, [2010-02-20T17:03:03.153667 #32397]  INFO -- : master complete
+I, [2010-02-20T17:03:05.422940 #32400]  INFO -- : listening on addr=0.0.0.0:3000 fd=3
+I, [2010-02-20T17:03:05.532577 #32400]  INFO -- : Refreshing Gem list
+/usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require': ./notapp.rb:131: syntax error, unexpected kEND, expecting $end (SyntaxError)
+	from /usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `require'
+	from config.ru:15
+	from /var/lib/gems/1.8/gems/rack-1.0.1/lib/rack/builder.rb:29:in `instance_eval'
+	from /var/lib/gems/1.8/gems/rack-1.0.1/lib/rack/builder.rb:29:in `initialize'
+	from config.ru:1:in `new'
+	from config.ru:1
+	from /var/lib/gems/1.8/gems/unicorn-0.95.3/lib/unicorn.rb:742:in `eval'
+	from /var/lib/gems/1.8/gems/unicorn-0.95.3/bin/unicorn:131
+	from /var/lib/gems/1.8/gems/unicorn-0.95.3/lib/unicorn.rb:742:in `call'
+	from /var/lib/gems/1.8/gems/unicorn-0.95.3/lib/unicorn.rb:742:in `build_app!'
+	from /var/lib/gems/1.8/gems/unicorn-0.95.3/lib/unicorn.rb:214:in `start'
+	from /var/lib/gems/1.8/gems/unicorn-0.95.3/lib/unicorn.rb:28:in `run'
+	from /var/lib/gems/1.8/gems/unicorn-0.95.3/bin/unicorn:166
+I, [2010-02-20T17:03:14.141245 #32402]  INFO -- : listening on addr=0.0.0.0:3000 fd=3
+I, [2010-02-20T17:03:14.250644 #32402]  INFO -- : Refreshing Gem list
+/usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require': ./notapp.rb:131: syntax error, unexpected kEND, expecting $end (SyntaxError)
+	from /usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `require'
+	from config.ru:15
+	from /var/lib/gems/1.8/gems/rack-1.0.1/lib/rack/builder.rb:29:in `instance_eval'
+	from /var/lib/gems/1.8/gems/rack-1.0.1/lib/rack/builder.rb:29:in `initialize'
+	from config.ru:1:in `new'
+	from config.ru:1
+	from /var/lib/gems/1.8/gems/unicorn-0.95.3/lib/unicorn.rb:742:in `eval'
+	from /var/lib/gems/1.8/gems/unicorn-0.95.3/bin/unicorn:131
+	from /var/lib/gems/1.8/gems/unicorn-0.95.3/lib/unicorn.rb:742:in `call'
+	from /var/lib/gems/1.8/gems/unicorn-0.95.3/lib/unicorn.rb:742:in `build_app!'
+	from /var/lib/gems/1.8/gems/unicorn-0.95.3/lib/unicorn.rb:214:in `start'
+	from /var/lib/gems/1.8/gems/unicorn-0.95.3/lib/unicorn.rb:28:in `run'
+	from /var/lib/gems/1.8/gems/unicorn-0.95.3/bin/unicorn:166
+I, [2010-02-20T17:03:38.120479 #32404]  INFO -- : listening on addr=0.0.0.0:3000 fd=3
+I, [2010-02-20T17:03:38.230282 #32404]  INFO -- : Refreshing Gem list
+I, [2010-02-20T17:03:40.353684 #32404]  INFO -- : worker=0 spawning...
+I, [2010-02-20T17:03:40.359578 #32405]  INFO -- : worker=0 spawned pid=32405
+I, [2010-02-20T17:03:40.362113 #32405]  INFO -- : worker=0 ready
+I, [2010-02-20T17:03:40.369340 #32404]  INFO -- : master process ready
+192.168.1.240 - - [20/Feb/2010 17:03:40] "GET / HTTP/1.1" 200 3440 0.0814
+192.168.1.240 - - [20/Feb/2010 17:03:40] "GET /dev/ HTTP/1.1" 200 3440 0.1473
+192.168.1.240 - - [20/Feb/2010 17:03:40] "GET /s/img/docunext.png HTTP/1.1" 304 - 0.0044
+192.168.1.240 - - [20/Feb/2010 17:03:40] "GET /dev/s/img/docunext.png HTTP/1.1" 304 - 0.0094
+192.168.1.240 - - [20/Feb/2010 17:03:47] "GET /hello HTTP/1.1" 200 12 0.0118
+192.168.1.240 - - [20/Feb/2010 17:03:47] "GET /dev/hello HTTP/1.1" 200 12 0.0203
+192.168.1.240 - - [20/Feb/2010 17:12:40] "GET / HTTP/1.1" 200 3442 0.0324
+192.168.1.240 - - [20/Feb/2010 17:12:40] "GET /dev/ HTTP/1.1" 200 3442 0.0408
+192.168.1.240 - - [20/Feb/2010 17:12:40] "GET /s/img/docunext.png HTTP/1.1" 304 - 0.0099
+192.168.1.240 - - [20/Feb/2010 17:12:40] "GET /dev/s/img/docunext.png HTTP/1.1" 304 - 0.0193
+192.168.1.240 - - [20/Feb/2010 17:31:12] "GET / HTTP/1.1" 200 3443 0.0317
+192.168.1.240 - - [20/Feb/2010 17:31:12] "GET /dev/ HTTP/1.1" 200 3443 0.0397
+192.168.1.240 - - [20/Feb/2010 17:31:13] "GET /s/img/docunext.png HTTP/1.1" 304 - 0.0092
+192.168.1.240 - - [20/Feb/2010 17:31:13] "GET /dev/s/img/docunext.png HTTP/1.1" 304 - 0.0173
+I, [2010-02-20T17:31:29.920526 #32404]  INFO -- : reaped #<Process::Status: pid=32405,exited(0)> worker=0
+I, [2010-02-20T17:31:29.922418 #32404]  INFO -- : master complete
+I, [2010-02-20T17:31:32.647913 #32428]  INFO -- : listening on addr=0.0.0.0:3000 fd=3
+I, [2010-02-20T17:31:32.757661 #32428]  INFO -- : Refreshing Gem list
+/usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require': ./notapp.rb:133: syntax error, unexpected kEND, expecting $end (SyntaxError)
+	from /usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `require'
+	from config.ru:15
+	from /var/lib/gems/1.8/gems/rack-1.0.1/lib/rack/builder.rb:29:in `instance_eval'
+	from /var/lib/gems/1.8/gems/rack-1.0.1/lib/rack/builder.rb:29:in `initialize'
+	from config.ru:1:in `new'
+	from config.ru:1
+	from /var/lib/gems/1.8/gems/unicorn-0.95.3/lib/unicorn.rb:742:in `eval'
+	from /var/lib/gems/1.8/gems/unicorn-0.95.3/bin/unicorn:131
+	from /var/lib/gems/1.8/gems/unicorn-0.95.3/lib/unicorn.rb:742:in `call'
+	from /var/lib/gems/1.8/gems/unicorn-0.95.3/lib/unicorn.rb:742:in `build_app!'
+	from /var/lib/gems/1.8/gems/unicorn-0.95.3/lib/unicorn.rb:214:in `start'
+	from /var/lib/gems/1.8/gems/unicorn-0.95.3/lib/unicorn.rb:28:in `run'
+	from /var/lib/gems/1.8/gems/unicorn-0.95.3/bin/unicorn:166

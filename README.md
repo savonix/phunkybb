@@ -4,6 +4,7 @@ This is a sinatra application template of sorts... its also a:
 * Showcase for new Sinatra features and helpers
 * Test utility for rack middleware and as rack middleware
 
+It is running on Ruby 1.9.1 and Sinatra 1.0a.
 
 See also:
 
