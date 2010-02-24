@@ -108,10 +108,19 @@ module Notapp
     get '/' do
       #session[:message] = ''
       @uptime = (0 + Time.now.to_i - Notapp.runtime['started_at']).to_s
+      @enviro = settings.environment
       runtime = builder :'xml/runtime'
       running = xslview runtime, 'runtime.xsl'
       readme  = markdown :'md/README'
       '<div>' + running + readme + '</div>'
+    end
+
+    get '/raw/runtime/info' do
+      content_type :xml
+      #session[:message] = ''
+      @uptime = (0 + Time.now.to_i - Notapp.runtime['started_at']).to_s
+      @enviro = settings.environment
+      builder :'xml/runtime'
     end
 
     #get '/hello' do
