@@ -35,27 +35,8 @@ require 'rexml/document'
 require 'memcache'
 require 'mongo'
 require 'json'
-if 1==2
-  require 'dm-core'
-  require 'dm-aggregates'
-  require 'mongo_adapter'
+require 'redis'
 
-  DataMapper.setup(:default,
-    :adapter  => 'mongo',
-    :database => 'my_mongo_db',
-  )
-  class Zoo
-    include DataMapper::Mongo::Resource
-  
-    property :id, ObjectID
-    property :opening_hours, Hash
-    property :animals, Array
-  end
-  
-  #Zoo.create(
-  #  :opening_hours => { :weekend => '9am-8pm', :weekdays => '11am-8pm' },
-  #  :animals       => [ "Marty", "Alex", "Gloria" ])
-end
 
 # The container for the Notapp application
 module Notapp
@@ -101,6 +82,9 @@ module Notapp
       
       
       Notapp.runtime['db'] = Mongo::Connection.new.db("my_mongo_db")
+      
+      Notapp.runtime['rdsc'] = Redis.new
+
     end
 
     configure :development do
@@ -158,6 +142,18 @@ module Notapp
       builder :'xml/runtime'
     end
 
+    get '/redis/test/ok' do
+      Notapp.runtime['rdsc']['ok'] = 'ji'
+      Notapp.runtime['rdsc'].set_add 'foo-tags', Time.now.to_i
+      mredirect 'raw/redis/test/oj'
+    end
+
+    get '/raw/redis/test/oj' do
+      content = Notapp.runtime['rdsc']['ok']
+      content << Notapp.runtime['rdsc'].set_members('foo-tags').to_s
+      content
+    end
+
     get '/zoo/new' do
       coll = Notapp.runtime['db'].collection("zoos")
       coll.insert({:animals=>["Marty","Fred"]})
@@ -179,8 +175,6 @@ module Notapp
         names << row
       }
       names.to_json
-      #names.to_json
-      #Zoo.all(:animals => 'Fred').first.animals.to_json
     end
     get '/raw/hi' do
       names = []
