@@ -33,6 +33,29 @@ require 'rack/cache'
 require 'sinatra/xslview'
 require 'rexml/document'
 require 'memcache'
+require 'mongo'
+require 'json'
+if 1==2
+  require 'dm-core'
+  require 'dm-aggregates'
+  require 'mongo_adapter'
+
+  DataMapper.setup(:default,
+    :adapter  => 'mongo',
+    :database => 'my_mongo_db',
+  )
+  class Zoo
+    include DataMapper::Mongo::Resource
+  
+    property :id, ObjectID
+    property :opening_hours, Hash
+    property :animals, Array
+  end
+  
+  #Zoo.create(
+  #  :opening_hours => { :weekend => '9am-8pm', :weekdays => '11am-8pm' },
+  #  :animals       => [ "Marty", "Alex", "Gloria" ])
+end
 
 # The container for the Notapp application
 module Notapp
@@ -49,6 +72,7 @@ module Notapp
 
   # The sub-classed Sinatra application
   class Main < Sinatra::Base
+
 
     configure do
       set :static, true
@@ -74,6 +98,9 @@ module Notapp
 
       # Used in runtime/info
       Notapp.runtime['started_at'] = Time.now.to_i
+      
+      
+      Notapp.runtime['db'] = Mongo::Connection.new.db("my_mongo_db")
     end
 
     configure :development do
@@ -131,9 +158,21 @@ module Notapp
       builder :'xml/runtime'
     end
 
-    #get '/hello' do
-      #session[:message]
-    #end
+    get '/raw/hello' do
+      content_type :json
+      names = []
+      Notapp.runtime['db'].collection_names.each { |name|
+        names << name
+      }
+      coll = Notapp.runtime['db'].collection("zoos")
+      coll.find().each { |row|
+        names << row
+      }
+      names.to_json
+      #names.to_json
+      #Zoo.all(:animals => 'Fred').first.animals.to_json
+      
+    end
 
     not_found do
       headers 'Last-Modified' => Time.now.httpdate, 'Cache-Control' => 'no-store'
