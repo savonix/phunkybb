@@ -158,6 +158,16 @@ module Notapp
       builder :'xml/runtime'
     end
 
+    get '/zoo/new' do
+      coll = Notapp.runtime['db'].collection("zoos")
+      coll.insert({:animals=>["Marty","Fred"]})
+      mredirect 'raw/hello'
+    end
+    get '/nonzoo/new' do
+      coll = Notapp.runtime['db'].collection("zoos")
+      coll.insert({:trainers=>["Steve"]})
+      mredirect 'raw/hello'
+    end
     get '/raw/hello' do
       content_type :json
       names = []
@@ -171,7 +181,17 @@ module Notapp
       names.to_json
       #names.to_json
       #Zoo.all(:animals => 'Fred').first.animals.to_json
-      
+    end
+    get '/raw/hi' do
+      names = []
+      Notapp.runtime['db'].collection_names.each { |name|
+        names << name
+      }
+      coll = Notapp.runtime['db'].collection("zoos")
+      coll.find().each { |row|
+        names << row
+      }
+      names.last['trainers'][0].to_s
     end
 
     not_found do
