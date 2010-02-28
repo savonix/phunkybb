@@ -29,6 +29,6 @@ Fifth Floor, Boston, MA 02110-1301 USA
 		<param name="/_R_/_get/basename" type="text"/>
 	</params>
 	<sql>
-  SELECT num_views FROM &prefix;topics WHERE (id=? OR basename=?)
+  SELECT id,num_views FROM &prefix;topics WHERE (id=? OR basename=?)
 	</sql>
 </query>

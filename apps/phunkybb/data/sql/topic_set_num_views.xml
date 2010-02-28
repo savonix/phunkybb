@@ -26,10 +26,9 @@ Fifth Floor, Boston, MA 02110-1301 USA
 	<connection>&connection;</connection>
 	<params>
 		<param name="/_R_/topic_get_num_views/topic_get_num_views/num_views" type="integer"/>
-		<param name="/_R_/_get/id" type="integer"/>
-		<param name="/_R_/_get/basename" type="text"/>
+		<param name="/_R_/topic_get_num_views/topic_get_num_views/id" type="integer"/>
 	</params>
 	<sql>
-  UPDATE &prefix;topics SET num_views = ? + 1 WHERE id=? OR basename=?
+  UPDATE &prefix;topics SET num_views = ? + 1 WHERE id=?
 	</sql>
 </query>
