@@ -81,7 +81,7 @@ module Notapp
       Notapp.runtime['started_at'] = Time.now.to_i
       
       
-      Notapp.runtime['db'] = Mongo::Connection.new.db("my_mongo_db")
+      Notapp.runtime['mgdb'] = Mongo::Connection.new.db("my_mongo_db")
       
       Notapp.runtime['rdsc'] = Redis.new
 
@@ -155,22 +155,22 @@ module Notapp
     end
 
     get '/zoo/new' do
-      coll = Notapp.runtime['db'].collection("zoos")
+      coll = Notapp.runtime['mgdb'].collection("zoos")
       coll.insert({:animals=>["Marty","Fred"]})
       mredirect 'raw/hello'
     end
     get '/nonzoo/new' do
-      coll = Notapp.runtime['db'].collection("zoos")
+      coll = Notapp.runtime['mgdb'].collection("zoos")
       coll.insert({:trainers=>["Steve"]})
       mredirect 'raw/hello'
     end
     get '/raw/hello' do
       content_type :json
       names = []
-      Notapp.runtime['db'].collection_names.each { |name|
+      Notapp.runtime['mgdb'].collection_names.each { |name|
         names << name
       }
-      coll = Notapp.runtime['db'].collection("zoos")
+      coll = Notapp.runtime['mgdb'].collection("zoos")
       coll.find().each { |row|
         names << row
       }
@@ -178,10 +178,10 @@ module Notapp
     end
     get '/raw/hi' do
       names = []
-      Notapp.runtime['db'].collection_names.each { |name|
+      Notapp.runtime['mgdb'].collection_names.each { |name|
         names << name
       }
-      coll = Notapp.runtime['db'].collection("zoos")
+      coll = Notapp.runtime['mgdb'].collection("zoos")
       coll.find().each { |row|
         names << row
       }
