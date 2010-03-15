@@ -70,7 +70,7 @@ module Notapp
       Notapp.runtime = Hash.new
       # Setup XSL - better to do this only once
       Notapp.runtime['xslt']    = XML::XSLT.new()
-      Notapp.runtime['xslfile'] = File.open('views/xsl/html_main.xsl')
+      Notapp.runtime['xslfile'] = File.open('views/xsl/html_main.xsl').read
       Notapp.runtime['xslt'].xsl = REXML::Document.new Notapp.runtime['xslfile']
 
       # Setup paths to remove from Rack::XSLView, and params to include
@@ -86,22 +86,48 @@ module Notapp
       Notapp.runtime['rdsc'] = Redis.new
 
     end
-
     configure :development do
       set :logging, true
+      set :reload_templates, true
+      set :dump_errors, true
+      set :raise_errors, true
+      Notapp.runtime['caching'] = 0
     end
 
     configure :test do
       #
     end
 
-    use Rack::Cache,
-      :verbose     => true,
-      :metastore   => 'file:/tmp/cache/rack/meta',
-      :entitystore => 'file:/tmp/cache/rack/body'
+    configure :demo do
+      set :logging, true
+      set :reload_templates, false
+      set :dump_errors, true
+      set :raise_errors, false
+      error do
+        halt 404
+      end
+    end
+
+    use Rack::Rewrite do
+      rewrite Notapp.conf['uripfx']+'news/entry/create', '/s/xhtml/entry_form.html'
+    end
+
+    unless ENV['RACK_ENV'] == 'development'
+      set :reload_templates, false
+      Notapp.runtime['caching'] = 1
+      use Rack::Cache,
+        :verbose     => ENV['RACK_ENV'] == 'development' ? true : false,
+        :metastore   => 'file:/tmp/cache/rack/meta',
+        :entitystore => 'file:/tmp/cache/rack/body'
+    end
 
     # Use Rack-XSLView
-    use Rack::XSLView, :myxsl => Notapp.runtime['xslt'], :noxsl => Notapp.runtime['omitxsl'], :passenv => Notapp.runtime['passenv']
+    use Rack::XSLView,
+      :myxsl => Notapp.runtime['xslt'],
+      :noxsl => Notapp.runtime['omitxsl'],
+      :passenv => Notapp.runtime['passenv'],
+      :xslfile => Notapp.runtime['xslfile'],
+      :reload => ENV['RACK_ENV'] == 'development' ? true : false
 
     # Sinatra Helper Gems
     helpers Sinatra::XSLView
@@ -190,7 +216,10 @@ module Notapp
 
     not_found do
       headers 'Last-Modified' => Time.now.httpdate, 'Cache-Control' => 'no-store'
-      %(<div class="block"><div class="hd"><h2>Error</h2></div><div class="bd">This is nowhere to be found. <a href="#{self.options.uripfx}/">Start over?</a></div></div>)
+      content = "<h3 id=\"page-title\">Error</h3>\n\nThis resource is unavailable. [Start over?](#{Notapp.conf['uripfx']})\n\n"
+      content << "<div><![CDATA[#{request.env['sinatra.error'].name}]]></div>" if request.env['sinatra.error']
+      content << "<div><![CDATA[#{request.env['sinatra.error'].message}]]></div>" if request.env['sinatra.error']
+      markdown content
     end
 
     get '/stylesheet.css' do
