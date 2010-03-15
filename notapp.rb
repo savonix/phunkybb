@@ -108,9 +108,9 @@ module Notapp
       end
     end
 
-    use Rack::Rewrite do
-      rewrite Notapp.conf['uripfx']+'news/entry/create', '/s/xhtml/entry_form.html'
-    end
+    #use Rack::Rewrite do
+    #  rewrite Notapp.conf['uripfx']+'news/entry/create', '/s/xhtml/entry_form.html'
+    #end
 
     unless ENV['RACK_ENV'] == 'development'
       set :reload_templates, false
