@@ -60,6 +60,8 @@ module Notapp
       set :public, 'public'
       set :xslviews, 'views/xsl/'
       set :uripfx, '/'
+      set :metameth, 'blah'
+      set :example_of_runtime, Proc.new { metameth }
 
       # Set request.env with application mount path
       use Rack::Config do |env|
