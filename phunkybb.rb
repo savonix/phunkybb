@@ -195,10 +195,3 @@ module PhunkyBB
     end
   end
 end
-
-if __FILE__ == $0
-  conf = Hash['uripfx','/']
-  myapp = PhunkyBB.new(conf)
-  myapp.set :environment, 'development'
-  myapp.run!
-end
