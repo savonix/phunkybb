@@ -12,11 +12,11 @@ end
 
 ENV['RACK_MOUNT_PATH'] = mountpath
 
-require 'notapp'
+require 'phunkybb'
 
 map mountpath do
   conf = Hash['uripfx', mountpath.gsub(/^\/$/,'')]
-  myapp = Notapp.new(conf)
+  myapp = PhunkyBB.new(conf)
   myapp.set :environment, ENV['RACK_ENV']
   run myapp
 end
