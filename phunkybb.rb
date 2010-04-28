@@ -33,9 +33,9 @@ require 'rack/cache'
 require 'sinatra/xslview'
 require 'rexml/document'
 require 'memcache'
-require 'mongo'
 require 'json'
 require 'redis'
+require 'dbi'
 
 
 # The container for the PhunkyBB application
@@ -76,14 +76,13 @@ module PhunkyBB
       PhunkyBB.runtime['xslt'].xsl = REXML::Document.new PhunkyBB.runtime['xslfile']
 
       # Setup paths to remove from Rack::XSLView, and params to include
-      PhunkyBB.runtime['omitxsl'] = ['/raw/', '/s/js/', '/s/css/', '/s/img/']
-      PhunkyBB.runtime['passenv'] = ['PATH_INFO', 'RACK_MOUNT_PATH', 'RACK_ENV']
+      PhunkyBB.runtime['omitxsl'] = ['/raw/', '/s/js/']
+      PhunkyBB.runtime['passenv'] = ['PATH_INFO', 'RACK_MOUNT_PATH', 'RACK_ENV', 'SITE_NAME', 'SITE_DESC']
 
       # Used in runtime/info
       PhunkyBB.runtime['started_at'] = Time.now.to_i
       
       
-      PhunkyBB.runtime['mgdb'] = Mongo::Connection.new.db("my_mongo_db")
       
       PhunkyBB.runtime['rdsc'] = Redis.new
 
@@ -180,40 +179,6 @@ module PhunkyBB
       content = PhunkyBB.runtime['rdsc']['ok']
       content << PhunkyBB.runtime['rdsc'].set_members('foo-tags').to_s
       content
-    end
-
-    get '/zoo/new' do
-      coll = PhunkyBB.runtime['mgdb'].collection("zoos")
-      coll.insert({:animals=>["Marty","Fred"]})
-      mredirect 'raw/hello'
-    end
-    get '/nonzoo/new' do
-      coll = PhunkyBB.runtime['mgdb'].collection("zoos")
-      coll.insert({:trainers=>["Steve"]})
-      mredirect 'raw/hello'
-    end
-    get '/raw/hello' do
-      content_type :json
-      names = []
-      PhunkyBB.runtime['mgdb'].collection_names.each { |name|
-        names << name
-      }
-      coll = PhunkyBB.runtime['mgdb'].collection("zoos")
-      coll.find().each { |row|
-        names << row
-      }
-      names.to_json
-    end
-    get '/raw/hi' do
-      names = []
-      PhunkyBB.runtime['mgdb'].collection_names.each { |name|
-        names << name
-      }
-      coll = PhunkyBB.runtime['mgdb'].collection("zoos")
-      coll.find().each { |row|
-        names << row
-      }
-      names.last['trainers'][0].to_s
     end
 
     not_found do
