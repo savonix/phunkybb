@@ -82,9 +82,6 @@ module PhunkyBB
       # Used in runtime/info
       PhunkyBB.runtime['started_at'] = Time.now.to_i
       
-      
-      
-      PhunkyBB.runtime['rdsc'] = Redis.new
 
     end
     configure :development do
@@ -167,18 +164,6 @@ module PhunkyBB
       @uptime = (0 + Time.now.to_i - PhunkyBB.runtime['started_at']).to_s
       @enviro = settings.environment
       builder :'xml/runtime'
-    end
-
-    get '/redis/test/ok' do
-      PhunkyBB.runtime['rdsc']['ok'] = 'ji'
-      PhunkyBB.runtime['rdsc'].set_add 'foo-tags', Time.now.to_i
-      mredirect 'raw/redis/test/oj'
-    end
-
-    get '/raw/redis/test/oj' do
-      content = PhunkyBB.runtime['rdsc']['ok']
-      content << PhunkyBB.runtime['rdsc'].set_members('foo-tags').to_s
-      content
     end
 
     not_found do
