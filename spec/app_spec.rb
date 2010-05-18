@@ -23,7 +23,7 @@
 ##
 require File.dirname(__FILE__) + '/spec_helper'
 
-describe "Notapp" do
+describe "PhunkyBB" do
   include Rack::Test::Methods
 
   def app
