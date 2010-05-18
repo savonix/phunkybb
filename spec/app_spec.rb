@@ -28,7 +28,7 @@ describe "Notapp" do
 
   def app
     conf = Hash['uripfx', '/']
-    myapp = Notapp.new(conf)
+    myapp = PhunkyBB.new(conf)
     myapp.set :environment, 'test'
     @app ||=   myapp
   end

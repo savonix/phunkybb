@@ -165,6 +165,10 @@ module PhunkyBB
       @enviro = settings.environment
       builder :'xml/runtime'
     end
+    get '/forums/:forum' do
+      cache_control :public, :max_age => 30
+      'hi'
+    end
 
     not_found do
       headers 'Last-Modified' => Time.now.httpdate, 'Cache-Control' => 'no-store'

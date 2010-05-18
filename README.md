@@ -30,18 +30,4 @@ Punbb developers wrote a great forum application which is the basis for PhunkyBB
 NOTES
 =====
 
-Example Rewrite
----------------
-<pre>
-<![CDATA[
-RewriteCond %{REQUEST_URI} ^/a/dev/phunkybb/
-RewriteCond %{REQUEST_URI} !/a/dev/phunkybb/index.php|.css
-RewriteRule ^/a/dev/phunkybb/(\w+)/$ /a/dev/phunkybb/index.php?nxrw_path=/a/dev/phunkybb/index.php&nid=forum&forum_basename=$1 [L]
-
-RewriteCond %{REQUEST_URI} ^/a/dev/phunkybb/
-RewriteCond %{REQUEST_URI} !/a/dev/phunkybb/index.php|.css
-RewriteRule ^/a/dev/phunkybb/(\w+)/(\w+)/ /a/dev/phunkybb/index.php?nxrw_path=/a/dev/phunkybb/index.php&nid=topic&forum_basename=$1&basename=$2 [L]
-]]>
-</pre>
-
 [PhunkyBB]: http://www.phunkybb.com/ "PhunkyBB Homepage"

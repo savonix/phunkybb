@@ -1,4 +1,4 @@
-require File.join(File.dirname(__FILE__), '..', 'notapp.rb')
+require File.join(File.dirname(__FILE__), '..', 'phunkybb.rb')
 
 
 require 'rubygems'
